@@ -1,4 +1,4 @@
-import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from './src/lib/data.ts';
+import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from './src/lib/data';
 import fs from 'fs';
 
 const urls = [
