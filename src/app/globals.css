@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-50: #f4f6f8;
+  --color-navy-100: #e3e8ef;
+  --color-navy-200: #cdd7e1;
+  --color-navy-300: #aebfd0;
+  --color-navy-400: #889fba;
+  --color-navy-500: #6983a3;
+  --color-navy-600: #526786;
+  --color-navy-700: #42536c;
+  --color-navy-800: #384659;
+  --color-navy-900: #0a1929; /* Primary */
+  --color-navy-950: #050d14;
+
+  /* Brand Colors from Logo */
+  --color-brand-gray: #6b7280;
+
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-marquee: marquee 25s linear infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* Custom base styles */
+@layer base {
+  body {
+    background-color: #F8FAFC;
+    color: #0a1929;
+  }
+}
