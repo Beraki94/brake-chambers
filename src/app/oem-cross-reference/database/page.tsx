@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Database, Search, ArrowRight, Download } from 'lucide-react';
-import PageHeader from '@/components/PageHeader';
+import PageHeader from '@/components/layout/PageHeader';
 import { BRAKE_CHAMBERS } from '@/lib/data';
 
 export const metadata: Metadata = {

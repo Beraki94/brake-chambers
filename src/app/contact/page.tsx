@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import BreadcrumbSchema from '@/components/BreadcrumbSchema';
+import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 export const metadata = {
@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Get in touch with our global sales and technical support team.',
 };
 
-import PageHeader from '@/components/PageHeader';
+import PageHeader from '@/components/layout/PageHeader';
 
 export default function ContactPage() {
   return (
@@ -20,7 +20,7 @@ export default function ContactPage() {
       >
         <div className="mt-8 flex justify-center">
           <nav aria-label="Breadcrumb" className="inline-block bg-navy-900/60 backdrop-blur-md border border-navy-700 px-6 py-2 rounded-full shadow-lg">
-            <ol className="flex items-center space-x-2 text-sm text-navy-200">
+            <ol className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 text-sm text-navy-200">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><span className="text-navy-600">/</span></li>
               <li className="text-amber-400 font-semibold" aria-current="page">Contact Us</li>

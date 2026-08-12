@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { BRAKE_CHAMBERS } from '@/lib/data';
-import ProductListCard from '@/components/ProductListCard';
-import PageHeader from '@/components/PageHeader';
+import ProductListCard from '@/components/products/ProductListCard';
+import PageHeader from '@/components/layout/PageHeader';
 import { Truck, CheckCircle2, ShieldCheck, ArrowRight, Cog, Settings2 } from 'lucide-react';
 
 export async function generateStaticParams() {

@@ -2,7 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
-import ProductDetailLayout from '@/components/ProductDetailLayout';
+import ProductDetailLayout from '@/components/product-detail/ProductDetailLayout';
 
 export async function generateStaticParams() {
   const chambers = BRAKE_CHAMBERS.map((p) => ({ slug: p.slug }));

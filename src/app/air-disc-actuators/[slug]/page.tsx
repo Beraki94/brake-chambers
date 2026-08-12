@@ -3,8 +3,8 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { BRAKE_CHAMBERS } from '@/lib/data';
 import { AIR_DISC_ACTUATORS_META } from '@/lib/categoryMeta';
-import ProductListingLayout from '@/components/ProductListingLayout';
-import ProductDetailLayout from '@/components/ProductDetailLayout';
+import ProductListingLayout from '@/components/products/ProductListingLayout';
+import ProductDetailLayout from '@/components/product-detail/ProductDetailLayout';
 
 export async function generateStaticParams() {
   const categories = Object.keys(AIR_DISC_ACTUATORS_META).map((slug) => ({ slug }));

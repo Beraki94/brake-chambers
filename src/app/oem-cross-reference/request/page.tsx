@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Camera, FileUp, Send, CheckCircle2, AlertCircle } from 'lucide-react';
-import PageHeader from '@/components/PageHeader';
+import PageHeader from '@/components/layout/PageHeader';
 
 export default function RequestCrossMatchPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);

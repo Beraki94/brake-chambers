@@ -1,11 +1,11 @@
 import React from 'react';
-import BreadcrumbSchema from '@/components/BreadcrumbSchema';
+import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { ShieldAlert, Cpu, PenTool, Wrench, PackagePlus, HardHat, Cog, AlertTriangle, ArrowLeft, ArrowRight, HelpCircle, CheckCircle2 } from 'lucide-react';
-import PageHeader from '@/components/PageHeader';
+import PageHeader from '@/components/layout/PageHeader';
 
 const APPLICATION_DATA: Record<string, any> = {
   'commercial-linehaul': {

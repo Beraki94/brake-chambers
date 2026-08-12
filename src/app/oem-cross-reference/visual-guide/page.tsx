@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowLeft, Ruler, AlertCircle, Eye, ShieldCheck, ArrowRight, Tag } from 'lucide-react';
-import PageHeader from '@/components/PageHeader';
+import PageHeader from '@/components/layout/PageHeader';
 
 export const metadata: Metadata = {
   title: 'Visual Identification Guide | BRC Brake Chambers',

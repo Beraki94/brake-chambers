@@ -4,9 +4,10 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
-import ProductListCard from '@/components/ProductListCard';
-import AccessoryListCard from '@/components/AccessoryListCard';
-import OEMSearchForm from '@/components/OEMSearchForm';
+import ProductListCard from '@/components/products/ProductListCard';
+import AccessoryListCard from '@/components/product-detail/AccessoryListCard';
+import OEMCrossReferenceCard from '@/components/oem/OEMCrossReferenceCard';
+import OEMSearchForm from '@/components/oem/OEMSearchForm';
 import { Truck, ArrowLeft, ShieldCheck, Settings, CheckCircle2, ChevronRight, Zap } from 'lucide-react';
 
 const OEM_BRANDS: Record<string, { name: string, type: string, desc: string }> = {
@@ -219,10 +220,11 @@ export default async function OEMBrandPage(
           {matchingChambers.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
               {matchingChambers.slice(0, 4).map(chamber => (
-                <ProductListCard
+                <OEMCrossReferenceCard
                   key={chamber.slug}
                   product={chamber}
                   categoryPath={chamber.category === 'Spring Brake' ? 'spring-brakes' : 'service-chambers'}
+                  brandSlug={params.brandSlug}
                 />
               ))}
             </div>

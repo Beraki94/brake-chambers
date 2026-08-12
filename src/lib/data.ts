@@ -57,7 +57,7 @@ const createChamber = (id: string, name: string, type: string, category: Chamber
       portSize: overrides?.portSize || '3/8" NPT',
       weight: overrides?.weight || '8.5 lbs'
     },
-    galleryUrls: category === 'Spring Brake' ? ['/products/spring-brake.jpg'] : ['/products/service-brake.jpg'],
+    galleryUrls: category === 'Spring Brake' ? ['/products/spring-brake.png'] : category === 'Service Brake' ? ['/products/service-brake.png'] : ['/products/air-disc-actuator.png'],
     stock: Math.floor(Math.random() * 500) + 100,
     publishedAt: '2024-02-01T00:00:00Z',
     moq: overrides?.moq || 50,
@@ -119,7 +119,7 @@ const createAccessory = (id: string, name: string, category: AccessoryCategory, 
     priceUSD: priceUSD,
     description: `<p>High quality ${category.toLowerCase()} perfect for wholesale bulk orders.</p>`,
     features: features,
-    galleryUrls: ['/products/piggyback.jpg'],
+    galleryUrls: ['/products/chamber-parts-kit.png'],
     stock: Math.floor(Math.random() * 1000) + 200,
     publishedAt: '2024-03-05T00:00:00Z',
   };

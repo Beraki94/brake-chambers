@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { BRAKE_CHAMBERS } from '@/lib/data';
-import ProductListingLayout from '@/components/ProductListingLayout';
+import ProductListingLayout from '@/components/products/ProductListingLayout';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Spring Brake Chambers | BRC Manufacturer',

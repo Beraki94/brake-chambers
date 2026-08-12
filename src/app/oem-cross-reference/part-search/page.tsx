@@ -2,8 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowLeft, Search, Tag, Eye } from 'lucide-react';
-import OEMSearchForm from '@/components/OEMSearchForm';
-import PageHeader from '@/components/PageHeader';
+import OEMSearchForm from '@/components/oem/OEMSearchForm';
+import PageHeader from '@/components/layout/PageHeader';
 
 export const metadata: Metadata = {
   title: 'Part Number Search | BRC Brake Chambers',

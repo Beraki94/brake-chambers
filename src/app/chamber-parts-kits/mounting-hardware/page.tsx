@@ -3,8 +3,8 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
-import AccessoryListCard from '@/components/AccessoryListCard';
-import FacetedSidebar from '@/components/FacetedSidebar';
+import AccessoryListCard from '@/components/product-detail/AccessoryListCard';
+import FacetedSidebar from '@/components/products/FacetedSidebar';
 import { Truck, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {

@@ -2,8 +2,8 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { BRAKE_ACCESSORIES } from '@/lib/data';
-import ProductListingLayout from '@/components/ProductListingLayout';
-import OEMMatcher from '@/components/OEMMatcher';
+import ProductListingLayout from '@/components/products/ProductListingLayout';
+import OEMMatcher from '@/components/oem/OEMMatcher';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Brake Chamber Accessories | BRC Manufacturer',

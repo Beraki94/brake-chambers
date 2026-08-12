@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import BreadcrumbSchema from '@/components/BreadcrumbSchema';
+import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import { Globe, Package, Truck } from 'lucide-react';
-import PageHeader from '@/components/PageHeader';
+import PageHeader from '@/components/layout/PageHeader';
 
 export const metadata = {
   title: 'Global Wholesale RFQ | BRC Brake Chambers',

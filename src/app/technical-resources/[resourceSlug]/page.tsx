@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { ShieldCheck, Ruler, FileText, Download, AlertTriangle, CheckCircle2, Settings, Wrench, ChevronRight, Video, FileCog, ShieldAlert, Cpu } from 'lucide-react';
-import PageHeader from '@/components/PageHeader';
+import PageHeader from '@/components/layout/PageHeader';
 
 const TECHNICAL_RESOURCES_DATA: Record<string, any> = {
   // Installation & Maint.
