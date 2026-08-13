@@ -20,7 +20,7 @@ export default function OEMCrossReferenceCard({
   const brandName = matchedOEMs.length > 0 ? matchedOEMs[0].brand : brandSlug.charAt(0).toUpperCase() + brandSlug.slice(1);
 
   return (
-    <Link href={`/${categoryPath}/${product.slug}`} className="flex flex-col bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-xl hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300 group">
+    <Link href={`/${categoryPath}/${product.slug}`} className="flex flex-col bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-xl hover:border-primary-400 hover:-translate-y-0.5 transition-all duration-300 group">
       
       {/* Top Banner: The Match */}
       <div className="bg-gradient-to-r from-navy-900 to-navy-800 p-4 sm:p-5 border-b border-navy-700 flex flex-col gap-2 relative overflow-hidden">
@@ -28,7 +28,7 @@ export default function OEMCrossReferenceCard({
           <ArrowRightLeft className="w-24 h-24 -mt-4 -mr-4 text-white" />
         </div>
         
-        <div className="flex items-center text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2 z-10">
+        <div className="flex items-center text-success-400 text-xs font-bold uppercase tracking-wider mb-2 z-10">
           <CheckCircle2 className="w-4 h-4 mr-1.5" /> 1:1 Direct Replacement
         </div>
         
@@ -70,7 +70,7 @@ export default function OEMCrossReferenceCard({
            <span className="text-[10px] sm:text-xs font-mono font-bold text-navy-400 mb-1">
              BRC SKU: {product.slug.split('-').pop()?.toUpperCase()}
            </span>
-           <h3 className="font-extrabold text-navy-900 text-base sm:text-lg leading-tight mb-2 group-hover:text-amber-600 transition-colors line-clamp-2">
+           <h3 className="font-extrabold text-navy-900 text-base sm:text-lg leading-tight mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
              {product.name}
            </h3>
            <div className="flex flex-wrap items-center gap-3 text-[10px] sm:text-xs font-semibold text-slate-500">
@@ -84,10 +84,10 @@ export default function OEMCrossReferenceCard({
       
       {/* Action Footer */}
       <div className="bg-slate-50 p-3 px-4 sm:px-5 border-t border-slate-100 flex justify-between items-center mt-auto">
-        <span className="flex items-center text-[9px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-wider">
+        <span className="flex items-center text-[9px] sm:text-[10px] font-bold text-success-700 uppercase tracking-wider">
           <ShieldCheck size={14} className="mr-1.5" /> ISO 9001 Factory
         </span>
-        <span className="text-amber-600 text-[11px] sm:text-sm font-bold flex items-center group-hover:text-amber-500 transition-colors">
+        <span className="text-primary-600 text-[11px] sm:text-sm font-bold flex items-center group-hover:text-primary-500 transition-colors">
           View BRC Part <ChevronRight size={16} className="ml-1 transform group-hover:translate-x-1 transition-transform" />
         </span>
       </div>

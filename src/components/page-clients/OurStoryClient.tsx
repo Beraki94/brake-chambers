@@ -33,7 +33,7 @@ export default function OurStoryClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
             <div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight">
-                Built on <span className="text-amber-500">Engineering Excellence</span>
+                Built on <span className="text-primary-500">Engineering Excellence</span>
               </h2>
               <div className="space-y-6 text-slate-600 text-lg leading-relaxed font-light">
                 <p>
@@ -62,11 +62,11 @@ export default function OurStoryClient() {
               {milestones.map((milestone, idx) => (
                 <div key={idx} className="flex gap-8 mb-12 group">
                   <div className="flex flex-col items-center">
-                    <div className="w-16 h-16 rounded-full bg-navy-50 border-2 border-amber-500 flex items-center justify-center text-navy-900 font-bold group-hover:bg-amber-500 group-hover:text-white transition-colors shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-navy-50 border-2 border-primary-500 flex items-center justify-center text-navy-900 font-bold group-hover:bg-primary-500 group-hover:text-white transition-colors shrink-0">
                       {milestone.year}
                     </div>
                     {idx !== milestones.length - 1 && (
-                      <div className="w-1 h-full bg-slate-200 mt-4 group-hover:bg-amber-200 transition-colors"></div>
+                      <div className="w-1 h-full bg-slate-200 mt-4 group-hover:bg-primary-200 transition-colors"></div>
                     )}
                   </div>
                   <div className="pt-3 pb-8">
@@ -84,7 +84,7 @@ export default function OurStoryClient() {
       <section className="bg-navy-950 py-20 text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-extrabold text-white mb-6">Meet the Team Behind the Engineering</h2>
-          <Link href="/company/leadership" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
+          <Link href="/company/leadership" className="inline-flex items-center text-primary-500 font-bold hover:text-primary-400 transition-colors uppercase tracking-widest text-lg">
             View Leadership Team <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>

@@ -33,17 +33,17 @@ export default function AccessoryListCard({ product, categoryPath }: { product: 
         
         {/* Top Info: Name & Rating */}
         <div className="mb-3">
-          <h3 className="font-bold text-navy-900 text-base sm:text-lg leading-tight line-clamp-2 group-hover:text-amber-600 transition-colors duration-200 mb-1.5">
+          <h3 className="font-bold text-navy-900 text-base sm:text-lg leading-tight line-clamp-2 group-hover:text-primary-600 transition-colors duration-200 mb-1.5">
             {product.name}
           </h3>
           
           <div className="flex items-center gap-1.5">
-            <div className="flex items-center text-amber-400">
+            <div className="flex items-center text-primary-400">
                <Star size={12} fill="currentColor" />
                <Star size={12} fill="currentColor" />
                <Star size={12} fill="currentColor" />
                <Star size={12} fill="currentColor" />
-               <Star size={12} fill={rating === '5.0' ? "currentColor" : "none"} className={rating !== '5.0' ? "text-amber-400" : ""} />
+               <Star size={12} fill={rating === '5.0' ? "currentColor" : "none"} className={rating !== '5.0' ? "text-primary-400" : ""} />
             </div>
             <span className="text-[11px] font-bold text-navy-800">{rating}</span>
             <span className="text-[11px] text-slate-500">({reviews} reviews)</span>
@@ -55,7 +55,7 @@ export default function AccessoryListCard({ product, categoryPath }: { product: 
           
           {/* Trust Badges */}
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <span className="flex items-center text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-100 uppercase tracking-wider">
+            <span className="flex items-center text-[10px] font-bold text-success-700 bg-success-50 px-1.5 py-0.5 rounded border border-success-100 uppercase tracking-wider">
               <ShieldCheck size={12} className="mr-1" /> Premium
             </span>
             <span className="flex items-center text-[10px] font-bold text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-100 uppercase tracking-wider">
@@ -67,7 +67,7 @@ export default function AccessoryListCard({ product, categoryPath }: { product: 
           <ul className="flex flex-col gap-1 text-xs text-slate-600 mt-0.5">
              {product.features.slice(0, 2).map((feat, i) => (
                <li key={i} className="flex items-start gap-1.5">
-                 <span className="text-amber-500 font-bold mt-0.5 text-[10px]">•</span>
+                 <span className="text-primary-500 font-bold mt-0.5 text-[10px]">•</span>
                  <span className="leading-tight">{feat}</span>
                </li>
              ))}
@@ -77,7 +77,7 @@ export default function AccessoryListCard({ product, categoryPath }: { product: 
         
         {/* Action Button */}
         <div className="mt-auto flex justify-end">
-          <button className="bg-navy-900 text-white text-xs font-bold px-4 py-2 rounded-lg group-hover:bg-amber-500 transition-colors duration-300">
+          <button className="bg-navy-900 text-white text-xs font-bold px-4 py-2 rounded-lg group-hover:bg-primary-500 transition-colors duration-300">
             View Details
           </button>
         </div>

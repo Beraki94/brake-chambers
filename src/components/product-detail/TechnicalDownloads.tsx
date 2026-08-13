@@ -23,7 +23,7 @@ export default function TechnicalDownloads({ productName }: TechnicalDownloadsPr
       title: "DOT & ISO Compliance Certificate",
       type: 'PDF',
       size: '800 KB',
-      icon: <ShieldCheck className="w-6 h-6 text-emerald-600" />
+      icon: <ShieldCheck className="w-6 h-6 text-success-600" />
     }
   ];
 
@@ -36,13 +36,13 @@ export default function TechnicalDownloads({ productName }: TechnicalDownloadsPr
         {downloads.map((doc, idx) => (
           <div 
             key={idx}
-            className="group flex items-start gap-4 p-5 bg-white border border-slate-200 rounded-xl hover:border-amber-400 hover:shadow-md transition-all cursor-pointer"
+            className="group flex items-start gap-4 p-5 bg-white border border-slate-200 rounded-xl hover:border-primary-400 hover:shadow-md transition-all cursor-pointer"
           >
             <div className="flex-shrink-0 mt-1">
               {doc.icon}
             </div>
             <div className="flex-grow">
-              <h3 className="font-bold text-navy-900 text-sm mb-1 group-hover:text-amber-600 transition-colors">
+              <h3 className="font-bold text-navy-900 text-sm mb-1 group-hover:text-primary-600 transition-colors">
                 {doc.title}
               </h3>
               <p className="text-xs text-slate-500 font-medium">
@@ -50,7 +50,7 @@ export default function TechnicalDownloads({ productName }: TechnicalDownloadsPr
               </p>
             </div>
             <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
-              <Download className="w-5 h-5 text-amber-500" />
+              <Download className="w-5 h-5 text-primary-500" />
             </div>
           </div>
         ))}

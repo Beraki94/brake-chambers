@@ -28,7 +28,7 @@ export default function SubCategoryFAQ({ categoryName }: SubCategoryFAQProps) {
   return (
     <section className="mb-12">
       <h2 className="text-2xl font-bold text-navy-900 mb-6">
-        Frequently Asked Questions: <span className="text-amber-600">{categoryName}</span>
+        Frequently Asked Questions: <span className="text-primary-600">{categoryName}</span>
       </h2>
       <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden divide-y divide-slate-100">
         {faqs.map((faq, index) => (
@@ -39,7 +39,7 @@ export default function SubCategoryFAQ({ categoryName }: SubCategoryFAQProps) {
             >
               <h3 className="font-bold text-navy-900 pr-8">{faq.question}</h3>
               <ChevronDown 
-                className={`flex-shrink-0 text-slate-400 transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-amber-600' : ''}`}
+                className={`flex-shrink-0 text-slate-400 transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-primary-600' : ''}`}
                 size={20}
               />
             </button>

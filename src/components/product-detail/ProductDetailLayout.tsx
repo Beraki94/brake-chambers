@@ -47,7 +47,7 @@ export default function ProductDetailLayout({
                 <button 
                   key={idx}
                   onClick={() => setActiveImage(idx)}
-                  className={`relative w-20 h-20 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 ${activeImage === idx ? 'border-amber-500 shadow-md' : 'border-transparent bg-slate-50 opacity-70 hover:opacity-100 shadow-sm'}`}
+                  className={`relative w-20 h-20 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 ${activeImage === idx ? 'border-primary-500 shadow-md' : 'border-transparent bg-slate-50 opacity-70 hover:opacity-100 shadow-sm'}`}
                 >
                   <Image src={url} alt={`Thumbnail ${idx}`} fill className="object-contain p-2" />
                 </button>
@@ -56,7 +56,7 @@ export default function ProductDetailLayout({
           )}
 
           <div className="flex gap-3 mt-8">
-             <span className="flex items-center text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-4 py-2 rounded-full border border-emerald-100"><Check size={14} className="mr-1.5"/> In Stock</span>
+             <span className="flex items-center text-xs font-bold uppercase tracking-wider text-success-700 bg-success-50 px-4 py-2 rounded-full border border-success-100"><Check size={14} className="mr-1.5"/> In Stock</span>
              <span className="flex items-center text-xs font-bold uppercase tracking-wider text-navy-700 bg-navy-50 px-4 py-2 rounded-full border border-navy-100"><ShieldCheck size={14} className="mr-1.5"/> ISO 9001</span>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function ProductDetailLayout({
           <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden mb-8 shadow-sm">
             <div className="bg-gradient-to-r from-navy-900 to-navy-800 px-6 py-4">
               <h2 className="font-bold text-white flex items-center text-sm tracking-wide uppercase">
-                <ShieldCheck size={18} className="mr-2 text-amber-400"/> Direct OEM Cross-Reference
+                <ShieldCheck size={18} className="mr-2 text-primary-400"/> Direct OEM Cross-Reference
               </h2>
             </div>
             <div className="p-0 overflow-x-auto">
@@ -102,9 +102,9 @@ export default function ProductDetailLayout({
                 <tbody className="divide-y divide-slate-100">
                   {product.oemPartNumbers && product.oemPartNumbers.length > 0 ? (
                     product.oemPartNumbers.map((oem: any, idx: number) => (
-                      <tr key={idx} className="hover:bg-amber-50/30 transition-colors group">
+                      <tr key={idx} className="hover:bg-primary-50/30 transition-colors group">
                         <td className="px-6 py-4 font-semibold text-navy-900">{oem.brand}</td>
-                        <td className="px-6 py-4 font-mono font-bold text-navy-700 bg-slate-50/50 group-hover:bg-amber-100/50 group-hover:text-amber-700 transition-colors">{oem.partNumber}</td>
+                        <td className="px-6 py-4 font-mono font-bold text-navy-700 bg-slate-50/50 group-hover:bg-primary-100/50 group-hover:text-primary-700 transition-colors">{oem.partNumber}</td>
                         <td className="px-6 py-4 text-slate-500 text-xs">{oem.notes || 'Direct Drop-in Replacement'}</td>
                       </tr>
                     ))
@@ -125,7 +125,7 @@ export default function ProductDetailLayout({
 
           {/* Sticky CTA */}
           <div className="mt-auto flex flex-col sm:flex-row gap-4 pt-6 border-t border-slate-100 sticky bottom-0 bg-white/80 backdrop-blur-md pb-4 lg:relative lg:bg-transparent lg:pb-0">
-            <Link href="/quote" className="flex-1 bg-gradient-to-r from-amber-400 to-amber-500 text-navy-900 text-center font-extrabold py-4 rounded-xl hover:from-amber-500 hover:to-amber-600 transition-all shadow-lg shadow-amber-500/30 uppercase tracking-widest text-sm flex items-center justify-center">
+            <Link href="/quote" className="flex-1 bg-gradient-to-r from-primary-400 to-primary-500 text-navy-900 text-center font-extrabold py-4 rounded-xl hover:from-primary-500 hover:to-primary-600 transition-all shadow-lg shadow-primary-500/30 uppercase tracking-widest text-sm flex items-center justify-center">
               Submit Bulk RFQ
             </Link>
             <Link href="/distributor/login" className="flex-1 bg-navy-900 text-white text-center font-bold py-4 rounded-xl hover:bg-navy-800 transition-all uppercase tracking-widest text-sm border border-navy-700 flex items-center justify-center">

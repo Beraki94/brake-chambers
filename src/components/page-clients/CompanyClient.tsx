@@ -15,20 +15,20 @@ export default function CompanyClient() {
       desc: "BRC was founded on a simple principle: reverse-engineer the most common failure points in commercial transport and build a better brake chamber. Today, our leadership team continues that legacy of relentless innovation.",
       image: "/images/engineering_blueprint.png",
       colors: {
-        bg: "bg-amber-900/20",
-        hoverBorder: "hover:border-amber-300",
-        from: "from-amber-50/50",
-        iconBg: "bg-amber-50",
-        iconBorder: "border-amber-100",
-        iconText: "text-amber-500",
-        linkText: "text-amber-600"
+        bg: "bg-primary-900/20",
+        hoverBorder: "hover:border-primary-300",
+        from: "from-primary-50/50",
+        iconBg: "bg-primary-50",
+        iconBorder: "border-primary-100",
+        iconText: "text-primary-500",
+        linkText: "text-primary-600"
       },
       cards: [
         {
           id: 'our-story',
           title: 'Our Story & History',
           desc: 'Explore our journey from a specialized mechanical engineering firm focused on solving center seal blowouts, to becoming a global tier-1 manufacturer supplying heavy-duty commercial air brake components to fleets across 35 countries.',
-          icon: <History className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />,
+          icon: <History className="w-6 h-6 md:w-8 md:h-8 text-primary-500" />,
           href: '/company/our-story',
           keywords: ['Reverse-Engineering', 'Global Manufacturer', 'Tier-1 Supplier']
         },
@@ -36,7 +36,7 @@ export default function CompanyClient() {
           id: 'leadership',
           title: 'Leadership Team',
           desc: 'Our executive and engineering leadership teams bring decades of combined experience in commercial vehicle braking systems, metallurgical science, and lean manufacturing processes to guarantee uncompromising product quality.',
-          icon: <Users className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />,
+          icon: <Users className="w-6 h-6 md:w-8 md:h-8 text-primary-500" />,
           href: '/company/leadership',
           keywords: ['Engineering Experts', 'Lean Manufacturing', 'Metallurgy']
         }
@@ -89,20 +89,20 @@ export default function CompanyClient() {
       desc: "A commercial truck hauling 80,000 lbs cannot afford a brake failure. That is why our in-house testing laboratory and our strict adherence to international safety standards represent the most crucial pillars of our operation.",
       image: "/products/scattered_chambers_footer.png",
       colors: {
-        bg: "bg-emerald-900/20",
-        hoverBorder: "hover:border-emerald-300",
-        from: "from-emerald-50/50",
-        iconBg: "bg-emerald-50",
-        iconBorder: "border-emerald-100",
-        iconText: "text-emerald-500",
-        linkText: "text-emerald-600"
+        bg: "bg-success-900/20",
+        hoverBorder: "hover:border-success-300",
+        from: "from-success-50/50",
+        iconBg: "bg-success-50",
+        iconBorder: "border-success-100",
+        iconText: "text-success-500",
+        linkText: "text-success-600"
       },
       cards: [
         {
           id: 'testing-laboratory',
           title: 'Testing Laboratory',
           desc: 'We try our hardest to break our own products. See inside our lab where we subject chambers to 1 million+ continuous actuate/release cycles, intense salt spray corrosion environments, and extreme temperature variations.',
-          icon: <Microscope className="w-6 h-6 md:w-8 md:h-8 text-emerald-500" />,
+          icon: <Microscope className="w-6 h-6 md:w-8 md:h-8 text-success-500" />,
           href: '/company/testing-laboratory',
           keywords: ['1 Million Cycle Test', 'Salt Spray Corrosion', 'Pneumatic Leak Testing']
         },
@@ -110,7 +110,7 @@ export default function CompanyClient() {
           id: 'iso-certifications',
           title: 'ISO Certifications & Compliance',
           desc: 'We do not self-certify. Our entire manufacturing ecosystem is audited strictly under ISO 9001:2015 Quality Management Systems, and every product we manufacture complies with SAE J1469 and FMVSS 121 standards.',
-          icon: <ShieldCheck className="w-6 h-6 md:w-8 md:h-8 text-emerald-500" />,
+          icon: <ShieldCheck className="w-6 h-6 md:w-8 md:h-8 text-success-500" />,
           href: '/company/iso-certifications',
           keywords: ['ISO 9001:2015', 'SAE J1469', 'FMVSS 121 Compliant']
         },
@@ -118,7 +118,7 @@ export default function CompanyClient() {
           id: 'innovations',
           title: 'R&D and Innovations',
           desc: 'We do not just follow industry standards; we engineer the technologies that define them. Partner with our dedicated R&D division for custom OEM engineering solutions and the next generation of Air Disc Brake (ADB) technologies.',
-          icon: <Lightbulb className="w-6 h-6 md:w-8 md:h-8 text-emerald-500" />,
+          icon: <Lightbulb className="w-6 h-6 md:w-8 md:h-8 text-success-500" />,
           href: '/company/research-and-innovations',
           keywords: ['Air Disc Brakes', 'Custom OEM Solutions', 'Rapid Prototyping']
         }
@@ -196,7 +196,7 @@ export default function CompanyClient() {
                     transition={{ duration: 0.5 }}
                     className="w-full"
                   >
-                    <Link href={card.href} className="block group w-full h-full outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-[2rem]">
+                    <Link href={card.href} className="block group w-full h-full outline-none focus-visible:ring-2 focus-visible:ring-primary-500 rounded-[2rem]">
                       <div className={`bg-white p-6 md:p-10 rounded-[2rem] shadow-md border border-slate-200 hover:shadow-2xl ${pillar.colors.hoverBorder} transition-all duration-500 relative overflow-hidden h-full flex flex-col`}>
                         
                         {/* Hover Gradient Effect */}
@@ -246,17 +246,17 @@ export default function CompanyClient() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-8 md:p-16 lg:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-success-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
             <div className="relative z-10">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8 border border-amber-500/20 backdrop-blur-sm">
-                <Settings className="w-6 h-6 md:w-8 md:h-8 text-amber-400" />
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-primary-500/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8 border border-primary-500/20 backdrop-blur-sm">
+                <Settings className="w-6 h-6 md:w-8 md:h-8 text-primary-400" />
               </div>
               <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 md:mb-6 font-heading tracking-tight">Partner With a Proven Manufacturer</h2>
               <p className="text-navy-200 text-base md:text-lg lg:text-xl mb-8 md:mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                 Whether you need a custom OEM solution, private labeling, or a container of replacement chambers for your distribution network, BRC delivers.
               </p>
-              <Link href="/contact" className="inline-block bg-amber-500 text-navy-950 font-extrabold text-[11px] md:text-[13px] px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl hover:bg-amber-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-amber-500/30 uppercase tracking-widest">
+              <Link href="/contact" className="inline-block bg-primary-500 text-navy-950 font-extrabold text-[11px] md:text-[13px] px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl hover:bg-primary-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-primary-500/30 uppercase tracking-widest">
                 Request Wholesale Quote
               </Link>
             </div>

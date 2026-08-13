@@ -85,7 +85,7 @@ export default function ProductionProcessClient() {
       <section className="bg-navy-950 py-20 text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-extrabold text-white mb-6">Explore the Raw Materials We Use</h2>
-          <Link href="/company/material-sourcing" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
+          <Link href="/company/material-sourcing" className="inline-flex items-center text-primary-500 font-bold hover:text-primary-400 transition-colors uppercase tracking-widest text-lg">
             View Material Sourcing <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>

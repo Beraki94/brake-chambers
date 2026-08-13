@@ -22,7 +22,7 @@ export default function OEMMatcher() {
       ></div>
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center px-4 py-1.5 mb-6 rounded-full border border-emerald-500/50 bg-emerald-500/10 text-emerald-400 text-[11px] font-bold uppercase tracking-widest">
+        <div className="inline-flex items-center px-4 py-1.5 mb-6 rounded-full border border-success-500/50 bg-success-500/10 text-success-400 text-[11px] font-bold uppercase tracking-widest">
           <ReplaceAll className="w-3 h-3 mr-2" /> Direct-Fit Cross Reference
         </div>
         
@@ -54,16 +54,16 @@ export default function OEMMatcher() {
                     {comp.type}
                   </div>
                   <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ArrowRightLeft className="w-4 h-4 text-emerald-400" />
+                    <ArrowRightLeft className="w-4 h-4 text-success-400" />
                   </div>
                 </div>
 
                 {/* Back Side (BRC Match) */}
-                <div className="absolute inset-0 w-full h-full bg-emerald-900 border border-emerald-500/50 rounded-2xl flex flex-col items-center justify-center p-6 shadow-[0_0_30px_rgba(16,185,129,0.2)] [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                  <ShieldCheck className="w-8 h-8 text-emerald-400 mb-3" />
-                  <div className="text-emerald-200 text-xs font-bold uppercase tracking-wider mb-1">BRC Equivalent</div>
+                <div className="absolute inset-0 w-full h-full bg-success-900 border border-success-500/50 rounded-2xl flex flex-col items-center justify-center p-6 shadow-[0_0_30px_rgba(16,185,129,0.2)] [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                  <ShieldCheck className="w-8 h-8 text-success-400 mb-3" />
+                  <div className="text-success-200 text-xs font-bold uppercase tracking-wider mb-1">BRC Equivalent</div>
                   <h3 className="text-xl font-extrabold text-white">{comp.match}</h3>
-                  <div className="mt-3 text-[10px] text-emerald-100/70 bg-black/20 px-2 py-1 rounded border border-emerald-500/30 text-center leading-tight">
+                  <div className="mt-3 text-[10px] text-success-100/70 bg-black/20 px-2 py-1 rounded border border-success-500/30 text-center leading-tight">
                     Guaranteed Fit <br/> Same Day Shipping
                   </div>
                 </div>

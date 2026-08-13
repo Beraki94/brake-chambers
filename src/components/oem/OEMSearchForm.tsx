@@ -132,22 +132,22 @@ export default function OEMSearchForm() {
                 </div>
               </div>
             ) : (
-              <div className="bg-amber-50 border border-amber-100 rounded-xl p-6 flex items-start gap-4">
-                <div className="bg-amber-100 p-2 rounded-full text-amber-600 flex-shrink-0">
+              <div className="bg-primary-50 border border-primary-100 rounded-xl p-6 flex items-start gap-4">
+                <div className="bg-primary-100 p-2 rounded-full text-primary-600 flex-shrink-0">
                   <AlertCircle className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-amber-900 text-lg mb-1">No direct cross-reference found</h3>
+                  <h3 className="font-bold text-primary-900 text-lg mb-1">No direct cross-reference found</h3>
                   {result.error ? (
-                    <p className="text-amber-800 text-sm mb-4 font-bold bg-amber-100 p-2 rounded">
+                    <p className="text-primary-800 text-sm mb-4 font-bold bg-primary-100 p-2 rounded">
                       Debug Error: {result.error} (Tried looking up: {query})
                     </p>
                   ) : (
-                    <p className="text-amber-800 text-sm mb-4">
+                    <p className="text-primary-800 text-sm mb-4">
                       We could not find an automatic match for "<span className="font-mono font-bold uppercase">{query}</span>" in our database.
                     </p>
                   )}
-                  <p className="text-amber-900 text-sm font-medium bg-amber-100/50 p-3 rounded-lg border border-amber-200/50">
+                  <p className="text-primary-900 text-sm font-medium bg-primary-100/50 p-3 rounded-lg border border-primary-200/50">
                     <strong>Don't worry!</strong> Our engineers can cross-reference this manually. Please contact our factory with this part number and we will provide the exact BRC equivalent.
                   </p>
                 </div>

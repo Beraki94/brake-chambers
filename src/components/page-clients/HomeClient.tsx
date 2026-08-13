@@ -13,37 +13,37 @@ const HERO_SLIDES = [
     id: 1,
     badge: "Advanced Actuation Technology",
     badgeIcon: <Cpu className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>Precision Built for the <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-500 to-amber-600">Long Haul.</span></>,
+    title: <>Precision Built for the <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-primary-500 to-primary-600">Long Haul.</span></>,
     description: "The world leader in aftermarket commercial brake chambers. Delivering direct replacements for Bendix, Haldex, Meritor, and Wabco to global fleets.",
     cta1: { text: "View Product Catalog", link: "/products" },
     cta2: { text: "Request Custom Quote", link: "/quote" },
     image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=2000&q=80",
     gradient: "from-navy-950 via-navy-950/90 to-transparent",
-    glow: "bg-amber-500"
+    glow: "bg-primary-500"
   },
   {
     id: 2,
     badge: "High Output Technology (HOT)",
     badgeIcon: <Zap className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>Next-Generation <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-emerald-500 to-emerald-600">Air Disc Brakes.</span></>,
+    title: <>Next-Generation <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-success-300 via-success-500 to-success-600">Air Disc Brakes.</span></>,
     description: "Experience unprecedented stopping power and fade resistance. Engineered for extreme heavy-duty performance and drastic maintenance reduction.",
     cta1: { text: "Partner With Us", link: "/contact" },
     cta2: { text: "Download Specifications", link: "/technical-resources" },
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80",
     gradient: "from-navy-950 via-navy-950/80 to-transparent",
-    glow: "bg-emerald-500"
+    glow: "bg-success-500"
   },
   {
     id: 3,
     badge: "Global Logistics Network",
     badgeIcon: <Globe2 className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>OEM Supply at <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-500 to-amber-600">Global Scale.</span></>,
+    title: <>OEM Supply at <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-primary-500 to-primary-600">Global Scale.</span></>,
     description: "Shipping high-performance brake components to over 30 countries. We handle LTL, FTL, and direct container shipping logistics internally.",
     cta1: { text: "Start Wholesale Application", link: "/contact" },
     cta2: { text: "View Shipping Zones", link: "/shipping" },
     image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2000&q=80",
     gradient: "from-navy-950 via-navy-950/90 to-transparent",
-    glow: "bg-amber-500"
+    glow: "bg-primary-500"
   }
 ];
 
@@ -108,7 +108,7 @@ export default function HomeClient() {
                 }`}
               >
                 <div>
-                  <div className="inline-block px-3 py-1 mb-4 md:px-4 md:py-1.5 md:mb-6 rounded-full bg-gradient-to-r from-navy-800 to-navy-900 border border-navy-700 text-amber-400 text-[10px] md:text-[11px] font-bold uppercase tracking-widest shadow-xl shadow-navy-950 whitespace-nowrap">
+                  <div className="inline-block px-3 py-1 mb-4 md:px-4 md:py-1.5 md:mb-6 rounded-full bg-gradient-to-r from-navy-800 to-navy-900 border border-navy-700 text-primary-400 text-[10px] md:text-[11px] font-bold uppercase tracking-widest shadow-xl shadow-navy-950 whitespace-nowrap">
                     {slide.badgeIcon} {slide.badge}
                   </div>
                   <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.15] mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
@@ -118,10 +118,10 @@ export default function HomeClient() {
                     {slide.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto">
-                    <Link href={slide.cta1.link} className="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-navy-950 font-extrabold px-6 py-3.5 md:px-8 md:py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_30px_-10px_rgba(245,158,11,0.5)] text-center flex items-center justify-center gap-2 uppercase tracking-wide text-[12px] md:text-[13px] transform hover:-translate-y-0.5 w-full sm:w-auto">
+                    <Link href={slide.cta1.link} className="bg-gradient-to-r from-primary-400 to-primary-600 hover:from-primary-300 hover:to-primary-500 text-navy-950 font-extrabold px-6 py-3.5 md:px-8 md:py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_30px_-10px_rgba(245,158,11,0.5)] text-center flex items-center justify-center gap-2 uppercase tracking-wide text-[12px] md:text-[13px] transform hover:-translate-y-0.5 w-full sm:w-auto">
                       {slide.cta1.text} <ArrowRight className="w-4 h-4" />
                     </Link>
-                    <Link href={slide.cta2.link} className="bg-navy-900/60 backdrop-blur-md border border-navy-600 hover:border-amber-500 hover:text-amber-400 text-white font-bold px-6 py-3.5 md:px-8 md:py-3.5 rounded-xl transition-all duration-300 text-center uppercase tracking-wide text-[12px] md:text-[13px] shadow-xl shadow-navy-950 transform hover:-translate-y-0.5 w-full sm:w-auto">
+                    <Link href={slide.cta2.link} className="bg-navy-900/60 backdrop-blur-md border border-navy-600 hover:border-primary-500 hover:text-primary-400 text-white font-bold px-6 py-3.5 md:px-8 md:py-3.5 rounded-xl transition-all duration-300 text-center uppercase tracking-wide text-[12px] md:text-[13px] shadow-xl shadow-navy-950 transform hover:-translate-y-0.5 w-full sm:w-auto">
                       {slide.cta2.text}
                     </Link>
                   </div>
@@ -139,7 +139,7 @@ export default function HomeClient() {
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`h-1.5 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'w-10 bg-amber-500' : 'w-4 bg-navy-700 hover:bg-navy-500'
+                index === currentSlide ? 'w-10 bg-primary-500' : 'w-4 bg-navy-700 hover:bg-navy-500'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -148,18 +148,18 @@ export default function HomeClient() {
       </section>
 
       {/* NEW: Compliance & Trust Banner */}
-      <div className="bg-navy-900 border-y border-amber-500/30">
+      <div className="bg-navy-900 border-y border-primary-500/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-4 flex flex-wrap justify-center sm:justify-between items-center gap-4 text-xs sm:text-sm font-bold text-navy-100 uppercase tracking-widest">
           <div className="flex items-center gap-2">
-            <ShieldCheck className="w-5 h-5 text-emerald-400" /> SAE J1469 & J1463 Compliant
+            <ShieldCheck className="w-5 h-5 text-success-400" /> SAE J1469 & J1463 Compliant
           </div>
           <div className="hidden md:block w-px h-6 bg-navy-700"></div>
           <div className="flex items-center gap-2">
-            <ShieldCheck className="w-5 h-5 text-emerald-400" /> FMVSS 121 Certified
+            <ShieldCheck className="w-5 h-5 text-success-400" /> FMVSS 121 Certified
           </div>
           <div className="hidden md:block w-px h-6 bg-navy-700"></div>
           <div className="flex items-center gap-2">
-            <ShieldCheck className="w-5 h-5 text-emerald-400" /> ISO 9001:2015 Manufacturing
+            <ShieldCheck className="w-5 h-5 text-success-400" /> ISO 9001:2015 Manufacturing
           </div>
         </div>
       </div>
@@ -175,19 +175,26 @@ export default function HomeClient() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
           >
             {[
-              { icon: Settings, color: "amber", title: "Actuator Design & R&D", desc: "Pioneering structural innovations and proprietary housing designs for reduced weight and maximum durability." },
-              { icon: Zap, color: "amber", title: "Variable Clocking", desc: "Our VCT technology allows infinite port angle alignment, streamlining installation and reducing inventory SKU requirements." },
-              { icon: ShieldCheck, color: "emerald", title: "Advanced E-Coating", desc: "Multi-stage electro-deposition coating ensures superior corrosion resistance even in the harshest winter road conditions." },
-              { icon: CheckCircle, color: "emerald", title: "1M Cycle Tested", desc: "Every chamber design is rigorously subjected to 1 million cycle lab tests to guarantee extreme lifecycle performance." }
-            ].map((pillar, i) => (
+              { icon: Settings, color: "primary", title: "Actuator Design & R&D", desc: "Pioneering structural innovations and proprietary housing designs for reduced weight and maximum durability." },
+              { icon: Zap, color: "primary", title: "Variable Clocking", desc: "Our VCT technology allows infinite port angle alignment, streamlining installation and reducing inventory SKU requirements." },
+              { icon: ShieldCheck, color: "success", title: "Advanced E-Coating", desc: "Multi-stage electro-deposition coating ensures superior corrosion resistance even in the harshest winter road conditions." },
+              { icon: CheckCircle, color: "success", title: "1M Cycle Tested", desc: "Every chamber design is rigorously subjected to 1 million cycle lab tests to guarantee extreme lifecycle performance." }
+            ].map((pillar, i) => {
+              const pillarStyles: Record<string, { icon: string; title: string }> = {
+                primary: { icon: "text-primary-500 group-hover:from-primary-50 group-hover:to-primary-100", title: "group-hover:text-primary-600" },
+                success: { icon: "text-success-500 group-hover:from-success-50 group-hover:to-success-100", title: "group-hover:text-success-600" },
+              };
+              const ps = pillarStyles[pillar.color] ?? pillarStyles.primary;
+              return (
               <motion.div key={i} variants={fadeInUp} className="group cursor-pointer">
-                <div className={`w-14 h-14 bg-gradient-to-br from-navy-50 to-navy-100 rounded-xl flex items-center justify-center text-${pillar.color}-500 mb-5 group-hover:from-${pillar.color}-50 group-hover:to-${pillar.color}-100 transition-all duration-500 shadow-sm group-hover:shadow-[0_10px_20px_-10px_rgba(0,0,0,0.1)] transform group-hover:-translate-y-2`}>
+                <div className={`w-14 h-14 bg-gradient-to-br from-navy-50 to-navy-100 rounded-xl flex items-center justify-center ${ps.icon} mb-5 transition-all duration-500 shadow-sm group-hover:shadow-[0_10px_20px_-10px_rgba(0,0,0,0.1)] transform group-hover:-translate-y-2`}>
                   <pillar.icon className="w-7 h-7" />
                 </div>
-                <h3 className={`text-lg font-extrabold text-navy-900 mb-2 group-hover:text-${pillar.color}-600 transition-colors`}>{pillar.title}</h3>
+                <h3 className={`text-lg font-extrabold text-navy-900 mb-2 ${ps.title} transition-colors`}>{pillar.title}</h3>
                 <p className="text-slate-600 leading-relaxed text-[13px]">{pillar.desc}</p>
               </motion.div>
-            ))}
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -219,7 +226,7 @@ export default function HomeClient() {
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-700 shadow-xl shadow-navy-950 text-amber-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
+          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-700 shadow-xl shadow-navy-950 text-primary-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
             Direct Aftermarket Replacements
           </div>
           
@@ -239,8 +246,8 @@ export default function HomeClient() {
             className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center items-center gap-3 md:gap-6 mb-12"
           >
             {[
-              { name: "BENDIX", hoverBorder: "hover:border-emerald-500/50", hoverText: "group-hover:text-emerald-400" },
-              { name: "MERITOR", hoverBorder: "hover:border-amber-500/50", hoverText: "group-hover:text-amber-400" },
+              { name: "BENDIX", hoverBorder: "hover:border-success-500/50", hoverText: "group-hover:text-success-400" },
+              { name: "MERITOR", hoverBorder: "hover:border-primary-500/50", hoverText: "group-hover:text-primary-400" },
               { name: "HALDEX", hoverBorder: "hover:border-sky-500/50", hoverText: "group-hover:text-sky-400" },
               { name: "WABCO", hoverBorder: "hover:border-indigo-500/50", hoverText: "group-hover:text-indigo-400" },
               { name: "MGM BRAKES", hoverBorder: "hover:border-rose-500/50", hoverText: "group-hover:text-rose-400" }
@@ -257,7 +264,7 @@ export default function HomeClient() {
             ))}
           </motion.div>
 
-          <Link href="/oem-cross-reference" className="inline-flex items-center text-navy-950 bg-white font-extrabold px-8 py-3.5 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(245,158,11,0.3)] text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5">
+          <Link href="/oem-cross-reference" className="inline-flex items-center text-navy-950 bg-white font-extrabold px-8 py-3.5 rounded-xl hover:bg-primary-400 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(245,158,11,0.3)] text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5">
             Search the OEM Database <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
         </div>
@@ -276,20 +283,20 @@ export default function HomeClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
             <div className="max-w-2xl">
-              <div className="inline-block px-3 py-1 mb-3 rounded-full bg-navy-900 text-amber-400 text-[11px] font-bold uppercase tracking-widest shadow-md">
+              <div className="inline-block px-3 py-1 mb-3 rounded-full bg-navy-900 text-primary-400 text-[11px] font-bold uppercase tracking-widest shadow-md">
                 Precision Manufacturing
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700 mb-3 tracking-tight">Product Architecture</h2>
               <p className="text-slate-600 text-base font-light">Industry-standard and proprietary solutions for every commercial vehicle braking application.</p>
             </div>
-            <Link href="/" className="text-amber-600 font-extrabold uppercase tracking-widest text-[13px] flex items-center hover:text-amber-500 transition-colors bg-white px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md">
+            <Link href="/" className="text-primary-600 font-extrabold uppercase tracking-widest text-[13px] flex items-center hover:text-primary-500 transition-colors bg-white px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md">
               View All BRC Chambers <ChevronRight className="w-4 h-4 ml-1" />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Spring Brakes */}
-            <Link href="/spring-brakes" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
+            <Link href="/spring-brakes" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-primary-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
               
@@ -297,12 +304,12 @@ export default function HomeClient() {
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-6">
                     <div>
-                      <h3 className="text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Combination Spring Brakes (Drum)</h3>
-                      <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">Double Diaphragm Chambers</p>
+                      <h3 className="text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-primary-600 transition-colors">Combination Spring Brakes (Drum)</h3>
+                      <p className="text-primary-600 font-bold text-[11px] tracking-widest uppercase bg-primary-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-primary-100">Double Diaphragm Chambers</p>
                     </div>
                   </div>
                   <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-6">Complete heavy-duty tandem units managing both service braking and parking brakes for traditional S-cam drum setups. Available in sizes Type 20/24 to Type 36/36.</div>
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-navy-50 to-navy-100 flex items-center justify-center group-hover:from-amber-400 group-hover:to-amber-500 group-hover:text-navy-950 transition-all duration-300 shadow-sm group-hover:shadow-md transform group-hover:rotate-45">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-navy-50 to-navy-100 flex items-center justify-center group-hover:from-primary-400 group-hover:to-primary-500 group-hover:text-navy-950 transition-all duration-300 shadow-sm group-hover:shadow-md transform group-hover:rotate-45">
                     <ArrowRight className="w-5 h-5 text-navy-900" />
                   </div>
                 </div>
@@ -313,7 +320,7 @@ export default function HomeClient() {
             </Link>
 
             {/* Service Brakes */}
-            <Link href="/service-chambers" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
+            <Link href="/service-chambers" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-primary-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8ed7c80a71?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
               
@@ -321,12 +328,12 @@ export default function HomeClient() {
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-6">
                     <div>
-                      <h3 className="text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Service Brake Chambers (Drum)</h3>
-                      <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">Steer & Drive Axles</p>
+                      <h3 className="text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-primary-600 transition-colors">Service Brake Chambers (Drum)</h3>
+                      <p className="text-primary-600 font-bold text-[11px] tracking-widest uppercase bg-primary-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-primary-100">Steer & Drive Axles</p>
                     </div>
                   </div>
                   <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-6">Compact, highly durable single-diaphragm chambers engineered for precision pneumatic response on drum brake systems. Available in sizes 9 through 36.</div>
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-navy-50 to-navy-100 flex items-center justify-center group-hover:from-amber-400 group-hover:to-amber-500 group-hover:text-navy-950 transition-all duration-300 shadow-sm group-hover:shadow-md transform group-hover:rotate-45">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-navy-50 to-navy-100 flex items-center justify-center group-hover:from-primary-400 group-hover:to-primary-500 group-hover:text-navy-950 transition-all duration-300 shadow-sm group-hover:shadow-md transform group-hover:rotate-45">
                     <ArrowRight className="w-5 h-5 text-navy-900" />
                   </div>
                 </div>
@@ -337,7 +344,7 @@ export default function HomeClient() {
             </Link>
 
             {/* Air Disc Brakes */}
-            <Link href="/contact" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
+            <Link href="/contact" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-primary-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
               
@@ -345,12 +352,12 @@ export default function HomeClient() {
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-6">
                     <div>
-                      <h3 className="text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Air Disc Brake (ADB) Chambers</h3>
-                      <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">High Output Actuators</p>
+                      <h3 className="text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-primary-600 transition-colors">Air Disc Brake (ADB) Chambers</h3>
+                      <p className="text-primary-600 font-bold text-[11px] tracking-widest uppercase bg-primary-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-primary-100">High Output Actuators</p>
                     </div>
                   </div>
                   <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-6">Next-generation disc-specific actuators providing direct-force clamping, reduced brake fade, and shorter pushrods for severe-duty caliper systems.</div>
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-navy-50 to-navy-100 flex items-center justify-center group-hover:from-amber-400 group-hover:to-amber-500 group-hover:text-navy-950 transition-all duration-300 shadow-sm group-hover:shadow-md transform group-hover:rotate-45">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-navy-50 to-navy-100 flex items-center justify-center group-hover:from-primary-400 group-hover:to-primary-500 group-hover:text-navy-950 transition-all duration-300 shadow-sm group-hover:shadow-md transform group-hover:rotate-45">
                     <ArrowRight className="w-5 h-5 text-navy-900" />
                   </div>
                 </div>
@@ -361,7 +368,7 @@ export default function HomeClient() {
             </Link>
 
             {/* Piggybacks & Accessories */}
-            <Link href="/chamber-parts-kits" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
+            <Link href="/chamber-parts-kits" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-primary-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
               
@@ -369,12 +376,12 @@ export default function HomeClient() {
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-6">
                     <div>
-                      <h3 className="text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Piggybacks & Replacement Parts</h3>
-                      <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">Kits & Accessories</p>
+                      <h3 className="text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-primary-600 transition-colors">Piggybacks & Replacement Parts</h3>
+                      <p className="text-primary-600 font-bold text-[11px] tracking-widest uppercase bg-primary-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-primary-100">Kits & Accessories</p>
                     </div>
                   </div>
                   <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-6">Save on full replacements with genuine aftermarket repair components, including Piggyback Kits, Diaphragms, Caging Bolts, and Clamp Bands.</div>
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-navy-50 to-navy-100 flex items-center justify-center group-hover:from-amber-400 group-hover:to-amber-500 group-hover:text-navy-950 transition-all duration-300 shadow-sm group-hover:shadow-md transform group-hover:rotate-45">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-navy-50 to-navy-100 flex items-center justify-center group-hover:from-primary-400 group-hover:to-primary-500 group-hover:text-navy-950 transition-all duration-300 shadow-sm group-hover:shadow-md transform group-hover:rotate-45">
                     <ArrowRight className="w-5 h-5 text-navy-900" />
                   </div>
                 </div>
@@ -399,13 +406,13 @@ export default function HomeClient() {
         <div className="absolute inset-0 opacity-[0.03] mix-blend-color-dodge" style={{ backgroundImage: 'radial-gradient(#f59e0b 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
         
         {/* Decorative glows */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[100px] -mr-20 -mt-20 mix-blend-screen pointer-events-none transition-all duration-1000 animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px] -ml-20 -mb-20 mix-blend-screen pointer-events-none transition-all duration-1000 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-success-500/10 rounded-full blur-[100px] -mr-20 -mt-20 mix-blend-screen pointer-events-none transition-all duration-1000 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-[100px] -ml-20 -mb-20 mix-blend-screen pointer-events-none transition-all duration-1000 animate-pulse" style={{ animationDelay: '1s' }}></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
             <div className="lg:col-span-1 pr-6">
-              <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-700 shadow-xl shadow-navy-950 text-emerald-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
+              <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-700 shadow-xl shadow-navy-950 text-success-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
                 Digital Ecosystem
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-white leading-tight drop-shadow-lg">Digital Manufacturer Tools</h2>
@@ -416,38 +423,38 @@ export default function HomeClient() {
             
             <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Tool 1 */}
-              <Link href="/oem-cross-reference" className="block bg-gradient-to-b from-navy-800/60 to-navy-900/60 backdrop-blur-md border border-navy-700/50 p-8 rounded-2xl hover:border-amber-500/50 hover:bg-navy-800/80 transition-all duration-500 shadow-2xl shadow-navy-950 group transform hover:-translate-y-1 relative overflow-hidden">
+              <Link href="/oem-cross-reference" className="block bg-gradient-to-b from-navy-800/60 to-navy-900/60 backdrop-blur-md border border-navy-700/50 p-8 rounded-2xl hover:border-primary-500/50 hover:bg-navy-800/80 transition-all duration-500 shadow-2xl shadow-navy-950 group transform hover:-translate-y-1 relative overflow-hidden">
                 {/* Glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
-                  <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
-                    <FileText className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-primary-500/50 transition-colors">
+                    <FileText className="w-6 h-6 text-primary-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <h3 className="text-xl font-extrabold text-white mb-3">Cross-Reference</h3>
                   <p className="text-navy-300 text-[13px] mb-8 leading-relaxed font-light">Instantly map competitor part numbers (Bendix, Meritor, Haldex, Wabco, MGM) to direct aftermarket equivalents.</p>
-                  <div className="text-amber-400 text-[11px] font-extrabold uppercase tracking-widest flex items-center group-hover:text-amber-300">
+                  <div className="text-primary-400 text-[11px] font-extrabold uppercase tracking-widest flex items-center group-hover:text-primary-300">
                     Launch Tool <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
               </Link>
               
               {/* Tool 2 */}
-              <Link href="/technical-resources" className="block bg-gradient-to-b from-navy-800/60 to-navy-900/60 backdrop-blur-md border border-navy-700/50 p-8 rounded-2xl hover:border-emerald-500/50 hover:bg-navy-800/80 transition-all duration-500 shadow-2xl shadow-navy-950 group transform hover:-translate-y-1 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <Link href="/technical-resources" className="block bg-gradient-to-b from-navy-800/60 to-navy-900/60 backdrop-blur-md border border-navy-700/50 p-8 rounded-2xl hover:border-success-500/50 hover:bg-navy-800/80 transition-all duration-500 shadow-2xl shadow-navy-950 group transform hover:-translate-y-1 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-success-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
-                  <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-emerald-500/50 transition-colors">
-                    <Wrench className="w-6 h-6 text-emerald-400 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-success-500/50 transition-colors">
+                    <Wrench className="w-6 h-6 text-success-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <h3 className="text-xl font-extrabold text-white mb-3">Online Training</h3>
                   <p className="text-navy-300 text-[13px] mb-8 leading-relaxed font-light">Interactive courses for technicians on installation, maintenance, and diagnostics of brake systems.</p>
-                  <div className="text-emerald-400 text-[11px] font-extrabold uppercase tracking-widest flex items-center group-hover:text-emerald-300">
+                  <div className="text-success-400 text-[11px] font-extrabold uppercase tracking-widest flex items-center group-hover:text-success-300">
                     View Courses <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
               </Link>
 
               {/* Tool 3 */}
-              <div className="bg-gradient-to-r from-amber-500 to-amber-600 p-8 rounded-2xl md:col-span-2 shadow-[0_20px_50px_-10px_rgba(245,158,11,0.3)] group relative overflow-hidden">
+              <div className="bg-gradient-to-r from-primary-500 to-primary-600 p-8 rounded-2xl md:col-span-2 shadow-[0_20px_50px_-10px_rgba(245,158,11,0.3)] group relative overflow-hidden">
                 {/* Shine effect */}
                 <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[45deg] group-hover:animate-[shine_1.5s_ease-in-out]"></div>
                 
@@ -472,19 +479,19 @@ export default function HomeClient() {
           <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="Laboratory Testing" className="w-full h-full object-cover opacity-30 mix-blend-luminosity grayscale group-hover:scale-105 transition-transform duration-[10s]" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/95 to-transparent"></div>
           {/* Accent gradient bar */}
-          <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-emerald-400 to-emerald-600 shadow-[0_0_30px_rgba(16,185,129,0.6)]"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-success-400 to-success-600 shadow-[0_0_30px_rgba(16,185,129,0.6)]"></div>
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="max-w-2xl bg-navy-950/80 backdrop-blur-xl p-10 rounded-3xl border border-navy-800 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] transform transition-transform hover:-translate-y-1">
-            <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-gradient-to-r from-amber-500/20 to-transparent border border-amber-500/30 text-amber-400 text-[11px] font-bold uppercase tracking-widest">
+            <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-gradient-to-r from-primary-500/20 to-transparent border border-primary-500/30 text-primary-400 text-[11px] font-bold uppercase tracking-widest">
               Innovation Spotlight
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight">High Output Technology <span className="text-emerald-500">(HOT)</span></h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight">High Output Technology <span className="text-success-500">(HOT)</span></h2>
             <p className="text-base text-navy-200 mb-8 leading-relaxed font-light">
               Our patented HOT design drastically improves the output force of air disc brakes, compensating for internal friction and delivering unprecedented stopping power consistency across the entire vehicle lifecycle.
             </p>
-            <Link href="/technical-resources" className="inline-flex items-center text-navy-950 bg-white font-extrabold px-6 py-3.5 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5">
+            <Link href="/technical-resources" className="inline-flex items-center text-navy-950 bg-white font-extrabold px-6 py-3.5 rounded-xl hover:bg-primary-400 transition-all duration-300 shadow-xl text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5">
               Download Technical Specifications <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </div>
@@ -501,7 +508,7 @@ export default function HomeClient() {
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700 tracking-tight">Technical Bulletins</h2>
             </div>
-            <Link href="/about" className="text-amber-600 font-extrabold uppercase tracking-widest text-[13px] flex items-center hover:text-amber-500 transition-colors bg-slate-50 px-5 py-2.5 rounded-lg border border-slate-100 hover:shadow-sm">
+            <Link href="/about" className="text-primary-600 font-extrabold uppercase tracking-widest text-[13px] flex items-center hover:text-primary-500 transition-colors bg-slate-50 px-5 py-2.5 rounded-lg border border-slate-100 hover:shadow-sm">
               View Archive <ChevronRight className="w-4 h-4 ml-1" />
             </Link>
           </div>
@@ -519,11 +526,11 @@ export default function HomeClient() {
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=600&q=80" alt="ISO Certification" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale mix-blend-luminosity" />
                 <div className="absolute bottom-5 left-5 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <span className="bg-emerald-500 text-white text-[11px] font-bold px-3 py-1.5 rounded border border-emerald-400">Read Article</span>
+                  <span className="bg-success-500 text-white text-[11px] font-bold px-3 py-1.5 rounded border border-success-400">Read Article</span>
                 </div>
               </div>
-              <div className="text-emerald-600 text-[11px] font-extrabold uppercase tracking-widest mb-3">Certification Update</div>
-              <h3 className="text-xl font-extrabold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors leading-tight">ISO 9001:2015 Recertification Completed</h3>
+              <div className="text-success-600 text-[11px] font-extrabold uppercase tracking-widest mb-3">Certification Update</div>
+              <h3 className="text-xl font-extrabold text-navy-900 mb-3 group-hover:text-primary-600 transition-colors leading-tight">ISO 9001:2015 Recertification Completed</h3>
               <p className="text-slate-600 text-[13px] mb-4 line-clamp-2 leading-relaxed">Our main manufacturing facility has successfully completed its annual ISO 9001:2015 audit with zero non-conformances.</p>
               <span className="text-slate-400 text-[11px] font-bold uppercase tracking-widest flex items-center"><CheckCircle className="w-3 h-3 mr-1.5"/> August 12, 2026</span>
             </motion.div>
@@ -534,11 +541,11 @@ export default function HomeClient() {
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=600&q=80" alt="Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale mix-blend-luminosity" />
                 <div className="absolute bottom-5 left-5 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <span className="bg-amber-500 text-navy-950 text-[11px] font-bold px-3 py-1.5 rounded border border-amber-400">Read Article</span>
+                  <span className="bg-primary-500 text-navy-950 text-[11px] font-bold px-3 py-1.5 rounded border border-primary-400">Read Article</span>
                 </div>
               </div>
-              <div className="text-amber-500 text-[11px] font-extrabold uppercase tracking-widest mb-3">Product Release</div>
-              <h3 className="text-xl font-extrabold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors leading-tight">Launch of the UltraLife+ VCT Series</h3>
+              <div className="text-primary-500 text-[11px] font-extrabold uppercase tracking-widest mb-3">Product Release</div>
+              <h3 className="text-xl font-extrabold text-navy-900 mb-3 group-hover:text-primary-600 transition-colors leading-tight">Launch of the UltraLife+ VCT Series</h3>
               <p className="text-slate-600 text-[13px] mb-4 line-clamp-2 leading-relaxed">Introducing the new standard in variable clocking chambers, offering fleet managers 40% reduction in installation time.</p>
               <span className="text-slate-400 text-[11px] font-bold uppercase tracking-widest flex items-center"><Settings className="w-3 h-3 mr-1.5"/> July 28, 2026</span>
             </motion.div>
@@ -549,11 +556,11 @@ export default function HomeClient() {
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Logistics" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale mix-blend-luminosity" />
                 <div className="absolute bottom-5 left-5 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <span className="bg-amber-500 text-navy-950 text-[11px] font-bold px-3 py-1.5 rounded border border-amber-400">Read Article</span>
+                  <span className="bg-primary-500 text-navy-950 text-[11px] font-bold px-3 py-1.5 rounded border border-primary-400">Read Article</span>
                 </div>
               </div>
-              <div className="text-amber-500 text-[11px] font-extrabold uppercase tracking-widest mb-3">Logistics Notice</div>
-              <h3 className="text-xl font-extrabold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors leading-tight">Expanded EMEA Distribution Network</h3>
+              <div className="text-primary-500 text-[11px] font-extrabold uppercase tracking-widest mb-3">Logistics Notice</div>
+              <h3 className="text-xl font-extrabold text-navy-900 mb-3 group-hover:text-primary-600 transition-colors leading-tight">Expanded EMEA Distribution Network</h3>
               <p className="text-slate-600 text-[13px] mb-4 line-clamp-2 leading-relaxed">To better serve our European partners, we have opened a new automated fulfillment center in Germany.</p>
               <span className="text-slate-400 text-[11px] font-bold uppercase tracking-widest flex items-center"><Globe2 className="w-3 h-3 mr-1.5"/> July 05, 2026</span>
             </motion.div>
@@ -582,11 +589,11 @@ export default function HomeClient() {
                 </p>
                 <div className="grid grid-cols-2 gap-6 max-w-md">
                   <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">30+</div>
+                    <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600 mb-2">30+</div>
                     <div className="text-[11px] font-extrabold text-navy-900 uppercase tracking-widest">Countries Served</div>
                   </div>
                   <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">1M+</div>
+                    <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600 mb-2">1M+</div>
                     <div className="text-[11px] font-extrabold text-navy-900 uppercase tracking-widest">Units Annually</div>
                   </div>
                 </div>
@@ -594,33 +601,33 @@ export default function HomeClient() {
               
               <div className="w-full lg:w-1/2 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-3xl p-10 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden group">
                 {/* Internal Card Glow */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-amber-500/20 transition-colors duration-700"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-primary-500/20 transition-colors duration-700"></div>
                 
                 <h3 className="text-3xl font-extrabold mb-4 relative z-10">Connect with Sales & Engineering</h3>
                 <p className="text-navy-200 text-sm mb-10 leading-relaxed font-light relative z-10">Ready to discuss bulk purchasing, OEM design specifications, or cross-reference support? Our dedicated team is standing by.</p>
                 
                 <div className="space-y-8 relative z-10">
                   <a href="tel:+12567366275" className="flex items-center gap-6 group/link">
-                    <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-amber-500/50 transition-colors">
-                      <Phone className="w-6 h-6 text-amber-400 group-hover/link:scale-110 transition-transform duration-300" />
+                    <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-primary-500/50 transition-colors">
+                      <Phone className="w-6 h-6 text-primary-400 group-hover/link:scale-110 transition-transform duration-300" />
                     </div>
                     <div>
-                      <div className="text-[11px] text-amber-400 font-extrabold uppercase tracking-widest mb-1">Direct Line</div>
-                      <div className="text-2xl font-bold group-hover/link:text-amber-300 transition-colors">1-256-736-6275</div>
+                      <div className="text-[11px] text-primary-400 font-extrabold uppercase tracking-widest mb-1">Direct Line</div>
+                      <div className="text-2xl font-bold group-hover/link:text-primary-300 transition-colors">1-256-736-6275</div>
                     </div>
                   </a>
                   <a href="mailto:sales@brakechambers.com" className="flex items-center gap-6 group/link">
-                    <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-amber-500/50 transition-colors">
-                      <Map className="w-6 h-6 text-amber-400 group-hover/link:scale-110 transition-transform duration-300" />
+                    <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-primary-500/50 transition-colors">
+                      <Map className="w-6 h-6 text-primary-400 group-hover/link:scale-110 transition-transform duration-300" />
                     </div>
                     <div>
-                      <div className="text-[11px] text-amber-400 font-extrabold uppercase tracking-widest mb-1">Corporate HQ</div>
-                      <div className="text-xl font-bold group-hover/link:text-amber-300 transition-colors">Cullman, Alabama, USA</div>
+                      <div className="text-[11px] text-primary-400 font-extrabold uppercase tracking-widest mb-1">Corporate HQ</div>
+                      <div className="text-xl font-bold group-hover/link:text-primary-300 transition-colors">Cullman, Alabama, USA</div>
                     </div>
                   </a>
                 </div>
                 
-                <Link href="/contact" className="mt-12 block w-full bg-gradient-to-r from-amber-400 to-amber-600 text-navy-950 font-extrabold text-center py-4 rounded-xl uppercase tracking-widest text-[13px] hover:from-amber-300 hover:to-amber-500 transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(245,158,11,0.5)] relative z-10 transform hover:-translate-y-1">
+                <Link href="/contact" className="mt-12 block w-full bg-gradient-to-r from-primary-400 to-primary-600 text-navy-950 font-extrabold text-center py-4 rounded-xl uppercase tracking-widest text-[13px] hover:from-primary-300 hover:to-primary-500 transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(245,158,11,0.5)] relative z-10 transform hover:-translate-y-1">
                   Contact Us Today
                 </Link>
               </div>

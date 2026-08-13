@@ -16,7 +16,7 @@ export default function OEMCrossReferenceClient() {
         badge="Digital Engineering Tool"
         title={
           <>
-            OEM Cross-Reference <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-500 to-amber-600">Database</span>
+            OEM Cross-Reference <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-primary-500 to-primary-600">Database</span>
           </>
         }
         description="Instantly map competitor part numbers to our direct aftermarket equivalents. Engineered for exact fitment, guaranteed performance, and substantial cost savings."
@@ -68,9 +68,9 @@ export default function OEMCrossReferenceClient() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {/* Major Brake Brands */}
-            <motion.div variants={fadeInUp} className="bg-white rounded-[2rem] shadow-lg border border-slate-100 p-8 flex flex-col h-full hover:shadow-2xl hover:-translate-y-2 hover:border-amber-200 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <ShieldCheck className="w-6 h-6 text-amber-500" />
+            <motion.div variants={fadeInUp} className="bg-white rounded-[2rem] shadow-lg border border-slate-100 p-8 flex flex-col h-full hover:shadow-2xl hover:-translate-y-2 hover:border-primary-200 transition-all duration-300 group">
+              <div className="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <ShieldCheck className="w-6 h-6 text-primary-500" />
               </div>
               <h3 className="text-xl font-extrabold text-navy-900 mb-6">Brake Brands</h3>
               <ul className="space-y-2 mt-auto">
@@ -81,7 +81,7 @@ export default function OEMCrossReferenceClient() {
                   { name: 'View MGM Equivalents', path: 'mgm' }
                 ].map(item => (
                   <li key={item.name}>
-                    <Link href={`/oem-cross-reference/${item.path}`} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 text-slate-600 hover:text-amber-600 transition-colors group/link font-medium text-sm">
+                    <Link href={`/oem-cross-reference/${item.path}`} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 text-slate-600 hover:text-primary-600 transition-colors group/link font-medium text-sm">
                       {item.name} <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
                     </Link>
                   </li>
@@ -112,9 +112,9 @@ export default function OEMCrossReferenceClient() {
             </motion.div>
 
             {/* Axle & Suspension */}
-            <motion.div variants={fadeInUp} className="bg-white rounded-[2rem] shadow-lg border border-slate-100 p-8 flex flex-col h-full hover:shadow-2xl hover:-translate-y-2 hover:border-emerald-200 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Settings className="w-6 h-6 text-emerald-500" />
+            <motion.div variants={fadeInUp} className="bg-white rounded-[2rem] shadow-lg border border-slate-100 p-8 flex flex-col h-full hover:shadow-2xl hover:-translate-y-2 hover:border-success-200 transition-all duration-300 group">
+              <div className="w-12 h-12 bg-success-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Settings className="w-6 h-6 text-success-500" />
               </div>
               <h3 className="text-xl font-extrabold text-navy-900 mb-6">Suspension</h3>
               <ul className="space-y-2 mt-auto">
@@ -125,7 +125,7 @@ export default function OEMCrossReferenceClient() {
                   { name: 'Meritor Axle Apps', path: 'meritor-axles' }
                 ].map(item => (
                   <li key={item.name}>
-                    <Link href={`/oem-cross-reference/${item.path}`} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 text-slate-600 hover:text-emerald-600 transition-colors group/link font-medium text-sm">
+                    <Link href={`/oem-cross-reference/${item.path}`} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 text-slate-600 hover:text-success-600 transition-colors group/link font-medium text-sm">
                       {item.name} <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
                     </Link>
                   </li>
@@ -164,7 +164,7 @@ export default function OEMCrossReferenceClient() {
             
             {/* Left side: Imagery */}
             <div className="w-full lg:w-1/2 relative">
-              <div className="absolute top-0 left-0 w-64 h-64 bg-amber-100 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute top-0 left-0 w-64 h-64 bg-primary-100 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"></div>
               <motion.div 
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -188,7 +188,7 @@ export default function OEMCrossReferenceClient() {
                 Factory-Direct Advantage
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight leading-tight">
-                Why fleet managers choose <span className="text-amber-500">BRC replacements</span>.
+                Why fleet managers choose <span className="text-primary-500">BRC replacements</span>.
               </h2>
               <p className="text-slate-600 text-lg font-light leading-relaxed mb-10">
                 Consolidating your sourcing directly with the manufacturer ensures you get uncompromised quality without the brand markup. Every BRC chamber matches or exceeds OEM specifications.
@@ -239,8 +239,8 @@ export default function OEMCrossReferenceClient() {
             ].map((faq, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow group cursor-pointer">
                 <div className="flex justify-between items-center">
-                  <h4 className="text-lg font-bold text-navy-900 group-hover:text-amber-500 transition-colors">{faq.q}</h4>
-                  <ChevronDown className="w-5 h-5 text-slate-400 group-hover:text-amber-500 transition-colors" />
+                  <h4 className="text-lg font-bold text-navy-900 group-hover:text-primary-500 transition-colors">{faq.q}</h4>
+                  <ChevronDown className="w-5 h-5 text-slate-400 group-hover:text-primary-500 transition-colors" />
                 </div>
                 <p className="mt-4 text-slate-600 font-light leading-relaxed hidden group-hover:block">{faq.a}</p>
               </div>
@@ -254,21 +254,21 @@ export default function OEMCrossReferenceClient() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-success-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
             <div className="relative z-10">
-              <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-amber-500/20 backdrop-blur-sm">
-                <Wrench className="w-8 h-8 text-amber-400" />
+              <div className="w-20 h-20 bg-primary-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-primary-500/20 backdrop-blur-sm">
+                <Wrench className="w-8 h-8 text-primary-400" />
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 font-heading tracking-tight">Need a Custom Cross-Reference?</h2>
               <p className="text-navy-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                 If you have a specialized or legacy part number not found in our database, our engineering team can reverse-engineer and match it to a BRC equivalent within 24 hours.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/contact" className="w-full sm:w-auto inline-flex justify-center items-center gap-3 bg-amber-500 text-navy-950 font-extrabold text-[13px] px-10 py-5 rounded-2xl hover:bg-amber-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-amber-500/30 uppercase tracking-widest">
+                <Link href="/contact" className="w-full sm:w-auto inline-flex justify-center items-center gap-3 bg-primary-500 text-navy-950 font-extrabold text-[13px] px-10 py-5 rounded-2xl hover:bg-primary-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-primary-500/30 uppercase tracking-widest">
                   Upload Bulk Part List <ArrowRight className="w-5 h-5" />
                 </Link>
-                <Link href="/database" className="w-full sm:w-auto inline-flex justify-center items-center gap-3 bg-navy-800/60 text-white font-extrabold text-[13px] px-10 py-5 rounded-2xl border border-navy-600 hover:border-amber-500 hover:text-amber-400 transition-all uppercase tracking-widest">
+                <Link href="/database" className="w-full sm:w-auto inline-flex justify-center items-center gap-3 bg-navy-800/60 text-white font-extrabold text-[13px] px-10 py-5 rounded-2xl border border-navy-600 hover:border-primary-500 hover:text-primary-400 transition-all uppercase tracking-widest">
                   Download PDF Catalog
                 </Link>
               </div>

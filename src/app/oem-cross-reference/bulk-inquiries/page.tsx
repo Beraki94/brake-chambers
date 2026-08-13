@@ -23,7 +23,7 @@ export default function BulkInquiriesPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1 space-y-6">
             <div className="bg-white rounded-2xl shadow-md border border-navy-50 p-8 flex gap-4">
-              <Factory className="w-8 h-8 text-amber-500 flex-shrink-0" />
+              <Factory className="w-8 h-8 text-primary-500 flex-shrink-0" />
               <div>
                 <h3 className="font-bold text-navy-900 mb-1">Custom Manufacturing</h3>
                 <p className="text-sm text-navy-600">Special stroke lengths, custom port alignments, and bespoke spring force ratings.</p>
@@ -31,7 +31,7 @@ export default function BulkInquiriesPage() {
             </div>
             
             <div className="bg-white rounded-2xl shadow-md border border-navy-50 p-8 flex gap-4">
-              <FileCheck className="w-8 h-8 text-amber-500 flex-shrink-0" />
+              <FileCheck className="w-8 h-8 text-primary-500 flex-shrink-0" />
               <div>
                 <h3 className="font-bold text-navy-900 mb-1">Private Labeling</h3>
                 <p className="text-sm text-navy-600">Custom paint, etched logos, and branded packaging for your distribution network.</p>
@@ -39,7 +39,7 @@ export default function BulkInquiriesPage() {
             </div>
             
             <div className="bg-white rounded-2xl shadow-md border border-navy-50 p-8 flex gap-4">
-              <ShieldCheck className="w-8 h-8 text-amber-500 flex-shrink-0" />
+              <ShieldCheck className="w-8 h-8 text-primary-500 flex-shrink-0" />
               <div>
                 <h3 className="font-bold text-navy-900 mb-1">ISO 9001 Compliance</h3>
                 <p className="text-sm text-navy-600">Rigorous audit trails, material certifications, and batch testing provided for every container.</p>
@@ -76,7 +76,7 @@ export default function BulkInquiriesPage() {
                 <label className="block text-sm font-bold text-navy-900 mb-2">Engineering / Customization Requirements</label>
                 <textarea rows={5} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="Please describe the specifications required, including any OEM part numbers for reference..."></textarea>
               </div>
-              <button type="button" className="w-full bg-amber-500 text-navy-900 font-extrabold text-lg py-4 rounded-xl hover:bg-amber-400 shadow-lg shadow-amber-500/30 transition-all active:scale-[0.98]">
+              <button type="button" className="w-full bg-primary-500 text-navy-900 font-extrabold text-lg py-4 rounded-xl hover:bg-primary-400 shadow-lg shadow-primary-500/30 transition-all active:scale-[0.98]">
                 Send Request to Engineering
               </button>
             </form>

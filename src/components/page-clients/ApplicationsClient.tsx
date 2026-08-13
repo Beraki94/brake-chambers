@@ -27,7 +27,7 @@ export default function ApplicationsClient() {
       title: 'Severe-Duty',
       slug: 'severe-duty',
       desc: 'Surviving in environments where pavement ends and the most punishing, high-cycle conditions begin. Built with reinforced housings for extreme vibration.',
-      icon: <ShieldAlert className="w-8 h-8 text-amber-500" />,
+      icon: <ShieldAlert className="w-8 h-8 text-primary-500" />,
       image: '/images/specialty_vehicle.png',
       accent: 'amber',
       links: [
@@ -40,7 +40,7 @@ export default function ApplicationsClient() {
       title: 'Passenger & Transit',
       slug: 'passenger-transit',
       desc: 'Precision modulation and failsafe reliability required for carrying the most precious cargo. Engineered for frequent start-stop city cycles.',
-      icon: <Bus className="w-8 h-8 text-emerald-500" />,
+      icon: <Bus className="w-8 h-8 text-success-500" />,
       image: '/images/transit_bus.png',
       accent: 'emerald',
       links: [
@@ -98,8 +98,8 @@ export default function ApplicationsClient() {
                       {/* Interactive Gradients */}
                       <div className={`absolute inset-0 z-10 transition-colors duration-700
                         ${group.accent === 'blue' ? 'bg-blue-900/20 group-hover:bg-blue-900/10' : ''}
-                        ${group.accent === 'amber' ? 'bg-amber-900/20 group-hover:bg-amber-900/10' : ''}
-                        ${group.accent === 'emerald' ? 'bg-emerald-900/20 group-hover:bg-emerald-900/10' : ''}
+                        ${group.accent === 'amber' ? 'bg-primary-900/20 group-hover:bg-primary-900/10' : ''}
+                        ${group.accent === 'emerald' ? 'bg-success-900/20 group-hover:bg-success-900/10' : ''}
                         ${group.accent === 'purple' ? 'bg-purple-900/20 group-hover:bg-purple-900/10' : ''}
                       `} />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-30 transition-opacity duration-700" />
@@ -126,8 +126,8 @@ export default function ApplicationsClient() {
                       {/* Subtle hover background glow */}
                       <div className={`absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none
                         ${group.accent === 'blue' ? 'bg-gradient-to-br from-blue-50/50 to-transparent' : ''}
-                        ${group.accent === 'amber' ? 'bg-gradient-to-br from-amber-50/50 to-transparent' : ''}
-                        ${group.accent === 'emerald' ? 'bg-gradient-to-br from-emerald-50/50 to-transparent' : ''}
+                        ${group.accent === 'amber' ? 'bg-gradient-to-br from-primary-50/50 to-transparent' : ''}
+                        ${group.accent === 'emerald' ? 'bg-gradient-to-br from-success-50/50 to-transparent' : ''}
                         ${group.accent === 'purple' ? 'bg-gradient-to-br from-purple-50/50 to-transparent' : ''}
                       `} />
 
@@ -135,8 +135,8 @@ export default function ApplicationsClient() {
                         <div className="flex items-center gap-5 mb-8">
                           <div className={`w-16 h-16 rounded-2xl flex items-center justify-center border flex-shrink-0 shadow-sm
                             ${group.accent === 'blue' ? 'bg-blue-50 border-blue-100' : ''}
-                            ${group.accent === 'amber' ? 'bg-amber-50 border-amber-100' : ''}
-                            ${group.accent === 'emerald' ? 'bg-emerald-50 border-emerald-100' : ''}
+                            ${group.accent === 'amber' ? 'bg-primary-50 border-primary-100' : ''}
+                            ${group.accent === 'emerald' ? 'bg-success-50 border-success-100' : ''}
                             ${group.accent === 'purple' ? 'bg-purple-50 border-purple-100' : ''}
                           `}>
                             {group.icon}
@@ -159,34 +159,34 @@ export default function ApplicationsClient() {
                                 href={link.id} 
                                 className={`flex items-center gap-4 p-4 bg-slate-50/80 backdrop-blur-sm rounded-xl border border-slate-100 transition-all group/link hover:shadow-md hover:bg-white
                                   ${group.accent === 'blue' ? 'hover:border-blue-300' : ''}
-                                  ${group.accent === 'amber' ? 'hover:border-amber-300' : ''}
-                                  ${group.accent === 'emerald' ? 'hover:border-emerald-300' : ''}
+                                  ${group.accent === 'amber' ? 'hover:border-primary-300' : ''}
+                                  ${group.accent === 'emerald' ? 'hover:border-success-300' : ''}
                                   ${group.accent === 'purple' ? 'hover:border-purple-300' : ''}
                                 `}
                               >
                                 <div className={`w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0 transition-colors
                                   ${group.accent === 'blue' ? 'group-hover/link:bg-blue-50' : ''}
-                                  ${group.accent === 'amber' ? 'group-hover/link:bg-amber-50' : ''}
-                                  ${group.accent === 'emerald' ? 'group-hover/link:bg-emerald-50' : ''}
+                                  ${group.accent === 'amber' ? 'group-hover/link:bg-primary-50' : ''}
+                                  ${group.accent === 'emerald' ? 'group-hover/link:bg-success-50' : ''}
                                   ${group.accent === 'purple' ? 'group-hover/link:bg-purple-50' : ''}
                                 `}>
                                   <CheckCircle2 className={`w-4 h-4 text-slate-300 transition-colors
                                     ${group.accent === 'blue' ? 'group-hover/link:text-blue-500' : ''}
-                                    ${group.accent === 'amber' ? 'group-hover/link:text-amber-500' : ''}
-                                    ${group.accent === 'emerald' ? 'group-hover/link:text-emerald-500' : ''}
+                                    ${group.accent === 'amber' ? 'group-hover/link:text-primary-500' : ''}
+                                    ${group.accent === 'emerald' ? 'group-hover/link:text-success-500' : ''}
                                     ${group.accent === 'purple' ? 'group-hover/link:text-purple-500' : ''}
                                   `} />
                                 </div>
                                 <span className={`font-bold text-navy-800 text-sm transition-colors
                                   ${group.accent === 'blue' ? 'group-hover/link:text-blue-700' : ''}
-                                  ${group.accent === 'amber' ? 'group-hover/link:text-amber-700' : ''}
-                                  ${group.accent === 'emerald' ? 'group-hover/link:text-emerald-700' : ''}
+                                  ${group.accent === 'amber' ? 'group-hover/link:text-primary-700' : ''}
+                                  ${group.accent === 'emerald' ? 'group-hover/link:text-success-700' : ''}
                                   ${group.accent === 'purple' ? 'group-hover/link:text-purple-700' : ''}
                                 `}>{link.title}</span>
                                 <ArrowRight className={`w-4 h-4 text-slate-300 ml-auto transition-all group-hover/link:translate-x-1
                                   ${group.accent === 'blue' ? 'group-hover/link:text-blue-500' : ''}
-                                  ${group.accent === 'amber' ? 'group-hover/link:text-amber-500' : ''}
-                                  ${group.accent === 'emerald' ? 'group-hover/link:text-emerald-500' : ''}
+                                  ${group.accent === 'amber' ? 'group-hover/link:text-primary-500' : ''}
+                                  ${group.accent === 'emerald' ? 'group-hover/link:text-success-500' : ''}
                                   ${group.accent === 'purple' ? 'group-hover/link:text-purple-500' : ''}
                                 `} />
                               </Link>
@@ -199,8 +199,8 @@ export default function ApplicationsClient() {
                             href={`/${group.slug}`}
                             className={`inline-flex w-full items-center justify-center px-8 py-4 text-white rounded-xl font-bold tracking-wide transition-all shadow-lg group/btn
                               ${group.accent === 'blue' ? 'bg-navy-900 hover:bg-blue-600' : ''}
-                              ${group.accent === 'amber' ? 'bg-navy-900 hover:bg-amber-500 hover:text-navy-900' : ''}
-                              ${group.accent === 'emerald' ? 'bg-navy-900 hover:bg-emerald-500 hover:text-navy-900' : ''}
+                              ${group.accent === 'amber' ? 'bg-navy-900 hover:bg-primary-500 hover:text-navy-900' : ''}
+                              ${group.accent === 'emerald' ? 'bg-navy-900 hover:bg-success-500 hover:text-navy-900' : ''}
                               ${group.accent === 'purple' ? 'bg-navy-900 hover:bg-purple-600' : ''}
                             `}
                           >
@@ -224,7 +224,7 @@ export default function ApplicationsClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight leading-tight">
-              Tested for the <span className="text-amber-500">Extremes</span>
+              Tested for the <span className="text-primary-500">Extremes</span>
             </h2>
             <p className="text-slate-600 text-lg font-light leading-relaxed">
               Our application-specific engineering means your brake chambers don't just meet standards—they survive the harshest operational environments on the planet.
@@ -241,8 +241,8 @@ export default function ApplicationsClient() {
             {[
               { icon: ThermometerSnowflake, color: "text-blue-600", bg: "bg-blue-100", title: "Sub-Zero Rated", desc: "Specialized diaphragms maintain flexibility and prevent cracking in -40°F Arctic linehaul routes." },
               { icon: Flame, color: "text-red-600", bg: "bg-red-100", title: "High-Heat Tolerance", desc: "Advanced return springs and seals withstand immense thermal soak during steep grade descents." },
-              { icon: Droplets, color: "text-emerald-600", bg: "bg-emerald-100", title: "Corrosion Proof", desc: "Multi-stage E-coating provides unmatched resistance against winter road salts and ocean spray." },
-              { icon: Activity, color: "text-amber-600", bg: "bg-amber-100", title: "Vibration Dampening", desc: "Reinforced steel housings prevent stress fractures on punishing off-highway mining roads." }
+              { icon: Droplets, color: "text-success-600", bg: "bg-success-100", title: "Corrosion Proof", desc: "Multi-stage E-coating provides unmatched resistance against winter road salts and ocean spray." },
+              { icon: Activity, color: "text-primary-600", bg: "bg-primary-100", title: "Vibration Dampening", desc: "Reinforced steel housings prevent stress fractures on punishing off-highway mining roads." }
             ].map((stat, idx) => (
               <motion.div 
                 key={idx}
@@ -267,15 +267,15 @@ export default function ApplicationsClient() {
             
             <div className="w-full lg:w-1/3 flex justify-center">
               <div className="relative">
-                <div className="w-48 h-48 bg-slate-50 rounded-full flex items-center justify-center border-4 border-amber-100 shadow-lg relative z-10">
-                  <CheckCircle2 className="w-24 h-24 text-amber-500" />
+                <div className="w-48 h-48 bg-slate-50 rounded-full flex items-center justify-center border-4 border-primary-100 shadow-lg relative z-10">
+                  <CheckCircle2 className="w-24 h-24 text-primary-500" />
                 </div>
               </div>
             </div>
             
             <div className="w-full lg:w-2/3 relative z-10">
               <h2 className="text-3xl md:text-4xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight">
-                The BRC Performance <span className="text-amber-500">Guarantee</span>
+                The BRC Performance <span className="text-primary-500">Guarantee</span>
               </h2>
               <p className="text-slate-600 text-lg font-light leading-relaxed mb-8">
                 We don't just build brake chambers; we build confidence. Every BRC application-specific chamber is backed by our industry-leading guarantee to match or exceed OEM operational lifespan.
@@ -283,8 +283,8 @@ export default function ApplicationsClient() {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
-                    <ShieldAlert className="w-6 h-6 text-emerald-600" />
+                  <div className="w-12 h-12 rounded-full bg-success-100 flex items-center justify-center shrink-0">
+                    <ShieldAlert className="w-6 h-6 text-success-600" />
                   </div>
                   <div>
                     <h4 className="font-bold text-navy-900">3-Year Warranty</h4>
@@ -311,17 +311,17 @@ export default function ApplicationsClient() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-success-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
             <div className="relative z-10">
-              <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-amber-500/20 backdrop-blur-sm">
-                <Settings className="w-8 h-8 text-amber-400" />
+              <div className="w-20 h-20 bg-primary-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-primary-500/20 backdrop-blur-sm">
+                <Settings className="w-8 h-8 text-primary-400" />
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 font-heading tracking-tight">Need a Custom Manufacturing Solution?</h2>
               <p className="text-navy-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                 Our engineering team can design, prototype, and produce custom air brake actuators tailored to your specific mechanical requirements.
               </p>
-              <Link href="/quote" className="inline-block bg-amber-500 text-navy-950 font-extrabold text-[13px] px-10 py-5 rounded-2xl hover:bg-amber-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-amber-500/30 uppercase tracking-widest">
+              <Link href="/quote" className="inline-block bg-primary-500 text-navy-950 font-extrabold text-[13px] px-10 py-5 rounded-2xl hover:bg-primary-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-primary-500/30 uppercase tracking-widest">
                 Submit Engineering Specifications
               </Link>
             </div>

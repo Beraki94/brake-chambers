@@ -89,7 +89,7 @@ export default function ProductsClient() {
             <Link 
               key={item.name} 
               href={item.href}
-              className="bg-navy-900/60 hover:bg-amber-500 hover:text-navy-950 text-white border border-navy-700 backdrop-blur-md px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all shadow-lg"
+              className="bg-navy-900/60 hover:bg-primary-500 hover:text-navy-950 text-white border border-navy-700 backdrop-blur-md px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all shadow-lg"
             >
               {item.name}
             </Link>
@@ -125,24 +125,24 @@ export default function ProductsClient() {
                   {/* Rich Gradients */}
                   <div className={`absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-900/90 to-navy-900/40 opacity-90 transition-opacity duration-500 group-hover:opacity-100`}></div>
                   {/* Accent color overlay */}
-                  {group.accent === 'amber' && <div className="absolute inset-0 bg-amber-900/20 mix-blend-color"></div>}
+                  {group.accent === 'amber' && <div className="absolute inset-0 bg-primary-900/20 mix-blend-color"></div>}
                   {group.accent === 'blue' && <div className="absolute inset-0 bg-blue-900/20 mix-blend-color"></div>}
-                  {group.accent === 'emerald' && <div className="absolute inset-0 bg-emerald-900/20 mix-blend-color"></div>}
+                  {group.accent === 'emerald' && <div className="absolute inset-0 bg-success-900/20 mix-blend-color"></div>}
                   {group.accent === 'purple' && <div className="absolute inset-0 bg-purple-900/20 mix-blend-color"></div>}
 
                   {/* Accent Glow */}
                   <div className={`absolute -bottom-20 -right-20 w-64 h-64 blur-[80px] rounded-full transition-opacity duration-500 opacity-0 group-hover:opacity-40
-                    ${group.accent === 'amber' ? 'bg-amber-500' : ''}
+                    ${group.accent === 'amber' ? 'bg-primary-500' : ''}
                     ${group.accent === 'blue' ? 'bg-blue-500' : ''}
-                    ${group.accent === 'emerald' ? 'bg-emerald-500' : ''}
+                    ${group.accent === 'emerald' ? 'bg-success-500' : ''}
                     ${group.accent === 'purple' ? 'bg-purple-500' : ''}
                   `}></div>
 
                   <div className="relative z-10 p-10 lg:p-12 h-full flex flex-col">
                     <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-auto border backdrop-blur-md shadow-lg transform group-hover:-translate-y-2 transition-transform duration-500
-                      ${group.accent === 'amber' ? 'bg-amber-500/20 border-amber-400/30' : ''}
+                      ${group.accent === 'amber' ? 'bg-primary-500/20 border-primary-400/30' : ''}
                       ${group.accent === 'blue' ? 'bg-blue-500/20 border-blue-400/30' : ''}
-                      ${group.accent === 'emerald' ? 'bg-emerald-500/20 border-emerald-400/30' : ''}
+                      ${group.accent === 'emerald' ? 'bg-success-500/20 border-success-400/30' : ''}
                       ${group.accent === 'purple' ? 'bg-purple-500/20 border-purple-400/30' : ''}
                     `}>
                       {group.icon}
@@ -159,9 +159,9 @@ export default function ProductsClient() {
                       <Link
                         href={`/${group.slug}`}
                         className={`inline-flex items-center text-white font-bold tracking-wide uppercase text-sm transition-all
-                          ${group.accent === 'amber' ? 'hover:text-amber-400' : ''}
+                          ${group.accent === 'amber' ? 'hover:text-primary-400' : ''}
                           ${group.accent === 'blue' ? 'hover:text-blue-400' : ''}
-                          ${group.accent === 'emerald' ? 'hover:text-emerald-400' : ''}
+                          ${group.accent === 'emerald' ? 'hover:text-success-400' : ''}
                           ${group.accent === 'purple' ? 'hover:text-purple-400' : ''}
                         `}
                       >
@@ -181,18 +181,18 @@ export default function ProductsClient() {
                     >
                       {/* Interactive Gradient Background */}
                       <div className={`absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none
-                        ${group.accent === 'amber' ? 'bg-gradient-to-br from-amber-500/5 to-transparent' : ''}
+                        ${group.accent === 'amber' ? 'bg-gradient-to-br from-primary-500/5 to-transparent' : ''}
                         ${group.accent === 'blue' ? 'bg-gradient-to-br from-blue-500/5 to-transparent' : ''}
-                        ${group.accent === 'emerald' ? 'bg-gradient-to-br from-emerald-500/5 to-transparent' : ''}
+                        ${group.accent === 'emerald' ? 'bg-gradient-to-br from-success-500/5 to-transparent' : ''}
                         ${group.accent === 'purple' ? 'bg-gradient-to-br from-purple-500/5 to-transparent' : ''}
                       `}></div>
 
                       <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
                           <h3 className={`text-xl lg:text-2xl font-extrabold text-navy-900 transition-colors
-                            ${group.accent === 'amber' ? 'group-hover/card:text-amber-600' : ''}
+                            ${group.accent === 'amber' ? 'group-hover/card:text-primary-600' : ''}
                             ${group.accent === 'blue' ? 'group-hover/card:text-blue-600' : ''}
-                            ${group.accent === 'emerald' ? 'group-hover/card:text-emerald-600' : ''}
+                            ${group.accent === 'emerald' ? 'group-hover/card:text-success-600' : ''}
                             ${group.accent === 'purple' ? 'group-hover/card:text-purple-600' : ''}
                           `}>
                             {link.title}
@@ -205,9 +205,9 @@ export default function ProductsClient() {
                       
                       <div className="relative z-10 mt-8 flex justify-end">
                         <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-inner group-hover/card:shadow-md
-                          ${group.accent === 'amber' ? 'bg-slate-50 group-hover/card:bg-amber-50 text-slate-400 group-hover/card:text-amber-600 group-hover/card:scale-110' : ''}
+                          ${group.accent === 'amber' ? 'bg-slate-50 group-hover/card:bg-primary-50 text-slate-400 group-hover/card:text-primary-600 group-hover/card:scale-110' : ''}
                           ${group.accent === 'blue' ? 'bg-slate-50 group-hover/card:bg-blue-50 text-slate-400 group-hover/card:text-blue-600 group-hover/card:scale-110' : ''}
-                          ${group.accent === 'emerald' ? 'bg-slate-50 group-hover/card:bg-emerald-50 text-slate-400 group-hover/card:text-emerald-600 group-hover/card:scale-110' : ''}
+                          ${group.accent === 'emerald' ? 'bg-slate-50 group-hover/card:bg-success-50 text-slate-400 group-hover/card:text-success-600 group-hover/card:scale-110' : ''}
                           ${group.accent === 'purple' ? 'bg-slate-50 group-hover/card:bg-purple-50 text-slate-400 group-hover/card:text-purple-600 group-hover/card:scale-110' : ''}
                         `}>
                           <ChevronRight className="w-6 h-6" />
@@ -228,7 +228,7 @@ export default function ProductsClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight leading-tight">
-              The BRC Manufacturing <span className="text-emerald-500">Standard</span>
+              The BRC Manufacturing <span className="text-success-500">Standard</span>
             </h2>
             <p className="text-slate-600 text-lg font-light leading-relaxed">
               Every brake chamber in our catalog is engineered in-house and built to outlast OEM equivalents in the most severe operating environments.
@@ -252,8 +252,8 @@ export default function ProductsClient() {
                 variants={fadeInUp} 
                 className="bg-white p-10 rounded-[2rem] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] border border-slate-100 hover:-translate-y-2 transition-transform duration-500"
               >
-                <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mb-8">
-                  <feature.icon className="w-8 h-8 text-emerald-500" />
+                <div className="w-16 h-16 bg-success-50 rounded-2xl flex items-center justify-center mb-8">
+                  <feature.icon className="w-8 h-8 text-success-500" />
                 </div>
                 <h4 className="text-xl font-extrabold text-navy-900 mb-4">{feature.title}</h4>
                 <p className="text-slate-600 leading-relaxed font-light">{feature.desc}</p>
@@ -269,7 +269,7 @@ export default function ProductsClient() {
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <div className="w-full lg:w-1/2">
               <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight leading-tight">
-                Trusted by <span className="text-amber-500">Global Fleets</span>
+                Trusted by <span className="text-primary-500">Global Fleets</span>
               </h2>
               <p className="text-slate-600 text-lg font-light leading-relaxed mb-8">
                 From sub-zero Arctic logging routes to blistering desert mining operations, our brake chambers are the chosen aftermarket replacement for the world's most demanding fleets.
@@ -298,17 +298,17 @@ export default function ProductsClient() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-success-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
             <div className="relative z-10">
-              <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-amber-500/20 backdrop-blur-sm">
-                <Package className="w-8 h-8 text-amber-400" />
+              <div className="w-20 h-20 bg-primary-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-primary-500/20 backdrop-blur-sm">
+                <Package className="w-8 h-8 text-primary-400" />
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 font-heading tracking-tight">Need Wholesale Pricing?</h2>
               <p className="text-navy-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                 We offer tiered volume discounts and direct container shipping for distributors and large fleets worldwide.
               </p>
-              <Link href="/contact" className="inline-block bg-amber-500 text-navy-950 font-extrabold text-[13px] px-10 py-5 rounded-2xl hover:bg-amber-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-amber-500/30 uppercase tracking-widest">
+              <Link href="/contact" className="inline-block bg-primary-500 text-navy-950 font-extrabold text-[13px] px-10 py-5 rounded-2xl hover:bg-primary-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-primary-500/30 uppercase tracking-widest">
                 Request a Custom Quote
               </Link>
             </div>

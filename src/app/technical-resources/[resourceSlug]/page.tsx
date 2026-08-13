@@ -39,7 +39,7 @@ const TECHNICAL_RESOURCES_DATA: Record<string, any> = {
     title: 'Troubleshooting Guides',
     category: 'Installation & Maint.',
     description: 'Diagnose common pneumatic and mechanical issues in heavy-duty brake systems.',
-    icon: <AlertTriangle className="w-6 h-6 text-amber-500" />,
+    icon: <AlertTriangle className="w-6 h-6 text-primary-500" />,
     content: 'Quickly identify the root cause of brake drag, slow release times, air leaks, or uneven braking force across axles.',
     bullets: [
       'Diagnosing service chamber air leaks (center seal vs. diaphragm)',
@@ -70,7 +70,7 @@ const TECHNICAL_RESOURCES_DATA: Record<string, any> = {
     title: 'Size & Dimension Charts',
     category: 'Specifications & Sizing',
     description: 'Comprehensive dimension tables for Type 12 through Type 36 service and spring brakes.',
-    icon: <Ruler className="w-6 h-6 text-emerald-500" />,
+    icon: <Ruler className="w-6 h-6 text-success-500" />,
     content: 'Ensure proper fitment by verifying the exact outside diameter (OD), overall length, and stud spacing for all BRC chamber sizes. All dimensions strictly adhere to industry standard SAE J1469 protocols.',
     bullets: [
       'Type 20/24 dimensions and pushrod thread specs',
@@ -84,7 +84,7 @@ const TECHNICAL_RESOURCES_DATA: Record<string, any> = {
     title: 'Stroke Length Guide',
     category: 'Specifications & Sizing',
     description: 'Understanding standard vs. long-stroke limits and legal DOT out-of-service criteria.',
-    icon: <Ruler className="w-6 h-6 text-emerald-500" />,
+    icon: <Ruler className="w-6 h-6 text-success-500" />,
     content: 'Stroke length determines the operating limit of your brakes. BRC produces both standard and long-stroke chambers. It is critical to match the stroke type to your slack adjusters and vehicle specifications.',
     bullets: [
       'Standard Stroke limits (e.g., 2.0" limit for Type 30)',
@@ -97,7 +97,7 @@ const TECHNICAL_RESOURCES_DATA: Record<string, any> = {
     title: 'Pushrod Calculations',
     category: 'Specifications & Sizing',
     description: 'Formulas and guides for cutting pushrods to the exact length required for your chassis.',
-    icon: <FileCog className="w-6 h-6 text-emerald-500" />,
+    icon: <FileCog className="w-6 h-6 text-success-500" />,
     content: 'Incorrect pushrod length alters the angle of the slack adjuster, significantly reducing braking force and causing premature wear. Follow our calculation guides to ensure a perfect 90-degree angle upon brake application.',
     bullets: [
       'Measuring from the mounting face to the center of the clevis pin',
@@ -110,7 +110,7 @@ const TECHNICAL_RESOURCES_DATA: Record<string, any> = {
     title: 'Air Port Thread Sizes',
     category: 'Specifications & Sizing',
     description: 'Standardization guide for NPTF and metric pneumatic port threads.',
-    icon: <Settings className="w-6 h-6 text-emerald-500" />,
+    icon: <Settings className="w-6 h-6 text-success-500" />,
     content: 'Avoid cross-threading and air leaks by correctly identifying the pneumatic port threads on your chambers. We offer various thread standards depending on the geographic market and OEM requirement.',
     bullets: [
       'Standard 3/8-18 NPTF ports (North American standard)',
@@ -180,7 +180,7 @@ const TECHNICAL_RESOURCES_DATA: Record<string, any> = {
     title: 'CAD Models & 3D Files',
     category: 'Engineering & Training',
     description: 'Downloadable STEP and IGES files for chassis engineers and suspension designers.',
-    icon: <Cpu className="w-6 h-6 text-amber-500" />,
+    icon: <Cpu className="w-6 h-6 text-primary-500" />,
     content: 'Integrate BRC actuators directly into your digital twin. We provide highly accurate 3D CAD models of our entire product line to assist OEMs with clearance testing and bracket design.',
     bullets: [
       'Type 16 through Type 36 3D models',
@@ -194,7 +194,7 @@ const TECHNICAL_RESOURCES_DATA: Record<string, any> = {
     title: 'Material Specifications',
     category: 'Engineering & Training',
     description: 'Metallurgical data and rubber compound properties used in BRC chambers.',
-    icon: <FileCog className="w-6 h-6 text-amber-500" />,
+    icon: <FileCog className="w-6 h-6 text-primary-500" />,
     content: 'Our durability stems from our materials. Review the exact metallurgical specifications of our housings and the chemical properties of our synthetic elastomers.',
     bullets: [
       '8-gauge and 9-gauge steel housing tensile strengths',
@@ -207,7 +207,7 @@ const TECHNICAL_RESOURCES_DATA: Record<string, any> = {
     title: 'Video Training Library',
     category: 'Engineering & Training',
     description: 'Visual step-by-step guides for mechanics and fleet maintenance managers.',
-    icon: <Video className="w-6 h-6 text-amber-500" />,
+    icon: <Video className="w-6 h-6 text-primary-500" />,
     content: 'Sometimes it is easier to watch a professional. Our video library covers everything from basic pushrod cutting to advanced diagnostic techniques, designed specifically for shop mechanics.',
     bullets: [
       'How to safely cage a spring brake (2 min)',
@@ -220,7 +220,7 @@ const TECHNICAL_RESOURCES_DATA: Record<string, any> = {
     title: 'Engineering Whitepapers',
     category: 'Engineering & Training',
     description: 'In-depth research on braking dynamics, thermal efficiency, and next-gen actuators.',
-    icon: <FileText className="w-6 h-6 text-amber-500" />,
+    icon: <FileText className="w-6 h-6 text-primary-500" />,
     content: 'Stay ahead of industry trends. Our R&D team regularly publishes whitepapers on the future of commercial vehicle braking, including smart sensors, weight reduction, and thermal management.',
     bullets: [
       'The Impact of High-Temp Elastomers in Refuse Applications',
@@ -273,7 +273,7 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
               <li><span className="text-navy-600">/</span></li>
               <li><Link href="/technical-resources" className="hover:text-white transition-colors">Technical Resources</Link></li>
               <li><span className="text-navy-600">/</span></li>
-              <li className="text-amber-400 font-semibold" aria-current="page">{data.title}</li>
+              <li className="text-primary-400 font-semibold" aria-current="page">{data.title}</li>
             </ol>
           </nav>
         </div>
@@ -294,7 +294,7 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
               <ul className="space-y-4">
                 {data.bullets.map((bullet: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
-                    <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-primary-500 shrink-0 mt-0.5" />
                     <span className="text-slate-700">{bullet}</span>
                   </li>
                 ))}
@@ -308,7 +308,7 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
                   <h3 className="text-xl font-bold mb-2">Related Document</h3>
                   <p className="text-navy-200">{data.download.name} ({data.download.size})</p>
                 </div>
-                <button className="shrink-0 bg-amber-500 hover:bg-amber-400 text-navy-900 font-bold px-6 py-3 rounded-xl transition-colors flex items-center gap-2">
+                <button className="shrink-0 bg-primary-500 hover:bg-primary-400 text-navy-900 font-bold px-6 py-3 rounded-xl transition-colors flex items-center gap-2">
                   <Download className="w-5 h-5" /> Download Now
                 </button>
               </div>
@@ -329,10 +329,10 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
                     className="group block p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all"
                   >
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-semibold text-slate-600 group-hover:text-amber-600 transition-colors">
+                      <span className="text-sm font-semibold text-slate-600 group-hover:text-primary-600 transition-colors">
                         {item.title}
                       </span>
-                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
+                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-primary-500 group-hover:translate-x-1 transition-all" />
                     </div>
                   </Link>
                 ))}

@@ -45,7 +45,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
             href={createPageURL(page)}
             className={`w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-all ${
               isActive 
-                ? 'bg-amber-500 text-navy-900 shadow-md border-amber-500 shadow-amber-500/20' 
+                ? 'bg-primary-500 text-navy-900 shadow-md border-primary-500 shadow-primary-500/20' 
                 : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-navy-900'
             }`}
           >

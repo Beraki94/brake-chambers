@@ -66,8 +66,8 @@ export default function LeadershipClient() {
                   <img src={`https://i.pravatar.cc/300?img=${leader.img}`} alt={leader.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                 </div>
                 <h3 className="text-2xl font-bold text-navy-900 mb-1">{leader.name}</h3>
-                <p className="text-amber-600 text-sm font-bold uppercase tracking-widest mb-4">{leader.role}</p>
-                <div className="w-12 h-1 bg-slate-100 mx-auto mb-4 group-hover:bg-amber-400 transition-colors"></div>
+                <p className="text-primary-600 text-sm font-bold uppercase tracking-widest mb-4">{leader.role}</p>
+                <div className="w-12 h-1 bg-slate-100 mx-auto mb-4 group-hover:bg-primary-400 transition-colors"></div>
                 <p className="text-slate-500 text-sm leading-relaxed mb-6">
                   {leader.bio}
                 </p>
@@ -84,7 +84,7 @@ export default function LeadershipClient() {
       <section className="bg-white py-16 border-t border-slate-200 text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight">Discover How We Build</h2>
-          <Link href="/company/production-process" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
+          <Link href="/company/production-process" className="inline-flex items-center text-primary-500 font-bold hover:text-primary-400 transition-colors uppercase tracking-widest text-lg">
             Explore Our Production Process <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>

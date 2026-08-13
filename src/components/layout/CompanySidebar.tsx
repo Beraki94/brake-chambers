@@ -29,22 +29,22 @@ export default function CompanySidebar() {
               href={link.href}
               className={`flex items-center gap-4 p-3 rounded-xl transition-all group ${
                 isActive 
-                  ? 'bg-amber-100 border border-amber-100' 
+                  ? 'bg-primary-100 border border-primary-100' 
                   : 'hover:bg-slate-50 border border-transparent'
               }`}
             >
               <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
-                isActive ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-500 group-hover:bg-amber-100 group-hover:text-amber-500'
+                isActive ? 'bg-primary-100 text-primary-700' : 'bg-slate-100 text-slate-500 group-hover:bg-primary-100 group-hover:text-primary-500'
               }`}>
                 {link.icon}
               </div>
               <span className={`font-semibold text-sm transition-colors ${
-                isActive ? 'text-amber-700' : 'text-navy-700 group-hover:text-amber-700'
+                isActive ? 'text-primary-700' : 'text-navy-700 group-hover:text-primary-700'
               }`}>
                 {link.title}
               </span>
               <ArrowRight className={`w-4 h-4 ml-auto transition-all ${
-                isActive ? 'text-amber-500 translate-x-1' : 'text-slate-300 group-hover:text-amber-500 group-hover:translate-x-1'
+                isActive ? 'text-primary-500 translate-x-1' : 'text-slate-300 group-hover:text-primary-500 group-hover:translate-x-1'
               }`} />
             </Link>
           );

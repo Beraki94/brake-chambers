@@ -112,7 +112,7 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
                   : 'text-navy-400 hover:text-white hover:bg-navy-900'
               }`}
             >
-              {isInteractive && <CheckCircle2 className="w-4 h-4 text-amber-400" />}
+              {isInteractive && <CheckCircle2 className="w-4 h-4 text-primary-400" />}
               {data.tab2}
             </button>
           </div>
@@ -121,7 +121,7 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
           <div className={`p-5 rounded-2xl border transition-all duration-500 max-w-md ${
             isInteractive ? 'bg-navy-800/50 border-[#D9B340]/30' : 'bg-navy-800/50 border-cyan-500/30'
           }`}>
-            <h4 className={`text-sm font-bold mb-2 ${isInteractive ? 'text-amber-400' : 'text-cyan-400'}`}>
+            <h4 className={`text-sm font-bold mb-2 ${isInteractive ? 'text-primary-400' : 'text-cyan-400'}`}>
               {isInteractive ? data.highlight2Title : data.highlight1Title}
             </h4>
             <p className="text-xs text-navy-200 leading-relaxed">
@@ -147,11 +147,11 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
                  <div className="absolute -left-1 -top-1 w-3 h-3 rounded-full bg-cyan-400"></div>
                  <div className="absolute -right-1 -top-1 w-3 h-3 rounded-full bg-white/50"></div>
                </div>
-               <div className={`h-1 bg-amber-500 relative transition-all duration-700 ease-out flex items-center ${
+               <div className={`h-1 bg-primary-500 relative transition-all duration-700 ease-out flex items-center ${
                  isInteractive ? 'w-20 opacity-100' : 'w-0 opacity-0'
                }`}>
-                  <div className={`absolute -right-1 w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_15px_rgba(251,191,36,0.8)] transition-opacity duration-700 delay-300 ${isInteractive ? 'opacity-100' : 'opacity-0'}`}></div>
-                  <div className={`absolute left-1/2 -translate-x-1/2 -top-8 bg-amber-500/20 text-amber-400 border border-amber-500/50 px-2 py-0.5 rounded text-[10px] font-bold whitespace-nowrap transition-opacity duration-700 delay-500 ${isInteractive ? 'opacity-100' : 'opacity-0'}`}>
+                  <div className={`absolute -right-1 w-3 h-3 rounded-full bg-primary-400 shadow-[0_0_15px_rgba(251,191,36,0.8)] transition-opacity duration-700 delay-300 ${isInteractive ? 'opacity-100' : 'opacity-0'}`}></div>
+                  <div className={`absolute left-1/2 -translate-x-1/2 -top-8 bg-primary-500/20 text-primary-400 border border-primary-500/50 px-2 py-0.5 rounded text-[10px] font-bold whitespace-nowrap transition-opacity duration-700 delay-500 ${isInteractive ? 'opacity-100' : 'opacity-0'}`}>
                     + Extra Stroke
                   </div>
                </div>

@@ -47,7 +47,7 @@ export default function DatabasePage() {
         <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xl shadow-navy-900/5">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
             <h2 className="text-2xl font-bold text-navy-900 flex items-center gap-3">
-              <Database className="w-6 h-6 text-amber-500" />
+              <Database className="w-6 h-6 text-primary-500" />
               Cross-Reference Index
             </h2>
             <div className="flex gap-3 w-full md:w-auto">
@@ -77,7 +77,7 @@ export default function DatabasePage() {
                       <td className="p-4">
                         <Link 
                           href={`/${item.category}/${item.brcSlug}`}
-                          className="inline-flex items-center text-amber-600 font-bold hover:text-amber-500 text-sm group-hover:translate-x-1 transition-transform"
+                          className="inline-flex items-center text-primary-600 font-bold hover:text-primary-500 text-sm group-hover:translate-x-1 transition-transform"
                         >
                           View Product <ArrowRight className="w-4 h-4 ml-1" />
                         </Link>

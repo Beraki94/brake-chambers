@@ -24,7 +24,7 @@ export default function VisualGuidePage() {
           {/* Step 1: Chamber Type */}
           <div className="mb-16">
             <h2 className="text-2xl font-bold text-navy-900 mb-6 flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-amber-500 text-navy-950 flex items-center justify-center font-black text-sm">1</span>
+              <span className="w-8 h-8 rounded-full bg-primary-500 text-navy-950 flex items-center justify-center font-black text-sm">1</span>
               Identify Chamber Type & Size
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -51,7 +51,7 @@ export default function VisualGuidePage() {
           {/* Step 2: Stroke Length */}
           <div className="mb-16">
             <h2 className="text-2xl font-bold text-navy-900 mb-6 flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-amber-500 text-navy-950 flex items-center justify-center font-black text-sm">2</span>
+              <span className="w-8 h-8 rounded-full bg-primary-500 text-navy-950 flex items-center justify-center font-black text-sm">2</span>
               Standard vs. Long Stroke
             </h2>
             <div className="bg-navy-50 rounded-xl p-8 border border-navy-100 flex flex-col md:flex-row gap-8 items-start">
@@ -85,7 +85,7 @@ export default function VisualGuidePage() {
           {/* Step 3: Pushrod & Clevis */}
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-navy-900 mb-6 flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-amber-500 text-navy-950 flex items-center justify-center font-black text-sm">3</span>
+              <span className="w-8 h-8 rounded-full bg-primary-500 text-navy-950 flex items-center justify-center font-black text-sm">3</span>
               Pushrod Length & Clevis Type
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -114,7 +114,7 @@ export default function VisualGuidePage() {
               <p className="text-navy-200 text-sm leading-relaxed mb-6">
                 Now that you know your size and stroke, head over to our product catalog and use the filters to find your exact match.
               </p>
-              <Link href="/spring-brakes" className="inline-flex items-center justify-center w-full bg-amber-500 text-navy-950 font-bold py-3 px-6 rounded-xl hover:bg-amber-400 transition-colors">
+              <Link href="/spring-brakes" className="inline-flex items-center justify-center w-full bg-primary-500 text-navy-950 font-bold py-3 px-6 rounded-xl hover:bg-primary-400 transition-colors">
                 Browse Catalog <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </div>

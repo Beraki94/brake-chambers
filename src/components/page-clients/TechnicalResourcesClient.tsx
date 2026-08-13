@@ -15,7 +15,7 @@ export default function TechnicalResourcesClient() {
     {
       id: 'installation',
       title: 'Installation & Maint.',
-      icon: <Wrench className="w-6 h-6 text-amber-500" />,
+      icon: <Wrench className="w-6 h-6 text-primary-500" />,
       accent: 'amber',
       desc: 'Step-by-step OEM installation procedures, maintenance schedules, and safe caging procedures.',
       items: [
@@ -41,7 +41,7 @@ export default function TechnicalResourcesClient() {
     {
       id: 'safety',
       title: 'Safety & Compliance',
-      icon: <Shield className="w-6 h-6 text-emerald-500" />,
+      icon: <Shield className="w-6 h-6 text-success-500" />,
       accent: 'emerald',
       desc: 'Essential compliance documents including CVSA criteria, FMVSS 121 standards, and safety warnings.',
       items: [
@@ -97,8 +97,8 @@ export default function TechnicalResourcesClient() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { title: "2024 Full Product Catalog", icon: <FileArchive className="w-5 h-5 text-amber-500" />, type: "PDF (15.4 MB)", link: "#" },
-              { title: "Universal Safety & Installation Guide", icon: <Shield className="w-5 h-5 text-emerald-500" />, type: "PDF (3.2 MB)", link: "#" },
+              { title: "2024 Full Product Catalog", icon: <FileArchive className="w-5 h-5 text-primary-500" />, type: "PDF (15.4 MB)", link: "#" },
+              { title: "Universal Safety & Installation Guide", icon: <Shield className="w-5 h-5 text-success-500" />, type: "PDF (3.2 MB)", link: "#" },
               { title: "Standard Limited Warranty Form", icon: <FileText className="w-5 h-5 text-blue-500" />, type: "PDF (0.5 MB)", link: "#" }
             ].map((item, idx) => (
               <Link 
@@ -121,19 +121,19 @@ export default function TechnicalResourcesClient() {
         {/* Video Training Highlight */}
         <section className="mb-16">
           <div className="bg-navy-950 rounded-[2.5rem] shadow-2xl overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-[80px] -mr-20 -mt-20 pointer-events-none"></div>
             <div className="flex flex-col lg:flex-row">
               <div className="w-full lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
-                <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-800 text-amber-500 text-[11px] font-bold uppercase tracking-widest w-max">
+                <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-800 text-primary-500 text-[11px] font-bold uppercase tracking-widest w-max">
                   New Resource
                 </div>
                 <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6 font-heading tracking-tight">
-                  BRC <span className="text-amber-500">Video Training</span> Series
+                  BRC <span className="text-primary-500">Video Training</span> Series
                 </h2>
                 <p className="text-navy-200 text-lg font-light leading-relaxed mb-8">
                   For visual learners and technicians on the shop floor. Watch our lead engineers walk through safe caging procedures, pushrod cutting, and complete installation step-by-step.
                 </p>
-                <Link href="/training" className="inline-flex items-center gap-3 text-amber-500 font-extrabold hover:text-amber-400 transition-colors uppercase tracking-widest text-sm group">
+                <Link href="/training" className="inline-flex items-center gap-3 text-primary-500 font-extrabold hover:text-primary-400 transition-colors uppercase tracking-widest text-sm group">
                   Access Video Library <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -178,14 +178,14 @@ export default function TechnicalResourcesClient() {
                         `}>
                           {React.cloneElement(category.icon, { 
                             className: `w-5 h-5 transition-colors ${
-                              activeCategory === category.id ? 'text-amber-400' : category.icon.props.className
+                              activeCategory === category.id ? 'text-primary-400' : category.icon.props.className
                             }` 
                           })}
                         </div>
                         <span className="text-[15px]">{category.title}</span>
                       </div>
                       <ChevronRight className={`w-5 h-5 transition-all
-                        ${activeCategory === category.id ? 'text-white' : 'text-slate-300 group-hover:text-amber-500 group-hover:translate-x-1'}
+                        ${activeCategory === category.id ? 'text-white' : 'text-slate-300 group-hover:text-primary-500 group-hover:translate-x-1'}
                       `} />
                     </a>
                   </li>
@@ -212,18 +212,18 @@ export default function TechnicalResourcesClient() {
                 >
                   {/* Subtle background glow on section hover */}
                   <div className={`absolute top-0 right-0 w-64 h-64 blur-[80px] rounded-full opacity-0 group-hover/section:opacity-10 transition-opacity duration-700 pointer-events-none
-                    ${category.accent === 'amber' ? 'bg-amber-500' : ''}
+                    ${category.accent === 'amber' ? 'bg-primary-500' : ''}
                     ${category.accent === 'blue' ? 'bg-blue-500' : ''}
-                    ${category.accent === 'emerald' ? 'bg-emerald-500' : ''}
+                    ${category.accent === 'emerald' ? 'bg-success-500' : ''}
                     ${category.accent === 'purple' ? 'bg-purple-500' : ''}
                   `}></div>
 
                   <div className="relative z-10">
                     <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-8">
                       <div className={`w-16 h-16 rounded-2xl flex items-center justify-center border flex-shrink-0 shadow-sm
-                        ${category.accent === 'amber' ? 'bg-amber-50 border-amber-100' : ''}
+                        ${category.accent === 'amber' ? 'bg-primary-50 border-primary-100' : ''}
                         ${category.accent === 'blue' ? 'bg-blue-50 border-blue-100' : ''}
-                        ${category.accent === 'emerald' ? 'bg-emerald-50 border-emerald-100' : ''}
+                        ${category.accent === 'emerald' ? 'bg-success-50 border-success-100' : ''}
                         ${category.accent === 'purple' ? 'bg-purple-50 border-purple-100' : ''}
                       `}>
                         {React.cloneElement(category.icon, { className: 'w-8 h-8' })}
@@ -240,9 +240,9 @@ export default function TechnicalResourcesClient() {
                           key={idx} 
                           href={item.link} 
                           className={`flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-slate-50/80 rounded-2xl border border-slate-100 transition-all duration-300 group hover:shadow-md hover:bg-white
-                            ${category.accent === 'amber' ? 'hover:border-amber-300' : ''}
+                            ${category.accent === 'amber' ? 'hover:border-primary-300' : ''}
                             ${category.accent === 'blue' ? 'hover:border-blue-300' : ''}
-                            ${category.accent === 'emerald' ? 'hover:border-emerald-300' : ''}
+                            ${category.accent === 'emerald' ? 'hover:border-success-300' : ''}
                             ${category.accent === 'purple' ? 'hover:border-purple-300' : ''}
                           `}
                         >
@@ -256,9 +256,9 @@ export default function TechnicalResourcesClient() {
                           <div className="flex items-center gap-6 sm:ml-auto">
                             <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest">{item.type}</span>
                             <span className={`flex items-center justify-center w-10 h-10 rounded-xl bg-white shadow-sm transition-all duration-300 group-hover:-translate-y-1
-                              ${category.accent === 'amber' ? 'text-slate-400 group-hover:bg-amber-500 group-hover:text-white group-hover:shadow-amber-500/20' : ''}
+                              ${category.accent === 'amber' ? 'text-slate-400 group-hover:bg-primary-500 group-hover:text-white group-hover:shadow-primary-500/20' : ''}
                               ${category.accent === 'blue' ? 'text-slate-400 group-hover:bg-blue-500 group-hover:text-white group-hover:shadow-blue-500/20' : ''}
-                              ${category.accent === 'emerald' ? 'text-slate-400 group-hover:bg-emerald-500 group-hover:text-white group-hover:shadow-emerald-500/20' : ''}
+                              ${category.accent === 'emerald' ? 'text-slate-400 group-hover:bg-success-500 group-hover:text-white group-hover:shadow-success-500/20' : ''}
                               ${category.accent === 'purple' ? 'text-slate-400 group-hover:bg-purple-500 group-hover:text-white group-hover:shadow-purple-500/20' : ''}
                             `}>
                               <ArrowDownToLine className="w-5 h-5" />
@@ -281,15 +281,15 @@ export default function TechnicalResourcesClient() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-success-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
             
             <div className="relative z-10">
-              <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-amber-500/20 backdrop-blur-sm">
-                <Wrench className="w-8 h-8 text-amber-400" />
+              <div className="w-20 h-20 bg-primary-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-primary-500/20 backdrop-blur-sm">
+                <Wrench className="w-8 h-8 text-primary-400" />
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 font-heading tracking-tight drop-shadow-lg">
-                Need Custom <span className="text-amber-500">Engineering</span> Support?
+                Need Custom <span className="text-primary-500">Engineering</span> Support?
               </h2>
               <p className="text-navy-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                 If you require specific pushrod calculations, unique bracket alignments, or modified stroke limits, our engineering team is ready to assist.
@@ -297,7 +297,7 @@ export default function TechnicalResourcesClient() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link 
                   href="/contact" 
-                  className="inline-block bg-amber-500 text-navy-950 font-extrabold text-[13px] px-10 py-5 rounded-2xl hover:bg-amber-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-amber-500/30 uppercase tracking-widest"
+                  className="inline-block bg-primary-500 text-navy-950 font-extrabold text-[13px] px-10 py-5 rounded-2xl hover:bg-primary-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-primary-500/30 uppercase tracking-widest"
                 >
                   Contact BRC Engineering
                 </Link>

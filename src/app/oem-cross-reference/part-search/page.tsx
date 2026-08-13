@@ -26,7 +26,7 @@ export default function PartSearchPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
             <h2 className="text-2xl font-bold text-navy-900 mb-6 flex items-center gap-3">
-              <Tag className="w-6 h-6 text-amber-500" />
+              <Tag className="w-6 h-6 text-primary-500" />
               Where to find your part number
             </h2>
             <div className="space-y-6">
@@ -56,12 +56,12 @@ export default function PartSearchPage() {
 
           <div className="space-y-8">
             <div className="bg-navy-900 rounded-2xl p-8 shadow-sm text-white relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/20 rounded-full blur-2xl -mr-10 -mt-10"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/20 rounded-full blur-2xl -mr-10 -mt-10"></div>
               <h2 className="text-xl font-bold mb-3">No part number visible?</h2>
               <p className="text-navy-200 text-sm leading-relaxed mb-6">
                 If the tag is missing or illegible due to rust, you can still identify your chamber by measuring it or visually matching its features.
               </p>
-              <Link href="/oem-cross-reference/visual-guide" className="inline-flex items-center justify-center w-full bg-amber-500 text-navy-950 font-bold py-3 px-6 rounded-xl hover:bg-amber-400 transition-colors">
+              <Link href="/oem-cross-reference/visual-guide" className="inline-flex items-center justify-center w-full bg-primary-500 text-navy-950 font-bold py-3 px-6 rounded-xl hover:bg-primary-400 transition-colors">
                 <Eye className="w-5 h-5 mr-2" /> Use Visual Guide
               </Link>
             </div>

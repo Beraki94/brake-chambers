@@ -21,7 +21,7 @@ export default function IsoCertificationsClient() {
       <section className="py-20">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-navy-950 rounded-[3rem] p-12 text-center text-white relative overflow-hidden mb-20">
-            <Award className="w-20 h-20 text-amber-500 mx-auto mb-6" />
+            <Award className="w-20 h-20 text-primary-500 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-extrabold mb-6 font-heading tracking-tight">
               ISO 9001:2015 Certified
             </h2>
@@ -38,21 +38,21 @@ export default function IsoCertificationsClient() {
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
-                  <ShieldCheck className="w-8 h-8 text-amber-500 flex-shrink-0" />
+                  <ShieldCheck className="w-8 h-8 text-primary-500 flex-shrink-0" />
                   <div>
                     <h4 className="font-bold text-navy-900 text-lg">SAE J1469 Compliant</h4>
                     <p className="text-slate-500 mt-1">Meets the Society of Automotive Engineers standards for air brake actuator performance and stroke force.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <ShieldCheck className="w-8 h-8 text-amber-500 flex-shrink-0" />
+                  <ShieldCheck className="w-8 h-8 text-primary-500 flex-shrink-0" />
                   <div>
                     <h4 className="font-bold text-navy-900 text-lg">FMVSS 121 Compliant</h4>
                     <p className="text-slate-500 mt-1">Exceeds the Federal Motor Vehicle Safety Standards for commercial air brake systems.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <CheckCircle2 className="w-8 h-8 text-amber-500 flex-shrink-0" />
+                  <CheckCircle2 className="w-8 h-8 text-primary-500 flex-shrink-0" />
                   <div>
                     <h4 className="font-bold text-navy-900 text-lg">100% Traceability</h4>
                     <p className="text-slate-500 mt-1">Every chamber is stamped with lot codes allowing full traceability back to the exact steel batch used in its housing.</p>
@@ -61,7 +61,7 @@ export default function IsoCertificationsClient() {
               </ul>
             </div>
             
-            <div className="bg-amber-500 p-12 rounded-[3rem] shadow-xl text-center">
+            <div className="bg-primary-500 p-12 rounded-[3rem] shadow-xl text-center">
               <h3 className="text-3xl font-black text-navy-900 mb-4">Request Certificates</h3>
               <p className="text-navy-900/80 mb-8 font-medium">
                 Are you an OEM or procurement manager requiring official documentation?
@@ -78,7 +78,7 @@ export default function IsoCertificationsClient() {
       <section className="bg-slate-50 py-20 text-center border-t border-slate-200">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-extrabold text-navy-900 mb-6">See How We Test Our Products</h2>
-          <Link href="/company/testing-laboratory" className="inline-flex items-center text-emerald-600 font-bold hover:text-emerald-500 transition-colors uppercase tracking-widest text-lg">
+          <Link href="/company/testing-laboratory" className="inline-flex items-center text-success-600 font-bold hover:text-success-500 transition-colors uppercase tracking-widest text-lg">
             Inside the Testing Laboratory <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>

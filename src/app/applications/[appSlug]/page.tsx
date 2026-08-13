@@ -86,8 +86,8 @@ const APPLICATION_DATA: Record<string, any> = {
       { q: 'Do you make chambers that can withstand landfill debris?', a: 'Absolutely. Our severe-duty chambers feature double-plated steel housings to resist heavy rock strikes and reinforced dust booting to keep abrasive landfill mud out of the pushrod mechanism.' },
       { q: 'How do you handle the extreme heat of refuse collection?', a: 'Refuse trucks generate massive radiant heat from 1,000+ stops a day. We use high-temp elastomers and advanced rubber compounds that maintain their integrity under conditions that would melt standard diaphragms.' }
     ],
-    bgStyle: 'from-amber-900 to-navy-950',
-    accent: 'text-amber-500',
+    bgStyle: 'from-primary-900 to-navy-950',
+    accent: 'text-primary-500',
     challenge: {
       title: 'The High-Cycle Heat Challenge',
       desc: 'Refuse vehicles are the ultimate test of a brake chamber. Executing over 1,000 stops per day in urban environments generates massive heat, causing standard diaphragms to melt or fatigue. Additionally, navigating landfills exposes the undercarriage to debris strikes and abrasive mud.'
@@ -109,8 +109,8 @@ const APPLICATION_DATA: Record<string, any> = {
       { q: 'Are these chambers suited for steep unpaved grades?', a: 'Yes, our Type 30/30 and 36/36 severe-duty spring brakes provide the massive clamping force required to hold fully loaded mining and construction vehicles on severe inclines.' },
       { q: 'How do you prevent mud from entering the chamber?', a: 'Our off-highway units feature fully sealed internal breathing mechanisms rather than exposed weep holes, preventing mud and slurry from infiltrating the spring housing.' }
     ],
-    bgStyle: 'from-amber-900 to-navy-950',
-    accent: 'text-amber-500',
+    bgStyle: 'from-primary-900 to-navy-950',
+    accent: 'text-primary-500',
     challenge: {
       title: 'The Extreme Environment Challenge',
       desc: 'Mining, logging, and heavy construction equipment operates in the harshest conditions on Earth. Massive asymmetrical loads on steep, unpaved grades require extreme parking brake clamping force. The chambers are constantly bombarded by rocks, deep mud, and corrosive elements.'
@@ -132,8 +132,8 @@ const APPLICATION_DATA: Record<string, any> = {
       { q: 'Do these chambers corrode during winter storage?', a: 'Our agricultural chambers feature weather-sealed housings and advanced epoxy coatings designed specifically to prevent internal corrosion during long off-season dormancy periods.' },
       { q: 'Can they handle the twist of soft field terrain?', a: 'Yes, we utilize welded clevis designs and heavy-duty pushrods to withstand the immense torsional forces generated when maneuvering fully loaded grain trailers through soft fields.' }
     ],
-    bgStyle: 'from-amber-900 to-navy-950',
-    accent: 'text-amber-500',
+    bgStyle: 'from-primary-900 to-navy-950',
+    accent: 'text-primary-500',
     challenge: {
       title: 'The Harvest Season Challenge',
       desc: 'Agricultural transport features unique operational extremes: months of dormancy followed by intense, non-stop usage during harvest. Equipment operates in highly abrasive dust, mud, and corrosive fertilizer environments while hauling maximum payloads from field to processor.'
@@ -155,8 +155,8 @@ const APPLICATION_DATA: Record<string, any> = {
       { q: 'How do you ensure smooth braking for passengers?', a: 'We use precision-machined push rods and linear response diaphragms that eliminate binding. This ensures perfectly smooth, predictable pressure application to prevent harsh jerking motions.' },
       { q: 'Are these rated for the high cycle count of city transit?', a: 'Yes. City transit buses stop thousands of times a day. We use high-tensile return springs specifically engineered to withstand millions of compression cycles without losing tension.' }
     ],
-    bgStyle: 'from-emerald-900 to-navy-950',
-    accent: 'text-emerald-500',
+    bgStyle: 'from-success-900 to-navy-950',
+    accent: 'text-success-500',
     challenge: {
       title: 'The Smooth Modulation Challenge',
       desc: 'When transporting passengers, harsh or unpredictable braking is unacceptable. Transit buses require highly sensitive service chambers that provide smooth, linear force modulation. Furthermore, the frequent stops subject the return springs to massive cycle fatigue.'
@@ -178,8 +178,8 @@ const APPLICATION_DATA: Record<string, any> = {
       { q: 'Are your school bus chambers DOT compliant?', a: 'Yes, all our chambers meet or exceed FMVSS 121 regulations, providing guaranteed immediate mechanical lock-up in the event of air loss for ultimate student safety.' },
       { q: 'How do you prevent improper maintenance?', a: 'We utilize tamper-evident construction on the sealed parking spring housing, ensuring chambers are not improperly modified by untrained personnel.' }
     ],
-    bgStyle: 'from-emerald-900 to-navy-950',
-    accent: 'text-emerald-500',
+    bgStyle: 'from-success-900 to-navy-950',
+    accent: 'text-success-500',
     challenge: {
       title: 'The Ultimate Safety Challenge',
       desc: 'School buses carry the most valuable cargo in the world. Braking systems must be completely failsafe, highly responsive, and strictly compliant with federal and state regulations. The stop-and-go nature of residential routes also demands exceptional component durability.'
@@ -201,8 +201,8 @@ const APPLICATION_DATA: Record<string, any> = {
       { q: 'Can you eliminate brake rattle on smaller shuttles?', a: 'Yes, our shuttle-specific chambers utilize internal noise-dampening materials designed to eliminate spring rattle and operational noise that passengers find disruptive.' },
       { q: 'What size chambers do shuttles typically use?', a: 'Most medium-duty paratransit and airport shuttles utilize Type 16 or Type 24 service chambers, or appropriately sized Air Disc Brake (ADB) actuators for a more car-like feel.' }
     ],
-    bgStyle: 'from-emerald-900 to-navy-950',
-    accent: 'text-emerald-500',
+    bgStyle: 'from-success-900 to-navy-950',
+    accent: 'text-success-500',
     challenge: {
       title: 'The Passenger Comfort Challenge',
       desc: 'Airport shuttles and paratransit vehicles require braking that is not only safe but virtually imperceptible to passengers. Systems must prevent the harsh jerking motions associated with heavy-duty commercial brakes while operating in constant, congested traffic.'
@@ -265,7 +265,7 @@ export default async function ApplicationPage(props: { params: Promise<{ appSlug
               <li><span className="text-navy-600">/</span></li>
               <li><Link href="/applications" className="hover:text-white transition-colors">Applications</Link></li>
               <li><span className="text-navy-600">/</span></li>
-              <li className="text-amber-400 font-semibold" aria-current="page">{data.title}</li>
+              <li className="text-primary-400 font-semibold" aria-current="page">{data.title}</li>
             </ol>
           </nav>
         </div>
@@ -293,7 +293,7 @@ export default async function ApplicationPage(props: { params: Promise<{ appSlug
             {/* BRC Technology Solutions */}
             <div>
               <h2 className="text-3xl font-extrabold text-navy-900 mb-8 flex items-center gap-3">
-                <Cpu className="w-8 h-8 text-amber-500" /> BRC Technology Solutions
+                <Cpu className="w-8 h-8 text-primary-500" /> BRC Technology Solutions
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {data.technologies.map((tech: any, idx: number) => (
@@ -312,7 +312,7 @@ export default async function ApplicationPage(props: { params: Promise<{ appSlug
             {data.faqs && data.faqs.length > 0 && (
               <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-slate-200">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-navy-900 mb-8 flex items-center gap-3">
-                  <HelpCircle className="w-8 h-8 text-amber-500" /> Frequently Asked Questions
+                  <HelpCircle className="w-8 h-8 text-primary-500" /> Frequently Asked Questions
                 </h2>
                 <div className="space-y-6">
                   {data.faqs.map((faq: any, idx: number) => (
@@ -327,18 +327,18 @@ export default async function ApplicationPage(props: { params: Promise<{ appSlug
 
             {/* Why Choose BRC Banner */}
             <div className="bg-navy-900 rounded-3xl p-8 sm:p-12 shadow-xl border border-navy-800 text-white relative overflow-hidden">
-               <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500 opacity-5 rounded-full blur-3xl -mr-20 -mt-20"></div>
+               <div className="absolute top-0 right-0 w-64 h-64 bg-success-500 opacity-5 rounded-full blur-3xl -mr-20 -mt-20"></div>
                <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-6 relative z-10">Why Choose BRC Engineering?</h2>
                <div className="grid sm:grid-cols-2 gap-6 relative z-10">
                  <div className="flex gap-4">
-                   <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" />
+                   <CheckCircle2 className="w-6 h-6 text-success-400 shrink-0" />
                    <div>
                      <h3 className="font-bold text-white mb-1">Direct Factory Pricing</h3>
                      <p className="text-navy-200 text-sm leading-relaxed">Bypass distributor markups by working directly with an ISO 9001:2015 certified manufacturer.</p>
                    </div>
                  </div>
                  <div className="flex gap-4">
-                   <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" />
+                   <CheckCircle2 className="w-6 h-6 text-success-400 shrink-0" />
                    <div>
                      <h3 className="font-bold text-white mb-1">100% End-of-Line Testing</h3>
                      <p className="text-navy-200 text-sm leading-relaxed">Every chamber is pressure tested for leaks and function before it leaves our facility.</p>
@@ -359,41 +359,41 @@ export default async function ApplicationPage(props: { params: Promise<{ appSlug
                 <div>
                   <h4 className="font-bold text-slate-400 text-xs uppercase tracking-wider mb-3">Commercial & Freight</h4>
                   <ul className="space-y-2">
-                    <li><Link href="/applications/commercial-linehaul" className="text-navy-700 hover:text-amber-600 transition-colors text-sm font-semibold flex items-center justify-between group">Commercial Linehaul <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 transition-colors" /></Link></li>
-                    <li><Link href="/applications/heavy-duty-freight" className="text-navy-700 hover:text-amber-600 transition-colors text-sm font-semibold flex items-center justify-between group">Heavy-Duty Freight <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 transition-colors" /></Link></li>
-                    <li><Link href="/applications/regional-delivery" className="text-navy-700 hover:text-amber-600 transition-colors text-sm font-semibold flex items-center justify-between group">Regional Delivery <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 transition-colors" /></Link></li>
+                    <li><Link href="/applications/commercial-linehaul" className="text-navy-700 hover:text-primary-600 transition-colors text-sm font-semibold flex items-center justify-between group">Commercial Linehaul <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary-500 transition-colors" /></Link></li>
+                    <li><Link href="/applications/heavy-duty-freight" className="text-navy-700 hover:text-primary-600 transition-colors text-sm font-semibold flex items-center justify-between group">Heavy-Duty Freight <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary-500 transition-colors" /></Link></li>
+                    <li><Link href="/applications/regional-delivery" className="text-navy-700 hover:text-primary-600 transition-colors text-sm font-semibold flex items-center justify-between group">Regional Delivery <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary-500 transition-colors" /></Link></li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-400 text-xs uppercase tracking-wider mb-3">Severe-Duty</h4>
                   <ul className="space-y-2">
-                    <li><Link href="/applications/refuse-sanitation" className="text-navy-700 hover:text-amber-600 transition-colors text-sm font-semibold flex items-center justify-between group">Refuse & Sanitation Trucks <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 transition-colors" /></Link></li>
-                    <li><Link href="/applications/off-highway-mining" className="text-navy-700 hover:text-amber-600 transition-colors text-sm font-semibold flex items-center justify-between group">Off-Highway & Mining <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 transition-colors" /></Link></li>
-                    <li><Link href="/applications/agricultural-transport" className="text-navy-700 hover:text-amber-600 transition-colors text-sm font-semibold flex items-center justify-between group">Agricultural Transport <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 transition-colors" /></Link></li>
+                    <li><Link href="/applications/refuse-sanitation" className="text-navy-700 hover:text-primary-600 transition-colors text-sm font-semibold flex items-center justify-between group">Refuse & Sanitation Trucks <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary-500 transition-colors" /></Link></li>
+                    <li><Link href="/applications/off-highway-mining" className="text-navy-700 hover:text-primary-600 transition-colors text-sm font-semibold flex items-center justify-between group">Off-Highway & Mining <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary-500 transition-colors" /></Link></li>
+                    <li><Link href="/applications/agricultural-transport" className="text-navy-700 hover:text-primary-600 transition-colors text-sm font-semibold flex items-center justify-between group">Agricultural Transport <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary-500 transition-colors" /></Link></li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-400 text-xs uppercase tracking-wider mb-3">Passenger & Transit</h4>
                   <ul className="space-y-2">
-                    <li><Link href="/applications/transit-coach-bus" className="text-navy-700 hover:text-amber-600 transition-colors text-sm font-semibold flex items-center justify-between group">Transit & Coach Buses <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 transition-colors" /></Link></li>
-                    <li><Link href="/applications/school-buses" className="text-navy-700 hover:text-amber-600 transition-colors text-sm font-semibold flex items-center justify-between group">School Buses <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 transition-colors" /></Link></li>
-                    <li><Link href="/applications/shuttle-fleets" className="text-navy-700 hover:text-amber-600 transition-colors text-sm font-semibold flex items-center justify-between group">Shuttle Fleets <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 transition-colors" /></Link></li>
+                    <li><Link href="/applications/transit-coach-bus" className="text-navy-700 hover:text-primary-600 transition-colors text-sm font-semibold flex items-center justify-between group">Transit & Coach Buses <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary-500 transition-colors" /></Link></li>
+                    <li><Link href="/applications/school-buses" className="text-navy-700 hover:text-primary-600 transition-colors text-sm font-semibold flex items-center justify-between group">School Buses <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary-500 transition-colors" /></Link></li>
+                    <li><Link href="/applications/shuttle-fleets" className="text-navy-700 hover:text-primary-600 transition-colors text-sm font-semibold flex items-center justify-between group">Shuttle Fleets <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary-500 transition-colors" /></Link></li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-400 text-xs uppercase tracking-wider mb-3">Custom Needs</h4>
                   <ul className="space-y-2">
-                    <li><Link href="/quote" className="text-amber-500 hover:text-amber-400 transition-colors text-sm font-bold flex items-center justify-between group mt-2">Request Custom Quote <ArrowRight className="w-4 h-4 text-amber-500 group-hover:translate-x-1 transition-transform" /></Link></li>
+                    <li><Link href="/quote" className="text-primary-500 hover:text-primary-400 transition-colors text-sm font-bold flex items-center justify-between group mt-2">Request Custom Quote <ArrowRight className="w-4 h-4 text-primary-500 group-hover:translate-x-1 transition-transform" /></Link></li>
                   </ul>
                 </div>
               </div>
             </div>
 
             <div className="sticky top-24 bg-navy-900 rounded-3xl p-8 shadow-xl border border-navy-800 text-white relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500 opacity-10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500 opacity-10 rounded-full blur-2xl -mr-10 -mt-10"></div>
 
               <div className="flex items-center gap-3 mb-6 relative z-10">
-                <PackagePlus className="w-8 h-8 text-amber-400" />
+                <PackagePlus className="w-8 h-8 text-primary-400" />
                 <h3 className="text-2xl font-bold">Recommended Fleet Package</h3>
               </div>
               <p className="text-navy-200 text-sm mb-8 relative z-10">
@@ -403,7 +403,7 @@ export default async function ApplicationPage(props: { params: Promise<{ appSlug
               <div className="space-y-4 relative z-10 mb-8">
                 {data.recommendedPackage.map((item: any, idx: number) => (
                   <Link key={idx} href={item.link} className="block bg-navy-800/80 hover:bg-navy-800 border border-navy-700 p-4 rounded-xl transition-colors group">
-                    <h4 className="font-bold text-white group-hover:text-amber-400 transition-colors mb-1">{item.name}</h4>
+                    <h4 className="font-bold text-white group-hover:text-primary-400 transition-colors mb-1">{item.name}</h4>
                     <p className="text-xs text-navy-300">{item.desc}</p>
                   </Link>
                 ))}
@@ -412,7 +412,7 @@ export default async function ApplicationPage(props: { params: Promise<{ appSlug
               <div className="relative z-10 pt-6 border-t border-navy-800">
                 <h4 className="font-bold text-lg mb-2">Need a custom solution?</h4>
                 <p className="text-sm text-navy-200 mb-4">Our engineers can design and manufacture a custom air brake actuator for your specific chassis.</p>
-                <Link href="/quote" className="w-full block text-center bg-amber-500 text-navy-900 font-extrabold px-6 py-3 rounded-xl hover:bg-amber-400 transition-colors">
+                <Link href="/quote" className="w-full block text-center bg-primary-500 text-navy-900 font-extrabold px-6 py-3 rounded-xl hover:bg-primary-400 transition-colors">
                   Contact Engineering
                 </Link>
               </div>

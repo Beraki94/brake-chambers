@@ -70,7 +70,7 @@ export default function MarketSelector() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 bg-white hover:border-slate-400 hover:shadow-md transition-all pl-3 pr-2 py-1.5 rounded-full border border-navy-200 text-navy-900 font-semibold text-sm shadow-sm group"
       >
-        <Globe className="w-4 h-4 text-slate-500 group-hover:text-amber-500 transition-colors" />
+        <Globe className="w-4 h-4 text-slate-500 group-hover:text-primary-500 transition-colors" />
         <span className="group-hover:text-slate-700 transition-colors hidden sm:block">
           {currentMarket.countryName}
         </span>

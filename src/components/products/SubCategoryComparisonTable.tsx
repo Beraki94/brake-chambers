@@ -17,7 +17,7 @@ export default function SubCategoryComparisonTable({ products, categoryName }: S
     <section className="mt-16 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
       <div className="bg-gradient-to-r from-navy-900 to-navy-800 px-8 py-6">
         <h2 className="text-xl font-bold text-white flex items-center">
-          <span className="text-amber-400 mr-3">⚙️</span>
+          <span className="text-primary-400 mr-3">⚙️</span>
           {categoryName} Technical Comparison
         </h2>
         <p className="text-navy-100 text-sm mt-2">
@@ -44,7 +44,7 @@ export default function SubCategoryComparisonTable({ products, categoryName }: S
               return (
               <tr key={product.slug} className="hover:bg-slate-50/50 transition-colors">
                 <td className="px-6 py-4 font-bold text-navy-900">
-                  <Link href={`/${categoryPath}/${product.slug}`} className="hover:text-amber-600 transition-colors">
+                  <Link href={`/${categoryPath}/${product.slug}`} className="hover:text-primary-600 transition-colors">
                     {product.name}
                   </Link>
                 </td>
@@ -62,7 +62,7 @@ export default function SubCategoryComparisonTable({ products, categoryName }: S
                 <td className="px-6 py-4 text-right">
                   <Link 
                     href={`/${categoryPath}/${product.slug}`}
-                    className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 text-xs uppercase tracking-wide"
+                    className="inline-flex items-center text-primary-600 font-bold hover:text-primary-700 text-xs uppercase tracking-wide"
                   >
                     View Specs &rarr;
                   </Link>

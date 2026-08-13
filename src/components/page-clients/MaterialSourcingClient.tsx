@@ -66,7 +66,7 @@ export default function MaterialSourcingClient() {
       <section className="bg-white py-16 border-t border-slate-200 text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight">Verified by Global Standards</h2>
-          <Link href="/company/iso-certifications" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
+          <Link href="/company/iso-certifications" className="inline-flex items-center text-primary-500 font-bold hover:text-primary-400 transition-colors uppercase tracking-widest text-lg">
             View ISO Certifications <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>

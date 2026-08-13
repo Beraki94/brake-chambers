@@ -40,7 +40,7 @@ export default function ProductSeoBlock({ product }: ProductSeoBlockProps) {
   return (
     <section className="mt-12 bg-white rounded-2xl shadow-sm border border-navy-50 p-8 md:p-12 mb-8 relative overflow-hidden">
       {/* Decorative accent */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/5 rounded-full blur-3xl"></div>
       
       <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6 relative z-10">
         Why Choose the BRC {product.name}?

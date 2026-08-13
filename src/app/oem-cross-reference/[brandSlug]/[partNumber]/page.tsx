@@ -98,7 +98,7 @@ export default async function OEMPartNumberPage(
           {/* Main Replacement Card */}
           <div className="flex-grow">
             <h2 className="text-2xl font-bold text-navy-900 mb-6 flex items-center gap-2">
-              <CheckCircle2 className="w-6 h-6 text-emerald-500" />
+              <CheckCircle2 className="w-6 h-6 text-success-500" />
               Exact Match Found
             </h2>
             <div className="mb-8">
@@ -108,7 +108,7 @@ export default async function OEMPartNumberPage(
             {/* Spec Comparison */}
             <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
               <h3 className="text-xl font-bold text-navy-900 mb-6 flex items-center">
-                <Settings2 className="w-5 h-5 mr-2 text-amber-500" />
+                <Settings2 className="w-5 h-5 mr-2 text-primary-500" />
                 Technical Specifications Match
               </h3>
               
@@ -136,7 +136,7 @@ export default async function OEMPartNumberPage(
               </div>
 
               <div className="mt-8 text-center">
-                 <Link href={`/${categoryPath}/${matchedChamber.slug}`} className="inline-flex items-center justify-center bg-navy-900 text-white font-bold py-3 px-8 rounded-xl hover:bg-amber-500 hover:text-navy-950 transition-colors shadow-lg">
+                 <Link href={`/${categoryPath}/${matchedChamber.slug}`} className="inline-flex items-center justify-center bg-navy-900 text-white font-bold py-3 px-8 rounded-xl hover:bg-primary-500 hover:text-navy-950 transition-colors shadow-lg">
                    View Full Details & Add to Cart <ArrowRight className="w-4 h-4 ml-2" />
                  </Link>
               </div>
@@ -147,20 +147,20 @@ export default async function OEMPartNumberPage(
           <div className="w-full lg:w-80 shrink-0">
              <div className="bg-navy-900 text-white rounded-2xl p-6 shadow-xl sticky top-8">
                <h3 className="font-bold text-xl mb-4 flex items-center">
-                 <ShieldCheck className="w-5 h-5 mr-2 text-amber-500" />
+                 <ShieldCheck className="w-5 h-5 mr-2 text-primary-500" />
                  Why switch to BRC?
                </h3>
                <ul className="space-y-4 mb-6">
                  <li className="flex gap-3">
-                   <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0"></div>
+                   <div className="w-1.5 h-1.5 rounded-full bg-primary-500 mt-2 shrink-0"></div>
                    <p className="text-sm text-navy-100"><strong className="text-white">Wholesale Pricing:</strong> Buy direct from the factory and cut out the middleman.</p>
                  </li>
                  <li className="flex gap-3">
-                   <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0"></div>
+                   <div className="w-1.5 h-1.5 rounded-full bg-primary-500 mt-2 shrink-0"></div>
                    <p className="text-sm text-navy-100"><strong className="text-white">Tested Quality:</strong> Rated for over 1 million duty cycles.</p>
                  </li>
                  <li className="flex gap-3">
-                   <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0"></div>
+                   <div className="w-1.5 h-1.5 rounded-full bg-primary-500 mt-2 shrink-0"></div>
                    <p className="text-sm text-navy-100"><strong className="text-white">Immediate Stock:</strong> Most parts ship same-day globally.</p>
                  </li>
                </ul>

@@ -85,7 +85,7 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
             <li><Link href={`/spring-brakes/30-28-spring-brakes`} className={`block px-4 py-2 text-sm ${pathname.includes('30-28') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30/28 Spring Brake</Link></li>
             <li><Link href={`/spring-brakes/20-24-spring-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('20-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20/24 Spring Brake</Link></li>
             <li><Link href={`/spring-brakes/type-30-30-piggyback-kits`} className={`block px-4 py-2 text-sm ${pathname.includes('piggyback') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30/30 Piggyback Kits</Link></li>
-            <li><Link href={`/spring-brakes`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Spring Brakes</Link></li>
+            <li><Link href={`/spring-brakes`} className={`block px-4 py-2 text-sm font-semibold text-primary-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Spring Brakes</Link></li>
           </ul>
         </FilterAccordion>
       )}
@@ -98,7 +98,7 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
             <li><Link href={`/service-chambers/type-36-service-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('type-36') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 36 Service Chambers</Link></li>
             <li><Link href={`/service-chambers/type-12-16-24-service-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('12-16-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 12, 16 & 24 Service Chambers</Link></li>
             <li><Link href={`/service-chambers/welded-clevis-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('welded-clevis') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Welded Clevis Brake Chambers</Link></li>
-            <li><Link href={`/service-chambers`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Service Chambers</Link></li>
+            <li><Link href={`/service-chambers`} className={`block px-4 py-2 text-sm font-semibold text-primary-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Service Chambers</Link></li>
           </ul>
         </FilterAccordion>
       )}
@@ -110,7 +110,7 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
             <li><Link href={`/air-disc-actuators/type-20-24-air-disc-actuators`} className={`block px-4 py-2 text-sm ${pathname.includes('20-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20/24 ADB</Link></li>
             <li><Link href={`/air-disc-actuators/type-24-24-adb-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('24-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/24 ADB</Link></li>
             <li><Link href={`/air-disc-actuators/type-24-30-air-disc-brake-actuators`} className={`block px-4 py-2 text-sm ${pathname.includes('24-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/30 ADB</Link></li>
-            <li><Link href={`/air-disc-actuators`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Air Disc Actuators</Link></li>
+            <li><Link href={`/air-disc-actuators`} className={`block px-4 py-2 text-sm font-semibold text-primary-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Air Disc Actuators</Link></li>
           </ul>
         </FilterAccordion>
       )}
@@ -124,7 +124,7 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
             <li><Link href={`/chamber-parts-kits/brake-chamber-caging-bolts-tools`} className={`block px-4 py-2 text-sm ${pathname.includes('caging') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Caging Bolts & Tools</Link></li>
             <li><Link href={`/chamber-parts-kits/brake-chamber-clamp-bands`} className={`block px-4 py-2 text-sm ${pathname.includes('clamp') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Clamp Bands</Link></li>
             <li><Link href={`/chamber-parts-kits/automatic-manual-slack-adjusters`} className={`block px-4 py-2 text-sm ${pathname.includes('slack-adjuster') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Slack Adjusters</Link></li>
-            <li><Link href={`/chamber-parts-kits`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Parts & Kits</Link></li>
+            <li><Link href={`/chamber-parts-kits`} className={`block px-4 py-2 text-sm font-semibold text-primary-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Parts & Kits</Link></li>
           </ul>
         </FilterAccordion>
       )}
@@ -403,7 +403,7 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       {baseCategory !== 'all' && (
         <FilterAccordion title="Browse All Categories">
           <ul className="py-2">
-            <li><Link href={`/products`} className="block px-4 py-2 text-sm font-bold text-amber-600 hover:bg-navy-50 mb-2 border-b border-slate-100 pb-2">View Full Catalog</Link></li>
+            <li><Link href={`/products`} className="block px-4 py-2 text-sm font-bold text-primary-600 hover:bg-navy-50 mb-2 border-b border-slate-100 pb-2">View Full Catalog</Link></li>
             <li><Link href={`/spring-brakes`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Spring Brakes</Link></li>
             <li><Link href={`/service-chambers`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Service Chambers</Link></li>
             <li><Link href={`/air-disc-actuators`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Air Disc Actuators</Link></li>

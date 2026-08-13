@@ -34,7 +34,7 @@ export default function Footer() {
               Premium commercial vehicle brake chambers shipped worldwide. ISO 9001 certified manufacturing for heavy-duty fleet performance.
             </p>
             <div className="bg-navy-800 rounded-lg p-3 mb-6 border border-navy-700">
-              <ul className="text-[11px] font-bold text-emerald-400 uppercase tracking-widest space-y-1.5">
+              <ul className="text-[11px] font-bold text-success-400 uppercase tracking-widest space-y-1.5">
                 <li className="flex items-center gap-2"><ShieldCheck className="w-3.5 h-3.5" /> SAE J1469 & J1463 Compliant</li>
                 <li className="flex items-center gap-2"><ShieldCheck className="w-3.5 h-3.5" /> FMVSS 121 Certified</li>
               </ul>
@@ -81,7 +81,7 @@ export default function Footer() {
               <li><Link href={`/applications/transit-coach-bus`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Passenger & Transit</Link></li>
               <li><Link href={`/applications/off-highway-mining`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Off-Highway & Mining</Link></li>
               <li><Link href={`/applications/fleet-inquiries`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">OEM & Custom</Link></li>
-              <li><Link href={`/quote`} className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold mt-2 inline-block">Request Custom Quote</Link></li>
+              <li><Link href={`/quote`} className="text-primary-400 hover:text-primary-300 text-sm transition-colors font-semibold mt-2 inline-block">Request Custom Quote</Link></li>
             </ul>
           </div>
           

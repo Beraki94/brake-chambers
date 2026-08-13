@@ -12,7 +12,7 @@ export default function NotFound() {
         <div className="max-w-2xl w-full text-center">
           <div className="w-24 h-24 bg-navy-100 rounded-[2rem] flex items-center justify-center mx-auto mb-8 relative shadow-inner">
             <Cog className="w-12 h-12 text-navy-800 relative z-10" />
-            <ShieldAlert className="w-8 h-8 text-amber-500 absolute -bottom-2 -right-2 z-20 bg-white rounded-full p-1 shadow-sm" />
+            <ShieldAlert className="w-8 h-8 text-primary-500 absolute -bottom-2 -right-2 z-20 bg-white rounded-full p-1 shadow-sm" />
           </div>
           
           <h1 className="font-heading font-black text-6xl md:text-8xl text-navy-900 mb-6 tracking-tight">404</h1>
@@ -23,7 +23,7 @@ export default function NotFound() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/products" className="px-8 py-4 bg-amber-500 text-navy-950 rounded-xl font-extrabold hover:bg-amber-400 transition-all shadow-[0_10px_30px_rgba(245,158,11,0.3)] transform hover:-translate-y-1 flex items-center gap-2 w-full sm:w-auto justify-center uppercase tracking-widest text-sm">
+            <Link href="/products" className="px-8 py-4 bg-primary-500 text-navy-950 rounded-xl font-extrabold hover:bg-primary-400 transition-all shadow-[0_10px_30px_rgba(245,158,11,0.3)] transform hover:-translate-y-1 flex items-center gap-2 w-full sm:w-auto justify-center uppercase tracking-widest text-sm">
               View Catalog <ArrowRight className="w-5 h-5" />
             </Link>
             <Link href="/contact" className="px-8 py-4 bg-white text-navy-900 border border-slate-200 rounded-xl font-bold hover:border-navy-900 hover:shadow-md transition-all flex items-center gap-2 w-full sm:w-auto justify-center uppercase tracking-widest text-sm">

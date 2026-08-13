@@ -44,7 +44,7 @@ export default function Navbar() {
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   const isActive = (path: string) => pathname === path;
-  const getLinkClass = (path: string) => `block transform transition-transform duration-200 font-medium text-sm ${isActive(path) ? 'text-amber-600 font-bold translate-x-1' : 'text-slate-600 hover:text-amber-500 hover:translate-x-1'}`;
+  const getLinkClass = (path: string) => `block transform transition-transform duration-200 font-medium text-sm ${isActive(path) ? 'text-primary-600 font-bold translate-x-1' : 'text-slate-600 hover:text-primary-500 hover:translate-x-1'}`;
 
   // Compute live search results
   const searchResults = React.useMemo(() => {
@@ -316,7 +316,7 @@ export default function Navbar() {
             
             {/* Products Dropdown */}
             <div className="group h-full flex items-center">
-              <Link href="/products" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'group-hover:border-amber-400 group-hover:text-white' : 'group-hover:border-amber-500 group-hover:text-amber-600'}`}>
+              <Link href="/products" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'group-hover:border-primary-400 group-hover:text-white' : 'group-hover:border-primary-500 group-hover:text-primary-600'}`}>
                 Products
               </Link>
               <div className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50">
@@ -324,56 +324,56 @@ export default function Navbar() {
                   <div className="grid grid-cols-4 gap-8">
                     {/* Column 1: Spring Brakes */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Settings className="w-5 h-5 text-amber-500" /> Spring Brakes</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Settings className="w-5 h-5 text-primary-500" /> Spring Brakes</h3>
                       <ul className="space-y-3">
                         <li><Link href="/spring-brakes/30-30-air-brake-chambers" className={getLinkClass('/spring-brakes/30-30-air-brake-chambers')}>Type 30/30 Spring Brake</Link></li>
                         <li><Link href="/spring-brakes/24-30-24-24-spring-brakes" className={getLinkClass('/spring-brakes/24-30-24-24-spring-brakes')}>Type 24/30 & 24/24 Chambers</Link></li>
                         <li><Link href="/spring-brakes/20-24-spring-brake-chambers" className={getLinkClass('/spring-brakes/20-24-spring-brake-chambers')}>Type 20/24 Spring Brake</Link></li>
                         <li><Link href="/spring-brakes/type-30-30-piggyback-kits" className={getLinkClass('/spring-brakes/type-30-30-piggyback-kits')}>Type 30/30 Piggyback Kits</Link></li>
                       </ul>
-                      <Link href="/spring-brakes" className="inline-block mt-4 text-amber-500 font-bold hover:text-amber-600 transition-colors text-sm">
+                      <Link href="/spring-brakes" className="inline-block mt-4 text-primary-500 font-bold hover:text-primary-600 transition-colors text-sm">
                         View All Spring Brakes &rarr;
                       </Link>
                     </div>
 
                     {/* Column 2: Service Chambers */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Wrench className="w-5 h-5 text-amber-500" /> Service Chambers</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Wrench className="w-5 h-5 text-primary-500" /> Service Chambers</h3>
                       <ul className="space-y-3">
                         <li><Link href="/service-chambers/type-20-steer-axle-brake-chambers" className={getLinkClass('/service-chambers/type-20-steer-axle-brake-chambers')}>Type 20 Steer Axle Chamber</Link></li>
                         <li><Link href="/service-chambers/type-30-service-chambers" className={getLinkClass('/service-chambers/type-30-service-chambers')}>Type 30 Service Chamber</Link></li>
                         <li><Link href="/service-chambers/type-12-16-24-service-chambers" className={getLinkClass('/service-chambers/type-12-16-24-service-chambers')}>Type 12, 16 & 24 Chambers</Link></li>
                         <li><Link href="/service-chambers/welded-clevis-brake-chambers" className={getLinkClass('/service-chambers/welded-clevis-brake-chambers')}>Welded Clevis Chambers</Link></li>
                       </ul>
-                      <Link href="/service-chambers" className="inline-block mt-4 text-amber-500 font-bold hover:text-amber-600 transition-colors text-sm">
+                      <Link href="/service-chambers" className="inline-block mt-4 text-primary-500 font-bold hover:text-primary-600 transition-colors text-sm">
                         View All Service Chambers &rarr;
                       </Link>
                     </div>
 
                     {/* Column 3: Air Disc Actuators */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Disc className="w-5 h-5 text-amber-500" /> Air Disc Actuators</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Disc className="w-5 h-5 text-primary-500" /> Air Disc Actuators</h3>
                       <ul className="space-y-3">
                         <li><Link href="/air-disc-actuators/type-16-18-adb-actuators" className={getLinkClass('/air-disc-actuators/type-16-18-adb-actuators')}>Type 16 & 18 ADB</Link></li>
                         <li><Link href="/air-disc-actuators/type-20-24-air-disc-actuators" className={getLinkClass('/air-disc-actuators/type-20-24-air-disc-actuators')}>Type 20/24 ADB</Link></li>
                         <li><Link href="/air-disc-actuators/type-24-24-adb-chambers" className={getLinkClass('/air-disc-actuators/type-24-24-adb-chambers')}>Type 24/24 ADB</Link></li>
                         <li><Link href="/air-disc-actuators/type-24-30-air-disc-brake-actuators" className={getLinkClass('/air-disc-actuators/type-24-30-air-disc-brake-actuators')}>Type 24/30 ADB</Link></li>
                       </ul>
-                      <Link href="/air-disc-actuators" className="inline-block mt-4 text-amber-500 font-bold hover:text-amber-600 transition-colors text-sm">
+                      <Link href="/air-disc-actuators" className="inline-block mt-4 text-primary-500 font-bold hover:text-primary-600 transition-colors text-sm">
                         View All ADB Actuators &rarr;
                       </Link>
                     </div>
 
                     {/* Column 4: Parts & Kits */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Package className="w-5 h-5 text-amber-500" /> Parts & Kits</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Package className="w-5 h-5 text-primary-500" /> Parts & Kits</h3>
                       <ul className="space-y-3">
                         <li><Link href="/chamber-parts-kits/air-brake-chamber-rebuild-kits" className={getLinkClass('/chamber-parts-kits/air-brake-chamber-rebuild-kits')}>Chamber Rebuild Kits</Link></li>
                         <li><Link href="/chamber-parts-kits/brake-chamber-diaphragms" className={getLinkClass('/chamber-parts-kits/brake-chamber-diaphragms')}>Rubber Diaphragms</Link></li>
                         <li><Link href="/chamber-parts-kits/clevis-pins-slack-adjuster-hardware" className={getLinkClass('/chamber-parts-kits/clevis-pins-slack-adjuster-hardware')}>Clevis Pins & Hardware</Link></li>
                         <li><Link href="/chamber-parts-kits/brake-chamber-caging-bolts-tools" className={getLinkClass('/chamber-parts-kits/brake-chamber-caging-bolts-tools')}>Caging Bolts & Tools</Link></li>
                       </ul>
-                      <Link href="/chamber-parts-kits" className="inline-block mt-4 text-amber-500 font-bold hover:text-amber-600 transition-colors text-sm">
+                      <Link href="/chamber-parts-kits" className="inline-block mt-4 text-primary-500 font-bold hover:text-primary-600 transition-colors text-sm">
                         View All Parts & Tools &rarr;
                       </Link>
                     </div>
@@ -384,7 +384,7 @@ export default function Navbar() {
 
             {/* Applications */}
             <div className="group h-full flex items-center">
-              <Link href="/applications" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'group-hover:border-amber-400 group-hover:text-white' : 'group-hover:border-amber-500 group-hover:text-amber-600'}`}>
+              <Link href="/applications" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'group-hover:border-primary-400 group-hover:text-white' : 'group-hover:border-primary-500 group-hover:text-primary-600'}`}>
                 Applications
               </Link>
               <div className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50">
@@ -392,7 +392,7 @@ export default function Navbar() {
                   <div className="grid grid-cols-4 gap-8">
                     {/* Column 1: Commercial & Freight */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Truck className="w-5 h-5 text-amber-500" /> Commercial & Freight</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Truck className="w-5 h-5 text-primary-500" /> Commercial & Freight</h3>
                       <ul className="space-y-3">
                         <li><Link href="/applications/commercial-linehaul" className={getLinkClass('/applications/commercial-linehaul')}>Commercial Linehaul</Link></li>
                         <li><Link href="/applications/heavy-duty-freight" className={getLinkClass('/applications/heavy-duty-freight')}>Heavy-Duty Freight</Link></li>
@@ -402,7 +402,7 @@ export default function Navbar() {
 
                     {/* Column 2: Severe-Duty & Specialized */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><ShieldAlert className="w-5 h-5 text-amber-500" /> Severe-Duty</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><ShieldAlert className="w-5 h-5 text-primary-500" /> Severe-Duty</h3>
                       <ul className="space-y-3">
                         <li><Link href="/applications/refuse-sanitation" className={getLinkClass('/applications/refuse-sanitation')}>Refuse & Sanitation Trucks</Link></li>
                         <li><Link href="/applications/off-highway-mining" className={getLinkClass('/applications/off-highway-mining')}>Off-Highway & Mining</Link></li>
@@ -412,7 +412,7 @@ export default function Navbar() {
 
                     {/* Column 3: Passenger & Transit */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Bus className="w-5 h-5 text-amber-500" /> Passenger & Transit</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Bus className="w-5 h-5 text-primary-500" /> Passenger & Transit</h3>
                       <ul className="space-y-3">
                         <li><Link href="/applications/transit-coach-bus" className={getLinkClass('/applications/transit-coach-bus')}>Transit & Coach Buses</Link></li>
                         <li><Link href="/applications/school-buses" className={getLinkClass('/applications/school-buses')}>School Buses</Link></li>
@@ -422,12 +422,12 @@ export default function Navbar() {
 
                     {/* Column 4: OEM & Custom Solutions */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Factory className="w-5 h-5 text-amber-500" /> OEM & Custom</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Factory className="w-5 h-5 text-primary-500" /> OEM & Custom</h3>
                       <ul className="space-y-3">
                         <li><Link href="/applications/fleet-inquiries" className={getLinkClass('/applications/fleet-inquiries')}>Fleet Volume Orders</Link></li>
                         <li><Link href="/applications/custom-engineering" className={getLinkClass('/applications/custom-engineering')}>Custom Engineering</Link></li>
                         <li><Link href="/applications/contract-manufacturing" className={getLinkClass('/applications/contract-manufacturing')}>Contract Manufacturing</Link></li>
-                        <li className="pt-2"><Link href="/quote" className="inline-flex items-center gap-2 transform transition-transform duration-200 text-amber-600 font-bold hover:text-amber-500 hover:translate-x-1 text-sm"><ShoppingBag className="w-4 h-4" /> Request Custom Quote</Link></li>
+                        <li className="pt-2"><Link href="/quote" className="inline-flex items-center gap-2 transform transition-transform duration-200 text-primary-600 font-bold hover:text-primary-500 hover:translate-x-1 text-sm"><ShoppingBag className="w-4 h-4" /> Request Custom Quote</Link></li>
                       </ul>
                     </div>
                   </div>
@@ -437,7 +437,7 @@ export default function Navbar() {
 
             {/* OEM Cross-Reference */}
             <div className="group h-full flex items-center">
-              <Link href={`/oem-cross-reference`} className={`transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'group-hover:border-amber-400 group-hover:text-white' : 'group-hover:border-amber-500 group-hover:text-amber-600'}`}>
+              <Link href={`/oem-cross-reference`} className={`transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'group-hover:border-primary-400 group-hover:text-white' : 'group-hover:border-primary-500 group-hover:text-primary-600'}`}>
                 OEM Cross-Reference
               </Link>
               <div className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50">
@@ -445,7 +445,7 @@ export default function Navbar() {
                   <div className="grid grid-cols-4 gap-8">
                     {/* Column 1: Major Brake Brands */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><ShieldCheck className="w-5 h-5 text-amber-500" /> Major Brake Brands</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><ShieldCheck className="w-5 h-5 text-primary-500" /> Major Brake Brands</h3>
                       <ul className="space-y-3">
                         <li><Link href="/oem-cross-reference/bendix" className={getLinkClass('/oem-cross-reference/bendix')}>Bendix Equivalents</Link></li>
                         <li><Link href="/oem-cross-reference/haldex" className={getLinkClass('/oem-cross-reference/haldex')}>Haldex Equivalents</Link></li>
@@ -457,7 +457,7 @@ export default function Navbar() {
 
                     {/* Column 2: Truck OEMs */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Truck className="w-5 h-5 text-amber-500" /> Truck Manufacturers</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Truck className="w-5 h-5 text-primary-500" /> Truck Manufacturers</h3>
                       <ul className="space-y-3">
                         <li><Link href="/oem-cross-reference/freightliner" className={getLinkClass('/oem-cross-reference/freightliner')}>Freightliner Replacements</Link></li>
                         <li><Link href="/oem-cross-reference/peterbilt" className={getLinkClass('/oem-cross-reference/peterbilt')}>Peterbilt Replacements</Link></li>
@@ -469,7 +469,7 @@ export default function Navbar() {
 
                     {/* Column 3: Axle & Suspension */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Settings className="w-5 h-5 text-amber-500" /> Axle & Suspension</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Settings className="w-5 h-5 text-primary-500" /> Axle & Suspension</h3>
                       <ul className="space-y-3">
                         <li><Link href="/oem-cross-reference/hendrickson" className={getLinkClass('/oem-cross-reference/hendrickson')}>Hendrickson Applications</Link></li>
                         <li><Link href="/oem-cross-reference/saf-holland" className={getLinkClass('/oem-cross-reference/saf-holland')}>SAF-Holland Applications</Link></li>
@@ -480,12 +480,12 @@ export default function Navbar() {
 
                     {/* Column 4: Interchange Tools */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Search className="w-5 h-5 text-amber-500" /> Interchange Tools</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Search className="w-5 h-5 text-primary-500" /> Interchange Tools</h3>
                       <ul className="space-y-3">
                         <li><Link href="/oem-cross-reference/part-search" className={getLinkClass('/oem-cross-reference/part-search')}>Part Number Search</Link></li>
                         <li><Link href="/oem-cross-reference/visual-guide" className={getLinkClass('/oem-cross-reference/visual-guide')}>Visual Identification Guide</Link></li>
                         <li><Link href="/oem-cross-reference/database" className={getLinkClass('/oem-cross-reference/database')}>Full Interchange Database</Link></li>
-                        <li className="pt-2"><Link href="/oem-cross-reference/request" className="inline-flex items-center gap-2 transform transition-transform duration-200 text-amber-600 font-bold hover:text-amber-500 hover:translate-x-1 text-sm"><CheckCircle className="w-4 h-4" /> Request a Cross-Match</Link></li>
+                        <li className="pt-2"><Link href="/oem-cross-reference/request" className="inline-flex items-center gap-2 transform transition-transform duration-200 text-primary-600 font-bold hover:text-primary-500 hover:translate-x-1 text-sm"><CheckCircle className="w-4 h-4" /> Request a Cross-Match</Link></li>
                       </ul>
                     </div>
                   </div>
@@ -495,7 +495,7 @@ export default function Navbar() {
 
             {/* Unified Company & Manufacturing Dropdown */}
             <div className="group h-full flex items-center">
-              <Link href="/company" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'group-hover:border-amber-400 group-hover:text-white' : 'group-hover:border-amber-500 group-hover:text-amber-600'}`}>
+              <Link href="/company" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'group-hover:border-primary-400 group-hover:text-white' : 'group-hover:border-primary-500 group-hover:text-primary-600'}`}>
                 Company
               </Link>
               <div className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50">
@@ -503,7 +503,7 @@ export default function Navbar() {
                   <div className="grid grid-cols-4 gap-6">
                     {/* Column 1: About & Insights */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Users className="w-5 h-5 text-amber-500" /> About Us</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Users className="w-5 h-5 text-primary-500" /> About Us</h3>
                       <ul className="space-y-3">
                         <li><Link href="/company/our-story" className={getLinkClass('/company/our-story')}>Our Story</Link></li>
                         <li><Link href="/company/leadership" className={getLinkClass('/company/leadership')}>Leadership Team</Link></li>
@@ -513,7 +513,7 @@ export default function Navbar() {
 
                     {/* Column 2: Manufacturing */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Factory className="w-5 h-5 text-amber-500" /> Manufacturing</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Factory className="w-5 h-5 text-primary-500" /> Manufacturing</h3>
                       <ul className="space-y-3">
                         <li><Link href="/company/production-process" className={getLinkClass('/company/production-process')}>Production Process</Link></li>
                         <li><Link href="/company/facility-overview" className={getLinkClass('/company/facility-overview')}>Facility Overview</Link></li>
@@ -523,7 +523,7 @@ export default function Navbar() {
 
                     {/* Column 3: Quality & R&D */}
                     <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><ShieldCheck className="w-5 h-5 text-amber-500" /> Quality & R&D</h3>
+                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><ShieldCheck className="w-5 h-5 text-primary-500" /> Quality & R&D</h3>
                       <ul className="space-y-3">
                         <li><Link href="/company/iso-certifications" className={getLinkClass('/company/iso-certifications')}>ISO Certifications</Link></li>
                         <li><Link href="/company/testing-laboratory" className={getLinkClass('/company/testing-laboratory')}>Testing Laboratory</Link></li>
@@ -548,7 +548,7 @@ export default function Navbar() {
 
             {/* Technical Resources */}
             <div className="group h-full flex items-center">
-              <Link href="/technical-resources" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'hover:border-amber-400 hover:text-white' : 'hover:border-amber-500 hover:text-amber-600'}`}>
+              <Link href="/technical-resources" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'hover:border-primary-400 hover:text-white' : 'hover:border-primary-500 hover:text-primary-600'}`}>
                 Technical Resources
               </Link>
             </div>
@@ -557,7 +557,7 @@ export default function Navbar() {
 
             {/* Contact Sales */}
             <div className="group h-full flex items-center">
-              <Link href="/contact" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'hover:border-amber-400 hover:text-white' : 'hover:border-amber-500 hover:text-amber-600'}`}>
+              <Link href="/contact" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'hover:border-primary-400 hover:text-white' : 'hover:border-primary-500 hover:text-primary-600'}`}>
                 Contact Sales
               </Link>
             </div>

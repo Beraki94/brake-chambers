@@ -97,11 +97,11 @@ export default function ProductListingLayout({
       </nav>
 
       <div className={`mb-4 rounded-3xl ${isSubCategory ? 'bg-navy-900' : 'bg-gradient-to-br from-navy-900 to-navy-950'} relative overflow-hidden shadow-2xl shadow-navy-900/20 p-8 sm:p-12 border border-navy-800 flex flex-col md:flex-row md:items-center justify-between gap-8`}>
-        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500 opacity-10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500 opacity-10 rounded-full blur-3xl -ml-20 -mb-20"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500 opacity-10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-success-500 opacity-10 rounded-full blur-3xl -ml-20 -mb-20"></div>
         <div className="relative z-10 flex-1">
           {badge && (
-            <div className="inline-block px-3 py-1 mb-4 rounded-full bg-navy-800 border border-navy-700 text-amber-400 text-xs font-bold uppercase tracking-widest">
+            <div className="inline-block px-3 py-1 mb-4 rounded-full bg-navy-800 border border-navy-700 text-primary-400 text-xs font-bold uppercase tracking-widest">
               {badge}
             </div>
           )}
@@ -113,8 +113,8 @@ export default function ProductListingLayout({
           </p>
           {!isSubCategory && (
             <div className="flex flex-wrap items-center gap-4">
-              <span className="flex items-center text-sm font-medium text-emerald-400 bg-emerald-400/10 px-3 py-1.5 rounded-lg border border-emerald-400/20">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+              <span className="flex items-center text-sm font-medium text-success-400 bg-success-400/10 px-3 py-1.5 rounded-lg border border-success-400/20">
+                <span className="w-2 h-2 rounded-full bg-success-500 mr-2 animate-pulse"></span>
                 In Stock & Ready to Ship
               </span>
               <span className="text-navy-300 text-sm">Direct replacements for Bendix, Meritor & Haldex</span>
@@ -130,15 +130,15 @@ export default function ProductListingLayout({
            <FacetedSidebar baseCategory={baseCategory} />
            
            <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-gradient-to-b from-navy-900 to-navy-950 border border-navy-800 rounded-2xl text-center mt-6 shadow-xl shadow-navy-900/10 relative overflow-hidden sticky top-[30vh]">
-             <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+             <div className="absolute top-0 right-0 w-24 h-24 bg-primary-500/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
              <div className="bg-navy-800/80 p-2.5 rounded-full mb-3 border border-navy-700">
-               <Truck size={20} className="text-amber-400" />
+               <Truck size={20} className="text-primary-400" />
              </div>
              <h4 className="font-extrabold text-white text-sm mb-2 uppercase tracking-wide">Bulk OEM Orders</h4>
              <p className="text-xs mb-5 text-navy-200 leading-relaxed">
                Custom paint, private labeling, and ISO 9001 certified manufacturing for large fleets.
              </p>
-             <Link href="/quote" className="w-full bg-amber-500 text-navy-900 text-xs font-extrabold px-4 py-2.5 rounded-xl hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20 flex items-center justify-center gap-1.5">
+             <Link href="/quote" className="w-full bg-primary-500 text-navy-900 text-xs font-extrabold px-4 py-2.5 rounded-xl hover:bg-primary-400 transition-colors shadow-lg shadow-primary-500/20 flex items-center justify-center gap-1.5">
                Get a Custom Quote
              </Link>
            </div>
@@ -166,7 +166,7 @@ export default function ProductListingLayout({
             <div className="bg-white p-8 rounded-xl border border-slate-200 text-center">
               <h3 className="text-lg font-bold text-navy-900 mb-2">No Products Found</h3>
               <p className="text-slate-600 mb-4">We couldn't find any products matching your criteria.</p>
-              <Link href={`/${baseCategory}`} className="text-amber-600 font-bold hover:underline">View All {title}</Link>
+              <Link href={`/${baseCategory}`} className="text-primary-600 font-bold hover:underline">View All {title}</Link>
             </div>
           )}
 

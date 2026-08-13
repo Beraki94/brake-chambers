@@ -30,8 +30,8 @@ export default function RelatedProducts({ currentSlug, category, isAccessory = f
     <section className="py-16 mt-8 border-t border-slate-200 overflow-hidden relative">
       <div className="container mx-auto px-4 max-w-7xl mb-8 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
-            <TrendingUp className="w-5 h-5 text-amber-600" />
+          <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
+            <TrendingUp className="w-5 h-5 text-primary-600" />
           </div>
           <h3 className="text-2xl font-black font-heading text-navy-900 tracking-tight">
             Related {category}s
@@ -59,7 +59,7 @@ export default function RelatedProducts({ currentSlug, category, isAccessory = f
                   <Link 
                     key={`${setNum}-${product.slug}-${i}`} 
                     href={`/${categoryPath}/${product.slug}`}
-                    className="w-72 bg-white border border-slate-200 rounded-[1.5rem] p-5 flex flex-col hover:border-amber-400 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 group/card relative"
+                    className="w-72 bg-white border border-slate-200 rounded-[1.5rem] p-5 flex flex-col hover:border-primary-400 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 group/card relative"
                   >
                     <div className="w-full h-40 relative bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center">
                       {product.galleryUrls?.[0] ? (
@@ -80,14 +80,14 @@ export default function RelatedProducts({ currentSlug, category, isAccessory = f
                     
                     <div className="flex items-start justify-between gap-2 mb-2">
                       <h4 className="font-extrabold text-navy-900 text-lg truncate">{product.name}</h4>
-                      <ArrowUpRight className="w-5 h-5 text-slate-400 group-hover/card:text-amber-500 transition-colors flex-shrink-0" />
+                      <ArrowUpRight className="w-5 h-5 text-slate-400 group-hover/card:text-primary-500 transition-colors flex-shrink-0" />
                     </div>
                     
                     <div className="flex justify-between items-center mt-auto pt-4 border-t border-slate-100">
                       <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg">
                         {'type' in product ? product.type : 'Accessory'}
                       </span>
-                      <span className="text-amber-600 font-bold text-sm flex items-center gap-1 group-hover/card:text-amber-500 transition-colors">
+                      <span className="text-primary-600 font-bold text-sm flex items-center gap-1 group-hover/card:text-primary-500 transition-colors">
                         View Specs
                       </span>
                     </div>

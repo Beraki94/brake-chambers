@@ -23,7 +23,7 @@ export default function ContactPage() {
             <ol className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 text-sm text-navy-200">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><span className="text-navy-600">/</span></li>
-              <li className="text-amber-400 font-semibold" aria-current="page">Contact Us</li>
+              <li className="text-primary-400 font-semibold" aria-current="page">Contact Us</li>
             </ol>
           </nav>
         </div>
@@ -92,7 +92,7 @@ export default function ContactPage() {
                 <label className="block text-sm font-bold text-navy-900 mb-2">Part Numbers & Specifications</label>
                 <textarea rows={4} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:bg-white transition-all" placeholder="E.g., Looking for a quote on 200x Type 30/30 Spring Brakes (cross ref: Bendix 801083)..."></textarea>
               </div>
-              <button type="button" className="w-full bg-gradient-to-r from-amber-400 to-amber-600 text-navy-950 font-extrabold text-lg py-4 rounded-xl hover:from-amber-300 hover:to-amber-500 shadow-[0_10px_30px_-10px_rgba(245,158,11,0.5)] transition-all active:scale-[0.98] uppercase tracking-widest text-[13px]">
+              <button type="button" className="w-full bg-gradient-to-r from-primary-400 to-primary-600 text-navy-950 font-extrabold text-lg py-4 rounded-xl hover:from-primary-300 hover:to-primary-500 shadow-[0_10px_30px_-10px_rgba(245,158,11,0.5)] transition-all active:scale-[0.98] uppercase tracking-widest text-[13px]">
                 Send Inquiry
               </button>
             </form>

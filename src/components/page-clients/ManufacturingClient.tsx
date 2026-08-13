@@ -8,6 +8,14 @@ import { motion } from 'framer-motion';
 import { fadeInUp, slideInLeft } from '../../lib/animations';
 import PageHeader from '@/components/layout/PageHeader';
 
+// Static class maps so Tailwind can see every full class string (no dynamic construction).
+const accentStyles: Record<string, { badge: string; badgeText: string; check: string; link: string; node: string }> = {
+  amber:   { badge: 'bg-primary-50 border-primary-100', badgeText: 'text-primary-600', check: 'text-primary-500', link: 'text-primary-600 hover:text-primary-700', node: 'bg-primary-50' },
+  blue:    { badge: 'bg-blue-50 border-blue-100',       badgeText: 'text-blue-600',    check: 'text-blue-500',    link: 'text-blue-600 hover:text-blue-700',       node: 'bg-blue-50' },
+  emerald: { badge: 'bg-success-50 border-success-100', badgeText: 'text-success-600', check: 'text-success-500', link: 'text-success-600 hover:text-success-700', node: 'bg-success-50' },
+  purple:  { badge: 'bg-purple-50 border-purple-100',   badgeText: 'text-purple-600',  check: 'text-purple-500',  link: 'text-purple-600 hover:text-purple-700',   node: 'bg-purple-50' },
+};
+
 export default function ManufacturingClient() {
   const steps = [
     {
@@ -17,7 +25,7 @@ export default function ManufacturingClient() {
       description: 'Our in-house engineering team uses advanced CAD, FEA, and rapid prototyping to continuously improve chamber design, reducing weight while increasing burst strength and longevity.',
       image: '/images/engineering_blueprint.png',
       accent: 'amber',
-      icon: <Microscope className="w-8 h-8 text-amber-500" />,
+      icon: <Microscope className="w-8 h-8 text-primary-500" />,
       features: [
         'Advanced 3D CAD Modeling',
         'Finite Element Analysis (FEA)',
@@ -47,7 +55,7 @@ export default function ManufacturingClient() {
       description: 'Every BRC spring brake undergoes 100% pneumatic leak testing and mechanical cycle testing before boxing. We don\'t do batch testing; we test every single unit.',
       image: '/images/commercial_trailer.png',
       accent: 'emerald',
-      icon: <ShieldCheck className="w-8 h-8 text-emerald-500" />,
+      icon: <ShieldCheck className="w-8 h-8 text-success-500" />,
       features: [
         '100% End-of-Line Pneumatic Testing',
         'Salt Spray & Corrosion Resistance',
@@ -102,7 +110,7 @@ export default function ManufacturingClient() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-black text-navy-900 mb-6 font-heading tracking-tight leading-tight">
-              The BRC <span className="text-amber-500 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Step-by-Step</span> Process
+              The BRC <span className="text-primary-500 text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600">Step-by-Step</span> Process
             </h2>
             <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
               We don't just assemble parts. We control the entire lifecycle of our products, ensuring every chamber exceeds industry standards from initial design to final delivery.
@@ -121,6 +129,7 @@ export default function ManufacturingClient() {
           <div className="space-y-16 lg:space-y-24 relative z-10">
             {steps.map((step, idx) => {
               const isEven = idx % 2 === 0;
+              const styles = accentStyles[step.accent] ?? accentStyles.amber;
 
               return (
                 <div key={idx} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24`}>
@@ -134,8 +143,8 @@ export default function ManufacturingClient() {
                       transition={{ duration: 0.8 }}
                       className="max-w-lg"
                     >
-                      <div className={`inline-flex items-center gap-3 px-5 py-2 rounded-full bg-${step.accent}-50 border border-${step.accent}-100 mb-6 shadow-sm`}>
-                        <span className={`text-${step.accent}-600 font-extrabold uppercase tracking-widest text-sm`}>Step {step.step}</span>
+                      <div className={`inline-flex items-center gap-3 px-5 py-2 rounded-full border ${styles.badge} mb-6 shadow-sm`}>
+                        <span className={`${styles.badgeText} font-extrabold uppercase tracking-widest text-sm`}>Step {step.step}</span>
                       </div>
                       
                       <h3 className="text-3xl md:text-4xl font-black text-navy-900 mb-6 font-heading tracking-tight">
@@ -149,7 +158,7 @@ export default function ManufacturingClient() {
                       <div className={`flex flex-col gap-4 mb-10 ${isEven ? 'lg:items-end' : 'lg:items-start'}`}>
                         {step.features.map((feature, fIdx) => (
                           <div key={fIdx} className={`flex items-center gap-3 ${isEven ? 'lg:flex-row-reverse' : ''}`}>
-                            <CheckCircle2 className={`w-6 h-6 text-${step.accent}-500 flex-shrink-0`} />
+                            <CheckCircle2 className={`w-6 h-6 ${styles.check} flex-shrink-0`} />
                             <span className="text-navy-900 font-semibold">{feature}</span>
                           </div>
                         ))}
@@ -157,7 +166,7 @@ export default function ManufacturingClient() {
                       
                       <Link 
                         href={`/manufacturing/${step.slug}`} 
-                        className={`inline-flex items-center justify-center gap-2 text-${step.accent}-600 font-extrabold hover:text-${step.accent}-700 transition-colors uppercase tracking-widest text-sm group/link`}
+                        className={`inline-flex items-center justify-center gap-2 ${styles.link} font-extrabold transition-colors uppercase tracking-widest text-sm group/link`}
                       >
                         View Engineering Specs <ArrowRight className={`w-5 h-5 group-hover/link:translate-x-1 transition-transform ${isEven ? 'lg:-translate-x-1 lg:group-hover/link:-translate-x-2' : ''} ${isEven ? 'lg:rotate-180' : ''}`} />
                       </Link>
@@ -166,7 +175,7 @@ export default function ManufacturingClient() {
 
                   {/* Timeline Center Node (Visible on Desktop) */}
                   <div className="hidden lg:flex w-16 h-16 absolute left-1/2 -translate-x-1/2 bg-white rounded-full border-4 border-slate-100 items-center justify-center shadow-xl z-20">
-                    <div className={`w-10 h-10 rounded-full bg-${step.accent}-50 flex items-center justify-center`}>
+                    <div className={`w-10 h-10 rounded-full ${styles.node} flex items-center justify-center`}>
                       {step.icon}
                     </div>
                   </div>
@@ -203,7 +212,7 @@ export default function ManufacturingClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight">
-              Backed by <span className="text-amber-500">Data</span>
+              Backed by <span className="text-primary-500">Data</span>
             </h2>
             <p className="text-slate-600 text-lg font-light leading-relaxed">
               We operate at the intersection of massive industrial scale and microscopic manufacturing tolerances. Here is what that looks like by the numbers.
@@ -220,10 +229,10 @@ export default function ManufacturingClient() {
                 transition={{ delay: idx * 0.1, duration: 0.6 }}
                 className="bg-white rounded-3xl p-8 text-center border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
               >
-                <div className="w-16 h-16 mx-auto bg-amber-50 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300 group-hover:shadow-amber-500/20">
-                  <stat.icon className="w-8 h-8 text-amber-500" />
+                <div className="w-16 h-16 mx-auto bg-primary-50 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300 group-hover:shadow-primary-500/20">
+                  <stat.icon className="w-8 h-8 text-primary-500" />
                 </div>
-                <div className="text-4xl md:text-5xl font-black text-navy-900 mb-2 font-heading tracking-tight group-hover:text-amber-600 transition-colors">
+                <div className="text-4xl md:text-5xl font-black text-navy-900 mb-2 font-heading tracking-tight group-hover:text-primary-600 transition-colors">
                   {stat.value}
                 </div>
                 <div className="text-sm md:text-base font-bold text-slate-500 uppercase tracking-wider">
@@ -240,11 +249,11 @@ export default function ManufacturingClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
             <div className="w-full lg:w-1/2">
-              <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-amber-50 border border-amber-200 text-amber-600 text-[11px] font-bold uppercase tracking-widest">
+              <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary-50 border border-primary-200 text-primary-600 text-[11px] font-bold uppercase tracking-widest">
                 No Compromises
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold mb-6 font-heading tracking-tight leading-tight text-navy-900">
-                Material <span className="text-amber-500">Superiority</span>
+                Material <span className="text-primary-500">Superiority</span>
               </h2>
               <p className="text-slate-600 text-lg font-light leading-relaxed mb-8">
                 The best engineering in the world means nothing if the raw materials fail. We source only premium-grade metals and synthetic compounds to ensure our chambers survive environments where others crack, rust, or burst.
@@ -291,18 +300,18 @@ export default function ManufacturingClient() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-success-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
             <div className="relative z-10">
-              <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-amber-500/20 backdrop-blur-sm">
-                <Factory className="w-8 h-8 text-amber-400" />
+              <div className="w-20 h-20 bg-primary-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-primary-500/20 backdrop-blur-sm">
+                <Factory className="w-8 h-8 text-primary-400" />
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 font-heading tracking-tight">Partner with BRC Manufacturing</h2>
               <p className="text-navy-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                 From initial CAD conceptualization to final production runs of 100,000+ units, we are ready to be your dedicated manufacturing arm.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/contact" className="inline-block bg-amber-500 text-navy-950 font-extrabold text-[13px] px-10 py-5 rounded-2xl hover:bg-amber-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-amber-500/30 uppercase tracking-widest">
+                <Link href="/contact" className="inline-block bg-primary-500 text-navy-950 font-extrabold text-[13px] px-10 py-5 rounded-2xl hover:bg-primary-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-primary-500/30 uppercase tracking-widest">
                   Request Contract Manufacturing Quote
                 </Link>
               </div>

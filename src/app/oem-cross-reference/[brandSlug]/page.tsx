@@ -128,7 +128,7 @@ export default async function OEMBrandPage(
       {/* Category Header Hero */}
       <div className="mb-8 rounded-3xl bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 relative overflow-hidden shadow-2xl shadow-navy-900/20 p-8 sm:p-12 border border-navy-800">
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#FFB000] opacity-10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500 opacity-10 rounded-full blur-3xl -ml-20 -mb-20"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-success-500 opacity-10 rounded-full blur-3xl -ml-20 -mb-20"></div>
         <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center justify-between">
           <div className="max-w-2xl">
             <div className="inline-block px-3 py-1 mb-4 rounded-full bg-navy-800/80 border border-navy-700 text-[#FFB000] text-xs font-bold uppercase tracking-widest backdrop-blur-sm">
@@ -143,7 +143,7 @@ export default async function OEMBrandPage(
 
             <div className="flex flex-wrap gap-4">
               <div className="flex items-center text-sm font-bold text-white bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
-                <CheckCircle2 className="w-4 h-4 mr-2 text-emerald-400" /> Form & Fit Match
+                <CheckCircle2 className="w-4 h-4 mr-2 text-success-400" /> Form & Fit Match
               </div>
               <div className="flex items-center text-sm font-bold text-white bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
                 <ShieldCheck className="w-4 h-4 mr-2 text-blue-400" /> ISO Certified
@@ -179,21 +179,21 @@ export default async function OEMBrandPage(
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 mr-3 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-success-500 mr-3 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-navy-900 text-sm">Matching Stroke Lengths</h4>
                   <p className="text-sm text-slate-600 mt-1">Both Standard and Long Stroke variants exactly match {brandInfo.name} travel limits.</p>
                 </div>
               </li>
               <li className="flex items-start">
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 mr-3 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-success-500 mr-3 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-navy-900 text-sm">Identical Port Angles</h4>
                   <p className="text-sm text-slate-600 mt-1">Drop-in replacement means no rerouting of airline hoses or modifying fittings.</p>
                 </div>
               </li>
               <li className="flex items-start">
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 mr-3 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-success-500 mr-3 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-navy-900 text-sm">Mounting Hardware</h4>
                   <p className="text-sm text-slate-600 mt-1">Stud sizes, spacing, and clevis threads align perfectly with existing brackets.</p>
@@ -253,9 +253,9 @@ export default async function OEMBrandPage(
                   <Link 
                     key={partSlug} 
                     href={`/oem-cross-reference/${params.brandSlug}/${partSlug}`}
-                    className="bg-white border border-slate-200 hover:border-amber-400 hover:shadow-md p-4 rounded-xl text-center transition-all group"
+                    className="bg-white border border-slate-200 hover:border-primary-400 hover:shadow-md p-4 rounded-xl text-center transition-all group"
                   >
-                    <div className="font-mono font-bold text-navy-900 group-hover:text-amber-600">{partName}</div>
+                    <div className="font-mono font-bold text-navy-900 group-hover:text-primary-600">{partName}</div>
                     <div className="text-xs text-slate-500 mt-1">View Replacement</div>
                   </Link>
                 ))}

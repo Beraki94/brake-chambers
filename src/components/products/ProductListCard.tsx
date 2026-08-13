@@ -27,7 +27,7 @@ export default function ProductListCard({ product, categoryPath }: { product: Br
         {/* Top Info: Name, SKU & Main Spec */}
         <div className="mb-4">
           {/* H3 with min-height ensures 1-line and 2-line titles take the same space */}
-          <h3 className="font-bold text-navy-900 text-lg leading-tight line-clamp-2 min-h-[2.75rem] group-hover:text-amber-600 transition-colors duration-200 mb-2">
+          <h3 className="font-bold text-navy-900 text-lg leading-tight line-clamp-2 min-h-[2.75rem] group-hover:text-primary-600 transition-colors duration-200 mb-2">
             {product.name}
           </h3>
           <div className="flex flex-wrap items-center gap-y-1 gap-x-3">
@@ -78,10 +78,10 @@ export default function ProductListCard({ product, categoryPath }: { product: Br
         
         {/* Action Button & Trust - Forced to Bottom */}
         <div className="mt-auto flex justify-between items-center pt-2">
-           <span className="flex items-center text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-100 uppercase tracking-wider">
+           <span className="flex items-center text-[10px] font-bold text-success-700 bg-success-50 px-2 py-1 rounded border border-success-100 uppercase tracking-wider">
              <ShieldCheck size={12} className="mr-1" /> Factory Direct
            </span>
-          <span className="text-amber-600 text-sm font-bold flex items-center group-hover:text-amber-500 transition-colors">
+          <span className="text-primary-600 text-sm font-bold flex items-center group-hover:text-primary-500 transition-colors">
             View Details <ChevronRight size={16} className="ml-1 transform group-hover:translate-x-1 transition-transform" />
           </span>
         </div>

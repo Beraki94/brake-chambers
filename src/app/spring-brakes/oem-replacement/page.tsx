@@ -51,7 +51,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
 
       {/* SEO Hero Header */}
       <div className="mb-8 rounded-3xl bg-navy-900 relative overflow-hidden shadow-2xl p-8 sm:p-12 border border-navy-800">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500 opacity-10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500 opacity-10 rounded-full blur-3xl -mr-20 -mt-20"></div>
         <div className="relative z-10 flex flex-col lg:flex-row items-start justify-between gap-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">OEM Replacement Spring Brakes</h1>
@@ -60,12 +60,12 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
             </div>
           </div>
           <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-navy-800/50 backdrop-blur-sm border border-navy-700 rounded-2xl text-center w-72 flex-shrink-0">
-             <div className="bg-amber-500/20 p-3 rounded-full mb-4 border border-amber-500/30">
-               <Truck size={24} className="text-amber-400" />
+             <div className="bg-primary-500/20 p-3 rounded-full mb-4 border border-primary-500/30">
+               <Truck size={24} className="text-primary-400" />
              </div>
              <h4 className="font-extrabold text-white text-lg mb-2">Direct OEM Supply</h4>
              <p className="text-sm mb-6 text-navy-200 leading-relaxed">Factory-direct pricing on bulk orders for fleets and distributors.</p>
-             <Link href="/quote" className="w-full bg-amber-500 text-navy-900 font-extrabold px-6 py-3 rounded-xl hover:bg-amber-400 transition-all shadow-lg hover:shadow-amber-500/20 flex items-center justify-center gap-2">
+             <Link href="/quote" className="w-full bg-primary-500 text-navy-900 font-extrabold px-6 py-3 rounded-xl hover:bg-primary-400 transition-all shadow-lg hover:shadow-primary-500/20 flex items-center justify-center gap-2">
                Request Wholesale Quote
              </Link>
           </div>
@@ -78,10 +78,10 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
            
           {/* OEM CTA Banner */}
           <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-gradient-to-b from-navy-900 to-navy-950 border border-navy-800 rounded-2xl text-center mt-6 shadow-xl shadow-navy-900/10 relative overflow-hidden sticky top-[30vh]">
-             <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+             <div className="absolute top-0 right-0 w-24 h-24 bg-primary-500/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
              
              <div className="bg-navy-800/80 p-2.5 rounded-full mb-3 border border-navy-700">
-               <Truck size={20} className="text-amber-400" />
+               <Truck size={20} className="text-primary-400" />
              </div>
              
              <h4 className="font-extrabold text-white text-sm mb-2 uppercase tracking-wide">Bulk OEM Orders</h4>
@@ -89,7 +89,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
                Custom paint, private labeling, and ISO 9001 certified manufacturing for large fleets.
              </p>
              
-             <Link href="/quote" className="w-full bg-amber-500 text-navy-900 text-xs font-extrabold px-4 py-2.5 rounded-xl hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20 flex items-center justify-center gap-1.5">
+             <Link href="/quote" className="w-full bg-primary-500 text-navy-900 text-xs font-extrabold px-4 py-2.5 rounded-xl hover:bg-primary-400 transition-colors shadow-lg shadow-primary-500/20 flex items-center justify-center gap-1.5">
                Get a Custom Quote
              </Link>
           </div>
