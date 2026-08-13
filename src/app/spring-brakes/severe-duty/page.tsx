@@ -56,7 +56,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">Severe-Duty & Off-Highway</h1>
             <div className="text-navy-100 text-base sm:text-lg leading-relaxed space-y-4">
-              <p>When the pavement ends, the demands on your braking system multiply. BRC Severe-Duty and Off-Highway Spring Brakes are heavily reinforced to survive in mining, logging, construction, and refuse applications.</p>\n              <p>Featuring double-plated housings, extreme-temperature diaphragms, and specialized protective dust boots, these chambers are designed to shrug off heavy impacts, mud, and continuous heavy-load braking cycles.</p>
+              <p>When the pavement ends, the demands on your braking system multiply. BRC Severe-Duty and Off-Highway Spring Brakes are heavily reinforced to survive in mining, logging, construction, and refuse applications.</p>              <p>Featuring double-plated housings, extreme-temperature diaphragms, and specialized protective dust boots, these chambers are designed to shrug off heavy impacts, mud, and continuous heavy-load braking cycles.</p>
             </div>
           </div>
           <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-navy-800/50 backdrop-blur-sm border border-navy-700 rounded-2xl text-center w-72 flex-shrink-0">

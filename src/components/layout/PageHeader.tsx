@@ -13,7 +13,7 @@ interface PageHeaderProps {
 
 export default function PageHeader({ badge, title, description, children, imageSrc = '/images/engineering_blueprint.png', breadcrumbs }: PageHeaderProps) {
   return (
-    <section className="relative pt-6 md:pt-10 lg:pt-12 pb-24 md:pb-32 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8">
+    <section className="relative pt-6 md:pt-10 lg:pt-12 pb-16 sm:pb-24 md:pb-32 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -37,7 +37,7 @@ export default function PageHeader({ badge, title, description, children, imageS
         
         {/* TOP LEFT BREADCRUMB - Standardized Position */}
         {breadcrumbs && breadcrumbs.length > 0 && (
-          <nav aria-label="Breadcrumb" className="mb-12 md:mb-16 mt-2">
+          <nav aria-label="Breadcrumb" className="mb-8 sm:mb-12 md:mb-16 mt-2">
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-navy-300 font-medium">
               {breadcrumbs.map((crumb, idx) => (
                 <React.Fragment key={idx}>
@@ -62,10 +62,10 @@ export default function PageHeader({ badge, title, description, children, imageS
               {badge}
             </div>
           )}
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 drop-shadow-lg leading-tight">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 drop-shadow-lg leading-tight text-balance">
             {title}
           </h1>
-          <p className="text-navy-200 text-lg md:text-xl font-light leading-relaxed mb-10 drop-shadow">
+          <p className="text-navy-200 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-8 sm:mb-10 drop-shadow text-pretty">
             {description}
           </p>
           

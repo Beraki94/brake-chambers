@@ -56,7 +56,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">Steer Axle Service Chambers</h1>
             <div className="text-navy-100 text-base sm:text-lg leading-relaxed space-y-4">
-              <p>Steer axle braking requires precise modulation and rapid response. Our Steer Axle Service Chambers (typically Type 20 and Type 24) are engineered for smooth, predictable brake application to maintain vehicle control during critical stops.</p>\n              <p>Built with high-tensile strength return springs and precision-machined push rods, these service chambers provide the instant response necessary for safe heavy-duty truck handling.</p>
+              <p>Steer axle braking requires precise modulation and rapid response. Our Steer Axle Service Chambers (typically Type 20 and Type 24) are engineered for smooth, predictable brake application to maintain vehicle control during critical stops.</p>              <p>Built with high-tensile strength return springs and precision-machined push rods, these service chambers provide the instant response necessary for safe heavy-duty truck handling.</p>
             </div>
           </div>
           <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-navy-800/50 backdrop-blur-sm border border-navy-700 rounded-2xl text-center w-72 flex-shrink-0">

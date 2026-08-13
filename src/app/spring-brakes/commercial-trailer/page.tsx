@@ -56,7 +56,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">Commercial Trailer Spring Brakes</h1>
             <div className="text-navy-100 text-base sm:text-lg leading-relaxed space-y-4">
-              <p>Commercial trailers face unique braking challenges, from varied load weights to extreme weather exposure. Our Trailer Spring Brakes are built to provide consistent, fade-resistant parking and emergency braking across all trailer axles.</p>\n              <p>With a focus on fleet longevity, these chambers incorporate advanced sealing technology to prevent moisture and road chemical intrusion, ensuring your trailer fleet stays on the road and out of the shop.</p>
+              <p>Commercial trailers face unique braking challenges, from varied load weights to extreme weather exposure. Our Trailer Spring Brakes are built to provide consistent, fade-resistant parking and emergency braking across all trailer axles.</p>              <p>With a focus on fleet longevity, these chambers incorporate advanced sealing technology to prevent moisture and road chemical intrusion, ensuring your trailer fleet stays on the road and out of the shop.</p>
             </div>
           </div>
           <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-navy-800/50 backdrop-blur-sm border border-navy-700 rounded-2xl text-center w-72 flex-shrink-0">

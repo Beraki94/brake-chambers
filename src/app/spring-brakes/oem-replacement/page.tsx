@@ -56,7 +56,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">OEM Replacement Spring Brakes</h1>
             <div className="text-navy-100 text-base sm:text-lg leading-relaxed space-y-4">
-              <p>Why pay premium dealership markups when you can source direct from the manufacturer? Our OEM Replacement Spring Brakes are built to the exact dimensional and performance specifications of the industry's leading brands.</p>\n              <p>We supply aftermarket distributors, repair shops, and fleets with high-quality alternatives that cross-reference perfectly with Bendix, Meritor, Haldex, and Wabco part numbers, ensuring a perfect fit every time.</p>
+              <p>Why pay premium dealership markups when you can source direct from the manufacturer? Our OEM Replacement Spring Brakes are built to the exact dimensional and performance specifications of the industry's leading brands.</p>              <p>We supply aftermarket distributors, repair shops, and fleets with high-quality alternatives that cross-reference perfectly with Bendix, Meritor, Haldex, and Wabco part numbers, ensuring a perfect fit every time.</p>
             </div>
           </div>
           <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-navy-800/50 backdrop-blur-sm border border-navy-700 rounded-2xl text-center w-72 flex-shrink-0">

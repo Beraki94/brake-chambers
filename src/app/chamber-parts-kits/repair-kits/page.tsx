@@ -56,7 +56,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">Brake Chamber Repair Kits</h1>
             <div className="text-navy-100 text-base sm:text-lg leading-relaxed space-y-4">
-              <p>Reduce downtime and save money with our comprehensive Brake Chamber Repair Kits. Instead of replacing the entire assembly, our Piggyback Kits allow for quick, safe replacement of the spring brake portion in the field.</p>\n              <p>Each kit includes all necessary hardware, pre-caged springs for safety, and detailed instructions to get your vehicle back on the road rapidly.</p>
+              <p>Reduce downtime and save money with our comprehensive Brake Chamber Repair Kits. Instead of replacing the entire assembly, our Piggyback Kits allow for quick, safe replacement of the spring brake portion in the field.</p>              <p>Each kit includes all necessary hardware, pre-caged springs for safety, and detailed instructions to get your vehicle back on the road rapidly.</p>
             </div>
           </div>
           <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-navy-800/50 backdrop-blur-sm border border-navy-700 rounded-2xl text-center w-72 flex-shrink-0">

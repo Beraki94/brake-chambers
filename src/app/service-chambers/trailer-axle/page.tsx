@@ -56,7 +56,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">Trailer Axle Service Chambers</h1>
             <div className="text-navy-100 text-base sm:text-lg leading-relaxed space-y-4">
-              <p>Designed specifically for the harsh environment of commercial trailers, these service chambers provide reliable, everyday stopping power for flatbeds, dry vans, and refrigerated trailers.</p>\n              <p>Available with various push-rod lengths and clevis configurations to match any trailer slack adjuster setup.</p>
+              <p>Designed specifically for the harsh environment of commercial trailers, these service chambers provide reliable, everyday stopping power for flatbeds, dry vans, and refrigerated trailers.</p>              <p>Available with various push-rod lengths and clevis configurations to match any trailer slack adjuster setup.</p>
             </div>
           </div>
           <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-navy-800/50 backdrop-blur-sm border border-navy-700 rounded-2xl text-center w-72 flex-shrink-0">

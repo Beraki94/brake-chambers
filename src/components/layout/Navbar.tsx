@@ -127,7 +127,7 @@ export default function Navbar() {
             </Link>
 
             {/* Main Search Bar (Center Desktop) - Expanded Width */}
-            <div className="flex-1 w-full mx-auto hidden md:block max-w-4xl" ref={searchContainerRef}>
+            <div className="flex-1 min-w-0 w-full mx-auto hidden md:block max-w-4xl" ref={searchContainerRef}>
               <div className="relative">
                 <form onSubmit={handleSearch} className="relative group flex items-center w-full bg-white rounded-full border border-transparent focus-within:border-slate-500 focus-within:bg-white focus-within:ring-4 focus-within:ring-slate-500/10 transition-all overflow-hidden shadow-sm">
                   <Search className="h-5 w-5 text-navy-400 ml-4 group-focus-within:text-slate-600 transition-colors" />
@@ -140,7 +140,7 @@ export default function Navbar() {
                     }}
                     onFocus={() => setShowDropdown(true)}
                     placeholder="Search by part number, chamber type, or cross-reference..."
-                    className="flex-1 bg-transparent py-3 px-3 text-sm text-navy-900 focus:outline-none"
+                    className="flex-1 min-w-0 bg-transparent py-3 px-3 text-sm text-navy-900 focus:outline-none"
                   />
                   <button type="submit" className="pr-5 pl-3 flex items-center justify-center hover:bg-slate-50 h-full transition-colors text-navy-600 font-medium text-sm">
                     Search

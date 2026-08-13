@@ -56,7 +56,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">Drive Axle Service Chambers</h1>
             <div className="text-navy-100 text-base sm:text-lg leading-relaxed space-y-4">
-              <p>The drive axles handle the majority of a commercial vehicle's stopping requirements. Our Drive Axle Service Chambers (typically Type 30) are built to deliver massive, consistent braking force.</p>\n              <p>Featuring heavy-gauge steel construction and reinforced mounting studs, these chambers can withstand the severe torsional forces generated during heavy payload braking.</p>
+              <p>The drive axles handle the majority of a commercial vehicle's stopping requirements. Our Drive Axle Service Chambers (typically Type 30) are built to deliver massive, consistent braking force.</p>              <p>Featuring heavy-gauge steel construction and reinforced mounting studs, these chambers can withstand the severe torsional forces generated during heavy payload braking.</p>
             </div>
           </div>
           <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-navy-800/50 backdrop-blur-sm border border-navy-700 rounded-2xl text-center w-72 flex-shrink-0">

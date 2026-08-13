@@ -56,7 +56,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">Truck Air Disc Actuators</h1>
             <div className="text-navy-100 text-base sm:text-lg leading-relaxed space-y-4">
-              <p>As the industry shifts toward air disc brakes for their superior stopping distance and fade resistance, you need actuators that can match that performance. Our Truck Air Disc Actuators provide linear, high-efficiency force output required by modern ADB calipers.</p>\n              <p>Designed as direct replacements for Bendix ADB22X and Meritor EX+ systems, these actuators feature internal breathing systems to prevent contamination and specialized push rods for disc brake mechanics.</p>
+              <p>As the industry shifts toward air disc brakes for their superior stopping distance and fade resistance, you need actuators that can match that performance. Our Truck Air Disc Actuators provide linear, high-efficiency force output required by modern ADB calipers.</p>              <p>Designed as direct replacements for Bendix ADB22X and Meritor EX+ systems, these actuators feature internal breathing systems to prevent contamination and specialized push rods for disc brake mechanics.</p>
             </div>
           </div>
           <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-navy-800/50 backdrop-blur-sm border border-navy-700 rounded-2xl text-center w-72 flex-shrink-0">

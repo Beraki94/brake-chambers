@@ -56,7 +56,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">Heavy-Duty Truck Spring Brakes</h1>
             <div className="text-navy-100 text-base sm:text-lg leading-relaxed space-y-4">
-              <p>Our Heavy-Duty Truck Spring Brakes are engineered specifically for Class 8 commercial vehicles that demand absolute reliability. Designed as direct aftermarket replacements for major OEM brands like Bendix, Meritor, and Haldex, these chambers deliver uncompromising stopping power.</p>\n              <p>Manufactured under strict ISO 9001 quality standards, BRC heavy-duty chambers feature enhanced corrosion resistance, premium nylon-reinforced diaphragms, and 8-gauge heavy steel housings to withstand millions of cycles in harsh over-the-road environments.</p>
+              <p>Our Heavy-Duty Truck Spring Brakes are engineered specifically for Class 8 commercial vehicles that demand absolute reliability. Designed as direct aftermarket replacements for major OEM brands like Bendix, Meritor, and Haldex, these chambers deliver uncompromising stopping power.</p>              <p>Manufactured under strict ISO 9001 quality standards, BRC heavy-duty chambers feature enhanced corrosion resistance, premium nylon-reinforced diaphragms, and 8-gauge heavy steel housings to withstand millions of cycles in harsh over-the-road environments.</p>
             </div>
           </div>
           <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-navy-800/50 backdrop-blur-sm border border-navy-700 rounded-2xl text-center w-72 flex-shrink-0">
