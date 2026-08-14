@@ -405,19 +405,6 @@ export default function HomeClient() {
 
       {/* 4. Digital B2B Tools & Support */}
       <section className="py-16 md:py-24 relative overflow-hidden bg-[#F1EFE8]">
-        {/* Core Gradient & Imagery */}
-        <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80" alt="Dashboard" className="w-full h-full object-cover opacity-[0.03] mix-blend-multiply grayscale" />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#F1EFE8]/95 via-[#F1EFE8]/80 to-[#F1EFE8]/95"></div>
-        </div>
-
-        {/* Pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.04] mix-blend-multiply" style={{ backgroundImage: 'radial-gradient(#0c142c 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
-
-        {/* Decorative glows */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[100px] -mr-20 -mt-20 mix-blend-multiply pointer-events-none transition-all duration-1000 animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px] -ml-20 -mb-20 mix-blend-multiply pointer-events-none transition-all duration-1000 animate-pulse" style={{ animationDelay: '1s' }}></div>
-
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
             <div className="lg:col-span-1 pr-6">
