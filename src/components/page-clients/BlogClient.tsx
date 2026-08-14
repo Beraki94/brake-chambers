@@ -9,11 +9,12 @@ import { fadeInUp, staggerContainer } from '../../lib/animations';
 
 const categories: (BlogPostCategory | 'All')[] = [
   'All',
-  'Product Release',
-  'Certification',
-  'Logistics Notice',
+  'Buying Guide',
+  'How-To',
+  'Innovation',
   'Technical Guide',
-  'Company News'
+  'Industry News',
+  'Fleet Management'
 ];
 
 export default function BlogClient() {

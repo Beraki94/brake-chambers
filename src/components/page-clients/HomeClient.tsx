@@ -501,18 +501,18 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 6. Industry News & Technical Bulletins */}
+      {/* 6. Industry Insights & Guides */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-14 gap-6 text-center md:text-left">
             <div className="flex flex-col items-center md:items-start">
               <div className="inline-block px-3 py-1 mb-3 rounded-full bg-slate-100 text-slate-500 border border-slate-200 text-[11px] font-bold uppercase tracking-widest">
-                Updates & Releases
+                Knowledge Base & Insights
               </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700 tracking-tight">Technical Bulletins</h2>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700 tracking-tight">Industry Guides & Innovation</h2>
             </div>
-            <Link href="/about" className="text-amber-600 font-extrabold uppercase tracking-widest text-[13px] flex items-center justify-center hover:text-amber-500 transition-colors bg-slate-50 px-5 py-2.5 rounded-lg border border-slate-100 hover:shadow-sm">
-              View Archive <ChevronRight className="w-4 h-4 ml-1" />
+            <Link href="/blog" className="hidden md:flex text-amber-600 font-extrabold uppercase tracking-widest text-[13px] items-center justify-center hover:text-amber-500 transition-colors bg-slate-50 px-5 py-2.5 rounded-lg border border-slate-100 hover:shadow-sm">
+              View All Articles <ChevronRight className="w-4 h-4 ml-1" />
             </Link>
           </div>
 
@@ -523,10 +523,21 @@ export default function HomeClient() {
             viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
-            {blogPosts.slice(0, 3).map((post) => (
+            {(() => {
+              const greenPost = blogPosts.find(p => p.category === 'Technical Guide' || p.category === 'Industry News');
+              if (!greenPost) return blogPosts.slice(0, 3);
+              const otherPosts = blogPosts.filter(p => p.id !== greenPost.id);
+              return [greenPost, otherPosts[0], otherPosts[1]];
+            })().map((post) => (
               <BlogCard key={post.slug} post={post} variants={fadeInUp} />
             ))}
           </motion.div>
+
+          <div className="mt-10 flex justify-center md:hidden">
+            <Link href="/blog" className="w-full text-amber-600 font-extrabold uppercase tracking-widest text-[13px] flex items-center justify-center hover:text-amber-500 transition-colors bg-slate-50 px-6 py-3.5 rounded-lg border border-slate-100 shadow-sm hover:shadow-md">
+              View All Articles <ChevronRight className="w-4 h-4 ml-1" />
+            </Link>
+          </div>
         </div>
       </section>
 

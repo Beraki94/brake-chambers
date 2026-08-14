@@ -12,7 +12,7 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, variants }: BlogCardProps) {
-  const isCertification = post.category.toLowerCase().includes('certification') || post.category.toLowerCase().includes('compliance');
+  const isGreen = post.category === 'Technical Guide' || post.category === 'Industry News';
 
   return (
     <motion.div variants={variants} className="group cursor-pointer flex flex-col h-full">
@@ -26,7 +26,7 @@ export default function BlogCard({ post, variants }: BlogCardProps) {
           />
           <div className="absolute bottom-5 left-5 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
             <span className={`text-[11px] font-bold px-3 py-1.5 rounded border flex items-center ${
-              isCertification 
+              isGreen 
                 ? 'bg-emerald-500 text-white border-emerald-400' 
                 : 'bg-amber-500 text-navy-950 border-amber-400'
             }`}>
@@ -36,7 +36,7 @@ export default function BlogCard({ post, variants }: BlogCardProps) {
         </div>
         
         <div className={`text-[11px] font-extrabold uppercase tracking-widest mb-3 flex-shrink-0 ${
-          isCertification ? 'text-emerald-600' : 'text-amber-500'
+          isGreen ? 'text-emerald-600' : 'text-amber-500'
         }`}>
           {post.category}
         </div>
