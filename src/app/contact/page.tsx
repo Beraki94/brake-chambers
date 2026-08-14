@@ -9,25 +9,20 @@ export const metadata = {
 };
 
 import PageHeader from '@/components/layout/PageHeader';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function ContactPage() {
   return (
     <div className="bg-[#F8FAFC] pb-20">
       <PageHeader 
-        badge="Sales & Support"
+        badge="Customer Support"
         title="Contact BRC Global Sales"
         description="Ready to equip your fleet with world-class safety? Our dedicated OEM and wholesale agents are available to assist with technical specs, cross-referencing, and bulk quotes."
-      >
-        <div className="mt-8 flex justify-center">
-          <nav aria-label="Breadcrumb" className="inline-block bg-navy-900/60 backdrop-blur-md border border-navy-700 px-6 py-2 rounded-full shadow-lg">
-            <ol className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 text-sm text-navy-200">
-              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><span className="text-navy-600">/</span></li>
-              <li className="text-amber-400 font-semibold" aria-current="page">Contact Us</li>
-            </ol>
-          </nav>
-        </div>
-      </PageHeader>
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Contact Us' }
+        ]}
+      />
 
       <section className="container mx-auto px-4 lg:px-8 max-w-7xl -mt-20 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -56,7 +51,13 @@ export default function ContactPage() {
           </div>
 
           <div className="lg:col-span-2 bg-white rounded-2xl shadow-xl border border-navy-50 p-8 md:p-12">
-            <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6">Request a Wholesale Quote</h2>
+            <SectionHeader
+              badge="Wholesale Inquiries"
+              title="Request a Wholesale Quote"
+              align="left"
+              accentColor="amber"
+              className="!mb-8"
+            />
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>

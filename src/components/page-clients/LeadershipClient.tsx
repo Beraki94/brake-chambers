@@ -4,6 +4,7 @@ import React from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import { Mail, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function LeadershipClient() {
   const leaders = [
@@ -48,6 +49,7 @@ export default function LeadershipClient() {
   return (
     <div className="bg-slate-50 min-h-screen pb-20">
       <PageHeader 
+        badge="Executive Team"
         title="Leadership Team"
         description="Driven by experts in commercial vehicle braking systems, metallurgy, and lean manufacturing."
         breadcrumbs={[
@@ -82,8 +84,9 @@ export default function LeadershipClient() {
 
       {/* Next Step CTA */}
       <section className="bg-white py-16 border-t border-slate-200 text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight">Discover How We Build</h2>
+        <div className="container mx-auto px-4 flex flex-col items-center">
+          <SectionHeader title="Discover How We Build" className="!mb-6" />
+
           <Link href="/company/production-process" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
             Explore Our Production Process <ArrowRight className="w-6 h-6 ml-2" />
           </Link>

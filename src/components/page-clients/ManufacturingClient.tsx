@@ -31,8 +31,8 @@ export default function ManufacturingClient() {
       slug: 'manufacturing',
       description: 'ISO certified facilities utilizing automated robotic welding, CNC machining, and precision assembly lines to guarantee absolute consistency across millions of units.',
       image: '/images/manufacturing_floor.png',
-      accent: 'blue',
-      icon: <Factory className="w-8 h-8 text-blue-500" />,
+      accent: 'navy',
+      icon: <Factory className="w-8 h-8 text-navy-500" />,
       features: [
         'Automated Robotic Welding',
         'High-Precision CNC Machining',
@@ -46,8 +46,8 @@ export default function ManufacturingClient() {
       slug: 'quality-assurance',
       description: 'Every BRC spring brake undergoes 100% pneumatic leak testing and mechanical cycle testing before boxing. We don\'t do batch testing; we test every single unit.',
       image: '/images/commercial_trailer.png',
-      accent: 'emerald',
-      icon: <ShieldCheck className="w-8 h-8 text-emerald-500" />,
+      accent: 'amber',
+      icon: <ShieldCheck className="w-8 h-8 text-amber-500" />,
       features: [
         '100% End-of-Line Pneumatic Testing',
         'Salt Spray & Corrosion Resistance',
@@ -61,8 +61,8 @@ export default function ManufacturingClient() {
       slug: 'distribution',
       description: 'With strategic distribution centers across North America, we offer same-day shipping on standard SKUs, JIT delivery for OEMs, and robust inventory management.',
       image: '/images/heavy_duty_truck.png',
-      accent: 'purple',
-      icon: <Globe2 className="w-8 h-8 text-purple-500" />,
+      accent: 'slate',
+      icon: <Globe2 className="w-8 h-8 text-slate-500" />,
       features: [
         'Strategic North American Hubs',
         'Just-In-Time (JIT) OEM Supply',
@@ -123,7 +123,7 @@ export default function ManufacturingClient() {
               const isEven = idx % 2 === 0;
 
               return (
-                <div key={idx} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24`}>
+                <div key={idx} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24 group/row`}>
                   
                   {/* Content Block */}
                   <div className={`w-full lg:w-1/2 flex flex-col ${isEven ? 'lg:items-end lg:text-right' : 'lg:items-start lg:text-left'}`}>
@@ -165,9 +165,12 @@ export default function ManufacturingClient() {
                   </div>
 
                   {/* Timeline Center Node (Visible on Desktop) */}
-                  <div className="hidden lg:flex w-16 h-16 absolute left-1/2 -translate-x-1/2 bg-white rounded-full border-4 border-slate-100 items-center justify-center shadow-xl z-20">
+                  <div className="hidden lg:flex w-16 h-16 absolute left-1/2 -translate-x-1/2 bg-white rounded-full border-4 border-slate-100 items-center justify-center shadow-xl z-20 transition-all duration-500 group-hover/row:scale-110 group-hover/row:border-slate-200">
                     <div className={`w-10 h-10 rounded-full bg-${step.accent}-50 flex items-center justify-center`}>
-                      {step.icon}
+                      {React.cloneElement(step.icon as React.ReactElement<any>, { 
+                        className: `w-6 h-6 text-${step.accent}-500 transition-transform duration-500 group-hover/row:rotate-12`,
+                        'aria-hidden': 'true' 
+                      })}
                     </div>
                   </div>
 
@@ -184,7 +187,8 @@ export default function ManufacturingClient() {
                         src={step.image} 
                         alt={step.title} 
                         fill 
-                        className="object-cover transition-transform duration-[10s] group-hover:scale-110 ease-out" 
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-[10s] group-hover/row:scale-110 ease-out" 
                       />
                       {/* Gradient overlay to ensure image isn't too overpowering */}
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent"></div>
@@ -221,7 +225,7 @@ export default function ManufacturingClient() {
                 className="bg-white rounded-3xl p-8 text-center border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
               >
                 <div className="w-16 h-16 mx-auto bg-amber-50 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300 group-hover:shadow-amber-500/20">
-                  <stat.icon className="w-8 h-8 text-amber-500" />
+                  <stat.icon className="w-8 h-8 text-amber-500 transition-transform duration-300 group-hover:rotate-12" aria-hidden="true" />
                 </div>
                 <div className="text-4xl md:text-5xl font-black text-navy-900 mb-2 font-heading tracking-tight group-hover:text-amber-600 transition-colors">
                   {stat.value}
@@ -291,7 +295,7 @@ export default function ManufacturingClient() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
             <div className="relative z-10">
               <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-amber-500/20 backdrop-blur-sm">

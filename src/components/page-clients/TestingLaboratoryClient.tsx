@@ -2,38 +2,73 @@
 
 import React from 'react';
 import PageHeader from '@/components/layout/PageHeader';
-import { ArrowRight, Microscope, Thermometer, ShieldAlert, Activity } from 'lucide-react';
+import SectionHeader from '@/components/ui/SectionHeader';
+import { ArrowRight, Microscope, Thermometer, ShieldAlert, Activity, FlaskConical, Gauge, Cpu, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function TestingLaboratoryClient() {
+  const stats = [
+    { value: '1M+', label: 'Cycle Tests Per Unit' },
+    { value: '500h', label: 'Salt Spray Duration' },
+    { value: '-40°F', label: 'Cold Chamber Rating' },
+    { value: '100%', label: 'End-of-Line Tested' },
+  ];
+
   const tests = [
     {
       title: '1 Million+ Cycle Testing',
       description: 'We subject our chambers to over 1,000,000 continuous actuate/release cycles under maximum operating pressure to ensure the center seals and return springs never fatigue prematurely.',
-      icon: <Activity className="w-8 h-8 text-emerald-500" />
+      icon: <Activity className="w-8 h-8 text-emerald-400" />,
+      badge: 'Fatigue & Durability',
     },
     {
       title: 'Salt Spray Corrosion Chambers',
-      description: 'Chambers are placed in intense saline fog environments for hundreds of hours to simulate years of exposure to winter road salts and magnesium chloride.',
-      icon: <ShieldAlert className="w-8 h-8 text-emerald-500" />
+      description: 'Chambers are placed in intense saline fog environments for hundemeralds of hours to simulate years of exposure to winter road salts and magnesium chloride — the #1 killer of inferior chambers.',
+      icon: <ShieldAlert className="w-8 h-8 text-emerald-400" />,
+      badge: 'Corrosion Resistance',
     },
     {
       title: 'Extreme Temperature Chambers',
       description: 'Our neoprene diaphragms are tested in environmental chambers ranging from -40°F (-40°C) to 200°F (93°C) to guarantee flexibility in Arctic cold and structural integrity in desert heat.',
-      icon: <Thermometer className="w-8 h-8 text-emerald-500" />
+      icon: <Thermometer className="w-8 h-8 text-emerald-400" />,
+      badge: 'Thermal Performance',
     },
     {
       title: '100% End-of-Line Pneumatic Testing',
       description: 'We do not rely on batch testing. Every single brake chamber that leaves our facility is pneumatically leak-tested on the assembly line. If it leaks a fraction of a PSI, it gets scrapped.',
-      icon: <Microscope className="w-8 h-8 text-emerald-500" />
-    }
+      icon: <Microscope className="w-8 h-8 text-emerald-400" />,
+      badge: 'Zero-Defect Policy',
+    },
+    {
+      title: 'Burst Pressure Validation',
+      description: 'Every housing design undergoes destructive burst pressure testing at 4× its rated operating pressure, validating our 8-gauge steel structural integrity under catastrophic failure scenarios.',
+      icon: <Gauge className="w-8 h-8 text-emerald-400" />,
+      badge: 'Structural Safety',
+    },
+    {
+      title: 'Diaphragm Ozone Testing',
+      description: 'Rubber diaphragms are exposed to accelerated ozone environments equivalent to 10+ years of outdoor aging, ensuring they remain crack-free and flexible throughout their service life.',
+      icon: <FlaskConical className="w-8 h-8 text-emerald-400" />,
+      badge: 'Material Longevity',
+    },
+  ];
+
+  const equipment = [
+    { name: 'Pneumatic Cycle Test Rigs', detail: 'Automated 24/7 cycle testing at 150 PSI' },
+    { name: 'Environmental Salt Chambers', detail: '500-hour ASTM B117 standard tests' },
+    { name: 'Climate Simulation Chambers', detail: '-60°C to +150°C range' },
+    { name: 'Burst Pressure Test Fixtures', detail: 'Up to 600 PSI destructive testing' },
+    { name: 'CMM Dimensional Inspection', detail: '±0.001" measurement accuracy' },
+    { name: 'Pneumatic Leak Detection', detail: '100% inline, zero batch sampling' },
   ];
 
   return (
     <div className="bg-slate-50 min-h-screen pb-20">
-      <PageHeader 
+      <PageHeader
+        badge="Quality Assurance"
         title="Testing Laboratory"
-        description="Where we try our hardest to break our own products, so they never break on you."
+        description="Where we try our hardest to break our own products — so they never break on you."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Company', href: '/company' },
@@ -41,38 +76,121 @@ export default function TestingLaboratoryClient() {
         ]}
       />
 
-      <section className="py-20">
+      {/* Stats Bar */}
+      <section className="bg-white border-b border-slate-100 py-10">
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight">
-              Failure is <span className="text-emerald-500">Not an Option</span>
-            </h2>
-            <p className="text-slate-600 text-lg leading-relaxed max-w-3xl mx-auto">
-              A commercial truck hauling 80,000 lbs cannot afford a brake failure. That is why our in-house testing laboratory is the most crucial department in our entire manufacturing facility.
-            </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                className="text-center"
+              >
+                <div className="text-3xl md:text-4xl font-black text-navy-900 mb-1">{stat.value}</div>
+                <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">{stat.label}</div>
+              </motion.div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+      {/* Test Protocols Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <SectionHeader
+            title={<>Failure is <span className="text-emerald-400">Not an Option</span></>}
+            description="A commercial truck hauling 80,000 lbs cannot afford a brake failure. That is why our in-house testing laboratory is the most crucial department in our entire manufacturing facility."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
             {tests.map((test, idx) => (
-              <div key={idx} className="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-shadow group">
-                <div className="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08, duration: 0.5 }}
+                className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
+              >
+                <div className="inline-block px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-5">
+                  {test.badge}
+                </div>
+                <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   {test.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">{test.title}</h3>
-                <p className="text-slate-600 leading-relaxed">
+                <h3 className="text-xl font-bold text-navy-900 mb-3">{test.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">
                   {test.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Equipment Section */}
+      <section className="bg-white py-16 border-y border-slate-100">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="flex flex-col lg:flex-row gap-16 items-start">
+            <div className="w-full lg:w-1/2">
+              <SectionHeader
+                badge="Laboratory Equipment"
+                title={<>World-Class <span className="text-emerald-400">Test Equipment</span></>}
+                description="Our laboratory is equipped with industry-leading precision instruments that run 24 hours a day, 7 days a week."
+                align="left"
+                accentColor="emerald"
+              />
+              <div className="space-y-4">
+                {equipment.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-4 p-4 rounded-2xl border border-slate-100 hover:border-emerald-100 hover:bg-emerald-50/30 transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-navy-900 text-sm">{item.name}</div>
+                      <div className="text-slate-500 text-xs mt-0.5">{item.detail}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2">
+              <div className="bg-navy-950 rounded-[2.5rem] p-10 text-white relative overflow-hidden h-full min-h-[400px] flex flex-col justify-between">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-400/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-emerald-400/10 rounded-2xl flex items-center justify-center mb-6 border border-emerald-400/20">
+                    <Cpu className="w-7 h-7 text-emerald-400" />
+                  </div>
+                  <h3 className="text-2xl font-extrabold text-white mb-4 font-heading tracking-tight">ISO-Audited Process</h3>
+                  <p className="text-navy-200 text-base leading-relaxed mb-8">
+                    Every test result is logged in our ISO 9001:2015 quality management system, providing full traceability from raw material to finished chamber for every batch we produce.
+                  </p>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-navy-800/60 rounded-2xl p-4 border border-navy-700">
+                      <div className="text-2xl font-black text-white mb-1">100%</div>
+                      <div className="text-xs font-bold text-navy-400 uppercase tracking-widest">Traceability</div>
+                    </div>
+                    <div className="bg-navy-800/60 rounded-2xl p-4 border border-navy-700">
+                      <div className="text-2xl font-black text-white mb-1">3rd Party</div>
+                      <div className="text-xs font-bold text-navy-400 uppercase tracking-widest">Audited Annually</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Next Step CTA */}
       <section className="bg-white py-16 border-t border-slate-200 text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight">Explore the Future of Braking</h2>
-          <Link href="/company/research-and-innovations" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
+        <div className="container mx-auto px-4 flex flex-col items-center">
+          <SectionHeader title="Explore the Future of Braking" className="!mb-6" />
+          <Link href="/company/research-and-innovations" className="inline-flex items-center text-emerald-400 font-bold hover:text-emerald-400 transition-colors uppercase tracking-widest text-lg">
             View R&D and Innovations <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>

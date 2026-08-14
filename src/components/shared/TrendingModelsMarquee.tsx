@@ -131,9 +131,9 @@ export default function TrendingModelsMarquee() {
           </div>
         </div>
         
-        {/* Gradient overlays for smooth fade on edges */}
-        <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none z-10"></div>
-        <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-white via-white/80 to-transparent pointer-events-none z-10"></div>
+        {/* Gradient overlays for smooth fade on edges (responsive width) */}
+        <div className="absolute top-0 bottom-0 left-0 w-8 md:w-32 bg-gradient-to-r from-white to-transparent pointer-events-none z-10"></div>
+        <div className="absolute top-0 bottom-0 right-0 w-8 md:w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10"></div>
       </div>
     </motion.section>
   );

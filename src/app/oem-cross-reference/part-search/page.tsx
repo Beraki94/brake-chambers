@@ -14,6 +14,7 @@ export default function PartSearchPage() {
   return (
     <div className="bg-slate-50 min-h-screen pb-16">
       <PageHeader 
+        badge="Part Lookup"
         title="Part Number Search"
         description="Enter your competitor or OEM part number below to instantly find the BRC factory-direct equivalent."
       />

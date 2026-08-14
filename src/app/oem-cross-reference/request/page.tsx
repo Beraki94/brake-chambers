@@ -22,6 +22,7 @@ export default function RequestCrossMatchPage() {
   return (
     <div className="bg-slate-50 min-h-screen pb-16">
       <PageHeader 
+        badge="Engineering Services"
         title="Request a Custom Cross-Match"
         description="Can't find your part number? Our engineering team will manually identify your brake chamber and provide a factory-direct aftermarket equivalent."
       />

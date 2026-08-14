@@ -13,6 +13,7 @@ export default function VisualGuidePage() {
   return (
     <div className="bg-slate-50 min-h-screen pb-16">
       <PageHeader 
+        badge="Identification Guide"
         title="Visual Identification Guide"
         description="No part number? No problem. Use our visual guide to correctly identify your brake chamber size, stroke, and port angle."
       />

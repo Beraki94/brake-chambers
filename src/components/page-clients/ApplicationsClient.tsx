@@ -7,6 +7,7 @@ import { Truck, Bus, Factory, ShieldAlert, ArrowRight, CheckCircle2, Thermometer
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, slideInLeft, slideInRight } from '../../lib/animations';
 import PageHeader from '@/components/layout/PageHeader';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function ApplicationsClient() {
   const categoryGroups = [
@@ -14,9 +15,9 @@ export default function ApplicationsClient() {
       title: 'Commercial & Freight',
       slug: 'commercial-freight',
       desc: 'The backbone of the global supply chain requires absolute reliability and extreme mileage endurance. Our linehaul chambers are built for the long haul.',
-      icon: <Truck className="w-8 h-8 text-blue-500" />,
+      icon: <Truck className="w-8 h-8 text-navy-500" />,
       image: '/images/heavy_duty_truck.png',
-      accent: 'blue',
+      accent: 'navy',
       links: [
         { id: '/applications/commercial-freight/commercial-linehaul', title: 'Commercial Linehaul' },
         { id: '/applications/commercial-freight/heavy-duty-freight', title: 'Heavy-Duty Freight' },
@@ -40,9 +41,9 @@ export default function ApplicationsClient() {
       title: 'Passenger & Transit',
       slug: 'passenger-transit',
       desc: 'Precision modulation and failsafe reliability required for carrying the most precious cargo. Engineered for frequent start-stop city cycles.',
-      icon: <Bus className="w-8 h-8 text-emerald-500" />,
+      icon: <Bus className="w-8 h-8 text-amber-500" />,
       image: '/images/transit_bus.png',
-      accent: 'emerald',
+      accent: 'amber',
       links: [
         { id: '/applications/passenger-transit/transit-coach-bus', title: 'Transit & Coach Buses' },
         { id: '/applications/passenger-transit/school-buses', title: 'School Buses' },
@@ -53,9 +54,9 @@ export default function ApplicationsClient() {
       title: 'OEM & Custom',
       slug: 'oem-custom',
       desc: 'Partner directly with the manufacturer. We provide custom engineering, bulk volume fulfillment, and contract manufacturing for specialized builds.',
-      icon: <Factory className="w-8 h-8 text-purple-500" />,
+      icon: <Factory className="w-8 h-8 text-slate-500" />,
       image: '/images/manufacturing_floor.png',
-      accent: 'purple',
+      accent: 'slate',
       links: [
         { id: '/applications/oem-custom/fleet-volume-orders', title: 'Fleet Volume Orders' },
         { id: '/applications/oem-custom/custom-engineering', title: 'Custom Engineering' },
@@ -80,13 +81,13 @@ export default function ApplicationsClient() {
       {/* Overlapping Container to bridge the dark header and light background */}
       <div className="-mt-20 relative z-20 pb-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex flex-col gap-16 md:gap-32">
+          <div className="flex flex-col gap-16 md:gap-20">
             {categoryGroups.map((group, idx) => {
               const isEven = idx % 2 === 0;
               return (
-                <div key={idx} className={`flex flex-col lg:flex-row gap-8 lg:gap-16 items-stretch ${isEven ? '' : 'lg:flex-row-reverse'}`}>
+                <div key={idx} className={`flex flex-col lg:flex-row gap-8 lg:gap-12 lg:items-center ${isEven ? '' : 'lg:flex-row-reverse'}`}>
                   
-                  {/* Image side - Animated from edge */}
+                  {/* Image side */}
                   <motion.div 
                     initial={{ opacity: 0, x: isEven ? -100 : 100 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -94,13 +95,13 @@ export default function ApplicationsClient() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="w-full lg:w-1/2 flex"
                   >
-                    <div className="relative w-full h-[400px] lg:h-auto min-h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl group border border-slate-200/50">
+                    <div className="relative w-full rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden shadow-2xl group border border-slate-200/50 min-h-[300px] sm:min-h-[360px] lg:min-h-[450px] lg:aspect-[16/11]">
                       {/* Interactive Gradients */}
                       <div className={`absolute inset-0 z-10 transition-colors duration-700
-                        ${group.accent === 'blue' ? 'bg-blue-900/20 group-hover:bg-blue-900/10' : ''}
+                        ${group.accent === 'blue' ? 'bg-navy-900/20 group-hover:bg-navy-900/10' : ''}
                         ${group.accent === 'amber' ? 'bg-amber-900/20 group-hover:bg-amber-900/10' : ''}
-                        ${group.accent === 'emerald' ? 'bg-emerald-900/20 group-hover:bg-emerald-900/10' : ''}
-                        ${group.accent === 'purple' ? 'bg-purple-900/20 group-hover:bg-purple-900/10' : ''}
+                        ${group.accent === 'emerald' ? 'bg-amber-900/20 group-hover:bg-amber-900/10' : ''}
+                        ${group.accent === 'purple' ? 'bg-slate-900/20 group-hover:bg-slate-900/10' : ''}
                       `} />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-30 transition-opacity duration-700" />
                       
@@ -108,12 +109,13 @@ export default function ApplicationsClient() {
                         src={group.image} 
                         alt={group.title} 
                         fill 
+                        sizes="(max-width: 1024px) 100vw, 50vw"
                         className="object-cover group-hover:scale-110 transition-transform duration-[15s] ease-out mix-blend-luminosity grayscale group-hover:grayscale-0" 
                       />
                     </div>
                   </motion.div>
                   
-                  {/* Content side - Animated from bottom up */}
+                  {/* Content side */}
                   <motion.div 
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -121,74 +123,77 @@ export default function ApplicationsClient() {
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                     className="w-full lg:w-1/2 flex"
                   >
-                    <div className="bg-white p-8 md:p-12 lg:p-14 rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col justify-center w-full relative overflow-hidden group/card">
+                    <div className="bg-white p-6 sm:p-8 md:p-10 lg:p-12 rounded-[2rem] lg:rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col justify-center w-full relative overflow-hidden group/card">
                       
                       {/* Subtle hover background glow */}
                       <div className={`absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none
-                        ${group.accent === 'blue' ? 'bg-gradient-to-br from-blue-50/50 to-transparent' : ''}
+                        ${group.accent === 'blue' ? 'bg-gradient-to-br from-navy-50/50 to-transparent' : ''}
                         ${group.accent === 'amber' ? 'bg-gradient-to-br from-amber-50/50 to-transparent' : ''}
-                        ${group.accent === 'emerald' ? 'bg-gradient-to-br from-emerald-50/50 to-transparent' : ''}
-                        ${group.accent === 'purple' ? 'bg-gradient-to-br from-purple-50/50 to-transparent' : ''}
+                        ${group.accent === 'emerald' ? 'bg-gradient-to-br from-amber-50/50 to-transparent' : ''}
+                        ${group.accent === 'purple' ? 'bg-gradient-to-br from-slate-50/50 to-transparent' : ''}
                       `} />
 
                       <div className="relative z-10">
-                        <div className="flex items-center gap-5 mb-8">
-                          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center border flex-shrink-0 shadow-sm
-                            ${group.accent === 'blue' ? 'bg-blue-50 border-blue-100' : ''}
-                            ${group.accent === 'amber' ? 'bg-amber-50 border-amber-100' : ''}
-                            ${group.accent === 'emerald' ? 'bg-emerald-50 border-emerald-100' : ''}
-                            ${group.accent === 'purple' ? 'bg-purple-50 border-purple-100' : ''}
+                        <div className="flex items-center gap-4 sm:gap-5 mb-6 sm:mb-8">
+                          <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center border flex-shrink-0 shadow-sm
+                            ${group.accent === 'blue' ? 'bg-navy-50 border-navy-100 text-navy-500' : ''}
+                            ${group.accent === 'amber' ? 'bg-amber-50 border-amber-100 text-amber-500' : ''}
+                            ${group.accent === 'emerald' ? 'bg-amber-50 border-amber-100 text-amber-500' : ''}
+                            ${group.accent === 'purple' ? 'bg-slate-50 border-slate-100 text-slate-500' : ''}
                           `}>
-                            {group.icon}
+                            {React.cloneElement(group.icon as React.ReactElement<any>, { 
+                              className: 'w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-500 group-hover/card:rotate-12 group-hover/card:scale-110',
+                              'aria-hidden': 'true'
+                            })}
                           </div>
-                          <h2 className="text-3xl lg:text-4xl font-extrabold text-navy-900 font-heading tracking-tight leading-tight">
+                          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy-900 font-heading tracking-tight leading-tight">
                             {group.title}
                           </h2>
                         </div>
                         
-                        <p className="text-slate-600 mb-10 leading-relaxed font-light text-lg">
+                        <p className="text-slate-600 mb-6 sm:mb-10 leading-relaxed font-light text-sm sm:text-lg">
                           {group.desc}
                         </p>
                         
-                        <div className="space-y-4 mb-12">
-                          <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Key Applications</h3>
-                          <div className="flex flex-col gap-3">
+                        <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-12">
+                          <h3 className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Key Applications</h3>
+                          <div className="flex flex-col gap-2 sm:gap-3">
                             {group.links.map((link) => (
                               <Link 
                                 key={link.id} 
                                 href={link.id} 
-                                className={`flex items-center gap-4 p-4 bg-slate-50/80 backdrop-blur-sm rounded-xl border border-slate-100 transition-all group/link hover:shadow-md hover:bg-white
-                                  ${group.accent === 'blue' ? 'hover:border-blue-300' : ''}
+                                className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-slate-50/80 backdrop-blur-sm rounded-xl border border-slate-100 transition-all group/link hover:shadow-md hover:bg-white
+                                  ${group.accent === 'blue' ? 'hover:border-navy-300' : ''}
                                   ${group.accent === 'amber' ? 'hover:border-amber-300' : ''}
-                                  ${group.accent === 'emerald' ? 'hover:border-emerald-300' : ''}
-                                  ${group.accent === 'purple' ? 'hover:border-purple-300' : ''}
+                                  ${group.accent === 'emerald' ? 'hover:border-amber-300' : ''}
+                                  ${group.accent === 'purple' ? 'hover:border-slate-300' : ''}
                                 `}
                               >
-                                <div className={`w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0 transition-colors
-                                  ${group.accent === 'blue' ? 'group-hover/link:bg-blue-50' : ''}
+                                <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0 transition-colors
+                                  ${group.accent === 'blue' ? 'group-hover/link:bg-navy-50' : ''}
                                   ${group.accent === 'amber' ? 'group-hover/link:bg-amber-50' : ''}
-                                  ${group.accent === 'emerald' ? 'group-hover/link:bg-emerald-50' : ''}
-                                  ${group.accent === 'purple' ? 'group-hover/link:bg-purple-50' : ''}
+                                  ${group.accent === 'emerald' ? 'group-hover/link:bg-amber-50' : ''}
+                                  ${group.accent === 'purple' ? 'group-hover/link:bg-slate-50' : ''}
                                 `}>
-                                  <CheckCircle2 className={`w-4 h-4 text-slate-300 transition-colors
-                                    ${group.accent === 'blue' ? 'group-hover/link:text-blue-500' : ''}
+                                  <CheckCircle2 className={`w-3 h-3 sm:w-4 sm:h-4 text-slate-300 transition-colors
+                                    ${group.accent === 'blue' ? 'group-hover/link:text-navy-500' : ''}
                                     ${group.accent === 'amber' ? 'group-hover/link:text-amber-500' : ''}
-                                    ${group.accent === 'emerald' ? 'group-hover/link:text-emerald-500' : ''}
-                                    ${group.accent === 'purple' ? 'group-hover/link:text-purple-500' : ''}
-                                  `} />
+                                    ${group.accent === 'emerald' ? 'group-hover/link:text-amber-500' : ''}
+                                    ${group.accent === 'purple' ? 'group-hover/link:text-slate-500' : ''}
+                                  `} aria-hidden="true" />
                                 </div>
-                                <span className={`font-bold text-navy-800 text-sm transition-colors
-                                  ${group.accent === 'blue' ? 'group-hover/link:text-blue-700' : ''}
+                                <span className={`font-bold text-navy-800 text-xs sm:text-sm transition-colors
+                                  ${group.accent === 'blue' ? 'group-hover/link:text-navy-700' : ''}
                                   ${group.accent === 'amber' ? 'group-hover/link:text-amber-700' : ''}
-                                  ${group.accent === 'emerald' ? 'group-hover/link:text-emerald-700' : ''}
-                                  ${group.accent === 'purple' ? 'group-hover/link:text-purple-700' : ''}
+                                  ${group.accent === 'emerald' ? 'group-hover/link:text-amber-700' : ''}
+                                  ${group.accent === 'purple' ? 'group-hover/link:text-slate-700' : ''}
                                 `}>{link.title}</span>
                                 <ArrowRight className={`w-4 h-4 text-slate-300 ml-auto transition-all group-hover/link:translate-x-1
-                                  ${group.accent === 'blue' ? 'group-hover/link:text-blue-500' : ''}
+                                  ${group.accent === 'blue' ? 'group-hover/link:text-navy-500' : ''}
                                   ${group.accent === 'amber' ? 'group-hover/link:text-amber-500' : ''}
-                                  ${group.accent === 'emerald' ? 'group-hover/link:text-emerald-500' : ''}
-                                  ${group.accent === 'purple' ? 'group-hover/link:text-purple-500' : ''}
-                                `} />
+                                  ${group.accent === 'emerald' ? 'group-hover/link:text-amber-500' : ''}
+                                  ${group.accent === 'purple' ? 'group-hover/link:text-slate-500' : ''}
+                                `} aria-hidden="true" />
                               </Link>
                             ))}
                           </div>
@@ -197,15 +202,15 @@ export default function ApplicationsClient() {
                         <div className="mt-auto">
                           <Link 
                             href={`/${group.slug}`}
-                            className={`inline-flex w-full items-center justify-center px-8 py-4 text-white rounded-xl font-bold tracking-wide transition-all shadow-lg group/btn
-                              ${group.accent === 'blue' ? 'bg-navy-900 hover:bg-blue-600' : ''}
+                            className={`inline-flex w-full items-center justify-center px-4 py-3 sm:px-8 sm:py-4 text-white rounded-xl font-bold tracking-wide transition-all shadow-lg group/btn text-sm sm:text-base
+                              ${group.accent === 'blue' ? 'bg-navy-900 hover:bg-navy-600' : ''}
                               ${group.accent === 'amber' ? 'bg-navy-900 hover:bg-amber-500 hover:text-navy-900' : ''}
-                              ${group.accent === 'emerald' ? 'bg-navy-900 hover:bg-emerald-500 hover:text-navy-900' : ''}
-                              ${group.accent === 'purple' ? 'bg-navy-900 hover:bg-purple-600' : ''}
+                              ${group.accent === 'emerald' ? 'bg-navy-900 hover:bg-amber-500 hover:text-navy-900' : ''}
+                              ${group.accent === 'purple' ? 'bg-navy-900 hover:bg-slate-600' : ''}
                             `}
                           >
                             View {group.title} Solutions
-                            <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                           </Link>
                         </div>
                       </div>
@@ -219,16 +224,16 @@ export default function ApplicationsClient() {
         </div>
       </div>
 
-      {/* NEW SECTION: Tested for the Extremes */}
+      {/* Tested for the Extremes */}
       <section className="py-16 md:py-24 bg-white border-t border-slate-200 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight leading-tight">
-              Tested for the <span className="text-amber-500">Extremes</span>
-            </h2>
-            <p className="text-slate-600 text-lg font-light leading-relaxed">
-              Our application-specific engineering means your brake chambers don't just meet standards—they survive the harshest operational environments on the planet.
-            </p>
+            <SectionHeader
+              badge="Quality Assurance"
+              title={<>Tested for the <span className="text-amber-500">Extremes</span></>}
+              description="Our application-specific engineering means your brake chambers don't just meet standards—they survive the harshest operational environments on the planet."
+              accentColor="amber"
+            />
           </div>
 
           <motion.div 
@@ -239,9 +244,9 @@ export default function ApplicationsClient() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {[
-              { icon: ThermometerSnowflake, color: "text-blue-600", bg: "bg-blue-100", title: "Sub-Zero Rated", desc: "Specialized diaphragms maintain flexibility and prevent cracking in -40°F Arctic linehaul routes." },
+              { icon: ThermometerSnowflake, color: "text-navy-600", bg: "bg-navy-100", title: "Sub-Zero Rated", desc: "Specialized diaphragms maintain flexibility and prevent cracking in -40°F Arctic linehaul routes." },
               { icon: Flame, color: "text-red-600", bg: "bg-red-100", title: "High-Heat Tolerance", desc: "Advanced return springs and seals withstand immense thermal soak during steep grade descents." },
-              { icon: Droplets, color: "text-emerald-600", bg: "bg-emerald-100", title: "Corrosion Proof", desc: "Multi-stage E-coating provides unmatched resistance against winter road salts and ocean spray." },
+              { icon: Droplets, color: "text-amber-600", bg: "bg-amber-100", title: "Corrosion Proof", desc: "Multi-stage E-coating provides unmatched resistance against winter road salts and ocean spray." },
               { icon: Activity, color: "text-amber-600", bg: "bg-amber-100", title: "Vibration Dampening", desc: "Reinforced steel housings prevent stress fractures on punishing off-highway mining roads." }
             ].map((stat, idx) => (
               <motion.div 
@@ -283,8 +288,8 @@ export default function ApplicationsClient() {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
-                    <ShieldAlert className="w-6 h-6 text-emerald-600" />
+                  <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
+                    <ShieldAlert className="w-6 h-6 text-amber-600" />
                   </div>
                   <div>
                     <h4 className="font-bold text-navy-900">3-Year Warranty</h4>
@@ -292,8 +297,8 @@ export default function ApplicationsClient() {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
-                    <Activity className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 rounded-full bg-navy-100 flex items-center justify-center shrink-0">
+                    <Activity className="w-6 h-6 text-navy-600" />
                   </div>
                   <div>
                     <h4 className="font-bold text-navy-900">OEM Match Guarantee</h4>
@@ -311,7 +316,7 @@ export default function ApplicationsClient() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
             <div className="relative z-10">
               <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-amber-500/20 backdrop-blur-sm">

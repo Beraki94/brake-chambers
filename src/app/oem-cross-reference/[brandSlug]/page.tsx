@@ -1,3 +1,4 @@
+// Force rebuild to clear Next.js Turbopack cache
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -8,6 +9,7 @@ import ProductListCard from '@/components/products/ProductListCard';
 import AccessoryListCard from '@/components/product-detail/AccessoryListCard';
 import OEMCrossReferenceCard from '@/components/oem/OEMCrossReferenceCard';
 import OEMSearchForm from '@/components/oem/OEMSearchForm';
+import PageHeader from '@/components/layout/PageHeader';
 import { Truck, ArrowLeft, ShieldCheck, Settings, CheckCircle2, ChevronRight, Zap } from 'lucide-react';
 
 const OEM_BRANDS: Record<string, { name: string, type: string, desc: string }> = {
@@ -107,60 +109,28 @@ export default async function OEMBrandPage(
   const oemPartLinks = Array.from(uniqueOEMParts.entries());
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-7xl">
-
-      {/* Breadcrumbs */}
-      <nav aria-label="Breadcrumb" className="mb-6">
-        <ol className="flex items-center space-x-2 text-sm text-slate-500">
-          <li>
-            <Link href="/" className="hover:text-navy-900 transition-colors">Home</Link>
-          </li>
-          <li><span className="text-slate-300">/</span></li>
-          <li>
-            <Link href="/oem-cross-reference" className="hover:text-navy-900 transition-colors">Cross-Reference</Link>
-          </li>
-          <li><span className="text-slate-300">/</span></li>
-          <li className="text-navy-900 font-semibold" aria-current="page">{brandInfo.name}</li>
-        </ol>
-      </nav>
-
-
-      {/* Category Header Hero */}
-      <div className="mb-8 rounded-3xl bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 relative overflow-hidden shadow-2xl shadow-navy-900/20 p-8 sm:p-12 border border-navy-800">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-[#FFB000] opacity-10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500 opacity-10 rounded-full blur-3xl -ml-20 -mb-20"></div>
-        <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center justify-between">
-          <div className="max-w-2xl">
-            <div className="inline-block px-3 py-1 mb-4 rounded-full bg-navy-800/80 border border-navy-700 text-[#FFB000] text-xs font-bold uppercase tracking-widest backdrop-blur-sm">
-              Direct Aftermarket Replacement
-            </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4">
-              {brandInfo.name} Replacements
-            </h1>
-            <p className="text-navy-200 text-base sm:text-lg leading-relaxed mb-6">
-              Consolidate your sourcing with our factory-direct aftermarket equivalents for {brandInfo.name} {brandInfo.type === 'truck' ? 'commercial vehicles' : brandInfo.type === 'axle' ? 'suspension applications' : 'air brakes'}. Identical fitment, zero modifications required, and significant cost savings for your fleet.
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <div className="flex items-center text-sm font-bold text-white bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
-                <CheckCircle2 className="w-4 h-4 mr-2 text-emerald-400" /> Form & Fit Match
-              </div>
-              <div className="flex items-center text-sm font-bold text-white bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
-                <ShieldCheck className="w-4 h-4 mr-2 text-blue-400" /> ISO Certified
-              </div>
-            </div>
+    <div className="bg-slate-50 min-h-screen font-sans overflow-x-clip">
+      <PageHeader
+        title={`${brandInfo.name} Replacements`}
+        description={`Consolidate your sourcing with our factory-direct aftermarket equivalents for ${brandInfo.name} ${brandInfo.type === 'truck' ? 'commercial vehicles' : brandInfo.type === 'axle' ? 'suspension applications' : 'air brakes'}. Identical fitment, zero modifications required, and significant cost savings for your fleet.`}
+        badge="Direct Aftermarket Replacement"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Cross-Reference', href: '/oem-cross-reference' },
+          { label: brandInfo.name }
+        ]}
+      >
+        <div className="flex flex-wrap gap-4 mt-6">
+          <div className="flex items-center text-sm font-bold text-navy-950 bg-white/90 px-4 py-2 rounded-lg shadow-sm border border-navy-100">
+            <CheckCircle2 className="w-4 h-4 mr-2 text-emerald-500" /> Form & Fit Match
           </div>
-
-          {/* Engineering Badge / Visual */}
-          <div className="hidden lg:flex shrink-0 w-64 h-64 relative items-center justify-center">
-            <div className="absolute inset-0 bg-[#FFB000]/20 rounded-full blur-2xl animate-pulse"></div>
-            <div className="w-48 h-48 bg-navy-900 rounded-full border-4 border-navy-700 flex flex-col items-center justify-center shadow-2xl relative z-10">
-              <Settings className="w-16 h-16 text-[#FFB000] mb-2" />
-              <span className="text-white font-extrabold tracking-widest text-sm">1:1 MATCH</span>
-            </div>
+          <div className="flex items-center text-sm font-bold text-navy-950 bg-white/90 px-4 py-2 rounded-lg shadow-sm border border-navy-100">
+            <ShieldCheck className="w-4 h-4 mr-2 text-blue-500" /> ISO Certified
           </div>
         </div>
-      </div>
+      </PageHeader>
+
+      <div className="container mx-auto px-4 max-w-7xl">
 
       {/* OEM Search Tool Prominent Placement */}
       <div className="relative -mt-16 mb-16 z-20 max-w-4xl mx-auto px-4">
@@ -299,6 +269,7 @@ export default async function OEMBrandPage(
           }
         ])
       }} />
+      </div>
     </div>
   );
 }

@@ -5,7 +5,8 @@ import type { Metadata } from 'next';
 import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
 import ProductListCard from '@/components/products/ProductListCard';
 import FacetedSidebar from '@/components/products/FacetedSidebar';
-import { Truck, CheckCircle2 } from 'lucide-react';
+import { Truck, CheckCircle2 } from 'lucide-react';import PageHeader from '@/components/layout/PageHeader';
+
 
 export const metadata: Metadata = {
   title: 'Commercial Trailer Spring Brakes | BRC Manufacturer',
@@ -38,41 +39,20 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
   }
 
   return (
-    <div className="container mx-auto px-4 lg:px-8 py-8 max-w-7xl">
-      <nav aria-label="Breadcrumb" className="mb-6">
-        <ol className="flex items-center space-x-2 text-sm text-slate-500">
-          <li><Link href="/" className="hover:text-navy-900 transition-colors">Home</Link></li>
-          <li><span className="text-slate-300">/</span></li>
-          <li><Link href="/spring-brakes" className="hover:text-navy-900 transition-colors capitalize">spring brakes</Link></li>
-          <li><span className="text-slate-300">/</span></li>
-          <li className="text-navy-900 font-semibold" aria-current="page">Commercial Trailer Spring Brakes</li>
-        </ol>
-      </nav>
+    <div className="bg-slate-50 min-h-screen font-sans overflow-x-clip">
+      <PageHeader 
+        badge="Commercial Trailer Spring"
+        title="Commercial Trailer Spring Brakes"
+        description="Commercial trailers face unique braking challenges, from varied load weights to extreme weather exposure. Our Trailer Spring Brakes are built to provide consistent, fade-resistant parking and emergency braking across all trailer axles."
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Spring Brakes', href: '/spring-brakes' },
+          { label: 'Commercial Trailer Spring Brakes' }
+        ]}
+      />
 
-      {/* SEO Hero Header */}
-      <div className="mb-8 rounded-3xl bg-navy-900 relative overflow-hidden shadow-2xl p-8 sm:p-12 border border-navy-800">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500 opacity-10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-        <div className="relative z-10 flex flex-col lg:flex-row items-start justify-between gap-8">
-          <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">Commercial Trailer Spring Brakes</h1>
-            <div className="text-navy-100 text-base sm:text-lg leading-relaxed space-y-4">
-              <p>Commercial trailers face unique braking challenges, from varied load weights to extreme weather exposure. Our Trailer Spring Brakes are built to provide consistent, fade-resistant parking and emergency braking across all trailer axles.</p>\n              <p>With a focus on fleet longevity, these chambers incorporate advanced sealing technology to prevent moisture and road chemical intrusion, ensuring your trailer fleet stays on the road and out of the shop.</p>
-            </div>
-          </div>
-          <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-navy-800/50 backdrop-blur-sm border border-navy-700 rounded-2xl text-center w-72 flex-shrink-0">
-             <div className="bg-amber-500/20 p-3 rounded-full mb-4 border border-amber-500/30">
-               <Truck size={24} className="text-amber-400" />
-             </div>
-             <h4 className="font-extrabold text-white text-lg mb-2">Direct OEM Supply</h4>
-             <p className="text-sm mb-6 text-navy-200 leading-relaxed">Factory-direct pricing on bulk orders for fleets and distributors.</p>
-             <Link href="/quote" className="w-full bg-amber-500 text-navy-900 font-extrabold px-6 py-3 rounded-xl hover:bg-amber-400 transition-all shadow-lg hover:shadow-amber-500/20 flex items-center justify-center gap-2">
-               Request Wholesale Quote
-             </Link>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-col lg:flex-row gap-8">
+      <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-20">
+        <div className="flex flex-col lg:flex-row gap-8">
         <div className="w-full lg:w-64 flex-shrink-0 flex flex-col gap-4">
            <FacetedSidebar baseCategory="spring-brakes" />
            
@@ -171,6 +151,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
 
         </div>
       </div>
+    </div>
     </div>
   );
 }

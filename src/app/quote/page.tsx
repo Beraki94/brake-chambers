@@ -13,20 +13,14 @@ export default function QuotePage() {
   return (
     <div className="bg-[#F8FAFC] pb-20">
       <PageHeader
-        badge="OEM Partnerships"
+        badge="Wholesale Pricing"
         title="Global Wholesale RFQ"
         description="BRC supplies OEM-quality brake chambers to fleets and distributors worldwide. Fill out the form below for container pricing and factory-direct logistics."
-      >
-        <div className="mt-8 flex justify-center">
-          <nav aria-label="Breadcrumb" className="inline-block bg-navy-900/60 backdrop-blur-md border border-navy-700 px-6 py-2 rounded-full shadow-lg">
-            <ol className="flex items-center space-x-2 text-sm text-navy-200">
-              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><span className="text-navy-600">/</span></li>
-              <li className="text-amber-400 font-semibold" aria-current="page">Quote</li>
-            </ol>
-          </nav>
-        </div>
-      </PageHeader>
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Quote' }
+        ]}
+      />
       
       <div className="container mx-auto px-4 lg:px-8 max-w-6xl -mt-20 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

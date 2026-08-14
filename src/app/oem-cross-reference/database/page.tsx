@@ -38,6 +38,7 @@ export default function DatabasePage() {
   return (
     <div className="bg-slate-50 min-h-screen pb-16">
       <PageHeader 
+        badge="Master Index"
         title="Complete Interchange Index"
         description="Browse our comprehensive table mapping thousands of competitor part numbers to identical BRC aftermarket equivalents."
       />

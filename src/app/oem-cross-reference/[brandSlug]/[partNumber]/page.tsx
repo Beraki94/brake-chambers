@@ -74,25 +74,19 @@ export default async function OEMPartNumberPage(
   return (
     <div className="bg-slate-50 min-h-screen pb-16">
       <PageHeader 
+        badge="Direct Replacement"
         title={`${oemOriginalBrand} ${oemOriginalPart} Equivalent`}
         description={`Found an exact 1:1 direct aftermarket replacement for ${oemOriginalBrand} part number ${oemOriginalPart}. No modifications required.`}
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'OEM Cross-Reference', href: '/oem-cross-reference' },
+          { label: oemOriginalBrand, href: `/oem-cross-reference/${params.brandSlug}` },
+          { label: oemOriginalPart }
+        ]}
       />
 
       <div className="container mx-auto px-4 lg:px-8 max-w-5xl -mt-10 relative z-20">
         
-        {/* Breadcrumbs */}
-        <nav aria-label="Breadcrumb" className="mb-6 bg-white py-3 px-6 rounded-xl border border-slate-200 shadow-sm inline-block">
-          <ol className="flex items-center space-x-2 text-sm text-slate-500">
-            <li><Link href="/" className="hover:text-navy-900 transition-colors">Home</Link></li>
-            <li><span className="text-slate-300">/</span></li>
-            <li><Link href="/oem-cross-reference" className="hover:text-navy-900 transition-colors">OEM Cross-Reference</Link></li>
-            <li><span className="text-slate-300">/</span></li>
-            <li><Link href={`/oem-cross-reference/${params.brandSlug}`} className="hover:text-navy-900 transition-colors">{oemOriginalBrand}</Link></li>
-            <li><span className="text-slate-300">/</span></li>
-            <li className="text-navy-900 font-bold" aria-current="page">{oemOriginalPart}</li>
-          </ol>
-        </nav>
-
         <div className="flex flex-col lg:flex-row gap-8">
           
           {/* Main Replacement Card */}

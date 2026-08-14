@@ -7,6 +7,8 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, scaleIn } from '../../lib/animations';
+import { blogPosts } from '@/data/blogPosts';
+import BlogCard from '@/components/ui/BlogCard';
 
 const HERO_SLIDES = [
   {
@@ -145,20 +147,32 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* NEW: Compliance & Trust Banner */}
-      <div className="bg-navy-900 border-y border-amber-500/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-6 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm font-bold text-navy-100 uppercase tracking-widest text-center sm:text-left">
-          <div className="flex items-center justify-center sm:justify-start gap-3">
-            <ShieldCheck className="w-5 h-5 text-emerald-400" /> SAE J1469 & J1463 Compliant
-          </div>
-          <div className="flex items-center justify-center sm:justify-center gap-3">
-            <ShieldCheck className="w-5 h-5 text-emerald-400" /> FMVSS 121 Certified
-          </div>
-          <div className="flex items-center justify-center sm:justify-end gap-3">
-            <ShieldCheck className="w-5 h-5 text-emerald-400" /> ISO 9001:2015 Manufacturing
-          </div>
+      {/* Compliance & Trust Banner — Infinite Marquee */}
+      <div className="bg-navy-900 border-y border-amber-500/30 overflow-hidden">
+        <div className="flex animate-marquee whitespace-nowrap py-5">
+          {[...Array(2)].map((_, dupeIdx) => (
+            <div key={dupeIdx} className="flex shrink-0 items-center">
+              {[
+                'SAE J1469 & J1463 Compliant',
+                'FMVSS 121 Certified',
+                'ISO 9001:2015 Manufacturing',
+                '1,000,000+ Cycle Tested',
+                'Advanced E-Coat Corrosion Protection',
+                'Variable Clocking Technology',
+              ].map((item, i) => (
+                <span
+                  key={i}
+                  className="flex items-center gap-3 text-sm font-bold text-navy-100 uppercase tracking-widest mx-10"
+                >
+                  <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+                  {item}
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
+
 
       {/* 2. The 4 Pillars of Manufacturing Excellence */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-white to-slate-50 border-b border-navy-50">
@@ -509,50 +523,9 @@ export default function HomeClient() {
             viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
-            {/* News 1 */}
-            <motion.div variants={fadeInUp} className="group cursor-pointer">
-              <div className="h-56 rounded-2xl mb-6 overflow-hidden relative shadow-md">
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=600&q=80" alt="ISO Certification" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale mix-blend-luminosity" />
-                <div className="absolute bottom-5 left-5 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <span className="bg-emerald-500 text-white text-[11px] font-bold px-3 py-1.5 rounded border border-emerald-400">Read Article</span>
-                </div>
-              </div>
-              <div className="text-emerald-600 text-[11px] font-extrabold uppercase tracking-widest mb-3">Certification Update</div>
-              <h3 className="text-xl font-extrabold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors leading-tight">ISO 9001:2015 Recertification Completed</h3>
-              <p className="text-slate-600 text-[13px] mb-4 line-clamp-2 leading-relaxed">Our main manufacturing facility has successfully completed its annual ISO 9001:2015 audit with zero non-conformances.</p>
-              <span className="text-slate-400 text-[11px] font-bold uppercase tracking-widest flex items-center"><CheckCircle className="w-3 h-3 mr-1.5" /> August 12, 2026</span>
-            </motion.div>
-
-            {/* News 2 */}
-            <motion.div variants={fadeInUp} className="group cursor-pointer">
-              <div className="h-56 rounded-2xl mb-6 overflow-hidden relative shadow-md">
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=600&q=80" alt="Engineering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale mix-blend-luminosity" />
-                <div className="absolute bottom-5 left-5 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <span className="bg-amber-500 text-navy-950 text-[11px] font-bold px-3 py-1.5 rounded border border-amber-400">Read Article</span>
-                </div>
-              </div>
-              <div className="text-amber-500 text-[11px] font-extrabold uppercase tracking-widest mb-3">Product Release</div>
-              <h3 className="text-xl font-extrabold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors leading-tight">Launch of the UltraLife+ VCT Series</h3>
-              <p className="text-slate-600 text-[13px] mb-4 line-clamp-2 leading-relaxed">Introducing the new standard in variable clocking chambers, offering fleet managers 40% reduction in installation time.</p>
-              <span className="text-slate-400 text-[11px] font-bold uppercase tracking-widest flex items-center"><Settings className="w-3 h-3 mr-1.5" /> July 28, 2026</span>
-            </motion.div>
-
-            {/* News 3 */}
-            <motion.div variants={fadeInUp} className="group cursor-pointer">
-              <div className="h-56 rounded-2xl mb-6 overflow-hidden relative shadow-md">
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" alt="Logistics" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale mix-blend-luminosity" />
-                <div className="absolute bottom-5 left-5 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <span className="bg-amber-500 text-navy-950 text-[11px] font-bold px-3 py-1.5 rounded border border-amber-400">Read Article</span>
-                </div>
-              </div>
-              <div className="text-amber-500 text-[11px] font-extrabold uppercase tracking-widest mb-3">Logistics Notice</div>
-              <h3 className="text-xl font-extrabold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors leading-tight">Expanded EMEA Distribution Network</h3>
-              <p className="text-slate-600 text-[13px] mb-4 line-clamp-2 leading-relaxed">To better serve our European partners, we have opened a new automated fulfillment center in Germany.</p>
-              <span className="text-slate-400 text-[11px] font-bold uppercase tracking-widest flex items-center"><Globe2 className="w-3 h-3 mr-1.5" /> July 05, 2026</span>
-            </motion.div>
+            {blogPosts.slice(0, 3).map((post) => (
+              <BlogCard key={post.slug} post={post} variants={fadeInUp} />
+            ))}
           </motion.div>
         </div>
       </section>

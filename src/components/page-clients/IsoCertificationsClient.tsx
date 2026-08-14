@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PageHeader from '@/components/layout/PageHeader';
+import SectionHeader from '@/components/ui/SectionHeader';
 import { ArrowRight, Award, CheckCircle2, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
@@ -9,6 +10,7 @@ export default function IsoCertificationsClient() {
   return (
     <div className="bg-white min-h-screen">
       <PageHeader 
+        badge="Global Standards"
         title="ISO Certifications"
         description="Our commitment to uncompromising quality is backed by rigorous international standards and continuous auditing."
         breadcrumbs={[
@@ -22,12 +24,12 @@ export default function IsoCertificationsClient() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-navy-950 rounded-[3rem] p-12 text-center text-white relative overflow-hidden mb-20">
             <Award className="w-20 h-20 text-amber-500 mx-auto mb-6" />
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 font-heading tracking-tight">
-              ISO 9001:2015 Certified
-            </h2>
-            <p className="text-navy-200 text-lg leading-relaxed max-w-3xl mx-auto">
-              BRC’s entire manufacturing ecosystem—from raw material procurement and metallurgical testing to automated assembly and final dispatch—operates strictly under ISO 9001:2015 Quality Management Systems. We do not self-certify; we undergo strict annual third-party audits to maintain our standing.
-            </p>
+            <SectionHeader
+              title="ISO 9001:2015 Certified"
+              description="BRC’s entire manufacturing ecosystem—from raw material procurement and metallurgical testing to automated assembly and final dispatch—operates strictly under ISO 9001:2015 Quality Management Systems. We do not self-certify; we undergo strict annual third-party audits to maintain our standing."
+              theme="dark"
+              className="!mb-0"
+            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -76,9 +78,9 @@ export default function IsoCertificationsClient() {
 
       {/* Next Step CTA */}
       <section className="bg-slate-50 py-20 text-center border-t border-slate-200">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-extrabold text-navy-900 mb-6">See How We Test Our Products</h2>
-          <Link href="/company/testing-laboratory" className="inline-flex items-center text-emerald-600 font-bold hover:text-emerald-500 transition-colors uppercase tracking-widest text-lg">
+        <div className="container mx-auto px-4 flex flex-col items-center">
+          <SectionHeader title="See How We Test Our Products" className="!mb-6" />
+          <Link href="/company/testing-laboratory" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-500 transition-colors uppercase tracking-widest text-lg">
             Inside the Testing Laboratory <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>

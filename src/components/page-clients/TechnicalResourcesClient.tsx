@@ -7,6 +7,7 @@ import { FileText, Wrench, FileArchive, Shield, ArrowDownToLine, ChevronRight, S
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '../../lib/animations';
 import PageHeader from '@/components/layout/PageHeader';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function TechnicalResourcesClient() {
   const [activeCategory, setActiveCategory] = useState('installation');
@@ -28,8 +29,8 @@ export default function TechnicalResourcesClient() {
     {
       id: 'specifications',
       title: 'Specifications & Sizing',
-      icon: <FileArchive className="w-6 h-6 text-blue-500" />,
-      accent: 'blue',
+      icon: <FileArchive className="w-6 h-6 text-navy-500" />,
+      accent: 'navy',
       desc: 'Detailed size charts, stroke length guides, and thread specifications for precise component matching.',
       items: [
         { title: 'Size & Dimension Charts', type: 'PDF', link: '#' },
@@ -41,7 +42,7 @@ export default function TechnicalResourcesClient() {
     {
       id: 'safety',
       title: 'Safety & Compliance',
-      icon: <Shield className="w-6 h-6 text-emerald-500" />,
+      icon: <Shield className="w-6 h-6 text-emerald-600" />,
       accent: 'emerald',
       desc: 'Essential compliance documents including CVSA criteria, FMVSS 121 standards, and safety warnings.',
       items: [
@@ -54,8 +55,8 @@ export default function TechnicalResourcesClient() {
     {
       id: 'engineering',
       title: 'Engineering & Training',
-      icon: <FileText className="w-6 h-6 text-purple-500" />,
-      accent: 'purple',
+      icon: <FileText className="w-6 h-6 text-slate-500" />,
+      accent: 'slate',
       desc: 'Advanced technical resources including CAD models, material specifications, and engineering whitepapers.',
       items: [
         { title: 'CAD Models & 3D Files', type: 'CAD / STEP', link: '#' },
@@ -69,7 +70,7 @@ export default function TechnicalResourcesClient() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans overflow-x-clip">
       <PageHeader
-        badge="Documentation"
+        badge="Engineering Support"
         title="Technical Resources"
         description="Access our comprehensive technical library. Download engineering specifications, installation procedures, and safety compliance manuals."
         imageSrc="/products/brake_chambers_diagram.png"
@@ -98,8 +99,8 @@ export default function TechnicalResourcesClient() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               { title: "2024 Full Product Catalog", icon: <FileArchive className="w-5 h-5 text-amber-500" />, type: "PDF (15.4 MB)", link: "#" },
-              { title: "Universal Safety & Installation Guide", icon: <Shield className="w-5 h-5 text-emerald-500" />, type: "PDF (3.2 MB)", link: "#" },
-              { title: "Standard Limited Warranty Form", icon: <FileText className="w-5 h-5 text-blue-500" />, type: "PDF (0.5 MB)", link: "#" }
+              { title: "Universal Safety & Installation Guide", icon: <Shield className="w-5 h-5 text-amber-500" />, type: "PDF (3.2 MB)", link: "#" },
+              { title: "Standard Limited Warranty Form", icon: <FileText className="w-5 h-5 text-navy-500" />, type: "PDF (0.5 MB)", link: "#" }
             ].map((item, idx) => (
               <Link 
                 key={idx} 
@@ -124,15 +125,13 @@ export default function TechnicalResourcesClient() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 pointer-events-none"></div>
             <div className="flex flex-col lg:flex-row">
               <div className="w-full lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
-                <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-800 text-amber-500 text-[11px] font-bold uppercase tracking-widest w-max">
-                  New Resource
-                </div>
-                <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6 font-heading tracking-tight">
-                  BRC <span className="text-amber-500">Video Training</span> Series
-                </h2>
-                <p className="text-navy-200 text-lg font-light leading-relaxed mb-8">
-                  For visual learners and technicians on the shop floor. Watch our lead engineers walk through safe caging procedures, pushrod cutting, and complete installation step-by-step.
-                </p>
+                <SectionHeader
+                  badge="New Resource"
+                  title={<>BRC <span className="text-amber-500">Video Training</span> Series</>}
+                  description="For visual learners and technicians on the shop floor. Watch our lead engineers walk through safe caging procedures, pushrod cutting, and complete installation step-by-step."
+                  theme="dark"
+                  align="left"
+                />
                 <Link href="/training" className="inline-flex items-center gap-3 text-amber-500 font-extrabold hover:text-amber-400 transition-colors uppercase tracking-widest text-sm group">
                   Access Video Library <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -213,18 +212,20 @@ export default function TechnicalResourcesClient() {
                   {/* Subtle background glow on section hover */}
                   <div className={`absolute top-0 right-0 w-64 h-64 blur-[80px] rounded-full opacity-0 group-hover/section:opacity-10 transition-opacity duration-700 pointer-events-none
                     ${category.accent === 'amber' ? 'bg-amber-500' : ''}
-                    ${category.accent === 'blue' ? 'bg-blue-500' : ''}
-                    ${category.accent === 'emerald' ? 'bg-emerald-500' : ''}
-                    ${category.accent === 'purple' ? 'bg-purple-500' : ''}
+                    ${category.accent === 'navy' ? 'bg-navy-500' : ''}
+                    ${category.accent === 'red' ? 'bg-red-600' : ''}
+                            ${category.accent === 'emerald' ? 'bg-emerald-600' : ''}
+                    ${category.accent === 'slate' ? 'bg-slate-500' : ''}
                   `}></div>
 
                   <div className="relative z-10">
                     <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-8">
                       <div className={`w-16 h-16 rounded-2xl flex items-center justify-center border flex-shrink-0 shadow-sm
                         ${category.accent === 'amber' ? 'bg-amber-50 border-amber-100' : ''}
-                        ${category.accent === 'blue' ? 'bg-blue-50 border-blue-100' : ''}
-                        ${category.accent === 'emerald' ? 'bg-emerald-50 border-emerald-100' : ''}
-                        ${category.accent === 'purple' ? 'bg-purple-50 border-purple-100' : ''}
+                        ${category.accent === 'navy' ? 'bg-navy-50 border-navy-100' : ''}
+                        ${category.accent === 'red' ? 'bg-red-50 border-red-100' : ''}
+                            ${category.accent === 'emerald' ? 'bg-emerald-50 border-emerald-100' : ''}
+                        ${category.accent === 'slate' ? 'bg-slate-50 border-slate-100' : ''}
                       `}>
                         {React.cloneElement(category.icon, { className: 'w-8 h-8' })}
                       </div>
@@ -241,9 +242,10 @@ export default function TechnicalResourcesClient() {
                           href={item.link} 
                           className={`flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-slate-50/80 rounded-2xl border border-slate-100 transition-all duration-300 group hover:shadow-md hover:bg-white
                             ${category.accent === 'amber' ? 'hover:border-amber-300' : ''}
-                            ${category.accent === 'blue' ? 'hover:border-blue-300' : ''}
+                            ${category.accent === 'navy' ? 'hover:border-navy-300' : ''}
+                            ${category.accent === 'red' ? 'hover:border-red-300' : ''}
                             ${category.accent === 'emerald' ? 'hover:border-emerald-300' : ''}
-                            ${category.accent === 'purple' ? 'hover:border-purple-300' : ''}
+                            ${category.accent === 'slate' ? 'hover:border-slate-300' : ''}
                           `}
                         >
                           <div className="flex items-center gap-4 mb-4 sm:mb-0">
@@ -257,9 +259,10 @@ export default function TechnicalResourcesClient() {
                             <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest">{item.type}</span>
                             <span className={`flex items-center justify-center w-10 h-10 rounded-xl bg-white shadow-sm transition-all duration-300 group-hover:-translate-y-1
                               ${category.accent === 'amber' ? 'text-slate-400 group-hover:bg-amber-500 group-hover:text-white group-hover:shadow-amber-500/20' : ''}
-                              ${category.accent === 'blue' ? 'text-slate-400 group-hover:bg-blue-500 group-hover:text-white group-hover:shadow-blue-500/20' : ''}
-                              ${category.accent === 'emerald' ? 'text-slate-400 group-hover:bg-emerald-500 group-hover:text-white group-hover:shadow-emerald-500/20' : ''}
-                              ${category.accent === 'purple' ? 'text-slate-400 group-hover:bg-purple-500 group-hover:text-white group-hover:shadow-purple-500/20' : ''}
+                              ${category.accent === 'navy' ? 'text-slate-400 group-hover:bg-navy-500 group-hover:text-white group-hover:shadow-navy-500/20' : ''}
+                              ${category.accent === 'red' ? 'text-slate-400 group-hover:bg-red-600 group-hover:text-white group-hover:shadow-red-600/20' : ''}
+                            ${category.accent === 'emerald' ? 'text-slate-400 group-hover:bg-emerald-600 group-hover:text-white group-hover:shadow-emerald-600/20' : ''}
+                              ${category.accent === 'slate' ? 'text-slate-400 group-hover:bg-slate-500 group-hover:text-white group-hover:shadow-slate-500/20' : ''}
                             `}>
                               <ArrowDownToLine className="w-5 h-5" />
                             </span>
@@ -281,19 +284,19 @@ export default function TechnicalResourcesClient() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
             
             <div className="relative z-10">
               <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-amber-500/20 backdrop-blur-sm">
                 <Wrench className="w-8 h-8 text-amber-400" />
               </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 font-heading tracking-tight drop-shadow-lg">
-                Need Custom <span className="text-amber-500">Engineering</span> Support?
-              </h2>
-              <p className="text-navy-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-                If you require specific pushrod calculations, unique bracket alignments, or modified stroke limits, our engineering team is ready to assist.
-              </p>
+              <SectionHeader 
+                badge="Expert Consultation"
+                title={<>Need Custom <span className="text-amber-500">Engineering</span> Support?</>}
+                description="If you require specific pushrod calculations, unique bracket alignments, or modified stroke limits, our engineering team is ready to assist."
+                theme="dark" 
+              />
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link 
                   href="/contact" 

@@ -13,6 +13,7 @@ import TechnicalResourcesSection from '@/components/shared/TechnicalResourcesSec
 import SubCategoryComparisonTable from '@/components/products/SubCategoryComparisonTable';
 import SubCategoryWholesaleCTA from '@/components/products/SubCategoryWholesaleCTA';
 import SubCategoryFAQ from '@/components/products/SubCategoryFAQ';
+import PageHeader from '@/components/layout/PageHeader';
 
 interface ProductListingLayoutProps {
   title: string;
@@ -73,55 +74,14 @@ export default function ProductListingLayout({
   const paginatedProducts = products.slice(startIndex, startIndex + PAGE_SIZE);
 
   return (
-    <div className="container mx-auto px-4 lg:px-8 py-8 max-w-7xl">
-      <nav aria-label="Breadcrumb" className="mb-6">
-        <ol className="flex items-center space-x-2 text-sm text-slate-500">
-          <li>
-            <Link href="/" className="hover:text-navy-900 transition-colors">Home</Link>
-          </li>
-          {breadcrumbs.map((crumb, idx) => (
-            <React.Fragment key={idx}>
-              <li><span className="text-slate-300">/</span></li>
-              <li>
-                {crumb.href ? (
-                  <Link href={crumb.href} className="hover:text-navy-900 transition-colors">
-                    {crumb.label}
-                  </Link>
-                ) : (
-                  <span className="text-navy-900 font-semibold" aria-current="page">{crumb.label}</span>
-                )}
-              </li>
-            </React.Fragment>
-          ))}
-        </ol>
-      </nav>
-
-      <div className={`mb-4 rounded-3xl ${isSubCategory ? 'bg-navy-900' : 'bg-gradient-to-br from-navy-900 to-navy-950'} relative overflow-hidden shadow-2xl shadow-navy-900/20 p-8 sm:p-12 border border-navy-800 flex flex-col md:flex-row md:items-center justify-between gap-8`}>
-        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500 opacity-10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500 opacity-10 rounded-full blur-3xl -ml-20 -mb-20"></div>
-        <div className="relative z-10 flex-1">
-          {badge && (
-            <div className="inline-block px-3 py-1 mb-4 rounded-full bg-navy-800 border border-navy-700 text-amber-400 text-xs font-bold uppercase tracking-widest">
-              {badge}
-            </div>
-          )}
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4">
-            {title}
-          </h1>
-          <p className="text-navy-200 text-base sm:text-lg max-w-2xl leading-relaxed mb-6">
-            {description}
-          </p>
-          {!isSubCategory && (
-            <div className="flex flex-wrap items-center gap-4">
-              <span className="flex items-center text-sm font-medium text-emerald-400 bg-emerald-400/10 px-3 py-1.5 rounded-lg border border-emerald-400/20">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
-                In Stock & Ready to Ship
-              </span>
-              <span className="text-navy-300 text-sm">Direct replacements for Bendix, Meritor & Haldex</span>
-            </div>
-          )}
-        </div>
-      </div>
+    <>
+      <PageHeader
+        title={title}
+        description={description}
+        badge={badge}
+        breadcrumbs={[{ label: 'Home', href: '/' }, ...breadcrumbs]}
+      />
+      <div className="container mx-auto px-4 lg:px-8 py-8 max-w-7xl">
 
       {!isSubCategory && <TrustBanner />}
 
@@ -198,6 +158,7 @@ export default function ProductListingLayout({
       </div>
 
       {!isSubCategory && visualizerType && <CategoryVisualizer type={visualizerType} />}
-    </div>
+      </div>
+    </>
   );
 }

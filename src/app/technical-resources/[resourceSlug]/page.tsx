@@ -262,22 +262,15 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
   return (
     <div className="bg-slate-50 min-h-screen pb-16">
       <PageHeader
-        badge={data.category}
+        badge="Technical Documentation"
         title={data.title}
         description={data.description}
-      >
-        <div className="mt-8 flex justify-center">
-          <nav aria-label="Breadcrumb" className="inline-block bg-navy-900/60 backdrop-blur-md border border-navy-700 px-6 py-2 rounded-full shadow-lg">
-            <ol className="flex items-center space-x-2 text-sm text-navy-200">
-              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><span className="text-navy-600">/</span></li>
-              <li><Link href="/technical-resources" className="hover:text-white transition-colors">Technical Resources</Link></li>
-              <li><span className="text-navy-600">/</span></li>
-              <li className="text-amber-400 font-semibold" aria-current="page">{data.title}</li>
-            </ol>
-          </nav>
-        </div>
-      </PageHeader>
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Technical Resources', href: '/technical-resources' },
+          { label: data.title }
+        ]}
+      />
 
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl -mt-20 relative z-20">
         <div className="flex flex-col lg:flex-row gap-12">
