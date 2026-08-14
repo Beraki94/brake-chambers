@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { 
-  ArrowRight, ShieldCheck, Settings, Cpu, Zap, 
+import {
+  ArrowRight, ShieldCheck, Settings, Cpu, Zap,
   Map, CheckCircle, FileText, Wrench, Globe2, ChevronRight, Phone
 } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -63,58 +63,57 @@ export default function HomeClient() {
     <div className="font-sans bg-[#F8FAFC]">
       {/* 1. Dynamic Engineering Hero Carousel */}
       <section className="relative min-h-[85vh] flex items-center bg-navy-950 overflow-hidden">
-        
+
         {/* Carousel Backgrounds & Slides */}
         {HERO_SLIDES.map((slide, index) => (
-          <div 
-            key={slide.id} 
+          <div
+            key={slide.id}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
           >
             {/* Background Image with grayscale for industrial feel */}
-            <img 
-              src={slide.image} 
-              alt="Heavy-Duty Commercial Brake Chamber Manufacturing Facility" 
+            <img
+              src={slide.image}
+              alt="Heavy-Duty Commercial Brake Chamber Manufacturing Facility"
               className="absolute inset-0 w-full h-full object-cover object-[25%_center] md:object-center mix-blend-luminosity opacity-40 grayscale scale-100 md:scale-105 animate-[slow-pan_20s_ease-in-out_infinite_alternate]"
               style={{ animationPlayState: index === currentSlide ? 'running' : 'paused' }}
             />
             {/* Image Overlay Gradient */}
             <div className={`absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r ${slide.gradient}`}></div>
-            
+
             {/* Dynamic Glow */}
             <div className={`absolute top-0 right-0 w-[400px] h-[400px] md:w-[600px] md:h-[600px] ${slide.glow} opacity-10 rounded-full blur-[80px] md:blur-[120px] -mr-20 -mt-20 md:-mr-40 md:-mt-40 mix-blend-screen transition-colors duration-1000`}></div>
           </div>
         ))}
 
         {/* Blueprint Grid Overlay (Static) */}
-        <div 
+        <div
           className="absolute inset-0 z-20 opacity-[0.15] mix-blend-overlay pointer-events-none"
-          style={{ 
-            backgroundImage: 'linear-gradient(rgba(245, 158, 11, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(245, 158, 11, 0.4) 1px, transparent 1px)', 
-            backgroundSize: '40px 40px' 
+          style={{
+            backgroundImage: 'linear-gradient(rgba(245, 158, 11, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(245, 158, 11, 0.4) 1px, transparent 1px)',
+            backgroundSize: '40px 40px'
           }}
         ></div>
-        
+
         {/* Content Container */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-30 py-16 md:py-20">
           <div className="max-w-3xl h-[400px] flex flex-col justify-center relative">
-            
+
             {HERO_SLIDES.map((slide, index) => (
-              <div 
+              <div
                 key={slide.id}
-                className={`absolute inset-0 flex flex-col justify-center transition-all duration-700 ease-out ${
-                  index === currentSlide 
-                    ? 'opacity-100 translate-y-0 visible' 
+                className={`absolute inset-0 flex flex-col justify-center transition-all duration-700 ease-out ${index === currentSlide
+                    ? 'opacity-100 translate-y-0 visible'
                     : 'opacity-0 translate-y-8 invisible'
-                }`}
+                  }`}
               >
                 <div>
                   <div className="inline-block px-3 py-1 mb-4 md:px-4 md:py-1.5 md:mb-6 rounded-full bg-gradient-to-r from-navy-800 to-navy-900 border border-navy-700 text-amber-400 text-[10px] md:text-[11px] font-bold uppercase tracking-widest shadow-xl shadow-navy-950 whitespace-nowrap">
                     {slide.badgeIcon} {slide.badge}
                   </div>
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.15] mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
+                  <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.15] mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
                     {slide.title}
                   </h2>
-                  <p className="text-navy-100 text-sm sm:text-base md:text-xl mb-8 md:mb-10 leading-relaxed max-w-2xl font-light">
+                  <p className="text-base md:text-xl mb-8 md:mb-10 leading-relaxed max-w-2xl font-light text-navy-100">
                     {slide.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto">
@@ -138,9 +137,8 @@ export default function HomeClient() {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'w-10 bg-amber-500' : 'w-4 bg-navy-700 hover:bg-navy-500'
-              }`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${index === currentSlide ? 'w-10 bg-amber-500' : 'w-4 bg-navy-700 hover:bg-navy-500'
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -149,25 +147,23 @@ export default function HomeClient() {
 
       {/* NEW: Compliance & Trust Banner */}
       <div className="bg-navy-900 border-y border-amber-500/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-4 flex flex-wrap justify-center sm:justify-between items-center gap-4 text-xs sm:text-sm font-bold text-navy-100 uppercase tracking-widest">
-          <div className="flex items-center gap-2">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-6 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm font-bold text-navy-100 uppercase tracking-widest text-center sm:text-left">
+          <div className="flex items-center justify-center sm:justify-start gap-3">
             <ShieldCheck className="w-5 h-5 text-emerald-400" /> SAE J1469 & J1463 Compliant
           </div>
-          <div className="hidden md:block w-px h-6 bg-navy-700"></div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center sm:justify-center gap-3">
             <ShieldCheck className="w-5 h-5 text-emerald-400" /> FMVSS 121 Certified
           </div>
-          <div className="hidden md:block w-px h-6 bg-navy-700"></div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center sm:justify-end gap-3">
             <ShieldCheck className="w-5 h-5 text-emerald-400" /> ISO 9001:2015 Manufacturing
           </div>
         </div>
       </div>
 
       {/* 2. The 4 Pillars of Manufacturing Excellence */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-white to-slate-50 border-b border-navy-50">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-slate-50 border-b border-navy-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -180,12 +176,12 @@ export default function HomeClient() {
               { icon: ShieldCheck, color: "emerald", title: "Advanced E-Coating", desc: "Multi-stage electro-deposition coating ensures superior corrosion resistance even in the harshest winter road conditions." },
               { icon: CheckCircle, color: "emerald", title: "1M Cycle Tested", desc: "Every chamber design is rigorously subjected to 1 million cycle lab tests to guarantee extreme lifecycle performance." }
             ].map((pillar, i) => (
-              <motion.div key={i} variants={fadeInUp} className="group cursor-pointer">
+              <motion.div key={i} variants={fadeInUp} className="group cursor-pointer bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all duration-300">
                 <div className={`w-14 h-14 bg-gradient-to-br from-navy-50 to-navy-100 rounded-xl flex items-center justify-center text-${pillar.color}-500 mb-5 group-hover:from-${pillar.color}-50 group-hover:to-${pillar.color}-100 transition-all duration-500 shadow-sm group-hover:shadow-[0_10px_20px_-10px_rgba(0,0,0,0.1)] transform group-hover:-translate-y-2`}>
                   <pillar.icon className="w-7 h-7" />
                 </div>
-                <h3 className={`text-lg font-extrabold text-navy-900 mb-2 group-hover:text-${pillar.color}-600 transition-colors`}>{pillar.title}</h3>
-                <p className="text-slate-600 leading-relaxed text-[13px]">{pillar.desc}</p>
+                <h3 className={`text-xl font-extrabold text-navy-900 mb-3 group-hover:text-${pillar.color}-600 transition-colors`}>{pillar.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-base">{pillar.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -193,16 +189,16 @@ export default function HomeClient() {
       </section>
 
       {/* NEW: Aftermarket Brands Showcase */}
-      <section className="py-16 md:py-20 bg-navy-950 relative overflow-hidden border-b border-navy-800">
+      <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden border-b border-navy-800">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
-        
+
         {/* Blinking Stars Background */}
         <div className="absolute inset-0 pointer-events-none">
           {mounted && [...Array(30)].map((_, i) => {
             const size = Math.random() * 2 + 1.5;
             const isGold = Math.random() > 0.5;
             return (
-              <div 
+              <div
                 key={`star-${i}`}
                 className={`absolute rounded-full animate-pulse ${isGold ? 'bg-[#D9B340]/60' : 'bg-white/40'}`}
                 style={{
@@ -217,21 +213,21 @@ export default function HomeClient() {
             );
           })}
         </div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-700 shadow-xl shadow-navy-950 text-amber-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
             Direct Aftermarket Replacements
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
             Engineered to Replace the Industry's Biggest Brands
           </h2>
           <p className="text-navy-300 max-w-2xl mx-auto mb-12 text-sm font-light leading-relaxed">
-            We manufacture premium aftermarket brake chambers designed as direct, drop-in replacements for the leading OEM brands. 
+            We manufacture premium aftermarket brake chambers designed as direct, drop-in replacements for the leading OEM brands.
             Same fit, form, and extreme performance—straight from our factory to your fleet.
           </p>
 
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -245,8 +241,8 @@ export default function HomeClient() {
               { name: "WABCO", hoverBorder: "hover:border-indigo-500/50", hoverText: "group-hover:text-indigo-400" },
               { name: "MGM BRAKES", hoverBorder: "hover:border-rose-500/50", hoverText: "group-hover:text-rose-400" }
             ].map((brand, idx) => (
-              <motion.div 
-                key={brand.name} 
+              <motion.div
+                key={brand.name}
                 variants={scaleIn}
                 className={`bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 px-4 py-3 sm:px-8 sm:py-4 rounded-xl shadow-lg flex items-center justify-center min-w-[140px] sm:min-w-[160px] group hover:bg-navy-800 transition-all duration-300 transform hover:-translate-y-1 ${brand.hoverBorder} ${idx === 4 ? 'col-span-2 sm:col-span-1' : ''}`}
               >
@@ -267,22 +263,22 @@ export default function HomeClient() {
       <section className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-slate-100 relative overflow-hidden">
         {/* Subtle background gradient accents */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-b from-navy-100/40 to-transparent rounded-full blur-[100px] -z-10 translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
-        
+
         {/* Premium Fixed Parallax Background */}
         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
           <div className="w-full h-full bg-[url('/products/spring-brake.jpg')] bg-fixed bg-center bg-no-repeat bg-[length:800px_800px] mix-blend-multiply grayscale"></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
-            <div className="max-w-2xl">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-14 gap-6 text-center md:text-left">
+            <div className="max-w-2xl flex flex-col items-center md:items-start">
               <div className="inline-block px-3 py-1 mb-3 rounded-full bg-navy-900 text-amber-400 text-[11px] font-bold uppercase tracking-widest shadow-md">
                 Precision Manufacturing
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700 mb-3 tracking-tight">Product Architecture</h2>
               <p className="text-slate-600 text-base font-light">Industry-standard and proprietary solutions for every commercial vehicle braking application.</p>
             </div>
-            <Link href="/" className="text-amber-600 font-extrabold uppercase tracking-widest text-[13px] flex items-center hover:text-amber-500 transition-colors bg-white px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md">
+            <Link href="/" className="text-amber-600 font-extrabold uppercase tracking-widest text-[13px] flex items-center justify-center hover:text-amber-500 transition-colors bg-white px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md">
               View All BRC Chambers <ChevronRight className="w-4 h-4 ml-1" />
             </Link>
           </div>
@@ -292,8 +288,8 @@ export default function HomeClient() {
             <Link href="/spring-brakes" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
-              
-              <div className="relative z-10 p-10 flex flex-col sm:flex-row gap-6 items-center">
+
+              <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-6">
                     <div>
@@ -306,7 +302,7 @@ export default function HomeClient() {
                     <ArrowRight className="w-5 h-5 text-navy-900" />
                   </div>
                 </div>
-                <div className="w-40 h-40 sm:w-48 sm:h-48 flex-shrink-0 relative">
+                <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
                   <img src="/products/spring-brake.jpg" alt="Spring Brake Chamber" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
                 </div>
               </div>
@@ -316,8 +312,8 @@ export default function HomeClient() {
             <Link href="/service-chambers" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8ed7c80a71?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
-              
-              <div className="relative z-10 p-10 flex flex-col sm:flex-row gap-6 items-center">
+
+              <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-6">
                     <div>
@@ -330,7 +326,7 @@ export default function HomeClient() {
                     <ArrowRight className="w-5 h-5 text-navy-900" />
                   </div>
                 </div>
-                <div className="w-40 h-40 sm:w-48 sm:h-48 flex-shrink-0 relative">
+                <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
                   <img src="/products/service-brake.jpg" alt="Service Brake Chamber" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
                 </div>
               </div>
@@ -340,8 +336,8 @@ export default function HomeClient() {
             <Link href="/contact" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
-              
-              <div className="relative z-10 p-10 flex flex-col sm:flex-row gap-6 items-center">
+
+              <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-6">
                     <div>
@@ -354,7 +350,7 @@ export default function HomeClient() {
                     <ArrowRight className="w-5 h-5 text-navy-900" />
                   </div>
                 </div>
-                <div className="w-40 h-40 sm:w-48 sm:h-48 flex-shrink-0 relative">
+                <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
                   <img src="/products/air-disc-brake.jpg" alt="Air Disc Brake Chamber" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
                 </div>
               </div>
@@ -364,8 +360,8 @@ export default function HomeClient() {
             <Link href="/chamber-parts-kits" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
-              
-              <div className="relative z-10 p-10 flex flex-col sm:flex-row gap-6 items-center">
+
+              <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-6">
                     <div>
@@ -378,7 +374,7 @@ export default function HomeClient() {
                     <ArrowRight className="w-5 h-5 text-navy-900" />
                   </div>
                 </div>
-                <div className="w-40 h-40 sm:w-48 sm:h-48 flex-shrink-0 relative">
+                <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
                   <img src="/products/piggyback.jpg" alt="Piggyback & Accessories" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
                 </div>
               </div>
@@ -397,7 +393,7 @@ export default function HomeClient() {
 
         {/* Pattern overlay */}
         <div className="absolute inset-0 opacity-[0.03] mix-blend-color-dodge" style={{ backgroundImage: 'radial-gradient(#f59e0b 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
-        
+
         {/* Decorative glows */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[100px] -mr-20 -mt-20 mix-blend-screen pointer-events-none transition-all duration-1000 animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px] -ml-20 -mb-20 mix-blend-screen pointer-events-none transition-all duration-1000 animate-pulse" style={{ animationDelay: '1s' }}></div>
@@ -413,10 +409,10 @@ export default function HomeClient() {
                 We empower our distributors and fleet managers with advanced digital tools to streamline procurement, verify specifications, and train technicians effortlessly.
               </p>
             </div>
-            
+
             <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Tool 1 */}
-              <Link href="/oem-cross-reference" className="block bg-gradient-to-b from-navy-800/60 to-navy-900/60 backdrop-blur-md border border-navy-700/50 p-8 rounded-2xl hover:border-amber-500/50 hover:bg-navy-800/80 transition-all duration-500 shadow-2xl shadow-navy-950 group transform hover:-translate-y-1 relative overflow-hidden">
+              <Link href="/oem-cross-reference" className="block bg-gradient-to-b from-navy-800/60 to-navy-900/60 backdrop-blur-md border border-navy-700/50 p-6 md:p-8 rounded-2xl hover:border-amber-500/50 hover:bg-navy-800/80 transition-all duration-500 shadow-2xl shadow-navy-950 group transform hover:-translate-y-1 relative overflow-hidden">
                 {/* Glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
@@ -430,9 +426,9 @@ export default function HomeClient() {
                   </div>
                 </div>
               </Link>
-              
+
               {/* Tool 2 */}
-              <Link href="/technical-resources" className="block bg-gradient-to-b from-navy-800/60 to-navy-900/60 backdrop-blur-md border border-navy-700/50 p-8 rounded-2xl hover:border-emerald-500/50 hover:bg-navy-800/80 transition-all duration-500 shadow-2xl shadow-navy-950 group transform hover:-translate-y-1 relative overflow-hidden">
+              <Link href="/technical-resources" className="block bg-gradient-to-b from-navy-800/60 to-navy-900/60 backdrop-blur-md border border-navy-700/50 p-6 md:p-8 rounded-2xl hover:border-emerald-500/50 hover:bg-navy-800/80 transition-all duration-500 shadow-2xl shadow-navy-950 group transform hover:-translate-y-1 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
                   <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-emerald-500/50 transition-colors">
@@ -447,10 +443,10 @@ export default function HomeClient() {
               </Link>
 
               {/* Tool 3 */}
-              <div className="bg-gradient-to-r from-amber-500 to-amber-600 p-8 rounded-2xl md:col-span-2 shadow-[0_20px_50px_-10px_rgba(245,158,11,0.3)] group relative overflow-hidden">
+              <div className="bg-gradient-to-r from-amber-500 to-amber-600 p-6 md:p-8 rounded-2xl md:col-span-2 shadow-[0_20px_50px_-10px_rgba(245,158,11,0.3)] group relative overflow-hidden">
                 {/* Shine effect */}
                 <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[45deg] group-hover:animate-[shine_1.5s_ease-in-out]"></div>
-                
+
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
                   <div>
                     <h3 className="text-2xl font-extrabold text-navy-950 mb-2">Automated Warranty Portal</h3>
@@ -467,16 +463,16 @@ export default function HomeClient() {
       </section>
 
       {/* 5. R&D and Innovation Highlight */}
-      <section className="relative overflow-hidden bg-navy-950 h-[550px] flex items-center border-t border-navy-800 group">
+      <section className="relative overflow-hidden bg-navy-950 min-h-[450px] sm:min-h-[550px] py-12 md:py-0 flex items-center border-t border-navy-800 group">
         <div className="absolute inset-0 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="Laboratory Testing" className="w-full h-full object-cover opacity-30 mix-blend-luminosity grayscale group-hover:scale-105 transition-transform duration-[10s]" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/95 to-transparent"></div>
           {/* Accent gradient bar */}
           <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-emerald-400 to-emerald-600 shadow-[0_0_30px_rgba(16,185,129,0.6)]"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="max-w-2xl bg-navy-950/80 backdrop-blur-xl p-10 rounded-3xl border border-navy-800 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] transform transition-transform hover:-translate-y-1">
+          <div className="max-w-2xl bg-navy-950/80 backdrop-blur-xl p-6 md:p-10 rounded-3xl border border-navy-800 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] transform transition-transform hover:-translate-y-1">
             <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-gradient-to-r from-amber-500/20 to-transparent border border-amber-500/30 text-amber-400 text-[11px] font-bold uppercase tracking-widest">
               Innovation Spotlight
             </div>
@@ -484,8 +480,8 @@ export default function HomeClient() {
             <p className="text-base text-navy-200 mb-8 leading-relaxed font-light">
               Our patented HOT design drastically improves the output force of air disc brakes, compensating for internal friction and delivering unprecedented stopping power consistency across the entire vehicle lifecycle.
             </p>
-            <Link href="/technical-resources" className="inline-flex items-center text-navy-950 bg-white font-extrabold px-6 py-3.5 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5">
-              Download Technical Specifications <ArrowRight className="w-4 h-4 ml-2" />
+            <Link href="/technical-resources" className="inline-flex w-full sm:w-auto justify-center items-center text-navy-950 bg-white font-extrabold px-6 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5 text-center">
+              <span>Download Technical Specifications</span> <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0" />
             </Link>
           </div>
         </div>
@@ -494,19 +490,19 @@ export default function HomeClient() {
       {/* 6. Industry News & Technical Bulletins */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
-            <div>
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-14 gap-6 text-center md:text-left">
+            <div className="flex flex-col items-center md:items-start">
               <div className="inline-block px-3 py-1 mb-3 rounded-full bg-slate-100 text-slate-500 border border-slate-200 text-[11px] font-bold uppercase tracking-widest">
                 Updates & Releases
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700 tracking-tight">Technical Bulletins</h2>
             </div>
-            <Link href="/about" className="text-amber-600 font-extrabold uppercase tracking-widest text-[13px] flex items-center hover:text-amber-500 transition-colors bg-slate-50 px-5 py-2.5 rounded-lg border border-slate-100 hover:shadow-sm">
+            <Link href="/about" className="text-amber-600 font-extrabold uppercase tracking-widest text-[13px] flex items-center justify-center hover:text-amber-500 transition-colors bg-slate-50 px-5 py-2.5 rounded-lg border border-slate-100 hover:shadow-sm">
               View Archive <ChevronRight className="w-4 h-4 ml-1" />
             </Link>
           </div>
 
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -525,9 +521,9 @@ export default function HomeClient() {
               <div className="text-emerald-600 text-[11px] font-extrabold uppercase tracking-widest mb-3">Certification Update</div>
               <h3 className="text-xl font-extrabold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors leading-tight">ISO 9001:2015 Recertification Completed</h3>
               <p className="text-slate-600 text-[13px] mb-4 line-clamp-2 leading-relaxed">Our main manufacturing facility has successfully completed its annual ISO 9001:2015 audit with zero non-conformances.</p>
-              <span className="text-slate-400 text-[11px] font-bold uppercase tracking-widest flex items-center"><CheckCircle className="w-3 h-3 mr-1.5"/> August 12, 2026</span>
+              <span className="text-slate-400 text-[11px] font-bold uppercase tracking-widest flex items-center"><CheckCircle className="w-3 h-3 mr-1.5" /> August 12, 2026</span>
             </motion.div>
-            
+
             {/* News 2 */}
             <motion.div variants={fadeInUp} className="group cursor-pointer">
               <div className="h-56 rounded-2xl mb-6 overflow-hidden relative shadow-md">
@@ -540,7 +536,7 @@ export default function HomeClient() {
               <div className="text-amber-500 text-[11px] font-extrabold uppercase tracking-widest mb-3">Product Release</div>
               <h3 className="text-xl font-extrabold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors leading-tight">Launch of the UltraLife+ VCT Series</h3>
               <p className="text-slate-600 text-[13px] mb-4 line-clamp-2 leading-relaxed">Introducing the new standard in variable clocking chambers, offering fleet managers 40% reduction in installation time.</p>
-              <span className="text-slate-400 text-[11px] font-bold uppercase tracking-widest flex items-center"><Settings className="w-3 h-3 mr-1.5"/> July 28, 2026</span>
+              <span className="text-slate-400 text-[11px] font-bold uppercase tracking-widest flex items-center"><Settings className="w-3 h-3 mr-1.5" /> July 28, 2026</span>
             </motion.div>
 
             {/* News 3 */}
@@ -555,7 +551,7 @@ export default function HomeClient() {
               <div className="text-amber-500 text-[11px] font-extrabold uppercase tracking-widest mb-3">Logistics Notice</div>
               <h3 className="text-xl font-extrabold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors leading-tight">Expanded EMEA Distribution Network</h3>
               <p className="text-slate-600 text-[13px] mb-4 line-clamp-2 leading-relaxed">To better serve our European partners, we have opened a new automated fulfillment center in Germany.</p>
-              <span className="text-slate-400 text-[11px] font-bold uppercase tracking-widest flex items-center"><Globe2 className="w-3 h-3 mr-1.5"/> July 05, 2026</span>
+              <span className="text-slate-400 text-[11px] font-bold uppercase tracking-widest flex items-center"><Globe2 className="w-3 h-3 mr-1.5" /> July 05, 2026</span>
             </motion.div>
           </motion.div>
         </div>
@@ -563,63 +559,63 @@ export default function HomeClient() {
 
       {/* 7. Global Distribution & Direct Contact */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-slate-100 relative overflow-hidden">
-        
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="bg-white rounded-[2.5rem] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] border border-slate-100 p-8 md:p-14 overflow-hidden relative">
-            
+          <div className="bg-white rounded-[2.5rem] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] border border-slate-100 p-6 md:p-14 overflow-hidden relative">
+
             {/* Prominent Rotating Brake Chamber Background */}
             <div className="absolute top-1/2 left-0 lg:left-[2%] -translate-y-1/2 w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] opacity-30 pointer-events-none animate-[spin_80s_linear_infinite] z-0">
               <img src="/products/spring-brake.jpg" alt="Brake Chamber Background" className="w-full h-full object-contain mix-blend-multiply drop-shadow-2xl" />
             </div>
-            <div className="flex flex-col lg:flex-row gap-16 items-center">
-              <div className="w-full lg:w-1/2 relative z-10">
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+              <div className="w-full lg:w-1/2 relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left">
                 <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-50 border border-navy-100 text-navy-600 text-[11px] font-extrabold uppercase tracking-widest">
                   Global Network
                 </div>
-                <h2 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-navy-900 to-navy-700 mb-6 leading-tight">Global Scale. <br/>Local Support.</h2>
+                <h2 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-navy-900 to-navy-700 mb-6 leading-tight">Global Scale. <br className="hidden md:block" />Local Support.</h2>
                 <p className="text-slate-600 text-base md:text-lg mb-10 font-light leading-relaxed max-w-lg">
                   Shipping OEM and aftermarket brake components to over 30 countries worldwide. We handle LTL, FTL, and direct container shipping logistics internally.
                 </p>
-                <div className="grid grid-cols-2 gap-6 max-w-md">
-                  <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 w-full max-w-md">
+                  <div className="bg-gradient-to-br from-slate-50 to-white p-5 md:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center sm:items-start text-center sm:text-left">
                     <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">30+</div>
                     <div className="text-[11px] font-extrabold text-navy-900 uppercase tracking-widest">Countries Served</div>
                   </div>
-                  <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="bg-gradient-to-br from-slate-50 to-white p-5 md:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center sm:items-start text-center sm:text-left">
                     <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">1M+</div>
                     <div className="text-[11px] font-extrabold text-navy-900 uppercase tracking-widest">Units Annually</div>
                   </div>
                 </div>
               </div>
-              
-              <div className="w-full lg:w-1/2 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-3xl p-10 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden group">
+
+              <div className="w-full lg:w-1/2 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-3xl p-6 md:p-10 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden group">
                 {/* Internal Card Glow */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-amber-500/20 transition-colors duration-700"></div>
-                
-                <h3 className="text-3xl font-extrabold mb-4 relative z-10">Connect with Sales & Engineering</h3>
-                <p className="text-navy-200 text-sm mb-10 leading-relaxed font-light relative z-10">Ready to discuss bulk purchasing, OEM design specifications, or cross-reference support? Our dedicated team is standing by.</p>
-                
-                <div className="space-y-8 relative z-10">
-                  <a href="tel:+12567366275" className="flex items-center gap-6 group/link">
-                    <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-amber-500/50 transition-colors">
-                      <Phone className="w-6 h-6 text-amber-400 group-hover/link:scale-110 transition-transform duration-300" />
+
+                <h3 className="text-2xl md:text-3xl font-extrabold mb-4 md:mb-6 relative z-10">Connect with Sales & Engineering</h3>
+                <p className="text-navy-200 text-sm mb-8 md:mb-10 leading-relaxed font-light relative z-10">Ready to discuss bulk purchasing, OEM design specifications, or cross-reference support? Our dedicated team is standing by.</p>
+
+                <div className="space-y-6 md:space-y-8 relative z-10">
+                  <a href="tel:+12567366275" className="flex items-center gap-4 md:gap-6 group/link">
+                    <div className="w-12 h-12 md:w-14 md:h-14 flex-shrink-0 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-amber-500/50 transition-colors">
+                      <Phone className="w-5 h-5 md:w-6 md:h-6 text-amber-400 group-hover/link:scale-110 transition-transform duration-300" />
                     </div>
                     <div>
-                      <div className="text-[11px] text-amber-400 font-extrabold uppercase tracking-widest mb-1">Direct Line</div>
-                      <div className="text-2xl font-bold group-hover/link:text-amber-300 transition-colors">1-256-736-6275</div>
+                      <div className="text-[10px] md:text-[11px] text-amber-400 font-extrabold uppercase tracking-widest mb-1">Direct Line</div>
+                      <div className="text-xl md:text-2xl font-bold group-hover/link:text-amber-300 transition-colors">1-256-736-6275</div>
                     </div>
                   </a>
-                  <a href="mailto:sales@brakechambers.com" className="flex items-center gap-6 group/link">
-                    <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-amber-500/50 transition-colors">
-                      <Map className="w-6 h-6 text-amber-400 group-hover/link:scale-110 transition-transform duration-300" />
+                  <a href="mailto:sales@brakechambers.com" className="flex items-center gap-4 md:gap-6 group/link">
+                    <div className="w-12 h-12 md:w-14 md:h-14 flex-shrink-0 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-amber-500/50 transition-colors">
+                      <Map className="w-5 h-5 md:w-6 md:h-6 text-amber-400 group-hover/link:scale-110 transition-transform duration-300" />
                     </div>
                     <div>
-                      <div className="text-[11px] text-amber-400 font-extrabold uppercase tracking-widest mb-1">Corporate HQ</div>
-                      <div className="text-xl font-bold group-hover/link:text-amber-300 transition-colors">Cullman, Alabama, USA</div>
+                      <div className="text-[10px] md:text-[11px] text-amber-400 font-extrabold uppercase tracking-widest mb-1">Corporate HQ</div>
+                      <div className="text-lg md:text-xl font-bold group-hover/link:text-amber-300 transition-colors">Cullman, Alabama, USA</div>
                     </div>
                   </a>
                 </div>
-                
+
                 <Link href="/contact" className="mt-12 block w-full bg-gradient-to-r from-amber-400 to-amber-600 text-navy-950 font-extrabold text-center py-4 rounded-xl uppercase tracking-widest text-[13px] hover:from-amber-300 hover:to-amber-500 transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(245,158,11,0.5)] relative z-10 transform hover:-translate-y-1">
                   Contact Us Today
                 </Link>

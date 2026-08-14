@@ -33,12 +33,7 @@ export default function Footer() {
             <p className="text-navy-300 text-sm mb-4 leading-relaxed">
               Premium commercial vehicle brake chambers shipped worldwide. ISO 9001 certified manufacturing for heavy-duty fleet performance.
             </p>
-            <div className="bg-navy-800 rounded-lg p-3 mb-6 border border-navy-700">
-              <ul className="text-[11px] font-bold text-emerald-400 uppercase tracking-widest space-y-1.5">
-                <li className="flex items-center gap-2"><ShieldCheck className="w-3.5 h-3.5" /> SAE J1469 & J1463 Compliant</li>
-                <li className="flex items-center gap-2"><ShieldCheck className="w-3.5 h-3.5" /> FMVSS 121 Certified</li>
-              </ul>
-            </div>
+
             <div className="flex flex-col gap-4">
               <span className="text-sm text-slate-400 font-bold">Follow us on social media</span>
               <div className="flex items-center gap-4">
@@ -117,11 +112,11 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="pt-8 border-t border-navy-800 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-navy-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="text-navy-400 text-sm">
             &copy; {new Date().getFullYear()} BRC Brake Chambers. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm mt-4 md:mt-0">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm mt-2 md:mt-0">
             <Link href={`/privacy`} className="text-navy-400 hover:text-slate-400 transition-colors">Privacy Policy</Link>
             <Link href={`/terms`} className="text-navy-400 hover:text-slate-400 transition-colors">Terms of Service</Link>
           </div>

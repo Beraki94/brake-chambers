@@ -50,22 +50,25 @@ export default function Navbar() {
   const searchResults = React.useMemo(() => {
     if (!searchQuery.trim()) return [];
     const query = searchQuery.toLowerCase();
+    const tokens = query.split(/\s+/).filter(t => t.length > 0);
 
     let results: Array<{ type: string; item: any }> = [];
 
     results = [...results, ...BRAKE_CHAMBERS.filter(p => {
-      const matchName = p.name.toLowerCase().includes(query);
-      const matchBrand = p.brandSlug.toLowerCase().includes(query);
-      const matchSku = p.slug.toLowerCase().includes(query);
-      const matchOem = p.oemPartNumbers?.some(oem => oem.partNumber.toLowerCase().includes(query) || oem.brand.toLowerCase().includes(query));
-      return matchName || matchBrand || matchSku || matchOem;
+      return tokens.every(token => 
+        p.name.toLowerCase().includes(token) || 
+        p.brandSlug.toLowerCase().includes(token) || 
+        p.slug.toLowerCase().includes(token) || 
+        p.oemPartNumbers?.some(oem => oem.partNumber.toLowerCase().includes(token) || oem.brand.toLowerCase().includes(token))
+      );
     }).map(p => ({ type: p.category === 'Spring Brake' ? 'spring-brakes' : 'service-chambers', item: p }))];
     
     results = [...results, ...BRAKE_ACCESSORIES.filter(a => {
-      const matchName = a.name.toLowerCase().includes(query);
-      const matchBrand = a.brandSlug.toLowerCase().includes(query);
-      const matchSku = a.slug.toLowerCase().includes(query);
-      return matchName || matchBrand || matchSku;
+      return tokens.every(token => 
+        a.name.toLowerCase().includes(token) || 
+        a.brandSlug.toLowerCase().includes(token) || 
+        a.slug.toLowerCase().includes(token)
+      );
     }).map(a => ({ type: 'chamber-parts-kits', item: a }))];
 
     return results; // Return all matching results directly in the dropdown
@@ -116,14 +119,14 @@ export default function Navbar() {
       </div>
 
       {/* Main Header */}
-      <div className="bg-[#FFB000] border-b border-[#e59d00]">
+      <div className="bg-[#FFB000] border-b border-[#e59d00] relative z-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="h-14 md:h-16 flex items-center justify-between gap-4 md:gap-8">
+          <div className="h-20 md:h-24 flex items-center justify-between gap-4 md:gap-8">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 font-heading font-bold text-xl md:text-2xl tracking-tight text-navy-900 flex-shrink-0">
-              <img src="/images/logo-brc.png" alt="BRC Brake Chambers" className="h-12 md:h-16 w-auto object-contain py-1" />
-              <span className="text-[14px] sm:text-base md:text-xl font-bold truncate max-w-[130px] sm:max-w-none leading-tight">BRC Brake Chambers</span>
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 font-heading font-extrabold text-xl md:text-2xl tracking-tight text-navy-950 flex-shrink-0 min-w-0">
+              <img src="/images/logo-brc.png" alt="BRC Brake Chambers" className="h-10 md:h-14 w-auto object-contain py-1 flex-shrink-0" />
+              <span className="text-[16px] sm:text-lg md:text-2xl font-extrabold leading-tight tracking-normal whitespace-nowrap">BRC Brake Chambers</span>
             </Link>
 
             {/* Main Search Bar (Center Desktop) - Expanded Width */}
@@ -183,17 +186,17 @@ export default function Navbar() {
             </div>
 
             {/* Right side controls */}
-            <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
+            <div className="flex items-center gap-2.5 md:gap-4 flex-shrink-0">
               
-              {/* Cart Button (Always visible) */}
+              {/* Cart Button (Hidden on Mobile) */}
               <Link
                 href={`/quote`}
-                className="relative flex items-center justify-center md:px-5 md:py-2.5 w-9 h-9 md:w-auto md:h-auto bg-navy-900 hover:bg-navy-800 text-white rounded-full font-semibold transition-all shadow-sm group gap-2"
+                className="hidden md:flex relative items-center justify-center md:px-6 md:py-3.5 w-10 h-10 md:w-auto md:h-auto bg-navy-950 hover:bg-navy-900 text-white rounded-full font-extrabold transition-all shadow-md group md:gap-2"
               >
-                <ShoppingBag className="h-5 w-5 text-white" />
-                <span className="hidden md:inline">Request Quote</span>
+                <ShoppingBag className="h-4 w-4 md:h-5 md:w-5 text-white" />
+                <span className="hidden md:inline text-[12px] uppercase tracking-widest">Request Quote</span>
                 {mounted && cartCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-navy-900 border-2 border-white text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
+                  <span className="absolute -top-1.5 -right-1.5 bg-white text-navy-950 text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center shadow-sm border-2 border-navy-950">
                     {cartCount}
                   </span>
                 )}
@@ -202,9 +205,9 @@ export default function Navbar() {
               {/* Mobile menu toggle */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg bg-navy-50 text-navy-900 hover:bg-navy-100 transition-colors"
+                className="md:hidden w-10 h-10 flex items-center justify-center rounded-full bg-navy-950 text-white hover:bg-navy-900 transition-transform hover:scale-105 shadow-md"
               >
-                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
             </div>
           </div>
@@ -214,98 +217,125 @@ export default function Navbar() {
       {/* Mobile Menu Dropdown */}
       <AnimatePresence>
       {isMobileMenuOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.2 }}
-          className="md:hidden border-t border-navy-100 bg-white absolute w-full shadow-lg pb-6 overflow-y-auto max-h-[calc(100vh-56px)]"
-        >
-          <div className="px-4 pt-4 pb-2" ref={mobileSearchContainerRef}>
-            <div className="relative mb-6">
-              <form onSubmit={handleSearch} className="flex items-center w-full bg-white rounded-xl border border-transparent focus-within:border-slate-500 focus-within:bg-white overflow-hidden group">
-                <Search className="h-4 w-4 text-navy-400 ml-3 group-focus-within:text-slate-600 transition-colors" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    setShowDropdown(true);
-                  }}
-                  onFocus={() => setShowDropdown(true)}
-                  placeholder="Search part # or type..."
-                  className="flex-1 bg-transparent py-3 pr-3 text-sm text-navy-900 focus:outline-none"
-                />
-                <button type="submit" className="pr-3 pl-2 flex items-center justify-center text-navy-600 font-medium text-sm">
-                  Search
-                </button>
-              </form>
+        <>
+          {/* Backdrop for closing */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden fixed inset-0 top-[100px] bg-navy-950/60 backdrop-blur-md z-40"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          {/* Premium Light Menu Panel */}
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden absolute left-0 right-0 top-full bg-white z-50 shadow-2xl border-b border-navy-100 max-h-[calc(100vh-100px)] overflow-y-auto"
+          >
+            <div className="px-4 pt-6 pb-8" ref={mobileSearchContainerRef}>
+              <div className="relative mb-8">
+                <form onSubmit={handleSearch} className="flex items-center w-full bg-slate-50 rounded-xl border border-slate-200 focus-within:border-amber-500 focus-within:bg-white overflow-hidden group transition-colors shadow-sm">
+                  <Search className="h-5 w-5 text-navy-400 ml-4 group-focus-within:text-amber-500 transition-colors" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value);
+                      setShowDropdown(true);
+                    }}
+                    onFocus={() => setShowDropdown(true)}
+                    placeholder="Search part #, brand, or type..."
+                    className="flex-1 bg-transparent py-4 px-3 text-[15px] text-navy-900 focus:outline-none placeholder-slate-400"
+                  />
+                  <button type="submit" className="pr-4 pl-2 flex items-center justify-center text-navy-600 font-extrabold text-[12px] uppercase tracking-widest hover:text-amber-600 transition-colors">
+                    Search
+                  </button>
+                </form>
 
-              {/* Mobile Live Search Dropdown */}
-              {showDropdown && searchResults.length > 0 && (
-                <div className="absolute top-full mt-2 left-0 w-full bg-white rounded-xl shadow-xl border border-navy-100 overflow-hidden z-50 max-h-[60vh] overflow-y-auto">
-                  <ul className="py-2">
-                    {searchResults.map((result, idx) => (
-                      <li key={`${result.type}-${result.item.slug}`}>
-                        <Link
-                          href={`/${result.item.slug}`}
-                          onClick={() => {
-                            setShowDropdown(false);
-                            setSearchQuery('');
-                            setIsMobileMenuOpen(false);
-                          }}
-                          className="flex items-center gap-3 px-3 py-2 hover:bg-navy-50 transition-colors"
-                        >
-                          <div className="w-8 h-8 bg-navy-50 rounded-md flex items-center justify-center flex-shrink-0">
-                            <span className="text-lg">⚙️</span>
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className="text-sm font-bold text-navy-900 truncate">{result.item.name}</p>
-                            <p className="text-xs text-navy-500 capitalize">{result.type.replace('-', ' ')} &bull; {result.item.brandSlug}</p>
-                          </div>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {showDropdown && searchQuery.trim() !== '' && searchResults.length === 0 && (
-                <div className="absolute top-full mt-2 left-0 w-full bg-white rounded-xl shadow-xl border border-navy-100 overflow-hidden z-50 p-6 text-center">
-                  <p className="text-sm text-navy-500">No products found matching "{searchQuery}".</p>
-                </div>
-              )}
-            </div>
+                {/* Mobile Live Search Dropdown (Inline) */}
+                {showDropdown && searchResults.length > 0 && (
+                  <div className="mt-3 w-full bg-white rounded-xl shadow-inner border border-navy-50 overflow-hidden z-50 max-h-[40vh] overflow-y-auto">
+                    <ul className="py-2">
+                      {searchResults.map((result, idx) => (
+                        <li key={`${result.type}-${result.item.slug}`}>
+                          <Link
+                            href={`/${result.item.slug}`}
+                            onClick={() => {
+                              setShowDropdown(false);
+                              setSearchQuery('');
+                              setIsMobileMenuOpen(false);
+                            }}
+                            className="flex items-center gap-4 px-4 py-3 hover:bg-slate-50 transition-colors border-b border-navy-50/50 last:border-0"
+                          >
+                            <div className="w-10 h-10 bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-200">
+                              <span className="text-xl">⚙️</span>
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-[14px] font-extrabold text-navy-900 truncate">{result.item.name}</p>
+                              <p className="text-[11px] font-bold text-navy-500 capitalize tracking-wider mt-0.5">{result.type.replace('-', ' ')} &bull; {result.item.brandSlug}</p>
+                            </div>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {showDropdown && searchQuery.trim() !== '' && searchResults.length === 0 && (
+                  <div className="mt-3 w-full bg-white rounded-xl shadow-inner border border-navy-50 p-6 text-center">
+                    <p className="text-sm font-medium text-navy-500">No products found matching "{searchQuery}".</p>
+                  </div>
+                )}
+              </div>
 
-            <div className="mb-6 flex justify-between items-center bg-navy-50 p-3 rounded-xl">
-              <span className="text-sm font-semibold text-navy-700">Language</span>
-              <Suspense fallback={<div className="w-24 h-8 bg-navy-100 rounded-full animate-pulse" />}>
+            <div className="mb-8 flex justify-between items-center bg-slate-50 p-4 rounded-xl border border-slate-200">
+              <span className="text-[13px] font-extrabold text-navy-500 uppercase tracking-widest">Region / Language</span>
+              <Suspense fallback={<div className="w-24 h-8 bg-slate-200 rounded-full animate-pulse" />}>
                 <MarketSelector />
               </Suspense>
             </div>
 
             <nav className="flex flex-col gap-2">
-              <div className="pt-2 pb-1 px-3">
-                <span className="text-xs font-bold text-navy-400 uppercase tracking-wider">Products</span>
+              <div className="pt-2 pb-2 px-3">
+                <span className="text-[11px] font-extrabold text-navy-400 uppercase tracking-widest">Braking Systems</span>
               </div>
-              <div className="pl-3 border-l-2 border-navy-100 ml-3 flex flex-col gap-1 mb-2">
-                <Link href={`/spring-brakes`} onClick={() => setIsMobileMenuOpen(false)} className={`p-2 font-semibold rounded-xl transition-colors text-navy-900 hover:bg-slate-50 hover:text-slate-700 text-sm`}>Spring Brakes</Link>
-                <Link href={`/service-chambers`} onClick={() => setIsMobileMenuOpen(false)} className={`p-2 font-semibold rounded-xl transition-colors text-navy-900 hover:bg-slate-50 hover:text-slate-700 text-sm`}>Service Chambers</Link>
-                <Link href={`/air-disc-actuators`} onClick={() => setIsMobileMenuOpen(false)} className={`p-2 font-semibold rounded-xl transition-colors text-navy-900 hover:bg-slate-50 hover:text-slate-700 text-sm`}>Air Disc Actuators</Link>
-                <Link href={`/chamber-parts-kits`} onClick={() => setIsMobileMenuOpen(false)} className={`p-2 font-semibold rounded-xl transition-colors text-navy-900 hover:bg-slate-50 hover:text-slate-700 text-sm`}>Parts & Kits</Link>
+              <div className="pl-2 flex flex-col gap-1 mb-4">
+                <Link href={`/spring-brakes`} onClick={() => setIsMobileMenuOpen(false)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                  <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Settings className="w-4 h-4 text-amber-600" /></div> Spring Brakes
+                </Link>
+                <Link href={`/service-chambers`} onClick={() => setIsMobileMenuOpen(false)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                  <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Wrench className="w-4 h-4 text-amber-600" /></div> Service Chambers
+                </Link>
+                <Link href={`/air-disc-actuators`} onClick={() => setIsMobileMenuOpen(false)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                  <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Disc className="w-4 h-4 text-amber-600" /></div> Air Disc Actuators
+                </Link>
+                <Link href={`/chamber-parts-kits`} onClick={() => setIsMobileMenuOpen(false)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                  <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Package className="w-4 h-4 text-amber-600" /></div> Parts & Kits
+                </Link>
               </div>
-              <Link href={`/applications`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-semibold rounded-xl transition-colors text-navy-900 hover:bg-slate-50 hover:text-slate-700`}>Applications</Link>
-              <Link href={`/oem-cross-reference`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-semibold rounded-xl transition-colors text-navy-900 hover:bg-slate-50 hover:text-slate-700`}>OEM Cross-Reference</Link>
-              <Link href={`/company`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-semibold rounded-xl transition-colors text-navy-900 hover:bg-slate-50 hover:text-slate-700`}>Company & Manufacturing</Link>
-              <Link href={`/contact`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-semibold rounded-xl transition-colors text-navy-900 hover:bg-slate-50 hover:text-slate-700`}>Contact</Link>
-              <Link href={`/quote`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-semibold rounded-xl transition-colors flex items-center gap-2 text-navy-900 hover:bg-slate-50 hover:text-slate-700`}>
-                <ShoppingBag className="w-5 h-5" /> Quote Cart {mounted && cartCount > 0 && <span className="bg-navy-900 text-white text-xs px-2 py-0.5 rounded-full">{cartCount}</span>}
-              </Link>
-              <Link href={`/distributor/login`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-semibold rounded-xl transition-colors flex items-center gap-2 text-navy-900 hover:bg-slate-50 hover:text-slate-700`}>
-                <User className="w-5 h-5" /> Distributor Portal
-              </Link>
+
+              <div className="pt-4 pb-2 px-3 border-t border-slate-100">
+                <span className="text-[11px] font-extrabold text-navy-400 uppercase tracking-widest">Company & Resources</span>
+              </div>
+              <Link href={`/applications`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Applications</Link>
+              <Link href={`/oem-cross-reference`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>OEM Cross-Reference</Link>
+              <Link href={`/company`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Company & Manufacturing</Link>
+              <Link href={`/contact`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Contact Sales</Link>
+              
+              <div className="mt-6 flex flex-col gap-3">
+                <Link href={`/quote`} onClick={() => setIsMobileMenuOpen(false)} className={`p-4 font-extrabold rounded-xl transition-colors flex items-center justify-center gap-2 bg-amber-500 text-navy-950 hover:bg-amber-400 text-[13px] uppercase tracking-widest shadow-lg shadow-amber-500/20`}>
+                  <ShoppingBag className="w-4 h-4" /> Request Quote {mounted && cartCount > 0 && <span className="bg-navy-950 text-white text-xs px-2 py-0.5 rounded-full ml-1">{cartCount}</span>}
+                </Link>
+                <Link href={`/distributor/login`} onClick={() => setIsMobileMenuOpen(false)} className={`p-4 font-extrabold rounded-xl transition-colors flex items-center justify-center gap-2 bg-navy-900 text-white hover:bg-navy-800 text-[13px] uppercase tracking-widest border border-navy-700`}>
+                  <User className="w-4 h-4" /> Distributor Portal
+                </Link>
+              </div>
             </nav>
           </div>
         </motion.div>
+        </>
       )}
       </AnimatePresence>
 
