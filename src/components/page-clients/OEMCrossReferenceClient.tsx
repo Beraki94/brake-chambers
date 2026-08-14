@@ -58,7 +58,7 @@ export default function OEMCrossReferenceClient() {
               />
             </div>
           </div>
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -158,7 +158,7 @@ export default function OEMCrossReferenceClient() {
             {/* Left side: Imagery */}
             <div className="w-full lg:w-1/2 relative">
               <div className="absolute top-0 left-0 w-64 h-64 bg-amber-100 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"></div>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -188,7 +188,7 @@ export default function OEMCrossReferenceClient() {
                   { icon: Zap, title: "1 Million Cycle Tested", desc: "Every unit design undergoes severe life-cycle testing before it ever hits the road." },
                   { icon: ShieldCheck, title: "ISO 9001:2015 Certified", desc: "Rigorous 100% pneumatic leak and operational testing on our automated assembly lines." }
                 ].map((item, idx) => (
-                  <motion.div 
+                  <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -236,7 +236,7 @@ export default function OEMCrossReferenceClient() {
         </div>
       </section>
       {/* Final CTA Section */}
-      <div className="bg-navy-950 py-16 md:py-24 border-t border-navy-800">
+      <div className="bg-[#F1EFE8] py-16 md:py-24 border-t border-slate-200">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
@@ -246,11 +246,11 @@ export default function OEMCrossReferenceClient() {
               <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-amber-500/20 backdrop-blur-sm">
                 <Wrench className="w-8 h-8 text-amber-400" />
               </div>
-              <SectionHeader 
+              <SectionHeader
                 badge="Engineering Support"
-                title="Need a Custom Cross-Reference?" 
+                title="Need a Custom Cross-Reference?"
                 description="If you have a specialized or legacy part number not found in our database, our engineering team can reverse-engineer and match it to a BRC equivalent within 24 hours."
-                theme="dark" 
+                theme="dark"
                 accentColor="amber"
               />
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

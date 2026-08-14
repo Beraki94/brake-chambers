@@ -97,8 +97,8 @@ export default function HomeClient() {
         ></div>
 
         {/* Content Container */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-30 py-16 md:py-20">
-          <div className="max-w-3xl h-[400px] flex flex-col justify-center relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-30 py-12 md:py-20">
+          <div className="max-w-3xl h-[480px] sm:h-[400px] flex flex-col justify-center relative -mt-16 sm:mt-0">
 
             {HERO_SLIDES.map((slide, index) => (
               <div
@@ -134,7 +134,7 @@ export default function HomeClient() {
         </div>
 
         {/* Carousel Indicators */}
-        <div className="absolute bottom-10 left-0 right-0 z-30 flex justify-center gap-3">
+        <div className="absolute bottom-20 sm:bottom-10 left-0 right-0 z-30 flex justify-center gap-3">
           {HERO_SLIDES.map((_, index) => (
             <button
               key={index}
@@ -292,7 +292,7 @@ export default function HomeClient() {
               <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700 mb-3 tracking-tight">Product Architecture</h2>
               <p className="text-slate-600 text-base font-light">Industry-standard and proprietary solutions for every commercial vehicle braking application.</p>
             </div>
-            <Link href="/" className="text-amber-600 font-extrabold uppercase tracking-widest text-[13px] flex items-center justify-center hover:text-amber-500 transition-colors bg-white px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md">
+            <Link href="/products" className="text-amber-600 font-extrabold uppercase tracking-widest text-[13px] flex items-center justify-center hover:text-amber-500 transition-colors bg-white px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md">
               View All BRC Chambers <ChevronRight className="w-4 h-4 ml-1" />
             </Link>
           </div>

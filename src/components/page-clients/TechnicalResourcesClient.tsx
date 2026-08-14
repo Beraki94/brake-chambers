@@ -79,11 +79,11 @@ export default function TechnicalResourcesClient() {
           { label: 'Technical Resources' }
         ]}
       />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl -mt-20 relative z-20">
-        
+
         {/* Essential Quick Links */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -95,15 +95,15 @@ export default function TechnicalResourcesClient() {
               <p className="text-slate-500 text-sm">Quick access to our most frequently requested documents.</p>
             </div>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               { title: "2024 Full Product Catalog", icon: <FileArchive className="w-5 h-5 text-amber-500" />, type: "PDF (15.4 MB)", link: "#" },
               { title: "Universal Safety & Installation Guide", icon: <Shield className="w-5 h-5 text-amber-500" />, type: "PDF (3.2 MB)", link: "#" },
               { title: "Standard Limited Warranty Form", icon: <FileText className="w-5 h-5 text-navy-500" />, type: "PDF (0.5 MB)", link: "#" }
             ].map((item, idx) => (
-              <Link 
-                key={idx} 
+              <Link
+                key={idx}
                 href={item.link}
                 className="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100 hover:border-navy-200 hover:shadow-md transition-all group"
               >
@@ -149,53 +149,52 @@ export default function TechnicalResourcesClient() {
         </section>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start relative">
-          
+
           {/* Animated Sticky Sidebar */}
           <div className="w-full lg:w-1/3 lg:sticky lg:top-24 self-start z-10">
-            <motion.div 
+            <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeInUp}
             >
               <div className="bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 p-8">
-              <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-6 px-2">Library Categories</h3>
-              <ul className="space-y-3">
-                {categories.map((category) => (
-                  <li key={category.id}>
-                    <a 
-                      href={`#${category.id}`} 
-                      onClick={() => setActiveCategory(category.id)}
-                      className={`flex items-center justify-between p-4 rounded-2xl font-bold transition-all duration-300 group
-                        ${activeCategory === category.id 
-                          ? 'bg-navy-900 text-white shadow-md' 
-                          : 'hover:bg-slate-50 text-navy-900 hover:shadow-sm border border-transparent hover:border-slate-100'}
+                <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-6 px-2">Library Categories</h3>
+                <ul className="space-y-3">
+                  {categories.map((category) => (
+                    <li key={category.id}>
+                      <a
+                        href={`#${category.id}`}
+                        onClick={() => setActiveCategory(category.id)}
+                        className={`flex items-center justify-between p-4 rounded-2xl font-bold transition-all duration-300 group
+                        ${activeCategory === category.id
+                            ? 'bg-navy-900 text-white shadow-md'
+                            : 'hover:bg-slate-50 text-navy-900 hover:shadow-sm border border-transparent hover:border-slate-100'}
                       `}
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className={`p-2 rounded-xl transition-colors
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className={`p-2 rounded-xl transition-colors
                           ${activeCategory === category.id ? 'bg-white/10' : 'bg-slate-100 group-hover:bg-white'}
                         `}>
-                          {React.cloneElement(category.icon, { 
-                            className: `w-5 h-5 transition-colors ${
-                              activeCategory === category.id ? 'text-amber-400' : category.icon.props.className
-                            }` 
-                          })}
+                            {React.cloneElement(category.icon, {
+                              className: `w-5 h-5 transition-colors ${activeCategory === category.id ? 'text-amber-400' : category.icon.props.className
+                                }`
+                            })}
+                          </div>
+                          <span className="text-[15px]">{category.title}</span>
                         </div>
-                        <span className="text-[15px]">{category.title}</span>
-                      </div>
-                      <ChevronRight className={`w-5 h-5 transition-all
+                        <ChevronRight className={`w-5 h-5 transition-all
                         ${activeCategory === category.id ? 'text-white' : 'text-slate-300 group-hover:text-amber-500 group-hover:translate-x-1'}
                       `} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
           </div>
 
           {/* Staggered Content Area */}
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
@@ -203,9 +202,9 @@ export default function TechnicalResourcesClient() {
           >
             <div className="space-y-12">
               {categories.map((category, catIdx) => (
-                <motion.div 
-                  key={category.id} 
-                  id={category.id} 
+                <motion.div
+                  key={category.id}
+                  id={category.id}
                   variants={fadeInUp}
                   className="bg-white rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 p-8 md:p-12 scroll-mt-32 relative overflow-hidden group/section"
                 >
@@ -234,12 +233,12 @@ export default function TechnicalResourcesClient() {
                         <p className="text-slate-500 font-light text-lg">{category.desc}</p>
                       </div>
                     </div>
-                    
+
                     <div className="space-y-4">
                       {category.items.map((item, idx) => (
-                        <Link 
-                          key={idx} 
-                          href={item.link} 
+                        <Link
+                          key={idx}
+                          href={item.link}
                           className={`flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-slate-50/80 rounded-2xl border border-slate-100 transition-all duration-300 group hover:shadow-md hover:bg-white
                             ${category.accent === 'amber' ? 'hover:border-amber-300' : ''}
                             ${category.accent === 'navy' ? 'hover:border-navy-300' : ''}
@@ -254,7 +253,7 @@ export default function TechnicalResourcesClient() {
                             </div>
                             <span className="font-bold text-navy-900 text-[15px] group-hover:translate-x-1 transition-transform">{item.title}</span>
                           </div>
-                          
+
                           <div className="flex items-center gap-6 sm:ml-auto">
                             <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest">{item.type}</span>
                             <span className={`flex items-center justify-center w-10 h-10 rounded-xl bg-white shadow-sm transition-all duration-300 group-hover:-translate-y-1
@@ -275,31 +274,31 @@ export default function TechnicalResourcesClient() {
               ))}
             </div>
           </motion.div>
-          
+
         </div>
       </div>
 
       {/* Engineering Support CTA */}
-      <div className="bg-navy-950 py-16 md:py-24 border-t border-navy-800 mt-24">
+      <div className="bg-[#F1EFE8] py-16 md:py-24 border-t border-slate-200 mt-24">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
-            
+
             <div className="relative z-10">
               <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-amber-500/20 backdrop-blur-sm">
                 <Wrench className="w-8 h-8 text-amber-400" />
               </div>
-              <SectionHeader 
+              <SectionHeader
                 badge="Expert Consultation"
                 title={<>Need Custom <span className="text-amber-500">Engineering</span> Support?</>}
                 description="If you require specific pushrod calculations, unique bracket alignments, or modified stroke limits, our engineering team is ready to assist."
-                theme="dark" 
+                theme="dark"
               />
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className="inline-block bg-amber-500 text-navy-950 font-extrabold text-[13px] px-10 py-5 rounded-2xl hover:bg-amber-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-amber-500/30 uppercase tracking-widest"
                 >
                   Contact BRC Engineering

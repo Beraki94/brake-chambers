@@ -331,7 +331,7 @@ export default function ProductsClient() {
       </section>
 
       {/* WHOLESALE CTA */}
-      <div className="bg-navy-950 py-16 md:py-24 border-t border-navy-800">
+      <div className="bg-[#F1EFE8] py-16 md:py-24 border-t border-navy-50">
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-3xl lg:rounded-[2.5rem] p-8 sm:p-12 md:p-16 lg:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />

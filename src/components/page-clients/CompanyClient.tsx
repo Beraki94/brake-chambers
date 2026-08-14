@@ -184,10 +184,10 @@ export default function CompanyClient() {
                 </p>
                 {/* Replaced fixed heights with robust aspect ratios to ensure perfect scaling across all device sizes */}
                 <div className="relative w-full aspect-video md:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl">
-                  <Image 
-                    src={pillar.image} 
-                    alt={pillar.title} 
-                    fill 
+                  <Image
+                    src={pillar.image}
+                    alt={pillar.title}
+                    fill
                     className="object-cover mix-blend-multiply opacity-90"
                   />
                   <div className={`absolute inset-0 opacity-10 ${pillar.colors.bg}`}></div>
@@ -196,7 +196,7 @@ export default function CompanyClient() {
               {/* SCROLLING RIGHT COLUMN */}
               <div className="w-full lg:w-7/12 flex flex-col gap-8 md:gap-10">
                 {pillar.cards.map((card, cIdx) => (
-                  <motion.div 
+                  <motion.div
                     key={cIdx}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -242,7 +242,7 @@ export default function CompanyClient() {
         </div>
       </section>
       {/* Final CTA Section */}
-      <div className="bg-navy-950 py-16 md:py-24 border-t border-navy-800">
+      <div className="bg-[#F1EFE8] py-16 md:py-24 border-t border-slate-200">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-8 md:p-16 lg:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
@@ -252,9 +252,9 @@ export default function CompanyClient() {
               <div className="w-16 h-16 md:w-20 md:h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8 border border-amber-500/20 backdrop-blur-sm">
                 <Settings className="w-6 h-6 md:w-8 md:h-8 text-amber-400" />
               </div>
-              <SectionHeader 
+              <SectionHeader
                 badge="Global Supply Chain"
-                title="Partner With a Proven Manufacturer" 
+                title="Partner With a Proven Manufacturer"
                 description="Whether you need a custom OEM solution, private labeling, or a container of replacement chambers for your distribution network, BRC delivers."
                 theme="dark"
               />

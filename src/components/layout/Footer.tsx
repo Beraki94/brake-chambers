@@ -26,9 +26,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Brand Info */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 font-heading font-bold text-xl md:text-2xl tracking-tight text-white mb-6 relative group flex-shrink-0">
-              <img src="/images/logo-brc.png" alt="BRC Brake Chambers Logo" className="h-12 md:h-16 w-auto object-contain py-1 brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity" />
-              <span className="text-[14px] sm:text-base md:text-xl font-bold whitespace-nowrap leading-tight">BRC Brake Chambers</span>
+            <Link href="/" className="flex items-center gap-3 mb-6 relative group flex-shrink-0">
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-navy-800 border border-navy-700 flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform">
+                <img src="/images/logo-brc.png" alt="BRC" className="h-7 md:h-8 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="font-heading font-extrabold text-xl md:text-2xl text-white tracking-tight">BRC</span>
+                <span className="text-[10px] md:text-xs font-semibold text-navy-300 tracking-wide">Brake Chambers</span>
+              </div>
             </Link>
             <p className="text-navy-300 text-sm mb-4 leading-relaxed">
               Premium commercial vehicle brake chambers shipped worldwide. ISO 9001 certified manufacturing for heavy-duty fleet performance.

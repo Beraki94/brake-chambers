@@ -77,7 +77,7 @@ export default function ApplicationsClient() {
           { label: 'Applications' }
         ]}
       />
-      
+
       {/* Overlapping Container to bridge the dark header and light background */}
       <div className="-mt-20 relative z-20 pb-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -86,9 +86,9 @@ export default function ApplicationsClient() {
               const isEven = idx % 2 === 0;
               return (
                 <div key={idx} className={`flex flex-col lg:flex-row gap-8 lg:gap-12 lg:items-center ${isEven ? '' : 'lg:flex-row-reverse'}`}>
-                  
+
                   {/* Image side */}
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, x: isEven ? -100 : 100 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -104,19 +104,19 @@ export default function ApplicationsClient() {
                         ${group.accent === 'purple' ? 'bg-slate-900/20 group-hover:bg-slate-900/10' : ''}
                       `} />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-30 transition-opacity duration-700" />
-                      
-                      <Image 
-                        src={group.image} 
-                        alt={group.title} 
-                        fill 
+
+                      <Image
+                        src={group.image}
+                        alt={group.title}
+                        fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover group-hover:scale-110 transition-transform duration-[15s] ease-out mix-blend-luminosity grayscale group-hover:grayscale-0" 
+                        className="object-cover group-hover:scale-110 transition-transform duration-[15s] ease-out mix-blend-luminosity grayscale group-hover:grayscale-0"
                       />
                     </div>
                   </motion.div>
-                  
+
                   {/* Content side */}
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -124,7 +124,7 @@ export default function ApplicationsClient() {
                     className="w-full lg:w-1/2 flex"
                   >
                     <div className="bg-white p-6 sm:p-8 md:p-10 lg:p-12 rounded-[2rem] lg:rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col justify-center w-full relative overflow-hidden group/card">
-                      
+
                       {/* Subtle hover background glow */}
                       <div className={`absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none
                         ${group.accent === 'blue' ? 'bg-gradient-to-br from-navy-50/50 to-transparent' : ''}
@@ -141,7 +141,7 @@ export default function ApplicationsClient() {
                             ${group.accent === 'emerald' ? 'bg-amber-50 border-amber-100 text-amber-500' : ''}
                             ${group.accent === 'purple' ? 'bg-slate-50 border-slate-100 text-slate-500' : ''}
                           `}>
-                            {React.cloneElement(group.icon as React.ReactElement<any>, { 
+                            {React.cloneElement(group.icon as React.ReactElement<any>, {
                               className: 'w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-500 group-hover/card:rotate-12 group-hover/card:scale-110',
                               'aria-hidden': 'true'
                             })}
@@ -150,18 +150,18 @@ export default function ApplicationsClient() {
                             {group.title}
                           </h2>
                         </div>
-                        
+
                         <p className="text-slate-600 mb-6 sm:mb-10 leading-relaxed font-light text-sm sm:text-lg">
                           {group.desc}
                         </p>
-                        
+
                         <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-12">
                           <h3 className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Key Applications</h3>
                           <div className="flex flex-col gap-2 sm:gap-3">
                             {group.links.map((link) => (
-                              <Link 
-                                key={link.id} 
-                                href={link.id} 
+                              <Link
+                                key={link.id}
+                                href={link.id}
                                 className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-slate-50/80 backdrop-blur-sm rounded-xl border border-slate-100 transition-all group/link hover:shadow-md hover:bg-white
                                   ${group.accent === 'blue' ? 'hover:border-navy-300' : ''}
                                   ${group.accent === 'amber' ? 'hover:border-amber-300' : ''}
@@ -198,9 +198,9 @@ export default function ApplicationsClient() {
                             ))}
                           </div>
                         </div>
-                        
+
                         <div className="mt-auto">
-                          <Link 
+                          <Link
                             href={`/${group.slug}`}
                             className={`inline-flex w-full items-center justify-center px-4 py-3 sm:px-8 sm:py-4 text-white rounded-xl font-bold tracking-wide transition-all shadow-lg group/btn text-sm sm:text-base
                               ${group.accent === 'blue' ? 'bg-navy-900 hover:bg-navy-600' : ''}
@@ -236,7 +236,7 @@ export default function ApplicationsClient() {
             />
           </div>
 
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -249,7 +249,7 @@ export default function ApplicationsClient() {
               { icon: Droplets, color: "text-amber-600", bg: "bg-amber-100", title: "Corrosion Proof", desc: "Multi-stage E-coating provides unmatched resistance against winter road salts and ocean spray." },
               { icon: Activity, color: "text-amber-600", bg: "bg-amber-100", title: "Vibration Dampening", desc: "Reinforced steel housings prevent stress fractures on punishing off-highway mining roads." }
             ].map((stat, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 variants={fadeInUp}
                 className="bg-slate-50 rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
@@ -269,7 +269,7 @@ export default function ApplicationsClient() {
       <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="bg-white rounded-[2.5rem] p-10 lg:p-16 border border-slate-200 shadow-xl relative flex flex-col lg:flex-row items-center gap-12">
-            
+
             <div className="w-full lg:w-1/3 flex justify-center">
               <div className="relative">
                 <div className="w-48 h-48 bg-slate-50 rounded-full flex items-center justify-center border-4 border-amber-100 shadow-lg relative z-10">
@@ -277,7 +277,7 @@ export default function ApplicationsClient() {
                 </div>
               </div>
             </div>
-            
+
             <div className="w-full lg:w-2/3 relative z-10">
               <h2 className="text-3xl md:text-4xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight">
                 The BRC Performance <span className="text-amber-500">Guarantee</span>
@@ -285,7 +285,7 @@ export default function ApplicationsClient() {
               <p className="text-slate-600 text-lg font-light leading-relaxed mb-8">
                 We don't just build brake chambers; we build confidence. Every BRC application-specific chamber is backed by our industry-leading guarantee to match or exceed OEM operational lifespan.
               </p>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
@@ -312,7 +312,7 @@ export default function ApplicationsClient() {
       </section>
 
       {/* Final CTA Section */}
-      <div className="bg-navy-950 py-16 md:py-24 border-t border-navy-800">
+      <div className="bg-[#F1EFE8] py-16 md:py-24 border-t border-slate-200">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
@@ -333,7 +333,7 @@ export default function ApplicationsClient() {
           </div>
         </div>
       </div>
-      
+
     </div>
   );
 }

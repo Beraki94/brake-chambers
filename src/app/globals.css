@@ -20,7 +20,7 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 
-  --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee: marquee 12s linear infinite;
 
   @keyframes marquee {
     0% {

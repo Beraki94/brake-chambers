@@ -124,9 +124,14 @@ export default function Navbar() {
           <div className="h-20 md:h-24 flex items-center justify-between gap-4 md:gap-8">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 sm:gap-3 font-heading font-extrabold text-xl md:text-2xl tracking-tight text-navy-950 flex-shrink-0 min-w-0">
-              <img src="/images/logo-brc.png" alt="BRC Brake Chambers" className="h-10 md:h-14 w-auto object-contain py-1 flex-shrink-0" />
-              <span className="text-[14px] sm:text-base md:text-xl font-bold whitespace-nowrap leading-tight">BRC Brake Chambers</span>
+            <Link href="/" className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0 min-w-0 group">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-navy-950 flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform">
+                <img src="/images/logo-brc.png" alt="BRC" className="h-6 md:h-7 w-auto object-contain brightness-0 invert" />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="font-heading font-extrabold text-lg md:text-xl text-navy-950 tracking-tight">BRC</span>
+                <span className="text-[10px] md:text-xs font-semibold text-navy-800 tracking-wide">Brake Chambers</span>
+              </div>
             </Link>
 
             {/* Main Search Bar (Center Desktop) - Expanded Width */}
