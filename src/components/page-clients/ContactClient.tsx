@@ -193,7 +193,7 @@ export default function ContactClient() {
                 </div>
                 <button 
                   type="submit" 
-                  className="w-full bg-gradient-to-r from-amber-400 to-amber-600 text-navy-950 font-extrabold py-3 sm:py-3.5 md:py-4 rounded-lg sm:rounded-xl hover:from-amber-300 hover:to-amber-500 shadow-[0_10px_30px_-10px_rgba(245,158,11,0.5)] transition-all active:scale-[0.98] uppercase tracking-widest text-xs sm:text-[13px] flex items-center justify-center gap-2"
+                  className="w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black py-3 sm:py-3.5 md:py-4 rounded-lg sm:rounded-xl shadow-xl shadow-amber-500/20 transition-all active:scale-[0.98] uppercase tracking-widest text-xs sm:text-[13px] flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" /> Send Inquiry
                 </button>

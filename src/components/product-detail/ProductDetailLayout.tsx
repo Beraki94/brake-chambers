@@ -125,7 +125,7 @@ export default function ProductDetailLayout({
 
           {/* Sticky CTA */}
           <div className="mt-auto flex flex-col sm:flex-row gap-4 pt-6 border-t border-slate-100 sticky bottom-0 bg-white/80 backdrop-blur-md pb-4 lg:relative lg:bg-transparent lg:pb-0">
-            <Link href="/quote" className="flex-1 bg-gradient-to-r from-amber-400 to-amber-500 text-navy-900 text-center font-extrabold py-4 rounded-xl hover:from-amber-500 hover:to-amber-600 transition-all shadow-lg shadow-amber-500/30 uppercase tracking-widest text-sm flex items-center justify-center">
+            <Link href="/quote" className="flex-1 bg-amber-500 hover:bg-amber-400 text-navy-950 text-center font-black py-4 rounded-xl transition-all shadow-xl shadow-amber-500/20 uppercase tracking-widest text-sm flex items-center justify-center">
               Submit Bulk RFQ
             </Link>
             <Link href="/distributor/login" className="flex-1 bg-navy-900 text-white text-center font-bold py-4 rounded-xl hover:bg-navy-800 transition-all uppercase tracking-widest text-sm border border-navy-700 flex items-center justify-center">

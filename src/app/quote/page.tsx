@@ -74,7 +74,7 @@ export default function QuotePage() {
               <textarea rows={5} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all" placeholder="Please list target OEM part numbers, BRC models, or special requests like private labeling/custom paint..." required></textarea>
             </div>
             
-            <button type="submit" className="w-full bg-gradient-to-r from-amber-400 to-amber-600 text-navy-950 font-extrabold text-lg py-4 rounded-xl hover:from-amber-300 hover:to-amber-500 shadow-[0_10px_30px_-10px_rgba(245,158,11,0.5)] transition-all active:scale-[0.98] uppercase tracking-widest text-[13px] mt-2">
+            <button type="submit" className="w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-lg py-4 rounded-xl shadow-xl shadow-amber-500/20 transition-all active:scale-[0.98] uppercase tracking-widest text-[13px] mt-2">
               Request Factory Pricing
             </button>
           </form>

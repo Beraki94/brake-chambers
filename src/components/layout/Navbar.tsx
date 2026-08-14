@@ -87,6 +87,18 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -269,9 +281,11 @@ export default function Navbar() {
                             <Link
                               href={`/${result.item.slug}`}
                               onClick={() => {
-                                setShowDropdown(false);
-                                setSearchQuery('');
-                                setIsMobileMenuOpen(false);
+                                setTimeout(() => {
+                                  setShowDropdown(false);
+                                  setSearchQuery('');
+                                  setIsMobileMenuOpen(false);
+                                }, 150);
                               }}
                               className="flex items-center gap-4 px-4 py-3 hover:bg-slate-50 transition-colors border-b border-navy-50/50 last:border-0"
                             >
@@ -307,16 +321,16 @@ export default function Navbar() {
                     <span className="text-[11px] font-extrabold text-navy-400 uppercase tracking-widest">Braking Systems</span>
                   </div>
                   <div className="pl-2 flex flex-col gap-1 mb-4">
-                    <Link href={`/spring-brakes`} onClick={() => setIsMobileMenuOpen(false)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                    <Link href={`/spring-brakes`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
                       <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Settings className="w-4 h-4 text-amber-600" /></div> Spring Brakes
                     </Link>
-                    <Link href={`/service-chambers`} onClick={() => setIsMobileMenuOpen(false)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                    <Link href={`/service-chambers`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
                       <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Wrench className="w-4 h-4 text-amber-600" /></div> Service Chambers
                     </Link>
-                    <Link href={`/air-disc-actuators`} onClick={() => setIsMobileMenuOpen(false)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                    <Link href={`/air-disc-actuators`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
                       <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Disc className="w-4 h-4 text-amber-600" /></div> Air Disc Actuators
                     </Link>
-                    <Link href={`/chamber-parts-kits`} onClick={() => setIsMobileMenuOpen(false)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                    <Link href={`/chamber-parts-kits`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
                       <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Package className="w-4 h-4 text-amber-600" /></div> Parts & Kits
                     </Link>
                   </div>
@@ -324,16 +338,16 @@ export default function Navbar() {
                   <div className="pt-4 pb-2 px-3 border-t border-slate-100">
                     <span className="text-[11px] font-extrabold text-navy-400 uppercase tracking-widest">Company & Resources</span>
                   </div>
-                  <Link href={`/applications`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Applications</Link>
-                  <Link href={`/oem-cross-reference`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>OEM Cross-Reference</Link>
-                  <Link href={`/company`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Company & Manufacturing</Link>
-                  <Link href={`/contact`} onClick={() => setIsMobileMenuOpen(false)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Contact Sales</Link>
+                  <Link href={`/applications`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Applications</Link>
+                  <Link href={`/oem-cross-reference`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>OEM Cross-Reference</Link>
+                  <Link href={`/company`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Company & Manufacturing</Link>
+                  <Link href={`/contact`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Contact Sales</Link>
 
                   <div className="mt-6 flex flex-col gap-3">
-                    <Link href={`/quote`} onClick={() => setIsMobileMenuOpen(false)} className={`p-4 font-extrabold rounded-xl transition-colors flex items-center justify-center gap-2 bg-amber-500 text-navy-950 hover:bg-amber-400 text-[13px] uppercase tracking-widest shadow-lg shadow-amber-500/20`}>
+                    <Link href={`/quote`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-4 font-extrabold rounded-xl transition-colors flex items-center justify-center gap-2 bg-amber-500 text-navy-950 hover:bg-amber-400 text-[13px] uppercase tracking-widest shadow-lg shadow-amber-500/20`}>
                       <ShoppingBag className="w-4 h-4" /> Request Quote {mounted && cartCount > 0 && <span className="bg-navy-950 text-white text-xs px-2 py-0.5 rounded-full ml-1">{cartCount}</span>}
                     </Link>
-                    <Link href={`/distributor/login`} onClick={() => setIsMobileMenuOpen(false)} className={`p-4 font-extrabold rounded-xl transition-colors flex items-center justify-center gap-2 bg-navy-900 text-white hover:bg-navy-800 text-[13px] uppercase tracking-widest border border-navy-700`}>
+                    <Link href={`/distributor/login`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-4 font-extrabold rounded-xl transition-colors flex items-center justify-center gap-2 bg-navy-900 text-white hover:bg-navy-800 text-[13px] uppercase tracking-widest border border-navy-700`}>
                       <User className="w-4 h-4" /> Distributor Portal
                     </Link>
                   </div>

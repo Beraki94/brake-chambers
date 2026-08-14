@@ -15,7 +15,7 @@ const HERO_SLIDES = [
     id: 1,
     badge: "Advanced Actuation Technology",
     badgeIcon: <Cpu className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>Precision Built for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-500 to-amber-600">Trucks & Trailers.</span></>,
+    title: <>Precision Built for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Trucks & Trailers.</span></>,
     description: "The world leader in aftermarket commercial brake chambers. Delivering direct replacements for Bendix, Haldex, Meritor, and Wabco to global fleets.",
     cta1: { text: "View Product Catalog", link: "/products" },
     cta2: { text: "Request Custom Quote", link: "/quote" },
@@ -27,7 +27,7 @@ const HERO_SLIDES = [
     id: 2,
     badge: "High Output Technology (HOT)",
     badgeIcon: <Zap className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>Next-Generation <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-emerald-500 to-emerald-600">Air Disc Brakes.</span></>,
+    title: <>Next-Generation <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-emerald-500 to-navy-400">Air Disc Brakes.</span></>,
     description: "Experience unprecedented stopping power and fade resistance. Engineered for extreme heavy-duty performance and drastic maintenance reduction.",
     cta1: { text: "Partner With Us", link: "/contact" },
     cta2: { text: "Download Specifications", link: "/technical-resources" },
@@ -39,7 +39,7 @@ const HERO_SLIDES = [
     id: 3,
     badge: "Global Logistics Network",
     badgeIcon: <Globe2 className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>OEM Supply at <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-500 to-amber-600">Global Scale.</span></>,
+    title: <>OEM Supply at <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Global Scale.</span></>,
     description: "Shipping high-performance brake components to over 30 countries. We handle LTL, FTL, and direct container shipping logistics internally.",
     cta1: { text: "Start Wholesale Application", link: "/contact" },
     cta2: { text: "View Shipping Zones", link: "/shipping" },
@@ -104,8 +104,8 @@ export default function HomeClient() {
               <div
                 key={slide.id}
                 className={`absolute inset-0 flex flex-col justify-center transition-all duration-700 ease-out ${index === currentSlide
-                    ? 'opacity-100 translate-y-0 visible'
-                    : 'opacity-0 translate-y-8 invisible'
+                  ? 'opacity-100 translate-y-0 visible'
+                  : 'opacity-0 translate-y-8 invisible'
                   }`}
               >
                 <div>
@@ -119,7 +119,7 @@ export default function HomeClient() {
                     {slide.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto">
-                    <Link href={slide.cta1.link} className="bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-navy-950 font-extrabold px-6 py-3.5 md:px-8 md:py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_30px_-10px_rgba(245,158,11,0.5)] text-center flex items-center justify-center gap-2 uppercase tracking-wide text-[12px] md:text-[13px] transform hover:-translate-y-0.5 w-full sm:w-auto">
+                    <Link href={slide.cta1.link} className="bg-amber-500 hover:bg-amber-400 text-navy-950 font-black px-6 py-3.5 md:px-8 md:py-3.5 rounded-xl transition-all duration-300 shadow-xl shadow-amber-500/20 text-center flex items-center justify-center gap-2 uppercase tracking-wide text-[12px] md:text-[13px] transform hover:-translate-y-0.5 w-full sm:w-auto">
                       {slide.cta1.text} <ArrowRight className="w-4 h-4" />
                     </Link>
                     <Link href={slide.cta2.link} className="bg-navy-900/60 backdrop-blur-md border border-navy-600 hover:border-amber-500 hover:text-amber-400 text-white font-bold px-6 py-3.5 md:px-8 md:py-3.5 rounded-xl transition-all duration-300 text-center uppercase tracking-wide text-[12px] md:text-[13px] shadow-xl shadow-navy-950 transform hover:-translate-y-0.5 w-full sm:w-auto">
@@ -404,35 +404,35 @@ export default function HomeClient() {
       </section>
 
       {/* 4. Digital B2B Tools & Support */}
-      <section className="py-16 md:py-24 relative overflow-hidden bg-navy-950">
+      <section className="py-16 md:py-24 relative overflow-hidden bg-[#F1EFE8]">
         {/* Core Gradient & Imagery */}
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80" alt="Dashboard" className="w-full h-full object-cover opacity-10 mix-blend-luminosity grayscale" />
-          <div className="absolute inset-0 bg-gradient-to-br from-navy-950/95 via-navy-900/95 to-navy-950/95"></div>
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80" alt="Dashboard" className="w-full h-full object-cover opacity-[0.03] mix-blend-multiply grayscale" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F1EFE8]/95 via-[#F1EFE8]/80 to-[#F1EFE8]/95"></div>
         </div>
 
         {/* Pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.03] mix-blend-color-dodge" style={{ backgroundImage: 'radial-gradient(#f59e0b 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+        <div className="absolute inset-0 opacity-[0.04] mix-blend-multiply" style={{ backgroundImage: 'radial-gradient(#0c142c 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
 
         {/* Decorative glows */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[100px] -mr-20 -mt-20 mix-blend-screen pointer-events-none transition-all duration-1000 animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px] -ml-20 -mb-20 mix-blend-screen pointer-events-none transition-all duration-1000 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[100px] -mr-20 -mt-20 mix-blend-multiply pointer-events-none transition-all duration-1000 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px] -ml-20 -mb-20 mix-blend-multiply pointer-events-none transition-all duration-1000 animate-pulse" style={{ animationDelay: '1s' }}></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
             <div className="lg:col-span-1 pr-6">
-              <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-700 shadow-xl shadow-navy-950 text-emerald-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
+              <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white border border-slate-200 shadow-sm text-amber-600 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
                 Digital Ecosystem
               </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-white leading-tight drop-shadow-lg">Digital Manufacturer Tools</h2>
-              <p className="text-navy-200 text-base mb-8 leading-relaxed font-light">
+              <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-navy-950 leading-tight drop-shadow-sm">Digital Manufacturer Tools</h2>
+              <p className="text-navy-700 text-base mb-8 leading-relaxed font-medium">
                 We empower our distributors and fleet managers with advanced digital tools to streamline procurement, verify specifications, and train technicians effortlessly.
               </p>
             </div>
 
             <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Tool 1 */}
-              <Link href="/oem-cross-reference" className="block bg-gradient-to-b from-navy-800/60 to-navy-900/60 backdrop-blur-md border border-navy-700/50 p-6 md:p-8 rounded-2xl hover:border-amber-500/50 hover:bg-navy-800/80 transition-all duration-500 shadow-2xl shadow-navy-950 group transform hover:-translate-y-1 relative overflow-hidden">
+              <Link href="/oem-cross-reference" className="block bg-navy-900 border border-navy-800 p-6 md:p-8 rounded-2xl hover:border-amber-500/50 hover:bg-navy-800 transition-all duration-500 shadow-xl shadow-navy-900/10 group transform hover:-translate-y-1 relative overflow-hidden">
                 {/* Glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
@@ -448,7 +448,7 @@ export default function HomeClient() {
               </Link>
 
               {/* Tool 2 */}
-              <Link href="/technical-resources" className="block bg-gradient-to-b from-navy-800/60 to-navy-900/60 backdrop-blur-md border border-navy-700/50 p-6 md:p-8 rounded-2xl hover:border-emerald-500/50 hover:bg-navy-800/80 transition-all duration-500 shadow-2xl shadow-navy-950 group transform hover:-translate-y-1 relative overflow-hidden">
+              <Link href="/technical-resources" className="block bg-navy-900 border border-navy-800 p-6 md:p-8 rounded-2xl hover:border-emerald-500/50 hover:bg-navy-800 transition-all duration-500 shadow-xl shadow-navy-900/10 group transform hover:-translate-y-1 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
                   <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-emerald-500/50 transition-colors">
@@ -463,14 +463,14 @@ export default function HomeClient() {
               </Link>
 
               {/* Tool 3 */}
-              <div className="bg-gradient-to-r from-amber-500 to-amber-600 p-6 md:p-8 rounded-2xl md:col-span-2 shadow-[0_20px_50px_-10px_rgba(245,158,11,0.3)] group relative overflow-hidden">
+              <div className="bg-gradient-to-br from-amber-400 via-amber-500 to-navy-900 p-6 md:p-8 rounded-2xl md:col-span-2 shadow-xl group relative overflow-hidden transition-transform transform hover:-translate-y-1 duration-500">
                 {/* Shine effect */}
-                <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[45deg] group-hover:animate-[shine_1.5s_ease-in-out]"></div>
+                <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[45deg] group-hover:animate-[shine_1.5s_ease-in-out]"></div>
 
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
                   <div>
-                    <h3 className="text-2xl font-extrabold text-navy-950 mb-2">Automated Warranty Portal</h3>
-                    <p className="text-navy-900/90 text-sm md:text-base max-w-md font-medium leading-relaxed text-justify">Submit warranty claims online. Tracks processing, expedites QA review, and generates automatic engineering reports.</p>
+                    <h3 className="text-2xl font-extrabold text-white mb-2 drop-shadow-md">Automated Warranty Portal</h3>
+                    <p className="text-white/90 text-sm md:text-base max-w-md font-medium leading-relaxed text-justify drop-shadow-sm">Submit warranty claims online. Tracks processing, expedites QA review, and generates automatic engineering reports.</p>
                   </div>
                   <Link href="/warranty" className="bg-navy-950 text-white px-8 py-4 rounded-xl font-extrabold text-[12px] uppercase tracking-widest hover:bg-navy-900 flex-shrink-0 whitespace-nowrap shadow-xl transform transition-transform hover:-translate-y-1">
                     Submit Claim
@@ -551,7 +551,7 @@ export default function HomeClient() {
       <section className="pt-8 pb-16 md:pt-12 md:pb-24 bg-gradient-to-b from-slate-50 to-slate-100 relative overflow-hidden">
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="bg-white rounded-[2.5rem] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] border border-slate-100 p-6 md:p-14 overflow-hidden relative">
+          <div className="bg-white rounded-[2rem] md:rounded-[2.5rem] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] border border-slate-100 p-4 sm:p-6 md:p-14 overflow-hidden relative">
 
             {/* Prominent Rotating Brake Chamber Background */}
             <div className="absolute top-1/2 left-0 lg:left-[2%] -translate-y-1/2 w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] opacity-30 pointer-events-none animate-[spin_80s_linear_infinite] z-0">
@@ -578,7 +578,7 @@ export default function HomeClient() {
                 </div>
               </div>
 
-              <div className="w-full lg:w-1/2 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-3xl p-6 md:p-10 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden group">
+              <div className="w-full lg:w-1/2 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[1.5rem] md:rounded-3xl p-5 sm:p-6 md:p-10 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden group">
                 {/* Internal Card Glow */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-amber-500/20 transition-colors duration-700"></div>
 
@@ -587,8 +587,8 @@ export default function HomeClient() {
 
                 <div className="space-y-6 md:space-y-8 relative z-10">
                   <a href="tel:+8618602021144" className="flex items-center gap-4 md:gap-6 group/link">
-                    <div className="w-12 h-12 md:w-14 md:h-14 flex-shrink-0 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-amber-500/50 transition-colors">
-                      <Phone className="w-5 h-5 md:w-6 md:h-6 text-amber-400 group-hover/link:scale-110 transition-transform duration-300" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex-shrink-0 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-amber-500/50 transition-colors">
+                      <Phone className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-400 group-hover/link:scale-110 transition-transform duration-300" />
                     </div>
                     <div>
                       <div className="text-[10px] md:text-[11px] text-amber-400 font-extrabold uppercase tracking-widest mb-1">Direct Line</div>
@@ -596,8 +596,8 @@ export default function HomeClient() {
                     </div>
                   </a>
                   <a href="mailto:sales@brakechambers.com" className="flex items-center gap-4 md:gap-6 group/link">
-                    <div className="w-12 h-12 md:w-14 md:h-14 flex-shrink-0 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-amber-500/50 transition-colors">
-                      <Map className="w-5 h-5 md:w-6 md:h-6 text-amber-400 group-hover/link:scale-110 transition-transform duration-300" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex-shrink-0 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-amber-500/50 transition-colors">
+                      <Map className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-400 group-hover/link:scale-110 transition-transform duration-300" />
                     </div>
                     <div>
                       <div className="text-[10px] md:text-[11px] text-amber-400 font-extrabold uppercase tracking-widest mb-1">Corporate HQ</div>
@@ -606,7 +606,7 @@ export default function HomeClient() {
                   </a>
                 </div>
 
-                <Link href="/contact" className="mt-12 block w-full bg-gradient-to-r from-amber-400 to-amber-600 text-navy-950 font-extrabold text-center py-4 rounded-xl uppercase tracking-widest text-[13px] hover:from-amber-300 hover:to-amber-500 transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(245,158,11,0.5)] relative z-10 transform hover:-translate-y-1">
+                <Link href="/contact" className="mt-12 block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center py-4 rounded-xl uppercase tracking-widest text-[13px] transition-all duration-300 shadow-xl shadow-amber-500/20 relative z-10 transform hover:-translate-y-1">
                   Contact Us Today
                 </Link>
               </div>
