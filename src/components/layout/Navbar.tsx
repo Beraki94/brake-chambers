@@ -103,7 +103,7 @@ export default function Navbar() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-9 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2 text-navy-200">
-              <Headphones className="w-3.5 h-3.5" /> Support: 1-800-BRC-PART
+              <Headphones className="w-3.5 h-3.5" /> Support: +86 186 0202 1144
             </span>
           </div>
           <div className="flex items-center gap-4">

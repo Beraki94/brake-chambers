@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function WhatsAppWidget() {
   // Replace with actual WhatsApp number in international format without + or 00
-  const phoneNumber = "8613800000000"; 
+  const phoneNumber = "8618602021144"; 
   const message = "Hi BRC Brake Chambers, I'm interested in wholesale pricing.";
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

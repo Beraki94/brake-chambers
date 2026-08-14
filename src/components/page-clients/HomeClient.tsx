@@ -15,7 +15,7 @@ const HERO_SLIDES = [
     id: 1,
     badge: "Advanced Actuation Technology",
     badgeIcon: <Cpu className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>Precision Built for the <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-500 to-amber-600">Long Haul.</span></>,
+    title: <>Precision Built for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-500 to-amber-600">Trucks & Trailers.</span></>,
     description: "The world leader in aftermarket commercial brake chambers. Delivering direct replacements for Bendix, Haldex, Meritor, and Wabco to global fleets.",
     cta1: { text: "View Product Catalog", link: "/products" },
     cta2: { text: "Request Custom Quote", link: "/quote" },
@@ -569,13 +569,13 @@ export default function HomeClient() {
                 <p className="text-navy-200 text-sm mb-8 md:mb-10 leading-relaxed font-light relative z-10">Ready to discuss bulk purchasing, OEM design specifications, or cross-reference support? Our dedicated team is standing by.</p>
 
                 <div className="space-y-6 md:space-y-8 relative z-10">
-                  <a href="tel:+12567366275" className="flex items-center gap-4 md:gap-6 group/link">
+                  <a href="tel:+8618602021144" className="flex items-center gap-4 md:gap-6 group/link">
                     <div className="w-12 h-12 md:w-14 md:h-14 flex-shrink-0 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-amber-500/50 transition-colors">
                       <Phone className="w-5 h-5 md:w-6 md:h-6 text-amber-400 group-hover/link:scale-110 transition-transform duration-300" />
                     </div>
                     <div>
                       <div className="text-[10px] md:text-[11px] text-amber-400 font-extrabold uppercase tracking-widest mb-1">Direct Line</div>
-                      <div className="text-xl md:text-2xl font-bold group-hover/link:text-amber-300 transition-colors">1-256-736-6275</div>
+                      <div className="text-xl md:text-2xl font-bold group-hover/link:text-amber-300 transition-colors">+86 186 0202 1144</div>
                     </div>
                   </a>
                   <a href="mailto:sales@brakechambers.com" className="flex items-center gap-4 md:gap-6 group/link">
@@ -584,7 +584,7 @@ export default function HomeClient() {
                     </div>
                     <div>
                       <div className="text-[10px] md:text-[11px] text-amber-400 font-extrabold uppercase tracking-widest mb-1">Corporate HQ</div>
-                      <div className="text-lg md:text-xl font-bold group-hover/link:text-amber-300 transition-colors">Cullman, Alabama, USA</div>
+                      <div className="text-lg md:text-xl font-bold group-hover/link:text-amber-300 transition-colors">Industrial Park, Ningbo, China</div>
                     </div>
                   </a>
                 </div>
