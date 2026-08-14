@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import SectionHeader from '@/components/ui/SectionHeader';
 import BlogCard from '@/components/ui/BlogCard';
 import { blogPosts, BlogPostCategory } from '@/data/blogPosts';
+import { fadeInUp, staggerContainer } from '../../lib/animations';
 
 const categories: (BlogPostCategory | 'All')[] = [
   'All',
@@ -14,25 +15,6 @@ const categories: (BlogPostCategory | 'All')[] = [
   'Technical Guide',
   'Company News'
 ];
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
-};
 
 export default function BlogClient() {
   const [activeCategory, setActiveCategory] = useState<BlogPostCategory | 'All'>('All');

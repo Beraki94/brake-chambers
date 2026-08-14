@@ -5,19 +5,11 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ChevronLeft, Share2 } from 'lucide-react';
 import type { BlogPost } from '@/data/blogPosts';
+import { fadeInUp } from '../../lib/animations';
 
 interface BlogPostClientProps {
   post: BlogPost;
 }
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
-};
 
 export default function BlogPostClient({ post }: BlogPostClientProps) {
   return (
