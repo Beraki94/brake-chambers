@@ -45,7 +45,7 @@ export default function BlogClient() {
     <div className="min-h-screen bg-slate-50 pt-24 pb-16">
       <SectionHeader 
         title="Industry Insights & News"
-        subtitle="Technical bulletins, engineering updates, and company announcements from BRC Brake Chambers."
+        description="Technical bulletins, engineering updates, and company announcements from BRC Brake Chambers."
         accentColor="amber"
       />
 
