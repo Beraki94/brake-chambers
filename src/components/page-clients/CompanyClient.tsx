@@ -179,7 +179,7 @@ export default function CompanyClient() {
                 <h4 className="text-xl md:text-2xl font-bold text-slate-700 mb-6">
                   {pillar.subtitle}
                 </h4>
-                <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-8 font-light max-w-lg">
+                <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-8 font-light max-w-lg text-justify">
                   {pillar.desc}
                 </p>
                 {/* Replaced fixed heights with robust aspect ratios to ensure perfect scaling across all device sizes */}
@@ -217,7 +217,7 @@ export default function CompanyClient() {
                               {card.title}
                             </h4>
                           </div>
-                          <p className="text-slate-600 text-base md:text-lg leading-relaxed font-light mb-8">
+                          <p className="text-slate-600 text-sm md:text-base leading-relaxed font-light mb-8 text-justify">
                             {card.desc}
                           </p>
                           <div className="flex flex-wrap gap-2 md:gap-3 mb-8">

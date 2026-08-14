@@ -190,7 +190,7 @@ export default function ProductsClient() {
                       <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-heading tracking-tight mb-3 drop-shadow-lg group-hover:translate-x-2 transition-transform duration-300">
                         {group.title}
                       </h3>
-                      <p className="text-navy-100 text-base lg:text-lg leading-relaxed font-light mb-6 max-w-sm">
+                      <p className="text-navy-100 text-sm md:text-base leading-relaxed font-light mb-6 max-w-sm text-justify">
                         {group.desc}
                       </p>
                       <Link
@@ -229,7 +229,7 @@ export default function ProductsClient() {
                             {link.title}
                           </h4>
                         </div>
-                        <p className="text-slate-500 text-sm sm:text-base font-medium leading-relaxed">
+                        <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed text-justify">
                           {link.desc}
                         </p>
                       </div>
@@ -279,7 +279,7 @@ export default function ProductsClient() {
                   <feature.icon className="w-7 h-7 text-amber-500" />
                 </div>
                 <h4 className="text-xl font-extrabold text-navy-900 mb-3">{feature.title}</h4>
-                <p className="text-slate-600 leading-relaxed font-light text-sm sm:text-base">{feature.desc}</p>
+                <p className="text-slate-600 leading-relaxed font-light text-sm md:text-base text-justify">{feature.desc}</p>
               </motion.div>
             ))}
           </motion.div>

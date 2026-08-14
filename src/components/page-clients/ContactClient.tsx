@@ -91,7 +91,7 @@ export default function ContactClient() {
                   <card.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <h3 className="font-heading text-base sm:text-lg font-bold text-navy-900 mb-1">{card.title}</h3>
-                <p className="text-navy-500 text-xs sm:text-sm leading-relaxed mb-2 sm:mb-3">{card.description}</p>
+                <p className="text-navy-500 text-xs sm:text-sm leading-relaxed mb-2 sm:mb-3 text-justify">{card.description}</p>
                 {card.href ? (
                   <a href={card.href} className={`${card.textColor} text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1 break-all`}>
                     {card.value} <ArrowRight className="w-3 h-3 shrink-0" />
