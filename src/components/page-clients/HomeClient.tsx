@@ -9,38 +9,39 @@ import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, scaleIn } from '../../lib/animations';
 import { blogPosts } from '@/data/blogPosts';
 import BlogCard from '@/components/ui/BlogCard';
+import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 
 const HERO_SLIDES = [
   {
     id: 1,
-    badge: "Advanced Actuation Technology",
-    badgeIcon: <Cpu className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>Precision Built for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Trucks & Trailers.</span></>,
-    description: "The world leader in aftermarket commercial brake chambers. Delivering direct replacements for Bendix, Haldex, Meritor, and Wabco to global fleets.",
-    cta1: { text: "View Product Catalog", link: "/products" },
-    cta2: { text: "Request Custom Quote", link: "/quote" },
-    image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=2000&q=80",
+    badge: "Direct from the Source",
+    badgeIcon: <Settings className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
+    title: <>Factory-Direct <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Manufacturing.</span></>,
+    description: "Cut out the middleman. We are a premier manufacturer of heavy-duty commercial brake chambers in China, engineering direct replacements for global fleets.",
+    cta1: { text: "Get Factory Pricing", link: "/quote" },
+    cta2: { text: "View Our Facility", link: "#facility" },
+    image: "https://images.unsplash.com/photo-1565108420608-251f98e6c406?auto=format&fit=crop&w=2000&q=80",
     gradient: "from-navy-950 via-navy-950/90 to-transparent",
     glow: "bg-amber-500"
   },
   {
     id: 2,
-    badge: "High Output Technology (HOT)",
-    badgeIcon: <Zap className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>Next-Generation <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-emerald-500 to-navy-400">Air Disc Brakes.</span></>,
-    description: "Experience unprecedented stopping power and fade resistance. Engineered for extreme heavy-duty performance and drastic maintenance reduction.",
-    cta1: { text: "Partner With Us", link: "/contact" },
-    cta2: { text: "Download Specifications", link: "/technical-resources" },
+    badge: "OEM Engineering Power",
+    badgeIcon: <Cpu className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
+    title: <>Precision Built for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-emerald-500 to-navy-400">Trucks & Trailers.</span></>,
+    description: "Producing over 1,000,000 units annually. Our automated production lines guarantee ISO 9001:2015 quality control for Bendix, Haldex, and Meritor equivalents.",
+    cta1: { text: "View Product Catalog", link: "/products" },
+    cta2: { text: "Request Evaluation Samples", link: "/contact" },
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80",
     gradient: "from-navy-950 via-navy-950/80 to-transparent",
     glow: "bg-emerald-500"
   },
   {
     id: 3,
-    badge: "Global Logistics Network",
+    badge: "Container Logistics",
     badgeIcon: <Globe2 className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
     title: <>OEM Supply at <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Global Scale.</span></>,
-    description: "Shipping high-performance brake components to over 30 countries. We handle LTL, FTL, and direct container shipping logistics internally.",
+    description: "Shipping high-performance brake components to over 30 countries. We handle LTL, FTL, and direct container shipping logistics internally from our China ports.",
     cta1: { text: "Start Wholesale Application", link: "/contact" },
     cta2: { text: "View Shipping Zones", link: "/shipping" },
     image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2000&q=80",
@@ -52,19 +53,25 @@ const HERO_SLIDES = [
 export default function HomeClient() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    if (isHovered) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isHovered]);
 
   return (
     <div className="font-sans bg-[#F8FAFC]">
       {/* 1. Dynamic Engineering Hero Carousel */}
-      <section className="relative min-h-[85vh] flex items-center bg-navy-950 overflow-hidden">
+      <section 
+        className="relative min-h-[85vh] flex items-center bg-navy-950 overflow-hidden"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
 
         {/* Carousel Backgrounds & Slides */}
         {HERO_SLIDES.map((slide, index) => (
@@ -195,10 +202,57 @@ export default function HomeClient() {
                   <pillar.icon className="w-7 h-7" />
                 </div>
                 <h3 className={`text-xl font-extrabold text-navy-900 mb-3 group-hover:text-${pillar.color}-600 transition-colors`}>{pillar.title}</h3>
-                <p className="text-slate-600 leading-relaxed text-sm md:text-base text-justify">{pillar.desc}</p>
+                <p className="text-slate-600 leading-relaxed text-sm md:text-base text-left">{pillar.desc}</p>
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* NEW: Inside Our Facility (The Factory Proof) */}
+      <section id="facility" className="py-16 md:py-24 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            {/* Image Grid / Factory Floor */}
+            <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
+              <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="col-span-2 rounded-2xl overflow-hidden h-64 md:h-80 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Brake Chamber Assembly Line" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              </motion.div>
+              <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80" alt="Quality Control Testing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              </motion.div>
+              <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
+                <img src="/facility/cnc_machining_center.jpg" alt="CNC Machining Center" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              </motion.div>
+            </div>
+            
+            {/* Copy / Narrative */}
+            <div className="w-full lg:w-1/2">
+              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-slate-100 text-amber-600 border border-slate-200 text-[11px] font-bold uppercase tracking-widest">
+                Direct From The Manufacturer
+              </div>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 tracking-tight">Inside Our <span className="text-amber-500">50,000 sqm</span> Facility in China.</h2>
+              <p className="text-slate-600 text-base md:text-lg mb-6 leading-relaxed">
+                We are not just a distributor. When you partner with us, you are buying direct from our state-of-the-art manufacturing campus in China. This cuts out the middleman, ensuring you get OEM-quality actuators at factory-direct container pricing.
+              </p>
+              <ul className="space-y-4 mb-8">
+                {[
+                  "Fully automated assembly lines producing 1M+ units/year",
+                  "In-house 1,000,000-cycle stress testing laboratories",
+                  "ISO 9001:2015 & TS16949 certified manufacturing",
+                  "Dedicated export team managing global logistics & customs"
+                ].map((feature, idx) => (
+                  <li key={idx} className="flex items-center text-navy-800 font-medium">
+                    <CheckCircle className="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/contact" className="inline-flex items-center bg-navy-900 text-white font-bold px-8 py-4 rounded-xl hover:bg-amber-500 hover:text-navy-950 transition-all duration-300 shadow-xl uppercase tracking-widest text-[12px] transform hover:-translate-y-1">
+                Take a Virtual Tour <ChevronRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -206,27 +260,10 @@ export default function HomeClient() {
       <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden border-b border-navy-800">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
 
-        {/* Blinking Stars Background */}
-        <div className="absolute inset-0 pointer-events-none">
-          {mounted && [...Array(30)].map((_, i) => {
-            const size = Math.random() * 2 + 1.5;
-            const isGold = Math.random() > 0.5;
-            return (
-              <div
-                key={`star-${i}`}
-                className={`absolute rounded-full animate-pulse ${isGold ? 'bg-[#D9B340]/60' : 'bg-white/40'}`}
-                style={{
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                  width: `${size}px`,
-                  height: `${size}px`,
-                  animationDuration: `${Math.random() * 3 + 1.5}s`,
-                  animationDelay: `${Math.random() * 2}s`
-                }}
-              />
-            );
-          })}
-        </div>
+        {/* Subtle Modern Dot Grid Background */}
+        <AnimatedGridBackground opacity={0.08} />
+        {/* Fade out masks to make the grid blend smoothly into the dark section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none"></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-700 shadow-xl shadow-navy-950 text-amber-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
@@ -317,7 +354,9 @@ export default function HomeClient() {
                   </div>
                 </div>
                 <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
-                  <img src="/products/spring-brake.jpg" alt="Spring Brake Chamber" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
+                  <div className="w-full h-full animate-[spin_60s_linear_infinite] [animation-delay:-0s] group-hover:[animation-play-state:paused] flex items-center justify-center">
+                    <img src="/products/spring-brake.jpg" alt="Spring Brake Chamber" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
+                  </div>
                 </div>
               </div>
             </Link>
@@ -341,7 +380,9 @@ export default function HomeClient() {
                   </div>
                 </div>
                 <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
-                  <img src="/products/service-brake.jpg" alt="Service Brake Chamber" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
+                  <div className="w-full h-full animate-[spin_60s_linear_infinite] [animation-delay:-15s] group-hover:[animation-play-state:paused] flex items-center justify-center">
+                    <img src="/products/service-brake.jpg" alt="Service Brake Chamber" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
+                  </div>
                 </div>
               </div>
             </Link>
@@ -365,7 +406,9 @@ export default function HomeClient() {
                   </div>
                 </div>
                 <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
-                  <img src="/products/air-disc-brake.jpg" alt="Air Disc Brake Chamber" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
+                  <div className="w-full h-full animate-[spin_60s_linear_infinite] [animation-delay:-30s] group-hover:[animation-play-state:paused] flex items-center justify-center">
+                    <img src="/products/air-disc-brake.jpg" alt="Air Disc Brake Chamber" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
+                  </div>
                 </div>
               </div>
             </Link>
@@ -389,7 +432,9 @@ export default function HomeClient() {
                   </div>
                 </div>
                 <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
-                  <img src="/products/piggyback.jpg" alt="Piggyback & Accessories" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
+                  <div className="w-full h-full animate-[spin_60s_linear_infinite] [animation-delay:-45s] group-hover:[animation-play-state:paused] flex items-center justify-center">
+                    <img src="/products/piggyback.jpg" alt="Piggyback & Accessories" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
+                  </div>
                 </div>
               </div>
             </Link>
@@ -427,7 +472,7 @@ export default function HomeClient() {
                     <FileText className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <h3 className="text-xl font-extrabold text-white mb-3">Cross-Reference</h3>
-                  <p className="text-navy-300 text-sm md:text-base mb-8 leading-relaxed font-light text-justify">Instantly map competitor part numbers (Bendix, Meritor, Haldex, Wabco, MGM) to direct aftermarket equivalents.</p>
+                  <p className="text-navy-300 text-sm md:text-base mb-8 leading-relaxed font-light text-left">Instantly map competitor part numbers (Bendix, Meritor, Haldex, Wabco, MGM) to direct aftermarket equivalents.</p>
                   <div className="text-amber-400 text-[11px] font-extrabold uppercase tracking-widest flex items-center group-hover:text-amber-300">
                     Launch Tool <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
@@ -442,7 +487,7 @@ export default function HomeClient() {
                     <Wrench className="w-6 h-6 text-emerald-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <h3 className="text-xl font-extrabold text-white mb-3">Online Training</h3>
-                  <p className="text-navy-300 text-sm md:text-base mb-8 leading-relaxed font-light text-justify">Interactive courses for technicians on installation, maintenance, and diagnostics of brake systems.</p>
+                  <p className="text-navy-300 text-sm md:text-base mb-8 leading-relaxed font-light text-left">Interactive courses for technicians on installation, maintenance, and diagnostics of brake systems.</p>
                   <div className="text-emerald-400 text-[11px] font-extrabold uppercase tracking-widest flex items-center group-hover:text-emerald-300">
                     View Courses <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
@@ -457,7 +502,7 @@ export default function HomeClient() {
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
                   <div>
                     <h3 className="text-2xl font-extrabold text-white mb-2 drop-shadow-md">Automated Warranty Portal</h3>
-                    <p className="text-white/90 text-sm md:text-base max-w-md font-medium leading-relaxed text-justify drop-shadow-sm">Submit warranty claims online. Tracks processing, expedites QA review, and generates automatic engineering reports.</p>
+                    <p className="text-white/90 text-sm md:text-base max-w-md font-medium leading-relaxed text-left drop-shadow-sm">Submit warranty claims online. Tracks processing, expedites QA review, and generates automatic engineering reports.</p>
                   </div>
                   <Link href="/warranty" className="bg-navy-950 text-white px-8 py-4 rounded-xl font-extrabold text-[12px] uppercase tracking-widest hover:bg-navy-900 flex-shrink-0 whitespace-nowrap shadow-xl transform transition-transform hover:-translate-y-1">
                     Submit Claim
@@ -484,7 +529,7 @@ export default function HomeClient() {
               Innovation Spotlight
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight">High Output Technology <span className="text-emerald-500">(HOT)</span></h2>
-            <p className="text-sm md:text-base text-navy-200 mb-8 leading-relaxed font-light text-justify">
+            <p className="text-sm md:text-base text-navy-200 mb-8 leading-relaxed font-light text-left">
               Our patented HOT design drastically improves the output force of air disc brakes, compensating for internal friction and delivering unprecedented stopping power consistency across the entire vehicle lifecycle.
             </p>
             <Link href="/technical-resources" className="inline-flex w-full sm:w-auto justify-center items-center text-navy-950 bg-white font-extrabold px-6 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5 text-center">
@@ -534,71 +579,82 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 7. Global Distribution & Direct Contact */}
+      {/* 7. The Buyer Journey & Direct Contact */}
       <section className="pt-8 pb-16 md:pt-12 md:pb-24 bg-gradient-to-b from-slate-50 to-slate-100 relative overflow-hidden">
+        
+        {/* Prominent Rotating Brake Chamber Background (Watermark) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] lg:w-[700px] lg:h-[700px] opacity-[0.15] pointer-events-none animate-[spin_120s_linear_infinite] z-0">
+          <img src="/products/spring-brake.jpg" alt="Brake Chamber Background" className="w-full h-full object-contain mix-blend-multiply grayscale drop-shadow-2xl" />
+        </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="bg-white rounded-[2rem] md:rounded-[2.5rem] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] border border-slate-100 p-4 sm:p-6 md:p-14 overflow-hidden relative">
-
-            {/* Prominent Rotating Brake Chamber Background */}
-            <div className="absolute top-1/2 left-0 lg:left-[2%] -translate-y-1/2 w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] opacity-30 pointer-events-none animate-[spin_80s_linear_infinite] z-0">
-              <img src="/products/spring-brake.jpg" alt="Brake Chamber Background" className="w-full h-full object-contain mix-blend-multiply drop-shadow-2xl" />
+          
+          <div className="text-center mb-12">
+            <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-navy-50 border border-navy-100 text-navy-600 text-[11px] font-extrabold uppercase tracking-widest">
+              Partnership Process
             </div>
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
-              <div className="w-full lg:w-1/2 relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left">
-                <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-50 border border-navy-100 text-navy-600 text-[11px] font-extrabold uppercase tracking-widest">
-                  Global Network
-                </div>
-                <h2 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-navy-900 to-navy-700 mb-6 leading-tight">Global Scale. <br className="hidden md:block" />Local Support.</h2>
-                <p className="text-slate-600 text-sm md:text-base mb-10 font-light leading-relaxed max-w-lg text-justify">
-                  Shipping OEM and aftermarket brake components to over 30 countries worldwide. We handle LTL, FTL, and direct container shipping logistics internally.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 w-full max-w-md">
-                  <div className="bg-gradient-to-br from-slate-50 to-white p-5 md:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center sm:items-start text-center sm:text-left">
-                    <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">30+</div>
-                    <div className="text-[11px] font-extrabold text-navy-900 uppercase tracking-widest">Countries Served</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-slate-50 to-white p-5 md:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center sm:items-start text-center sm:text-left">
-                    <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">1M+</div>
-                    <div className="text-[11px] font-extrabold text-navy-900 uppercase tracking-widest">Units Annually</div>
-                  </div>
-                </div>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-4 tracking-tight">3 Steps to Partner With Us</h2>
+            <p className="text-slate-600 text-sm md:text-base font-light max-w-2xl mx-auto">
+              From sample evaluation to direct container shipping, we make importing premium brake chambers from China seamless and secure.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
+            {/* Step 1 */}
+            <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-8 border border-white shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all relative">
+              <div className="absolute -top-4 -left-4 w-12 h-12 bg-navy-900 text-white rounded-full flex items-center justify-center font-black text-xl shadow-lg border-4 border-slate-50 z-10">1</div>
+              <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6">
+                <FileText className="w-6 h-6 text-amber-500" />
               </div>
+              <h3 className="text-xl font-extrabold text-navy-900 mb-3">Request Catalog & Pricing</h3>
+              <p className="text-slate-600 text-sm">Tell us your market requirements. We will provide a comprehensive wholesale catalog and customized OEM-level pricing.</p>
+            </div>
+            
+            {/* Step 2 */}
+            <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-8 border border-white shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all relative">
+              <div className="absolute -top-4 -left-4 w-12 h-12 bg-navy-900 text-white rounded-full flex items-center justify-center font-black text-xl shadow-lg border-4 border-slate-50 z-10">2</div>
+              <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6">
+                <CheckCircle className="w-6 h-6 text-amber-500" />
+              </div>
+              <h3 className="text-xl font-extrabold text-navy-900 mb-3">Order Evaluation Samples</h3>
+              <p className="text-slate-600 text-sm">Verify our quality firsthand. We express-ship sample units directly from our factory for your engineering team to approve.</p>
+            </div>
 
-              <div className="w-full lg:w-1/2 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[1.5rem] md:rounded-3xl p-5 sm:p-6 md:p-10 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden group">
-                {/* Internal Card Glow */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-amber-500/20 transition-colors duration-700"></div>
+            {/* Step 3 */}
+            <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-8 border border-white shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all relative">
+              <div className="absolute -top-4 -left-4 w-12 h-12 bg-amber-500 text-navy-950 rounded-full flex items-center justify-center font-black text-xl shadow-lg border-4 border-slate-50 z-10">3</div>
+              <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6">
+                <Globe2 className="w-6 h-6 text-amber-500" />
+              </div>
+              <h3 className="text-xl font-extrabold text-navy-900 mb-3">Scale to Container Orders</h3>
+              <p className="text-slate-600 text-sm">Once approved, we scale production. Our export team handles LTL, FTL, and direct container shipping logistics to your warehouse.</p>
+            </div>
+          </div>
 
-                <h3 className="text-2xl md:text-3xl font-extrabold mb-4 md:mb-6 relative z-10">Connect with Sales & Engineering</h3>
-                <p className="text-navy-200 text-sm mb-8 md:mb-10 leading-relaxed font-light relative z-10">Ready to discuss bulk purchasing, OEM design specifications, or cross-reference support? Our dedicated team is standing by.</p>
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-10 md:p-16 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
+            {/* Internal Card Glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
 
-                <div className="space-y-6 md:space-y-8 relative z-10">
-                  <a href="tel:+8618602021144" className="flex items-center gap-4 md:gap-6 group/link">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex-shrink-0 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-amber-500/50 transition-colors">
-                      <Phone className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-400 group-hover/link:scale-110 transition-transform duration-300" />
-                    </div>
-                    <div>
-                      <div className="text-[10px] md:text-[11px] text-amber-400 font-extrabold uppercase tracking-widest mb-1">Direct Line</div>
-                      <div className="text-xl md:text-2xl font-bold group-hover/link:text-amber-300 transition-colors">+86 186 0202 1144</div>
-                    </div>
-                  </a>
-                  <a href="mailto:sales@brakechambers.com" className="flex items-center gap-4 md:gap-6 group/link">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex-shrink-0 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl flex items-center justify-center group-hover/link:border-amber-500/50 transition-colors">
-                      <Map className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-400 group-hover/link:scale-110 transition-transform duration-300" />
-                    </div>
-                    <div>
-                      <div className="text-[10px] md:text-[11px] text-amber-400 font-extrabold uppercase tracking-widest mb-1">Corporate HQ</div>
-                      <div className="text-lg md:text-xl font-bold group-hover/link:text-amber-300 transition-colors">Industrial Park, Ningbo, China</div>
-                    </div>
-                  </a>
-                </div>
+            <div className="max-w-xl relative z-10 text-center md:text-left">
+              <h3 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to bypass the middleman?</h3>
+              <p className="text-navy-200 text-base md:text-lg font-light">Connect directly with our corporate headquarters in China. Our English-speaking export engineering team is standing by.</p>
+            </div>
 
-                <Link href="/contact" className="mt-12 block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center py-4 rounded-xl uppercase tracking-widest text-[13px] transition-all duration-300 shadow-xl shadow-amber-500/20 relative z-10 transform hover:-translate-y-1">
-                  Contact Us Today
-                </Link>
+            <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto">
+              <Link href="/quote" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap">
+                Request Factory Quote
+              </Link>
+              <div className="flex flex-col sm:flex-row justify-center gap-6 mt-4 text-center md:text-left">
+                <a href="tel:+8618602021144" className="flex items-center justify-center md:justify-start gap-2 hover:text-amber-400 transition-colors">
+                  <Phone className="w-5 h-5 text-amber-500" /> <span className="font-bold">+86 186 0202 1144</span>
+                </a>
+                <a href="mailto:sales@brakechambers.com" className="flex items-center justify-center md:justify-start gap-2 hover:text-amber-400 transition-colors">
+                  <Map className="w-5 h-5 text-amber-500" /> <span className="font-bold">sales@brakechambers.com</span>
+                </a>
               </div>
             </div>
           </div>
+
         </div>
       </section>
     </div>

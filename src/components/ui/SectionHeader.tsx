@@ -22,41 +22,48 @@ export default function SectionHeader({
   const isDark = theme === 'dark';
   const isCenter = align === 'center';
 
+  // Badge Text Color Maps
   const badgeColorClasses = {
-    amber: isDark ? 'text-amber-400' : 'text-amber-500',
+    amber: isDark ? 'text-amber-400' : 'text-amber-600',
     red: isDark ? 'text-red-400' : 'text-red-600',
-    navy: isDark ? 'text-navy-300' : 'text-navy-900',
-    slate: isDark ? 'text-slate-300' : 'text-slate-500',
-    emerald: isDark ? 'text-emerald-400' : 'text-emerald-500',
+    navy: isDark ? 'text-navy-300' : 'text-navy-600',
+    slate: isDark ? 'text-slate-400' : 'text-slate-500',
+    emerald: isDark ? 'text-emerald-400' : 'text-emerald-600',
+  };
+  
+  // Badge BG Maps (matching home page)
+  const badgeBgClasses = {
+    amber: isDark ? 'bg-navy-900 border-navy-700 shadow-navy-950/50' : 'bg-amber-50 border-amber-100 shadow-sm',
+    red: isDark ? 'bg-navy-900 border-navy-700 shadow-navy-950/50' : 'bg-red-50 border-red-100 shadow-sm',
+    navy: isDark ? 'bg-navy-900 border-navy-700 shadow-navy-950/50' : 'bg-navy-50 border-navy-100 shadow-sm',
+    slate: isDark ? 'bg-navy-900 border-navy-700 shadow-navy-950/50' : 'bg-slate-100 border-slate-200 shadow-sm',
+    emerald: isDark ? 'bg-navy-900 border-navy-700 shadow-navy-950/50' : 'bg-emerald-50 border-emerald-100 shadow-sm',
   };
 
   return (
-    <div className={`${isCenter ? 'text-center mx-auto' : 'text-left'} max-w-3xl mb-12 md:mb-16 ${className}`}>
+    <div className={`${isCenter ? 'flex flex-col items-center text-center mx-auto' : 'flex flex-col items-start text-left'} max-w-3xl mb-14 md:mb-16 ${className}`}>
       
-      {/* Eyebrow Badge */}
+      {/* Eyebrow Badge - Matches Home Page design exactly */}
       {badge && (
-        <div className={`inline-block px-4 py-1.5 mb-5 md:mb-6 rounded-full border shadow-lg text-[11px] sm:text-xs font-bold uppercase tracking-widest backdrop-blur-md
-          ${isDark 
-            ? 'bg-navy-900 border-navy-700 shadow-navy-950/50' 
-            : 'bg-white border-slate-200 shadow-slate-200/50'}
-          ${badgeColorClasses[accentColor]}`}
+        <div className={`inline-block px-3 py-1 mb-3 md:mb-4 rounded-full border text-[11px] font-bold uppercase tracking-widest
+          ${badgeBgClasses[accentColor]} ${badgeColorClasses[accentColor]}`}
         >
           {badge}
         </div>
       )}
 
-      {/* Main Title */}
-      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 font-heading tracking-tight leading-tight
-        ${isDark ? 'text-white drop-shadow-md' : 'text-navy-950'}`}
+      {/* Main Title - Matches Home Page design exactly */}
+      <h2 className={`text-3xl md:text-5xl font-extrabold mb-4 tracking-tight pb-2
+        ${isDark ? 'text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
       >
         {title}
       </h2>
 
-      {/* Subtitle / Description */}
+      {/* Subtitle / Description - Matches Home Page typography */}
       {description && (
-        <div className={`text-base sm:text-lg leading-relaxed
+        <div className={`text-sm md:text-base leading-relaxed font-light
           ${isCenter && 'mx-auto max-w-2xl'} 
-          ${isDark ? 'text-navy-300 font-light' : 'text-slate-600'}`}
+          ${isDark ? 'text-navy-200' : 'text-slate-600'}`}
         >
           {description}
         </div>

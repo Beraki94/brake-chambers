@@ -159,7 +159,7 @@ export default function Navbar() {
                       setShowDropdown(true);
                     }}
                     onFocus={() => setShowDropdown(true)}
-                    placeholder="Search by part number, chamber type, or cross-reference..."
+                    placeholder="Search BRC catalog or part numbers..."
                     className="flex-1 bg-transparent py-3 px-3 text-sm text-navy-900 focus:outline-none"
                   />
                   <button type="submit" className="pr-5 pl-3 flex items-center justify-center hover:bg-slate-50 h-full transition-colors text-navy-600 font-medium text-sm">
@@ -264,7 +264,7 @@ export default function Navbar() {
                         setShowDropdown(true);
                       }}
                       onFocus={() => setShowDropdown(true)}
-                      placeholder="Search part #, brand, or type..."
+                      placeholder="Search BRC catalog or part numbers..."
                       className="flex-1 bg-transparent py-4 px-3 text-[15px] text-navy-900 focus:outline-none placeholder-slate-400"
                     />
                     <button type="submit" className="pr-4 pl-2 flex items-center justify-center text-navy-600 font-extrabold text-[12px] uppercase tracking-widest hover:text-amber-600 transition-colors">
@@ -341,7 +341,7 @@ export default function Navbar() {
                   <Link href={`/applications`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Applications</Link>
                   <Link href={`/oem-cross-reference`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>OEM Cross-Reference</Link>
                   <Link href={`/company`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Company & Manufacturing</Link>
-                  <Link href={`/contact`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Contact Sales</Link>
+                  <Link href={`/contact`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Contact Us</Link>
 
                   <div className="mt-6 flex flex-col gap-3">
                     <Link href={`/quote`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-4 font-extrabold rounded-xl transition-colors flex items-center justify-center gap-2 bg-amber-500 text-navy-950 hover:bg-amber-400 text-[13px] uppercase tracking-widest shadow-lg shadow-amber-500/20`}>
@@ -604,10 +604,10 @@ export default function Navbar() {
 
             <div className="flex-1"></div>
 
-            {/* Contact Sales */}
+            {/* Contact Us */}
             <div className="group h-full flex items-center">
               <Link href="/contact" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'hover:border-amber-400 hover:text-white' : 'hover:border-amber-500 hover:text-amber-600'}`}>
-                Contact Sales
+                Contact Us
               </Link>
             </div>
           </nav>

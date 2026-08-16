@@ -77,12 +77,12 @@ export default function ProductListCard({ product, categoryPath }: { product: Br
         </div>
         
         {/* Action Button & Trust - Forced to Bottom */}
-        <div className="mt-auto flex justify-between items-center pt-2">
-           <span className="flex items-center text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-100 uppercase tracking-wider">
-             <ShieldCheck size={12} className="mr-1" /> Factory Direct
+        <div className="mt-auto flex justify-between items-center pt-2 gap-2">
+           <span className="flex-shrink-0 flex items-center text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-100 uppercase tracking-wider whitespace-nowrap">
+             <ShieldCheck size={12} className="mr-1 flex-shrink-0" /> Factory Direct
            </span>
-          <span className="text-amber-600 text-sm font-bold flex items-center group-hover:text-amber-500 transition-colors">
-            View Details <ChevronRight size={16} className="ml-1 transform group-hover:translate-x-1 transition-transform" />
+          <span className="flex-shrink-0 whitespace-nowrap text-amber-600 text-sm font-bold flex items-center group-hover:text-amber-500 transition-colors">
+            View Details <ChevronRight size={16} className="ml-1 flex-shrink-0 transform group-hover:translate-x-1 transition-transform" />
           </span>
         </div>
       </div>

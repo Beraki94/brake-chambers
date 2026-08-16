@@ -14,6 +14,8 @@ import SubCategoryComparisonTable from '@/components/products/SubCategoryCompari
 import SubCategoryWholesaleCTA from '@/components/products/SubCategoryWholesaleCTA';
 import SubCategoryFAQ from '@/components/products/SubCategoryFAQ';
 import PageHeader from '@/components/layout/PageHeader';
+import ManufacturingQualityGrid from '@/components/products/ManufacturingQualityGrid';
+import ApplicationScopeSection from '@/components/products/ApplicationScopeSection';
 
 interface ProductListingLayoutProps {
   title: string;
@@ -140,6 +142,7 @@ export default function ProductListingLayout({
           
           {!isSubCategory && (
             <>
+              <ManufacturingQualityGrid />
               <FleetReviewsSection categoryName={title} />
               <OEMQuickLinks categoryName={title} />
               <TechnicalResourcesSection categoryName={title} />
@@ -158,6 +161,7 @@ export default function ProductListingLayout({
       </div>
 
       {!isSubCategory && visualizerType && <CategoryVisualizer type={visualizerType} />}
+      {!isSubCategory && <ApplicationScopeSection />}
       </div>
     </>
   );

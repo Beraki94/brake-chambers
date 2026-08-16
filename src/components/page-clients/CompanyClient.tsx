@@ -137,49 +137,52 @@ export default function CompanyClient() {
         ]}
       />
       {/* Intro SEO Block */}
-      <section className="relative py-20 md:py-28 border-b border-slate-200 overflow-hidden">
-        {/* Background Image & Gradients */}
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/manufacturing_floor.png" 
-            alt="BRC Manufacturing Facility" 
-            fill 
-            className="object-cover object-right-top opacity-80"
-          />
-          {/* White gradient fading from left to right */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,1)_0%,rgba(255,255,255,1)_70%,rgba(255,255,255,0)_100%)] z-10"></div>
-          {/* Touch of primary blue on the right edge */}
-          <div className="absolute inset-0 bg-gradient-to-l from-navy-900/30 to-transparent z-10 mix-blend-multiply"></div>
-        </div>
+      <div className="relative">
+        <section className="relative py-16 md:py-24 border-b border-slate-200 overflow-hidden bg-slate-50">
+          <div className="absolute inset-0 z-0">
+            <Image 
+              src="/images/manufacturing_floor.png" 
+              alt="BRC Manufacturing Facility" 
+              fill 
+              className="object-cover object-right-top opacity-80"
+            />
+            {/* White gradient fading from left to right - Extended to 85% to fully cover text */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,1)_0%,rgba(255,255,255,1)_85%,rgba(255,255,255,0)_100%)] z-10"></div>
+            {/* Touch of primary blue on the right edge */}
+            <div className="absolute inset-0 bg-gradient-to-l from-navy-900/30 to-transparent z-10 mix-blend-multiply"></div>
+          </div>
 
-        {/* Content */}
-        <div className="relative z-20 container mx-auto px-4 max-w-4xl text-center">
-          <SectionHeader
-            badge="The BRC Standard"
-            title={<>Engineered to Outperform.<br/>Built to <span className="text-navy-600">Last.</span></>}
-            description="When you partner with BRC Brake Chambers, you are cutting out the middlemen and dealing directly with the source. As a vertically integrated manufacturer of commercial air brake actuators, we control every variable of the production process—from raw metallurgy to final pneumatic leak testing. This means higher burst strength, longer operational lifespans, and absolute reliability for heavy-duty fleets worldwide."
-            accentColor="navy"
-          />
-        </div>
-      </section>
+          {/* Content */}
+          <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl flex flex-col justify-center text-left">
+            <div className="max-w-2xl w-full">
+              <SectionHeader
+                badge="The BRC Standard"
+                title={<>Engineered to Outperform.<br/>Built to <span className="text-amber-500">Last.</span></>}
+                description="When you partner with BRC Brake Chambers, you are cutting out the middlemen and dealing directly with the source. As a vertically integrated manufacturer of commercial air brake actuators, we control every variable of the production process—from raw metallurgy to final pneumatic leak testing. This means higher burst strength, longer operational lifespans, and absolute reliability for heavy-duty fleets worldwide."
+                align="left"
+              />
+            </div>
+          </div>
+        </section>
+      </div>
       {/* The Ultra-Stable Sticky-Scroll */}
       <section className="py-16 md:py-24 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           {pillars.map((pillar, pIdx) => (
             // Flex layout with items-start is CRITICAL for the sticky element to work smoothly without snapping or jittering.
-            <div key={pIdx} className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16 mb-24 md:mb-32 last:mb-0 relative border-t border-slate-200 pt-12 md:pt-20 first:border-0 first:pt-0">
+            <div key={pIdx} className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16 mb-16 lg:mb-24 last:mb-0 relative border-t border-slate-200 pt-12 lg:pt-16 first:border-0 first:pt-0">
               {/* STICKY LEFT COLUMN */}
               <div className="w-full lg:w-5/12 lg:sticky lg:top-32 z-10 flex flex-col">
                 <div className="mb-6 inline-block self-start px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-widest shadow-sm">
                   Phase 0{pIdx + 1}
                 </div>
-                <h3 className="text-3xl lg:text-4xl xl:text-5xl font-extrabold text-navy-900 mb-4 font-heading tracking-tight leading-tight">
+                <h3 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-4 tracking-tight pb-2">
                   {pillar.title}
                 </h3>
-                <h4 className="text-xl md:text-2xl font-bold text-slate-700 mb-6">
+                <h4 className="text-xl md:text-2xl font-bold text-slate-700 mb-4">
                   {pillar.subtitle}
                 </h4>
-                <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-8 font-light max-w-lg text-justify">
+                <p className="text-lg md:text-xl font-light leading-relaxed text-slate-600 mb-10 max-w-lg">
                   {pillar.desc}
                 </p>
                 {/* Replaced fixed heights with robust aspect ratios to ensure perfect scaling across all device sizes */}
@@ -205,7 +208,7 @@ export default function CompanyClient() {
                     className="w-full"
                   >
                     <Link href={card.href} className="block group w-full h-full outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-[2rem]">
-                      <div className={`bg-white p-6 md:p-10 rounded-[2rem] shadow-md border border-slate-200 hover:shadow-2xl ${pillar.colors.hoverBorder} transition-all duration-500 relative overflow-hidden h-full flex flex-col`}>
+                      <div className={`bg-white rounded-[2rem] p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-100 ${pillar.colors.hoverBorder} h-full relative overflow-hidden flex flex-col`}>
                         {/* Hover Gradient Effect */}
                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br ${pillar.colors.from} to-transparent`} />
                         <div className="relative z-10">
@@ -242,24 +245,23 @@ export default function CompanyClient() {
         </div>
       </section>
       {/* Final CTA Section */}
-      <div className="bg-[#F1EFE8] py-16 md:py-24 border-t border-slate-200">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-8 md:p-16 lg:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
-            <div className="relative z-10">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8 border border-amber-500/20 backdrop-blur-sm">
-                <Settings className="w-6 h-6 md:w-8 md:h-8 text-amber-400" />
-              </div>
-              <SectionHeader
-                badge="Global Supply Chain"
-                title="Partner With a Proven Manufacturer"
-                description="Whether you need a custom OEM solution, private labeling, or a container of replacement chambers for your distribution network, BRC delivers."
-                theme="dark"
-              />
-              <Link href="/contact" className="inline-block bg-amber-500 text-navy-950 font-extrabold text-[11px] md:text-[13px] px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl hover:bg-amber-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-amber-500/30 uppercase tracking-widest">
-                Request Wholesale Quote
+      <div className="py-16 md:py-24 bg-[#F1EFE8] border-t border-slate-200 relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] p-8 lg:p-12 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
+            {/* Internal Card Glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
+            
+            <div className="max-w-xl relative z-10 text-center md:text-left">
+              <h3 className="text-3xl md:text-4xl font-extrabold mb-4">Partner With a Proven Manufacturer</h3>
+              <p className="text-navy-200 text-base md:text-lg font-light">Whether you need a custom OEM solution, private labeling, or a container of replacement chambers for your distribution network, BRC delivers.</p>
+            </div>
+
+            <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto shrink-0">
+              <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap">
+                Wholesale Quote
+              </Link>
+              <Link href="/company/iso-certifications" className="inline-block w-full bg-navy-800/60 hover:bg-navy-800 border border-navy-600 hover:border-amber-500 text-white font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl transform hover:-translate-y-1 whitespace-nowrap">
+                Certifications
               </Link>
             </div>
           </div>

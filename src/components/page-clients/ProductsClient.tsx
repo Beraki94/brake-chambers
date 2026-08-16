@@ -2,11 +2,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Settings, Wrench, Package, ArrowRight, Disc, ChevronRight, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
+import { Settings, Wrench, Package, ArrowRight, Disc, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '../../lib/animations';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
+import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 
 export default function ProductsClient() {
   const categoryGroups = [
@@ -71,40 +72,31 @@ export default function ProductsClient() {
   // Accent colour lookup maps — avoids repetitive ternary chains
   const accentMap = {
     amber: {
-      bg:           'bg-amber-500/20 border-amber-400/30',
-      glow:         'bg-amber-500',
-      overlay:      'bg-amber-900/20',
-      hoverText:    'hover:text-amber-400',
-      cardText:     'group-hover/card:text-amber-700',
-      cardBg:       'group-hover/card:bg-amber-500 group-hover/card:text-white group-hover/card:border-amber-500',
-      gradient:     'from-amber-400/10',
-      borderBar:    'bg-amber-400',
-      badgeBg:      'bg-amber-50 text-amber-600 border-amber-200',
-      iconHover:    'group-hover/card:bg-amber-500 group-hover/card:text-white',
+      bg: 'bg-amber-500/20 border-amber-400/30',
+      glow: 'bg-amber-500',
+      overlay: 'bg-amber-900/20',
+      cardText: 'group-hover/card:text-amber-700',
+      gradient: 'from-amber-400/10',
+      borderBar: 'bg-amber-400',
+      iconHover: 'group-hover/card:from-amber-400 group-hover/card:to-amber-500 group-hover/card:text-navy-950',
     },
     blue: {
-      bg:           'bg-navy-500/20 border-navy-400/30',
-      glow:         'bg-navy-500',
-      overlay:      'bg-navy-900/20',
-      hoverText:    'hover:text-navy-400',
-      cardText:     'group-hover/card:text-navy-700',
-      cardBg:       'group-hover/card:bg-navy-500 group-hover/card:text-white group-hover/card:border-navy-500',
-      gradient:     'from-navy-400/10',
-      borderBar:    'bg-navy-400',
-      badgeBg:      'bg-navy-50 text-navy-600 border-navy-200',
-      iconHover:    'group-hover/card:bg-navy-500 group-hover/card:text-white',
+      bg: 'bg-navy-500/20 border-navy-400/30',
+      glow: 'bg-navy-500',
+      overlay: 'bg-navy-900/20',
+      cardText: 'group-hover/card:text-navy-700',
+      gradient: 'from-navy-400/10',
+      borderBar: 'bg-navy-400',
+      iconHover: 'group-hover/card:from-blue-400 group-hover/card:to-blue-500 group-hover/card:text-white',
     },
     emerald: {
-      bg:           'bg-amber-500/20 border-amber-400/30',
-      glow:         'bg-amber-500',
-      overlay:      'bg-amber-900/20',
-      hoverText:    'hover:text-amber-400',
-      cardText:     'group-hover/card:text-amber-700',
-      cardBg:       'group-hover/card:bg-amber-500 group-hover/card:text-white group-hover/card:border-amber-500',
-      gradient:     'from-amber-400/10',
-      borderBar:    'bg-amber-400',
-      badgeBg:      'bg-amber-50 text-amber-600 border-amber-200',
-      iconHover:    'group-hover/card:bg-amber-500 group-hover/card:text-white',
+      bg: 'bg-amber-500/20 border-amber-400/30',
+      glow: 'bg-amber-500',
+      overlay: 'bg-amber-900/20',
+      cardText: 'group-hover/card:text-amber-700',
+      gradient: 'from-amber-400/10',
+      borderBar: 'bg-amber-400',
+      iconHover: 'group-hover/card:from-emerald-400 group-hover/card:to-emerald-500 group-hover/card:text-white',
     },
   };
 
@@ -120,28 +112,7 @@ export default function ProductsClient() {
           { label: 'Home', href: '/' },
           { label: 'Products' }
         ]}
-      >
-        {/* CATEGORY FILTERS — horizontal touch-scroll on mobile, wrap on larger screens */}
-        <div
-          className="mt-8 -mx-4 px-4 sm:mx-0 sm:px-0 flex gap-3 overflow-x-auto pb-1 sm:flex-wrap"
-          style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' } as React.CSSProperties}
-        >
-          {[
-            { name: 'Spring Brakes', href: '#spring-brakes' },
-            { name: 'Service Chambers', href: '#service-chambers' },
-            { name: 'Air Disc Actuators', href: '#air-disc-actuators' },
-            { name: 'Parts & Kits', href: '#chamber-parts-kits' }
-          ].map(item => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="flex-shrink-0 bg-navy-900/60 hover:bg-amber-500 hover:text-navy-950 text-white border border-navy-700 backdrop-blur-md px-5 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all shadow-lg whitespace-nowrap"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-      </PageHeader>
+      />
 
       {/* MAIN PRODUCT CATEGORIES */}
       <section className="relative z-20 -mt-20 pb-16 md:pb-24">
@@ -181,13 +152,13 @@ export default function ProductsClient() {
 
                   <div className="relative z-10 p-6 sm:p-8 lg:p-10 xl:p-12 h-full flex flex-col">
                     <div className={`w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center mb-auto border backdrop-blur-md shadow-lg transform group-hover:-translate-y-2 transition-transform duration-500 ${a.bg}`}>
-                      {React.cloneElement(group.icon as React.ReactElement<any>, { 
+                      {React.cloneElement(group.icon as React.ReactElement<any>, {
                         className: 'w-8 h-8 lg:w-10 lg:h-10 text-white transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110',
                         'aria-hidden': 'true'
                       })}
                     </div>
                     <div className="mt-6 lg:mt-8">
-                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-heading tracking-tight mb-3 drop-shadow-lg group-hover:translate-x-2 transition-transform duration-300">
+                      <h3 className="text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-3 drop-shadow-lg group-hover:translate-x-2 transition-transform duration-300">
                         {group.title}
                       </h3>
                       <p className="text-navy-100 text-sm md:text-base leading-relaxed font-light mb-6 max-w-sm text-justify">
@@ -195,9 +166,9 @@ export default function ProductsClient() {
                       </p>
                       <Link
                         href={`/${group.slug}`}
-                        className={`inline-flex items-center text-white font-bold tracking-wide uppercase text-sm transition-all ${a.hoverText}`}
+                        className="inline-flex items-center text-amber-400 hover:text-amber-300 font-black tracking-widest uppercase text-[12px] transition-all group/link"
                       >
-                        View Technical Specs <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform" />
+                        View Technical Specs <ArrowRight className="w-4 h-4 ml-2 transform group-hover/link:translate-x-2 transition-transform" />
                       </Link>
                     </div>
                   </div>
@@ -213,7 +184,7 @@ export default function ProductsClient() {
                     <Link
                       key={linkIdx}
                       href={link.id}
-                      className="bg-white rounded-2xl lg:rounded-[2rem] p-6 lg:p-8 xl:p-10 border border-slate-200 shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:border-slate-300 hover:-translate-y-2 transition-all duration-300 group/card flex flex-col justify-between relative overflow-hidden"
+                      className="group/card relative bg-white rounded-2xl overflow-hidden p-6 lg:p-8 xl:p-10 shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-200 hover:border-slate-300 transform hover:-translate-y-1 flex flex-col justify-between"
                     >
                       {/* Gradient wash on hover */}
                       <div className={`absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br ${a.gradient} to-transparent`} />
@@ -234,9 +205,9 @@ export default function ProductsClient() {
                         </p>
                       </div>
 
-                      <div className="relative z-10 mt-6 flex justify-end">
-                        <div className={`w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-slate-200 bg-slate-50 flex items-center justify-center transition-all duration-300 text-slate-400 ${a.iconHover} group-hover/card:scale-110 group-hover/card:border-transparent group-hover/card:shadow-lg`}>
-                          <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 transition-transform duration-300 group-hover/card:translate-x-1" aria-hidden="true" />
+                      <div className="relative z-10 mt-8 flex justify-end">
+                        <div className={`w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-navy-50 to-navy-100 flex items-center justify-center transition-all duration-300 text-navy-900 shadow-sm group-hover/card:shadow-md ${a.iconHover} transform group-hover/card:rotate-45`}>
+                          <ArrowRight className="w-5 h-5 transition-transform duration-300" aria-hidden="true" />
                         </div>
                       </div>
                     </Link>
@@ -250,7 +221,11 @@ export default function ProductsClient() {
 
       {/* MANUFACTURING STANDARD */}
       <section className="py-16 md:py-24 bg-white border-y border-slate-100 overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50/50 -skew-x-12 translate-x-1/4 pointer-events-none" />
+        {/* Premium Fixed Parallax Background */}
+        <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
+          <div className="w-full h-full bg-[url('/products/spring-brake.jpg')] bg-fixed bg-center bg-no-repeat bg-[length:800px_800px] mix-blend-multiply grayscale"></div>
+        </div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50/50 -skew-x-12 translate-x-1/4 pointer-events-none z-0" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <SectionHeader
             badge="Quality Control"
@@ -286,9 +261,98 @@ export default function ProductsClient() {
         </div>
       </section>
 
+      {/* SCROLLING LOGO CAROUSEL */}
+      <div className="bg-white py-10 overflow-hidden whitespace-nowrap relative z-30 shadow-sm border-y border-slate-200">
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+        <div className="flex animate-marquee w-max items-center gap-16 md:gap-24 px-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700" style={{ animationDuration: '40s' }}>
+          {[...Array(4)].map((_, i) => (
+            <React.Fragment key={i}>
+              <div className="flex items-center transition-transform duration-500 hover:scale-105">
+                <span className="font-black text-3xl tracking-tighter uppercase text-[#004b8d] drop-shadow-sm">BENDIX</span>
+              </div>
+              <div className="flex items-center transition-transform duration-500 hover:scale-105">
+                <span className="font-extrabold text-3xl tracking-widest uppercase text-[#da291c] drop-shadow-sm">MERITOR</span>
+              </div>
+              <div className="flex items-center transition-transform duration-500 hover:scale-105">
+                <span className="font-bold text-3xl tracking-tight uppercase italic text-[#cc0000] drop-shadow-sm">HALDEX</span>
+              </div>
+              <div className="flex items-center transition-transform duration-500 hover:scale-105">
+                <span className="font-black text-3xl uppercase text-[#0033a0] drop-shadow-sm">WABCO</span>
+              </div>
+              <div className="flex items-center transition-transform duration-500 hover:scale-105">
+                <span className="font-extrabold text-3xl uppercase tracking-widest text-[#002f6c] drop-shadow-sm">MGM BRAKES</span>
+              </div>
+              <div className="flex items-center transition-transform duration-500 hover:scale-105">
+                <span className="font-black text-3xl uppercase tracking-tighter text-[#ed1c24] drop-shadow-sm">TSE BRAKES</span>
+              </div>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+
+      {/* BRC Performance Guarantee */}
+      <section className="py-20 md:py-24 relative overflow-hidden bg-navy-950 border-y border-navy-800">
+        {/* Animated Grid & Glow */}
+        <AnimatedGridBackground opacity={0.15} />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Column: Icon Block (Vertically Centered) */}
+            <div className="lg:col-span-5 flex justify-center items-center h-full">
+              <div className="relative">
+                <div className="w-48 h-48 md:w-64 md:h-64 bg-navy-800/50 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-amber-500/20 shadow-[0_0_60px_rgba(245,158,11,0.15)] relative z-10">
+                  <CheckCircle2 className="w-24 h-24 md:w-32 md:h-32 text-amber-500" />
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Text & Features */}
+            <div className="lg:col-span-7 relative z-10">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight text-left">
+                The BRC Performance <span className="text-amber-500">Guarantee</span>
+              </h2>
+              <p className="text-navy-100 text-lg md:text-xl font-light leading-relaxed mb-10 text-left">
+                We don't just build brake chambers; we build confidence. Every BRC application-specific chamber is backed by our industry-leading guarantee to match or exceed OEM operational lifespan.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
+                {/* Feature Card 1 */}
+                <div className="flex flex-col sm:flex-row items-start gap-5 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors h-full">
+                  <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0 border border-amber-500/30">
+                    <ShieldCheck className="w-6 h-6 text-amber-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-lg mb-2">3-Year Warranty</h4>
+                    <p className="text-sm text-navy-200 leading-relaxed">Comprehensive coverage against all manufacturing defects.</p>
+                  </div>
+                </div>
+
+                {/* Feature Card 2 */}
+                <div className="flex flex-col sm:flex-row items-start gap-5 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors h-full">
+                  <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 border border-blue-500/30">
+                    <Zap className="w-6 h-6 text-blue-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-lg mb-2">OEM Match</h4>
+                    <p className="text-sm text-navy-200 leading-relaxed">Guaranteed direct-fit replacement for specified models.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* TRUSTED BY GLOBAL FLEETS */}
-      <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
 
             {/* Text + stats */}
@@ -331,29 +395,20 @@ export default function ProductsClient() {
       </section>
 
       {/* WHOLESALE CTA */}
-      <div className="bg-[#F1EFE8] py-16 md:py-24 border-t border-navy-50">
-        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-          <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-3xl lg:rounded-[2.5rem] p-8 sm:p-12 md:p-16 lg:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
-            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
+      <div className="py-16 md:py-24 bg-[#F1EFE8] relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-10 md:p-16 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
+            {/* Internal Card Glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
 
-            <div className="relative z-10">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 border border-amber-500/20 backdrop-blur-sm">
-                <Package className="w-7 h-7 sm:w-8 sm:h-8 text-amber-400" />
-              </div>
-              <SectionHeader
-                badge="Bulk Orders"
-                title="Need Wholesale Pricing?"
-                description="We offer tiered volume discounts and direct container shipping for distributors and large fleets worldwide."
-                theme="dark"
-              />
-              {/* Full-width on mobile, auto on sm+ */}
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center w-full sm:w-auto min-h-[48px] bg-amber-500 text-navy-950 font-extrabold text-[13px] px-8 sm:px-10 py-4 sm:py-5 rounded-xl sm:rounded-2xl hover:bg-amber-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-amber-500/30 uppercase tracking-widest"
-              >
-                Request a Custom Quote
+            <div className="max-w-xl relative z-10 text-center md:text-left">
+              <h3 className="text-3xl md:text-4xl font-extrabold mb-4">Need Wholesale Pricing?</h3>
+              <p className="text-navy-200 text-base md:text-lg font-light">We offer tiered volume discounts and direct container shipping for distributors and large fleets worldwide. Connect directly with our manufacturing campus.</p>
+            </div>
+
+            <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto">
+              <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap">
+                Request Factory Quote
               </Link>
             </div>
           </div>

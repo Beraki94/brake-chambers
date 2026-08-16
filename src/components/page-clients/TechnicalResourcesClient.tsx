@@ -121,10 +121,10 @@ export default function TechnicalResourcesClient() {
 
         {/* Video Training Highlight */}
         <section className="mb-16">
-          <div className="bg-navy-950 rounded-[2.5rem] shadow-2xl overflow-hidden relative">
+          <div className="bg-navy-950 rounded-[2rem] shadow-2xl overflow-hidden relative">
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 pointer-events-none"></div>
             <div className="flex flex-col lg:flex-row">
-              <div className="w-full lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
+              <div className="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
                 <SectionHeader
                   badge="New Resource"
                   title={<>BRC <span className="text-amber-500">Video Training</span> Series</>}
@@ -158,7 +158,7 @@ export default function TechnicalResourcesClient() {
               variants={fadeInUp}
             >
               <div className="bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 p-8">
-                <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-6 px-2">Library Categories</h3>
+                <h3 className="text-xs font-black uppercase tracking-widest text-slate-500 mb-6 px-2">Library Categories</h3>
                 <ul className="space-y-3">
                   {categories.map((category) => (
                     <li key={category.id}>
@@ -206,7 +206,7 @@ export default function TechnicalResourcesClient() {
                   key={category.id}
                   id={category.id}
                   variants={fadeInUp}
-                  className="bg-white rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 p-8 md:p-12 scroll-mt-32 relative overflow-hidden group/section"
+                  className="bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 p-8 lg:p-10 scroll-mt-32 relative overflow-hidden group/section"
                 >
                   {/* Subtle background glow on section hover */}
                   <div className={`absolute top-0 right-0 w-64 h-64 blur-[80px] rounded-full opacity-0 group-hover/section:opacity-10 transition-opacity duration-700 pointer-events-none
@@ -229,8 +229,8 @@ export default function TechnicalResourcesClient() {
                         {React.cloneElement(category.icon, { className: 'w-8 h-8' })}
                       </div>
                       <div>
-                        <h2 className="text-3xl font-extrabold text-navy-900 font-heading tracking-tight mb-2">{category.title}</h2>
-                        <p className="text-slate-500 font-light text-lg">{category.desc}</p>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-navy-900 font-heading tracking-tight mb-2">{category.title}</h2>
+                        <p className="text-slate-500 font-light text-lg md:text-xl leading-relaxed">{category.desc}</p>
                       </div>
                     </div>
 
@@ -279,31 +279,21 @@ export default function TechnicalResourcesClient() {
       </div>
 
       {/* Engineering Support CTA */}
-      <div className="bg-[#F1EFE8] py-16 md:py-24 border-t border-slate-200 mt-24">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
+      <div className="py-16 md:py-24 bg-[#F1EFE8] border-t border-slate-200 relative overflow-hidden mt-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] p-8 lg:p-12 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
+            {/* Internal Card Glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
+            
+            <div className="max-w-xl relative z-10 text-center md:text-left">
+              <h3 className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">Need Custom Engineering Support?</h3>
+              <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed">If you require specific pushrod calculations, unique bracket alignments, or modified stroke limits, our engineering team is ready to assist.</p>
+            </div>
 
-            <div className="relative z-10">
-              <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-amber-500/20 backdrop-blur-sm">
-                <Wrench className="w-8 h-8 text-amber-400" />
-              </div>
-              <SectionHeader
-                badge="Expert Consultation"
-                title={<>Need Custom <span className="text-amber-500">Engineering</span> Support?</>}
-                description="If you require specific pushrod calculations, unique bracket alignments, or modified stroke limits, our engineering team is ready to assist."
-                theme="dark"
-              />
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-block bg-amber-500 text-navy-950 font-extrabold text-[13px] px-10 py-5 rounded-2xl hover:bg-amber-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-amber-500/30 uppercase tracking-widest"
-                >
-                  Contact BRC Engineering
-                </Link>
-              </div>
+            <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto shrink-0">
+              <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap">
+                Contact BRC Engineering
+              </Link>
             </div>
           </div>
         </div>

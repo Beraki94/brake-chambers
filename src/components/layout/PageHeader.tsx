@@ -13,27 +13,34 @@ interface PageHeaderProps {
 
 export default function PageHeader({ badge, title, description, children, imageSrc = '/images/engineering_blueprint.png', breadcrumbs }: PageHeaderProps) {
   return (
-    <section className="relative pt-6 md:pt-10 lg:pt-12 pb-24 md:pb-32 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8">
+    <section className="relative pt-6 md:pt-10 lg:pt-12 pb-24 md:pb-32 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8 bg-navy-950">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src={imageSrc}
           alt="Header Background"
           fill
-          className="object-cover opacity-40 mix-blend-luminosity"
+          className="object-cover opacity-40 mix-blend-luminosity grayscale"
           priority
         />
         {/* Dark Gradient Overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/90 to-navy-950"></div>
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-navy-950 via-navy-900/90 to-navy-900/40 opacity-90"></div>
       </div>
 
-      {/* Accent Background elements */}
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(245, 158, 11, 0.15) 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/20 rounded-full blur-[100px] -mr-40 -mt-40 mix-blend-screen pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px] -ml-40 -mb-40 mix-blend-screen pointer-events-none"></div>
+      {/* Blueprint Grid Overlay (Static) */}
+      <div
+        className="absolute inset-0 z-10 opacity-[0.15] mix-blend-overlay pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(245, 158, 11, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(245, 158, 11, 0.4) 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
+        }}
+      ></div>
+
+      {/* Dynamic Glow */}
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-amber-500 opacity-10 rounded-full blur-[80px] md:blur-[120px] -mr-20 -mt-20 md:-mr-40 md:-mt-40 mix-blend-screen pointer-events-none z-10"></div>
 
       {/* Content */}
-      <div className="container mx-auto max-w-7xl relative z-10">
+      <div className="container mx-auto max-w-7xl relative z-20">
         
         {/* TOP LEFT BREADCRUMB - Standardized Position */}
         {breadcrumbs && breadcrumbs.length > 0 && (
@@ -58,14 +65,14 @@ export default function PageHeader({ badge, title, description, children, imageS
         {/* Left-Aligned Hero Content */}
         <div className="max-w-4xl text-left">
           {badge && (
-            <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900/80 border border-navy-700 shadow-xl shadow-navy-950 text-amber-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
+            <div className="inline-block px-3 py-1 mb-4 md:px-4 md:py-1.5 md:mb-6 rounded-full bg-gradient-to-r from-navy-800 to-navy-900 border border-navy-700 text-amber-400 text-[10px] md:text-[11px] font-bold uppercase tracking-widest shadow-xl shadow-navy-950 whitespace-nowrap">
               {badge}
             </div>
           )}
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 drop-shadow-lg leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.15] mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
             {title}
           </h1>
-          <p className="text-navy-200 text-lg md:text-xl font-light leading-relaxed mb-10 drop-shadow max-w-3xl">
+          <p className="text-base md:text-xl mb-8 md:mb-10 leading-relaxed max-w-2xl font-light text-navy-100">
             {description}
           </p>
           

@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { TrendingUp, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { BRAKE_CHAMBERS } from '../../lib/data';
 import { fadeInUp } from '../../lib/animations';
+import SectionHeader from '../ui/SectionHeader';
 
 export default function TrendingModelsMarquee() {
   // We'll use a subset of popular chambers for the marquee
@@ -18,22 +19,15 @@ export default function TrendingModelsMarquee() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
-      className="py-16 bg-gradient-to-b from-white to-slate-50 border-t border-slate-200 overflow-hidden relative"
+      className="py-16 md:py-24 bg-gradient-to-b from-white to-slate-50 border-t border-slate-200 overflow-hidden relative"
     >
-      <div className="container mx-auto px-4 max-w-7xl mb-8 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
-            <TrendingUp className="w-5 h-5 text-amber-600" />
-          </div>
-          <h3 className="text-2xl font-black font-heading text-navy-900 tracking-tight">
-            Most Popular Assemblies
-          </h3>
-        </div>
-        <div className="hidden md:block">
-          <span className="text-sm font-semibold text-slate-400 uppercase tracking-widest">
-            High Demand
-          </span>
-        </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+        <SectionHeader
+          badge="High Demand"
+          title="Most Popular Assemblies"
+          description="Explore our top-selling aftermarket brake chambers currently shipping to distribution centers worldwide."
+          align="center"
+        />
       </div>
       
       {/* Marquee Container */}

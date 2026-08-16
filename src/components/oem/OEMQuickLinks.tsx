@@ -14,37 +14,36 @@ export default function OEMQuickLinks({ categoryName }: { categoryName: string }
 
   return (
     <section className="mt-12">
-      <div className="bg-navy-900 rounded-2xl p-8 md:p-12 text-white relative overflow-hidden">
+      <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-10 md:p-16 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Abstract background design */}
-        <div className="absolute -top-24 -right-24 w-64 h-64 bg-navy-800 rounded-full opacity-50 blur-3xl"></div>
-        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-amber-500/20 rounded-full opacity-50 blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
+        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] z-0"></div>
         
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div className="max-w-md">
-            <h2 className="font-heading text-2xl font-bold mb-3">Looking for a specific OEM replacement?</h2>
-            <p className="text-navy-200 text-sm mb-6">
-              Our {categoryName} are engineered as direct aftermarket drop-in replacements. Cross-reference your existing part numbers instantly.
-            </p>
+        <div className="relative z-10 w-full md:w-5/12 flex flex-col">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Looking for a specific OEM replacement?</h2>
+          <p className="text-navy-200 text-base md:text-lg font-light mb-8">
+            Our {categoryName.toLowerCase()} are engineered as direct aftermarket drop-in replacements. Cross-reference your existing part numbers instantly.
+          </p>
+          <Link 
+            href="/oem-cross-reference" 
+            className="inline-flex w-fit items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-navy-950 px-8 py-4 rounded-xl font-black uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1"
+          >
+            Open Cross-Reference Tool
+            <ArrowRight className="w-5 h-5 ml-1" />
+          </Link>
+        </div>
+        
+        <div className="relative z-10 w-full md:w-7/12 grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+          {oemBrands.map((brand) => (
             <Link 
-              href="/oem-cross-reference" 
-              className="inline-flex items-center gap-2 bg-amber-500 text-navy-900 px-6 py-3 rounded-lg font-bold hover:bg-amber-400 transition-colors"
+              key={brand.slug}
+              href={`/oem-cross-reference/${brand.slug}`}
+              className="bg-navy-900/50 backdrop-blur-sm border border-navy-700 hover:border-amber-500 hover:bg-navy-800/80 p-5 rounded-2xl flex flex-col items-center justify-center transition-all duration-300 group shadow-lg hover:shadow-amber-500/10 transform hover:-translate-y-1"
             >
-              Open Cross-Reference Tool
-              <ArrowRight className="w-4 h-4" />
+              <span className="font-extrabold text-white text-lg tracking-wide group-hover:text-amber-400 transition-colors">{brand.name}</span>
+              <span className="text-navy-300 text-[11px] font-bold uppercase tracking-widest mt-1">Replacements</span>
             </Link>
-          </div>
-          
-          <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-3">
-            {oemBrands.map((brand) => (
-              <Link 
-                key={brand.slug}
-                href={`/oem-cross-reference/${brand.slug}`}
-                className="bg-navy-800/80 border border-navy-700 hover:border-amber-500/50 hover:bg-navy-800 p-4 rounded-xl flex items-center justify-center transition-all group"
-              >
-                <span className="font-bold text-navy-100 group-hover:text-amber-400">{brand.name} Replacements</span>
-              </Link>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>

@@ -15,7 +15,7 @@ export default function OEMCrossReferenceClient() {
         badge="Interchange Database"
         title={
           <>
-            OEM Cross-Reference <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-500 to-amber-600">Database</span>
+            OEM Cross-Reference <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Database</span>
           </>
         }
         description="Instantly map competitor part numbers to our direct aftermarket equivalents. Engineered for exact fitment, guaranteed performance, and substantial cost savings."
@@ -23,38 +23,29 @@ export default function OEMCrossReferenceClient() {
           { label: 'Home', href: '/' },
           { label: 'Cross-Reference' }
         ]}
-      >
-        {/* Trusted By / Brands Bar - Kept inside header as an exception per user request */}
-        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 mt-4 opacity-80">
-          <div className="text-[10px] text-navy-300 uppercase tracking-widest font-bold w-full text-center mb-2">Cross-Referencing Top Brands</div>
-          {['Bendix', 'Haldex', 'Meritor', 'Wabco', 'MGM'].map((brand) => (
-            <div key={brand} className="text-white font-extrabold tracking-widest text-sm sm:text-lg uppercase drop-shadow-md">
-              {brand}
-            </div>
-          ))}
-        </div>
-      </PageHeader>
+      />
       {/* Main Search Interface */}
       <section className="relative z-20 -mt-20 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl mb-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="shadow-2xl shadow-navy-900/10 rounded-[2rem]"
+          className="w-full"
         >
           <OEMSearchForm />
         </motion.div>
       </section>
+
       {/* Categories Grid - Clean & Modern Light Mode */}
-      <section className="py-16 relative">
+      <section className="pt-8 pb-24 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div className="max-w-2xl">
+          <div className="flex flex-col justify-center items-center text-center">
+            <div className="max-w-2xl w-full">
               <SectionHeader
                 badge="Component Library"
                 title="Browse by Category"
                 description="Prefer to browse? Select your OEM brand, vehicle manufacturer, or suspension type to find guaranteed compatible aftermarket brake chambers."
-                align="left"
+                align="center"
               />
             </div>
           </div>
@@ -63,7 +54,7 @@ export default function OEMCrossReferenceClient() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {/* Major Brake Brands */}
             <motion.div variants={fadeInUp} className="bg-white rounded-[2rem] shadow-lg border border-slate-100 p-8 flex flex-col h-full hover:shadow-2xl hover:-translate-y-2 hover:border-amber-200 transition-all duration-300 group">
@@ -154,8 +145,8 @@ export default function OEMCrossReferenceClient() {
       {/* Feature Split Section */}
       <section className="py-16 md:py-24 bg-white border-y border-slate-100 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            {/* Left side: Imagery */}
+          <div className="flex flex-col-reverse lg:flex-row gap-16 items-center">
+            {/* Left side: Imagery (Bottom on Mobile, Left on Desktop) */}
             <div className="w-full lg:w-1/2 relative">
               <div className="absolute top-0 left-0 w-64 h-64 bg-amber-100 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"></div>
               <motion.div
@@ -236,31 +227,24 @@ export default function OEMCrossReferenceClient() {
         </div>
       </section>
       {/* Final CTA Section */}
-      <div className="bg-[#F1EFE8] py-16 md:py-24 border-t border-slate-200">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="bg-gradient-to-r from-navy-800 to-navy-900 rounded-[2.5rem] p-10 md:p-20 text-center shadow-2xl relative overflow-hidden border border-navy-700">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
-            <div className="relative z-10">
-              <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-amber-500/20 backdrop-blur-sm">
-                <Wrench className="w-8 h-8 text-amber-400" />
-              </div>
-              <SectionHeader
-                badge="Engineering Support"
-                title="Need a Custom Cross-Reference?"
-                description="If you have a specialized or legacy part number not found in our database, our engineering team can reverse-engineer and match it to a BRC equivalent within 24 hours."
-                theme="dark"
-                accentColor="amber"
-              />
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/contact" className="w-full sm:w-auto inline-flex justify-center items-center gap-3 bg-amber-500 text-navy-950 font-extrabold text-[13px] px-10 py-5 rounded-2xl hover:bg-amber-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-amber-500/30 uppercase tracking-widest">
-                  Upload Bulk Part List <ArrowRight className="w-5 h-5" />
-                </Link>
-                <Link href="/database" className="w-full sm:w-auto inline-flex justify-center items-center gap-3 bg-navy-800/60 text-white font-extrabold text-[13px] px-10 py-5 rounded-2xl border border-navy-600 hover:border-amber-500 hover:text-amber-400 transition-all uppercase tracking-widest">
-                  Download PDF Catalog
-                </Link>
-              </div>
+      <div className="py-16 md:py-24 bg-[#F1EFE8] relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-10 md:p-16 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
+            {/* Internal Card Glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
+
+            <div className="max-w-xl relative z-10 text-center md:text-left">
+              <h3 className="text-3xl md:text-4xl font-extrabold mb-4">Need a Custom Cross-Reference?</h3>
+              <p className="text-navy-200 text-base md:text-lg font-light">If you have a specialized or legacy part number not found in our database, our engineering team can reverse-engineer and match it to a BRC equivalent within 24 hours.</p>
+            </div>
+
+            <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto">
+              <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap">
+                Upload Bulk Part List
+              </Link>
+              <Link href="/database" className="inline-block w-full bg-navy-800/60 hover:bg-navy-800 border border-navy-600 hover:border-amber-500 text-white font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl transform hover:-translate-y-1 whitespace-nowrap">
+                Download PDF Catalog
+              </Link>
             </div>
           </div>
         </div>

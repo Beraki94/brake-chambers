@@ -5,7 +5,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppWidget from '@/components/layout/WhatsAppWidget';
 import Script from 'next/script';
-import DemoModeLock from '@/components/ui/DemoModeLock';
+
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' });
 
@@ -56,7 +56,6 @@ export default function RootLayout({
         <Script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
         
         <Navbar />
-        <DemoModeLock />
         <main className="flex-grow">
           {children}
         </main>

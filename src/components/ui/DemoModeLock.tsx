@@ -10,12 +10,41 @@ export default function DemoModeLock() {
   const pathname = usePathname();
   const router = useRouter();
   
+  // List of paths that are fully built and should be accessible
+  const ALLOWED_PATHS = [
+    '/',
+    '/products',
+    '/spring-brakes',
+    '/service-chambers',
+    '/chamber-parts-kits',
+    '/air-disc-actuators',
+    '/applications',
+    '/company',
+    '/technical-resources',
+    '/contact',
+    '/quote',
+    '/warranty'
+  ];
+
+  const isPathAllowed = (path: string) => {
+    // Remove query params or hash for check
+    const cleanPath = path.split('?')[0].split('#')[0];
+    
+    // Allow exact matches
+    if (ALLOWED_PATHS.includes(cleanPath)) return true;
+    
+    // Allow sub-paths of allowed directories (e.g., /spring-brakes/my-product)
+    if (ALLOWED_PATHS.some(allowed => allowed !== '/' && cleanPath.startsWith(allowed + '/'))) return true;
+    
+    return false;
+  };
+
   // We check if it's running on Vercel or production
   const isProd = process.env.NODE_ENV === 'production';
 
-  // Handle direct navigation to subpages in production
+  // Handle direct navigation to restricted subpages in production
   useEffect(() => {
-    if (isProd && pathname !== '/') {
+    if (isProd && !isPathAllowed(pathname)) {
       router.replace('/');
     }
   }, [pathname, router, isProd]);
@@ -31,8 +60,8 @@ export default function DemoModeLock() {
       
       const href = target.getAttribute('href');
       
-      // If it's a valid internal link but NOT the home page
-      if (href && href.startsWith('/') && href !== '/' && !href.startsWith('/#')) {
+      // If it's an internal link and the path is NOT allowed
+      if (href && href.startsWith('/') && !href.startsWith('/#') && !isPathAllowed(href)) {
         e.preventDefault();
         e.stopPropagation();
         setIsLoading(true);
@@ -52,8 +81,8 @@ export default function DemoModeLock() {
     };
   }, []);
 
-  // Force loading state if someone visits a subpage directly in production
-  if (isProd && pathname !== '/') {
+  // Force loading state if someone visits a restricted subpage directly in production
+  if (isProd && !isPathAllowed(pathname)) {
     return (
       <div className="fixed inset-0 z-[99999] bg-[#F8FAFC] flex flex-col items-center justify-center p-4">
         <Loader2 className="w-12 h-12 text-amber-500 animate-spin mb-4" />

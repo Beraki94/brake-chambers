@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { BrakeAccessory } from '@/types';
-import { ShieldCheck, Truck, Star } from 'lucide-react';
+import { ShieldCheck, Truck, Star, ChevronRight } from 'lucide-react';
 
 export default function AccessoryListCard({ product, categoryPath }: { product: BrakeAccessory, categoryPath: string }) {
   
@@ -75,11 +75,14 @@ export default function AccessoryListCard({ product, categoryPath }: { product: 
 
         </div>
         
-        {/* Action Button */}
-        <div className="mt-auto flex justify-end">
-          <button className="bg-navy-900 text-white text-xs font-bold px-4 py-2 rounded-lg group-hover:bg-amber-500 transition-colors duration-300">
-            View Details
-          </button>
+        {/* Action Button & Trust - Forced to Bottom */}
+        <div className="mt-auto flex justify-between items-center pt-2 gap-2">
+           <span className="flex-shrink-0 flex items-center text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-100 uppercase tracking-wider whitespace-nowrap">
+             <ShieldCheck size={12} className="mr-1 flex-shrink-0" /> Factory Direct
+           </span>
+          <span className="flex-shrink-0 whitespace-nowrap text-amber-600 text-sm font-bold flex items-center group-hover:text-amber-500 transition-colors">
+            View Details <ChevronRight size={16} className="ml-1 flex-shrink-0 transform group-hover:translate-x-1 transition-transform" />
+          </span>
         </div>
 
       </div>

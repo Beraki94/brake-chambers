@@ -105,7 +105,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
 const seenAccessorySlugs = new Set<string>();
 
 const createAccessory = (id: string, name: string, category: AccessoryCategory, priceUSD: number, features: string[]): BrakeAccessory => {
-  let newSlug = `${category}-${name}`.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  const newSlug = `${category}-${name}`.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
   if (seenAccessorySlugs.has(newSlug)) {
     throw new Error('SLUG COLLISION DETECTED for accessory: ' + newSlug);
   }

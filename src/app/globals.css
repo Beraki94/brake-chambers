@@ -30,6 +30,17 @@
       transform: translateX(-50%);
     }
   }
+
+  --animate-pan-grid: panGridDiagonally 20s linear infinite;
+
+  @keyframes panGridDiagonally {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 30px 30px;
+    }
+  }
 }
 
 /* Custom base styles */
