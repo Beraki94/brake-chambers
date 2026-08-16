@@ -26,7 +26,7 @@ const applications = [
 
 export default function ApplicationScopeSection() {
   return (
-    <div className="mt-16 mb-8 bg-slate-50 border border-slate-200 rounded-[2rem] p-8 md:p-12">
+    <div className="mt-12 sm:mt-16 mb-8 bg-slate-50 border border-slate-200 rounded-[2rem] p-5 sm:p-8 md:p-12">
       <h3 className="text-2xl font-extrabold text-navy-900 mb-8 text-center">Global Fleet Applications</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
         {applications.map((app, idx) => (

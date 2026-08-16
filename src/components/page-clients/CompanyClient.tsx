@@ -144,7 +144,7 @@ export default function CompanyClient() {
               src="/images/manufacturing_floor.png" 
               alt="BRC Manufacturing Facility" 
               fill 
-              className="object-cover object-right-top opacity-80"
+              className="object-cover object-right-top opacity-80 grayscale"
             />
             {/* White gradient fading from left to right - Extended to 85% to fully cover text */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,1)_0%,rgba(255,255,255,1)_85%,rgba(255,255,255,0)_100%)] z-10"></div>
@@ -191,7 +191,7 @@ export default function CompanyClient() {
                     src={pillar.image}
                     alt={pillar.title}
                     fill
-                    className="object-cover mix-blend-multiply opacity-90"
+                    className="object-cover mix-blend-multiply opacity-90 grayscale"
                   />
                   <div className={`absolute inset-0 opacity-10 ${pillar.colors.bg}`}></div>
                 </div>
@@ -256,12 +256,12 @@ export default function CompanyClient() {
               <p className="text-navy-200 text-base md:text-lg font-light">Whether you need a custom OEM solution, private labeling, or a container of replacement chambers for your distribution network, BRC delivers.</p>
             </div>
 
-            <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto shrink-0">
-              <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap">
-                Wholesale Quote
+            <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto">
+              <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
+                Contact Sales Team
               </Link>
-              <Link href="/company/iso-certifications" className="inline-block w-full bg-navy-800/60 hover:bg-navy-800 border border-navy-600 hover:border-amber-500 text-white font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl transform hover:-translate-y-1 whitespace-nowrap">
-                Certifications
+              <Link href="/company/iso-certifications" className="inline-block w-full bg-navy-800/60 hover:bg-navy-800 border border-navy-600 hover:border-amber-500 text-white font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
+                View ISO Certifications
               </Link>
             </div>
           </div>

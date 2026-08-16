@@ -52,7 +52,7 @@ export default function OurStoryClient() {
               </div>
             </div>
             <div className="relative h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl">
-              <Image src="/images/manufacturing_floor.png" alt="Early engineering" fill className="object-cover" />
+              <Image src="/images/manufacturing_floor.png" alt="Early engineering" fill className="object-cover grayscale" />
               <div className="absolute inset-0 bg-navy-900/20"></div>
             </div>
           </div>

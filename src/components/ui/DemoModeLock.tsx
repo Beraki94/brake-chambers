@@ -20,16 +20,19 @@ export default function DemoModeLock() {
     '/air-disc-actuators',
     '/applications',
     '/company',
-    '/technical-resources',
     '/contact',
     '/quote',
-    '/warranty'
+    '/warranty',
+    '/oem-cross-reference'
   ];
 
   const isPathAllowed = (path: string) => {
     // Remove query params or hash for check
     const cleanPath = path.split('?')[0].split('#')[0];
     
+    // Explicitly block subpages of oem-cross-reference
+    if (cleanPath.startsWith('/oem-cross-reference/') && cleanPath !== '/oem-cross-reference') return false;
+
     // Allow exact matches
     if (ALLOWED_PATHS.includes(cleanPath)) return true;
     
@@ -39,15 +42,13 @@ export default function DemoModeLock() {
     return false;
   };
 
-  // We check if it's running on Vercel or production
-  const isProd = process.env.NODE_ENV === 'production';
-
-  // Handle direct navigation to restricted subpages in production
-  useEffect(() => {
-    if (isProd && !isPathAllowed(pathname)) {
-      router.replace('/');
-    }
-  }, [pathname, router, isProd]);
+  // Handle direct navigation to restricted subpages - remove the auto-redirect
+  // We want them to see the nice modal instead of just flashing it
+  // useEffect(() => {
+  //   if (!isPathAllowed(pathname)) {
+  //     router.replace('/');
+  //   }
+  // }, [pathname, router]);
 
   // Intercept all link clicks globally
   useEffect(() => {
@@ -81,18 +82,11 @@ export default function DemoModeLock() {
     };
   }, []);
 
-  // Force loading state if someone visits a restricted subpage directly in production
-  if (isProd && !isPathAllowed(pathname)) {
-    return (
-      <div className="fixed inset-0 z-[99999] bg-[#F8FAFC] flex flex-col items-center justify-center p-4">
-        <Loader2 className="w-12 h-12 text-amber-500 animate-spin mb-4" />
-      </div>
-    );
-  }
+  const showModal = isLoading || !isPathAllowed(pathname);
 
   return (
     <AnimatePresence>
-      {isLoading && (
+      {showModal && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -119,7 +113,12 @@ export default function DemoModeLock() {
             </p>
             
             <button
-              onClick={() => setIsLoading(false)}
+              onClick={() => {
+                setIsLoading(false);
+                if (!isPathAllowed(pathname)) {
+                  router.replace('/');
+                }
+              }}
               className="bg-navy-900 text-white font-bold px-8 py-3 rounded-xl hover:bg-navy-800 hover:-translate-y-1 transition-all shadow-lg"
             >
               Continue Exploring

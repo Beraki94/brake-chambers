@@ -157,8 +157,8 @@ export default function OEMCrossReferenceClient() {
                 className="relative z-10 grid grid-cols-2 gap-4"
               >
                 <div className="space-y-4">
-                  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Testing" className="rounded-2xl shadow-lg w-full h-48 object-cover grayscale mix-blend-luminosity hover:grayscale-0 transition-all duration-500" />
-                  <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80" alt="Manufacturing" className="rounded-2xl shadow-lg w-full h-64 object-cover grayscale mix-blend-luminosity hover:grayscale-0 transition-all duration-500" />
+                  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Testing" className="rounded-2xl shadow-lg w-full h-48 object-cover grayscale mix-blend-luminosity transition-all duration-500" />
+                  <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=600&q=80" alt="Manufacturing" className="rounded-2xl shadow-lg w-full h-64 object-cover grayscale mix-blend-luminosity transition-all duration-500" />
                 </div>
                 <div className="pt-8">
                   <img src="/products/spring-brake.jpg" alt="Spring Brake" className="rounded-2xl shadow-lg w-full h-80 object-cover object-center bg-slate-100" />
@@ -239,11 +239,11 @@ export default function OEMCrossReferenceClient() {
             </div>
 
             <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto">
-              <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap">
-                Upload Bulk Part List
+              <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
+                Request OEM Match Quote
               </Link>
-              <Link href="/database" className="inline-block w-full bg-navy-800/60 hover:bg-navy-800 border border-navy-600 hover:border-amber-500 text-white font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl transform hover:-translate-y-1 whitespace-nowrap">
-                Download PDF Catalog
+              <Link href="/database" className="inline-block w-full bg-navy-800/60 hover:bg-navy-800 border border-navy-600 hover:border-amber-500 text-white font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
+                Search Entire Database
               </Link>
             </div>
           </div>

@@ -265,7 +265,7 @@ export default function ProductsClient() {
       <div className="bg-white py-10 overflow-hidden whitespace-nowrap relative z-30 shadow-sm border-y border-slate-200">
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
-        <div className="flex animate-marquee w-max items-center gap-16 md:gap-24 px-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700" style={{ animationDuration: '40s' }}>
+        <div className="flex animate-marquee w-max items-center gap-16 md:gap-24 px-8 opacity-60 grayscale hover:opacity-100 transition-all duration-700" style={{ animationDuration: '40s' }}>
           {[...Array(4)].map((_, i) => (
             <React.Fragment key={i}>
               <div className="flex items-center transition-transform duration-500 hover:scale-105">
@@ -381,12 +381,12 @@ export default function ProductsClient() {
                 <img
                   src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80"
                   alt="Fleet trucks"
-                  className="rounded-2xl lg:rounded-3xl shadow-lg w-full h-48 sm:h-56 lg:h-64 object-cover object-center grayscale hover:grayscale-0 transition-all duration-500"
+                  className="rounded-2xl lg:rounded-3xl shadow-lg w-full h-48 sm:h-56 lg:h-64 object-cover object-center grayscale transition-all duration-500"
                 />
                 <img
                   src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80"
                   alt="Global logistics"
-                  className="rounded-2xl lg:rounded-3xl shadow-lg w-full h-60 sm:h-72 lg:h-80 object-cover object-center mt-6 sm:mt-8 lg:mt-12 grayscale hover:grayscale-0 transition-all duration-500"
+                  className="rounded-2xl lg:rounded-3xl shadow-lg w-full h-60 sm:h-72 lg:h-80 object-cover object-center mt-6 sm:mt-8 lg:mt-12 grayscale transition-all duration-500"
                 />
               </div>
             </div>
@@ -407,7 +407,7 @@ export default function ProductsClient() {
             </div>
 
             <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto">
-              <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap">
+              <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
                 Request Factory Quote
               </Link>
             </div>

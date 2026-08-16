@@ -216,13 +216,13 @@ export default function HomeClient() {
             {/* Image Grid / Factory Floor */}
             <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="col-span-2 rounded-2xl overflow-hidden h-64 md:h-80 shadow-lg">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Brake Chamber Assembly Line" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Brake Chamber Assembly Line" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
               </motion.div>
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
-                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80" alt="Quality Control Testing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80" alt="Quality Control Testing" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
               </motion.div>
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
-                <img src="/facility/cnc_machining_center.jpg" alt="CNC Machining Center" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                <img src="/facility/cnc_machining_center.jpg" alt="CNC Machining Center" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
               </motion.div>
             </div>
             
@@ -641,7 +641,7 @@ export default function HomeClient() {
             </div>
 
             <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto">
-              <Link href="/quote" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap">
+              <Link href="/quote" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
                 Request Factory Quote
               </Link>
               <div className="flex flex-col sm:flex-row justify-center gap-6 mt-4 text-center md:text-left">

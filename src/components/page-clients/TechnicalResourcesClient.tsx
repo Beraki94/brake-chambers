@@ -137,7 +137,7 @@ export default function TechnicalResourcesClient() {
                 </Link>
               </div>
               <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-full">
-                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80" alt="Video Training" className="absolute inset-0 w-full h-full object-cover grayscale mix-blend-luminosity opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-700" />
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80" alt="Video Training" className="absolute inset-0 w-full h-full object-cover grayscale mix-blend-luminosity opacity-60 hover:opacity-100 transition-all duration-700" />
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
                     <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-2"></div>

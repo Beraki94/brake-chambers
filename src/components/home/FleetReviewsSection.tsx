@@ -41,7 +41,7 @@ export default function FleetReviewsSection({ categoryName }: { categoryName: st
   };
 
   return (
-    <section className="mt-12 bg-slate-50 rounded-2xl p-8 md:p-12 border border-slate-200">
+    <section className="mt-8 sm:mt-12 bg-slate-50 rounded-2xl p-5 sm:p-8 md:p-12 border border-slate-200">
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-8">
         <div>
           <h2 className="font-heading text-2xl font-bold text-navy-900 mb-2">Trusted by Fleets Nationwide</h2>

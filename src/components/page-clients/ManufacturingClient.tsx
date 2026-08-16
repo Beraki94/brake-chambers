@@ -188,7 +188,7 @@ export default function ManufacturingClient() {
                         alt={step.title} 
                         fill 
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-[10s] group-hover/row:scale-110 ease-out" 
+                        className="object-cover transition-transform duration-[10s] group-hover/row:scale-110 ease-out grayscale" 
                       />
                       {/* Gradient overlay to ensure image isn't too overpowering */}
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent"></div>

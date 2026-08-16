@@ -149,7 +149,7 @@ export default function ApplicationsClient() {
                         alt={group.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover group-hover:scale-110 transition-transform duration-[15s] ease-out mix-blend-luminosity grayscale group-hover:grayscale-0"
+                        className="object-cover grayscale group-hover:scale-105 transition-transform duration-700"
                       />
                     </div>
                   </motion.div>
@@ -333,8 +333,8 @@ export default function ApplicationsClient() {
             </div>
 
             <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto">
-              <Link href="/quote" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap">
-                Submit Engineering Specifications
+              <Link href="/quote" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
+                Request Custom Application Quote
               </Link>
             </div>
           </div>

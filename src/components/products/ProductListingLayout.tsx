@@ -107,11 +107,8 @@ export default function ProductListingLayout({
         </div>
 
         <div className="flex-grow">
-          <div className="bg-navy-900 p-3 rounded-xl shadow-md flex justify-between items-center mb-5 text-sm">
-            <div className="text-white font-bold tracking-wide">Showing {products.length} products</div>
-            <select className="bg-navy-800 border border-navy-700 rounded-lg px-3 py-1.5 text-white font-medium focus:outline-none focus:ring-2 focus:ring-navy-400 cursor-pointer transition-all">
-              <option>Sort by: Recommended</option>
-            </select>
+          <div className="bg-navy-900 p-3 rounded-xl shadow-md flex justify-start items-center mb-5 text-sm">
+            <div className="text-white font-bold tracking-wide px-2">Showing {products.length} products</div>
           </div>
 
           {products.length > 0 ? (
@@ -135,7 +132,7 @@ export default function ProductListingLayout({
           {totalPages > 1 && <Pagination totalPages={totalPages} />}
           
           {seoText && (
-            <div className="mt-12 bg-white rounded-2xl p-8 border border-slate-200 shadow-sm text-slate-600 prose prose-slate max-w-none">
+            <div className="mt-8 sm:mt-12 bg-white rounded-2xl p-5 md:p-8 border border-slate-200 shadow-sm text-slate-600 prose prose-slate max-w-none">
               {seoText}
             </div>
           )}

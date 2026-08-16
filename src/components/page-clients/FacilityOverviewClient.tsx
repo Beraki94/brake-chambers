@@ -24,7 +24,7 @@ export default function FacilityOverviewClient() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
             <div className="relative h-[600px] rounded-[3rem] overflow-hidden shadow-2xl">
-              <Image src="/products/scattered_chambers_footer.png" alt="Facility exterior" fill className="object-cover bg-navy-900" />
+              <Image src="/products/scattered_chambers_footer.png" alt="Facility exterior" fill className="object-cover bg-navy-900 grayscale" />
               <div className="absolute inset-0 bg-amber-900/30 mix-blend-multiply"></div>
             </div>
             <div>
@@ -82,7 +82,7 @@ export default function FacilityOverviewClient() {
                 </ul>
               </div>
               <div className="relative h-80 rounded-3xl overflow-hidden shadow-2xl">
-                <Image src="/images/heavy_duty_truck.png" alt="Logistics" fill className="object-cover" />
+                <Image src="/images/heavy_duty_truck.png" alt="Logistics" fill className="object-cover grayscale" />
                 <div className="absolute inset-0 bg-navy-900/40 mix-blend-multiply"></div>
               </div>
             </div>

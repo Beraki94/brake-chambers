@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppWidget from '@/components/layout/WhatsAppWidget';
+import DemoModeLock from '@/components/ui/DemoModeLock';
 import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -55,6 +56,7 @@ export default function RootLayout({
         </Script>
         <Script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
         
+        <DemoModeLock />
         <Navbar />
         <main className="flex-grow">
           {children}

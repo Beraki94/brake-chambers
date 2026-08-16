@@ -65,7 +65,7 @@ export default function LeadershipClient() {
             {leaders.map((leader, idx) => (
               <div key={idx} className="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 text-center group">
                 <div className="w-40 h-40 mx-auto bg-slate-200 rounded-full mb-6 overflow-hidden relative">
-                  <img src={`https://i.pravatar.cc/300?img=${leader.img}`} alt={leader.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                  <img src={`https://i.pravatar.cc/300?img=${leader.img}`} alt={leader.name} className="w-full h-full object-cover grayscale transition-all duration-500" />
                 </div>
                 <h3 className="text-2xl font-bold text-navy-900 mb-1">{leader.name}</h3>
                 <p className="text-amber-600 text-sm font-bold uppercase tracking-widest mb-4">{leader.role}</p>

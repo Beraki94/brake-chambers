@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { BRAKE_ACCESSORIES } from '@/lib/data';
 import ProductListingLayout from '@/components/products/ProductListingLayout';
-import OEMMatcher from '@/components/oem/OEMMatcher';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Brake Chamber Accessories | BRC Manufacturer',
@@ -70,8 +69,6 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
           </div>
         </div>
       </section>
-
-      <OEMMatcher />
 
       <Script id="accessories-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([
         {
