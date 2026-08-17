@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, CheckCircle, Zap, Settings, Camera, FileText, Truck, AlertTriangle, ArrowRight } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
+import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import { fadeInUp, staggerContainer, scaleIn } from '@/lib/animations';
 
 export default function WarrantyClient() {
@@ -141,8 +142,8 @@ export default function WarrantyClient() {
               accentColor="amber"
             />
             
-            <div className="space-y-4">
-              {[
+            <div className="mt-8">
+              <GlobalFAQAccordion faqs={[
                 { 
                   q: "What voids the standard warranty?", 
                   a: "The warranty is voided if the chamber exhibits signs of severe external physical damage, improper installation (e.g., cutting the pushrod incorrectly), exposure to corrosive chemicals outside of normal road salt, or if the unit was disassembled." 
@@ -155,15 +156,7 @@ export default function WarrantyClient() {
                   q: "Does the warranty cover labor costs?", 
                   a: "No. The standard BRC factory warranty is strictly limited to the replacement of the defective product or a credit note for the purchase price of the unit. We do not cover consequential damages, towing, or installation labor." 
                 }
-              ].map((faq, i) => (
-                <div key={i} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4">
-                  <AlertTriangle className="w-6 h-6 text-amber-500 shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-extrabold text-navy-900 mb-2">{faq.q}</h4>
-                    <p className="text-slate-600 text-sm leading-relaxed">{faq.a}</p>
-                  </div>
-                </div>
-              ))}
+              ]} />
             </div>
           </section>
 

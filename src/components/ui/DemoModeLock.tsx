@@ -5,42 +5,42 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const ALLOWED_PATHS = [
+  '/',
+  '/products',
+  '/spring-brakes',
+  '/service-chambers',
+  '/chamber-parts-kits',
+  '/air-disc-actuators',
+  '/applications',
+  '/company',
+  '/contact',
+  '/quote',
+  '/warranty',
+  '/oem-cross-reference',
+  '/distributors',
+  '/technical-resources'
+];
+
+const isPathAllowed = (path: string) => {
+  // Remove query params or hash for check
+  const cleanPath = path.split('?')[0].split('#')[0];
+  
+  // Removed explicit block on /oem-cross-reference/ subpages so they can be viewed during development
+
+  // Allow exact matches
+  if (ALLOWED_PATHS.includes(cleanPath)) return true;
+  
+  // Allow sub-paths of allowed directories (e.g., /spring-brakes/my-product)
+  if (ALLOWED_PATHS.some(allowed => allowed !== '/' && cleanPath.startsWith(allowed + '/'))) return true;
+  
+  return false;
+};
+
 export default function DemoModeLock() {
   const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  
-  // List of paths that are fully built and should be accessible
-  const ALLOWED_PATHS = [
-    '/',
-    '/products',
-    '/spring-brakes',
-    '/service-chambers',
-    '/chamber-parts-kits',
-    '/air-disc-actuators',
-    '/applications',
-    '/company',
-    '/contact',
-    '/quote',
-    '/warranty',
-    '/oem-cross-reference'
-  ];
-
-  const isPathAllowed = (path: string) => {
-    // Remove query params or hash for check
-    const cleanPath = path.split('?')[0].split('#')[0];
-    
-    // Explicitly block subpages of oem-cross-reference
-    if (cleanPath.startsWith('/oem-cross-reference/') && cleanPath !== '/oem-cross-reference') return false;
-
-    // Allow exact matches
-    if (ALLOWED_PATHS.includes(cleanPath)) return true;
-    
-    // Allow sub-paths of allowed directories (e.g., /spring-brakes/my-product)
-    if (ALLOWED_PATHS.some(allowed => allowed !== '/' && cleanPath.startsWith(allowed + '/'))) return true;
-    
-    return false;
-  };
 
   // Handle direct navigation to restricted subpages - remove the auto-redirect
   // We want them to see the nice modal instead of just flashing it

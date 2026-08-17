@@ -1,134 +1,139 @@
-'use client';
-
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { Camera, FileUp, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import React from 'react';
+import type { Metadata } from 'next';
 import PageHeader from '@/components/layout/PageHeader';
+import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
+import { Mail, ShieldCheck, Clock, Camera } from 'lucide-react';
 
-export default function RequestCrossMatchPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+export const metadata: Metadata = {
+  title: 'Request a Cross-Match | BRC Brake Chambers',
+  description: 'Can\'t find your exact brake chamber part number? Submit it to our engineering team and we will manually cross-reference it within 24 hours.',
+  keywords: ['Request Brake Chamber Cross Reference', 'Unknown Air Brake Part', 'Engineering Match'],
+};
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 1500);
-  };
-
+export default function RequestMatchPage() {
   return (
-    <div className="bg-slate-50 min-h-screen pb-16">
-      <PageHeader 
-        badge="Engineering Services"
-        title="Request a Custom Cross-Match"
-        description="Can't find your part number? Our engineering team will manually identify your brake chamber and provide a factory-direct aftermarket equivalent."
+    <div className="bg-slate-50 min-h-screen font-sans">
+      <PageHeader
+        badge="Engineering Support"
+        title="Request a Cross-Match"
+        description="If you have a specialized, legacy, or rusted part number not found in our online database, our engineering team can reverse-engineer and match it to a BRC equivalent."
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Cross-Reference', href: '/oem-cross-reference' },
+          { label: 'Request Match' }
+        ]}
       />
 
-      <div className="container mx-auto px-4 lg:px-8 max-w-4xl -mt-10 relative z-20">
-        <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xl shadow-navy-900/5">
+      <div className="container mx-auto px-4 max-w-6xl py-16">
+        <div className="flex flex-col lg:flex-row gap-12">
           
-          {isSuccess ? (
-            <div className="text-center py-16">
-              <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle2 className="w-10 h-10 text-emerald-600" />
+          {/* Left: Info */}
+          <div className="w-full lg:w-1/3">
+            <h2 className="text-2xl font-extrabold text-navy-900 mb-6">How It Works</h2>
+            
+            <div className="space-y-8 relative before:absolute before:inset-y-0 before:left-[19px] before:w-[2px] before:bg-slate-200">
+              <div className="relative z-10 flex gap-4">
+                <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center font-bold text-navy-950 shrink-0">1</div>
+                <div>
+                  <h3 className="font-bold text-navy-900 text-lg mb-1">Submit Data</h3>
+                  <p className="text-slate-600 text-sm">Provide the part number, brand (if known), or upload a photo of the data tag and the chamber body.</p>
+                </div>
               </div>
-              <h2 className="text-3xl font-extrabold text-navy-900 mb-4 font-heading">Request Submitted!</h2>
-              <p className="text-slate-600 max-w-md mx-auto mb-8 text-lg">
-                Our engineering team has received your information. We typically cross-match and respond within 1-2 business hours.
-              </p>
-              <button 
-                onClick={() => setIsSuccess(false)}
-                className="bg-navy-50 text-navy-900 font-bold py-3 px-8 rounded-xl hover:bg-navy-100 transition-colors border border-navy-200"
-              >
-                Submit Another Request
-              </button>
+              <div className="relative z-10 flex gap-4">
+                <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center font-bold text-navy-950 shrink-0">2</div>
+                <div>
+                  <h3 className="font-bold text-navy-900 text-lg mb-1">Engineering Review</h3>
+                  <p className="text-slate-600 text-sm">Our team will manually cross-reference the specs against our internal master database of over 10,000 components.</p>
+                </div>
+              </div>
+              <div className="relative z-10 flex gap-4">
+                <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center font-bold text-navy-950 shrink-0">3</div>
+                <div>
+                  <h3 className="font-bold text-navy-900 text-lg mb-1">Guaranteed Match</h3>
+                  <p className="text-slate-600 text-sm">We'll email you the exact BRC equivalent part number, ensuring a 100% drop-in fitment.</p>
+                </div>
+              </div>
             </div>
-          ) : (
-            <>
-              <div className="mb-10 bg-amber-50 border border-amber-200 p-6 rounded-xl flex gap-4 items-start">
-                <AlertCircle className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" />
+
+            <div className="mt-12 bg-navy-900 rounded-2xl p-6 text-white shadow-xl shadow-navy-900/20">
+              <h3 className="font-bold text-lg mb-4 flex items-center">
+                <Clock className="w-5 h-5 mr-2 text-amber-500" /> 24-Hour SLA
+              </h3>
+              <p className="text-navy-200 text-sm leading-relaxed mb-4">
+                We know fleet downtime is expensive. Most manual cross-reference requests are completed and replied to within 2-4 hours during business days.
+              </p>
+              <div className="flex items-center text-sm font-bold text-emerald-400">
+                <ShieldCheck className="w-4 h-4 mr-2" /> Free service for fleets & distributors
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Form */}
+          <div className="w-full lg:w-2/3 bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-sm">
+            <h2 className="text-2xl font-extrabold text-navy-900 mb-2">Submission Form</h2>
+            <p className="text-slate-500 mb-8">Please fill out as much information as possible to expedite the match.</p>
+            
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="font-bold text-navy-900 mb-2">Instructions for best results</h3>
-                  <p className="text-sm text-slate-700 leading-relaxed">
-                    If you have a large list of parts, you can upload a CSV or Excel file. If you have an unidentified physical chamber, please provide clear photos of the <strong>housing</strong>, the <strong>air ports</strong>, and the <strong>pushrod/clevis</strong> assembly.
-                  </p>
+                  <label className="block text-sm font-bold text-navy-900 mb-2">Your Name *</label>
+                  <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all" placeholder="John Doe" />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-navy-900 mb-2">Company / Fleet *</label>
+                  <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all" placeholder="Logistics Inc" />
                 </div>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Contact Information */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="text-lg font-bold text-navy-900 mb-4 border-b border-slate-100 pb-2">Contact Information</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-2">Full Name *</label>
-                      <input type="text" id="name" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all" placeholder="John Doe" />
-                    </div>
-                    <div>
-                      <label htmlFor="company" className="block text-sm font-bold text-slate-700 mb-2">Company Name *</label>
-                      <input type="text" id="company" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all" placeholder="Fleet Transport Inc." />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-bold text-slate-700 mb-2">Email Address *</label>
-                      <input type="email" id="email" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all" placeholder="john@example.com" />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-bold text-slate-700 mb-2">Phone Number</label>
-                      <input type="tel" id="phone" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all" placeholder="(555) 123-4567" />
-                    </div>
+                  <label className="block text-sm font-bold text-navy-900 mb-2">Email Address *</label>
+                  <input type="email" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all" placeholder="john@example.com" />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-navy-900 mb-2">Phone Number</label>
+                  <input type="tel" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all" placeholder="(555) 123-4567" />
+                </div>
+              </div>
+
+              <div className="border-t border-slate-100 pt-6 mt-6">
+                <h3 className="text-lg font-bold text-navy-900 mb-4">Part Information</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label className="block text-sm font-bold text-navy-900 mb-2">Unknown Part Number(s)</label>
+                    <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all font-mono uppercase" placeholder="e.g. NT3030STD" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-navy-900 mb-2">Suspected Brand / OEM</label>
+                    <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all" placeholder="Bendix, Meritor, etc." />
                   </div>
                 </div>
 
-                {/* Request Details */}
-                <div className="pt-4">
-                  <h3 className="text-lg font-bold text-navy-900 mb-4 border-b border-slate-100 pb-2">Part Details</h3>
-                  
-                  <div className="mb-6">
-                    <label htmlFor="details" className="block text-sm font-bold text-slate-700 mb-2">Competitor Part Numbers or Description *</label>
-                    <textarea 
-                      id="details" 
-                      required 
-                      rows={4} 
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all" 
-                      placeholder="List any part numbers, brands, or physical descriptions (e.g. Type 30/30, long stroke, welded clevis)..."
-                    ></textarea>
-                  </div>
-
-                  {/* File Upload Area */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center hover:bg-slate-50 hover:border-amber-400 transition-colors cursor-pointer group">
-                      <Camera className="w-8 h-8 text-slate-400 mx-auto mb-3 group-hover:text-amber-500 transition-colors" />
-                      <h4 className="font-bold text-navy-900 text-sm mb-1">Upload Photos</h4>
-                      <p className="text-xs text-slate-500">JPG, PNG up to 5MB</p>
-                    </div>
-                    <div className="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center hover:bg-slate-50 hover:border-amber-400 transition-colors cursor-pointer group">
-                      <FileUp className="w-8 h-8 text-slate-400 mx-auto mb-3 group-hover:text-amber-500 transition-colors" />
-                      <h4 className="font-bold text-navy-900 text-sm mb-1">Upload Parts List</h4>
-                      <p className="text-xs text-slate-500">CSV, Excel, or PDF</p>
-                    </div>
-                  </div>
+                <div>
+                  <label className="block text-sm font-bold text-navy-900 mb-2">Additional Context (Optional)</label>
+                  <textarea rows={4} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all resize-none" placeholder="Provide vehicle application, pushrod length, or any other identifying marks..."></textarea>
                 </div>
+              </div>
 
-                <div className="pt-8 border-t border-slate-100">
-                  <button 
-                    type="submit" 
-                    disabled={isSubmitting}
-                    className="w-full bg-navy-900 text-white font-extrabold py-4 rounded-xl hover:bg-navy-800 transition-colors shadow-lg flex items-center justify-center gap-3 disabled:opacity-70"
-                  >
-                    {isSubmitting ? 'Submitting Request...' : (
-                      <>Submit for Engineering Review <Send className="w-5 h-5" /></>
-                    )}
-                  </button>
-                  <p className="text-center text-xs text-slate-500 mt-4">By submitting this form, you agree to our privacy policy. Your data is secure.</p>
-                </div>
-              </form>
-            </>
-          )}
+              <div className="border-2 border-dashed border-slate-200 rounded-2xl p-8 text-center hover:bg-slate-50 transition-colors cursor-pointer">
+                <Camera className="w-8 h-8 text-slate-400 mx-auto mb-3" />
+                <p className="text-navy-900 font-bold mb-1">Upload Data Tag Photos</p>
+                <p className="text-slate-500 text-sm">Drag and drop images here, or click to browse. Max 5MB per file.</p>
+              </div>
+
+              <button type="button" className="w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-8 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1">
+                Submit for Engineering Match
+              </button>
+            </form>
+          </div>
+
         </div>
       </div>
+
+      <BreadcrumbSchema items={[
+        { name: 'OEM Cross-Reference', item: 'https://www.brcbrakechambers.com/oem-cross-reference' },
+        { name: 'Request Match' }
+      ]} />
     </div>
   );
 }

@@ -48,9 +48,12 @@ export async function generateMetadata(
   }
 
   return {
-    title: `${brandInfo.name} Brake Chamber Replacements | Wholesale | BRC`,
-    description: brandInfo.desc,
-    keywords: [`${brandInfo.name} Brake Chambers`, `${brandInfo.name} Cross Reference`, 'Direct Replacement', 'Aftermarket', 'Wholesale'],
+    title: `${brandInfo.name} Brake Chamber Cross Reference & Replacements | BRC`,
+    description: `Find exact aftermarket equivalents for ${brandInfo.name} air brake chambers. View cross-reference data, interchange part numbers, and factory-direct pricing.`,
+    keywords: [`${brandInfo.name} Brake Chambers`, `${brandInfo.name} Cross Reference`, `${brandInfo.name} Interchange`, 'Direct Replacement', 'Aftermarket Air Brakes', 'Wholesale'],
+    alternates: {
+      canonical: `https://www.brcbrakechambers.com/oem-cross-reference/${params.brandSlug}`
+    }
   };
 }
 
@@ -130,15 +133,14 @@ export default async function OEMBrandPage(
         </div>
       </PageHeader>
 
-      <div className="container mx-auto px-4 max-w-7xl">
-
       {/* OEM Search Tool Prominent Placement */}
-      <div className="relative -mt-16 mb-16 z-20 max-w-4xl mx-auto px-4">
-        <div className="bg-white rounded-2xl shadow-xl shadow-navy-900/10 border border-slate-200 p-2">
+      <section className="relative z-20 -mt-12 lg:-mt-24 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl mb-16 lg:mb-24">
+        <div className="w-full">
           <OEMSearchForm />
         </div>
-      </div>
+      </section>
 
+      <div className="container mx-auto px-4 max-w-7xl">
       <div className="flex flex-col lg:flex-row gap-8 mb-16">
         {/* Left Column: Trust & Engineering Proof */}
         <div className="w-full lg:w-1/3 flex flex-col gap-6">
@@ -253,6 +255,26 @@ export default async function OEMBrandPage(
         </div>
       </div>
 
+      {/* Programmatic SEO Text Block */}
+      <section className="py-16 bg-white border-t border-slate-200 mt-16">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="text-3xl font-extrabold text-navy-900 mb-6 tracking-tight">
+            Why cross-reference {brandInfo.name} brake chambers?
+          </h2>
+          <div className="prose prose-lg prose-slate text-slate-600 max-w-none">
+            <p className="mb-4">
+              When replacing <strong>{brandInfo.name}</strong> air brake components, fleet managers often face high markup costs associated with brand-name packaging. BRC Brake Chambers provides a factory-direct aftermarket alternative that matches or exceeds original equipment specifications.
+            </p>
+            <p className="mb-4">
+              Our {brandInfo.type === 'truck' ? 'commercial vehicle' : brandInfo.type === 'axle' ? 'suspension' : 'heavy-duty'} brake chambers are engineered to act as exact drop-in replacements for <strong>{brandInfo.name}</strong> setups. This means identical pushrod lengths, matching port angles, and standardized mounting hardware—requiring absolutely zero modifications during installation.
+            </p>
+            <p>
+              By utilizing our <strong>{brandInfo.name} interchange</strong> database, you ensure regulatory compliance (FMVSS-121) while significantly reducing your maintenance overhead. All recommended cross-references have undergone 1-million cycle life testing and rigorous 100% pneumatic leak checks.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* JSON-LD Schema */}
       <Script id={`brand-hub-${params.brandSlug}-schema`} type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify([
@@ -266,6 +288,28 @@ export default async function OEMBrandPage(
               "@type": "Organization",
               "name": "BRC Brake Chambers"
             }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": `Are BRC chambers exact replacements for ${brandInfo.name}?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": `Yes, BRC aftermarket chambers are engineered as exact drop-in replacements for ${brandInfo.name} equipment, featuring identical mounting hardware, port angles, and pushrod lengths.`
+                }
+              },
+              {
+                "@type": "Question",
+                "name": `Will using aftermarket parts void my ${brandInfo.name} warranty?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Under the Magnuson-Moss Warranty Act, it is illegal to void a warranty simply for using a high-quality aftermarket replacement part, unless they can prove the part caused the failure."
+                }
+              }
+            ]
           }
         ])
       }} />

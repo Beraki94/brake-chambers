@@ -41,7 +41,7 @@ export default function OurStoryClient() {
               />
               <div className="space-y-6 text-slate-600 text-lg leading-relaxed font-light">
                 <p>
-                  BRC Brake Chambers didn't start as a massive factory. We started as a small team of engineers who were tired of seeing aftermarket air brake chambers fail prematurely in the field.
+                  Zhejiang GAP Auto Parts Co., Ltd. (operating as BRC Brake Chambers) didn't start as a massive factory. We started as a small team of engineers who were tired of seeing aftermarket air brake chambers fail prematurely in the field.
                 </p>
                 <p>
                   We spent our early years reverse-engineering the most common failure points in commercial transport—center seal blowouts, rust-flaked return springs, and ruptured diaphragms. We realized that the only way to fix these issues was to stop relying on third-party suppliers and build the components ourselves.
@@ -59,9 +59,9 @@ export default function OurStoryClient() {
 
           {/* Timeline */}
           <div className="py-20 border-t border-slate-200">
-                      <SectionHeader
-            title="Our Journey"
-          />
+            <SectionHeader
+              title="Our Journey"
+            />
             <div className="max-w-4xl mx-auto">
               {milestones.map((milestone, idx) => (
                 <div key={idx} className="flex gap-8 mb-12 group">

@@ -103,15 +103,15 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" />
-                <span className="text-navy-300 text-sm">sales@brcbrakechambers.com</span>
+                <span className="text-navy-300 text-sm">sales@brakechambers.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" />
-                <span className="text-navy-300 text-sm">WhatsApp: +86 186 0202 1144</span>
+                <span className="text-navy-300 text-sm">Factory Line: +86 13395856758<br/>WhatsApp: +852 53629718</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" />
-                <span className="text-navy-300 text-sm leading-relaxed">Industrial Park, Ningbo,<br/>Zhejiang Province, China</span>
+                <span className="text-navy-300 text-sm leading-relaxed">Block 3, No 55 Tianyang Rd, Fengqiao,<br/>Zhuji, Zhejiang. China 311811</span>
               </li>
             </ul>
           </div>
@@ -119,7 +119,7 @@ export default function Footer() {
         
         <div className="pt-8 border-t border-navy-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="text-navy-400 text-sm">
-            &copy; {new Date().getFullYear()} BRC Brake Chambers. All rights reserved.
+            &copy; 2026 Zhejiang GAP Auto Parts Co., Ltd. All rights reserved.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm mt-2 md:mt-0">
             <Link href={`/privacy`} className="text-navy-400 hover:text-slate-400 transition-colors">Privacy Policy</Link>
@@ -130,7 +130,7 @@ export default function Footer() {
         {/* Aftermarket / SEO Disclaimer */}
         <div className="pt-6 mt-6 border-t border-navy-800/50">
           <p className="text-navy-500 text-[11px] leading-relaxed max-w-4xl">
-            <strong>Disclaimer:</strong> BRC Brake Chambers is an independent manufacturer of aftermarket heavy-duty commercial vehicle parts. 
+            <strong>Disclaimer:</strong> Zhejiang GAP Auto Parts Co., Ltd. (operating as BRC Brake Chambers) is an independent manufacturer of aftermarket heavy-duty commercial vehicle parts. 
             Brand names, trademarks, logos, and part numbers (including but not limited to Bendix, Haldex, Meritor, Rockwell, Wabco, and MGM Brakes) 
             are used strictly for identification and cross-reference purposes only. BRC is not affiliated with, sponsored by, or endorsed by any of these original equipment manufacturers.
           </p>

@@ -7,6 +7,8 @@ import { fadeInUp, staggerContainer } from '../../lib/animations';
 import OEMSearchForm from '@/components/oem/OEMSearchForm';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
+import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
+
 export default function OEMCrossReferenceClient() {
   return (
     <div className="bg-slate-50 min-h-screen font-sans overflow-x-clip">
@@ -25,7 +27,7 @@ export default function OEMCrossReferenceClient() {
         ]}
       />
       {/* Main Search Interface */}
-      <section className="relative z-20 -mt-20 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl mb-20">
+      <section className="relative z-20 -mt-12 lg:-mt-24 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl mb-16 lg:mb-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -209,20 +211,12 @@ export default function OEMCrossReferenceClient() {
             description="Common questions about switching to BRC aftermarket chambers."
             accentColor="amber"
           />
-          <div className="space-y-4">
-            {[
+          <div className="mt-8">
+            <GlobalFAQAccordion faqs={[
               { q: "Will using an aftermarket chamber void my vehicle's warranty?", a: "No. Under the Magnuson-Moss Warranty Act, it is illegal for a manufacturer to void your warranty simply because you used an aftermarket part, unless they can prove the aftermarket part caused the failure." },
               { q: "How accurate is the BRC cross-reference database?", a: "Our database is meticulously maintained by our engineering team. Every cross-referenced part is guaranteed to have identical mounting hardware, pushrod length, port angles, and operational stroke." },
               { q: "Do BRC chambers meet the same safety standards?", a: "Yes. All BRC brake chambers are engineered to meet or exceed FMVSS-121 compliance and undergo identical 100% pneumatic leak testing as OEM parts." }
-            ].map((faq, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow group cursor-pointer">
-                <div className="flex justify-between items-center">
-                  <h4 className="text-lg font-bold text-navy-900 group-hover:text-amber-500 transition-colors">{faq.q}</h4>
-                  <ChevronDown className="w-5 h-5 text-slate-400 group-hover:text-amber-500 transition-colors" />
-                </div>
-                <p className="mt-4 text-slate-600 font-light leading-relaxed hidden group-hover:block">{faq.a}</p>
-              </div>
-            ))}
+            ]} />
           </div>
         </div>
       </section>

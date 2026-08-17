@@ -1,105 +1,112 @@
 import React from 'react';
-import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Database, Search, ArrowRight, Download } from 'lucide-react';
+import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
+import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
+import { Download, Table, FileSpreadsheet } from 'lucide-react';
 import { BRAKE_CHAMBERS } from '@/lib/data';
 
 export const metadata: Metadata = {
-  title: 'Complete Interchange Database Index | BRC Brake Chambers',
-  description: 'Browse our complete table index of commercial air brake cross-references. View all competitor and OEM part numbers mapped to BRC factory-direct equivalents.',
+  title: 'Full Interchange Database | BRC Brake Chambers',
+  description: 'View or download our complete commercial brake chamber cross-reference database mapping Bendix, Meritor, Haldex, and more to BRC equivalents.',
+  keywords: ['Brake Chamber Database', 'Download Cross Reference', 'Air Brake Interchange PDF', 'Fleet Maintenance Data'],
 };
 
 export default function DatabasePage() {
-  // Extract all cross-references into a flat array for the table
-  const crossReferences: { oemBrand: string, oemPartNumber: string, brcModel: string, brcSlug: string, category: string }[] = [];
   
+  // Extract all OEM part mappings for the table
+  const allMappings = [];
   BRAKE_CHAMBERS.forEach(chamber => {
     if (chamber.oemPartNumbers) {
       chamber.oemPartNumbers.forEach(oem => {
-        crossReferences.push({
+        allMappings.push({
           oemBrand: oem.brand,
-          oemPartNumber: oem.partNumber,
-          brcModel: chamber.name,
-          brcSlug: chamber.slug,
-          category: chamber.category === 'Spring Brake' ? 'spring-brakes' : 'service-chambers'
+          oemPart: oem.partNumber,
+          brcEquivalent: chamber.model,
+          category: chamber.category,
+          brcSlug: chamber.category === 'Spring Brake' ? `/spring-brakes/${chamber.slug}` : `/service-chambers/${chamber.slug}`
         });
       });
     }
   });
 
   // Sort alphabetically by OEM Brand
-  crossReferences.sort((a, b) => {
-    if (a.oemBrand < b.oemBrand) return -1;
-    if (a.oemBrand > b.oemBrand) return 1;
-    return 0;
-  });
+  allMappings.sort((a, b) => a.oemBrand.localeCompare(b.oemBrand));
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-16">
-      <PageHeader 
-        badge="Master Index"
-        title="Complete Interchange Index"
-        description="Browse our comprehensive table mapping thousands of competitor part numbers to identical BRC aftermarket equivalents."
+    <div className="bg-slate-50 min-h-screen font-sans">
+      <PageHeader
+        badge="Master List"
+        title="Full Interchange Database"
+        description="Access our entire cross-reference database below. Fleet managers and mechanics can also download this data for offline use."
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Cross-Reference', href: '/oem-cross-reference' },
+          { label: 'Database' }
+        ]}
       />
 
-      <div className="container mx-auto px-4 lg:px-8 max-w-7xl -mt-10 relative z-20">
+      <div className="container mx-auto px-4 max-w-6xl py-12">
         
-        <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xl shadow-navy-900/5">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-            <h2 className="text-2xl font-bold text-navy-900 flex items-center gap-3">
-              <Database className="w-6 h-6 text-amber-500" />
-              Cross-Reference Index
-            </h2>
-            <div className="flex gap-3 w-full md:w-auto">
-              <Link href="/oem-cross-reference/part-search" className="flex items-center justify-center gap-2 bg-navy-50 text-navy-900 font-bold px-4 py-2 rounded-lg hover:bg-navy-100 transition-colors border border-navy-200 text-sm w-full md:w-auto">
-                <Search className="w-4 h-4" /> Search Tool
-              </Link>
+        {/* Action Bar */}
+        <div className="flex flex-col sm:flex-row justify-between items-center bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mb-8">
+          <div className="flex items-center mb-4 sm:mb-0">
+            <div className="w-12 h-12 bg-navy-50 rounded-full flex items-center justify-center mr-4">
+              <Table className="w-6 h-6 text-navy-500" />
+            </div>
+            <div>
+              <h3 className="font-bold text-navy-900 text-lg">Live Web Index</h3>
+              <p className="text-sm text-slate-500">{allMappings.length} exact matches found</p>
             </div>
           </div>
+          <div className="flex gap-4">
+            <button className="flex items-center px-6 py-3 bg-slate-100 hover:bg-slate-200 text-navy-900 font-bold rounded-xl transition-colors">
+              <FileSpreadsheet className="w-5 h-5 mr-2" /> Export CSV
+            </button>
+            <button className="flex items-center px-6 py-3 bg-amber-500 hover:bg-amber-400 text-navy-950 font-bold rounded-xl transition-colors shadow-lg shadow-amber-500/20">
+              <Download className="w-5 h-5 mr-2" /> Download PDF Guide
+            </button>
+          </div>
+        </div>
 
-          {crossReferences.length > 0 ? (
-            <div className="overflow-x-auto rounded-xl border border-slate-200">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-navy-900 text-white">
-                    <th className="p-4 font-bold text-sm tracking-wider uppercase border-b border-navy-800">OEM Brand</th>
-                    <th className="p-4 font-bold text-sm tracking-wider uppercase border-b border-navy-800">OEM Part Number</th>
-                    <th className="p-4 font-bold text-sm tracking-wider uppercase border-b border-navy-800">BRC Equivalent</th>
-                    <th className="p-4 font-bold text-sm tracking-wider uppercase border-b border-navy-800">Action</th>
+        {/* Database Table */}
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-slate-100 border-b border-slate-200">
+                  <th className="p-4 font-bold text-navy-900">OEM Brand</th>
+                  <th className="p-4 font-bold text-navy-900">OEM Part #</th>
+                  <th className="p-4 font-bold text-navy-900">Category</th>
+                  <th className="p-4 font-bold text-navy-900">BRC Equivalent</th>
+                  <th className="p-4 font-bold text-navy-900 text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {allMappings.map((row, idx) => (
+                  <tr key={idx} className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                    <td className="p-4 font-medium text-slate-700">{row.oemBrand}</td>
+                    <td className="p-4 font-mono font-bold text-navy-900">{row.oemPart}</td>
+                    <td className="p-4 text-slate-500 text-sm">{row.category}</td>
+                    <td className="p-4 font-bold text-emerald-600">{row.brcEquivalent}</td>
+                    <td className="p-4 text-right">
+                      <Link href={row.brcSlug} className="text-amber-600 hover:text-amber-700 font-bold text-sm hover:underline">
+                        View Part
+                      </Link>
+                    </td>
                   </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {crossReferences.map((item, index) => (
-                    <tr key={index} className="hover:bg-slate-50 transition-colors group">
-                      <td className="p-4 text-slate-800 font-semibold">{item.oemBrand}</td>
-                      <td className="p-4 text-slate-600 font-mono">{item.oemPartNumber}</td>
-                      <td className="p-4 text-navy-900 font-bold">{item.brcModel}</td>
-                      <td className="p-4">
-                        <Link 
-                          href={`/${item.category}/${item.brcSlug}`}
-                          className="inline-flex items-center text-amber-600 font-bold hover:text-amber-500 text-sm group-hover:translate-x-1 transition-transform"
-                        >
-                          View Product <ArrowRight className="w-4 h-4 ml-1" />
-                        </Link>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          ) : (
-             <div className="text-center py-12 bg-slate-50 rounded-xl border border-slate-100">
-               <p className="text-slate-500">Database is currently syncing. Please use the search tool.</p>
-             </div>
-          )}
-
-          <div className="mt-8 text-center text-sm text-slate-500 bg-navy-50 p-4 rounded-lg border border-navy-100">
-            <strong>Note:</strong> This database is continuously updated by our engineering team. If your part number is not listed, <Link href="/oem-cross-reference/request" className="text-navy-900 font-bold underline">request a manual cross-match</Link>.
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
 
       </div>
+
+      <BreadcrumbSchema items={[
+        { name: 'OEM Cross-Reference', item: 'https://www.brcbrakechambers.com/oem-cross-reference' },
+        { name: 'Database' }
+      ]} />
     </div>
   );
 }

@@ -115,7 +115,7 @@ export default function Navbar() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-9 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2 text-navy-200">
-              <Headphones className="w-3.5 h-3.5" /> Support: +86 186 0202 1144
+              <Headphones className="w-3.5 h-3.5" /> Support: +86 13395856758
             </span>
           </div>
           <div className="flex items-center gap-4">
@@ -123,8 +123,8 @@ export default function Navbar() {
               <MarketSelector />
             </Suspense>
             <div className="w-px h-3.5 bg-navy-700" />
-            <Link href="/distributor/login" className="flex items-center gap-2 text-navy-100 hover:text-white transition-colors">
-              <User className="w-3.5 h-3.5" /> Distributor Portal
+            <Link href="/distributors" className="flex items-center gap-2 text-navy-100 hover:text-white transition-colors">
+              <User className="w-3.5 h-3.5" /> Distributors
             </Link>
           </div>
         </div>
@@ -347,8 +347,8 @@ export default function Navbar() {
                     <Link href={`/quote`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-4 font-extrabold rounded-xl transition-colors flex items-center justify-center gap-2 bg-amber-500 text-navy-950 hover:bg-amber-400 text-[13px] uppercase tracking-widest shadow-lg shadow-amber-500/20`}>
                       <ShoppingBag className="w-4 h-4" /> Request Quote {mounted && cartCount > 0 && <span className="bg-navy-950 text-white text-xs px-2 py-0.5 rounded-full ml-1">{cartCount}</span>}
                     </Link>
-                    <Link href={`/distributor/login`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-4 font-extrabold rounded-xl transition-colors flex items-center justify-center gap-2 bg-navy-900 text-white hover:bg-navy-800 text-[13px] uppercase tracking-widest border border-navy-700`}>
-                      <User className="w-4 h-4" /> Distributor Portal
+                    <Link href={`/distributors`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-4 font-extrabold rounded-xl transition-colors flex items-center justify-center gap-2 bg-navy-900 text-white hover:bg-navy-800 text-[13px] uppercase tracking-widest border border-navy-700`}>
+                      <User className="w-4 h-4" /> Distributors
                     </Link>
                   </div>
                 </nav>

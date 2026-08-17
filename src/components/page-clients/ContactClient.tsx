@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Clock, Send, Globe, Truck, MessageCircle, ArrowRight, CheckCircle, ChevronDown } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, Globe, Truck, MessageCircle, ArrowRight, CheckCircle } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
+import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import { fadeInUp, staggerContainer, scaleIn } from '@/lib/animations';
 
 const contactCards = [
@@ -13,8 +13,8 @@ const contactCards = [
     icon: Phone,
     title: "Technical Sales Support",
     description: "For immediate assistance with OEM cross-referencing and inventory.",
-    value: "+86 186 0202 1144",
-    href: "https://wa.me/8618602021144",
+    value: "+86 13395856758",
+    href: "tel:+8613395856758",
     color: "emerald",
     bgColor: "bg-emerald-50",
     textColor: "text-emerald-600",
@@ -24,8 +24,8 @@ const contactCards = [
     icon: Mail,
     title: "Email Us",
     description: "For formal RFQs, container shipping logistics, and partnerships.",
-    value: "sales@brcbrakechambers.com",
-    href: "mailto:sales@brcbrakechambers.com",
+    value: "sales@brakechambers.com",
+    href: "mailto:sales@brakechambers.com",
     color: "amber",
     bgColor: "bg-amber-50",
     textColor: "text-amber-600",
@@ -34,7 +34,7 @@ const contactCards = [
   {
     icon: MapPin,
     title: "Global Headquarters",
-    description: "Industrial Park, Ningbo, Zhejiang Province, China",
+    description: "Block 3, No 55 Tianyang Rd, Fengqiao, Zhuji, Zhejiang. China 311811",
     value: "View on Map",
     href: "#",
     color: "navy",
@@ -57,20 +57,18 @@ const contactCards = [
 
 export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
   const faqs = [
     {
-      question: "What is your Minimum Order Quantity (MOQ)?",
-      answer: "For direct factory pricing, our MOQ is typically 1 standard pallet (approx. 50-100 units depending on the chamber size). For initial testing and prototyping, we can accommodate smaller LCL shipments."
+      q: "What is your Minimum Order Quantity (MOQ)?",
+      a: "For direct factory pricing, our MOQ is typically 1 standard pallet (approx. 50-100 units depending on the chamber size). For initial testing and prototyping, we can accommodate smaller LCL shipments."
     },
     {
-      question: "What are your standard manufacturing lead times?",
-      answer: "Standard production time for FCL (Full Container Load) orders is 15-25 business days. Transit time varies by destination, but typically ranges from 14-30 days for global ocean freight."
+      q: "What are your standard manufacturing lead times?",
+      a: "Standard production time for FCL (Full Container Load) orders is 15-25 business days. Transit time varies by destination, but typically ranges from 14-30 days for global ocean freight."
     },
     {
-      question: "Do you offer private labeling or custom OEM branding?",
-      answer: "Yes. We offer comprehensive private labeling services including custom laser etching, branded packaging, and custom paint coding for our high-volume distribution partners."
+      q: "Do you offer private labeling or custom OEM branding?",
+      a: "Yes. We offer comprehensive private labeling services including custom laser etching, branded packaging, and custom paint coding for our high-volume distribution partners."
     }
   ];
 
@@ -216,29 +214,36 @@ export default function ContactClient() {
               className="bg-white rounded-3xl sm:rounded-[2rem] shadow-xl border border-slate-100 p-6 sm:p-8 lg:p-10"
             >
               <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-6 tracking-tight">Frequently Asked Questions</h3>
-              <div className="space-y-3">
-                {faqs.map((faq, idx) => (
-                  <div key={idx} className="border border-slate-100 rounded-2xl overflow-hidden bg-slate-50/50 hover:bg-slate-50 transition-colors">
-                    <button 
-                      onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                      className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 focus:outline-none"
-                    >
-                      <span className="font-bold text-navy-900 text-sm sm:text-base">{faq.question}</span>
-                      <div className={`w-8 h-8 shrink-0 rounded-full bg-white shadow-sm flex items-center justify-center transition-transform duration-300 ${openFaq === idx ? 'rotate-180 text-amber-500' : 'text-slate-400'}`}>
-                        <ChevronDown className="w-4 h-4" />
-                      </div>
-                    </button>
-                    {openFaq === idx && (
-                      <div className="px-5 pb-5 pt-1 border-t border-slate-100/50">
-                        <p className="text-slate-600 text-sm leading-relaxed">{faq.answer}</p>
-                      </div>
-                    )}
-                  </div>
-                ))}
-                </div>
+              <GlobalFAQAccordion faqs={faqs} />
               </motion.div>
             </div>
           </div>
+          
+        {/* Factory Location Map */}
+        <motion.div 
+          variants={fadeInUp} 
+          initial="hidden" 
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="mt-6 sm:mt-8 bg-white rounded-3xl sm:rounded-[2rem] shadow-xl border border-slate-100 p-2 sm:p-3 relative overflow-hidden group"
+        >
+          <div className="absolute bottom-4 left-4 right-4 sm:top-8 sm:left-8 sm:bottom-auto sm:right-auto bg-white/95 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-xl border border-slate-100 z-20 pointer-events-none transform group-hover:scale-[1.02] sm:group-hover:scale-105 transition-transform duration-500">
+            <h3 className="font-heading font-extrabold text-navy-900 text-base sm:text-lg mb-0.5 sm:mb-1 tracking-tight">BRC Manufacturing Headquarters</h3>
+            <p className="text-xs sm:text-sm font-medium text-slate-500 flex items-center gap-1.5 sm:gap-2"><MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 shrink-0" /> <span className="truncate">Block 3, No 55 Tianyang Rd, Fengqiao, Zhuji</span></p>
+          </div>
+          
+          {/* Amber Duotone Overlay */}
+          <div className="absolute inset-0 bg-amber-500/30 mix-blend-color z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-1000 ease-out rounded-[1.25rem] sm:rounded-[1.5rem] m-2 sm:m-3"></div>
+          
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110190.57398188172!2d121.4633716503816!3d29.87834529999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x344d634db8bebaeb%3A0xeab5c8148b301764!2sNingbo%2C%20Zhejiang%2C%20China!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+            className="w-full h-[300px] sm:h-[400px] lg:h-[450px] rounded-[1.25rem] sm:rounded-[1.5rem] filter grayscale contrast-[1.1] opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ease-out relative z-0"
+            style={{ border: 0 }} 
+            allowFullScreen={false} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </motion.div>
 
         {/* Additional Section: Global Reach */}
         <motion.section 

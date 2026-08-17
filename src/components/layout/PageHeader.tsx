@@ -9,9 +9,10 @@ interface PageHeaderProps {
   children?: React.ReactNode;
   imageSrc?: string;
   breadcrumbs?: { label: string; href?: string }[];
+  fullColorBackground?: boolean;
 }
 
-export default function PageHeader({ badge, title, description, children, imageSrc = '/images/engineering_blueprint.png', breadcrumbs }: PageHeaderProps) {
+export default function PageHeader({ badge, title, description, children, imageSrc = '/images/engineering_blueprint.png', breadcrumbs, fullColorBackground = false }: PageHeaderProps) {
   return (
     <section className="relative pt-6 md:pt-10 lg:pt-12 pb-24 md:pb-32 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8 bg-navy-950">
       {/* Background Image */}
@@ -20,11 +21,11 @@ export default function PageHeader({ badge, title, description, children, imageS
           src={imageSrc}
           alt="Header Background"
           fill
-          className="object-cover opacity-40 mix-blend-luminosity grayscale"
+          className={`object-cover opacity-40 ${fullColorBackground ? '' : 'mix-blend-luminosity grayscale'}`}
           priority
         />
         {/* Dark Gradient Overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-navy-950 via-navy-900/90 to-navy-900/40 opacity-90"></div>
+        <div className={`absolute inset-0 ${fullColorBackground ? 'bg-gradient-to-b from-navy-950/80 via-navy-950/60 to-navy-950' : 'bg-gradient-to-b md:bg-gradient-to-r from-navy-950 via-navy-900/90 to-navy-900/40 opacity-90'}`}></div>
       </div>
 
       {/* Blueprint Grid Overlay (Static) */}

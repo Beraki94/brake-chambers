@@ -75,15 +75,15 @@ export default function HomeClient() {
             key={slide.id}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
           >
-            {/* Background Image with grayscale for industrial feel */}
+            {/* Background Image styling matching Application Detail pages */}
             <img
               src={slide.image}
               alt="Heavy-Duty Commercial Brake Chamber Manufacturing Facility"
-              className="absolute inset-0 w-full h-full object-cover object-[25%_center] md:object-center mix-blend-luminosity opacity-40 grayscale scale-100 md:scale-105 animate-[slow-pan_20s_ease-in-out_infinite_alternate]"
+              className="absolute inset-0 w-full h-full object-cover object-[25%_center] md:object-center opacity-40 scale-100 md:scale-105 animate-[slow-pan_20s_ease-in-out_infinite_alternate]"
               style={{ animationPlayState: index === currentSlide ? 'running' : 'paused' }}
             />
-            {/* Image Overlay Gradient */}
-            <div className={`absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r ${slide.gradient}`}></div>
+            {/* Image Overlay Gradient matching Application Detail pages */}
+            <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 via-navy-950/60 to-navy-950" />
 
             {/* Dynamic Glow */}
             <div className={`absolute top-0 right-0 w-[400px] h-[400px] md:w-[600px] md:h-[600px] ${slide.glow} opacity-10 rounded-full blur-[80px] md:blur-[120px] -mr-20 -mt-20 md:-mr-40 md:-mt-40 mix-blend-screen transition-colors duration-1000`}></div>
@@ -641,8 +641,8 @@ export default function HomeClient() {
                 Request Factory Quote
               </Link>
               <div className="flex flex-col sm:flex-row justify-center gap-6 mt-4 text-center md:text-left">
-                <a href="tel:+8618602021144" className="flex items-center justify-center md:justify-start gap-2 hover:text-amber-400 transition-colors">
-                  <Phone className="w-5 h-5 text-amber-500" /> <span className="font-bold">+86 186 0202 1144</span>
+                <a href="tel:+8613395856758" className="flex items-center justify-center md:justify-start gap-2 hover:text-amber-400 transition-colors">
+                  <Phone className="w-5 h-5 text-amber-500" /> <span className="font-bold">+86 13395856758</span>
                 </a>
                 <a href="mailto:sales@brakechambers.com" className="flex items-center justify-center md:justify-start gap-2 hover:text-amber-400 transition-colors">
                   <Map className="w-5 h-5 text-amber-500" /> <span className="font-bold">sales@brakechambers.com</span>
