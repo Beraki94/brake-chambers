@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { ShieldAlert, Cpu, PenTool, Wrench, PackagePlus, HardHat, Cog, AlertTriangle, ArrowLeft, ArrowRight, HelpCircle, CheckCircle2 } from 'lucide-react';
+import { ShieldAlert, Cpu, PenTool, Wrench, PackagePlus, HardHat, Cog, AlertTriangle, ArrowLeft, ArrowRight, HelpCircle, CheckCircle2, Factory, Activity } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 
 const APPLICATION_DATA: Record<string, any> = {
@@ -216,6 +216,75 @@ const APPLICATION_DATA: Record<string, any> = {
       { name: 'Type 16/24 Service Chambers', desc: 'Perfectly sized for medium-duty shuttle applications.', link: '/service-chambers/type-12-16-24-service-chambers' }
     ]
   },
+  'fleet-inquiries': {
+    title: 'Fleet Volume Orders',
+    desc: 'Direct-from-factory procurement for large-scale fleets seeking to standardize their air brake systems.',
+    keywords: ['fleet volume orders', 'bulk brake chambers', 'commercial fleet air brakes', 'fleet direct pricing'],
+    faqs: [
+      { q: 'What is the minimum volume for fleet direct pricing?', a: 'Fleet direct pricing programs typically start for fleets operating 50+ power units or ordering pallet quantities.' },
+      { q: 'Can you match our current OEM specifications?', a: 'Yes, we provide exact aftermarket cross-references for all major OEM applications ensuring seamless fleet standardization.' }
+    ],
+    bgStyle: 'from-slate-800 to-navy-950',
+    accent: 'text-slate-500',
+    challenge: {
+      title: 'The Standardization Challenge',
+      desc: 'Managing a large fleet requires standardized components to simplify inventory, reduce mechanic training time, and ensure consistent safety performance across all vehicles.'
+    },
+    technologies: [
+      { name: 'Palletized Shipping', desc: 'Optimized logistics for high-volume container or LTL freight direct to your terminal.', icon: <PackagePlus className="w-6 h-6" /> },
+      { name: 'Standardized Warranties', desc: 'Streamlined warranty processing for bulk fleet accounts.', icon: <ShieldAlert className="w-6 h-6" /> }
+    ],
+    recommendedPackage: [
+      { name: 'Type 30/30 Spring Brakes', desc: 'The most common standard for Class 8 fleet drives.', link: '/spring-brakes/30-30-air-brake-chambers' },
+      { name: 'Contact Sales', desc: 'Request a custom fleet volume quote.', link: '/quote' }
+    ]
+  },
+  'custom-engineering': {
+    title: 'Custom Engineering Solutions',
+    desc: 'Collaborative engineering to design specialized air brake actuators for unique chassis or vocational applications.',
+    keywords: ['custom air brakes', 'custom brake actuators', 'engineered brake chambers', 'specialty vehicle brakes'],
+    faqs: [
+      { q: 'How long does a custom prototype take?', a: 'Depending on the complexity, initial prototypes can typically be engineered and manufactured within 6-8 weeks.' },
+      { q: 'Do you provide CAD files for integration?', a: 'Yes, our engineering team works directly with yours, providing full 3D CAD models for integration into your vehicle designs.' }
+    ],
+    bgStyle: 'from-slate-800 to-navy-950',
+    accent: 'text-slate-500',
+    challenge: {
+      title: 'The Specialized Chassis Challenge',
+      desc: 'Standard off-the-shelf brake chambers don\'t always fit specialized military, vocational, or custom chassis. Off-highway vehicles often need unique mounting angles, extreme stroke lengths, or specialized porting.'
+    },
+    technologies: [
+      { name: 'Variable Clocking Technology', desc: 'Infinite port angle alignment for tight chassis clearances.', icon: <Cog className="w-6 h-6" /> },
+      { name: 'Rapid Prototyping', desc: 'In-house CNC machining and testing for fast iteration.', icon: <PenTool className="w-6 h-6" /> }
+    ],
+    recommendedPackage: [
+      { name: 'Welded Clevis Options', desc: 'Custom pushrod lengths and welded clevis configurations.', link: '/service-chambers/welded-clevis-brake-chambers' },
+      { name: 'Engineering Consultation', desc: 'Schedule a meeting with our technical team.', link: '/quote' }
+    ]
+  },
+  'contract-manufacturing': {
+    title: 'Contract Manufacturing',
+    desc: 'White-label manufacturing and high-volume production for aftermarket brands and OEMs.',
+    keywords: ['brake chamber contract manufacturing', 'white label air brakes', 'OEM brake supplier', 'air brake factory'],
+    faqs: [
+      { q: 'Can you manufacture to our proprietary designs?', a: 'Yes, we offer completely confidential contract manufacturing, producing your proprietary designs under strict NDAs.' },
+      { q: 'What quality certifications do you hold?', a: 'Our manufacturing campus is ISO 9001:2015 and TS16949 certified, ensuring top-tier automotive quality control.' }
+    ],
+    bgStyle: 'from-slate-800 to-navy-950',
+    accent: 'text-slate-500',
+    challenge: {
+      title: 'The Scalability Challenge',
+      desc: 'Scaling production for a new or expanding brand requires massive capital investment in tooling, automated lines, and testing facilities. Partnering with a proven manufacturer eliminates these barriers.'
+    },
+    technologies: [
+      { name: 'Automated Assembly Lines', desc: 'Capable of producing over 1,000,000 units annually with perfect consistency.', icon: <Factory className="w-6 h-6" /> },
+      { name: 'In-House 1M Cycle Testing', desc: 'Rigorously lab testing every batch to guarantee extreme lifecycle performance.', icon: <Activity className="w-6 h-6" /> }
+    ],
+    recommendedPackage: [
+      { name: 'Standard Type 30/30', desc: 'High-volume production ready for your branding.', link: '/spring-brakes/30-30-air-brake-chambers' },
+      { name: 'Request Production Quote', desc: 'Start a conversation about contract manufacturing.', link: '/quote' }
+    ]
+  }
 };
 
 export async function generateMetadata(props: { params: Promise<{ appSlug: string }> }): Promise<Metadata> {
@@ -374,8 +443,11 @@ export default async function ApplicationPage(props: { params: Promise<{ appSlug
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-400 text-xs uppercase tracking-wider mb-3">Custom Needs</h4>
+                  <h4 className="font-bold text-slate-400 text-xs uppercase tracking-wider mb-3">OEM & Custom</h4>
                   <ul className="space-y-2">
+                    <li><Link href="/applications/fleet-inquiries" className="text-navy-700 hover:text-amber-600 transition-colors text-sm font-semibold flex items-center justify-between group">Fleet Volume Orders <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 transition-colors" /></Link></li>
+                    <li><Link href="/applications/custom-engineering" className="text-navy-700 hover:text-amber-600 transition-colors text-sm font-semibold flex items-center justify-between group">Custom Engineering <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 transition-colors" /></Link></li>
+                    <li><Link href="/applications/contract-manufacturing" className="text-navy-700 hover:text-amber-600 transition-colors text-sm font-semibold flex items-center justify-between group">Contract Manufacturing <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 transition-colors" /></Link></li>
                     <li><Link href="/quote" className="text-amber-500 hover:text-amber-400 transition-colors text-sm font-bold flex items-center justify-between group mt-2">Request Custom Quote <ArrowRight className="w-4 h-4 text-amber-500 group-hover:translate-x-1 transition-transform" /></Link></li>
                   </ul>
                 </div>

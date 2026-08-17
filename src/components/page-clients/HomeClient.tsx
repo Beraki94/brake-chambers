@@ -20,7 +20,7 @@ const HERO_SLIDES = [
     description: "Cut out the middleman. We are a premier manufacturer of heavy-duty commercial brake chambers in China, engineering direct replacements for global fleets.",
     cta1: { text: "Get Factory Pricing", link: "/quote" },
     cta2: { text: "View Our Facility", link: "#facility" },
-    image: "https://images.unsplash.com/photo-1565108420608-251f98e6c406?auto=format&fit=crop&w=2000&q=80",
+    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2000&q=80",
     gradient: "from-navy-950 via-navy-950/90 to-transparent",
     glow: "bg-amber-500"
   },
@@ -53,24 +53,20 @@ const HERO_SLIDES = [
 export default function HomeClient() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [mounted, setMounted] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    if (isHovered) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, [isHovered]);
+  }, []);
 
   return (
     <div className="font-sans bg-[#F8FAFC]">
       {/* 1. Dynamic Engineering Hero Carousel */}
       <section 
         className="relative min-h-[85vh] flex items-center bg-navy-950 overflow-hidden"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
 
         {/* Carousel Backgrounds & Slides */}

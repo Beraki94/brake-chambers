@@ -62,9 +62,9 @@ export default function ApplicationsClient() {
       image: '/images/heavy_duty_truck.png',
       accent: 'amber',
       links: [
-        { id: '/applications/commercial-freight/commercial-linehaul', title: 'Commercial Linehaul' },
-        { id: '/applications/commercial-freight/heavy-duty-freight', title: 'Heavy-Duty Freight' },
-        { id: '/applications/commercial-freight/regional-delivery', title: 'Regional Delivery' },
+        { id: '/applications/commercial-linehaul', title: 'Commercial Linehaul' },
+        { id: '/applications/heavy-duty-freight', title: 'Heavy-Duty Freight' },
+        { id: '/applications/regional-delivery', title: 'Regional Delivery' },
       ]
     },
     {
@@ -75,9 +75,9 @@ export default function ApplicationsClient() {
       image: '/images/specialty_vehicle.png',
       accent: 'navy',
       links: [
-        { id: '/applications/severe-duty/refuse-sanitation', title: 'Refuse & Sanitation Trucks' },
-        { id: '/applications/severe-duty/off-highway-mining', title: 'Off-Highway & Mining' },
-        { id: '/applications/severe-duty/agricultural-transport', title: 'Agricultural Transport' },
+        { id: '/applications/refuse-sanitation', title: 'Refuse & Sanitation Trucks' },
+        { id: '/applications/off-highway-mining', title: 'Off-Highway & Mining' },
+        { id: '/applications/agricultural-transport', title: 'Agricultural Transport' },
       ]
     },
     {
@@ -88,9 +88,9 @@ export default function ApplicationsClient() {
       image: '/images/transit_bus.png',
       accent: 'amber',
       links: [
-        { id: '/applications/passenger-transit/transit-coach-bus', title: 'Transit & Coach Buses' },
-        { id: '/applications/passenger-transit/school-buses', title: 'School Buses' },
-        { id: '/applications/passenger-transit/shuttle-fleets', title: 'Shuttle Fleets' },
+        { id: '/applications/transit-coach-bus', title: 'Transit & Coach Buses' },
+        { id: '/applications/school-buses', title: 'School Buses' },
+        { id: '/applications/shuttle-fleets', title: 'Shuttle Fleets' },
       ]
     },
     {
@@ -101,9 +101,9 @@ export default function ApplicationsClient() {
       image: '/images/manufacturing_floor.png',
       accent: 'slate',
       links: [
-        { id: '/applications/oem-custom/fleet-volume-orders', title: 'Fleet Volume Orders' },
-        { id: '/applications/oem-custom/custom-engineering', title: 'Custom Engineering' },
-        { id: '/applications/oem-custom/contract-manufacturing', title: 'Contract Manufacturing' },
+        { id: '/applications/fleet-inquiries', title: 'Fleet Volume Orders' },
+        { id: '/applications/custom-engineering', title: 'Custom Engineering' },
+        { id: '/applications/contract-manufacturing', title: 'Contract Manufacturing' },
       ]
     }
   ];
