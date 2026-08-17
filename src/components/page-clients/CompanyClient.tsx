@@ -185,12 +185,13 @@ export default function CompanyClient() {
                 <p className="text-lg md:text-xl font-light leading-relaxed text-slate-600 mb-10 max-w-lg">
                   {pillar.desc}
                 </p>
-                {/* Replaced fixed heights with robust aspect ratios to ensure perfect scaling across all device sizes */}
-                <div className="relative w-full aspect-video md:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl">
+                {/* Replaced fixed heights with robust aspect ratios and min-heights to ensure perfect scaling across all device sizes, matching Applications page */}
+                <div className="relative w-full rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden shadow-2xl min-h-[300px] sm:min-h-[360px] lg:min-h-[450px] lg:aspect-[16/11]">
                   <Image
                     src={pillar.image}
                     alt={pillar.title}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover mix-blend-multiply opacity-90 grayscale"
                   />
                   <div className={`absolute inset-0 opacity-10 ${pillar.colors.bg}`}></div>
@@ -207,8 +208,8 @@ export default function CompanyClient() {
                     transition={{ duration: 0.5 }}
                     className="w-full"
                   >
-                    <Link href={card.href} className="block group w-full h-full outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-[2rem]">
-                      <div className={`bg-white rounded-[2rem] p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-100 ${pillar.colors.hoverBorder} h-full relative overflow-hidden flex flex-col`}>
+                    <Link href={card.href} className="block group w-full h-full outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-[2rem] lg:rounded-[2.5rem]">
+                      <div className={`bg-white rounded-[2rem] lg:rounded-[2.5rem] p-6 sm:p-8 md:p-10 lg:p-12 shadow-xl shadow-slate-200/50 hover:shadow-2xl transition-all duration-500 border border-slate-100 ${pillar.colors.hoverBorder} h-full relative overflow-hidden flex flex-col`}>
                         {/* Hover Gradient Effect */}
                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br ${pillar.colors.from} to-transparent`} />
                         <div className="relative z-10">

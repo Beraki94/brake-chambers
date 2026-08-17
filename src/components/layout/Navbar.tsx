@@ -3,7 +3,7 @@
 import React, { Suspense, useState, useEffect } from 'react';
 import Link from 'next/link';
 import MarketSelector from '@/components/home/MarketSelector';
-import { Smartphone, Search, Menu, ShoppingBag, X, Laptop as LaptopIcon, Headphones, User, Truck, Settings, Wrench, Disc, Package, ShieldAlert, Bus, Factory, ShieldCheck, CheckCircle, FileText, Ruler, BookOpen, FlaskConical, Users, FileSignature } from 'lucide-react';
+import { Smartphone, Search, Menu, ShoppingBag, X, Laptop as LaptopIcon, Headphones, User, Truck, Settings, Wrench, Disc, Package, ShieldAlert, Bus, Factory, ShieldCheck, CheckCircle, FileText, Ruler, BookOpen, FlaskConical, Users, FileSignature, Layers } from 'lucide-react';
 import { useParams, useRouter, usePathname } from 'next/navigation';
 import { useCartStore } from '../../store/cart';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -61,7 +61,7 @@ export default function Navbar() {
         p.slug.toLowerCase().includes(token) ||
         p.oemPartNumbers?.some(oem => oem.partNumber.toLowerCase().includes(token) || oem.brand.toLowerCase().includes(token))
       );
-    }).map(p => ({ type: p.category === 'Spring Brake' ? 'spring-brakes' : 'service-chambers', item: p }))];
+    }).map(p => ({ type: p.category === 'Spring Brake' ? 'spring-brakes' : (p.category === 'Air Disc Actuator' ? 'air-disc-actuators' : 'service-chambers'), item: p }))];
 
     results = [...results, ...BRAKE_ACCESSORIES.filter(a => {
       return tokens.every(token =>
@@ -173,13 +173,14 @@ export default function Navbar() {
                     <ul className="py-2 max-h-[400px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-navy-200 [&::-webkit-scrollbar-track]:bg-navy-50">
                       {searchResults.map((result, idx) => (
                         <li key={`${result.type}-${result.item.slug}`}>
-                          <Link
-                            href={`/${result.item.slug}`}
+                          <button
+                            type="button"
                             onClick={() => {
+                              router.push(`/${result.type}/${result.item.slug}`);
                               setShowDropdown(false);
                               setSearchQuery('');
                             }}
-                            className="flex items-center gap-3 px-4 py-2 hover:bg-navy-50 transition-colors"
+                            className="w-full text-left flex items-center gap-3 px-4 py-2 hover:bg-navy-50 transition-colors"
                           >
                             <div className="w-10 h-10 bg-navy-50 rounded-lg flex items-center justify-center flex-shrink-0">
                               <span className="text-xl">⚙️</span>
@@ -188,7 +189,7 @@ export default function Navbar() {
                               <p className="text-sm font-bold text-navy-900 truncate">{result.item.name}</p>
                               <p className="text-xs text-navy-500 capitalize">{result.type.replace('-', ' ')} &bull; {result.item.brandSlug}</p>
                             </div>
-                          </Link>
+                          </button>
                         </li>
                       ))}
                     </ul>
@@ -278,16 +279,17 @@ export default function Navbar() {
                       <ul className="py-2">
                         {searchResults.map((result, idx) => (
                           <li key={`${result.type}-${result.item.slug}`}>
-                            <Link
-                              href={`/${result.item.slug}`}
-                              onClick={() => {
-                                setTimeout(() => {
-                                  setShowDropdown(false);
-                                  setSearchQuery('');
-                                  setIsMobileMenuOpen(false);
-                                }, 150);
+                            <button
+                              type="button"
+                              onPointerDown={(e) => {
+                                // Use onPointerDown for immediate response on mobile before blur events can fire
+                                e.preventDefault();
+                                router.push(`/${result.type}/${result.item.slug}`);
+                                setShowDropdown(false);
+                                setSearchQuery('');
+                                setIsMobileMenuOpen(false);
                               }}
-                              className="flex items-center gap-4 px-4 py-3 hover:bg-slate-50 transition-colors border-b border-navy-50/50 last:border-0"
+                              className="w-full text-left flex items-center gap-4 px-4 py-3 hover:bg-slate-50 transition-colors border-b border-navy-50/50 last:border-0"
                             >
                               <div className="w-10 h-10 bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-200">
                                 <span className="text-xl">⚙️</span>
@@ -296,7 +298,7 @@ export default function Navbar() {
                                 <p className="text-[14px] font-extrabold text-navy-900 truncate">{result.item.name}</p>
                                 <p className="text-[11px] font-bold text-navy-500 capitalize tracking-wider mt-0.5">{result.type.replace('-', ' ')} &bull; {result.item.brandSlug}</p>
                               </div>
-                            </Link>
+                            </button>
                           </li>
                         ))}
                       </ul>
@@ -318,7 +320,7 @@ export default function Navbar() {
 
                 <nav className="flex flex-col gap-2">
                   <div className="pt-2 pb-2 px-3">
-                    <span className="text-[11px] font-extrabold text-navy-400 uppercase tracking-widest">Braking Systems</span>
+                    <span className="text-[11px] font-extrabold text-navy-400 uppercase tracking-widest">Products</span>
                   </div>
                   <div className="pl-2 flex flex-col gap-1 mb-4">
                     <Link href={`/spring-brakes`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
@@ -338,10 +340,23 @@ export default function Navbar() {
                   <div className="pt-4 pb-2 px-3 border-t border-slate-100">
                     <span className="text-[11px] font-extrabold text-navy-400 uppercase tracking-widest">Company & Resources</span>
                   </div>
-                  <Link href={`/applications`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Applications</Link>
-                  <Link href={`/oem-cross-reference`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>OEM Cross-Reference</Link>
-                  <Link href={`/company`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Company & Manufacturing</Link>
-                  <Link href={`/contact`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-3 font-bold rounded-xl transition-colors text-navy-700 hover:bg-slate-50 hover:text-navy-950`}>Contact Us</Link>
+                  <div className="pl-2 flex flex-col gap-1 mb-4">
+                    <Link href={`/applications`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                      <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><Truck className="w-4 h-4 text-navy-600" /></div> Applications
+                    </Link>
+                    <Link href={`/oem-cross-reference`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                      <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><Search className="w-4 h-4 text-navy-600" /></div> OEM Cross-Reference
+                    </Link>
+                    <Link href={`/company`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                      <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><Factory className="w-4 h-4 text-navy-600" /></div> Company & Mfg
+                    </Link>
+                    <Link href={`/technical-resources`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                      <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><BookOpen className="w-4 h-4 text-navy-600" /></div> Technical Resources
+                    </Link>
+                    <Link href={`/contact`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                      <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><Headphones className="w-4 h-4 text-navy-600" /></div> Contact Us
+                    </Link>
+                  </div>
 
                   <div className="mt-6 flex flex-col gap-3">
                     <Link href={`/quote`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-4 font-extrabold rounded-xl transition-colors flex items-center justify-center gap-2 bg-amber-500 text-navy-950 hover:bg-amber-400 text-[13px] uppercase tracking-widest shadow-lg shadow-amber-500/20`}>

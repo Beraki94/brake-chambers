@@ -9,6 +9,7 @@ export interface Market {
   countryName: string;
   code: string; // e.g. 'ng'
   isActive: boolean;
+  flag?: string;
 }
 
 export type ChamberCategory = 'Spring Brake' | 'Service Brake' | 'Air Disc Actuator';

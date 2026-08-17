@@ -68,33 +68,38 @@ export default function MarketSelector() {
     <div className="relative" ref={dropdownRef}>
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 bg-white hover:border-slate-400 hover:shadow-md transition-all pl-3 pr-2 py-1.5 rounded-full border border-navy-200 text-navy-900 font-semibold text-sm shadow-sm group"
+        className="flex items-center gap-2 bg-white hover:border-amber-400 hover:shadow-md transition-all pl-2 pr-2 py-1.5 rounded-full border border-navy-200 text-navy-900 font-semibold text-sm shadow-sm group h-8"
       >
-        <Globe className="w-4 h-4 text-slate-500 group-hover:text-amber-500 transition-colors" />
-        <span className="group-hover:text-slate-700 transition-colors hidden sm:block">
+        <span className="text-lg leading-none -mt-0.5">{currentMarket.flag || '🌐'}</span>
+        <span className="group-hover:text-amber-600 transition-colors hidden sm:block font-bold">
           {currentMarket.countryName}
         </span>
-        <span className="group-hover:text-slate-700 transition-colors sm:hidden uppercase">
+        <span className="group-hover:text-amber-600 transition-colors sm:hidden uppercase font-bold text-[11px] tracking-wider">
           {currentMarket.code}
         </span>
-        <ChevronDown className={`w-4 h-4 text-navy-400 transition-transform ${isOpen ? 'rotate-180 text-slate-600' : ''}`} />
+        <ChevronDown className={`w-3.5 h-3.5 text-navy-400 transition-transform ${isOpen ? 'rotate-180 text-amber-500' : ''}`} />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 w-56 bg-white border border-navy-100 shadow-xl rounded-xl overflow-hidden z-50">
-          <div className="bg-navy-50 px-4 py-2 border-b border-navy-100 text-[10px] font-bold text-navy-400 uppercase tracking-wider">
-            Select Language
+        <div className="absolute top-full right-0 mt-2 w-56 bg-white border border-slate-200 shadow-2xl rounded-2xl overflow-hidden z-50">
+          <div className="bg-slate-50/80 backdrop-blur-md px-4 py-3 border-b border-slate-100 flex items-center justify-between">
+            <span className="text-[10px] font-extrabold text-navy-400 uppercase tracking-widest">Select Region</span>
+            <Globe className="w-3.5 h-3.5 text-slate-400" />
           </div>
-          <div className="py-1 max-h-64 overflow-y-auto">
+          <div className="p-2 max-h-[300px] overflow-y-auto">
             {MARKETS.map(market => (
               <button
                 key={market.code}
                 onClick={() => handleMarketChange(market.code)}
-                className={`w-full text-left px-4 py-2.5 text-sm flex items-center justify-between hover:bg-slate-50 transition-colors ${market.code === currentMarket.code ? 'bg-navy-50/50' : ''}`}
+                className={`w-full text-left px-3 py-2.5 rounded-xl text-sm flex items-center gap-3 transition-all ${market.code === currentMarket.code ? 'bg-amber-50 border border-amber-100/50' : 'hover:bg-slate-50 border border-transparent'}`}
               >
-                 <span className={`font-semibold ${market.code === currentMarket.code ? 'text-navy-900' : 'text-slate-700'}`}>
+                 <span className="text-xl leading-none">{market.flag}</span>
+                 <span className={`font-bold ${market.code === currentMarket.code ? 'text-amber-600' : 'text-slate-600'}`}>
                    {market.countryName}
                  </span>
+                 {market.code === currentMarket.code && (
+                   <div className="ml-auto w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]"></div>
+                 )}
               </button>
             ))}
           </div>
