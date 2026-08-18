@@ -120,7 +120,7 @@ export default function TechnicalResourcesClient() {
         </motion.div>
 
         {/* Video Training Highlight */}
-        <section className="mb-8 md:mb-16">
+        <section id="video-training" className="scroll-mt-32 lg:scroll-mt-40 mb-8 md:mb-16">
           <div className="bg-navy-950 rounded-2xl shadow-2xl overflow-hidden relative">
             <div className="absolute top-0 right-0 w-32 md:w-64 h-32 md:h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-10 md:-mr-20 -mt-10 md:-mt-20 pointer-events-none"></div>
             <div className="flex flex-col lg:flex-row">

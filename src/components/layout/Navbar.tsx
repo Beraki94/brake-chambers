@@ -353,6 +353,9 @@ export default function Navbar() {
                     <Link href={`/technical-resources`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
                       <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><BookOpen className="w-4 h-4 text-navy-600" /></div> Technical Resources
                     </Link>
+                    <Link href={`/blog`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                      <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><FileText className="w-4 h-4 text-navy-600" /></div> Insights & Blog
+                    </Link>
                     <Link href={`/contact`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
                       <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><Headphones className="w-4 h-4 text-navy-600" /></div> Contact Us
                     </Link>
@@ -571,7 +574,6 @@ export default function Navbar() {
                       <ul className="space-y-3">
                         <li><Link href="/company/our-story" className={getLinkClass('/company/our-story')}>Our Story</Link></li>
                         <li><Link href="/company/leadership" className={getLinkClass('/company/leadership')}>Leadership Team</Link></li>
-                        <li><Link href="/blog" className={getLinkClass('/blog')}>Industry Blog</Link></li>
                       </ul>
                     </div>
 
@@ -618,6 +620,13 @@ export default function Navbar() {
             </div>
 
             <div className="flex-1"></div>
+
+            {/* Blog */}
+            <div className="group h-full flex items-center">
+              <Link href="/blog" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'hover:border-amber-400 hover:text-white' : 'hover:border-amber-500 hover:text-amber-600'}`}>
+                Insights & Blog
+              </Link>
+            </div>
 
             {/* Contact Us */}
             <div className="group h-full flex items-center">

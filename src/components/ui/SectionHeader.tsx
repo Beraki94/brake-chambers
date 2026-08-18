@@ -8,6 +8,7 @@ export interface SectionHeaderProps {
   theme?: 'light' | 'dark';
   accentColor?: 'amber' | 'red' | 'navy' | 'slate' | 'emerald';
   className?: string;
+  asH1?: boolean;
 }
 
 export default function SectionHeader({
@@ -17,7 +18,8 @@ export default function SectionHeader({
   align = 'center',
   theme = 'light',
   accentColor = 'amber',
-  className = ''
+  className = '',
+  asH1 = false
 }: SectionHeaderProps) {
   const isDark = theme === 'dark';
   const isCenter = align === 'center';
@@ -53,11 +55,19 @@ export default function SectionHeader({
       )}
 
       {/* Main Title - Matches Home Page design exactly */}
-      <h2 className={`text-3xl md:text-5xl font-extrabold mb-4 tracking-tight pb-2
-        ${isDark ? 'text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
-      >
-        {title}
-      </h2>
+      {asH1 ? (
+        <h1 className={`text-3xl md:text-5xl font-extrabold mb-4 tracking-tight pb-2
+          ${isDark ? 'text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
+        >
+          {title}
+        </h1>
+      ) : (
+        <h2 className={`text-3xl md:text-5xl font-extrabold mb-4 tracking-tight pb-2
+          ${isDark ? 'text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
+        >
+          {title}
+        </h2>
+      )}
 
       {/* Subtitle / Description - Matches Home Page typography */}
       {description && (

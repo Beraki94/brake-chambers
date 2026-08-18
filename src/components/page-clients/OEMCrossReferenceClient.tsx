@@ -27,7 +27,7 @@ export default function OEMCrossReferenceClient() {
         ]}
       />
       {/* Main Search Interface */}
-      <section className="relative z-20 -mt-12 lg:-mt-24 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl mb-16 lg:mb-24">
+      <section id="search-tool" className="scroll-mt-32 lg:scroll-mt-40 relative z-20 -mt-12 lg:-mt-24 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl mb-16 lg:mb-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -175,30 +175,24 @@ export default function OEMCrossReferenceClient() {
                 description="Consolidating your sourcing directly with the manufacturer ensures you get uncompromised quality without the brand markup. Every BRC chamber matches or exceeds OEM specifications."
                 align="left"
               />
-              <div className="space-y-6">
-                {[
-                  { icon: Settings, title: "Exact Drop-In Fitment", desc: "Identical mounting hardware, pushrod lengths, and port angles. Zero modifications required." },
-                  { icon: Zap, title: "1 Million Cycle Tested", desc: "Every unit design undergoes severe life-cycle testing before it ever hits the road." },
-                  { icon: ShieldCheck, title: "ISO 9001:2015 Certified", desc: "Rigorous 100% pneumatic leak and operational testing on our automated assembly lines." }
-                ].map((item, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-navy-50 flex items-center justify-center flex-shrink-0 mt-1">
-                      <item.icon className="w-6 h-6 text-navy-900" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold text-navy-900 mb-1">{item.title}</h4>
-                      <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+              <ul className="space-y-6">
+                <motion.li initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Exact Drop-In Fitment:</strong> Identical mounting hardware, pushrod lengths, and port angles. Zero modifications required.</span>
+                </motion.li>
+                <motion.li initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">1 Million Cycle Tested:</strong> Every unit design undergoes severe life-cycle testing before it ever hits the road.</span>
+                </motion.li>
+                <motion.li initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">ISO 9001:2015 Certified:</strong> Rigorous 100% pneumatic leak and operational testing on our automated assembly lines.</span>
+                </motion.li>
+                <motion.li initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">50,000 Sqm Manufacturing Facility:</strong> Our massive, state-of-the-art facility guarantees high-volume production and consistent global supply.</span>
+                </motion.li>
+              </ul>
             </div>
           </div>
         </div>

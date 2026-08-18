@@ -13,8 +13,8 @@ interface BlogPostClientProps {
 
 export default function BlogPostClient({ post }: BlogPostClientProps) {
   return (
-    <div className="min-h-screen bg-slate-50 pt-24 pb-16">
-      <article className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl mt-12">
+    <div className="min-h-screen bg-slate-50 pt-16 pb-16">
+      <article className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         {/* Back Link */}
         <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="mb-8">
           <Link href="/blog" className="inline-flex items-center text-slate-500 hover:text-amber-600 font-bold text-sm uppercase tracking-widest transition-colors">
@@ -64,6 +64,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
               .blog-content p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; font-size: 1.125rem; }
               .blog-content h2 { font-size: 1.875rem; font-weight: 800; color: #0f172a; margin-top: 2.5rem; margin-bottom: 1rem; }
               .blog-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #475569; font-size: 1.125rem; }
+              .blog-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #475569; font-size: 1.125rem; }
               .blog-content li { margin-bottom: 0.5rem; }
               .blog-content strong { color: #0f172a; font-weight: 700; }
             `}} />
@@ -87,13 +88,13 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
               </div>
 
               <h3 className="text-sm font-extrabold text-navy-900 uppercase tracking-widest mb-6 pb-4 border-b border-slate-100">
-                Contact Press
+                Contact Us
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                For media inquiries regarding this announcement, please contact our PR department.
+                For sales inquiries, bulk orders, or technical support, please contact our team.
               </p>
-              <a href="mailto:media@brcchambers.com" className="text-amber-600 font-bold hover:underline">
-                media@brcchambers.com
+              <a href="mailto:sales@brakechambers.com" className="text-amber-600 font-bold hover:underline">
+                sales@brakechambers.com
               </a>
             </div>
           </motion.div>
