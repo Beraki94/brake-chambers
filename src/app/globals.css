@@ -50,3 +50,27 @@
     color: #0a1929;
   }
 }
+
+/* Google Translate UI Overrides */
+/* Hide the top banner */
+.skiptranslate iframe,
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+/* Prevent Google Translate from pushing the body down */
+body {
+  top: 0 !important;
+}
+
+/* Hide hover tooltip popup box */
+#goog-gt-tt, 
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+/* Remove highlight background color on hover */
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}

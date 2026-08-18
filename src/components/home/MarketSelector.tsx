@@ -51,14 +51,28 @@ export default function MarketSelector() {
         document.cookie = `googtrans=/en/${newMarketCode}; path=/`;
         document.cookie = `googtrans=/en/${newMarketCode}; path=/; domain=${window.location.hostname}`;
         
-        // Trigger Google Translate programmatically
-        const selectField = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+        // Try to trigger Google Translate programmatically
+        let selectField = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+        
         if (selectField) {
           selectField.value = newMarketCode; 
           selectField.dispatchEvent(new Event('change'));
         } else {
-          // If the widget hasn't fully loaded, reload the page to apply the cookie
-          window.location.reload();
+          // If the widget hasn't fully loaded, poll for it briefly before falling back to reload
+          let retries = 0;
+          const poll = setInterval(() => {
+            selectField = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+            if (selectField) {
+              clearInterval(poll);
+              selectField.value = newMarketCode; 
+              selectField.dispatchEvent(new Event('change'));
+            } else if (retries >= 15) { 
+              // Give up after ~1.5 seconds and reload
+              clearInterval(poll);
+              window.location.reload();
+            }
+            retries++;
+          }, 100);
         }
       }
     }

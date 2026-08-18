@@ -111,7 +111,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full flex flex-col shadow-sm">
       {/* Top Utility Bar (Desktop Only) */}
-      <div className="hidden md:flex bg-navy-900 text-white border-b border-navy-800 text-xs font-medium">
+      <div className="hidden md:flex bg-navy-900 text-white border-b border-navy-800 text-xs font-medium relative z-[60]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-9 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2 text-navy-200">

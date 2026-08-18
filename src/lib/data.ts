@@ -4,7 +4,7 @@ export const MARKETS: Market[] = [
   { countryName: 'English', code: 'en', isActive: true, flag: '🇺🇸' },
   { countryName: 'Español', code: 'es', isActive: true, flag: '🇪🇸' },
   { countryName: 'العربية', code: 'ar', isActive: true, flag: '🇦🇪' },
-  { countryName: '中文', code: 'zh', isActive: true, flag: '🇨🇳' },
+  { countryName: '中文', code: 'zh-CN', isActive: true, flag: '🇨🇳' },
   { countryName: 'Français', code: 'fr', isActive: true, flag: '🇫🇷' },
   { countryName: 'Deutsch', code: 'de', isActive: true, flag: '🇩🇪' },
 ];

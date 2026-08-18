@@ -14,36 +14,36 @@ import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 const HERO_SLIDES = [
   {
     id: 1,
-    badge: "Direct from the Source",
+    badge: "Direct Factory",
     badgeIcon: <Settings className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>Factory-Direct <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Manufacturing.</span></>,
-    description: "Cut out the middleman. We are a premier manufacturer of heavy-duty commercial brake chambers in China, engineering direct replacements for global fleets.",
+    title: <>OEM Brake Chamber <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Manufacturer.</span></>,
+    description: "Sourcing direct from our 50,000 sqm ISO 9001:2015 certified production facility in Zhejiang. Eliminate middleman markups on premium aftermarket commercial vehicle components.",
     cta1: { text: "Get Factory Pricing", link: "/quote" },
-    cta2: { text: "View Our Facility", link: "#facility" },
+    cta2: { text: "Tour Our Plant", link: "#facility" },
     image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2000&q=80",
     gradient: "from-navy-950 via-navy-950/90 to-transparent",
     glow: "bg-amber-500"
   },
   {
     id: 2,
-    badge: "OEM Engineering Power",
+    badge: "Heavy-Duty Engineering",
     badgeIcon: <Cpu className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>Precision Built for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-emerald-500 to-navy-400">Trucks & Trailers.</span></>,
-    description: "Producing over 1,000,000 units annually. Our automated production lines guarantee ISO 9001:2015 quality control for Bendix, Haldex, and Meritor equivalents.",
+    title: <>Precision-Built for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-emerald-500 to-navy-400">Trucks and Trailers.</span></>,
+    description: "Engineered to eliminate air leaks and guarantee perfectly balanced braking under extreme road pressure. Built to match strict Bendix, Haldex, and Meritor tolerances.",
     cta1: { text: "View Product Catalog", link: "/products" },
-    cta2: { text: "Request Evaluation Samples", link: "/contact" },
+    cta2: { text: "Request Test Samples", link: "/contact" },
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80",
     gradient: "from-navy-950 via-navy-950/80 to-transparent",
     glow: "bg-emerald-500"
   },
   {
     id: 3,
-    badge: "Container Logistics",
+    badge: "International Export",
     badgeIcon: <Globe2 className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>OEM Supply at <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Global Scale.</span></>,
-    description: "Shipping high-performance brake components to over 30 countries. We handle LTL, FTL, and direct container shipping logistics internally from our China ports.",
-    cta1: { text: "Start Wholesale Application", link: "/contact" },
-    cta2: { text: "View Shipping Zones", link: "/shipping" },
+    title: <>Global Supplier for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">30+ Countries.</span></>,
+    description: "Streamlining global B2B procurement with predictable lead times and hassle-free port logistics. Handling direct container shipping, FCL, and LCL for distributors worldwide.",
+    cta1: { text: "Start Wholesale Inquiry", link: "/contact" },
+    cta2: { text: "Check Shipping Zones", link: "/shipping" },
     image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2000&q=80",
     gradient: "from-navy-950 via-navy-950/90 to-transparent",
     glow: "bg-amber-500"
@@ -65,7 +65,7 @@ export default function HomeClient() {
   return (
     <div className="font-sans bg-[#F8FAFC]">
       {/* 1. Dynamic Engineering Hero Carousel */}
-      <section 
+      <section
         className="relative min-h-[85vh] flex items-center bg-navy-950 overflow-hidden"
       >
 
@@ -156,12 +156,13 @@ export default function HomeClient() {
           {[...Array(2)].map((_, dupeIdx) => (
             <div key={dupeIdx} className="flex shrink-0 items-center">
               {[
-                'SAE J1469 & J1463 Compliant',
-                'FMVSS 121 Certified',
-                'ISO 9001:2015 Manufacturing',
-                '1,000,000+ Cycle Tested',
-                'Advanced E-Coat Corrosion Protection',
-                'Variable Clocking Technology',
+                'ISO 9001:2015 Certified Factory',
+                'FMVSS-121 Safety Certified',
+                'OEM Drop-In Replacement',
+                'In-House Aluminum Die Casting',
+                'Advanced E-Coat Protection',
+                '1 Million+ Cycle Lab Tested',
+                'Direct Container Shipping',
               ].map((item, i) => (
                 <span
                   key={i}
@@ -221,7 +222,7 @@ export default function HomeClient() {
                 <img src="/facility/cnc_machining_center.jpg" alt="CNC Machining Center" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
               </motion.div>
             </div>
-            
+
             {/* Copy / Narrative */}
             <div className="w-full lg:w-1/2">
               <div className="inline-block px-3 py-1 mb-4 rounded-full bg-slate-100 text-amber-600 border border-slate-200 text-[11px] font-bold uppercase tracking-widest">
@@ -577,14 +578,14 @@ export default function HomeClient() {
 
       {/* 7. The Buyer Journey & Direct Contact */}
       <section className="pt-8 pb-16 md:pt-12 md:pb-24 bg-gradient-to-b from-slate-50 to-slate-100 relative overflow-hidden">
-        
+
         {/* Prominent Rotating Brake Chamber Background (Watermark) */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] lg:w-[700px] lg:h-[700px] opacity-[0.15] pointer-events-none animate-[spin_120s_linear_infinite] z-0">
           <img src="/products/spring-brake.jpg" alt="Brake Chamber Background" className="w-full h-full object-contain mix-blend-multiply grayscale drop-shadow-2xl" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          
+
           <div className="text-center mb-12">
             <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-navy-50 border border-navy-100 text-navy-600 text-[11px] font-extrabold uppercase tracking-widest">
               Partnership Process
@@ -605,7 +606,7 @@ export default function HomeClient() {
               <h3 className="text-xl font-extrabold text-navy-900 mb-3">Request Catalog & Pricing</h3>
               <p className="text-slate-600 text-sm">Tell us your market requirements. We will provide a comprehensive wholesale catalog and customized OEM-level pricing.</p>
             </div>
-            
+
             {/* Step 2 */}
             <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-8 border border-white shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all relative">
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-navy-900 text-white rounded-full flex items-center justify-center font-black text-xl shadow-lg border-4 border-slate-50 z-10">2</div>

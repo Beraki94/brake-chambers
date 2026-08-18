@@ -43,6 +43,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://translate.googleapis.com" crossOrigin="anonymous" />
+      </head>
       <body suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable} font-sans bg-[#F8FAFC] text-navy-900 flex flex-col min-h-screen`}>
         {/* Hidden Google Translate Element */}
         <div id="google_translate_element" style={{ display: 'none' }}></div>
@@ -53,7 +56,7 @@ export default function RootLayout({
             }
           `}
         </Script>
-        <Script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
+        <Script src="https://translate.googleapis.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
         
         <Navbar />
         <main className="flex-grow">
