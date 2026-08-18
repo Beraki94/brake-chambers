@@ -14,13 +14,13 @@ export default function OEMCrossReferenceClient() {
     <div className="bg-slate-50 min-h-screen font-sans overflow-x-clip">
       {/* Hero Section */}
       <PageHeader
-        badge="Interchange Database"
+        badge="Direct Aftermarket Replacements"
         title={
           <>
-            OEM Cross-Reference <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Database</span>
+            Engineered as a <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-300">Direct Match</span> — Not a Generic Substitute
           </>
         }
-        description="Instantly map competitor part numbers to our direct aftermarket equivalents. Engineered for exact fitment, guaranteed performance, and substantial cost savings."
+        description="We manufacture aftermarket brake chambers to match the exact fit, form, and performance of leading OEM brands — so swapping to our parts doesn't mean swapping your specs."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Cross-Reference' }

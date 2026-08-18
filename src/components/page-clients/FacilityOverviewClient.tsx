@@ -3,7 +3,7 @@
 import React from 'react';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
-import { ArrowRight, MapPin, Truck, Box, Globe } from 'lucide-react';
+import { ArrowRight, MapPin, Truck, Box, Globe, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -29,21 +29,18 @@ export default function FacilityOverviewClient() {
             </div>
             <div>
               <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-amber-50 border border-amber-100 text-amber-600 text-[11px] font-bold uppercase tracking-widest">
-                Global Headquarters
+                FACTORY-DIRECT SUPPLY
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 font-heading tracking-tight">
-                Designed for <span className="text-amber-500">Massive Scale</span>
+                Inside Our 500,000 SQM <span className="text-amber-500">Manufacturing Hub</span>
               </h2>
               <div className="space-y-6 text-slate-600 text-lg leading-relaxed font-light mb-8">
                 <p>
-                  Our primary manufacturing campus is a state-of-the-art, ISO 9001 certified facility specifically designed for heavy-duty commercial vehicle components. Spanning over 500,000 square feet, the campus is fully vertically integrated.
-                </p>
-                <p>
-                  By keeping casting, stamping, welding, coating, and assembly under one roof, we eliminate supply chain bottlenecks and maintain absolute control over product quality.
+                  Eliminate supply chain fragmentation and middleman markups. By partnering directly with our IATF-certified factory in Zhejiang, China, you gain a vertically integrated manufacturing ally. We manage the entire lifecycle—from proprietary tool design and raw aluminum die-casting to final automated end-of-line testing. Experience absolute OEM-quality precision backed by factory-direct logistical scale.
                 </p>
               </div>
               
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-6 mb-12">
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
                   <Box className="w-8 h-8 text-amber-500 mb-4" />
                   <h4 className="text-2xl font-bold text-navy-900 mb-1">500k+</h4>
@@ -55,6 +52,26 @@ export default function FacilityOverviewClient() {
                   <p className="text-sm font-bold text-slate-500 uppercase tracking-widest">Countries Supplied</p>
                 </div>
               </div>
+
+              <div className="space-y-6">
+                {[
+                  { title: "Tier-1 Automotive Certification", desc: "Operating under strict ISO 9001:2015 and IATF 16949 certified quality management systems. Validated for global OEM supply chains." },
+                  { title: "Mass-Volume Capacity", desc: "Fully automated robotic assembly lines scaling to 1,000,000+ units annually to support global distribution networks." },
+                  { title: "In-House Metallurgical Labs", desc: "Dedicated metallurgical engineering and lifecycle stress-testing bays validating every material batch." },
+                  { title: "Turnkey Export Logistics", desc: "Seamless ocean-freight container shipping with comprehensive handling of all customs and international port compliance." }
+                ].map((feature, idx) => (
+                  <div key={idx} className="flex items-start gap-4">
+                    <div className="mt-1 w-10 h-10 rounded-full bg-amber-50 border border-amber-100 flex items-center justify-center shrink-0 shadow-sm">
+                      <CheckCircle className="w-5 h-5 text-amber-500" />
+                    </div>
+                    <div>
+                      <h4 className="text-navy-950 font-extrabold text-base md:text-lg mb-1">{feature.title}</h4>
+                      <p className="text-slate-600 text-sm md:text-base leading-relaxed">{feature.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
             </div>
           </div>
 
