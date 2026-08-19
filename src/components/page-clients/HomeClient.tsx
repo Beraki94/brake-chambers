@@ -150,6 +150,33 @@ export default function HomeClient() {
         </div>
       </section>
 
+      {/* Compliance & Trust Banner — Infinite Marquee */}
+      <div className="bg-navy-900 border-y border-amber-500/30 overflow-hidden relative z-30">
+        <div className="flex animate-marquee whitespace-nowrap py-5">
+          {[...Array(2)].map((_, dupeIdx) => (
+            <div key={dupeIdx} className="flex shrink-0 items-center">
+              {[
+                'ISO 9001:2015 Certified Factory',
+                'FMVSS-121 Safety Certified',
+                'OEM Drop-In Replacement',
+                'In-House Aluminum Die Casting',
+                'Advanced E-Coat Protection',
+                '1 Million+ Cycle Lab Tested',
+                'Direct Container Shipping',
+              ].map((item, i) => (
+                <span
+                  key={i}
+                  className="flex items-center gap-3 text-sm font-bold text-navy-100 uppercase tracking-widest mx-10"
+                >
+                  <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+                  {item}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
 {/* 3. Comprehensive Product Architecture */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-slate-100 relative overflow-hidden">
         {/* Subtle background gradient accents */}
