@@ -62,7 +62,7 @@ export default function OEMSearchForm() {
   };
 
   return (
-    <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-xl border border-slate-100 relative overflow-hidden">
+    <div className="bg-white p-6 sm:p-8 md:p-12 rounded-[2rem] shadow-xl border border-slate-100 relative overflow-hidden">
       {/* Decorative background gradients to match the brand identity */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-amber-50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-navy-50 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
@@ -82,21 +82,21 @@ export default function OEMSearchForm() {
       <div className="relative z-10">
         <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-4 mb-10">
           <div className="relative flex-1 group">
-            <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-              <Search className="text-slate-400 w-6 h-6 group-focus-within:text-amber-500 transition-colors" />
+            <div className="absolute inset-y-0 left-0 pl-4 sm:pl-5 flex items-center pointer-events-none">
+              <Search className="text-slate-400 w-5 h-5 sm:w-6 sm:h-6 group-focus-within:text-amber-500 transition-colors" />
             </div>
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Enter OEM Part Number..."
-              className="w-full bg-slate-50 border-2 border-slate-200 rounded-2xl pl-14 pr-6 py-5 text-lg text-navy-900 focus:outline-none focus:ring-4 focus:ring-amber-500/20 focus:border-amber-500 transition-all font-mono uppercase shadow-inner placeholder-slate-400"
+              className="w-full bg-slate-50 border-2 border-slate-200 rounded-2xl pl-12 sm:pl-14 pr-4 sm:pr-6 py-4 sm:py-5 text-base sm:text-lg text-navy-900 focus:outline-none focus:ring-4 focus:ring-amber-500/20 focus:border-amber-500 transition-all font-mono uppercase shadow-inner placeholder-slate-400"
             />
           </div>
           <button
             type="submit"
             disabled={isSearching || !query.trim()}
-            className="bg-navy-900 text-white font-bold px-10 py-5 rounded-2xl hover:bg-navy-800 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none flex items-center justify-center min-w-[180px] text-lg"
+            className="bg-navy-900 text-white font-bold px-8 sm:px-10 py-4 sm:py-5 rounded-2xl hover:bg-navy-800 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none flex items-center justify-center min-w-[160px] sm:min-w-[180px] text-base sm:text-lg"
           >
             {isSearching ? (
               <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>

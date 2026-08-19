@@ -19,7 +19,7 @@ export default function TrendingModelsMarquee() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
-      className="py-16 md:py-24 bg-gradient-to-b from-white to-slate-50 border-t border-slate-200 overflow-hidden relative"
+      className="py-12 md:py-20 bg-gradient-to-b from-white to-slate-50 border-t border-slate-200 overflow-hidden relative"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         <SectionHeader

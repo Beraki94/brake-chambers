@@ -2,7 +2,6 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import HomeClient from '@/components/page-clients/HomeClient';
-import TrendingModelsMarquee from '@/components/shared/TrendingModelsMarquee';
 
 export const metadata: Metadata = {
   title: 'BRC Brake Chambers | Premier Aftermarket Manufacturer for Heavy-Duty Trucks',
@@ -52,9 +51,6 @@ export default function Home() {
 
       {/* Render the interactive client component */}
       <HomeClient />
-      
-      {/* Show popular assemblies before the footer on the home page */}
-      <TrendingModelsMarquee />
     </>
   );
 }

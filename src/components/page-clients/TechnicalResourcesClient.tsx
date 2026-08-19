@@ -284,7 +284,7 @@ export default function TechnicalResourcesClient() {
           <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] p-8 lg:p-12 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
             {/* Internal Card Glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
-            
+
             <div className="max-w-xl relative z-10 text-center md:text-left">
               <h3 className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">Need Custom Engineering Support?</h3>
               <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed">If you require specific pushrod calculations, unique bracket alignments, or modified stroke limits, our engineering team is ready to assist.</p>

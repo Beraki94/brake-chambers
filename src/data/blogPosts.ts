@@ -173,11 +173,40 @@ const fleetContent = `
 </ul>
 
 <h2>Total Cost of Ownership: OEM vs. Aftermarket</h2>
-<p>Let's look at the numbers. A Type 30/30 OEM chamber from a major brand typically retails between $180 and $280 per unit at a local dealership. An equivalent BRC aftermarket chamber, built to the exact same specifications with the same premium materials, is available at a massive 40-55% discount when purchased in bulk directly.</p>
+      <p>Let's look at the numbers. A Type 30/30 OEM chamber from a major brand typically retails between $180 and $280 per unit at a local dealership. An equivalent BRC aftermarket chamber, built to the exact same specifications with the same premium materials, is available at a massive 40-55% discount when purchased in bulk directly.</p>
 <p>For a 500-truck fleet replacing an average of 800 chambers per year, the annual savings easily exceed <strong>$80,000 to $100,000</strong>.</p>
 
 <div style="background: #f8fafc; border-left: 4px solid #10b981; padding: 1.5rem; margin: 2rem 0; border-radius: 0 0.5rem 0.5rem 0;">
   <strong>Why Direct-from-Manufacturer Matters:</strong> When you purchase from BRC, you're eliminating distributor markups, regional warehouse storage fees, and retail margins. Our factory-direct model ensures you receive the lowest possible per-unit cost with full technical support, complete cross-reference assistance, and comprehensive warranty backing.
+</div>
+`;
+
+const arcticMiningContent = `
+<p class="lead" style="font-size: 1.25rem; font-weight: 500; color: #334155; margin-bottom: 2rem;">In the unforgiving environment of the Arctic Circle, equipment failure isn't just an inconvenience — it's a critical safety hazard that costs thousands of dollars per hour in lost productivity. When a major Canadian mining operator faced rampant brake chamber freezing issues on their fleet of 80 heavy-duty haul trucks, they turned to BRC for an engineered solution.</p>
+
+<h2>The Challenge: Frozen Diaphragms and Roadside Repairs</h2>
+<p>Operating in temperatures that frequently plummet below -40°F (-40°C), the fleet was experiencing unacceptable failure rates with their existing OEM brake chambers. The standard rubber diaphragms were losing elasticity in the extreme cold, becoming brittle, and cracking under pressure.</p>
+<p>This led to severe air leaks, frozen parking brakes, and out-of-service vehicles. "We were having to send service trucks out into dangerous conditions just to cage the brakes and tow the trucks back," the Maintenance Director reported. "The OEM chambers simply weren't designed for this level of sustained cold."</p>
+
+<h2>The BRC Engineered Solution</h2>
+<p>After consulting with the fleet's engineering team, BRC delivered our <strong>Sub-Zero Rated Spring Brakes (Type 30/30)</strong>. These chambers feature several critical modifications designed specifically for extreme arctic environments:</p>
+<ul>
+  <li><strong>Specially Formulated Diaphragms:</strong> Unlike standard rubber compounds, our proprietary blend maintains its flexibility and tensile strength down to -60°F, completely eliminating cold-weather cracking.</li>
+  <li><strong>Advanced Center Seal Compounds:</strong> The O-rings and center seals were upgraded to extreme-temperature materials to prevent bypass leaks between the parking and service chambers.</li>
+  <li><strong>Heavy-Duty Weather Sealing:</strong> The pushrod boots and breather caps were redesigned to prevent any moisture ingress, stopping ice from forming internally.</li>
+</ul>
+
+<h2>The Result: Zero Failures, Massive Savings</h2>
+<p>The fleet initiated a phased rollout, retrofitting 20 trucks with the BRC Sub-Zero chambers before the winter season began. The results were immediate and definitive.</p>
+<p>Over an 18-month period covering two brutal arctic winters, the trucks equipped with BRC chambers experienced <strong>zero cold-related brake failures</strong>. The success was so profound that the operator mandated BRC chambers for all 80 trucks.</p>
+<ul>
+  <li><strong>100% Elimination of Winter Chamber Cracking</strong></li>
+  <li><strong>25% Reduction in Annual Brake Maintenance Costs</strong></li>
+  <li><strong>Significant Reduction in Hazardous Roadside Service Calls</strong></li>
+</ul>
+
+<div style="background: #f8fafc; border-left: 4px solid #f59e0b; padding: 1.5rem; margin: 2rem 0; border-radius: 0 0.5rem 0.5rem 0;">
+  <strong>Fleet Manager Verdict:</strong> "Switching to BRC was one of the best maintenance decisions we made this year. We finally have a brake chamber that works as hard as our trucks do, no matter how cold it gets."
 </div>
 `;
 
@@ -247,5 +276,16 @@ export const blogPosts: BlogPost[] = [
     date: 'May 18, 2026',
     imageUrl: 'https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=800&q=80',
     readTime: '7 min read'
+  },
+  {
+    id: 'arctic-mining-success',
+    slug: 'arctic-mining-success',
+    title: 'Case Study: Arctic Mining Fleet Eliminates Winter Brake Failures',
+    excerpt: 'How an 80-truck mining fleet in the Canadian Arctic stopped frozen diaphragms and reduced maintenance costs by 25% using BRC Sub-Zero rated chambers.',
+    content: arcticMiningContent,
+    category: 'Fleet Management',
+    date: 'August 19, 2026',
+    imageUrl: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80',
+    readTime: '4 min read'
   }
 ];

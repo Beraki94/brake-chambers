@@ -34,7 +34,7 @@ export default function GlobalFAQAccordion({ faqs, theme = 'light' }: GlobalFAQA
             className={`rounded-2xl transition-all duration-300 overflow-hidden ${
               isDark 
                 ? 'bg-navy-800 border border-navy-700 hover:border-navy-600' 
-                : 'bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-200'
+                : 'bg-[#F1EFE8] border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-300'
             }`}
           >
             <button

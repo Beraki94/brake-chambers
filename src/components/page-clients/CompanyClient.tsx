@@ -140,10 +140,10 @@ export default function CompanyClient() {
       <div className="relative">
         <section className="relative py-16 md:py-24 border-b border-slate-200 overflow-hidden bg-slate-50">
           <div className="absolute inset-0 z-0">
-            <Image 
-              src="/images/manufacturing_floor.png" 
-              alt="BRC Manufacturing Facility" 
-              fill 
+            <Image
+              src="/images/manufacturing_floor.png"
+              alt="BRC Manufacturing Facility"
+              fill
               className="object-cover object-right-top opacity-80 grayscale"
             />
             {/* White gradient fading from left to right - Extended to 85% to fully cover text */}
@@ -157,7 +157,7 @@ export default function CompanyClient() {
             <div className="max-w-2xl w-full">
               <SectionHeader
                 badge="The BRC Standard"
-                title={<>Engineered to Outperform.<br/>Built to <span className="text-amber-500">Last.</span></>}
+                title={<>Engineered to Outperform.<br />Built to <span className="text-amber-500">Last.</span></>}
                 description="When you partner with BRC Brake Chambers, you are cutting out the middlemen and dealing directly with the source. As a vertically integrated manufacturer of commercial air brake actuators, we control every variable of the production process—from raw metallurgy to final pneumatic leak testing. This means higher burst strength, longer operational lifespans, and absolute reliability for heavy-duty fleets worldwide."
                 align="left"
               />
@@ -251,7 +251,7 @@ export default function CompanyClient() {
           <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] p-8 lg:p-12 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
             {/* Internal Card Glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
-            
+
             <div className="max-w-xl relative z-10 text-center md:text-left">
               <h3 className="text-3xl md:text-4xl font-extrabold mb-4">Partner With a Proven Manufacturer</h3>
               <p className="text-navy-200 text-base md:text-lg font-light">Whether you need a custom OEM solution, private labeling, or a container of replacement chambers for your distribution network, BRC delivers.</p>

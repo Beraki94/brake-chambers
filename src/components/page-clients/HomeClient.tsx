@@ -150,179 +150,7 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* Compliance & Trust Banner — Infinite Marquee */}
-      <div className="bg-navy-900 border-y border-amber-500/30 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap py-5">
-          {[...Array(2)].map((_, dupeIdx) => (
-            <div key={dupeIdx} className="flex shrink-0 items-center">
-              {[
-                'ISO 9001:2015 Certified Factory',
-                'FMVSS-121 Safety Certified',
-                'OEM Drop-In Replacement',
-                'In-House Aluminum Die Casting',
-                'Advanced E-Coat Protection',
-                '1 Million+ Cycle Lab Tested',
-                'Direct Container Shipping',
-              ].map((item, i) => (
-                <span
-                  key={i}
-                  className="flex items-center gap-3 text-sm font-bold text-navy-100 uppercase tracking-widest mx-10"
-                >
-                  <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
-                  {item}
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
-
-      {/* 2. The 4 Pillars of Manufacturing Excellence */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-slate-50 border-b border-navy-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-12">
-            <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-navy-50 border border-navy-100 text-navy-600 text-[11px] font-extrabold uppercase tracking-widest">
-              The Benchmark For Engineering Excellence
-            </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 tracking-tight">Built to Outperform. Engineered to Last.</h2>
-          </div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 items-stretch"
-          >
-            {[
-              { icon: Settings, color: "amber", title: "Precision Actuator Design & R&D", desc: "Our commercial vehicle actuators feature proprietary housing designs, maximizing weight reduction without sacrificing heavy-duty structural integrity." },
-              { icon: Zap, color: "amber", title: "Infinite Variable Clocking (VCT)", desc: "This universal-fit variable clocking brake chamber design allows infinite port angles, streamlining fleet maintenance and SKU logistics." },
-              { icon: ShieldCheck, color: "emerald", title: "Multi-Stage Anti-Corrosion E-Coating", desc: "Advanced electro-deposition coating creates a dense, corrosion-resistant barrier against road salt, eliminating premature rust degradation." },
-              { icon: CheckCircle, color: "emerald", title: "1-Million-Cycle Verification", desc: "Every proprietary chamber design undergoes brutal 1-million-cycle lab testing, guaranteeing extreme high-lifecycle performance over real-world miles." }
-            ].map((pillar, i) => (
-              <motion.div key={i} variants={fadeInUp} className="group cursor-pointer bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all duration-300 flex flex-col h-full">
-                <div className={`w-14 h-14 bg-gradient-to-br from-navy-50 to-navy-100 rounded-xl flex items-center justify-center text-${pillar.color}-500 mb-5 group-hover:from-${pillar.color}-50 group-hover:to-${pillar.color}-100 transition-all duration-500 shadow-sm group-hover:shadow-[0_10px_20px_-10px_rgba(0,0,0,0.1)] transform group-hover:-translate-y-2 shrink-0`}>
-                  <pillar.icon className="w-7 h-7" />
-                </div>
-                <h3 className={`text-xl font-extrabold text-navy-900 mb-3 group-hover:text-${pillar.color}-600 transition-colors`}>{pillar.title}</h3>
-                <p className="text-slate-600 leading-relaxed text-sm md:text-base text-justify grow">{pillar.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* NEW: Inside Our Facility (The Factory Proof) */}
-      <section id="facility" className="py-16 md:py-24 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
-            {/* Image Grid / Factory Floor */}
-            <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
-              <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="col-span-2 rounded-2xl overflow-hidden h-64 md:h-80 shadow-lg">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Brake Chamber Assembly Line" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
-              </motion.div>
-              <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
-                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80" alt="Quality Control Testing" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
-              </motion.div>
-              <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
-                <img src="/facility/cnc_machining_center.jpg" alt="CNC Machining Center" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
-              </motion.div>
-            </div>
-
-            {/* Copy / Narrative */}
-            <div className="w-full lg:w-1/2">
-              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-slate-100 text-amber-600 border border-slate-200 text-[11px] font-bold uppercase tracking-widest">
-                FACTORY-DIRECT SUPPLY
-              </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 tracking-tight">Inside Our <span className="text-amber-500">50,000 sqm</span> Manufacturing Hub.</h2>
-              <p className="text-slate-600 text-base md:text-lg mb-6 leading-relaxed">
-                By partnering directly with our IATF-certified factory in Zhejiang, China, you gain a vertically integrated manufacturing ally. We eliminate middleman markups and manage the entire lifecycle, delivering absolute OEM-quality precision backed by global logistical scale.
-              </p>
-              <ul className="space-y-4 mb-8 text-left">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">50,000 Sqm Manufacturing Facility:</strong> State-of-the-art infrastructure guaranteeing high-volume production and consistent supply.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Global Certifications:</strong> Tier-1 ISO 9001:2015 & IATF 16949 certified quality systems.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">High-Volume Capacity:</strong> Fully automated assembly lines scaling to 1M+ units annually.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Rigorous R&D:</strong> In-house metallurgical engineering and stress-testing labs.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Seamless Logistics:</strong> Turnkey ocean-freight shipping and customs compliance.</span>
-                </li>
-              </ul>
-              <Link href="/contact" className="inline-flex items-center bg-navy-900 text-white font-bold px-8 py-4 rounded-xl hover:bg-amber-500 hover:text-navy-950 transition-all duration-300 shadow-xl uppercase tracking-widest text-[12px] transform hover:-translate-y-1">
-                Take a Virtual Tour <ChevronRight className="w-4 h-4 ml-2" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* NEW: Aftermarket Brands Showcase */}
-      <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden border-b border-navy-800">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
-
-        {/* Subtle Modern Dot Grid Background */}
-        <AnimatedGridBackground opacity={0.08} />
-        {/* Fade out masks to make the grid blend smoothly into the dark section */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none"></div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-700 shadow-xl shadow-navy-950 text-amber-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
-            Direct Aftermarket Replacements
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-            Engineered as a Direct Match — Not a Generic Substitute
-          </h2>
-          <p className="text-navy-300 max-w-2xl mx-auto mb-12 text-sm md:text-base font-light leading-relaxed">
-            We manufacture aftermarket brake chambers to match the exact fit, form, and performance of leading OEM brands — so swapping to our parts doesn't mean swapping your specs.
-          </p>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center items-center gap-3 md:gap-6 mb-12"
-          >
-            {[
-              { name: "BENDIX", hoverBorder: "hover:border-emerald-500/50", hoverText: "group-hover:text-emerald-400" },
-              { name: "MERITOR", hoverBorder: "hover:border-amber-500/50", hoverText: "group-hover:text-amber-400" },
-              { name: "HALDEX", hoverBorder: "hover:border-sky-500/50", hoverText: "group-hover:text-sky-400" },
-              { name: "WABCO", hoverBorder: "hover:border-indigo-500/50", hoverText: "group-hover:text-indigo-400" },
-              { name: "MGM BRAKES", hoverBorder: "hover:border-rose-500/50", hoverText: "group-hover:text-rose-400" }
-            ].map((brand, idx) => (
-              <motion.div
-                key={brand.name}
-                variants={scaleIn}
-                className={`bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 px-4 py-3 sm:px-8 sm:py-4 rounded-xl shadow-lg flex items-center justify-center min-w-[140px] sm:min-w-[160px] group hover:bg-navy-800 transition-all duration-300 transform hover:-translate-y-1 ${brand.hoverBorder} ${idx === 4 ? 'col-span-2 sm:col-span-1' : ''}`}
-              >
-                <span className={`text-white font-extrabold text-sm sm:text-lg tracking-widest transition-colors drop-shadow-md ${brand.hoverText}`}>
-                  {brand.name}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <Link href="/oem-cross-reference" className="inline-flex w-full sm:w-auto justify-center items-center text-navy-950 bg-white font-extrabold px-4 sm:px-8 py-4 sm:py-3.5 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(245,158,11,0.3)] text-[11px] sm:text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5 text-center">
-            <span>Search the OEM Cross-Reference Database</span> <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0" />
-          </Link>
-        </div>
-      </section>
-
-      {/* 3. Comprehensive Product Architecture */}
+{/* 3. Comprehensive Product Architecture */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-slate-100 relative overflow-hidden">
         {/* Subtle background gradient accents */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-b from-navy-100/40 to-transparent rounded-full blur-[100px] -z-10 translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
@@ -464,7 +292,155 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 4. Digital B2B Tools & Support */}
+{/* NEW: Inside Our Facility (The Factory Proof) */}
+      <section id="facility" className="py-16 md:py-24 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            {/* Image Grid / Factory Floor */}
+            <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
+              <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="col-span-2 rounded-2xl overflow-hidden h-64 md:h-80 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Brake Chamber Assembly Line" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
+              </motion.div>
+              <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80" alt="Quality Control Testing" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
+              </motion.div>
+              <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
+                <img src="/facility/cnc_machining_center.jpg" alt="CNC Machining Center" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
+              </motion.div>
+            </div>
+
+            {/* Copy / Narrative */}
+            <div className="w-full lg:w-1/2">
+              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-slate-100 text-amber-600 border border-slate-200 text-[11px] font-bold uppercase tracking-widest">
+                FACTORY-DIRECT SUPPLY
+              </div>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 tracking-tight">Inside Our <span className="text-amber-500">50,000 sqm</span> Manufacturing Hub.</h2>
+              <p className="text-slate-600 text-base md:text-lg mb-6 leading-relaxed">
+                By partnering directly with our IATF-certified factory in Zhejiang, China, you gain a vertically integrated manufacturing ally. We eliminate middleman markups and manage the entire lifecycle, delivering absolute OEM-quality precision backed by global logistical scale.
+              </p>
+              <ul className="space-y-4 mb-8 text-left">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">50,000 Sqm Manufacturing Facility:</strong> State-of-the-art infrastructure guaranteeing high-volume production and consistent supply.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Global Certifications:</strong> Tier-1 ISO 9001:2015 & IATF 16949 certified quality systems.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">High-Volume Capacity:</strong> Fully automated assembly lines scaling to 1M+ units annually.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Rigorous R&D:</strong> In-house metallurgical engineering and stress-testing labs.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Seamless Logistics:</strong> Turnkey ocean-freight shipping and customs compliance.</span>
+                </li>
+              </ul>
+              <Link href="/contact" className="inline-flex items-center bg-navy-900 text-white font-bold px-8 py-4 rounded-xl hover:bg-amber-500 hover:text-navy-950 transition-all duration-300 shadow-xl uppercase tracking-widest text-[12px] transform hover:-translate-y-1">
+                Take a Virtual Tour <ChevronRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+{/* NEW: Aftermarket Brands Showcase */}
+      <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden border-b border-navy-800">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
+
+        {/* Subtle Modern Dot Grid Background */}
+        <AnimatedGridBackground opacity={0.08} />
+        {/* Fade out masks to make the grid blend smoothly into the dark section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none"></div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
+          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-700 shadow-xl shadow-navy-950 text-amber-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
+            Direct Aftermarket Replacements
+          </div>
+
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
+            Engineered as a Direct Match — Not a Generic Substitute
+          </h2>
+          <p className="text-navy-300 max-w-2xl mx-auto mb-12 text-sm md:text-base font-light leading-relaxed">
+            We manufacture aftermarket brake chambers to match the exact fit, form, and performance of leading OEM brands — so swapping to our parts doesn't mean swapping your specs.
+          </p>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center items-center gap-3 md:gap-6 mb-12"
+          >
+            {[
+              { name: "BENDIX", hoverBorder: "hover:border-emerald-500/50", hoverText: "group-hover:text-emerald-400" },
+              { name: "MERITOR", hoverBorder: "hover:border-amber-500/50", hoverText: "group-hover:text-amber-400" },
+              { name: "HALDEX", hoverBorder: "hover:border-sky-500/50", hoverText: "group-hover:text-sky-400" },
+              { name: "WABCO", hoverBorder: "hover:border-indigo-500/50", hoverText: "group-hover:text-indigo-400" },
+              { name: "MGM BRAKES", hoverBorder: "hover:border-rose-500/50", hoverText: "group-hover:text-rose-400" }
+            ].map((brand, idx) => (
+              <motion.div
+                key={brand.name}
+                variants={scaleIn}
+                className={`bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 px-4 py-3 sm:px-8 sm:py-4 rounded-xl shadow-lg flex items-center justify-center min-w-[140px] sm:min-w-[160px] group hover:bg-navy-800 transition-all duration-300 transform hover:-translate-y-1 ${brand.hoverBorder} ${idx === 4 ? 'col-span-2 sm:col-span-1' : ''}`}
+              >
+                <span className={`text-white font-extrabold text-sm sm:text-lg tracking-widest transition-colors drop-shadow-md ${brand.hoverText}`}>
+                  {brand.name}
+                </span>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <Link href="/oem-cross-reference" className="inline-flex w-full sm:w-auto justify-center items-center text-navy-950 bg-white font-extrabold px-4 sm:px-8 py-4 sm:py-3.5 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(245,158,11,0.3)] text-[11px] sm:text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5 text-center">
+            <span>Search the OEM Cross-Reference Database</span> <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0" />
+          </Link>
+        </div>
+      </section>
+
+{/* 5. R&D and Innovation Highlight */}
+      <section className="relative overflow-hidden bg-navy-950 py-16 md:py-24 flex items-center border-t border-navy-800 group">
+        <div className="absolute inset-0 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="Laboratory Testing" className="w-full h-full object-cover opacity-30 mix-blend-luminosity grayscale group-hover:scale-105 transition-transform duration-[10s]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/95 to-transparent"></div>
+          {/* Accent gradient bar */}
+          <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-emerald-400 to-emerald-600 shadow-[0_0_30px_rgba(16,185,129,0.6)]"></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+          <div className="max-w-2xl bg-navy-950/80 backdrop-blur-xl p-6 md:p-10 rounded-3xl border border-navy-800 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] transform transition-transform hover:-translate-y-1">
+            <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-gradient-to-r from-amber-500/20 to-transparent border border-amber-500/30 text-amber-400 text-[11px] font-bold uppercase tracking-widest">
+              PROPRIETARY R&D SPOTLIGHT
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight">High Output Technology <span className="text-emerald-500">(HOT)</span><br/><span className="text-2xl md:text-3xl text-navy-200 mt-2 block">Redefining Air Disc Performance</span></h2>
+            <p className="text-sm md:text-base text-navy-200 mb-6 leading-relaxed font-light text-left">
+              Traditional air disc brake actuators lose clamping force as internal friction builds over time. Our patented High Output Technology (HOT) corrects this by maximizing mechanical advantage through a proprietary internal mechanism. The result: unprecedented stopping power consistency, reduced brake fade, and uncompromised safety across the entire vehicle lifecycle.
+            </p>
+            <ul className="space-y-4 mb-8 text-left">
+              <li className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span className="text-white text-sm md:text-base"><strong className="text-amber-400">Consistent Clamping Force:</strong> Overcomes internal friction to maintain peak stopping power over millions of cycles.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span className="text-white text-sm md:text-base"><strong className="text-amber-400">Reduced Brake Fade:</strong> Advanced mechanical advantage ensures reliable performance even under heavy loads.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <span className="text-white text-sm md:text-base"><strong className="text-amber-400">Patented Engineering:</strong> Exclusive BRC internal mechanics you won't find in standard aftermarket generic actuators.</span>
+              </li>
+            </ul>
+            <Link href="/technical-resources" className="inline-flex w-full sm:w-auto justify-center items-center text-navy-950 bg-white font-extrabold px-6 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5 text-center">
+              <span>Download Technical Specifications</span> <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+{/* 4. Digital B2B Tools & Support */}
       <section className="py-16 md:py-24 relative overflow-hidden bg-[#F1EFE8]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
@@ -535,95 +511,14 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 5. R&D and Innovation Highlight */}
-      <section className="relative overflow-hidden bg-navy-950 py-16 md:py-24 flex items-center border-t border-navy-800 group">
-        <div className="absolute inset-0 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="Laboratory Testing" className="w-full h-full object-cover opacity-30 mix-blend-luminosity grayscale group-hover:scale-105 transition-transform duration-[10s]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/95 to-transparent"></div>
-          {/* Accent gradient bar */}
-          <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-emerald-400 to-emerald-600 shadow-[0_0_30px_rgba(16,185,129,0.6)]"></div>
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="max-w-2xl bg-navy-950/80 backdrop-blur-xl p-6 md:p-10 rounded-3xl border border-navy-800 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] transform transition-transform hover:-translate-y-1">
-            <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-gradient-to-r from-amber-500/20 to-transparent border border-amber-500/30 text-amber-400 text-[11px] font-bold uppercase tracking-widest">
-              PROPRIETARY R&D SPOTLIGHT
-            </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight">High Output Technology <span className="text-emerald-500">(HOT)</span><br/><span className="text-2xl md:text-3xl text-navy-200 mt-2 block">Redefining Air Disc Performance</span></h2>
-            <p className="text-sm md:text-base text-navy-200 mb-6 leading-relaxed font-light text-left">
-              Traditional air disc brake actuators lose clamping force as internal friction builds over time. Our patented High Output Technology (HOT) corrects this by maximizing mechanical advantage through a proprietary internal mechanism. The result: unprecedented stopping power consistency, reduced brake fade, and uncompromised safety across the entire vehicle lifecycle.
-            </p>
-            <ul className="space-y-4 mb-8 text-left">
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                <span className="text-white text-sm md:text-base"><strong className="text-amber-400">Consistent Clamping Force:</strong> Overcomes internal friction to maintain peak stopping power over millions of cycles.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                <span className="text-white text-sm md:text-base"><strong className="text-amber-400">Reduced Brake Fade:</strong> Advanced mechanical advantage ensures reliable performance even under heavy loads.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                <span className="text-white text-sm md:text-base"><strong className="text-amber-400">Patented Engineering:</strong> Exclusive BRC internal mechanics you won't find in standard aftermarket generic actuators.</span>
-              </li>
-            </ul>
-            <Link href="/technical-resources" className="inline-flex w-full sm:w-auto justify-center items-center text-navy-950 bg-white font-extrabold px-6 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5 text-center">
-              <span>Download Technical Specifications</span> <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Industry Insights & Guides */}
-      <section className="pt-16 pb-12 md:pt-24 md:pb-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-14 gap-6 text-center md:text-left">
-            <div className="flex flex-col items-center md:items-start">
-              <div className="inline-block px-3 py-1 mb-3 rounded-full bg-slate-100 text-slate-500 border border-slate-200 text-[11px] font-bold uppercase tracking-widest">
-                Knowledge Base & Insights
-              </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700 tracking-tight">Industry Guides & Innovation</h2>
-            </div>
-            <Link href="/blog" className="hidden md:flex text-amber-600 font-extrabold uppercase tracking-widest text-[13px] items-center justify-center hover:text-amber-500 transition-colors bg-slate-50 px-5 py-2.5 rounded-lg border border-slate-100 hover:shadow-sm">
-              View All Articles <ChevronRight className="w-4 h-4 ml-1" />
-            </Link>
-          </div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {(() => {
-              const greenPost = blogPosts.find(p => p.category === 'Technical Guide' || p.category === 'Industry News');
-              if (!greenPost) return blogPosts.slice(0, 3);
-              const otherPosts = blogPosts.filter(p => p.id !== greenPost.id);
-              return [greenPost, otherPosts[0], otherPosts[1]];
-            })().map((post) => (
-              <BlogCard key={post.slug} post={post} variants={fadeInUp} />
-            ))}
-          </motion.div>
-
-          <div className="mt-10 flex justify-center md:hidden">
-            <Link href="/blog" className="w-full text-amber-600 font-extrabold uppercase tracking-widest text-[13px] flex items-center justify-center hover:text-amber-500 transition-colors bg-slate-50 px-6 py-3.5 rounded-lg border border-slate-100 shadow-sm hover:shadow-md">
-              View All Articles <ChevronRight className="w-4 h-4 ml-1" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. The Buyer Journey & Direct Contact */}
-      <section className="pt-12 pb-16 md:pt-16 md:pb-24 bg-gradient-to-b from-slate-50 to-slate-100 relative overflow-hidden">
-
+      {/* 7. 3 Steps to Partner */}
+      <section className="pt-12 pb-16 md:pt-16 md:pb-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
         {/* Prominent Rotating Brake Chamber Background (Watermark) */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] lg:w-[700px] lg:h-[700px] opacity-[0.15] pointer-events-none animate-[spin_120s_linear_infinite] z-0">
           <img src="/products/spring-brake.jpg" alt="Brake Chamber Background" className="w-full h-full object-contain mix-blend-multiply grayscale drop-shadow-2xl" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-
           <div className="text-center mb-12">
             <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-navy-50 border border-navy-100 text-navy-600 text-[11px] font-extrabold uppercase tracking-widest">
               Partnership Process
@@ -634,7 +529,7 @@ export default function HomeClient() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {/* Step 1 */}
             <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-8 border border-white shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all relative">
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-navy-900 text-white rounded-full flex items-center justify-center font-black text-xl shadow-lg border-4 border-slate-50 z-10">1</div>
@@ -665,31 +560,44 @@ export default function HomeClient() {
               <p className="text-slate-600 text-sm">Once approved, we scale production. Our export team handles LCL, FCL, and direct container shipping logistics to your warehouse — so you focus on your business, not on freight logistics.</p>
             </div>
           </div>
+        </div>
+      </section>
 
+
+      {/* 9. Final Factory CTA */}
+      <section className="pb-16 md:pb-24 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-10 md:p-16 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
             {/* Internal Card Glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
 
-            <div className="max-w-xl relative z-10 text-center md:text-left">
+            <div className="max-w-2xl relative z-10 text-center md:text-left">
+              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-white/10 border border-white/20 text-amber-400 text-[11px] font-extrabold uppercase tracking-widest backdrop-blur-sm">
+                Corporate Headquarters
+              </div>
               <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to bypass the middleman?</h2>
-              <p className="text-navy-200 text-base md:text-lg font-light">Connect directly with our corporate headquarters in China. Our English-speaking export engineering team is standing by.</p>
-            </div>
-
-            <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto">
-              <Link href="/quote" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
-                Request Factory Quote
-              </Link>
-              <div className="flex flex-col sm:flex-row justify-center gap-6 mt-4 text-center md:text-left">
-                <a href="tel:+8613395856758" className="flex items-center justify-center md:justify-start gap-2 hover:text-amber-400 transition-colors">
-                  <Phone className="w-5 h-5 text-amber-500" /> <span className="font-bold">+86 13395856758</span>
+              <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed mb-8">
+                Connect directly with our corporate headquarters in China. Our English-speaking export engineering team is standing by. <strong className="text-white font-bold">Direct from the source. No compromises.</strong>
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 sm:gap-6">
+                <a href="tel:+8613395856758" className="flex items-center gap-2.5 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/50 rounded-xl transition-all duration-300 backdrop-blur-sm group">
+                  <Phone className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" /> 
+                  <span className="font-bold text-sm tracking-wide text-white">+86 13395856758</span>
                 </a>
-                <a href="mailto:sales@brakechambers.com" className="flex items-center justify-center md:justify-start gap-2 hover:text-amber-400 transition-colors">
-                  <Mail className="w-5 h-5 text-amber-500" /> <span className="font-bold">sales@brakechambers.com</span>
+                <a href="mailto:sales@brakechambers.com" className="flex items-center gap-2.5 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/50 rounded-xl transition-all duration-300 backdrop-blur-sm group">
+                  <Mail className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" /> 
+                  <span className="font-bold text-sm tracking-wide text-white">sales@brakechambers.com</span>
                 </a>
               </div>
             </div>
-          </div>
 
+            <div className="relative z-10 w-full md:w-auto shrink-0 mt-8 md:mt-0">
+              <Link href="/quote" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
+                Request Factory Quote
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>

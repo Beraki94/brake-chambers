@@ -57,7 +57,7 @@ export default function ApplicationsClient() {
     {
       title: 'Commercial & Freight',
       slug: 'commercial-freight',
-      desc: 'The backbone of the global supply chain requires absolute reliability and extreme mileage endurance. Our linehaul chambers are built for the long haul.',
+      desc: 'Built for the backbone of the supply chain. Designed for extreme mileage endurance and consistent performance on long-haul and regional routes.',
       icon: <Truck className="w-8 h-8" />,
       image: '/images/heavy_duty_truck.png',
       accent: 'amber',
@@ -65,25 +65,27 @@ export default function ApplicationsClient() {
         { id: '/applications/commercial-linehaul', title: 'Commercial Linehaul' },
         { id: '/applications/heavy-duty-freight', title: 'Heavy-Duty Freight' },
         { id: '/applications/regional-delivery', title: 'Regional Delivery' },
-      ]
+      ],
+      cta: 'View Commercial Solutions'
     },
     {
       title: 'Severe-Duty',
       slug: 'severe-duty',
-      desc: 'Surviving in environments where pavement ends and the most punishing, high-cycle conditions begin. Built with reinforced housings for extreme vibration.',
+      desc: 'Engineered for the harshest environments where pavement ends. Reinforced housings and components built to withstand extreme vibration, impact, and high-cycle abuse.',
       icon: <ShieldAlert className="w-8 h-8" />,
       image: '/images/specialty_vehicle.png',
       accent: 'navy',
       links: [
-        { id: '/applications/refuse-sanitation', title: 'Refuse & Sanitation Trucks' },
+        { id: '/applications/refuse-sanitation', title: 'Refuse & Sanitation' },
         { id: '/applications/off-highway-mining', title: 'Off-Highway & Mining' },
         { id: '/applications/agricultural-transport', title: 'Agricultural Transport' },
-      ]
+      ],
+      cta: 'View Severe-Duty Solutions'
     },
     {
       title: 'Passenger & Transit',
       slug: 'passenger-transit',
-      desc: 'Precision modulation and failsafe reliability required for carrying the most precious cargo. Engineered for frequent start-stop city cycles.',
+      desc: 'Precision modulation and fail-safe reliability for vehicles carrying passengers. Optimized for frequent stop-start city cycles and maximum safety.',
       icon: <Bus className="w-8 h-8" />,
       image: '/images/transit_bus.png',
       accent: 'amber',
@@ -91,12 +93,13 @@ export default function ApplicationsClient() {
         { id: '/applications/transit-coach-bus', title: 'Transit & Coach Buses' },
         { id: '/applications/school-buses', title: 'School Buses' },
         { id: '/applications/shuttle-fleets', title: 'Shuttle Fleets' },
-      ]
+      ],
+      cta: 'View Transit Solutions'
     },
     {
       title: 'OEM & Custom',
       slug: 'oem-custom',
-      desc: 'Partner directly with the manufacturer. We provide custom engineering, bulk volume fulfillment, and contract manufacturing for specialized builds.',
+      desc: 'Partner directly with the manufacturer for custom engineering, private labeling, and high-volume contract manufacturing.',
       icon: <Factory className="w-8 h-8" />,
       image: '/images/manufacturing_floor.png',
       accent: 'slate',
@@ -104,7 +107,8 @@ export default function ApplicationsClient() {
         { id: '/applications/fleet-inquiries', title: 'Fleet Volume Orders' },
         { id: '/applications/custom-engineering', title: 'Custom Engineering' },
         { id: '/applications/contract-manufacturing', title: 'Contract Manufacturing' },
-      ]
+      ],
+      cta: 'View OEM & Custom Solutions'
     }
   ];
 
@@ -112,8 +116,8 @@ export default function ApplicationsClient() {
     <div className="min-h-screen bg-slate-50 font-sans overflow-x-clip">
       <PageHeader
         badge="Applications"
-        title="Engineered for Your Fleet"
-        description="We engineer severe-duty brake chambers tailored to the unique abuse of your operational environment. Explore our application-specific solutions."
+        title="Built for Your Operating Environment"
+        description="Whether you run long-haul freight, refuse trucks, city transit, or off-highway equipment — find the brake chambers engineered for your specific conditions."
         imageSrc="/products/scattered_chambers_footer.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -206,9 +210,9 @@ export default function ApplicationsClient() {
                         <div className="mt-auto">
                           <Link
                             href={`/${group.slug}`}
-                            className={`inline-flex w-full items-center justify-center px-10 py-5 bg-amber-500 text-navy-950 rounded-xl font-black uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl transform hover:-translate-y-1 group/btn ${a.btnHover}`}
+                            className={`inline-flex w-full items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-amber-500 text-navy-950 rounded-xl font-black uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl transform hover:-translate-y-1 group/btn ${a.btnHover}`}
                           >
-                            View {group.title} Solutions
+                            {group.cta}
                             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                           </Link>
                         </div>
@@ -224,13 +228,34 @@ export default function ApplicationsClient() {
       </div>
 
       {/* Tested for the Extremes */}
-      <section className="py-16 md:py-24 bg-slate-50 relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-navy-950 border-y border-navy-900 relative overflow-hidden">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none z-0" />
+
+        {/* Rotating Brake Chamber Watermark */}
+        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] lg:w-[800px] lg:h-[800px] opacity-[0.03] pointer-events-none animate-[spin_120s_linear_infinite] z-0">
+          <svg viewBox="0 0 100 100" className="w-full h-full text-white fill-current">
+            <path d="M50,5 A45,45 0 1,0 95,50 A45,45 0 0,0 50,5 Z M50,15 A35,35 0 1,1 15,50 A35,35 0 0,1 50,15 Z M45,45 L45,20 L55,20 L55,45 L80,45 L80,55 L55,55 L55,80 L45,80 L45,55 L20,55 L20,45 Z" />
+            <circle cx="50" cy="50" r="10" />
+            <circle cx="20" cy="50" r="4" />
+            <circle cx="80" cy="50" r="4" />
+            <circle cx="50" cy="20" r="4" />
+            <circle cx="50" cy="80" r="4" />
+            <circle cx="29" cy="29" r="3" />
+            <circle cx="71" cy="71" r="3" />
+            <circle cx="29" cy="71" r="3" />
+            <circle cx="71" cy="29" r="3" />
+          </svg>
+        </div>
+        
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <SectionHeader
-            badge="Quality Assurance"
-            title={<>Tested for the <span className="text-amber-500">Extremes</span></>}
-            description="Our application-specific engineering means your brake chambers don't just meet standards—they survive the harshest operational environments on the planet."
+            badge="Tested for the Extremes"
+            title={<>Engineered for the <span className="text-amber-500">Harshest Conditions</span></>}
+            description="Our application-specific designs don't just meet industry standards—they dominate the harshest elements on the planet."
             accentColor="amber"
+            theme="dark"
           />
 
           <motion.div
@@ -241,84 +266,81 @@ export default function ApplicationsClient() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {[
-              { icon: ThermometerSnowflake, color: "text-navy-600", bg: "bg-navy-100", title: "Sub-Zero Rated", desc: "Specialized diaphragms maintain flexibility and prevent cracking in -40°F Arctic linehaul routes." },
-              { icon: Flame, color: "text-red-600", bg: "bg-red-100", title: "High-Heat Tolerance", desc: "Advanced return springs and seals withstand immense thermal soak during steep grade descents." },
-              { icon: Droplets, color: "text-amber-600", bg: "bg-amber-100", title: "Corrosion Proof", desc: "Multi-stage E-coating provides unmatched resistance against winter road salts and ocean spray." },
-              { icon: Activity, color: "text-amber-600", bg: "bg-amber-100", title: "Vibration Dampening", desc: "Reinforced steel housings prevent stress fractures on punishing off-highway mining roads." }
+              { icon: ThermometerSnowflake, title: "Sub-Zero Rated", desc: "Maintains flexibility and prevents cracking in -40°F Arctic linehaul conditions." },
+              { icon: Flame, title: "High-Heat Tolerant", desc: "Advanced seals and return springs withstand intense thermal soak on steep descents." },
+              { icon: Droplets, title: "Corrosion Proof", desc: "Multi-stage E-coating delivers unmatched resistance against winter road salts." },
+              { icon: Activity, title: "Vibration Dampening", desc: "Reinforced steel housings prevent stress fractures on off-highway mining roads." }
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
                 variants={fadeInUp}
-                className="bg-white rounded-2xl lg:rounded-[2rem] p-8 border border-slate-100 shadow-xl shadow-slate-200/40 hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] hover:border-amber-300 hover:-translate-y-2 transition-all duration-500 group"
+                className="bg-white/5 backdrop-blur-sm rounded-2xl lg:rounded-[2rem] p-6 sm:p-8 border border-white/10 shadow-xl hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.2)] hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-500 group"
               >
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${stat.bg} group-hover:scale-110 transition-transform duration-300`}>
-                  <stat.icon className={`w-7 h-7 ${stat.color}`} />
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-white/10 border border-white/5 group-hover:scale-110 transition-transform duration-300">
+                  <stat.icon className="w-7 h-7 text-white group-hover:text-amber-400 transition-colors" />
                 </div>
-                <h4 className="text-xl font-extrabold text-navy-900 mb-3">{stat.title}</h4>
-                <p className="text-slate-600 text-sm md:text-base leading-relaxed font-light">{stat.desc}</p>
+                <h4 className="text-xl font-extrabold text-white mb-3">{stat.title}</h4>
+                <p className="text-navy-200 text-sm md:text-base leading-relaxed font-light">{stat.desc}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* BRC Performance Guarantee */}
-      <section className="py-20 md:py-24 relative overflow-hidden bg-navy-950 border-y border-navy-800">
-        {/* Animated Grid & Glow */}
-        <AnimatedGridBackground opacity={0.15} />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
-
+      {/* Fleet Success Snapshot */}
+      <section className="py-16 md:py-24 bg-white relative overflow-hidden border-t border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            {/* Left Column: Icon Block (Vertically Centered) */}
-            <div className="lg:col-span-5 flex justify-center items-center h-full">
-              <div className="relative">
-                <div className="w-48 h-48 md:w-64 md:h-64 bg-navy-800/50 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-amber-500/20 shadow-[0_0_60px_rgba(245,158,11,0.15)] relative z-10">
-                  <CheckCircle2 className="w-24 h-24 md:w-32 md:h-32 text-amber-500" />
-                </div>
-              </div>
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+            {/* Left: Image */}
+            <div className="w-full lg:w-1/2 relative">
+              <div className="absolute top-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2 z-0"></div>
+              <img 
+                src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80" 
+                alt="Arctic Mining Truck" 
+                className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-3xl shadow-xl relative z-10 grayscale opacity-90 transition-all duration-500 hover:grayscale-0 hover:opacity-100"
+              />
             </div>
 
-            {/* Right Column: Text & Features */}
-            <div className="lg:col-span-7 relative z-10">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight text-left">
-                The BRC Performance <span className="text-amber-500">Guarantee</span>
+            {/* Right: Content */}
+            <div className="w-full lg:w-1/2">
+              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-[11px] font-extrabold uppercase tracking-widest">
+                Real-World Results
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-navy-900 mb-6 tracking-tight">
+                Fleet Success Snapshot: <br className="hidden sm:block" /><span className="text-amber-500">Arctic Mining Operator</span>
               </h2>
-              <p className="text-navy-100 text-lg md:text-xl font-light leading-relaxed mb-10 text-left">
-                We don't just build brake chambers; we build confidence. Every BRC application-specific chamber is backed by our industry-leading guarantee to match or exceed OEM operational lifespan.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
-                {/* Feature Card 1 */}
-                <div className="flex flex-col sm:flex-row items-start gap-5 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors h-full">
-                  <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0 border border-amber-500/30">
-                    <ShieldAlert className="w-6 h-6 text-amber-400" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white text-lg mb-2">3-Year Warranty</h4>
-                    <p className="text-sm text-navy-200 leading-relaxed">Comprehensive coverage against all manufacturing defects.</p>
-                  </div>
+              
+              <div className="space-y-6 mb-8">
+                <div className="bg-slate-50 border-l-4 border-slate-300 p-5 rounded-r-xl transition-all duration-300 hover:shadow-md">
+                  <h4 className="font-bold text-navy-900 mb-1 flex items-center gap-2">
+                    <ShieldAlert className="w-4 h-4 text-slate-500" /> Challenge
+                  </h4>
+                  <p className="text-slate-600 text-sm md:text-base font-light">
+                    Extreme cold causing frozen diaphragms and costly roadside repairs.
+                  </p>
                 </div>
-
-                {/* Feature Card 2 */}
-                <div className="flex flex-col sm:flex-row items-start gap-5 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors h-full">
-                  <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 border border-blue-500/30">
-                    <Activity className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white text-lg mb-2">OEM Match</h4>
-                    <p className="text-sm text-navy-200 leading-relaxed">Guaranteed direct-fit replacement for specified models.</p>
-                  </div>
+                
+                <div className="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl shadow-sm shadow-amber-500/10 transition-all duration-300 hover:shadow-md hover:shadow-amber-500/20">
+                  <h4 className="font-bold text-navy-900 mb-1 flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-500" /> Result
+                  </h4>
+                  <p className="text-slate-700 text-sm md:text-base font-medium">
+                    Zero failures after switching to BRC Sub-Zero rated chambers. Maintenance costs reduced 25%.
+                  </p>
                 </div>
               </div>
-            </div>
 
+              <Link 
+                href="/blog/arctic-mining-success" 
+                className="inline-flex items-center font-bold text-amber-500 hover:text-amber-600 transition-colors group tracking-wide"
+              >
+                Read Full Story <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* Final CTA Section */}
       <div className="py-16 md:py-24 bg-[#F1EFE8] relative overflow-hidden">
@@ -327,14 +349,19 @@ export default function ApplicationsClient() {
             {/* Internal Card Glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
 
-            <div className="max-w-xl relative z-10 text-center md:text-left">
-              <h3 className="text-3xl md:text-4xl font-extrabold mb-4">Need a Custom Manufacturing Solution?</h3>
-              <p className="text-navy-200 text-base md:text-lg font-light">Our engineering team can design, prototype, and produce custom air brake actuators tailored to your specific mechanical requirements.</p>
+            <div className="max-w-2xl relative z-10 text-center md:text-left">
+              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-white/10 border border-white/20 text-amber-400 text-[11px] font-extrabold uppercase tracking-widest backdrop-blur-sm">
+                Custom Solutions
+              </div>
+              <h3 className="text-3xl md:text-4xl font-extrabold mb-4">Need a Custom Brake Chamber Solution?</h3>
+              <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed">
+                Work directly with our engineering team to design, prototype, and manufacture custom air brake actuators that meet your exact mechanical requirements. <strong className="text-white font-bold">No middlemen. No compromises.</strong>
+              </p>
             </div>
 
-            <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto">
-              <Link href="/quote" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
-                Request Custom Application Quote
+            <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto shrink-0">
+              <Link href="/quote" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-4 sm:py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
+                Request Custom Quote
               </Link>
             </div>
           </div>

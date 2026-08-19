@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import OEMCrossReferenceClient from '@/components/page-clients/OEMCrossReferenceClient';
-import TrendingModelsMarquee from '@/components/shared/TrendingModelsMarquee';
+
 
 export const metadata: Metadata = {
   title: 'OEM Cross-Reference Tool | BRC Brake Chambers',
@@ -15,7 +15,7 @@ export default function OEMCrossReference() {
   return (
     <>
       <OEMCrossReferenceClient />
-      <TrendingModelsMarquee />
+
 
       {/* JSON-LD Schema */}
       <Script id="cross-reference-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
