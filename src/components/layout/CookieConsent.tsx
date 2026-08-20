@@ -67,7 +67,7 @@ export default function CookieConsent() {
               </div>
               
               <p className="text-[13px] text-slate-600 leading-relaxed font-medium mb-6">
-                We use cookies and cache data to enhance your browsing experience, serve personalized content, and analyze our traffic. Read our{' '}
+                We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By using our website, you consent to our use of cookies. Read our{' '}
                 <Link href="/privacy" className="text-amber-600 hover:text-amber-500 font-bold underline decoration-amber-500/30 underline-offset-2 transition-colors">
                   Privacy Policy
                 </Link>.
