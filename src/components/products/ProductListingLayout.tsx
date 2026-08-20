@@ -88,7 +88,7 @@ export default function ProductListingLayout({
 
       {!isSubCategory && <TrustBanner />}
 
-      <div className="flex flex-col lg:flex-row gap-6 relative">
+      <div id="product-listing" className="flex flex-col lg:flex-row gap-6 relative">
         <div className="w-full lg:w-64 flex-shrink-0 flex flex-col gap-4">
            <MobileSidebarWrapper>
              <FacetedSidebar baseCategory={baseCategory} />

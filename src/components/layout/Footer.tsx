@@ -10,8 +10,31 @@ export default function Footer() {
   const selectedMarket = useMarketStore(state => state.selectedMarket);
   const marketCode = selectedMarket?.code || 'us';
 
+  const FooterColumn = ({ title, children }: { title: string, children: React.ReactNode }) => (
+    <>
+      {/* Mobile: Accordion */}
+      <details className="group md:hidden border-b border-navy-800 py-4">
+        <summary className="font-bold text-lg font-heading flex justify-between items-center cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+          {title}
+          <svg className="w-5 h-5 text-navy-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div className="pt-4 pb-2">
+          {children}
+        </div>
+      </details>
+
+      {/* Desktop: Standard List */}
+      <div className="hidden md:block">
+        <h4 className="font-bold text-lg mb-6 font-heading">{title}</h4>
+        {children}
+      </div>
+    </>
+  );
+
   return (
-    <footer className="bg-navy-900 text-white pt-20 pb-10 border-t border-navy-800 mt-auto relative overflow-hidden">
+    <footer className="bg-navy-900 text-white pt-12 md:pt-20 pb-10 border-t border-navy-800 mt-auto relative overflow-hidden">
       {/* Decorative Scattered Chambers */}
       <div className="absolute bottom-0 right-0 w-72 h-72 md:w-96 md:h-96 pointer-events-none opacity-25 mix-blend-screen z-0">
         <Image 
@@ -23,7 +46,7 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0 md:gap-12 mb-12 md:mb-16">
           {/* Brand Info */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6 relative group flex-shrink-0">
@@ -59,8 +82,7 @@ export default function Footer() {
           </div>
           
           {/* Categories */}
-          <div>
-            <h4 className="font-bold text-lg mb-6 font-heading">Our Catalog</h4>
+          <FooterColumn title="Our Catalog">
             <ul className="space-y-3">
               <li><Link href={`/products`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors font-semibold">All Products</Link></li>
               <li><Link href={`/spring-brakes`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Spring Brakes</Link></li>
@@ -69,11 +91,10 @@ export default function Footer() {
               <li><Link href={`/chamber-parts-kits`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Chamber Parts & Kits</Link></li>
               <li><Link href={`/oem-cross-reference`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">OEM Cross-Reference</Link></li>
             </ul>
-          </div>
+          </FooterColumn>
           
           {/* Applications */}
-          <div>
-            <h4 className="font-bold text-lg mb-6 font-heading">Applications</h4>
+          <FooterColumn title="Applications">
             <ul className="space-y-3">
               <li><Link href={`/applications`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors font-semibold">All Applications</Link></li>
               <li><Link href={`/applications/commercial-linehaul`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Commercial & Freight</Link></li>
@@ -83,11 +104,10 @@ export default function Footer() {
               <li><Link href={`/applications/fleet-inquiries`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">OEM & Custom</Link></li>
               <li><Link href={`/quote`} className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold mt-2 inline-block">Request Custom Quote</Link></li>
             </ul>
-          </div>
+          </FooterColumn>
           
           {/* Information */}
-          <div>
-            <h4 className="font-bold text-lg mb-6 font-heading">Support & Info</h4>
+          <FooterColumn title="Support & Info">
             <ul className="space-y-3">
               <li><Link href={`/company`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Company & Manufacturing</Link></li>
               <li><Link href={`/technical-resources`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Technical Resources</Link></li>
@@ -95,11 +115,10 @@ export default function Footer() {
               <li><Link href={`/warranty`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Warranty Info</Link></li>
               <li><Link href={`/contact`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Contact Support</Link></li>
             </ul>
-          </div>
+          </FooterColumn>
           
           {/* Contact */}
-          <div>
-            <h4 className="font-bold text-lg mb-6 font-heading">Contact Factory</h4>
+          <FooterColumn title="Contact Factory">
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" />
@@ -114,7 +133,7 @@ export default function Footer() {
                 <span className="text-navy-300 text-sm leading-relaxed">Block 3, No 55 Tianyang Rd, Fengqiao,<br/>Zhuji, Zhejiang. China 311811</span>
               </li>
             </ul>
-          </div>
+          </FooterColumn>
         </div>
         
         <div className="pt-8 border-t border-navy-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
