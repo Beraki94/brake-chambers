@@ -88,6 +88,24 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
         },
         {
           "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.brcbrakechambers.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Spring Brakes",
+              "item": "https://www.brcbrakechambers.com/spring-brakes"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
             {
