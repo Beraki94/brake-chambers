@@ -1,11 +1,12 @@
-
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
 import ProductListCard from '@/components/products/ProductListCard';
 import FacetedSidebar from '@/components/products/FacetedSidebar';
-import { Truck, CheckCircle2 } from 'lucide-react';import PageHeader from '@/components/layout/PageHeader';
+import { Truck, CheckCircle2 } from 'lucide-react';
+import PageHeader from '@/components/layout/PageHeader';
+import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 
 
 export const metadata: Metadata = {
@@ -134,17 +135,15 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
   
           
       {/* FAQ Section */}
-      <div className="mt-16 mb-12 bg-navy-50 rounded-3xl p-8 lg:p-12 border border-navy-100">
+      <div className="mt-16 mb-12">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-extrabold text-navy-900 mb-8 text-center">Frequently Asked Questions</h2>
-          <div className="space-y-6">
-            
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-              <h3 className="text-lg font-bold text-navy-900 mb-2">Do you offer bulk pricing for trailer fleets?</h3>
-              <p className="text-slate-600">Yes, we specialize in direct-to-fleet bulk orders and pallet pricing. Please use the Request Wholesale Quote button for fleet pricing.</p>
-            </div>
-            
-          </div>
+          <GlobalFAQAccordion faqs={[
+            {
+              q: 'Do you offer bulk pricing for trailer fleets?',
+              a: 'Yes, we specialize in direct-to-fleet bulk orders and pallet pricing. Please use the Request Wholesale Quote button for fleet pricing.'
+            }
+          ]} />
         </div>
       </div>
   

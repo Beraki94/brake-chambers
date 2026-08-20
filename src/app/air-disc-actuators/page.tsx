@@ -1,8 +1,9 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { BRAKE_CHAMBERS } from '@/lib/data';
+import { AIR_DISC_ACTUATORS } from '@/lib/data';
 import ProductListingLayout from '@/components/products/ProductListingLayout';
+import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 
 export const metadata: Metadata = {
   title: 'Air Disc Brake (ADB) Actuators | BRC Manufacturer',
@@ -52,16 +53,16 @@ export default async function AirDiscActuatorsPage(props: { searchParams?: Promi
 
       <section className="mb-16">
         <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6">Frequently Asked Questions</h2>
-        <div className="space-y-4">
-          <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-navy-900 mb-2">Can I replace a standard spring brake with an ADB actuator?</h3>
-            <p className="text-slate-600 text-sm">No, ADB actuators are specifically designed to mount to an air disc brake caliper, not an S-cam slack adjuster. The pushrod length and mounting bolt patterns are entirely different.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-navy-900 mb-2">Are your ADB actuators compatible with Bendix ADB22X calipers?</h3>
-            <p className="text-slate-600 text-sm">Yes, our Type 18/24 and Type 20/24 ADB actuators are frequently used as direct aftermarket replacements for Bendix ADB22X systems on both steer and drive axles.</p>
-          </div>
-        </div>
+        <GlobalFAQAccordion faqs={[
+          {
+            q: 'Can I replace a standard spring brake with an ADB actuator?',
+            a: 'No, ADB actuators are specifically designed to mount to an air disc brake caliper, not an S-cam slack adjuster. The pushrod length and mounting bolt patterns are entirely different.'
+          },
+          {
+            q: 'Are your ADB actuators compatible with Bendix ADB22X calipers?',
+            a: 'Yes, our Type 18/24 and Type 20/24 ADB actuators are frequently used as direct aftermarket replacements for Bendix ADB22X systems on both steer and drive axles.'
+          }
+        ]} />
       </section>
 
       <Script id="adb-actuators-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([

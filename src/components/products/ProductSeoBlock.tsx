@@ -38,7 +38,7 @@ export default function ProductSeoBlock({ product }: ProductSeoBlockProps) {
     : '';
 
   return (
-    <section className="mt-12 bg-white rounded-2xl shadow-sm border border-navy-50 p-8 md:p-12 mb-8 relative overflow-hidden">
+    <section className="mt-12 bg-white rounded-2xl shadow-sm border border-navy-50 p-8 md:p-12 relative overflow-hidden">
       {/* Decorative accent */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl"></div>
       

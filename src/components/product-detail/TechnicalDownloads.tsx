@@ -28,8 +28,8 @@ export default function TechnicalDownloads({ productName }: TechnicalDownloadsPr
   ];
 
   return (
-    <section className="mb-12">
-      <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6">
+    <section className="mb-16">
+      <h2 className="text-3xl font-extrabold text-navy-900 mb-8">
         Downloads & Documentation
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">

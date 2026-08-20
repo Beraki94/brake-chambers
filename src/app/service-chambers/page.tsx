@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { BRAKE_CHAMBERS } from '@/lib/data';
 import ProductListingLayout from '@/components/products/ProductListingLayout';
+import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Service Brake Chambers | BRC Manufacturer',
@@ -54,20 +55,20 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
 
       <section>
         <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6">Frequently Asked Questions</h2>
-        <div className="space-y-4">
-          <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-navy-900 mb-2">What is the difference between a service brake and a spring brake?</h3>
-            <p className="text-slate-600 text-sm">A service brake chamber contains a single diaphragm and provides the primary stopping power when the driver presses the brake pedal. A spring brake includes an additional powerful mechanical spring for parking and emergency braking.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-navy-900 mb-2">When should I choose a Long Stroke (LS) service chamber?</h3>
-            <p className="text-slate-600 text-sm">Long stroke chambers provide an extra margin of safety by allowing the pushrod to travel further before bottoming out. Always replace a long stroke chamber with another long stroke chamber, identified typically by square ports or special tags.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-navy-900 mb-2">Are these direct replacements for Bendix service chambers?</h3>
-            <p className="text-slate-600 text-sm">Yes, our service chambers are designed as exact aftermarket replacements for Bendix, Meritor, and other major OEM brands. The mounting bolts, air ports, and pushrod lengths match OEM specifications perfectly.</p>
-          </div>
-        </div>
+        <GlobalFAQAccordion faqs={[
+          {
+            q: 'What is the difference between a service brake and a spring brake?',
+            a: 'A service brake chamber contains a single diaphragm and provides the primary stopping power when the driver presses the brake pedal. A spring brake includes an additional powerful mechanical spring for parking and emergency braking.'
+          },
+          {
+            q: 'When should I choose a Long Stroke (LS) service chamber?',
+            a: 'Long stroke chambers provide an extra margin of safety by allowing the pushrod to travel further before bottoming out. Always replace a long stroke chamber with another long stroke chamber, identified typically by square ports or special tags.'
+          },
+          {
+            q: 'Are these direct replacements for Bendix service chambers?',
+            a: 'Yes, our service chambers are designed as exact aftermarket replacements for Bendix, Meritor, and other major OEM brands. The mounting bolts, air ports, and pushrod lengths match OEM specifications perfectly.'
+          }
+        ]} />
       </section>
 
       <Script id="service-chambers-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([

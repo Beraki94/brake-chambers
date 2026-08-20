@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { BRAKE_CHAMBERS } from '@/lib/data';
 import ProductListingLayout from '@/components/products/ProductListingLayout';
+import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Spring Brake Chambers | BRC Manufacturer',
@@ -58,20 +59,20 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
 
       <section>
         <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6">Frequently Asked Questions</h2>
-        <div className="space-y-4">
-          <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-navy-900 mb-2">What does "Type 30/30" mean?</h3>
-            <p className="text-slate-600 text-sm">The numbers indicate the effective area (in square inches) of the diaphragm for the service chamber (first number) and the spring chamber (second number). A Type 30/30 has 30 square inches of area for both braking functions.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-navy-900 mb-2">Are your spring brakes compatible with Bendix systems?</h3>
-            <p className="text-slate-600 text-sm">Yes, our spring brake assemblies and piggyback kits are manufactured as direct aftermarket replacements for Bendix, Meritor, and other major OEM systems, matching exact stroke, pushrod length, and port angles.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-navy-900 mb-2">Should I replace the entire assembly or just use a piggyback kit?</h3>
-            <p className="text-slate-600 text-sm">If the service chamber housing and pushrod are still in excellent condition and free of corrosion, a piggyback kit is a cost-effective solution. However, replacing the entire complete assembly is often recommended for maximum safety.</p>
-          </div>
-        </div>
+        <GlobalFAQAccordion faqs={[
+          {
+            q: 'What does "Type 30/30" mean?',
+            a: 'The numbers indicate the effective area (in square inches) of the diaphragm for the service chamber (first number) and the spring chamber (second number). A Type 30/30 has 30 square inches of area for both braking functions.'
+          },
+          {
+            q: 'Are your spring brakes compatible with Bendix systems?',
+            a: 'Yes, our spring brake assemblies and piggyback kits are manufactured as direct aftermarket replacements for Bendix, Meritor, and other major OEM systems, matching exact stroke, pushrod length, and port angles.'
+          },
+          {
+            q: 'Should I replace the entire assembly or just use a piggyback kit?',
+            a: 'If the service chamber housing and pushrod are still in excellent condition and free of corrosion, a piggyback kit is a cost-effective solution. However, replacing the entire complete assembly is often recommended for maximum safety.'
+          }
+        ]} />
       </section>
 
       <Script id="spring-brakes-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([

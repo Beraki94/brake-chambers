@@ -1,11 +1,11 @@
-
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
 import ProductListCard from '@/components/products/ProductListCard';
 import FacetedSidebar from '@/components/products/FacetedSidebar';
-import { Truck, CheckCircle2 } from 'lucide-react';import PageHeader from '@/components/layout/PageHeader';
+import { Truck, CheckCircle2 } from 'lucide-react';import PageHeader from '@/components/layout/PageHeader';
 
 
 export const metadata: Metadata = {
@@ -134,22 +134,19 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
   
           
       {/* FAQ Section */}
-      <div className="mt-16 mb-12 bg-navy-50 rounded-3xl p-8 lg:p-12 border border-navy-100">
+      <div className="mt-16 mb-12">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-extrabold text-navy-900 mb-8 text-center">Frequently Asked Questions</h2>
-          <div className="space-y-6">
-            
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-              <h3 className="text-lg font-bold text-navy-900 mb-2">What sizes are most common for Class 8 heavy-duty trucks?</h3>
-              <p className="text-slate-600">Type 30/30 (T3030) is the industry standard for drive axles on Class 8 heavy-duty trucks. We offer both standard and long-stroke (3-inch) variants.</p>
-            </div>
-            
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-              <h3 className="text-lg font-bold text-navy-900 mb-2">Are these direct replacements for Bendix or Meritor?</h3>
-              <p className="text-slate-600">Yes, our chambers are designed to match or exceed OEM specifications and cross-reference perfectly with major brand part numbers.</p>
-            </div>
-            
-          </div>
+          <GlobalFAQAccordion faqs={[
+            {
+              q: 'What sizes are most common for Class 8 heavy-duty trucks?',
+              a: 'Type 30/30 (T3030) is the industry standard for drive axles on Class 8 heavy-duty trucks. We offer both standard and long-stroke (3-inch) variants.'
+            },
+            {
+              q: 'Are these direct replacements for Bendix or Meritor?',
+              a: 'Yes, our chambers are designed to match or exceed OEM specifications and cross-reference perfectly with major brand part numbers.'
+            }
+          ]} />
         </div>
       </div>
   

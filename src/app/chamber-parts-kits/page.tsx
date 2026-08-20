@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { BRAKE_ACCESSORIES } from '@/lib/data';
 import ProductListingLayout from '@/components/products/ProductListingLayout';
+import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Brake Chamber Accessories | BRC Manufacturer',
@@ -54,20 +55,20 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
 
       <section className="mb-16">
         <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6">Frequently Asked Questions</h2>
-        <div className="space-y-4">
-          <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-navy-900 mb-2">What brake chamber accessories do you offer?</h3>
-            <p className="text-slate-600 text-sm">We provide a comprehensive range of replacement parts including premium diaphragms, clevis assemblies, clamp bands, return springs, and complete piggyback repair kits for both service and spring brake chambers.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-navy-900 mb-2">Are BRC accessories compatible with OEM chambers like Bendix or Meritor?</h3>
-            <p className="text-slate-600 text-sm">Yes, all our replacement parts and accessories are engineered as direct drop-in aftermarket replacements for major OEM systems including Bendix, Meritor, Haldex, and Wabco, matching exact specifications and tolerances.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-navy-900 mb-2">Do you offer wholesale pricing for repair shops and fleets?</h3>
-            <p className="text-slate-600 text-sm">Absolutely. As an ISO 9001 certified manufacturer, we supply distributors, repair shops, and large commercial fleets directly with bulk wholesale pricing, bypassing standard distribution markups.</p>
-          </div>
-        </div>
+        <GlobalFAQAccordion faqs={[
+          {
+            q: 'What brake chamber accessories do you offer?',
+            a: 'We provide a comprehensive range of replacement parts including premium diaphragms, clevis assemblies, clamp bands, return springs, and complete piggyback repair kits for both service and spring brake chambers.'
+          },
+          {
+            q: 'Are BRC accessories compatible with OEM chambers like Bendix or Meritor?',
+            a: 'Yes, all our replacement parts and accessories are engineered as direct drop-in aftermarket replacements for major OEM systems including Bendix, Meritor, Haldex, and Wabco, matching exact specifications and tolerances.'
+          },
+          {
+            q: 'Do you offer wholesale pricing for repair shops and fleets?',
+            a: 'Absolutely. As an ISO 9001 certified manufacturer, we supply distributors, repair shops, and large commercial fleets directly with bulk wholesale pricing, bypassing standard distribution markups.'
+          }
+        ]} />
       </section>
 
       <Script id="accessories-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([
