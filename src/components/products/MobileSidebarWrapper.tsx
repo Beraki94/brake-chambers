@@ -42,7 +42,7 @@ export default function MobileSidebarWrapper({ children }: MobileSidebarWrapperP
 
       {/* Mobile Modal (visible only when isOpen on smaller screens) */}
       {isOpen && (
-        <div className="fixed inset-0 z-[100] lg:hidden flex items-center justify-center p-4 sm:p-6">
+        <div className="fixed inset-0 z-[100] lg:hidden flex items-center justify-center p-3 sm:p-6">
           {/* Semi-transparent backdrop - allows user to see products changing */}
           <div 
             className="absolute inset-0 bg-navy-900/60 backdrop-blur-[2px] transition-opacity" 
@@ -51,7 +51,7 @@ export default function MobileSidebarWrapper({ children }: MobileSidebarWrapperP
           />
           
           {/* Centered Floating Modal (visible background on all sides) */}
-          <div className="relative w-full max-w-sm max-h-[90vh] bg-slate-50 flex flex-col shadow-2xl rounded-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-md max-h-[90vh] bg-slate-50 flex flex-col shadow-2xl rounded-2xl overflow-hidden animate-in zoom-in-95 duration-200">
             {/* Modal Header */}
             <div className="flex items-center justify-between px-4 py-4 bg-white border-b border-slate-200 shadow-sm sticky top-0 z-10 shrink-0">
               <h2 className="text-xl font-extrabold text-navy-900 flex items-center gap-2">
