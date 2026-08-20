@@ -17,6 +17,9 @@ const OEM_BRANDS: Record<string, { name: string, type: string, desc: string }> =
   'meritor': { name: 'Meritor', type: 'brand', desc: 'Direct aftermarket replacements for Meritor commercial air brake chambers.' },
   'haldex': { name: 'Haldex', type: 'brand', desc: 'Direct aftermarket replacements for Haldex commercial air brake chambers.' },
   'wabco': { name: 'WABCO', type: 'brand', desc: 'Direct aftermarket replacements for WABCO commercial air brake chambers.' },
+  'zf-wabco': { name: 'ZF / WABCO', type: 'brand', desc: 'Direct aftermarket replacements for ZF / WABCO commercial air brake chambers.' },
+  'knorr-bremse': { name: 'Knorr-Bremse', type: 'brand', desc: 'Direct aftermarket replacements for Knorr-Bremse commercial air brake chambers.' },
+  'sorl': { name: 'SORL Auto Parts', type: 'brand', desc: 'Direct aftermarket replacements for SORL Auto Parts commercial air brake chambers.' },
   'mgm': { name: 'MGM Brakes', type: 'brand', desc: 'Direct aftermarket replacements for MGM commercial air brake chambers.' },
   'automann': { name: 'Automann', type: 'brand', desc: 'Direct aftermarket replacements for Automann commercial air brake chambers.' },
   'dexter': { name: 'Dexter', type: 'brand', desc: 'Direct aftermarket replacements for Dexter commercial air brake chambers.' },
@@ -29,6 +32,20 @@ const OEM_BRANDS: Record<string, { name: string, type: string, desc: string }> =
   'kenworth': { name: 'Kenworth', type: 'truck', desc: 'Direct aftermarket replacements for Kenworth truck air brake chambers.' },
   'volvo-mack': { name: 'Volvo / Mack', type: 'truck', desc: 'Direct aftermarket replacements for Volvo and Mack truck air brake chambers.' },
   'navistar': { name: 'Navistar', type: 'truck', desc: 'Direct aftermarket replacements for Navistar / International truck air brake chambers.' },
+  
+  // European Truck Manufacturers
+  'scania': { name: 'Scania', type: 'truck', desc: 'Direct aftermarket replacements for Scania truck air brake chambers.' },
+  'man': { name: 'MAN', type: 'truck', desc: 'Direct aftermarket replacements for MAN truck air brake chambers.' },
+  'mercedes-benz': { name: 'Mercedes-Benz Trucks', type: 'truck', desc: 'Direct aftermarket replacements for Mercedes-Benz truck air brake chambers.' },
+  'daf': { name: 'DAF', type: 'truck', desc: 'Direct aftermarket replacements for DAF truck air brake chambers.' },
+  'iveco': { name: 'Iveco', type: 'truck', desc: 'Direct aftermarket replacements for Iveco truck air brake chambers.' },
+  
+  // Asian Truck Manufacturers
+  'isuzu': { name: 'Isuzu', type: 'truck', desc: 'Direct aftermarket replacements for Isuzu truck air brake chambers.' },
+  'hino': { name: 'Hino', type: 'truck', desc: 'Direct aftermarket replacements for Hino truck air brake chambers.' },
+  'fuso': { name: 'Fuso', type: 'truck', desc: 'Direct aftermarket replacements for Fuso truck air brake chambers.' },
+  'dongfeng': { name: 'Dongfeng', type: 'truck', desc: 'Direct aftermarket replacements for Dongfeng truck air brake chambers.' },
+  'tata': { name: 'Tata', type: 'truck', desc: 'Direct aftermarket replacements for Tata truck air brake chambers.' },
   
   // Axle & Suspension
   'hendrickson': { name: 'Hendrickson', type: 'axle', desc: 'Direct aftermarket replacements for Hendrickson axle and suspension air brake chambers.' },
@@ -134,14 +151,14 @@ export default async function OEMBrandPage(
       </PageHeader>
 
       {/* OEM Search Tool Prominent Placement */}
-      <section className="relative z-20 -mt-12 lg:-mt-24 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl mb-16 lg:mb-24">
+      <section className="relative z-20 -mt-8 sm:-mt-12 lg:-mt-24 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl mb-12 lg:mb-24">
         <div className="w-full">
           <OEMSearchForm />
         </div>
       </section>
 
       <div className="container mx-auto px-4 max-w-7xl">
-      <div className="flex flex-col lg:flex-row gap-8 mb-16">
+      <div className="flex flex-col-reverse lg:flex-row gap-8 mb-16">
         {/* Left Column: Trust & Engineering Proof */}
         <div className="w-full lg:w-1/3 flex flex-col gap-6">
           <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">

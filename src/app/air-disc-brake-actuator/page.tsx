@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { AIR_DISC_ACTUATORS } from '@/lib/data';
+import { BRAKE_CHAMBERS } from '@/lib/data';
 import ProductListingLayout from '@/components/products/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 
@@ -71,7 +71,7 @@ export default async function AirDiscActuatorsPage(props: { searchParams?: Promi
           "@type": "CollectionPage",
           "name": "Air Disc Brake (ADB) Actuators",
           "description": "Factory-direct heavy-duty Air Disc Brake (ADB) actuators. Direct aftermarket replacements for Bendix, Meritor, and Wabco.",
-          "url": "https://www.brcbrakechambers.com/air-disc-actuators",
+          "url": "https://www.brcbrakechambers.com/air-disc-brake-actuator",
           "manufacturer": {
             "@type": "Organization",
             "name": "BRC Brake Chambers"
@@ -113,7 +113,7 @@ export default async function AirDiscActuatorsPage(props: { searchParams?: Promi
               "@type": "ListItem",
               "position": 2,
               "name": "Air Disc Actuators",
-              "item": "https://www.brcbrakechambers.com/air-disc-actuators"
+              "item": "https://www.brcbrakechambers.com/air-disc-brake-actuator"
             }
           ]
         }
@@ -126,7 +126,7 @@ export default async function AirDiscActuatorsPage(props: { searchParams?: Promi
       title="Air Disc Actuators (ADB)"
       description="Next-generation Air Disc Brake (ADB) actuators for modern commercial vehicles. Superior stopping power and completely sealed from environmental contaminants."
       badge="Disc Brake Systems"
-      baseCategory="air-disc-actuators"
+      baseCategory="air-disc-brake-actuator"
       products={products}
       searchParams={searchParams}
       visualizerType="adp"

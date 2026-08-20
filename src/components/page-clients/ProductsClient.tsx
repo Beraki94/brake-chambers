@@ -44,17 +44,17 @@ export default function ProductsClient() {
     },
     {
       title: 'Air Disc Actuators',
-      slug: 'air-disc-actuators',
+      slug: 'air-disc-brake-actuator',
       tag: 'High Output Technology (HOT)',
       desc: 'Advanced ADB actuators for modern fleets requiring superior stopping power, reduced brake fade, and consistent performance under extreme heat and heavy loads.',
       icon: <Disc className="w-10 h-10 text-white" />,
       image: '/images/transit_bus.png',
       accent: 'amber',
       links: [
-        { id: '/air-disc-actuators/type-16-18-adb-actuators', title: 'Type 16 & 18 ADB', desc: 'Linear Output' },
-        { id: '/air-disc-actuators/type-20-24-air-disc-actuators', title: 'Type 20/24 ADB', desc: 'High Capacity' },
-        { id: '/air-disc-actuators/type-24-24-adb-chambers', title: 'Type 24/24 ADB', desc: 'Severe Duty' },
-        { id: '/air-disc-actuators/type-24-30-air-disc-brake-actuators', title: 'Type 24/30 ADB', desc: 'Maximum Torque' },
+        { id: '/air-disc-brake-actuator/type-16-18-adb-actuators', title: 'Type 16 & 18 ADB', desc: 'Linear Output' },
+        { id: '/air-disc-brake-actuator/type-20-24-air-disc-brake-actuator', title: 'Type 20/24 ADB', desc: 'High Capacity' },
+        { id: '/air-disc-brake-actuator/type-24-24-adb-chambers', title: 'Type 24/24 ADB', desc: 'Severe Duty' },
+        { id: '/air-disc-brake-actuator/type-24-30-air-disc-brake-actuators', title: 'Type 24/30 ADB', desc: 'Maximum Torque' },
       ]
     },
     {
@@ -376,7 +376,7 @@ export default function ProductsClient() {
                 Already have an OEM part number?
               </h2>
               <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Enter your Bendix, Meritor, Haldex, WABCO, or MGM part number to instantly find the matching BRC equivalent.
+                Enter your Bendix, Knorr-Bremse, ZF/WABCO, Haldex, SORL, or MGM part number to instantly find the matching BRC equivalent.
               </p>
             </div>
 

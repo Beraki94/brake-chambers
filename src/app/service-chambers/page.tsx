@@ -7,7 +7,7 @@ import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Service Brake Chambers | BRC Manufacturer',
-  description: 'Factory-direct heavy-duty service brake chambers for steer axles and primary braking. Direct aftermarket replacements for Bendix, Meritor, Haldex, and Wabco. ISO 9001 certified manufacturer.',
+  description: 'Factory-direct heavy-duty service brake chambers for steer axles and primary braking. Direct aftermarket replacements for Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex. ISO 9001 certified manufacturer.',
   keywords: ['Service Brake Chambers', 'Type 20', 'Type 24', 'Type 30', 'Commercial Air Brakes', 'Heavy-Duty Brake Chambers', 'Bendix Replacement', 'Meritor Replacement'],
 };
 
@@ -42,7 +42,7 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
           </div>
           <div>
             <p className="mb-4">
-              <strong>Direct OEM Replacements:</strong> BRC service chambers are engineered to drop directly into existing Bendix, Meritor, Haldex, and Wabco setups without modification, ensuring rapid maintenance turnarounds.
+              <strong>Direct OEM Replacements:</strong> BRC service chambers are engineered to drop directly into existing Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex setups without modification, ensuring rapid maintenance turnarounds.
             </p>
             <ul className="space-y-2 mt-4 list-disc pl-5 text-slate-600">
               <li>Available in multiple sizes including Type 16, Type 20, Type 24, and Type 30.</li>
@@ -76,7 +76,7 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           "name": "Heavy-Duty Commercial Service Brake Chambers",
-          "description": "Factory-direct heavy-duty service brake chambers for steer axles and primary braking. Direct aftermarket replacements for Bendix, Meritor, Haldex, and Wabco.",
+          "description": "Factory-direct heavy-duty service brake chambers for steer axles and primary braking. Direct aftermarket replacements for Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex.",
           "url": "https://www.brcbrakechambers.com/service-chambers",
           "manufacturer": {
             "@type": "Organization",

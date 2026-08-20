@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { BRAKE_CHAMBERS } from '../../lib/data';
 
 interface FacetedSidebarProps {
-  baseCategory?: 'spring-brakes' | 'service-chambers' | 'chamber-parts-kits' | 'air-disc-actuators' | 'all';
+  baseCategory?: 'spring-brakes' | 'service-chambers' | 'chamber-parts-kits' | 'air-disc-brake-actuator' | 'all';
 }
 
 const BRANDS = [
@@ -28,6 +28,7 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const [openSection, setOpenSection] = React.useState<string | null>(null);
 
   // Determine if we are on a specific sub-category page (e.g., /spring-brakes/type-30-30)
   // If we are, we should hide the generic 'Model' filter to prevent conflicting filters.
@@ -66,18 +67,26 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
     <div className="flex flex-col gap-4 w-full">
       {/* Context-Aware Category Links (Silo Structure) */}
       {(!baseCategory || baseCategory === 'all') && (
-        <FilterAccordion title="Categories">
+        <FilterAccordion 
+        title="Categories" 
+        isOpen={openSection === "Categories"} 
+        onToggle={() => setOpenSection(openSection === "Categories" ? null : "Categories")}
+      >
           <ul className="py-2">
             <li><Link href={`/spring-brakes`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Spring Brakes</Link></li>
             <li><Link href={`/service-chambers`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Service Chambers</Link></li>
-            <li><Link href={`/air-disc-actuators`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Air Disc Actuators</Link></li>
+            <li><Link href={`/air-disc-brake-actuator`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Air Disc Actuators</Link></li>
             <li><Link href={`/chamber-parts-kits`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Parts & Kits</Link></li>
           </ul>
         </FilterAccordion>
       )}
 
       {baseCategory === 'spring-brakes' && (
-        <FilterAccordion title="Spring Brake Types">
+        <FilterAccordion 
+        title="Spring Brake Types" 
+        isOpen={openSection === "Spring Brake Types"} 
+        onToggle={() => setOpenSection(openSection === "Spring Brake Types" ? null : "Spring Brake Types")}
+      >
           <ul className="py-2">
             <li><Link href={`/spring-brakes/30-30-air-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('30-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30/30 Spring Brake</Link></li>
             <li><Link href={`/spring-brakes/36-36-spring-brakes`} className={`block px-4 py-2 text-sm ${pathname.includes('36-36') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 36/36 Spring Brake</Link></li>
@@ -91,7 +100,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       )}
 
       {baseCategory === 'service-chambers' && (
-        <FilterAccordion title="Service Chamber Types">
+        <FilterAccordion 
+        title="Service Chamber Types" 
+        isOpen={openSection === "Service Chamber Types"} 
+        onToggle={() => setOpenSection(openSection === "Service Chamber Types" ? null : "Service Chamber Types")}
+      >
           <ul className="py-2">
             <li><Link href={`/service-chambers/type-20-steer-axle-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('20-steer') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20 Steer Axle Brake Chambers</Link></li>
             <li><Link href={`/service-chambers/type-30-service-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('type-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30 Service Chambers</Link></li>
@@ -103,20 +116,28 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
         </FilterAccordion>
       )}
 
-      {baseCategory === 'air-disc-actuators' && (
-        <FilterAccordion title="Air Disc Actuators">
+      {baseCategory === 'air-disc-brake-actuator' && (
+        <FilterAccordion 
+        title="Air Disc Actuators" 
+        isOpen={openSection === "Air Disc Actuators"} 
+        onToggle={() => setOpenSection(openSection === "Air Disc Actuators" ? null : "Air Disc Actuators")}
+      >
           <ul className="py-2">
-            <li><Link href={`/air-disc-actuators/type-16-18-adb-actuators`} className={`block px-4 py-2 text-sm ${pathname.includes('16-18') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 16 & 18 ADB</Link></li>
-            <li><Link href={`/air-disc-actuators/type-20-24-air-disc-actuators`} className={`block px-4 py-2 text-sm ${pathname.includes('20-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20/24 ADB</Link></li>
-            <li><Link href={`/air-disc-actuators/type-24-24-adb-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('24-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/24 ADB</Link></li>
-            <li><Link href={`/air-disc-actuators/type-24-30-air-disc-brake-actuators`} className={`block px-4 py-2 text-sm ${pathname.includes('24-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/30 ADB</Link></li>
-            <li><Link href={`/air-disc-actuators`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Air Disc Actuators</Link></li>
+            <li><Link href={`/air-disc-brake-actuator/type-16-18-adb-actuators`} className={`block px-4 py-2 text-sm ${pathname.includes('16-18') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 16 & 18 ADB</Link></li>
+            <li><Link href={`/air-disc-brake-actuator/type-20-24-air-disc-brake-actuator`} className={`block px-4 py-2 text-sm ${pathname.includes('20-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20/24 ADB</Link></li>
+            <li><Link href={`/air-disc-brake-actuator/type-24-24-adb-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('24-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/24 ADB</Link></li>
+            <li><Link href={`/air-disc-brake-actuator/type-24-30-air-disc-brake-actuators`} className={`block px-4 py-2 text-sm ${pathname.includes('24-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/30 ADB</Link></li>
+            <li><Link href={`/air-disc-brake-actuator`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Air Disc Actuators</Link></li>
           </ul>
         </FilterAccordion>
       )}
 
       {baseCategory === 'chamber-parts-kits' && (
-        <FilterAccordion title="Parts & Kits Types">
+        <FilterAccordion 
+        title="Parts & Kits Types" 
+        isOpen={openSection === "Parts & Kits Types"} 
+        onToggle={() => setOpenSection(openSection === "Parts & Kits Types" ? null : "Parts & Kits Types")}
+      >
           <ul className="py-2">
             <li><Link href={`/chamber-parts-kits/air-brake-chamber-rebuild-kits`} className={`block px-4 py-2 text-sm ${pathname.includes('rebuild-kits') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Air Brake Chamber Rebuild Kits</Link></li>
             <li><Link href={`/chamber-parts-kits/brake-chamber-diaphragms`} className={`block px-4 py-2 text-sm ${pathname.includes('diaphragm') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Brake Chamber Diaphragms</Link></li>
@@ -130,7 +151,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       )}
 
       {/* Brands Filter (For all categories) */}
-      <FilterAccordion title="Brands (Cross-Reference)">
+      <FilterAccordion 
+        title="Brands (Cross-Reference)" 
+        isOpen={openSection === "Brands (Cross-Reference)"} 
+        onToggle={() => setOpenSection(openSection === "Brands (Cross-Reference)" ? null : "Brands (Cross-Reference)")}
+      >
         <div className="p-4 flex flex-col gap-2 max-h-60 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-navy-200 [&::-webkit-scrollbar-track]:bg-navy-50">
           {BRANDS.map(brand => (
             <label key={brand} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer hover:bg-slate-50 p-1 -mx-1 rounded transition-colors">
@@ -148,7 +173,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
 
       {/* Accessories Specific Filters */}
       {baseCategory === 'chamber-parts-kits' && !isNestedRoute && (
-        <FilterAccordion title="Accessory Type">
+        <FilterAccordion 
+        title="Accessory Type" 
+        isOpen={openSection === "Accessory Type"} 
+        onToggle={() => setOpenSection(openSection === "Accessory Type" ? null : "Accessory Type")}
+      >
           <div className="p-4 flex flex-col gap-2">
             {['Diaphragm', 'Slack Adjuster', 'Clamp Band', 'Caging Bolt', 'Hardware Kit'].map(type => (
               <label key={type} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -166,10 +195,14 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       )}
 
       {/* Air Disc Actuators Specific Filters */}
-      {baseCategory === 'air-disc-actuators' && (
+      {baseCategory === 'air-disc-brake-actuator' && (
         <>
           {!isNestedRoute && (
-            <FilterAccordion title="ADB Model">
+            <FilterAccordion 
+        title="ADB Model" 
+        isOpen={openSection === "ADB Model"} 
+        onToggle={() => setOpenSection(openSection === "ADB Model" ? null : "ADB Model")}
+      >
               <div className="p-4 flex flex-col gap-2 max-h-48 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-navy-200">
                 {ADB_MODELS.map(model => (
                   <label key={model} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -186,7 +219,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
             </FilterAccordion>
           )}
 
-          <FilterAccordion title="Application">
+          <FilterAccordion 
+        title="Application" 
+        isOpen={openSection === "Application"} 
+        onToggle={() => setOpenSection(openSection === "Application" ? null : "Application")}
+      >
             <div className="p-4 flex flex-col gap-2">
               {APPLICATIONS.filter(a => a.includes('Disc')).map(app => (
                 <label key={app} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -208,7 +245,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       {baseCategory === 'spring-brakes' && (
         <>
           {!isNestedRoute && (
-            <FilterAccordion title="Spring Brake Model">
+            <FilterAccordion 
+        title="Spring Brake Model" 
+        isOpen={openSection === "Spring Brake Model"} 
+        onToggle={() => setOpenSection(openSection === "Spring Brake Model" ? null : "Spring Brake Model")}
+      >
               <div className="p-4 flex flex-col gap-2 max-h-48 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-navy-200">
                 {SPRING_MODELS.map(model => (
                   <label key={model} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -225,7 +266,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
             </FilterAccordion>
           )}
 
-          <FilterAccordion title="Stroke Inch">
+          <FilterAccordion 
+        title="Stroke Inch" 
+        isOpen={openSection === "Stroke Inch"} 
+        onToggle={() => setOpenSection(openSection === "Stroke Inch" ? null : "Stroke Inch")}
+      >
             <div className="p-4 flex flex-col gap-2">
               {STROKE_INCHES.map(stroke => (
                 <label key={stroke} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -241,7 +286,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
             </div>
           </FilterAccordion>
 
-          <FilterAccordion title="Push Rod Length">
+          <FilterAccordion 
+        title="Push Rod Length" 
+        isOpen={openSection === "Push Rod Length"} 
+        onToggle={() => setOpenSection(openSection === "Push Rod Length" ? null : "Push Rod Length")}
+      >
             <div className="p-4 flex flex-col gap-2">
               {PUSH_ROD_LENGTHS.map(length => (
                 <label key={length} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -257,7 +306,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
             </div>
           </FilterAccordion>
 
-          <FilterAccordion title="Application">
+          <FilterAccordion 
+        title="Application" 
+        isOpen={openSection === "Application"} 
+        onToggle={() => setOpenSection(openSection === "Application" ? null : "Application")}
+      >
             <div className="p-4 flex flex-col gap-2">
               {APPLICATIONS.map(app => (
                 <label key={app} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -279,7 +332,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       {baseCategory === 'service-chambers' && (
         <>
           {!isNestedRoute && (
-            <FilterAccordion title="Service Chamber Model">
+            <FilterAccordion 
+        title="Service Chamber Model" 
+        isOpen={openSection === "Service Chamber Model"} 
+        onToggle={() => setOpenSection(openSection === "Service Chamber Model" ? null : "Service Chamber Model")}
+      >
               <div className="p-4 flex flex-col gap-2 max-h-48 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-navy-200">
                 {SERVICE_MODELS.map(model => (
                   <label key={model} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -296,7 +353,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
             </FilterAccordion>
           )}
 
-          <FilterAccordion title="Stroke Inch">
+          <FilterAccordion 
+        title="Stroke Inch" 
+        isOpen={openSection === "Stroke Inch"} 
+        onToggle={() => setOpenSection(openSection === "Stroke Inch" ? null : "Stroke Inch")}
+      >
             <div className="p-4 flex flex-col gap-2">
               {STROKE_INCHES.map(stroke => (
                 <label key={stroke} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -312,7 +373,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
             </div>
           </FilterAccordion>
 
-          <FilterAccordion title="Application">
+          <FilterAccordion 
+        title="Application" 
+        isOpen={openSection === "Application"} 
+        onToggle={() => setOpenSection(openSection === "Application" ? null : "Application")}
+      >
             <div className="p-4 flex flex-col gap-2">
               {APPLICATIONS.map(app => (
                 <label key={app} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -333,7 +398,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       {/* All Products Specific Filters */}
       {baseCategory === 'all' && (
         <>
-          <FilterAccordion title="Product Category">
+          <FilterAccordion 
+        title="Product Category" 
+        isOpen={openSection === "Product Category"} 
+        onToggle={() => setOpenSection(openSection === "Product Category" ? null : "Product Category")}
+      >
             <div className="p-4 flex flex-col gap-2">
               {['Spring Brake', 'Service Brake', 'Air Disc Actuator', 'Accessory'].map(type => (
                 <label key={type} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -349,7 +418,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
             </div>
           </FilterAccordion>
 
-          <FilterAccordion title="Accessory Type">
+          <FilterAccordion 
+        title="Accessory Type" 
+        isOpen={openSection === "Accessory Type"} 
+        onToggle={() => setOpenSection(openSection === "Accessory Type" ? null : "Accessory Type")}
+      >
             <div className="p-4 flex flex-col gap-2">
               {['Diaphragm', 'Slack Adjuster', 'Clamp Band', 'Caging Bolt', 'Hardware Kit', 'Piggyback Kit'].map(type => (
                 <label key={type} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -365,7 +438,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
             </div>
           </FilterAccordion>
 
-          <FilterAccordion title="Chamber Model">
+          <FilterAccordion 
+        title="Chamber Model" 
+        isOpen={openSection === "Chamber Model"} 
+        onToggle={() => setOpenSection(openSection === "Chamber Model" ? null : "Chamber Model")}
+      >
             <div className="p-4 flex flex-col gap-2 max-h-48 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-navy-200">
               {[...SPRING_MODELS, ...SERVICE_MODELS, ...ADB_MODELS].map(model => (
                 <label key={model} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -381,7 +458,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
             </div>
           </FilterAccordion>
 
-          <FilterAccordion title="Stroke Inch">
+          <FilterAccordion 
+        title="Stroke Inch" 
+        isOpen={openSection === "Stroke Inch"} 
+        onToggle={() => setOpenSection(openSection === "Stroke Inch" ? null : "Stroke Inch")}
+      >
             <div className="p-4 flex flex-col gap-2">
               {STROKE_INCHES.map(stroke => (
                 <label key={stroke} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
@@ -401,12 +482,16 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
 
       {/* Global 'Browse All Categories' - Visible everywhere for easy cross-shopping */}
       {baseCategory !== 'all' && (
-        <FilterAccordion title="Browse All Categories">
+        <FilterAccordion 
+        title="Browse All Categories" 
+        isOpen={openSection === "Browse All Categories"} 
+        onToggle={() => setOpenSection(openSection === "Browse All Categories" ? null : "Browse All Categories")}
+      >
           <ul className="py-2">
             <li><Link href={`/products`} className="block px-4 py-2 text-sm font-bold text-amber-600 hover:bg-navy-50 mb-2 border-b border-slate-100 pb-2">View Full Catalog</Link></li>
             <li><Link href={`/spring-brakes`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Spring Brakes</Link></li>
             <li><Link href={`/service-chambers`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Service Chambers</Link></li>
-            <li><Link href={`/air-disc-actuators`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Air Disc Actuators</Link></li>
+            <li><Link href={`/air-disc-brake-actuator`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Air Disc Actuators</Link></li>
             <li><Link href={`/chamber-parts-kits`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Parts & Kits</Link></li>
           </ul>
         </FilterAccordion>

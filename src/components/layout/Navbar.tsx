@@ -61,7 +61,7 @@ export default function Navbar() {
         p.slug.toLowerCase().includes(token) ||
         p.oemPartNumbers?.some(oem => oem.partNumber.toLowerCase().includes(token) || oem.brand.toLowerCase().includes(token))
       );
-    }).map(p => ({ type: p.category === 'Spring Brake' ? 'spring-brakes' : (p.category === 'Air Disc Actuator' ? 'air-disc-actuators' : 'service-chambers'), item: p }))];
+    }).map(p => ({ type: p.category === 'Spring Brake' ? 'spring-brakes' : (p.category === 'Air Disc Actuator' ? 'air-disc-brake-actuator' : 'service-chambers'), item: p }))];
 
     results = [...results, ...BRAKE_ACCESSORIES.filter(a => {
       return tokens.every(token =>
@@ -329,7 +329,7 @@ export default function Navbar() {
                     <Link href={`/service-chambers`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
                       <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Wrench className="w-4 h-4 text-amber-600" /></div> Service Chambers
                     </Link>
-                    <Link href={`/air-disc-actuators`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
+                    <Link href={`/air-disc-brake-actuator`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
                       <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Disc className="w-4 h-4 text-amber-600" /></div> Air Disc Actuators
                     </Link>
                     <Link href={`/chamber-parts-kits`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
@@ -421,12 +421,12 @@ export default function Navbar() {
                     <div>
                       <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Disc className="w-5 h-5 text-amber-500" /> Air Disc Actuators</h3>
                       <ul className="space-y-3">
-                        <li><Link href="/air-disc-actuators/type-16-18-adb-actuators" className={getLinkClass('/air-disc-actuators/type-16-18-adb-actuators')}>Type 16 & 18 ADB</Link></li>
-                        <li><Link href="/air-disc-actuators/type-20-24-air-disc-actuators" className={getLinkClass('/air-disc-actuators/type-20-24-air-disc-actuators')}>Type 20/24 ADB</Link></li>
-                        <li><Link href="/air-disc-actuators/type-24-24-adb-chambers" className={getLinkClass('/air-disc-actuators/type-24-24-adb-chambers')}>Type 24/24 ADB</Link></li>
-                        <li><Link href="/air-disc-actuators/type-24-30-air-disc-brake-actuators" className={getLinkClass('/air-disc-actuators/type-24-30-air-disc-brake-actuators')}>Type 24/30 ADB</Link></li>
+                        <li><Link href="/air-disc-brake-actuator/type-16-18-adb-actuators" className={getLinkClass('/air-disc-brake-actuator/type-16-18-adb-actuators')}>Type 16 & 18 ADB</Link></li>
+                        <li><Link href="/air-disc-brake-actuator/type-20-24-air-disc-brake-actuator" className={getLinkClass('/air-disc-brake-actuator/type-20-24-air-disc-brake-actuator')}>Type 20/24 ADB</Link></li>
+                        <li><Link href="/air-disc-brake-actuator/type-24-24-adb-chambers" className={getLinkClass('/air-disc-brake-actuator/type-24-24-adb-chambers')}>Type 24/24 ADB</Link></li>
+                        <li><Link href="/air-disc-brake-actuator/type-24-30-air-disc-brake-actuators" className={getLinkClass('/air-disc-brake-actuator/type-24-30-air-disc-brake-actuators')}>Type 24/30 ADB</Link></li>
                       </ul>
-                      <Link href="/air-disc-actuators" className="inline-block mt-4 text-amber-500 font-bold hover:text-amber-600 transition-colors text-sm">
+                      <Link href="/air-disc-brake-actuator" className="inline-block mt-4 text-amber-500 font-bold hover:text-amber-600 transition-colors text-sm">
                         View All ADB Actuators &rarr;
                       </Link>
                     </div>

@@ -7,7 +7,7 @@ import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Brake Chamber Accessories | BRC Manufacturer',
-  description: 'Factory-direct heavy-duty brake chamber accessories and replacement parts. Direct aftermarket replacements for Bendix, Meritor, Haldex, and Wabco. ISO 9001 certified manufacturer.',
+  description: 'Factory-direct heavy-duty brake chamber accessories and replacement parts. Direct aftermarket replacements for Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex. ISO 9001 certified manufacturer.',
   keywords: ['Brake Chamber Accessories', 'Replacement Diaphragms', 'Clevis Kits', 'Commercial Air Brakes', 'Bendix Replacement', 'Meritor Replacement'],
 };
 
@@ -42,7 +42,7 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
           </div>
           <div>
             <p className="mb-4">
-              <strong>Direct Aftermarket Replacements:</strong> Our accessories are engineered as exact fit replacements for industry-leading OEM brands. Whether you need to repair a Bendix, Meritor, Haldex, or Wabco unit, our parts drop right into your existing system with identical specifications.
+              <strong>Direct Aftermarket Replacements:</strong> Our accessories are engineered as exact fit replacements for industry-leading OEM brands. Whether you need to repair a Bendix, Knorr-Bremse, ZF/WABCO, Meritor, Haldex, or Wabco unit, our parts drop right into your existing system with identical specifications.
             </p>
             <ul className="space-y-2 mt-4 list-disc pl-5 text-slate-600">
               <li>Proprietary synthetic rubber diaphragms operating seamlessly from -40°C to +80°C.</li>
@@ -62,7 +62,7 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
           },
           {
             q: 'Are BRC accessories compatible with OEM chambers like Bendix or Meritor?',
-            a: 'Yes, all our replacement parts and accessories are engineered as direct drop-in aftermarket replacements for major OEM systems including Bendix, Meritor, Haldex, and Wabco, matching exact specifications and tolerances.'
+            a: 'Yes, all our replacement parts and accessories are engineered as direct drop-in aftermarket replacements for major OEM systems including Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex, matching exact specifications and tolerances.'
           },
           {
             q: 'Do you offer wholesale pricing for repair shops and fleets?',
@@ -76,7 +76,7 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           "name": "Heavy-Duty Commercial Brake Chamber Accessories",
-          "description": "Factory-direct heavy-duty brake chamber accessories and replacement parts. Direct aftermarket replacements for Bendix, Meritor, Haldex, and Wabco.",
+          "description": "Factory-direct heavy-duty brake chamber accessories and replacement parts. Direct aftermarket replacements for Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex.",
           "url": "https://www.brcbrakechambers.com/chamber-parts-kits",
           "manufacturer": {
             "@type": "Organization",
@@ -100,7 +100,7 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
               "name": "Are BRC accessories compatible with OEM chambers like Bendix or Meritor?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, all our replacement parts and accessories are engineered as direct drop-in aftermarket replacements for major OEM systems including Bendix, Meritor, Haldex, and Wabco, matching exact specifications and tolerances."
+                "text": "Yes, all our replacement parts and accessories are engineered as direct drop-in aftermarket replacements for major OEM systems including Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex, matching exact specifications and tolerances."
               }
             },
             {

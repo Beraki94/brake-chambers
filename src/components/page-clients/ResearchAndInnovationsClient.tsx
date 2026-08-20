@@ -15,7 +15,7 @@ export default function ResearchAndInnovationsClient() {
       badge: 'Active R&D',
       description:
         'As the industry shifts towards disc brakes, our R&D team is pioneering more compact, higher-output actuator designs that deliver superior stopping power without the severe brake fade associated with traditional drum systems.',
-      link: '/air-disc-actuators',
+      link: '/air-disc-brake-actuator',
       accent: 'amber',
     },
     {

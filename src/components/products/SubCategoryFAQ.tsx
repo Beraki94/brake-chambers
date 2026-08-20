@@ -15,7 +15,7 @@ export default function SubCategoryFAQ({ categoryName }: SubCategoryFAQProps) {
     },
     {
       q: `Are your ${categoryName} compatible with OEM systems?`,
-      a: `Yes, all BRC ${categoryName.toLowerCase()} are engineered as direct aftermarket drop-in replacements for major OEM brands like Bendix, Meritor, Haldex, and Wabco. They match standard stroke and mounting specifications perfectly.`
+      a: `Yes, all BRC ${categoryName.toLowerCase()} are engineered as direct aftermarket drop-in replacements for major OEM brands like Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex. They match standard stroke and mounting specifications perfectly.`
     },
     {
       q: `What kind of warranty do you offer on ${categoryName}?`,

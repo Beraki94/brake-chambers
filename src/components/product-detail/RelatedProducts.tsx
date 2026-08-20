@@ -54,7 +54,7 @@ export default function RelatedProducts({ currentSlug, category, isAccessory = f
               {uniqueProducts.map((product, i) => {
                 const categoryPath = product.category === 'Spring Brake' ? 'spring-brakes' :
                                      product.category === 'Service Brake' ? 'service-chambers' :
-                                     product.category === 'Air Disc Actuator' ? 'air-disc-actuators' : 'chamber-parts-kits';
+                                     product.category === 'Air Disc Actuator' ? 'air-disc-brake-actuator' : 'chamber-parts-kits';
                 return (
                   <Link 
                     key={`${setNum}-${product.slug}-${i}`} 

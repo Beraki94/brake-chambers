@@ -257,7 +257,7 @@ export default function HomeClient() {
             </Link>
 
             {/* Air Disc Brakes */}
-            <Link href="/air-disc-actuators" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
+            <Link href="/air-disc-brake-actuator" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
@@ -491,7 +491,7 @@ export default function HomeClient() {
                     <Search className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <h3 className="text-xl font-extrabold text-white mb-3">Instant OEM Cross-Reference Database</h3>
-                  <p className="text-navy-300 text-sm md:text-base mb-8 leading-relaxed font-light text-left">Type in a Bendix, Meritor, Haldex, WABCO, or MGM part number and get the matching BRC equivalent in seconds. Eliminate manual cross-referencing errors and procurement delays.</p>
+                  <p className="text-navy-300 text-sm md:text-base mb-8 leading-relaxed font-light text-left">Type in a Bendix, Knorr-Bremse, ZF/WABCO, Haldex, SORL, or MGM part number and get the matching BRC equivalent in seconds. Eliminate manual cross-referencing errors and procurement delays.</p>
                   <div className="text-amber-400 text-[11px] font-extrabold uppercase tracking-widest flex items-center group-hover:text-amber-300">
                     Launch Cross-Reference Tool <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-2 transition-transform duration-300" />
                   </div>

@@ -69,7 +69,7 @@ export default async function OEMPartNumberPage(
   }
 
   const categoryPath = matchedChamber.category === 'Spring Brake' ? 'spring-brakes' : 
-                       matchedChamber.category === 'Service Brake' ? 'service-chambers' : 'air-disc-actuators';
+                       matchedChamber.category === 'Service Brake' ? 'service-chambers' : 'air-disc-brake-actuator';
 
   return (
     <div className="bg-slate-50 min-h-screen pb-16">

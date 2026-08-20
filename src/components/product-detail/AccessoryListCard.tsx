@@ -15,7 +15,7 @@ export default function AccessoryListCard({ product, categoryPath }: { product: 
     <Link href={`/${categoryPath}/${product.slug}`} className="h-full flex flex-row items-stretch bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
       
       {/* Left: Image (Flexible height, fixed width on desktop) */}
-      <div className="w-[120px] sm:w-48 aspect-square sm:aspect-auto sm:min-h-full flex-shrink-0 relative bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-3 sm:p-4 border-r border-slate-100">
+      <div className="w-[100px] sm:w-40 md:w-48 aspect-square sm:aspect-auto sm:min-h-full flex-shrink-0 relative bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-2 sm:p-4 border-r border-slate-100">
         <Image 
           src={product.galleryUrls[0]} 
           alt={product.name}

@@ -11,7 +11,7 @@ const ALLOWED_PATHS = [
   '/spring-brakes',
   '/service-chambers',
   '/chamber-parts-kits',
-  '/air-disc-actuators',
+  '/air-disc-brake-actuator',
   '/applications',
   '/company',
   '/contact',

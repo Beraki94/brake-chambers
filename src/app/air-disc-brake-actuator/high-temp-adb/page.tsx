@@ -9,8 +9,8 @@ import { Truck, CheckCircle2 } from 'lucide-react';import PageHeader from '@/co
 
 
 export const metadata: Metadata = {
-  title: 'Truck Air Disc Actuators | BRC Manufacturer',
-  description: 'Advanced air disc brake actuators for heavy-duty truck applications.',
+  title: 'High-Temperature ADB Actuators | BRC Manufacturer',
+  description: 'Extreme temperature resistant air disc actuators for severe braking environments.',
 };
 
 export default async function SubCategoryPage(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
@@ -18,7 +18,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
   const searchParams = props.searchParams ? await props.searchParams : undefined;
   
   // Base category filter
-  let products = BRAKE_CHAMBERS.filter(c => c.category === 'Air Disc Actuator' || c.name.toLowerCase().includes('disc'));
+  let products = BRAKE_CHAMBERS.filter(c => (c.category === 'Air Disc Actuator' || c.name.toLowerCase().includes('disc')) && c.specifications.operatingTemperature.includes('100'));
 
   // Apply Faceted Filters from Sidebar
   if (searchParams) {
@@ -41,20 +41,20 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
   return (
     <div className="bg-slate-50 min-h-screen font-sans overflow-x-clip">
       <PageHeader 
-        badge="Truck Air Disc"
-        title="Truck Air Disc Actuators"
-        description="As the industry shifts toward air disc brakes for their superior stopping distance and fade resistance, you need actuators that can match that performance. Our Truck Air Disc Actuators provide linear, high-efficiency force output required by modern ADB calipers."
+        badge="High-Temperature ADB"
+        title="High-Temperature ADB Actuators"
+        description="Air disc brakes run hotter than traditional drum brakes. For mountainous terrain or heavy-haul applications, our High-Temperature ADB Actuators feature specialized heat-shielding and advanced high-temp elastomers to prevent heat degradation and maintain performance."
         breadcrumbs={[
           { label: 'Home', href: '/' },
-          { label: 'Air Disc Actuators', href: '/air-disc-actuators' },
-          { label: 'Truck Air Disc Actuators' }
+          { label: 'Air Disc Actuators', href: '/air-disc-brake-actuator' },
+          { label: 'High-Temperature ADB Actuators' }
         ]}
       />
 
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-20">
         <div className="flex flex-col lg:flex-row gap-8">
         <div className="w-full lg:w-64 flex-shrink-0 flex flex-col gap-4">
-           <FacetedSidebar baseCategory="air-disc-actuators" />
+           <FacetedSidebar baseCategory="air-disc-brake-actuator" />
            
           {/* OEM CTA Banner */}
           <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-gradient-to-b from-navy-900 to-navy-950 border border-navy-800 rounded-2xl text-center mt-6 shadow-xl shadow-navy-900/10 relative overflow-hidden sticky top-[30vh]">
@@ -83,7 +83,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
           {products.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4">
               {products.map(product => (
-                <ProductListCard key={product.slug} product={product} categoryPath="air-disc-actuators" />
+                <ProductListCard key={product.slug} product={product} categoryPath="air-disc-brake-actuator" />
               ))}
             </div>
           ) : (
@@ -97,41 +97,6 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
           )}
 
           
-      {/* Key Features Section */}
-      <div className="mt-16 mb-8 border-t border-slate-200 pt-16">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-extrabold text-navy-900">Why Choose BRC for Truck Air Disc Actuators?</h2>
-          <p className="text-slate-600 mt-3 max-w-2xl mx-auto">Engineered for absolute reliability and performance in the most demanding conditions.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-6 border border-amber-200">
-              <span className="text-amber-600 text-xl font-bold">✓</span>
-            </div>
-            <h3 className="text-xl font-bold text-navy-900 mb-3">Linear Force Output</h3>
-            <p className="text-slate-600 leading-relaxed">Provides the consistent mechanical force required for smooth disc brake pad engagement.</p>
-          </div>
-          
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-6 border border-amber-200">
-              <span className="text-amber-600 text-xl font-bold">✓</span>
-            </div>
-            <h3 className="text-xl font-bold text-navy-900 mb-3">Internal Breathing</h3>
-            <p className="text-slate-600 leading-relaxed">Sealed design breathes internally to prevent external moisture and road salt from entering.</p>
-          </div>
-          
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-6 border border-amber-200">
-              <span className="text-amber-600 text-xl font-bold">✓</span>
-            </div>
-            <h3 className="text-xl font-bold text-navy-900 mb-3">Direct Caliper Fit</h3>
-            <p className="text-slate-600 leading-relaxed">Engineered to mount perfectly to industry-standard air disc brake calipers.</p>
-          </div>
-          
-        </div>
-      </div>
-  
           
 
         </div>

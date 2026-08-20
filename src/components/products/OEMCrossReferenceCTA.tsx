@@ -16,7 +16,7 @@ export default function OEMCrossReferenceCTA() {
             Looking for a specific part number?
           </h3>
           <p className="text-navy-200 text-sm md:text-base">
-            Instantly cross-reference <strong className="text-white">Bendix, Meritor, Haldex,</strong> and <strong className="text-white">Wabco</strong> parts to find the exact BRC equivalent.
+            Instantly cross-reference <strong className="text-white">Bendix, Knorr-Bremse, ZF/WABCO, Meritor, Haldex,</strong> and <strong className="text-white">Wabco</strong> parts to find the exact BRC equivalent.
           </p>
         </div>
       </div>

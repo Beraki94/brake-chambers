@@ -33,7 +33,7 @@ export async function generateMetadata(
       title: `${product.name} | BRC Manufacturer`,
       description: `Wholesale ${product.name}. Factory direct pricing.`,
       alternates: {
-        canonical: `https://www.brcbrakechambers.com/air-disc-actuators/${product.slug}`
+        canonical: `https://www.brcbrakechambers.com/air-disc-brake-actuator/${product.slug}`
       }
     };
   }
@@ -72,13 +72,13 @@ export default async function AirDiscActuatorsSlugPage(
         title={meta.name}
         description={meta.desc}
         badge="Sub-Category"
-        baseCategory="air-disc-actuators"
+        baseCategory="air-disc-brake-actuator"
         products={products}
         searchParams={searchParams}
         seoText={meta.seoText}
         isSubCategory={true}
         breadcrumbs={[
-          { label: 'Air Disc Actuators', href: '/air-disc-actuators' },
+          { label: 'Air Disc Actuators', href: '/air-disc-brake-actuator' },
           { label: meta.name }
         ]}
       />
@@ -92,7 +92,7 @@ export default async function AirDiscActuatorsSlugPage(
       <ProductDetailLayout 
         product={product} 
         categoryName="Air Disc Actuators" 
-        categoryPath="air-disc-actuators" 
+        categoryPath="air-disc-brake-actuator" 
       />
     );
   }

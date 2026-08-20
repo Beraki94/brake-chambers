@@ -9,7 +9,7 @@ export default function ProductListCard({ product, categoryPath }: { product: Br
     <Link href={`/${categoryPath}/${product.slug}`} className="h-full flex flex-row items-stretch bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
       
       {/* Left: Image (Flexible height, fixed width on desktop) */}
-      <div className="w-[120px] sm:w-48 aspect-square sm:aspect-auto sm:min-h-full flex-shrink-0 relative bg-white flex items-center justify-center p-3 sm:p-4 border-r border-slate-100">
+      <div className="w-[100px] sm:w-40 md:w-48 aspect-square sm:aspect-auto sm:min-h-full flex-shrink-0 relative bg-white flex items-center justify-center p-2 sm:p-4 border-r border-slate-100">
         <Image 
           src={product.galleryUrls[0]} 
           alt={product.name}
@@ -25,9 +25,9 @@ export default function ProductListCard({ product, categoryPath }: { product: Br
       <div className="flex flex-col flex-grow w-full min-w-0 p-3 sm:p-5 h-full">
         
         {/* Top Info: Name, SKU & Main Spec */}
-        <div className="mb-4">
+        <div className="mb-3 sm:mb-4">
           {/* H3 with min-height ensures 1-line and 2-line titles take the same space */}
-          <h3 className="font-bold text-navy-900 text-lg leading-tight line-clamp-2 min-h-[2.75rem] group-hover:text-amber-600 transition-colors duration-200 mb-2">
+          <h3 className="font-bold text-navy-900 text-base sm:text-lg leading-tight line-clamp-2 min-h-[2.5rem] sm:min-h-[2.75rem] group-hover:text-amber-600 transition-colors duration-200 mb-1 sm:mb-2">
             {product.name}
           </h3>
           <div className="flex flex-wrap items-center gap-y-1 gap-x-3">
@@ -43,8 +43,8 @@ export default function ProductListCard({ product, categoryPath }: { product: Br
         </div>
 
         {/* Middle Info: OEM Cross-Ref */}
-        <div className="mb-4">
-          <div className="bg-slate-50 rounded border border-slate-100 p-2.5 h-[76px] flex flex-col justify-center w-full">
+        <div className="mb-3 sm:mb-4 flex-grow">
+          <div className="bg-slate-50 rounded border border-slate-100 p-2 sm:p-2.5 min-h-[64px] sm:min-h-[76px] flex flex-col justify-center w-full">
             {product.oemPartNumbers && product.oemPartNumbers.length > 0 ? (
               <>
                 <span className="block text-[10px] uppercase font-bold tracking-wider text-slate-500 mb-1.5">
@@ -52,12 +52,12 @@ export default function ProductListCard({ product, categoryPath }: { product: Br
                 </span>
                 <div className="flex overflow-hidden gap-2">
                   {product.oemPartNumbers.slice(0, 2).map((oem: any, idx: number) => (
-                    <span key={idx} className="text-[11px] font-mono font-semibold text-navy-800 bg-white px-1.5 py-0.5 border border-slate-200 rounded shadow-sm whitespace-nowrap">
+                    <span key={idx} className="text-[10px] sm:text-[11px] font-mono font-semibold text-navy-800 bg-white px-1.5 py-0.5 border border-slate-200 rounded shadow-sm whitespace-nowrap">
                       {oem.brand} {oem.partNumber}
                     </span>
                   ))}
                   {product.oemPartNumbers.length > 2 && (
-                    <span className="text-[10px] font-bold text-slate-400 self-center uppercase whitespace-nowrap">
+                    <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 self-center uppercase whitespace-nowrap">
                       +{product.oemPartNumbers.length - 2} More
                     </span>
                   )}

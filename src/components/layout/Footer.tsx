@@ -65,7 +65,7 @@ export default function Footer() {
               <li><Link href={`/products`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors font-semibold">All Products</Link></li>
               <li><Link href={`/spring-brakes`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Spring Brakes</Link></li>
               <li><Link href={`/service-chambers`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Service Chambers</Link></li>
-              <li><Link href={`/air-disc-actuators`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Air Disc Actuators</Link></li>
+              <li><Link href={`/air-disc-brake-actuator`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Air Disc Actuators</Link></li>
               <li><Link href={`/chamber-parts-kits`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Chamber Parts & Kits</Link></li>
               <li><Link href={`/oem-cross-reference`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">OEM Cross-Reference</Link></li>
             </ul>

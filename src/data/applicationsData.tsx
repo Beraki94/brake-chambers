@@ -29,7 +29,7 @@ export const APPLICATION_DATA: Record<string, any> = {
     ],
     recommendedPackage: [
       { name: 'Standard Type 30/30 Spring Brakes', desc: 'The backbone of linehaul stopping power.', link: '/spring-brakes/30-30-air-brake-chambers' },
-      { name: 'Air Disc Brake Actuators', desc: 'For modern fleets optimizing for shorter stopping distances.', link: '/air-disc-actuators/type-20-24-air-disc-actuators' }
+      { name: 'Air Disc Brake Actuators', desc: 'For modern fleets optimizing for shorter stopping distances.', link: '/air-disc-brake-actuator/type-20-24-air-disc-brake-actuator' }
     ]
   },
   'heavy-duty-freight': {
@@ -54,7 +54,7 @@ export const APPLICATION_DATA: Record<string, any> = {
     recommendedPackage: [
       { name: 'Type 30/30 Long Stroke Spring Brake', desc: 'The industry standard for drive axles, providing massive holding power.', link: '/spring-brakes/30-30-air-brake-chambers' },
       { name: 'Type 20 Steer Axle Chamber', desc: 'Compact footprint with rapid response for steer axle modulation.', link: '/service-chambers/type-20-steer-axle-brake-chambers' },
-      { name: 'Truck Air Disc Actuators', desc: 'For modern fleets transitioning to ADB systems for shorter stopping distances.', link: '/air-disc-actuators/type-24-24-adb-chambers' }
+      { name: 'Truck Air Disc Actuators', desc: 'For modern fleets transitioning to ADB systems for shorter stopping distances.', link: '/air-disc-brake-actuator/type-24-24-adb-chambers' }
     ]
   },
   'regional-delivery': {
@@ -108,7 +108,7 @@ export const APPLICATION_DATA: Record<string, any> = {
     ],
     recommendedPackage: [
       { name: 'Severe-Duty Spring Brakes', desc: 'Built with double-plated housings to survive rock and debris strikes.', link: '/spring-brakes/30-30-air-brake-chambers' },
-      { name: 'High-Temp Air Disc Actuators', desc: 'Designed to handle the extreme heat generation of frequent-stop operations.', link: '/air-disc-actuators/type-24-30-air-disc-brake-actuators' }
+      { name: 'High-Temp Air Disc Actuators', desc: 'Designed to handle the extreme heat generation of frequent-stop operations.', link: '/air-disc-brake-actuator/type-24-30-air-disc-brake-actuators' }
     ]
   },
   'off-highway-mining': {
@@ -227,7 +227,7 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Noise-Dampening Materials', desc: 'Internal components designed to eliminate spring rattle and operational noise.', icon: <Cog className="w-8 h-8" /> }
     ],
     recommendedPackage: [
-      { name: 'Air Disc Brake Actuators', desc: 'Provides the smoothest, most car-like braking feel for shuttle chassis.', link: '/air-disc-actuators/type-16-18-adb-actuators' },
+      { name: 'Air Disc Brake Actuators', desc: 'Provides the smoothest, most car-like braking feel for shuttle chassis.', link: '/air-disc-brake-actuator/type-16-18-adb-actuators' },
       { name: 'Type 16/24 Service Chambers', desc: 'Perfectly sized for medium-duty shuttle applications.', link: '/service-chambers/type-12-16-24-service-chambers' }
     ]
   },

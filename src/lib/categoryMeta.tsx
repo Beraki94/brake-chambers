@@ -56,7 +56,7 @@ export const SPRING_BRAKES_META: Record<string, CategoryMetaItem> = {
       </>
     )
   },
-  'type-36-36-spring-brakes': {
+  '36-36-spring-brakes': {
     title: 'Type 36/36 Spring Brakes | Wholesale | BRC',
     desc: 'Heavy-duty 36/36 spring brakes for severe-duty and off-highway commercial vehicles.',
     name: 'Type 36/36 Spring Brakes',
@@ -68,7 +68,7 @@ export const SPRING_BRAKES_META: Record<string, CategoryMetaItem> = {
       </>
     )
   },
-  'type-30-28-spring-brakes': {
+  '30-28-spring-brakes': {
     title: 'Type 30/28 Spring Brakes | Wholesale | BRC',
     desc: 'Type 30/28 spring brake chambers. Specialized OEM replacements for transit and vocational fleets.',
     name: 'Type 30/28 Spring Brakes',
@@ -233,7 +233,7 @@ export const AIR_DISC_ACTUATORS_META: Record<string, CategoryMetaItem> = {
       </>
     )
   },
-  'type-20-24-air-disc-actuators': {
+  'type-20-24-air-disc-brake-actuator': {
     title: 'Type 20/24 Air Disc Actuators | Wholesale | BRC',
     desc: 'Type 20/24 spring brake actuators for air disc brakes. Factory direct.',
     name: 'Type 20/24 Air Disc Actuators',

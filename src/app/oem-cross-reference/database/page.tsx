@@ -8,7 +8,7 @@ import { BRAKE_CHAMBERS } from '@/lib/data';
 
 export const metadata: Metadata = {
   title: 'Full Interchange Database | BRC Brake Chambers',
-  description: 'View or download our complete commercial brake chamber cross-reference database mapping Bendix, Meritor, Haldex, and more to BRC equivalents.',
+  description: 'View or download our complete commercial brake chamber cross-reference database mapping Bendix, Knorr-Bremse, ZF/WABCO, Meritor, Haldex, and more to BRC equivalents.',
   keywords: ['Brake Chamber Database', 'Download Cross Reference', 'Air Brake Interchange PDF', 'Fleet Maintenance Data'],
 };
 

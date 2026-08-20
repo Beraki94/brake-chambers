@@ -7,7 +7,7 @@ import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Spring Brake Chambers | BRC Manufacturer',
-  description: 'Factory-direct heavy-duty spring brake chambers. Direct aftermarket replacements for Bendix, Meritor, Haldex, and Wabco. ISO 9001 certified manufacturer.',
+  description: 'Factory-direct heavy-duty spring brake chambers. Direct aftermarket replacements for Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex. ISO 9001 certified manufacturer.',
   keywords: ['Spring Brake Chambers', 'Type 30/30', 'Commercial Air Brakes', 'Heavy-Duty Brake Chambers', 'Bendix Replacement', 'Meritor Replacement'],
 };
 
@@ -46,7 +46,7 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
           </div>
           <div>
             <p className="mb-4">
-              <strong>Direct OEM Replacements:</strong> Our spring brakes are designed as exact drop-in replacements for major brands, including Bendix, Meritor, Haldex, and Wabco, ensuring seamless installation and compliance.
+              <strong>Direct OEM Replacements:</strong> Our spring brakes are designed as exact drop-in replacements for major brands, including Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex, ensuring seamless installation and compliance.
             </p>
             <ul className="space-y-2 mt-4 list-disc pl-5 text-slate-600">
               <li>Available in popular sizes: Type 30/30, 30/30 Long Stroke, and 24/30.</li>
@@ -80,7 +80,7 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           "name": "Heavy-Duty Commercial Spring Brake Chambers",
-          "description": "Factory-direct heavy-duty spring brake chambers. Direct aftermarket replacements for Bendix, Meritor, Haldex, and Wabco.",
+          "description": "Factory-direct heavy-duty spring brake chambers. Direct aftermarket replacements for Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex.",
           "url": "https://www.brcbrakechambers.com/spring-brakes",
           "manufacturer": {
             "@type": "Organization",

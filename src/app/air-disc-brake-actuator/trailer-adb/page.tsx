@@ -9,8 +9,8 @@ import { Truck, CheckCircle2 } from 'lucide-react';import PageHeader from '@/co
 
 
 export const metadata: Metadata = {
-  title: 'High-Temperature ADB Actuators | BRC Manufacturer',
-  description: 'Extreme temperature resistant air disc actuators for severe braking environments.',
+  title: 'Trailer Air Disc Actuators | BRC Manufacturer',
+  description: 'Trailer-optimized air disc actuators ensuring stable, fade-resistant stopping power.',
 };
 
 export default async function SubCategoryPage(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
@@ -18,7 +18,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
   const searchParams = props.searchParams ? await props.searchParams : undefined;
   
   // Base category filter
-  let products = BRAKE_CHAMBERS.filter(c => (c.category === 'Air Disc Actuator' || c.name.toLowerCase().includes('disc')) && c.specifications.operatingTemperature.includes('100'));
+  let products = BRAKE_CHAMBERS.filter(c => c.category === 'Air Disc Actuator' || c.name.toLowerCase().includes('disc'));
 
   // Apply Faceted Filters from Sidebar
   if (searchParams) {
@@ -41,20 +41,20 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
   return (
     <div className="bg-slate-50 min-h-screen font-sans overflow-x-clip">
       <PageHeader 
-        badge="High-Temperature ADB"
-        title="High-Temperature ADB Actuators"
-        description="Air disc brakes run hotter than traditional drum brakes. For mountainous terrain or heavy-haul applications, our High-Temperature ADB Actuators feature specialized heat-shielding and advanced high-temp elastomers to prevent heat degradation and maintain performance."
+        badge="Trailer Air Disc"
+        title="Trailer Air Disc Actuators"
+        description="Trailer air disc brakes offer incredible stability and reduced stopping distances. Our Trailer ADB Actuators are optimized for trailer axle mounting, featuring enhanced environmental protection against the severe road spray that trailers endure."
         breadcrumbs={[
           { label: 'Home', href: '/' },
-          { label: 'Air Disc Actuators', href: '/air-disc-actuators' },
-          { label: 'High-Temperature ADB Actuators' }
+          { label: 'Air Disc Actuators', href: '/air-disc-brake-actuator' },
+          { label: 'Trailer Air Disc Actuators' }
         ]}
       />
 
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-20">
         <div className="flex flex-col lg:flex-row gap-8">
         <div className="w-full lg:w-64 flex-shrink-0 flex flex-col gap-4">
-           <FacetedSidebar baseCategory="air-disc-actuators" />
+           <FacetedSidebar baseCategory="air-disc-brake-actuator" />
            
           {/* OEM CTA Banner */}
           <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-gradient-to-b from-navy-900 to-navy-950 border border-navy-800 rounded-2xl text-center mt-6 shadow-xl shadow-navy-900/10 relative overflow-hidden sticky top-[30vh]">
@@ -83,7 +83,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
           {products.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4">
               {products.map(product => (
-                <ProductListCard key={product.slug} product={product} categoryPath="air-disc-actuators" />
+                <ProductListCard key={product.slug} product={product} categoryPath="air-disc-brake-actuator" />
               ))}
             </div>
           ) : (

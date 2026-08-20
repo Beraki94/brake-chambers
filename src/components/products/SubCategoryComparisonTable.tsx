@@ -40,7 +40,7 @@ export default function SubCategoryComparisonTable({ products, categoryName }: S
             {comparisonProducts.map((product) => {
               const categoryPath = product.category === 'Spring Brake' ? 'spring-brakes' :
                                    product.category === 'Service Brake' ? 'service-chambers' :
-                                   product.category === 'Air Disc Actuator' ? 'air-disc-actuators' : 'chamber-parts-kits';
+                                   product.category === 'Air Disc Actuator' ? 'air-disc-brake-actuator' : 'chamber-parts-kits';
               return (
               <tr key={product.slug} className="hover:bg-slate-50/50 transition-colors">
                 <td className="px-6 py-4 font-bold text-navy-900">

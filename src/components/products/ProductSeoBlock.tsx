@@ -31,7 +31,7 @@ export default function ProductSeoBlock({ product }: ProductSeoBlockProps) {
   // Dynamic OEM cross-reference text
   const crossRefBrands = isChamber && product.crossReferenceBrands && product.crossReferenceBrands.length > 0
     ? product.crossReferenceBrands.join(', ')
-    : 'Bendix, Meritor, Haldex, and Wabco';
+    : 'Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex';
     
   const oemParts = isChamber && product.oemPartNumbers && product.oemPartNumbers.length > 0
     ? ` Specifically replacing part numbers like ${product.oemPartNumbers.map(p => p.partNumber).slice(0, 3).join(', ')},`

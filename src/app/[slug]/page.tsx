@@ -63,7 +63,7 @@ export default async function ProductRootPage(
       categoryPath = 'service-chambers';
     } else if (product.category === 'Air Disc Actuator') {
       categoryName = 'Air Disc Actuators';
-      categoryPath = 'air-disc-actuators';
+      categoryPath = 'air-disc-brake-actuator';
     } else {
       categoryName = 'Parts & Kits';
       categoryPath = 'chamber-parts-kits';

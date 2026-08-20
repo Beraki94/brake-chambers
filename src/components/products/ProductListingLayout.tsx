@@ -4,6 +4,7 @@ import { Truck } from 'lucide-react';
 import ProductListCard from '@/components/products/ProductListCard';
 import AccessoryListCard from '@/components/product-detail/AccessoryListCard';
 import FacetedSidebar from '@/components/products/FacetedSidebar';
+import MobileSidebarWrapper from '@/components/products/MobileSidebarWrapper';
 import CategoryVisualizer from '@/components/products/CategoryVisualizer';
 import Pagination from '@/components/products/Pagination';
 import TrustBanner from '@/components/shared/TrustBanner';
@@ -21,7 +22,7 @@ interface ProductListingLayoutProps {
   title: string;
   description: string;
   badge?: string;
-  baseCategory: "all" | "spring-brakes" | "service-chambers" | "chamber-parts-kits" | "air-disc-actuators";
+  baseCategory: "all" | "spring-brakes" | "service-chambers" | "chamber-parts-kits" | "air-disc-brake-actuator";
   products: any[];
   searchParams?: { [key: string]: string | string[] | undefined };
   visualizerType?: 'spring' | 'service' | 'parts' | 'adp';
@@ -89,7 +90,9 @@ export default function ProductListingLayout({
 
       <div className="flex flex-col lg:flex-row gap-6 relative">
         <div className="w-full lg:w-64 flex-shrink-0 flex flex-col gap-4">
-           <FacetedSidebar baseCategory={baseCategory} />
+           <MobileSidebarWrapper>
+             <FacetedSidebar baseCategory={baseCategory} />
+           </MobileSidebarWrapper>
            
            <div className="hidden lg:flex flex-col items-center justify-center p-6 bg-gradient-to-b from-navy-900 to-navy-950 border border-navy-800 rounded-2xl text-center mt-6 shadow-xl shadow-navy-900/10 relative overflow-hidden sticky top-[30vh]">
              <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl -mr-10 -mt-10"></div>

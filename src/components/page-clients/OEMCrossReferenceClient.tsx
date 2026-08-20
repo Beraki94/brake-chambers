@@ -21,7 +21,7 @@ export default function OEMCrossReferenceClient() {
             Find Your BRC Brake Chamber Equivalent by <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-300">OEM Part Number</span>
           </>
         }
-        description="Search by Bendix, Meritor, Haldex, WABCO, MGM, or TSE part number to find the exact BRC match. Same fit, form, and performance — guaranteed."
+        description="Search by Bendix, Knorr-Bremse, ZF/WABCO, Haldex, SORL, or Meritor part number to find the exact BRC match. Same fit, form, and performance — guaranteed."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'OEM Cross-Reference' }
@@ -75,10 +75,10 @@ export default function OEMCrossReferenceClient() {
               <h3 className="text-xl font-extrabold text-navy-900 mb-6">Brake Brands</h3>
               <ul className="space-y-2 mt-auto">
                 {[
-                  { name: 'View Bendix Equivalents', path: 'bendix' },
-                  { name: 'View Haldex Equivalents', path: 'haldex' },
-                  { name: 'View Meritor Equivalents', path: 'meritor' },
-                  { name: 'View MGM Equivalents', path: 'mgm' }
+                  { name: 'View ZF / WABCO Equivalents', path: 'zf-wabco' },
+                  { name: 'View Knorr-Bremse Equivalents', path: 'knorr-bremse' },
+                  { name: 'View SORL Equivalents', path: 'sorl' },
+                  { name: 'View Bendix Equivalents', path: 'bendix' }
                 ].map(item => (
                   <li key={item.name}>
                     <Link href={`/oem-cross-reference/${item.path}`} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 text-slate-600 hover:text-amber-600 transition-colors group/link font-medium text-sm">
@@ -96,10 +96,10 @@ export default function OEMCrossReferenceClient() {
               <h3 className="text-xl font-extrabold text-navy-900 mb-6">Truck OEMs</h3>
               <ul className="space-y-2 mt-auto">
                 {[
-                  { name: 'Freightliner Replacements', path: 'freightliner' },
-                  { name: 'Peterbilt Replacements', path: 'peterbilt' },
-                  { name: 'Kenworth Replacements', path: 'kenworth' },
-                  { name: 'Volvo / Mack Replacements', path: 'volvo-mack' }
+                  { name: 'Scania Replacements', path: 'scania' },
+                  { name: 'Mercedes-Benz Replacements', path: 'mercedes-benz' },
+                  { name: 'Isuzu Replacements', path: 'isuzu' },
+                  { name: 'Tata Replacements', path: 'tata' }
                 ].map(item => (
                   <li key={item.name}>
                     <Link href={`/oem-cross-reference/${item.path}`} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 text-slate-600 hover:text-navy-600 transition-colors group/link font-medium text-sm">
