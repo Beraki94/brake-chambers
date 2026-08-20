@@ -4,7 +4,10 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppWidget from '@/components/layout/WhatsAppWidget';
+import CookieConsent from '@/components/layout/CookieConsent';
+import SplashScreen from '@/components/layout/SplashScreen';
 import Script from 'next/script';
+import NextTopLoader from 'nextjs-toploader';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' });
@@ -47,6 +50,18 @@ export default function RootLayout({
         <link rel="preconnect" href="https://translate.googleapis.com" crossOrigin="anonymous" />
       </head>
       <body suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable} font-sans bg-[#F8FAFC] text-navy-900 flex flex-col min-h-screen`}>
+        <NextTopLoader
+          color="#FFB000"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={false}
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px #FFB000,0 0 5px #FFB000"
+          zIndex={9999}
+        />
         {/* Hidden Google Translate Element */}
         <div id="google_translate_element" style={{ display: 'none' }}></div>
         <Script id="google-translate-init" strategy="afterInteractive">
@@ -58,11 +73,13 @@ export default function RootLayout({
         </Script>
         <Script src="https://translate.googleapis.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
         
+        <SplashScreen />
         <Navbar />
         <main className="flex-grow">
           {children}
         </main>
         <WhatsAppWidget />
+        <CookieConsent />
         <Footer />
       </body>
     </html>
