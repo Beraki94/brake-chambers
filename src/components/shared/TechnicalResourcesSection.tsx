@@ -17,7 +17,7 @@ export default function TechnicalResourcesSection({ categoryName }: { categoryNa
       link: "/technical-resources/safety-guidelines"
     },
     {
-      title: "Understanding ISO 9001 Manufacturing",
+      title: "Understanding IATF 16949 Manufacturing",
       description: "Learn how our rigorous quality control processes guarantee a longer lifecycle for your fleet.",
       icon: <BookOpen className="w-6 h-6 text-amber-600" />,
       link: "/technical-resources/iso-9001-quality"

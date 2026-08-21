@@ -12,7 +12,7 @@ export default function OurStoryClient() {
   const milestones = [
     { year: '1998', title: 'The Foundation', description: 'Founded as a specialized mechanical engineering firm focused on reverse-engineering commercial brake failure points.' },
     { year: '2005', title: 'First Production Facility', description: 'Opened our first dedicated manufacturing plant, bringing production fully in-house for absolute quality control.' },
-    { year: '2012', title: 'ISO 9001 Certification', description: 'Achieved rigorous international quality management certification, standardizing our testing protocols.' },
+    { year: '2012', title: 'IATF 16949 Certification', description: 'Achieved rigorous international quality management certification, standardizing our testing protocols.' },
     { year: '2018', title: 'Global Expansion', description: 'Expanded distribution to over 35 countries, becoming a tier-1 supplier for major international fleets.' },
     { year: '2024', title: 'Next-Gen Robotics', description: 'Fully integrated automated robotic welding and CNC machining into all heavy-duty assembly lines.' },
   ];

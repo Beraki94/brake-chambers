@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Shipping & Delivery | BRC Brake Chambers',
+  title: 'Global Logistics | BRC Brake Chambers',
   description: 'Global logistics and shipping information for bulk brake chambers.',
 };
 
@@ -17,7 +17,7 @@ export default function ShippingPage() {
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-700 shadow-xl shadow-navy-950 text-amber-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
             Global Logistics
           </div>
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 drop-shadow-lg leading-tight">Shipping & Logistics</h1>
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 drop-shadow-lg leading-tight">Global Logistics</h1>
           <p className="text-navy-200 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
             We handle everything from EXW factory floor to CIF at your destination port. Global FCL, LCL, and Air Freight Solutions.
           </p>

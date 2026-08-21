@@ -21,7 +21,7 @@ export default function TrustBanner() {
           </div>
           <div className="flex flex-col items-center justify-center p-2">
             <CheckCircle className="w-8 h-8 text-amber-500 mb-2" />
-            <h3 className="text-white font-bold text-sm md:text-base">ISO 9001:2015</h3>
+            <h3 className="text-white font-bold text-sm md:text-base">IATF 16949</h3>
             <p className="text-navy-300 text-xs mt-1">Factory-direct quality</p>
           </div>
           <div className="flex flex-col items-center justify-center p-2">

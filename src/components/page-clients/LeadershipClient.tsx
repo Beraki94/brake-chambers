@@ -72,8 +72,8 @@ export default function LeadershipClient() {
         <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-slate-100">
           <SectionHeader title="Discover How We Build" className="!mb-6" />
 
-          <Link href="/company/production-process" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
-            Explore Our Production Process <ArrowRight className="w-6 h-6 ml-2" />
+          <Link href="/company/manufacturing-process" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
+            Explore Our Manufacturing Process <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>
       </div>

@@ -35,45 +35,45 @@ export const PRODUCTS_MENU: MegaMenuConfig = {
       title: 'Spring Brakes',
       icon: <Settings className="w-5 h-5 text-amber-500" />,
       links: [
-        { label: 'Type 30/30 Spring Brake', href: '/spring-brakes/30-30-air-brake-chambers' },
-        { label: 'Type 24/30 & 24/24 Chambers', href: '/spring-brakes/24-30-24-24-spring-brakes' },
-        { label: 'Type 20/24 Spring Brake', href: '/spring-brakes/20-24-spring-brake-chambers' },
-        { label: 'Type 30/30 Piggyback Kits', href: '/spring-brakes/type-30-30-piggyback-kits' },
+        { label: 'Type 30/30 Spring Brake', href: '/spring-brake-chambers/30-30-air-brake-chambers' },
+        { label: 'Type 24/30 & 24/24 Chambers', href: '/spring-brake-chambers/24-30-24-24-spring-brakes' },
+        { label: 'Type 20/24 Spring Brake', href: '/spring-brake-chambers/20-24-spring-brake-chambers' },
+        { label: 'Type 30/30 Piggyback Kits', href: '/spring-brake-chambers/type-30-30-piggyback-kits' },
       ],
-      viewAllLink: { label: 'View All Spring Brakes \u2192', href: '/spring-brakes' }
+      viewAllLink: { label: 'View All Spring Brakes \u2192', href: '/spring-brake-chambers' }
     },
     {
       title: 'Service Chambers',
       icon: <Wrench className="w-5 h-5 text-amber-500" />,
       links: [
-        { label: 'Type 20 Steer Axle Chamber', href: '/service-chambers/type-20-steer-axle-brake-chambers' },
-        { label: 'Type 30 Service Chamber', href: '/service-chambers/type-30-service-chambers' },
-        { label: 'Type 12, 16 & 24 Chambers', href: '/service-chambers/type-12-16-24-service-chambers' },
-        { label: 'Welded Clevis Chambers', href: '/service-chambers/welded-clevis-brake-chambers' },
+        { label: 'Type 20 Steer Axle Chamber', href: '/service-brake-chambers/type-20-steer-axle-brake-chambers' },
+        { label: 'Type 30 Service Chamber', href: '/service-brake-chambers/type-30-service-chambers' },
+        { label: 'Type 12, 16 & 24 Chambers', href: '/service-brake-chambers/type-12-16-24-service-chambers' },
+        { label: 'Welded Clevis Chambers', href: '/service-brake-chambers/welded-clevis-brake-chambers' },
       ],
-      viewAllLink: { label: 'View All Service Chambers \u2192', href: '/service-chambers' }
+      viewAllLink: { label: 'View All Service Chambers \u2192', href: '/service-brake-chambers' }
     },
     {
       title: 'Air Disc Actuators',
       icon: <Disc className="w-5 h-5 text-amber-500" />,
       links: [
-        { label: 'Type 16 & 18 ADB', href: '/air-disc-brake-actuator/type-16-18-adb-actuators' },
-        { label: 'Type 20/24 ADB', href: '/air-disc-brake-actuator/type-20-24-air-disc-brake-actuator' },
-        { label: 'Type 24/24 ADB', href: '/air-disc-brake-actuator/type-24-24-adb-chambers' },
-        { label: 'Type 24/30 ADB', href: '/air-disc-brake-actuator/type-24-30-air-disc-brake-actuators' },
+        { label: 'Type 16 & 18 ADB', href: '/air-disc-brake-actuators/type-16-18-adb-actuators' },
+        { label: 'Type 20/24 ADB', href: '/air-disc-brake-actuators/type-20-24-air-disc-brake-actuator' },
+        { label: 'Type 24/24 ADB', href: '/air-disc-brake-actuators/type-24-24-adb-chambers' },
+        { label: 'Type 24/30 ADB', href: '/air-disc-brake-actuators/type-24-30-air-disc-brake-actuators' },
       ],
-      viewAllLink: { label: 'View All ADB Actuators \u2192', href: '/air-disc-brake-actuator' }
+      viewAllLink: { label: 'View All ADB Actuators \u2192', href: '/air-disc-brake-actuators' }
     },
     {
       title: 'Parts & Kits',
       icon: <Package className="w-5 h-5 text-amber-500" />,
       links: [
-        { label: 'Chamber Rebuild Kits', href: '/chamber-parts-kits/air-brake-chamber-rebuild-kits' },
-        { label: 'Rubber Diaphragms', href: '/chamber-parts-kits/brake-chamber-diaphragms' },
-        { label: 'Clevis Pins & Hardware', href: '/chamber-parts-kits/clevis-pins-slack-adjuster-hardware' },
-        { label: 'Caging Bolts & Tools', href: '/chamber-parts-kits/brake-chamber-caging-bolts-tools' },
+        { label: 'Chamber Rebuild Kits', href: '/parts-and-kits/air-brake-chamber-rebuild-kits' },
+        { label: 'Rubber Diaphragms', href: '/parts-and-kits/brake-chamber-diaphragms' },
+        { label: 'Clevis Pins & Hardware', href: '/parts-and-kits/clevis-pins-slack-adjuster-hardware' },
+        { label: 'Caging Bolts & Tools', href: '/parts-and-kits/brake-chamber-caging-bolts-tools' },
       ],
-      viewAllLink: { label: 'View All Parts & Tools \u2192', href: '/chamber-parts-kits' }
+      viewAllLink: { label: 'View All Parts & Tools \u2192', href: '/parts-and-kits' }
     }
   ]
 };
@@ -162,7 +162,6 @@ export const OEM_MENU: MegaMenuConfig = {
       title: 'Interchange Tools',
       icon: <Search className="w-5 h-5 text-amber-500" />,
       links: [
-        { label: 'Part Number Search', href: '/oem-cross-reference/part-search' },
         { label: 'Visual Identification Guide', href: '/oem-cross-reference/visual-guide' },
         { label: 'Full Interchange Database', href: '/oem-cross-reference/database' },
       ],
@@ -181,14 +180,15 @@ export const COMPANY_MENU: MegaMenuConfig = {
       links: [
         { label: 'Our Story', href: '/company/our-story' },
         { label: 'Leadership Team', href: '/company/leadership' },
+        { label: 'Global Logistics', href: '/shipping' },
       ]
     },
     {
       title: 'Manufacturing',
       icon: <Factory className="w-5 h-5 text-amber-500" />,
       links: [
-        { label: 'Production Process', href: '/company/production-process' },
-        { label: 'Facility Overview', href: '/company/facility-overview' },
+        { label: 'Manufacturing Process', href: '/company/manufacturing-process' },
+        { label: 'Production Facility', href: '/company/production-facility' },
         { label: 'Material Sourcing', href: '/company/material-sourcing' },
       ]
     },
@@ -196,9 +196,9 @@ export const COMPANY_MENU: MegaMenuConfig = {
       title: 'Quality & R&D',
       icon: <ShieldCheck className="w-5 h-5 text-amber-500" />,
       links: [
-        { label: 'ISO Certifications', href: '/company/iso-certifications' },
-        { label: 'Testing Laboratory', href: '/company/testing-laboratory' },
-        { label: 'R&D and Innovations', href: '/company/research-and-innovations' },
+        { label: 'IATF Certifications', href: '/company/iatf-certifications' },
+        { label: 'Brake Testing Lab', href: '/company/brake-testing-lab' },
+        { label: 'Brake R&D', href: '/company/brake-r-and-d' },
       ]
     },
     {
@@ -227,10 +227,10 @@ export const OTHER_LINKS = [
 
 export const MOBILE_LINKS = {
   products: [
-    { label: 'Spring Brakes', href: '/spring-brakes', icon: <Settings className="w-4 h-4 text-amber-600" /> },
-    { label: 'Service Chambers', href: '/service-chambers', icon: <Wrench className="w-4 h-4 text-amber-600" /> },
-    { label: 'Air Disc Actuators', href: '/air-disc-brake-actuator', icon: <Disc className="w-4 h-4 text-amber-600" /> },
-    { label: 'Parts & Kits', href: '/chamber-parts-kits', icon: <Package className="w-4 h-4 text-amber-600" /> },
+    { label: 'Spring Brakes', href: '/spring-brake-chambers', icon: <Settings className="w-4 h-4 text-amber-600" /> },
+    { label: 'Service Chambers', href: '/service-brake-chambers', icon: <Wrench className="w-4 h-4 text-amber-600" /> },
+    { label: 'Air Disc Actuators', href: '/air-disc-brake-actuators', icon: <Disc className="w-4 h-4 text-amber-600" /> },
+    { label: 'Parts & Kits', href: '/parts-and-kits', icon: <Package className="w-4 h-4 text-amber-600" /> },
   ],
   company: [
     { label: 'Applications', href: '/applications', icon: <Truck className="w-4 h-4 text-navy-600" /> },

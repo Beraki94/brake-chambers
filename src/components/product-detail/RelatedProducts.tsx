@@ -52,9 +52,9 @@ export default function RelatedProducts({ currentSlug, category, isAccessory = f
           {[1, 2].map((setNum) => (
             <div key={setNum} className="flex gap-6 px-3">
               {uniqueProducts.map((product, i) => {
-                const categoryPath = product.category === 'Spring Brake' ? 'spring-brakes' :
-                                     product.category === 'Service Brake' ? 'service-chambers' :
-                                     product.category === 'Air Disc Actuator' ? 'air-disc-brake-actuator' : 'chamber-parts-kits';
+                const categoryPath = product.category === 'Spring Brake' ? 'spring-brake-chambers' :
+                                     product.category === 'Service Brake' ? 'service-brake-chambers' :
+                                     product.category === 'Air Disc Actuator' ? 'air-disc-brake-actuators' : 'parts-and-kits';
                 return (
                   <Link 
                     key={`${setNum}-${product.slug}-${i}`} 

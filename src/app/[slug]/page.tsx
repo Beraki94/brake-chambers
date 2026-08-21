@@ -57,16 +57,16 @@ export default async function ProductRootPage(
     
     if (product.category === 'Spring Brake') {
       categoryName = 'Spring Brakes';
-      categoryPath = 'spring-brakes';
+      categoryPath = 'spring-brake-chambers';
     } else if (product.category === 'Service Brake') {
       categoryName = 'Service Chambers';
-      categoryPath = 'service-chambers';
+      categoryPath = 'service-brake-chambers';
     } else if (product.category === 'Air Disc Actuator') {
       categoryName = 'Air Disc Actuators';
-      categoryPath = 'air-disc-brake-actuator';
+      categoryPath = 'air-disc-brake-actuators';
     } else {
       categoryName = 'Parts & Kits';
-      categoryPath = 'chamber-parts-kits';
+      categoryPath = 'parts-and-kits';
     }
 
     return (

@@ -9,12 +9,12 @@ export default function CompanySidebar() {
   const links = [
     { title: 'Our Story', href: '/company/our-story', icon: <Building2 className="w-5 h-5" /> },
     { title: 'Leadership Team', href: '/company/leadership', icon: <Users className="w-5 h-5" /> },
-    { title: 'Facility Overview', href: '/company/facility-overview', icon: <Building2 className="w-5 h-5" /> },
-    { title: 'Production Process', href: '/company/production-process', icon: <Factory className="w-5 h-5" /> },
+    { title: 'Production Facility', href: '/company/production-facility', icon: <Building2 className="w-5 h-5" /> },
+    { title: 'Manufacturing Process', href: '/company/manufacturing-process', icon: <Factory className="w-5 h-5" /> },
     { title: 'Material Sourcing', href: '/company/material-sourcing', icon: <Pickaxe className="w-5 h-5" /> },
-    { title: 'Testing Laboratory', href: '/company/testing-laboratory', icon: <FlaskConical className="w-5 h-5" /> },
-    { title: 'ISO Certifications', href: '/company/iso-certifications', icon: <FileBadge className="w-5 h-5" /> },
-    { title: 'Research & Innovation', href: '/company/research-and-innovations', icon: <Activity className="w-5 h-5" /> },
+    { title: 'Brake Testing Lab', href: '/company/brake-testing-lab', icon: <FlaskConical className="w-5 h-5" /> },
+    { title: 'IATF Certifications', href: '/company/iatf-certifications', icon: <FileBadge className="w-5 h-5" /> },
+    { title: 'Research & Innovation', href: '/company/brake-r-and-d', icon: <Activity className="w-5 h-5" /> },
   ];
 
   return (

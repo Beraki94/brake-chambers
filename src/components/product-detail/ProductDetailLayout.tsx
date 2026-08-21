@@ -58,7 +58,7 @@ export default function ProductDetailLayout({
 
           <div className="flex gap-3 mt-8">
              <span className="flex items-center text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-4 py-2 rounded-full border border-emerald-100"><Check size={14} className="mr-1.5"/> In Stock</span>
-             <span className="flex items-center text-xs font-bold uppercase tracking-wider text-navy-700 bg-navy-50 px-4 py-2 rounded-full border border-navy-100"><ShieldCheck size={14} className="mr-1.5"/> ISO 9001</span>
+             <span className="flex items-center text-xs font-bold uppercase tracking-wider text-navy-700 bg-navy-50 px-4 py-2 rounded-full border border-navy-100"><ShieldCheck size={14} className="mr-1.5"/> IATF 16949</span>
           </div>
         </div>
 
@@ -151,7 +151,7 @@ export default function ProductDetailLayout({
           },
           {
             q: `Is this ${isChamber ? product.type : 'component'} covered by warranty?`,
-            a: "Yes, all BRC products are rigorously tested in our ISO 9001 facility and backed by a comprehensive industry warranty against manufacturing defects."
+            a: "Yes, all BRC products are rigorously tested in our IATF 16949 facility and backed by a comprehensive industry warranty against manufacturing defects."
           }
         ]} />
       </section>

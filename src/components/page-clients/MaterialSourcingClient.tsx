@@ -56,8 +56,8 @@ export default function MaterialSourcingClient() {
         <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-slate-100">
           <SectionHeader title="Verified by Global Standards" className="!mb-6" />
 
-          <Link href="/company/iso-certifications" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
-            View ISO Certifications <ArrowRight className="w-6 h-6 ml-2" />
+          <Link href="/company/iatf-certifications" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
+            View IATF Certifications <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>
       </div>

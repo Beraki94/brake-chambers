@@ -19,7 +19,7 @@ export default function SubCategoryFAQ({ categoryName }: SubCategoryFAQProps) {
     },
     {
       q: `What kind of warranty do you offer on ${categoryName}?`,
-      a: `Every unit is manufactured in our ISO 9001:2015 certified facility and rigorously tested for 1 million cycles. We offer a comprehensive B2B industry warranty against all manufacturing defects.`
+      a: `Every unit is manufactured in our IATF 16949 certified facility and rigorously tested for 1 million cycles. We offer a comprehensive B2B industry warranty against all manufacturing defects.`
     }
   ];
 

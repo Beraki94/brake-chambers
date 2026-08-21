@@ -23,7 +23,7 @@ export default function SubCategoryWholesaleCTA({ categoryName }: SubCategoryWho
         </h2>
         
         <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed">
-          Skip the middlemen. We manufacture our {categoryName.toLowerCase()} directly to ISO 9001 standards. Get preferential pricing, guaranteed lead times, and pallet shipping discounts when you order directly from BRC.
+          Skip the middlemen. We manufacture our {categoryName.toLowerCase()} directly to IATF 16949 standards. Get preferential pricing, guaranteed lead times, and pallet shipping discounts when you order directly from BRC.
         </p>
       </div>
 

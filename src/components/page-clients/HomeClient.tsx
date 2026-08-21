@@ -17,7 +17,7 @@ const HERO_SLIDES = [
     badge: "Direct Factory",
     badgeIcon: <Settings className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
     title: <>OEM Brake Chamber <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Manufacturer.</span></>,
-    description: "Sourcing direct from our 50,000 sqm ISO 9001:2015 certified production facility in Zhejiang. Eliminate middleman markups on premium aftermarket commercial vehicle components.",
+    description: "Sourcing direct from our 50,000 sqm IATF 16949 certified production facility in Zhejiang. Eliminate middleman markups on premium aftermarket commercial vehicle components.",
     cta1: { text: "Get Factory Pricing", link: "/quote" },
     cta2: { text: "Tour Our Plant", link: "#facility" },
     image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2000&q=80",
@@ -29,7 +29,7 @@ const HERO_SLIDES = [
     badge: "Heavy-Duty Engineering",
     badgeIcon: <Cpu className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
     title: <>Precision-Built for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-emerald-500 to-navy-400">Trucks and Trailers.</span></>,
-    description: "Engineered to eliminate air leaks and guarantee perfectly balanced braking under extreme road pressure. Built to match strict Bendix, Haldex, and Meritor tolerances.",
+    description: "Engineered to eliminate air leaks and guarantee perfectly balanced braking under extreme road pressure. Built to match strict Bendix, Haldex, Meritor, Knorr-Bremse, and Wabco tolerances.",
     cta1: { text: "View Product Catalog", link: "/products" },
     cta2: { text: "Request Test Samples", link: "/contact" },
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80",
@@ -43,7 +43,7 @@ const HERO_SLIDES = [
     title: <>Global Supplier for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">30+ Countries.</span></>,
     description: "Streamlining global B2B procurement with predictable lead times and hassle-free port logistics. Handling direct container shipping, FCL, and LCL for distributors worldwide.",
     cta1: { text: "Start Wholesale Inquiry", link: "/contact" },
-    cta2: { text: "Check Shipping Zones", link: "/shipping" },
+    cta2: { text: "Global Logistics", link: "/shipping" },
     image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2000&q=80",
     gradient: "from-navy-950 via-navy-950/90 to-transparent",
     glow: "bg-amber-500"
@@ -157,7 +157,7 @@ export default function HomeClient() {
           {[...Array(2)].map((_, dupeIdx) => (
             <div key={dupeIdx} className="flex shrink-0 items-center">
               {[
-                'ISO 9001:2015 Certified Factory',
+                'IATF 16949 Certified Factory',
                 'FMVSS-121 Safety Certified',
                 'OEM Drop-In Replacement',
                 'In-House Aluminum Die Casting',
@@ -204,7 +204,7 @@ export default function HomeClient() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Spring Brakes */}
-            <Link href="/spring-brakes" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
+            <Link href="/spring-brake-chambers" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
@@ -231,7 +231,7 @@ export default function HomeClient() {
             </Link>
 
             {/* Service Brakes */}
-            <Link href="/service-chambers" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
+            <Link href="/service-brake-chambers" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8ed7c80a71?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
@@ -258,7 +258,7 @@ export default function HomeClient() {
             </Link>
 
             {/* Air Disc Brakes */}
-            <Link href="/air-disc-brake-actuator" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
+            <Link href="/air-disc-brake-actuators" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
@@ -285,7 +285,7 @@ export default function HomeClient() {
             </Link>
 
             {/* Piggybacks & Accessories */}
-            <Link href="/chamber-parts-kits" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
+            <Link href="/parts-and-kits" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
@@ -353,7 +353,7 @@ export default function HomeClient() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Global Certifications:</strong> Tier-1 ISO 9001:2015 & IATF 16949 certified quality systems.</span>
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Global Certifications:</strong> Tier-1 IATF 16949 certified quality systems.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />

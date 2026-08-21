@@ -29,7 +29,7 @@ export default function ManufacturingClient() {
       step: '02',
       title: 'Precision Assembly',
       slug: 'manufacturing',
-      description: 'ISO certified facilities utilizing automated robotic welding, CNC machining, and precision assembly lines to guarantee absolute consistency across millions of units.',
+      description: 'IATF 16949 certified facilities utilizing automated robotic welding, CNC machining, and precision assembly lines to guarantee absolute consistency across millions of units.',
       image: '/images/manufacturing_floor.png',
       accent: 'navy',
       icon: <Factory className="w-8 h-8 text-navy-500" />,
@@ -73,7 +73,7 @@ export default function ManufacturingClient() {
   ];
 
   const stats = [
-    { icon: Trophy, value: "ISO 9001", label: "Certified Facility" },
+    { icon: Trophy, value: "IATF 16949", label: "Certified Facility" },
     { icon: Cog, value: "1M+", label: "Chambers Produced" },
     { icon: Users, value: "250+", label: "Dedicated Experts" },
     { icon: LineChart, value: "100%", label: "Pneumatic Testing" },

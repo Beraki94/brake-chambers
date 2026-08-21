@@ -29,8 +29,8 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Precision-Machined Pushrods', desc: 'Center pushrods are centerless-ground to an ultra-smooth finish, virtually eliminating center seal drag and preventing the slow air leaks that plague standard chambers.', icon: <Wrench className="w-8 h-8" /> }
     ],
     recommendedPackage: [
-      { name: 'Type 30/30 Standard Spring Brakes', desc: 'The trusted backbone of linehaul stopping power, offering reliable mechanical lock-up and consistent highway service braking.', link: '/spring-brakes/30-30-air-brake-chambers' },
-      { name: 'Air Disc Brake Actuators', desc: 'Optimized for modern Class 8 fleets transitioning to ADB systems for dramatically shorter stopping distances and improved driver safety.', link: '/air-disc-brake-actuator/type-20-24-air-disc-brake-actuator' }
+      { name: 'Type 30/30 Standard Spring Brakes', desc: 'The trusted backbone of linehaul stopping power, offering reliable mechanical lock-up and consistent highway service braking.', link: '/spring-brake-chambers/30-30-air-brake-chambers' },
+      { name: 'Air Disc Brake Actuators', desc: 'Optimized for modern Class 8 fleets transitioning to ADB systems for dramatically shorter stopping distances and improved driver safety.', link: '/air-disc-brake-actuators/type-20-24-air-disc-brake-actuator' }
     ]
   },
   'heavy-duty-trailer': {
@@ -54,8 +54,8 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'High-Tensile Power Springs', desc: 'Engineered with specialized steel alloys to provide massive, unyielding parking brake clamping force for fully loaded 80,000 lb trailers.', icon: <Wrench className="w-8 h-8" /> }
     ],
     recommendedPackage: [
-      { name: 'Type 30/30 Long Stroke Spring Brakes', desc: 'Provides the extra pushrod travel necessary to maintain braking efficiency as trailer brake shoes wear down over long hauls.', link: '/spring-brakes/30-30-long-stroke-brake-chambers' },
-      { name: 'Type 30 Service Chambers', desc: 'High-volume, heavy-duty service chambers engineered for immediate response on multi-axle trailer configurations.', link: '/service-chambers/type-30-service-brake-chambers' }
+      { name: 'Type 30/30 Long Stroke Spring Brakes', desc: 'Provides the extra pushrod travel necessary to maintain braking efficiency as trailer brake shoes wear down over long hauls.', link: '/spring-brake-chambers/30-30-long-stroke-brake-chambers' },
+      { name: 'Type 30 Service Chambers', desc: 'High-volume, heavy-duty service chambers engineered for immediate response on multi-axle trailer configurations.', link: '/service-brake-chambers/type-30-service-brake-chambers' }
     ]
   },
   'medium-duty-trucks': {
@@ -85,8 +85,8 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Rapid-Release Valving', desc: 'Internal air porting is precision-machined to ensure immediate air exhaust, preventing brake drag and improving fleet fuel efficiency in city traffic.', icon: <Cpu className="w-8 h-8" /> }
     ],
     recommendedPackage: [
-      { name: 'Type 24/30 Spring Brakes', desc: 'The ideal size configuration for medium-duty chassis, balancing compact installation with reliable stopping power.', link: '/spring-brakes/24-30-24-24-spring-brakes' },
-      { name: 'Pre-Caged Piggyback Kits', desc: 'Enables fleet mechanics to rapidly swap the power spring section without dismounting the entire housing, getting delivery trucks back on route faster.', link: '/chamber-parts-kits/type-30-30-piggyback-kits' }
+      { name: 'Type 24/30 Spring Brakes', desc: 'The ideal size configuration for medium-duty chassis, balancing compact installation with reliable stopping power.', link: '/spring-brake-chambers/24-30-24-24-spring-brakes' },
+      { name: 'Pre-Caged Piggyback Kits', desc: 'Enables fleet mechanics to rapidly swap the power spring section without dismounting the entire housing, getting delivery trucks back on route faster.', link: '/parts-and-kits/type-30-30-piggyback-kits' }
     ]
   },
   'garbage-refuse': {
@@ -110,8 +110,8 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Reinforced Dust Booting', desc: 'Heavy-duty neoprene dust boots securely seal the pushrod exit, preventing abrasive landfill slurry and glass dust from entering the housing and scoring the internal mechanisms.', icon: <ShieldAlert className="w-8 h-8" /> }
     ],
     recommendedPackage: [
-      { name: 'Severe-Duty Spring Brakes', desc: 'Built with double-plated housings and high-temp internals to survive the brutal daily cycle of municipal waste collection.', link: '/spring-brakes/30-30-air-brake-chambers' },
-      { name: 'High-Temp Air Disc Actuators', desc: 'Specifically designed to handle the extreme heat generation of frequent-stop operations utilizing modern Air Disc Brakes.', link: '/air-disc-brake-actuator/type-24-30-air-disc-brake-actuators' }
+      { name: 'Severe-Duty Spring Brakes', desc: 'Built with double-plated housings and high-temp internals to survive the brutal daily cycle of municipal waste collection.', link: '/spring-brake-chambers/30-30-air-brake-chambers' },
+      { name: 'High-Temp Air Disc Actuators', desc: 'Specifically designed to handle the extreme heat generation of frequent-stop operations utilizing modern Air Disc Brakes.', link: '/air-disc-brake-actuators/type-24-30-air-disc-brake-actuators' }
     ]
   },
   'mining-construction': {
@@ -135,8 +135,8 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Heavy-Duty Welded Clevis', desc: 'Eliminates the weak point of threaded pushrods by utilizing a permanently welded clevis, providing absolute rigidity against lateral chassis twisting on uneven terrain.', icon: <Wrench className="w-8 h-8" /> }
     ],
     recommendedPackage: [
-      { name: 'Type 36/36 Severe-Duty Spring Brakes', desc: 'Delivers the massive holding power and mechanical clamping force required for parking fully loaded mining dump trucks on steep inclines.', link: '/spring-brakes/30-30-air-brake-chambers' },
-      { name: 'Welded Clevis Service Chambers', desc: 'Engineered for front axles navigating deep ruts and uneven terrain, completely eliminating threaded pushrod snapping.', link: '/service-chambers/welded-clevis-brake-chambers' }
+      { name: 'Type 36/36 Severe-Duty Spring Brakes', desc: 'Delivers the massive holding power and mechanical clamping force required for parking fully loaded mining dump trucks on steep inclines.', link: '/spring-brake-chambers/30-30-air-brake-chambers' },
+      { name: 'Welded Clevis Service Chambers', desc: 'Engineered for front axles navigating deep ruts and uneven terrain, completely eliminating threaded pushrod snapping.', link: '/service-brake-chambers/welded-clevis-brake-chambers' }
     ]
   },
   'ag-trailers': {
@@ -160,8 +160,8 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Weather-Sealed Housings & Reinforced Diaphragms', desc: 'Double O-ring center seals, premium reinforced neoprene diaphragms, and specialized dust booting prevent abrasive harvest debris and corrosive slurry from compromising the pushrod mechanism.', icon: <Cog className="w-8 h-8" /> }
     ],
     recommendedPackage: [
-      { name: 'Type 30/30 Long Stroke Spring Brakes', desc: 'Provides the extended pushrod travel and massive mechanical parking brake clamping force required for holding max-weight grain trailers safely on unpaved field inclines.', link: '/spring-brakes/30-30-air-brake-chambers' },
-      { name: 'Welded Clevis Service Chambers', desc: 'Eliminates threaded rod failure points entirely, offering absolute mechanical rigidity against the violent lateral twisting forces of off-road farm navigation.', link: '/service-chambers/welded-clevis-brake-chambers' }
+      { name: 'Type 30/30 Long Stroke Spring Brakes', desc: 'Provides the extended pushrod travel and massive mechanical parking brake clamping force required for holding max-weight grain trailers safely on unpaved field inclines.', link: '/spring-brake-chambers/30-30-air-brake-chambers' },
+      { name: 'Welded Clevis Service Chambers', desc: 'Eliminates threaded rod failure points entirely, offering absolute mechanical rigidity against the violent lateral twisting forces of off-road farm navigation.', link: '/service-brake-chambers/welded-clevis-brake-chambers' }
     ]
   },
   'transit-buses': {
@@ -185,8 +185,8 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Noise-Dampening Architecture', desc: 'Internal components are seated with specialized dampening materials to eliminate spring rattle and operational noise, ensuring a quiet ride for passengers.', icon: <ShieldAlert className="w-8 h-8" /> }
     ],
     recommendedPackage: [
-      { name: 'Type 16/24 Service Chambers', desc: 'The perfect size configuration for precise driver modulation on municipal transit axles.', link: '/service-chambers/type-12-16-24-service-chambers' },
-      { name: 'Air Disc Brake Actuators', desc: 'Provides the smoothest, most car-like braking feel for modern coach buses equipped with ADB systems.', link: '/air-disc-brake-actuator/type-20-24-air-disc-brake-actuator' }
+      { name: 'Type 16/24 Service Chambers', desc: 'The perfect size configuration for precise driver modulation on municipal transit axles.', link: '/service-brake-chambers/type-12-16-24-service-chambers' },
+      { name: 'Air Disc Brake Actuators', desc: 'Provides the smoothest, most car-like braking feel for modern coach buses equipped with ADB systems.', link: '/air-disc-brake-actuators/type-20-24-air-disc-brake-actuator' }
     ]
   },
   'school-buses': {
@@ -210,8 +210,8 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'DOT/FMVSS 121 Compliant Engineering', desc: 'Every chamber is rigorously batch-tested at our factory to meet and exceed all federal safety guidelines for commercial passenger braking response times.', icon: <Activity className="w-8 h-8" /> }
     ],
     recommendedPackage: [
-      { name: 'Type 24/30 Spring Brakes', desc: 'The trusted standard for school bus drive axles, providing massive emergency stopping power.', link: '/spring-brakes/24-30-24-24-spring-brakes' },
-      { name: 'Type 20 Steer Axle Chambers', desc: 'Rapid response service chambers for precise driver control and immediate stopping distances in residential zones.', link: '/service-chambers/type-20-steer-axle-brake-chambers' }
+      { name: 'Type 24/30 Spring Brakes', desc: 'The trusted standard for school bus drive axles, providing massive emergency stopping power.', link: '/spring-brake-chambers/24-30-24-24-spring-brakes' },
+      { name: 'Type 20 Steer Axle Chambers', desc: 'Rapid response service chambers for precise driver control and immediate stopping distances in residential zones.', link: '/service-brake-chambers/type-20-steer-axle-brake-chambers' }
     ]
   },
   'shuttle-vans': {
@@ -235,8 +235,8 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Compact Footprint Design', desc: 'Designed with a minimized housing profile to fit seamlessly within the tight clearance constraints of van cutaway chassis.', icon: <Wrench className="w-8 h-8" /> }
     ],
     recommendedPackage: [
-      { name: 'Air Disc Brake Actuators', desc: 'Provides the smoothest, most car-like braking feel for paratransit and airport shuttle chassis.', link: '/air-disc-brake-actuator/type-16-18-adb-actuators' },
-      { name: 'Type 16 Service Chambers', desc: 'Perfectly sized for medium-duty shuttle applications, offering precise modulation without over-braking.', link: '/service-chambers/type-12-16-24-service-chambers' }
+      { name: 'Air Disc Brake Actuators', desc: 'Provides the smoothest, most car-like braking feel for paratransit and airport shuttle chassis.', link: '/air-disc-brake-actuators/type-16-18-adb-actuators' },
+      { name: 'Type 16 Service Chambers', desc: 'Perfectly sized for medium-duty shuttle applications, offering precise modulation without over-braking.', link: '/service-brake-chambers/type-12-16-24-service-chambers' }
     ]
   },
   'bulk-wholesale': {
@@ -260,8 +260,8 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Standardized Fleet Warranties', desc: 'We bypass the middlemen to offer streamlined, direct-to-factory warranty processing for bulk fleet accounts, eliminating bureaucratic delays.', icon: <ShieldAlert className="w-8 h-8" /> }
     ],
     recommendedPackage: [
-      { name: 'Standard Type 30/30 Spring Brakes', desc: 'The most common standard for Class 8 fleet drives. Ready for high-volume palletized distribution.', link: '/spring-brakes/30-30-air-brake-chambers' },
-      { name: 'Fleet Piggyback Kits', desc: 'Bulk packaged parking spring sections for rapid, cost-effective fleet yard maintenance.', link: '/chamber-parts-kits/type-30-30-piggyback-kits' }
+      { name: 'Standard Type 30/30 Spring Brakes', desc: 'The most common standard for Class 8 fleet drives. Ready for high-volume palletized distribution.', link: '/spring-brake-chambers/30-30-air-brake-chambers' },
+      { name: 'Fleet Piggyback Kits', desc: 'Bulk packaged parking spring sections for rapid, cost-effective fleet yard maintenance.', link: '/parts-and-kits/type-30-30-piggyback-kits' }
     ]
   },
   'custom-manufacturing': {
@@ -285,7 +285,7 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Rapid CNC Prototyping', desc: 'Our in-house engineering lab utilizes advanced CNC machining and 3D CAD modeling to rapidly iterate and deliver physical prototypes within weeks, not months.', icon: <PenTool className="w-8 h-8" /> }
     ],
     recommendedPackage: [
-      { name: 'Welded Clevis Options', desc: 'Custom pushrod lengths and welded clevis configurations engineered specifically for your chassis geometry.', link: '/service-chambers/welded-clevis-brake-chambers' },
+      { name: 'Welded Clevis Options', desc: 'Custom pushrod lengths and welded clevis configurations engineered specifically for your chassis geometry.', link: '/service-brake-chambers/welded-clevis-brake-chambers' },
       { name: 'Engineering Consultation', desc: 'Schedule a direct technical meeting with our engineering team to review your CAD files and clearance requirements.', link: '/quote' }
     ]
   },
@@ -295,22 +295,22 @@ export const APPLICATION_DATA: Record<string, any> = {
     keywords: ['brake chamber contract manufacturing', 'white label air brakes', 'OEM brake supplier', 'air brake factory'],
     faqs: [
       { q: 'Can you manufacture completely proprietary designs exclusively for our brand?', a: 'Yes. We offer confidential contract manufacturing. We will tool and produce your proprietary actuator designs under strict NDAs, ensuring your IP remains completely protected.' },
-      { q: 'What quality control certifications does your factory hold?', a: 'Our manufacturing campus is fully ISO 9001:2015 and IATF 16949 compliant, ensuring top-tier automotive quality control and traceability on every single unit that leaves our line.' }
+      { q: 'What quality control certifications does your factory hold?', a: 'Our manufacturing campus is fully IATF 16949 compliant, ensuring top-tier automotive quality control and traceability on every single unit that leaves our line.' }
     ],
     bgStyle: 'from-navy-900 to-navy-950',
     accent: 'text-amber-500',
     heroImage: 'https://images.unsplash.com/photo-1565011500332-9c16262b9a7c?auto=format&fit=crop&w=2000&q=80',
     challenge: {
       title: 'The Scaling & Capital Challenge',
-      desc: 'Scaling production for a new or rapidly expanding aftermarket brake brand requires massive capital investment. Building automated assembly lines, acquiring heavy steel stamping presses, and outfitting ISO-certified testing laboratories takes years and millions of dollars. Attempting to source from unreliable overseas brokers leads to devastating quality control issues, brand-damaging recalls, and IP theft. The challenge is finding a proven, primary manufacturer capable of scaling your brand with perfect consistency.'
+      desc: 'Scaling production for a new or rapidly expanding aftermarket brake brand requires massive capital investment. Building automated assembly lines, acquiring heavy steel stamping presses, and outfitting IATF 16949-certified testing laboratories takes years and millions of dollars. Attempting to source from unreliable overseas brokers leads to devastating quality control issues, brand-damaging recalls, and IP theft. The challenge is finding a proven, primary manufacturer capable of scaling your brand with perfect consistency.'
     },
     technologies: [
-      { name: 'ISO 9001:2015 Automated Assembly', desc: 'Our state-of-the-art automated production lines are capable of producing over 1,000,000 units annually with zero-defect consistency for your brand.', icon: <Factory className="w-8 h-8" /> },
+      { name: 'IATF 16949 Automated Assembly', desc: 'Our state-of-the-art automated production lines are capable of producing over 1,000,000 units annually with zero-defect consistency for your brand.', icon: <Factory className="w-8 h-8" /> },
       { name: 'In-House 1M Cycle Testing', desc: 'We protect your brand reputation by rigorously lab-testing every batch on our 1-million cycle dynamometers to guarantee extreme lifecycle performance.', icon: <Activity className="w-8 h-8" /> },
       { name: 'Strict NDA & Confidentiality', desc: 'We offer completely confidential contract manufacturing, producing your proprietary designs and branding under strict Non-Disclosure Agreements.', icon: <ShieldAlert className="w-8 h-8" /> }
     ],
     recommendedPackage: [
-      { name: 'Standard Type 30/30 Production', desc: 'High-volume, automated production lines ready to stamp and package the industry\'s most popular chamber under your logo.', link: '/spring-brakes/30-30-air-brake-chambers' },
+      { name: 'Standard Type 30/30 Production', desc: 'High-volume, automated production lines ready to stamp and package the industry\'s most popular chamber under your logo.', link: '/spring-brake-chambers/30-30-air-brake-chambers' },
       { name: 'Custom Packaging Solutions', desc: 'We provide end-to-end retail and wholesale packaging solutions featuring your brand\'s colors, barcodes, and part numbers.', link: '/quote' }
     ]
   }

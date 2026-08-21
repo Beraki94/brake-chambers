@@ -10,7 +10,7 @@ import CompanyPageLayout from '@/components/company/CompanyPageLayout';
 export default function FacilityOverviewClient() {
   return (
     <CompanyPageLayout
-      title="Facility Overview"
+      title="Production Facility"
       description="A massive, vertically integrated manufacturing campus built for global scale and precision."
     >
       <div className="space-y-16">
@@ -47,7 +47,7 @@ export default function FacilityOverviewClient() {
 
             <div className="space-y-6">
               {[
-                { title: "Tier-1 Automotive Certification", desc: "Operating under strict ISO 9001:2015 and IATF 16949 certified quality management systems. Validated for global OEM supply chains." },
+                { title: "Tier-1 Automotive Certification", desc: "Operating under strict IATF 16949 certified quality management systems. Validated for global OEM supply chains." },
                 { title: "Mass-Volume Capacity", desc: "Fully automated robotic assembly lines scaling to 1,000,000+ units annually to support global distribution networks." },
                 { title: "In-House Metallurgical Labs", desc: "Dedicated metallurgical engineering and lifecycle stress-testing bays validating every material batch." },
                 { title: "Turnkey Export Logistics", desc: "Seamless ocean-freight container shipping with comprehensive handling of all customs and international port compliance." }
@@ -104,8 +104,8 @@ export default function FacilityOverviewClient() {
             accentColor="amber"
           />
           <div className="mt-6">
-            <Link href="/company/testing-laboratory" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-500 transition-colors uppercase tracking-widest text-lg">
-              Explore the Testing Laboratory <ArrowRight className="w-6 h-6 ml-2" />
+            <Link href="/company/brake-testing-lab" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-500 transition-colors uppercase tracking-widest text-lg">
+              Explore the Brake Testing Lab <ArrowRight className="w-6 h-6 ml-2" />
             </Link>
           </div>
         </div>

@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { BRAKE_CHAMBERS } from '../../lib/data';
 
 interface FacetedSidebarProps {
-  baseCategory?: 'spring-brakes' | 'service-chambers' | 'chamber-parts-kits' | 'air-disc-brake-actuator' | 'all';
+  baseCategory?: 'spring-brake-chambers' | 'service-brake-chambers' | 'parts-and-kits' | 'air-disc-brake-actuators' | 'all';
 }
 
 const BRANDS = [
@@ -30,7 +30,7 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
   const searchParams = useSearchParams();
   const [openSection, setOpenSection] = React.useState<string | null>(null);
 
-  // Determine if we are on a specific sub-category page (e.g., /spring-brakes/type-30-30)
+  // Determine if we are on a specific sub-category page (e.g., /spring-brake-chambers/type-30-30)
   // If we are, we should hide the generic 'Model' filter to prevent conflicting filters.
   const isNestedRoute = pathname.split('/').length > 2;
 
@@ -73,79 +73,79 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
         onToggle={() => setOpenSection(openSection === "Categories" ? null : "Categories")}
       >
           <ul className="py-2">
-            <li><Link href={`/spring-brakes`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Spring Brakes</Link></li>
-            <li><Link href={`/service-chambers`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Service Chambers</Link></li>
-            <li><Link href={`/air-disc-brake-actuator`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Air Disc Actuators</Link></li>
-            <li><Link href={`/chamber-parts-kits`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Parts & Kits</Link></li>
+            <li><Link href={`/spring-brake-chambers`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Spring Brakes</Link></li>
+            <li><Link href={`/service-brake-chambers`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Service Chambers</Link></li>
+            <li><Link href={`/air-disc-brake-actuators`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Air Disc Actuators</Link></li>
+            <li><Link href={`/parts-and-kits`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Parts & Kits</Link></li>
           </ul>
         </FilterAccordion>
       )}
 
-      {baseCategory === 'spring-brakes' && (
+      {baseCategory === 'spring-brake-chambers' && (
         <FilterAccordion 
         title="Spring Brake Types" 
         isOpen={openSection === "Spring Brake Types"} 
         onToggle={() => setOpenSection(openSection === "Spring Brake Types" ? null : "Spring Brake Types")}
       >
           <ul className="py-2">
-            <li><Link href={`/spring-brakes/30-30-air-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('30-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30/30 Spring Brake</Link></li>
-            <li><Link href={`/spring-brakes/36-36-spring-brakes`} className={`block px-4 py-2 text-sm ${pathname.includes('36-36') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 36/36 Spring Brake</Link></li>
-            <li><Link href={`/spring-brakes/24-30-24-24-spring-brakes`} className={`block px-4 py-2 text-sm ${pathname.includes('24-30-24-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/30 & 24/24 Chambers</Link></li>
-            <li><Link href={`/spring-brakes/30-28-spring-brakes`} className={`block px-4 py-2 text-sm ${pathname.includes('30-28') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30/28 Spring Brake</Link></li>
-            <li><Link href={`/spring-brakes/20-24-spring-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('20-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20/24 Spring Brake</Link></li>
-            <li><Link href={`/spring-brakes/type-30-30-piggyback-kits`} className={`block px-4 py-2 text-sm ${pathname.includes('piggyback') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30/30 Piggyback Kits</Link></li>
-            <li><Link href={`/spring-brakes`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Spring Brakes</Link></li>
+            <li><Link href={`/spring-brake-chambers/30-30-air-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('30-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30/30 Spring Brake</Link></li>
+            <li><Link href={`/spring-brake-chambers/36-36-spring-brakes`} className={`block px-4 py-2 text-sm ${pathname.includes('36-36') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 36/36 Spring Brake</Link></li>
+            <li><Link href={`/spring-brake-chambers/24-30-24-24-spring-brakes`} className={`block px-4 py-2 text-sm ${pathname.includes('24-30-24-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/30 & 24/24 Chambers</Link></li>
+            <li><Link href={`/spring-brake-chambers/30-28-spring-brakes`} className={`block px-4 py-2 text-sm ${pathname.includes('30-28') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30/28 Spring Brake</Link></li>
+            <li><Link href={`/spring-brake-chambers/20-24-spring-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('20-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20/24 Spring Brake</Link></li>
+            <li><Link href={`/spring-brake-chambers/type-30-30-piggyback-kits`} className={`block px-4 py-2 text-sm ${pathname.includes('piggyback') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30/30 Piggyback Kits</Link></li>
+            <li><Link href={`/spring-brake-chambers`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Spring Brakes</Link></li>
           </ul>
         </FilterAccordion>
       )}
 
-      {baseCategory === 'service-chambers' && (
+      {baseCategory === 'service-brake-chambers' && (
         <FilterAccordion 
         title="Service Chamber Types" 
         isOpen={openSection === "Service Chamber Types"} 
         onToggle={() => setOpenSection(openSection === "Service Chamber Types" ? null : "Service Chamber Types")}
       >
           <ul className="py-2">
-            <li><Link href={`/service-chambers/type-20-steer-axle-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('20-steer') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20 Steer Axle Brake Chambers</Link></li>
-            <li><Link href={`/service-chambers/type-30-service-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('type-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30 Service Chambers</Link></li>
-            <li><Link href={`/service-chambers/type-36-service-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('type-36') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 36 Service Chambers</Link></li>
-            <li><Link href={`/service-chambers/type-12-16-24-service-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('12-16-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 12, 16 & 24 Service Chambers</Link></li>
-            <li><Link href={`/service-chambers/welded-clevis-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('welded-clevis') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Welded Clevis Brake Chambers</Link></li>
-            <li><Link href={`/service-chambers`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Service Chambers</Link></li>
+            <li><Link href={`/service-brake-chambers/type-20-steer-axle-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('20-steer') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20 Steer Axle Brake Chambers</Link></li>
+            <li><Link href={`/service-brake-chambers/type-30-service-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('type-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30 Service Chambers</Link></li>
+            <li><Link href={`/service-brake-chambers/type-36-service-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('type-36') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 36 Service Chambers</Link></li>
+            <li><Link href={`/service-brake-chambers/type-12-16-24-service-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('12-16-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 12, 16 & 24 Service Chambers</Link></li>
+            <li><Link href={`/service-brake-chambers/welded-clevis-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('welded-clevis') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Welded Clevis Brake Chambers</Link></li>
+            <li><Link href={`/service-brake-chambers`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Service Chambers</Link></li>
           </ul>
         </FilterAccordion>
       )}
 
-      {baseCategory === 'air-disc-brake-actuator' && (
+      {baseCategory === 'air-disc-brake-actuators' && (
         <FilterAccordion 
         title="Air Disc Actuators" 
         isOpen={openSection === "Air Disc Actuators"} 
         onToggle={() => setOpenSection(openSection === "Air Disc Actuators" ? null : "Air Disc Actuators")}
       >
           <ul className="py-2">
-            <li><Link href={`/air-disc-brake-actuator/type-16-18-adb-actuators`} className={`block px-4 py-2 text-sm ${pathname.includes('16-18') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 16 & 18 ADB</Link></li>
-            <li><Link href={`/air-disc-brake-actuator/type-20-24-air-disc-brake-actuator`} className={`block px-4 py-2 text-sm ${pathname.includes('20-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20/24 ADB</Link></li>
-            <li><Link href={`/air-disc-brake-actuator/type-24-24-adb-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('24-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/24 ADB</Link></li>
-            <li><Link href={`/air-disc-brake-actuator/type-24-30-air-disc-brake-actuators`} className={`block px-4 py-2 text-sm ${pathname.includes('24-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/30 ADB</Link></li>
-            <li><Link href={`/air-disc-brake-actuator`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Air Disc Actuators</Link></li>
+            <li><Link href={`/air-disc-brake-actuators/type-16-18-adb-actuators`} className={`block px-4 py-2 text-sm ${pathname.includes('16-18') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 16 & 18 ADB</Link></li>
+            <li><Link href={`/air-disc-brake-actuators/type-20-24-air-disc-brake-actuator`} className={`block px-4 py-2 text-sm ${pathname.includes('20-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20/24 ADB</Link></li>
+            <li><Link href={`/air-disc-brake-actuators/type-24-24-adb-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('24-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/24 ADB</Link></li>
+            <li><Link href={`/air-disc-brake-actuators/type-24-30-air-disc-brake-actuators`} className={`block px-4 py-2 text-sm ${pathname.includes('24-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/30 ADB</Link></li>
+            <li><Link href={`/air-disc-brake-actuators`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Air Disc Actuators</Link></li>
           </ul>
         </FilterAccordion>
       )}
 
-      {baseCategory === 'chamber-parts-kits' && (
+      {baseCategory === 'parts-and-kits' && (
         <FilterAccordion 
         title="Parts & Kits Types" 
         isOpen={openSection === "Parts & Kits Types"} 
         onToggle={() => setOpenSection(openSection === "Parts & Kits Types" ? null : "Parts & Kits Types")}
       >
           <ul className="py-2">
-            <li><Link href={`/chamber-parts-kits/air-brake-chamber-rebuild-kits`} className={`block px-4 py-2 text-sm ${pathname.includes('rebuild-kits') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Air Brake Chamber Rebuild Kits</Link></li>
-            <li><Link href={`/chamber-parts-kits/brake-chamber-diaphragms`} className={`block px-4 py-2 text-sm ${pathname.includes('diaphragm') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Brake Chamber Diaphragms</Link></li>
-            <li><Link href={`/chamber-parts-kits/clevis-pins-slack-adjuster-hardware`} className={`block px-4 py-2 text-sm ${pathname.includes('clevis') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Clevis Pins & Hardware</Link></li>
-            <li><Link href={`/chamber-parts-kits/brake-chamber-caging-bolts-tools`} className={`block px-4 py-2 text-sm ${pathname.includes('caging') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Caging Bolts & Tools</Link></li>
-            <li><Link href={`/chamber-parts-kits/brake-chamber-clamp-bands`} className={`block px-4 py-2 text-sm ${pathname.includes('clamp') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Clamp Bands</Link></li>
-            <li><Link href={`/chamber-parts-kits/automatic-manual-slack-adjusters`} className={`block px-4 py-2 text-sm ${pathname.includes('slack-adjuster') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Slack Adjusters</Link></li>
-            <li><Link href={`/chamber-parts-kits`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Parts & Kits</Link></li>
+            <li><Link href={`/parts-and-kits/air-brake-chamber-rebuild-kits`} className={`block px-4 py-2 text-sm ${pathname.includes('rebuild-kits') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Air Brake Chamber Rebuild Kits</Link></li>
+            <li><Link href={`/parts-and-kits/brake-chamber-diaphragms`} className={`block px-4 py-2 text-sm ${pathname.includes('diaphragm') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Brake Chamber Diaphragms</Link></li>
+            <li><Link href={`/parts-and-kits/clevis-pins-slack-adjuster-hardware`} className={`block px-4 py-2 text-sm ${pathname.includes('clevis') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Clevis Pins & Hardware</Link></li>
+            <li><Link href={`/parts-and-kits/brake-chamber-caging-bolts-tools`} className={`block px-4 py-2 text-sm ${pathname.includes('caging') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Caging Bolts & Tools</Link></li>
+            <li><Link href={`/parts-and-kits/brake-chamber-clamp-bands`} className={`block px-4 py-2 text-sm ${pathname.includes('clamp') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Clamp Bands</Link></li>
+            <li><Link href={`/parts-and-kits/automatic-manual-slack-adjusters`} className={`block px-4 py-2 text-sm ${pathname.includes('slack-adjuster') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Slack Adjusters</Link></li>
+            <li><Link href={`/parts-and-kits`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Parts & Kits</Link></li>
           </ul>
         </FilterAccordion>
       )}
@@ -172,7 +172,7 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       </FilterAccordion>
 
       {/* Accessories Specific Filters */}
-      {baseCategory === 'chamber-parts-kits' && !isNestedRoute && (
+      {baseCategory === 'parts-and-kits' && !isNestedRoute && (
         <FilterAccordion 
         title="Accessory Type" 
         isOpen={openSection === "Accessory Type"} 
@@ -195,7 +195,7 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       )}
 
       {/* Air Disc Actuators Specific Filters */}
-      {baseCategory === 'air-disc-brake-actuator' && (
+      {baseCategory === 'air-disc-brake-actuators' && (
         <>
           {!isNestedRoute && (
             <FilterAccordion 
@@ -242,7 +242,7 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       )}
 
       {/* Spring Brakes Specific Filters */}
-      {baseCategory === 'spring-brakes' && (
+      {baseCategory === 'spring-brake-chambers' && (
         <>
           {!isNestedRoute && (
             <FilterAccordion 
@@ -329,7 +329,7 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       )}
 
       {/* Service Brakes Specific Filters */}
-      {baseCategory === 'service-chambers' && (
+      {baseCategory === 'service-brake-chambers' && (
         <>
           {!isNestedRoute && (
             <FilterAccordion 
@@ -489,10 +489,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
           <ul className="py-2">
             <li><Link href={`/products`} className="block px-4 py-2 text-sm font-bold text-amber-600 hover:bg-navy-50 mb-2 border-b border-slate-100 pb-2">View Full Catalog</Link></li>
-            <li><Link href={`/spring-brakes`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Spring Brakes</Link></li>
-            <li><Link href={`/service-chambers`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Service Chambers</Link></li>
-            <li><Link href={`/air-disc-brake-actuator`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Air Disc Actuators</Link></li>
-            <li><Link href={`/chamber-parts-kits`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Parts & Kits</Link></li>
+            <li><Link href={`/spring-brake-chambers`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Spring Brakes</Link></li>
+            <li><Link href={`/service-brake-chambers`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Service Chambers</Link></li>
+            <li><Link href={`/air-disc-brake-actuators`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Air Disc Actuators</Link></li>
+            <li><Link href={`/parts-and-kits`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Parts & Kits</Link></li>
           </ul>
         </FilterAccordion>
       )}

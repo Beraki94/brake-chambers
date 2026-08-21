@@ -43,7 +43,7 @@ const buyingGuideContent = `
 <p>For fleet managers, purchasing agents, and heavy-duty parts distributors looking for wholesale pricing, the most cost-effective route is direct factory sourcing.</p>
 <p><strong>BRC Brake Chambers</strong> offers an optimized supply chain solution:</p>
 <ul>
-  <li><strong>Direct Manufacturing:</strong> We produce millions of units annually in our ISO 9001:2015 / IATF 16949 certified facility.</li>
+  <li><strong>Direct Manufacturing:</strong> We produce millions of units annually in our IATF 16949 certified facility.</li>
   <li><strong>Flexible Shipping:</strong> FOB Ningbo pricing with full container load (FCL) and less-than-container load (LCL) shipping directly to ports across North America, Europe, the Middle East, and Africa.</li>
   <li><strong>Private Labeling (OEM Service):</strong> For distributors, we offer custom laser etching, branded packaging, and bespoke product configurations.</li>
 </ul>
@@ -141,7 +141,7 @@ const industryContent = `
 
 <h2>Buy America & FMCSA Regulations</h2>
 <p>There is a common misconception regarding "Buy America" laws in the heavy-duty aftermarket. While "Buy America" provisions apply strictly to certain government-funded transit projects (like municipal bus fleets), the general commercial trucking aftermarket has no country-of-origin restriction for brake components — provided they meet the applicable FMVSS standards.</p>
-<p>Chinese-manufactured chambers from highly regulated, ISO 9001/IATF 16949-certified facilities like BRC are fully legal, extensively tested, and widely used across the largest North American fleets today.</p>
+<p>Chinese-manufactured chambers from highly regulated, IATF 16949-certified facilities like BRC are fully legal, extensively tested, and widely used across the largest North American fleets today.</p>
 
 <h2>The 2026-2028 Market Outlook</h2>
 <p>Industry analysts project the North American commercial vehicle brake component market to reach $4.8 billion by 2028. This growth is driven by three key factors:</p>
@@ -259,7 +259,7 @@ export const blogPosts: BlogPost[] = [
     id: 'usa-brake-chamber-regulations-fmvss-121-compliance',
     slug: 'usa-brake-chamber-regulations-fmvss-121-compliance',
     title: 'USA Brake Chamber Regulations: FMVSS 121 Compliance & What Importers Must Know',
-    excerpt: 'A breakdown of FMVSS 121 requirements, Buy America provisions, and why aftermarket chambers from ISO-certified manufacturers are fully legal on U.S. highways.',
+    excerpt: 'A breakdown of FMVSS 121 requirements, Buy America provisions, and why aftermarket chambers from IATF 16949-certified manufacturers are fully legal on U.S. highways.',
     content: industryContent,
     category: 'Industry News',
     date: 'June 05, 2026',

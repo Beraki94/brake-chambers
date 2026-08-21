@@ -15,7 +15,7 @@ export default function WarrantyClient() {
       <PageHeader 
         badge={<><ShieldCheck className="w-4 h-4 inline-block mr-1" /> Quality Assurance</>}
         title="Warranty & Quality Assurance"
-        description="ISO 9001 Certified Manufacturing. Every chamber is 100% leak-tested and stroke-tested at our facility before leaving the factory line."
+        description="IATF 16949 Certified Manufacturing. Every chamber is 100% leak-tested and stroke-tested at our facility before leaving the factory line."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Warranty' }
@@ -66,7 +66,7 @@ export default function WarrantyClient() {
           <section className="py-12">
             <SectionHeader 
               title="Rigorous Testing Protocols"
-              description="Every chamber undergoes strict automated and manual validation processes at our ISO 9001 certified facility, ensuring perfect sealing and structural integrity."
+              description="Every chamber undergoes strict automated and manual validation processes at our IATF 16949 certified facility, ensuring perfect sealing and structural integrity."
               accentColor="emerald"
             />
             

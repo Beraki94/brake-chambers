@@ -77,7 +77,7 @@ export default function Navbar() {
         p.slug.toLowerCase().includes(token) ||
         p.oemPartNumbers?.some(oem => oem.partNumber.toLowerCase().includes(token) || oem.brand.toLowerCase().includes(token))
       );
-    }).map(p => ({ type: p.category === 'Spring Brake' ? 'spring-brakes' : (p.category === 'Air Disc Actuator' ? 'air-disc-brake-actuator' : 'service-chambers'), item: p }))];
+    }).map(p => ({ type: p.category === 'Spring Brake' ? 'spring-brake-chambers' : (p.category === 'Air Disc Actuator' ? 'air-disc-brake-actuators' : 'service-brake-chambers'), item: p }))];
 
     results = [...results, ...BRAKE_ACCESSORIES.filter(a => {
       return tokens.every(token =>
@@ -85,7 +85,7 @@ export default function Navbar() {
         a.brandSlug.toLowerCase().includes(token) ||
         a.slug.toLowerCase().includes(token)
       );
-    }).map(a => ({ type: 'chamber-parts-kits', item: a }))];
+    }).map(a => ({ type: 'parts-and-kits', item: a }))];
 
     return results; // Return all matching results directly in the dropdown
   }, [searchQuery]);
@@ -231,7 +231,7 @@ export default function Navbar() {
           <nav className={`flex items-center gap-6 lg:gap-8 h-12 text-sm font-semibold transition-colors duration-300 ${isScrolled ? 'text-navy-100' : 'text-navy-700'}`}>
 
             {/* Mega Menus */}
-            <DesktopMegaMenu config={PRODUCTS_MENU} isActive={pathname.startsWith('/products') || pathname.startsWith('/spring-brakes') || pathname.startsWith('/service-chambers') || pathname.startsWith('/air-disc-brake-actuator') || pathname.startsWith('/chamber-parts-kits')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
+            <DesktopMegaMenu config={PRODUCTS_MENU} isActive={pathname.startsWith('/products') || pathname.startsWith('/spring-brake-chambers') || pathname.startsWith('/service-brake-chambers') || pathname.startsWith('/air-disc-brake-actuators') || pathname.startsWith('/parts-and-kits')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
             <DesktopMegaMenu config={APPLICATIONS_MENU} isActive={pathname.startsWith('/applications')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
             <DesktopMegaMenu config={OEM_MENU} isActive={pathname.startsWith('/oem-cross-reference')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
             <DesktopMegaMenu config={COMPANY_MENU} isActive={pathname.startsWith('/company')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
@@ -240,7 +240,7 @@ export default function Navbar() {
             <div className="group h-full flex items-center">
               <Link href="/technical-resources" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] ${
                 isActive('/technical-resources')
-                  ? 'border-amber-500 text-amber-600 font-bold'
+                  ? `font-bold ${isScrolled ? 'border-amber-400 text-amber-400' : 'border-amber-500 text-amber-600'}`
                   : 'border-transparent ' + (isScrolled ? 'hover:border-amber-400 hover:text-white' : 'hover:border-amber-500 hover:text-amber-600')
               }`}>
                 Technical Resources

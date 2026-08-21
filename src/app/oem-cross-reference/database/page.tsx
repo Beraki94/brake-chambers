@@ -31,7 +31,7 @@ export default function DatabasePage() {
           oemPart: oem.partNumber,
           brcEquivalent: chamber.name,
           category: chamber.category,
-          brcSlug: chamber.category === 'Spring Brake' ? `/spring-brakes/${chamber.slug}` : `/service-chambers/${chamber.slug}`
+          brcSlug: chamber.category === 'Spring Brake' ? `/spring-brake-chambers/${chamber.slug}` : `/service-brake-chambers/${chamber.slug}`
         });
       });
     }

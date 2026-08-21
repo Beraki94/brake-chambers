@@ -22,7 +22,7 @@ interface ProductListingLayoutProps {
   title: string;
   description: string;
   badge?: string;
-  baseCategory: "all" | "spring-brakes" | "service-chambers" | "chamber-parts-kits" | "air-disc-brake-actuator";
+  baseCategory: "all" | "spring-brake-chambers" | "service-brake-chambers" | "parts-and-kits" | "air-disc-brake-actuators";
   products: any[];
   searchParams?: { [key: string]: string | string[] | undefined };
   visualizerType?: 'spring' | 'service' | 'parts' | 'adp';
@@ -101,7 +101,7 @@ export default function ProductListingLayout({
              </div>
              <h4 className="font-extrabold text-white text-sm mb-2 uppercase tracking-wide">Bulk OEM Orders</h4>
              <p className="text-xs mb-5 text-navy-200 leading-relaxed">
-               Custom paint, private labeling, and ISO 9001 certified manufacturing for large fleets.
+               Custom paint, private labeling, and IATF 16949 certified manufacturing for large fleets.
              </p>
              <Link href="/quote" className="w-full bg-amber-500 text-navy-900 text-xs font-extrabold px-4 py-2.5 rounded-xl hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20 flex items-center justify-center gap-1.5">
                Get a Custom Quote

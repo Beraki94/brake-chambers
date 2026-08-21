@@ -14,7 +14,7 @@ export default function BulkInquiriesPage() {
         <div className="container mx-auto max-w-4xl relative z-10">
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-6">Bulk Sourcing & OEM/ODM</h1>
           <p className="text-navy-200 text-lg md:text-xl leading-relaxed">
-            Partner directly with our ISO 9001 factory for high-volume custom manufacturing, private labeling, and exclusive distribution agreements.
+            Partner directly with our IATF 16949 factory for high-volume custom manufacturing, private labeling, and exclusive distribution agreements.
           </p>
         </div>
       </section>
@@ -41,7 +41,7 @@ export default function BulkInquiriesPage() {
             <div className="bg-white rounded-2xl shadow-md border border-navy-50 p-8 flex gap-4">
               <ShieldCheck className="w-8 h-8 text-amber-500 flex-shrink-0" />
               <div>
-                <h3 className="font-bold text-navy-900 mb-1">ISO 9001 Compliance</h3>
+                <h3 className="font-bold text-navy-900 mb-1">IATF 16949 Compliance</h3>
                 <p className="text-sm text-navy-600">Rigorous audit trails, material certifications, and batch testing provided for every container.</p>
               </div>
             </div>

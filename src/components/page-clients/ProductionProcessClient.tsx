@@ -38,7 +38,7 @@ export default function ProductionProcessClient() {
   return (
     <CompanyPageLayout
       badge="Engineering & Production"
-      title="Production Process"
+      title="Manufacturing Process"
       description="Automated precision. Lean manufacturing. Zero compromises. Discover how we build the world's most reliable brake chambers."
     >
       <div className="space-y-16">

@@ -14,62 +14,62 @@ export default function ProductsClient() {
   const categoryGroups = [
     {
       title: 'Spring Brakes',
-      slug: 'spring-brakes',
+      slug: 'spring-brake-chambers',
       tag: 'Parking & Emergency Chambers',
       desc: 'High-durability spring brakes for heavy-duty trucks and trailers. Available in standard stroke, long stroke, and welded clevis configurations.',
       icon: <Settings className="w-10 h-10 text-white" />,
       image: '/images/heavy_duty_truck.png',
       accent: 'amber',
       links: [
-        { id: '/spring-brakes/30-30-air-brake-chambers', title: 'Type 30/30 Spring Brake', desc: 'Standard & Long Stroke' },
-        { id: '/spring-brakes/24-30-24-24-spring-brakes', title: 'Type 24/30 & 24/24', desc: 'Heavy-Duty Parking' },
-        { id: '/spring-brakes/20-24-spring-brake-chambers', title: 'Type 20/24 Spring Brake', desc: 'Compact Power' },
-        { id: '/spring-brakes/type-30-30-piggyback-kits', title: 'Type 30/30 Piggyback', desc: 'Quick Replacement' },
+        { id: '/spring-brake-chambers/30-30-air-brake-chambers', title: 'Type 30/30 Spring Brake', desc: 'Standard & Long Stroke' },
+        { id: '/spring-brake-chambers/24-30-24-24-spring-brakes', title: 'Type 24/30 & 24/24', desc: 'Heavy-Duty Parking' },
+        { id: '/spring-brake-chambers/20-24-spring-brake-chambers', title: 'Type 20/24 Spring Brake', desc: 'Compact Power' },
+        { id: '/spring-brake-chambers/type-30-30-piggyback-kits', title: 'Type 30/30 Piggyback', desc: 'Quick Replacement' },
       ]
     },
     {
       title: 'Service Chambers',
-      slug: 'service-chambers',
+      slug: 'service-brake-chambers',
       tag: 'Steer & Drive Axles',
       desc: 'Reliable single-diaphragm service chambers engineered for immediate response, extended service life, and consistent braking performance.',
       icon: <Wrench className="w-10 h-10 text-white" />,
       image: '/images/commercial_trailer.png',
       accent: 'navy',
       links: [
-        { id: '/service-chambers/type-20-steer-axle-brake-chambers', title: 'Type 20 Steer Axle', desc: 'Precision Control' },
-        { id: '/service-chambers/type-30-service-chambers', title: 'Type 30 Service Chamber', desc: 'Maximum Force' },
-        { id: '/service-chambers/type-12-16-24-service-chambers', title: 'Type 12, 16 & 24', desc: 'Versatile Fitment' },
-        { id: '/service-chambers/welded-clevis-brake-chambers', title: 'Welded Clevis', desc: 'Factory Sealed' },
+        { id: '/service-brake-chambers/type-20-steer-axle-brake-chambers', title: 'Type 20 Steer Axle', desc: 'Precision Control' },
+        { id: '/service-brake-chambers/type-30-service-chambers', title: 'Type 30 Service Chamber', desc: 'Maximum Force' },
+        { id: '/service-brake-chambers/type-12-16-24-service-chambers', title: 'Type 12, 16 & 24', desc: 'Versatile Fitment' },
+        { id: '/service-brake-chambers/welded-clevis-brake-chambers', title: 'Welded Clevis', desc: 'Factory Sealed' },
       ]
     },
     {
       title: 'Air Disc Actuators',
-      slug: 'air-disc-brake-actuator',
+      slug: 'air-disc-brake-actuators',
       tag: 'High Output Technology (HOT)',
       desc: 'Advanced ADB actuators for modern fleets requiring superior stopping power, reduced brake fade, and consistent performance under extreme heat and heavy loads.',
       icon: <Disc className="w-10 h-10 text-white" />,
       image: '/images/transit_bus.png',
       accent: 'amber',
       links: [
-        { id: '/air-disc-brake-actuator/type-16-18-adb-actuators', title: 'Type 16 & 18 ADB', desc: 'Linear Output' },
-        { id: '/air-disc-brake-actuator/type-20-24-air-disc-brake-actuator', title: 'Type 20/24 ADB', desc: 'High Capacity' },
-        { id: '/air-disc-brake-actuator/type-24-24-adb-chambers', title: 'Type 24/24 ADB', desc: 'Severe Duty' },
-        { id: '/air-disc-brake-actuator/type-24-30-air-disc-brake-actuators', title: 'Type 24/30 ADB', desc: 'Maximum Torque' },
+        { id: '/air-disc-brake-actuators/type-16-18-adb-actuators', title: 'Type 16 & 18 ADB', desc: 'Linear Output' },
+        { id: '/air-disc-brake-actuators/type-20-24-air-disc-brake-actuator', title: 'Type 20/24 ADB', desc: 'High Capacity' },
+        { id: '/air-disc-brake-actuators/type-24-24-adb-chambers', title: 'Type 24/24 ADB', desc: 'Severe Duty' },
+        { id: '/air-disc-brake-actuators/type-24-30-air-disc-brake-actuators', title: 'Type 24/30 ADB', desc: 'Maximum Torque' },
       ]
     },
     {
       title: 'Chamber Parts & Kits',
-      slug: 'chamber-parts-kits',
+      slug: 'parts-and-kits',
       tag: 'Rebuild Kits · Diaphragms · Hardware',
       desc: 'Genuine replacement components for field servicing and maintenance. Includes rebuild kits, diaphragms, caging bolts, clevis pins, and hardware.',
       icon: <Package className="w-10 h-10 text-white" />,
       image: '/images/manufacturing_floor.png',
       accent: 'navy',
       links: [
-        { id: '/chamber-parts-kits/air-brake-chamber-rebuild-kits', title: 'Chamber Rebuild Kits', desc: 'All-in-One Overhaul' },
-        { id: '/chamber-parts-kits/brake-chamber-diaphragms', title: 'Rubber Diaphragms', desc: 'Extreme Temp Rated' },
-        { id: '/chamber-parts-kits/clevis-pins-slack-adjuster-hardware', title: 'Clevis Pins & Hardware', desc: 'Zinc Plated Steel' },
-        { id: '/chamber-parts-kits/brake-chamber-caging-bolts-tools', title: 'Caging Bolts & Tools', desc: 'Safety First' },
+        { id: '/parts-and-kits/air-brake-chamber-rebuild-kits', title: 'Chamber Rebuild Kits', desc: 'All-in-One Overhaul' },
+        { id: '/parts-and-kits/brake-chamber-diaphragms', title: 'Rubber Diaphragms', desc: 'Extreme Temp Rated' },
+        { id: '/parts-and-kits/clevis-pins-slack-adjuster-hardware', title: 'Clevis Pins & Hardware', desc: 'Zinc Plated Steel' },
+        { id: '/parts-and-kits/brake-chamber-caging-bolts-tools', title: 'Caging Bolts & Tools', desc: 'Safety First' },
       ]
     }
   ];

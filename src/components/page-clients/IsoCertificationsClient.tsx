@@ -10,7 +10,7 @@ export default function IsoCertificationsClient() {
   return (
     <CompanyPageLayout
       badge="Global Standards"
-      title="ISO Certifications"
+      title="IATF Certifications"
       description="Our commitment to uncompromising quality is backed by rigorous international standards and continuous auditing."
     >
       <div className="space-y-12">
@@ -18,8 +18,8 @@ export default function IsoCertificationsClient() {
           <div className="bg-navy-950 rounded-[3rem] p-12 text-center text-white relative overflow-hidden mb-20">
             <Award className="w-20 h-20 text-amber-500 mx-auto mb-6" />
             <SectionHeader
-              title="ISO 9001:2015 Certified"
-              description="BRC’s entire manufacturing ecosystem—from raw material procurement and metallurgical testing to automated assembly and final dispatch—operates strictly under ISO 9001:2015 Quality Management Systems. We do not self-certify; we undergo strict annual third-party audits to maintain our standing."
+              title="IATF 16949 Certified"
+              description="BRC’s entire manufacturing ecosystem—from raw material procurement and metallurgical testing to automated assembly and final dispatch—operates strictly under IATF 16949 Quality Management Systems. We do not self-certify; we undergo strict annual third-party audits to maintain our standing."
               theme="dark"
               className="!mb-0"
             />
@@ -71,8 +71,8 @@ export default function IsoCertificationsClient() {
         {/* Next Step CTA */}
         <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-slate-100">
           <SectionHeader title="See How We Test Our Products" className="!mb-6" />
-          <Link href="/company/testing-laboratory" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-500 transition-colors uppercase tracking-widest text-lg">
-            Inside the Testing Laboratory <ArrowRight className="w-6 h-6 ml-2" />
+          <Link href="/company/brake-testing-lab" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-500 transition-colors uppercase tracking-widest text-lg">
+            Inside the Brake Testing Lab <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>
       </div>

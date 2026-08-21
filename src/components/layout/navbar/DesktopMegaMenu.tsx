@@ -26,7 +26,7 @@ export default function DesktopMegaMenu({ config, isActive, isScrolled, getLinkC
         onClick={handleLinkClick}
         className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] ${
           isActive 
-            ? 'border-amber-500 text-amber-600 font-bold' 
+            ? `font-bold ${isScrolled ? 'border-amber-400 text-amber-400' : 'border-amber-500 text-amber-600'}` 
             : 'border-transparent ' + (isScrolled ? 'group-hover:border-amber-400 group-hover:text-white' : 'group-hover:border-amber-500 group-hover:text-amber-600')
         }`}
       >

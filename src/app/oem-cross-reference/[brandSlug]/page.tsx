@@ -58,18 +58,35 @@ export async function generateMetadata(
   props: { params: Promise<{ brandSlug: string }> }
 ): Promise<Metadata> {
   const params = await props.params;
-  const brandInfo = OEM_BRANDS[params.brandSlug];
+  const originalSlug = params.brandSlug;
+  let brandSlug = originalSlug;
+  let categoryNameForSeo = '';
+
+  if (brandSlug.endsWith('-spring-brake-chambers')) {
+    brandSlug = brandSlug.replace('-spring-brake-chambers', '');
+    categoryNameForSeo = 'Spring Brake Chambers';
+  } else if (brandSlug.endsWith('-service-brake-chambers')) {
+    brandSlug = brandSlug.replace('-service-brake-chambers', '');
+    categoryNameForSeo = 'Service Brake Chambers';
+  } else if (brandSlug.endsWith('-air-disc-brake-actuators')) {
+    brandSlug = brandSlug.replace('-air-disc-brake-actuators', '');
+    categoryNameForSeo = 'Air Disc Brake Actuators';
+  }
+
+  const brandInfo = OEM_BRANDS[brandSlug];
 
   if (!brandInfo) {
     return { title: 'OEM Brand Not Found' };
   }
 
+  const titlePrefix = categoryNameForSeo ? `${brandInfo.name} ${categoryNameForSeo}` : `${brandInfo.name} Brake Chamber`;
+
   return {
-    title: `${brandInfo.name} Brake Chamber Cross Reference & Replacements | BRC`,
-    description: `Find exact aftermarket equivalents for ${brandInfo.name} air brake chambers. View cross-reference data, interchange part numbers, and factory-direct pricing.`,
-    keywords: [`${brandInfo.name} Brake Chambers`, `${brandInfo.name} Cross Reference`, `${brandInfo.name} Interchange`, 'Direct Replacement', 'Aftermarket Air Brakes', 'Wholesale'],
+    title: `${titlePrefix} Cross Reference & Replacements | BRC`,
+    description: `Find exact aftermarket equivalents for ${brandInfo.name} ${categoryNameForSeo ? categoryNameForSeo.toLowerCase() : 'air brake chambers'}. View cross-reference data, interchange part numbers, and factory-direct pricing.`,
+    keywords: [`${brandInfo.name} ${categoryNameForSeo || 'Brake Chambers'}`, `${brandInfo.name} Cross Reference`, `${brandInfo.name} Interchange`, 'Direct Replacement', 'Aftermarket Air Brakes', 'Wholesale'],
     alternates: {
-      canonical: `https://www.brcbrakechambers.com/oem-cross-reference/${params.brandSlug}`
+      canonical: `https://www.brcbrakechambers.com/oem-cross-reference/${originalSlug}`
     }
   };
 }
@@ -82,17 +99,36 @@ export default async function OEMBrandPage(
 ) {
   const params = await props.params;
   const searchParams = props.searchParams ? await props.searchParams : undefined;
+  const originalSlug = params.brandSlug;
 
-  const brandInfo = OEM_BRANDS[params.brandSlug];
+  let brandSlug = originalSlug;
+  let categoryFilter: 'Spring Brake' | 'Service Brake' | 'Air Disc Actuator' | null = null;
+  let categoryNameForSeo = '';
+
+  if (brandSlug.endsWith('-spring-brake-chambers')) {
+    brandSlug = brandSlug.replace('-spring-brake-chambers', '');
+    categoryFilter = 'Spring Brake';
+    categoryNameForSeo = 'Spring Brake Chambers';
+  } else if (brandSlug.endsWith('-service-brake-chambers')) {
+    brandSlug = brandSlug.replace('-service-brake-chambers', '');
+    categoryFilter = 'Service Brake';
+    categoryNameForSeo = 'Service Brake Chambers';
+  } else if (brandSlug.endsWith('-air-disc-brake-actuators')) {
+    brandSlug = brandSlug.replace('-air-disc-brake-actuators', '');
+    categoryFilter = 'Air Disc Actuator';
+    categoryNameForSeo = 'Air Disc Brake Actuators';
+  }
+
+  const brandInfo = OEM_BRANDS[brandSlug];
   if (!brandInfo) {
     notFound();
   }
 
   const normalizedBrandName = brandInfo.name.toLowerCase();
 
-  const matchingChambers = BRAKE_CHAMBERS.filter(c => {
+  let matchingChambers = BRAKE_CHAMBERS.filter(c => {
     // Exact match for the brand slug
-    if (c.brandSlug === params.brandSlug) return true;
+    if (c.brandSlug === brandSlug) return true;
     
     // Check cross references
     const hasCross = c.crossReferenceBrands?.some(b => b.toLowerCase().includes(normalizedBrandName) || normalizedBrandName.includes(b.toLowerCase()));
@@ -107,21 +143,28 @@ export default async function OEMBrandPage(
     return hasCross || hasPartNum || hasDescMatch;
   });
 
-  const matchingAccessories = BRAKE_ACCESSORIES.filter(c =>
-    c.brandSlug === params.brandSlug || 
+  if (categoryFilter) {
+    matchingChambers = matchingChambers.filter(c => c.category === categoryFilter);
+  }
+
+  const matchingAccessories = categoryFilter ? [] : BRAKE_ACCESSORIES.filter(c =>
+    c.brandSlug === brandSlug || 
     c.name.toLowerCase().includes(normalizedBrandName) ||
     c.description?.toLowerCase().includes(normalizedBrandName)
   );
 
   // Extract unique dedicated OEM part numbers for this brand to link to their SEO pages
-  const uniqueOEMParts = new Map<string, string>();
+  const uniqueOEMParts = new Map<string, { partNumber: string, categoryPath: string }>();
   BRAKE_CHAMBERS.forEach(c => {
+    if (categoryFilter && c.category !== categoryFilter) return;
+
     if (c.oemPartNumbers) {
       c.oemPartNumbers.forEach(oem => {
         const oBrandSlug = oem.brand.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-        if (oBrandSlug === params.brandSlug) {
+        if (oBrandSlug === brandSlug) {
           const oPartSlug = oem.partNumber.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-          uniqueOEMParts.set(oPartSlug, oem.partNumber);
+          const categoryPath = c.category === 'Spring Brake' ? 'spring-brake-chambers' : c.category === 'Service Brake' ? 'service-brake-chambers' : 'air-disc-brake-actuators';
+          uniqueOEMParts.set(oPartSlug, { partNumber: oem.partNumber, categoryPath });
         }
       });
     }
@@ -131,23 +174,15 @@ export default async function OEMBrandPage(
   return (
     <div className="bg-slate-50 min-h-screen font-sans overflow-x-clip">
       <PageHeader
-        title={`${brandInfo.name} Replacements`}
-        description={`Consolidate your sourcing with our factory-direct aftermarket equivalents for ${brandInfo.name} ${brandInfo.type === 'truck' ? 'commercial vehicles' : brandInfo.type === 'axle' ? 'suspension applications' : 'air brakes'}. Identical fitment, zero modifications required, and significant cost savings for your fleet.`}
+        title={`${brandInfo.name} ${categoryNameForSeo || 'Replacements'}`}
+        description={`Consolidate your sourcing with our factory-direct aftermarket equivalents for ${brandInfo.name} ${categoryNameForSeo ? categoryNameForSeo.toLowerCase() : (brandInfo.type === 'truck' ? 'commercial vehicles' : brandInfo.type === 'axle' ? 'suspension applications' : 'air brakes')}. Identical fitment, zero modifications required, and significant cost savings for your fleet.`}
         badge="Direct Aftermarket Replacement"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Cross-Reference', href: '/oem-cross-reference' },
-          { label: brandInfo.name }
+          { label: categoryNameForSeo ? `${brandInfo.name} ${categoryNameForSeo}` : brandInfo.name }
         ]}
       >
-        <div className="flex flex-wrap gap-4 mt-6">
-          <div className="flex items-center text-sm font-bold text-navy-950 bg-white/90 px-4 py-2 rounded-lg shadow-sm border border-navy-100">
-            <CheckCircle2 className="w-4 h-4 mr-2 text-emerald-500" /> Form & Fit Match
-          </div>
-          <div className="flex items-center text-sm font-bold text-navy-950 bg-white/90 px-4 py-2 rounded-lg shadow-sm border border-navy-100">
-            <ShieldCheck className="w-4 h-4 mr-2 text-blue-500" /> ISO Certified
-          </div>
-        </div>
       </PageHeader>
 
       {/* OEM Search Tool Prominent Placement */}
@@ -209,11 +244,11 @@ export default async function OEMBrandPage(
           {matchingChambers.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
               {matchingChambers.slice(0, 4).map(chamber => (
-                <OEMCrossReferenceCard
+                  <OEMCrossReferenceCard
                   key={chamber.slug}
                   product={chamber}
-                  categoryPath={chamber.category === 'Spring Brake' ? 'spring-brakes' : 'service-chambers'}
-                  brandSlug={params.brandSlug}
+                  categoryPath={chamber.category === 'Spring Brake' ? 'spring-brake-chambers' : chamber.category === 'Service Brake' ? 'service-brake-chambers' : 'air-disc-brake-actuators'}
+                  brandSlug={brandSlug}
                 />
               ))}
             </div>
@@ -226,7 +261,7 @@ export default async function OEMBrandPage(
 
           {matchingChambers.length > 4 && (
             <div className="text-center mb-12">
-              <Link href={`/spring-brakes?brand=${normalizedBrandName}`} className="inline-flex items-center font-bold text-navy-600 hover:text-[#FFB000] transition-colors">
+              <Link href={`/${categoryFilter === 'Service Brake' ? 'service-brake-chambers' : categoryFilter === 'Air Disc Actuator' ? 'air-disc-brake-actuators' : 'spring-brake-chambers'}?brand=${normalizedBrandName}`} className="inline-flex items-center font-bold text-navy-600 hover:text-[#FFB000] transition-colors">
                 View all {matchingChambers.length} compatible chambers <ChevronRight className="w-4 h-4 ml-1" />
               </Link>
             </div>
@@ -238,13 +273,13 @@ export default async function OEMBrandPage(
                 Individual {brandInfo.name} Part Numbers
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
-                {oemPartLinks.map(([partSlug, partName]) => (
+                {oemPartLinks.map(([partSlug, partData]) => (
                   <Link 
                     key={partSlug} 
-                    href={`/oem-cross-reference/${params.brandSlug}/${partSlug}`}
+                    href={`/${partData.categoryPath}/${brandSlug}-${partSlug}`}
                     className="bg-white border border-slate-200 hover:border-amber-400 hover:shadow-md p-4 rounded-xl text-center transition-all group"
                   >
-                    <div className="font-mono font-bold text-navy-900 group-hover:text-amber-600">{partName}</div>
+                    <div className="font-mono font-bold text-navy-900 group-hover:text-amber-600">{partData.partNumber}</div>
                     <div className="text-xs text-slate-500 mt-1">View Replacement</div>
                   </Link>
                 ))}
@@ -263,7 +298,7 @@ export default async function OEMBrandPage(
                   <AccessoryListCard
                     key={accessory.slug}
                     product={accessory}
-                    categoryPath="chamber-parts-kits"
+                    categoryPath="parts-and-kits"
                   />
                 ))}
               </div>
@@ -276,14 +311,14 @@ export default async function OEMBrandPage(
       <section className="py-16 bg-white border-t border-slate-200 mt-16">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl font-extrabold text-navy-900 mb-6 tracking-tight">
-            Why cross-reference {brandInfo.name} brake chambers?
+            Why cross-reference {brandInfo.name} {categoryNameForSeo ? categoryNameForSeo.toLowerCase() : 'brake chambers'}?
           </h2>
           <div className="prose prose-lg prose-slate text-slate-600 max-w-none">
             <p className="mb-4">
-              When replacing <strong>{brandInfo.name}</strong> air brake components, fleet managers often face high markup costs associated with brand-name packaging. BRC Brake Chambers provides a factory-direct aftermarket alternative that matches or exceeds original equipment specifications.
+              When replacing <strong>{brandInfo.name}</strong> {categoryNameForSeo ? categoryNameForSeo.toLowerCase() : 'air brake components'}, fleet managers often face high markup costs associated with brand-name packaging. BRC Brake Chambers provides a factory-direct aftermarket alternative that matches or exceeds original equipment specifications.
             </p>
             <p className="mb-4">
-              Our {brandInfo.type === 'truck' ? 'commercial vehicle' : brandInfo.type === 'axle' ? 'suspension' : 'heavy-duty'} brake chambers are engineered to act as exact drop-in replacements for <strong>{brandInfo.name}</strong> setups. This means identical pushrod lengths, matching port angles, and standardized mounting hardware—requiring absolutely zero modifications during installation.
+              Our {brandInfo.type === 'truck' ? 'commercial vehicle' : brandInfo.type === 'axle' ? 'suspension' : 'heavy-duty'} {categoryNameForSeo ? categoryNameForSeo.toLowerCase() : 'brake chambers'} are engineered to act as exact drop-in replacements for <strong>{brandInfo.name}</strong> setups. This means identical pushrod lengths, matching port angles, and standardized mounting hardware—requiring absolutely zero modifications during installation.
             </p>
             <p>
               By utilizing our <strong>{brandInfo.name} interchange</strong> database, you ensure regulatory compliance (FMVSS-121) while significantly reducing your maintenance overhead. All recommended cross-references have undergone 1-million cycle life testing and rigorous 100% pneumatic leak checks.
@@ -293,14 +328,14 @@ export default async function OEMBrandPage(
       </section>
 
       {/* JSON-LD Schema */}
-      <Script id={`brand-hub-${params.brandSlug}-schema`} type="application/ld+json" dangerouslySetInnerHTML={{
+      <Script id={`brand-hub-${originalSlug}-schema`} type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify([
           {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            "name": `${brandInfo.name} Brake Chamber Replacements`,
+            "name": `${brandInfo.name} ${categoryNameForSeo || 'Brake Chamber'} Replacements`,
             "description": brandInfo.desc,
-            "url": `https://www.brcbrakechambers.com/oem-cross-reference/${params.brandSlug}`,
+            "url": `https://www.brcbrakechambers.com/oem-cross-reference/${originalSlug}`,
             "manufacturer": {
               "@type": "Organization",
               "name": "BRC Brake Chambers"

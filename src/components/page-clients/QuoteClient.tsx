@@ -176,7 +176,7 @@ export default function QuoteClient() {
                Our export team handles everything from EXW factory floor to CIF at your destination port.
              </p>
              <ul className="text-sm text-slate-500 space-y-2">
-               <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div> ISO 9001 Certified</li>
+               <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div> IATF 16949 Certified</li>
                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div> Multi-Language Support</li>
                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div> Fast Turnaround</li>
              </ul>

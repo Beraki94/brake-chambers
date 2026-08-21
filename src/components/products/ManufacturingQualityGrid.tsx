@@ -4,7 +4,7 @@ import { ShieldCheck, Target, Droplets, Factory } from 'lucide-react';
 const qualityFeatures = [
   {
     icon: Factory,
-    title: "ISO 9001:2015",
+    title: "IATF 16949",
     description: "Manufactured in our audited, certified facility for total quality control."
   },
   {

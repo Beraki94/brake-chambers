@@ -15,15 +15,16 @@ export default function CompanySidebar() {
       icon: <Users className="w-5 h-5" />,
       items: [
         { name: "Our Story", href: "/company/our-story" },
-        { name: "Leadership Team", href: "/company/leadership" }
+        { name: "Leadership Team", href: "/company/leadership" },
+        { name: "Global Logistics", href: "/shipping" }
       ]
     },
     {
       title: "Manufacturing",
       icon: <Factory className="w-5 h-5" />,
       items: [
-        { name: "Production Process", href: "/company/production-process" },
-        { name: "Facility Overview", href: "/company/facility-overview" },
+        { name: "Manufacturing Process", href: "/company/manufacturing-process" },
+        { name: "Production Facility", href: "/company/production-facility" },
         { name: "Material Sourcing", href: "/company/material-sourcing" }
       ]
     },
@@ -31,9 +32,9 @@ export default function CompanySidebar() {
       title: "Quality & R&D",
       icon: <Beaker className="w-5 h-5" />,
       items: [
-        { name: "ISO Certifications", href: "/company/iso-certifications" },
-        { name: "Testing Laboratory", href: "/company/testing-laboratory" },
-        { name: "R&D and Innovations", href: "/company/research-and-innovations" }
+        { name: "IATF Certifications", href: "/company/iatf-certifications" },
+        { name: "Brake Testing Lab", href: "/company/brake-testing-lab" },
+        { name: "Brake R&D", href: "/company/brake-r-and-d" }
       ]
     }
   ];

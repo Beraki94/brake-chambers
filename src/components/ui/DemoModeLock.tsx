@@ -8,10 +8,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 const ALLOWED_PATHS = [
   '/',
   '/products',
-  '/spring-brakes',
-  '/service-chambers',
-  '/chamber-parts-kits',
-  '/air-disc-brake-actuator',
+  '/spring-brake-chambers',
+  '/service-brake-chambers',
+  '/parts-and-kits',
+  '/air-disc-brake-actuators',
   '/applications',
   '/company',
   '/contact',
@@ -31,7 +31,7 @@ const isPathAllowed = (path: string) => {
   // Allow exact matches
   if (ALLOWED_PATHS.includes(cleanPath)) return true;
   
-  // Allow sub-paths of allowed directories (e.g., /spring-brakes/my-product)
+  // Allow sub-paths of allowed directories (e.g., /spring-brake-chambers/my-product)
   if (ALLOWED_PATHS.some(allowed => allowed !== '/' && cleanPath.startsWith(allowed + '/'))) return true;
   
   return false;

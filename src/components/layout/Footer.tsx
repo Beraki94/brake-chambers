@@ -59,7 +59,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-navy-300 text-sm mb-5 leading-relaxed pr-4 text-justify">
-              Global manufacturer of premium aftermarket commercial air brake chambers. We supply ISO 9001 certified spring brakes, service chambers, air disc actuators, and exact OEM cross-reference replacement parts for heavy-duty trucks, trailers, and transit fleets worldwide.
+              Global manufacturer of premium aftermarket commercial air brake chambers. We supply IATF 16949 certified spring brakes, service chambers, air disc actuators, and exact OEM cross-reference replacement parts for heavy-duty trucks, trailers, and transit fleets worldwide.
             </p>
 
             <div className="flex flex-col gap-4">
@@ -86,10 +86,10 @@ export default function Footer() {
             <FooterColumn title="Our Catalog">
             <ul className="space-y-3">
               <li><Link href={`/products`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors font-semibold">All Products</Link></li>
-              <li><Link href={`/spring-brakes`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Spring Brakes</Link></li>
-              <li><Link href={`/service-chambers`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Service Chambers</Link></li>
-              <li><Link href={`/air-disc-brake-actuator`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Air Disc Actuators</Link></li>
-              <li><Link href={`/chamber-parts-kits`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Chamber Parts & Kits</Link></li>
+              <li><Link href={`/spring-brake-chambers`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Spring Brakes</Link></li>
+              <li><Link href={`/service-brake-chambers`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Service Chambers</Link></li>
+              <li><Link href={`/air-disc-brake-actuators`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Air Disc Actuators</Link></li>
+              <li><Link href={`/parts-and-kits`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Chamber Parts & Kits</Link></li>
               <li><Link href={`/oem-cross-reference`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">OEM Cross-Reference</Link></li>
             </ul>
             </FooterColumn>
@@ -116,7 +116,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href={`/company`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Company & Manufacturing</Link></li>
               <li><Link href={`/technical-resources`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Technical Resources</Link></li>
-              <li><Link href={`/shipping`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Freight & Shipping</Link></li>
+              <li><Link href={`/shipping`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Global Logistics</Link></li>
               <li><Link href={`/warranty`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Warranty Info</Link></li>
               <li><Link href={`/contact`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Contact Support</Link></li>
             </ul>

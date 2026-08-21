@@ -8,12 +8,12 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 const COMPANY_PAGES = [
   { name: "Our Story", href: "/company/our-story", description: "Discover the history and heritage behind BRC." },
   { name: "Leadership Team", href: "/company/leadership", description: "Meet the engineers and visionaries leading our company." },
-  { name: "Production Process", href: "/company/production-process", description: "Explore our end-to-end automated manufacturing." },
-  { name: "Facility Overview", href: "/company/facility-overview", description: "Take a tour of our state-of-the-art Zhuji plant." },
+  { name: "Manufacturing Process", href: "/company/manufacturing-process", description: "Explore our end-to-end automated manufacturing." },
+  { name: "Production Facility", href: "/company/production-facility", description: "Take a tour of our state-of-the-art Zhuji plant." },
   { name: "Material Sourcing", href: "/company/material-sourcing", description: "Learn about our uncompromising steel and rubber standards." },
-  { name: "ISO Certifications", href: "/company/iso-certifications", description: "Review our global compliance and auditing standards." },
-  { name: "Testing Laboratory", href: "/company/testing-laboratory", description: "See how we simulate 1 million+ cycles and extreme conditions." },
-  { name: "R&D and Innovations", href: "/company/research-and-innovations", description: "Discover what's next in heavy-duty braking technology." }
+  { name: "IATF Certifications", href: "/company/iatf-certifications", description: "Review our global compliance and auditing standards." },
+  { name: "Brake Testing Lab", href: "/company/brake-testing-lab", description: "See how we simulate 1 million+ cycles and extreme conditions." },
+  { name: "Brake R&D", href: "/company/brake-r-and-d", description: "Discover what's next in heavy-duty braking technology." }
 ];
 
 export default function CompanyRelatedLinks() {

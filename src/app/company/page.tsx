@@ -3,7 +3,7 @@ import CompanyClient from '@/components/page-clients/CompanyClient';
 
 export const metadata = {
   title: 'Company & Manufacturing | BRC Brake Chambers',
-  description: 'Learn about BRC Brake Chambers, our ISO 9001 certified manufacturing facilities, precision assembly process, and industry-leading quality assurance.',
+  description: 'Learn about BRC Brake Chambers, our IATF 16949 certified manufacturing facilities, precision assembly process, and industry-leading quality assurance.',
 };
 
 export default function CompanyPage() {

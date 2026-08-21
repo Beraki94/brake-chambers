@@ -66,7 +66,7 @@ export default function TestingLaboratoryClient() {
   return (
     <CompanyPageLayout
       badge="Quality Assurance"
-      title="Testing Laboratory"
+      title="Brake Testing Lab"
       description="Where we try our hardest to break our own products — so they never break on you."
     >
       <div className="space-y-12">
@@ -158,7 +158,7 @@ export default function TestingLaboratoryClient() {
                   </div>
                   <h3 className="text-2xl font-extrabold text-white mb-4 font-heading tracking-tight">ISO-Audited Process</h3>
                   <p className="text-navy-200 text-base leading-relaxed mb-8">
-                    Every test result is logged in our ISO 9001:2015 quality management system, providing full traceability from raw material to finished chamber for every batch we produce.
+                    Every test result is logged in our IATF 16949 quality management system, providing full traceability from raw material to finished chamber for every batch we produce.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-navy-800/60 rounded-2xl p-4 border border-navy-700">
@@ -180,8 +180,8 @@ export default function TestingLaboratoryClient() {
         {/* Next Step CTA */}
         <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-slate-100">
           <SectionHeader title="Explore the Future of Braking" className="!mb-6" />
-          <Link href="/company/research-and-innovations" className="inline-flex items-center text-amber-400 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
-            View R&D and Innovations <ArrowRight className="w-6 h-6 ml-2" />
+          <Link href="/company/brake-r-and-d" className="inline-flex items-center text-amber-400 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
+            View Brake R&D <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>
       </div>

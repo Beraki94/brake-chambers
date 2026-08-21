@@ -4,14 +4,14 @@ import { BrakeChamber, BrakeAccessory } from '../types';
 
 export interface CartItem {
   id: string;
-  type: 'spring-brakes' | 'service-chambers' | 'chamber-parts-kits';
+  type: 'spring-brake-chambers' | 'service-brake-chambers' | 'parts-and-kits';
   product: BrakeChamber | BrakeAccessory;
   quantity: number;
 }
 
 interface CartState {
   items: CartItem[];
-  addItem: (product: BrakeChamber | BrakeAccessory, type: 'spring-brakes' | 'service-chambers' | 'chamber-parts-kits', quantity?: number) => void;
+  addItem: (product: BrakeChamber | BrakeAccessory, type: 'spring-brake-chambers' | 'service-brake-chambers' | 'parts-and-kits', quantity?: number) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;

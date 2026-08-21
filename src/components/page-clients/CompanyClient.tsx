@@ -71,18 +71,18 @@ export default function CompanyClient() {
       cards: [
         {
           id: 'production-process',
-          title: 'Production Process',
+          title: 'Manufacturing Process',
           desc: 'Take an exclusive look inside our world-class facilities. Witness how we utilize 6-axis robotic welding arms for deep-penetration seams, ensuring absolute structural integrity.',
           icon: <Factory className="w-6 h-6 md:w-8 md:h-8 text-navy-500" />,
-          href: '/company/production-process',
+          href: '/company/manufacturing-process',
           keywords: ['Robotic Welding', 'CNC Machining', 'Burst Resistance']
         },
         {
           id: 'facility-overview',
-          title: 'Facility Overview',
-          desc: 'Our primary manufacturing campus is a state-of-the-art, ISO 9001 certified facility spanning over 500,000 square feet, designed for massive scale and direct-to-port logistics.',
+          title: 'Production Facility',
+          desc: 'Our primary manufacturing campus is a state-of-the-art, IATF 16949 certified facility spanning over 500,000 square feet, designed for massive scale and direct-to-port logistics.',
           icon: <MapPin className="w-6 h-6 md:w-8 md:h-8 text-navy-500" />,
-          href: '/company/facility-overview',
+          href: '/company/production-facility',
           keywords: ['500,000 Sq Ft Campus', 'Global Logistics']
         },
         {
@@ -94,8 +94,8 @@ export default function CompanyClient() {
           keywords: ['8-Gauge Steel', 'Neoprene Diaphragms', 'Die Casting']
         }
       ],
-      ctaLabel: "Facility Overview",
-      ctaHref: "/company/facility-overview"
+      ctaLabel: "Production Facility",
+      ctaHref: "/company/production-facility"
     },
     {
       title: "Phase 03 — The Standard",
@@ -119,31 +119,31 @@ export default function CompanyClient() {
       cards: [
         {
           id: 'testing-laboratory',
-          title: 'Testing Laboratory',
+          title: 'Brake Testing Lab',
           desc: 'See inside our lab where we subject chambers to 1 million+ continuous actuate/release cycles, intense salt spray corrosion environments, and extreme temperature variations.',
           icon: <Microscope className="w-6 h-6 md:w-8 md:h-8 text-emerald-600" />,
-          href: '/company/testing-laboratory',
+          href: '/company/brake-testing-lab',
           keywords: ['1 Million Cycle Test', 'Salt Spray', 'End-of-Line']
         },
         {
           id: 'iso-certifications',
-          title: 'ISO Certifications & Compliance',
-          desc: 'Our entire manufacturing ecosystem is audited strictly under ISO 9001:2015 Quality Management Systems, complying fully with SAE J1469 and FMVSS 121 standards.',
+          title: 'IATF Certifications & Compliance',
+          desc: 'Our entire manufacturing ecosystem is audited strictly under IATF 16949 Quality Management Systems, complying fully with SAE J1469 and FMVSS 121 standards.',
           icon: <ShieldCheck className="w-6 h-6 md:w-8 md:h-8 text-emerald-600" />,
-          href: '/company/iso-certifications',
-          keywords: ['ISO 9001:2015', 'SAE J1469', 'FMVSS 121']
+          href: '/company/iatf-certifications',
+          keywords: ['IATF 16949', 'SAE J1469', 'FMVSS 121']
         },
         {
           id: 'innovations',
-          title: 'R&D and Innovations',
+          title: 'Brake R&D',
           desc: 'Partner with our dedicated R&D division for custom OEM engineering solutions and the next generation of Air Disc Brake (ADB) technologies.',
           icon: <Lightbulb className="w-6 h-6 md:w-8 md:h-8 text-emerald-600" />,
-          href: '/company/research-and-innovations',
+          href: '/company/brake-r-and-d',
           keywords: ['Air Disc Brakes', 'Custom OEM Solutions']
         }
       ],
       ctaLabel: "View Certifications",
-      ctaHref: "/company/iso-certifications"
+      ctaHref: "/company/iatf-certifications"
     }
   ];
 
@@ -159,8 +159,8 @@ export default function CompanyClient() {
           { label: 'Company' }
         ]}
       >
-        <Link href="/company/iso-certifications" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-sm mt-4">
-          View ISO Certifications <ArrowRight className="w-5 h-5 ml-2" />
+        <Link href="/company/iatf-certifications" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-sm mt-4">
+          View IATF Certifications <ArrowRight className="w-5 h-5 ml-2" />
         </Link>
       </PageHeader>
 
@@ -318,7 +318,7 @@ export default function CompanyClient() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
-              { title: "ISO 9001:2015", desc: "Quality Management Systems — Certified" },
+              { title: "IATF 16949", desc: "Quality Management Systems — Certified" },
               { title: "IATF 16949", desc: "Automotive Quality Management — Certified" },
               { title: "FMVSS 121", desc: "Federal Motor Vehicle Safety Standards — Compliant" },
               { title: "SAE J1469", desc: "Air Brake Actuator Standards — Compliant" }
@@ -332,7 +332,7 @@ export default function CompanyClient() {
           </div>
 
           <div className="text-center">
-            <Link href="/company/iso-certifications" className="inline-flex items-center bg-transparent border border-navy-600 text-white font-bold hover:text-amber-400 hover:border-amber-500 px-8 py-4 rounded-xl uppercase tracking-widest text-[13px] transition-all duration-300">
+            <Link href="/company/iatf-certifications" className="inline-flex items-center bg-transparent border border-navy-600 text-white font-bold hover:text-amber-400 hover:border-amber-500 px-8 py-4 rounded-xl uppercase tracking-widest text-[13px] transition-all duration-300">
               View All Certifications <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </div>
@@ -358,8 +358,8 @@ export default function CompanyClient() {
               <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
                 Contact Sales Team
               </Link>
-              <Link href="/company/iso-certifications" className="inline-block w-full bg-navy-800/60 hover:bg-navy-800 border border-navy-600 hover:border-amber-500 text-white font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
-                View ISO Certifications
+              <Link href="/company/iatf-certifications" className="inline-block w-full bg-navy-800/60 hover:bg-navy-800 border border-navy-600 hover:border-amber-500 text-white font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
+                View IATF Certifications
               </Link>
             </div>
           </div>

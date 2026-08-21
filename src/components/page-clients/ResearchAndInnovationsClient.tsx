@@ -15,7 +15,7 @@ export default function ResearchAndInnovationsClient() {
       badge: 'Active R&D',
       description:
         'As the industry shifts towards disc brakes, our R&D team is pioneering more compact, higher-output actuator designs that deliver superior stopping power without the severe brake fade associated with traditional drum systems.',
-      link: '/air-disc-brake-actuator',
+      link: '/air-disc-brake-actuators',
       accent: 'amber',
     },
     {
@@ -64,7 +64,7 @@ export default function ResearchAndInnovationsClient() {
   return (
     <CompanyPageLayout
       badge="R&D Hub"
-      title="R&D and Innovations"
+      title="Brake R&D"
       description="We don't just follow industry standards — we engineer the technologies that define them."
     >
       <div className="space-y-12">
@@ -181,8 +181,8 @@ export default function ResearchAndInnovationsClient() {
         {/* Bottom CTA */}
         <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-slate-100">
           <SectionHeader title="See Our Work Put to the Test" className="!mb-6" />
-          <Link href="/company/testing-laboratory" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-500 transition-colors uppercase tracking-widest text-lg">
-            Inside the Testing Laboratory <ArrowRight className="w-6 h-6 ml-2" />
+          <Link href="/company/brake-testing-lab" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-500 transition-colors uppercase tracking-widest text-lg">
+            Inside the Brake Testing Lab <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>
       </div>
