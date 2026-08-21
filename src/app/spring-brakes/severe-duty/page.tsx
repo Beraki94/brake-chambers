@@ -5,7 +5,8 @@ import type { Metadata } from 'next';
 import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
 import ProductListCard from '@/components/products/ProductListCard';
 import FacetedSidebar from '@/components/products/FacetedSidebar';
-import { Truck, CheckCircle2 } from 'lucide-react';import PageHeader from '@/components/layout/PageHeader';
+import { Truck, CheckCircle2 } from 'lucide-react';
+import PageHeader from '@/components/layout/PageHeader';
 
 
 export const metadata: Metadata = {
@@ -103,7 +104,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
           <h2 className="text-3xl font-extrabold text-navy-900">Why Choose BRC for Severe-Duty & Off-Highway?</h2>
           <p className="text-slate-600 mt-3 max-w-2xl mx-auto">Engineered for absolute reliability and performance in the most demanding conditions.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
             <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-6 border border-amber-200">

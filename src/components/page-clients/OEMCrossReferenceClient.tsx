@@ -65,7 +65,7 @@ export default function OEMCrossReferenceClient() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 lg:grid-cols-3 gap-8"
           >
             {/* Major Brake Brands */}
             <motion.div variants={fadeInUp} className="bg-white rounded-[2rem] shadow-lg border border-slate-100 p-8 flex flex-col h-full hover:shadow-2xl hover:-translate-y-2 hover:border-amber-200 transition-all duration-300 group">
@@ -187,7 +187,7 @@ export default function OEMCrossReferenceClient() {
 
           {/* THE 3 TOOLS - Placed below the split section as floating interactive cards */}
           <div className="mt-16 lg:mt-24 relative z-20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
               {/* Tool 1 */}
               <Link href="/oem-cross-reference/visual-guide" className="bg-white rounded-[2rem] p-6 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 hover:border-amber-200 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>

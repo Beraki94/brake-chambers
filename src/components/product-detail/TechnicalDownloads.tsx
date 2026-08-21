@@ -32,7 +32,7 @@ export default function TechnicalDownloads({ productName }: TechnicalDownloadsPr
       <h2 className="text-3xl font-extrabold text-navy-900 mb-8">
         Downloads & Documentation
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {downloads.map((doc, idx) => (
           <div 
             key={idx}

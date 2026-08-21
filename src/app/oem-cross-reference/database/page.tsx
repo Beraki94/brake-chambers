@@ -15,14 +15,21 @@ export const metadata: Metadata = {
 export default function DatabasePage() {
   
   // Extract all OEM part mappings for the table
-  const allMappings = [];
+  const allMappings: Array<{
+    oemBrand: string;
+    oemPart: string;
+    brcEquivalent: string;
+    category: string;
+    brcSlug: string;
+  }> = [];
+  
   BRAKE_CHAMBERS.forEach(chamber => {
     if (chamber.oemPartNumbers) {
       chamber.oemPartNumbers.forEach(oem => {
         allMappings.push({
           oemBrand: oem.brand,
           oemPart: oem.partNumber,
-          brcEquivalent: chamber.model,
+          brcEquivalent: chamber.name,
           category: chamber.category,
           brcSlug: chamber.category === 'Spring Brake' ? `/spring-brakes/${chamber.slug}` : `/service-chambers/${chamber.slug}`
         });

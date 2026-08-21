@@ -34,7 +34,7 @@ export default function PartSearchPage() {
 
       <section className="pb-24">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm text-center">
               <div className="w-14 h-14 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-6 text-amber-500">
                 <Database className="w-7 h-7" />

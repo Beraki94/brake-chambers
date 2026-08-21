@@ -6,32 +6,32 @@ import Image from 'next/image';
 import { Mail, MapPin, Phone, Truck, ShieldCheck } from 'lucide-react';
 import { useMarketStore } from '../../store/market';
 
+const FooterColumn = ({ title, children }: { title: string, children: React.ReactNode }) => (
+  <>
+    {/* Mobile: Accordion */}
+    <details className="group md:hidden border-b border-navy-800 py-4">
+      <summary className="font-bold text-lg font-heading flex justify-between items-center cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+        {title}
+        <svg className="w-5 h-5 text-navy-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div className="pt-4 pb-2">
+        {children}
+      </div>
+    </details>
+
+    {/* Desktop: Standard List */}
+    <div className="hidden md:block">
+      <h4 className="font-bold text-lg mb-6 font-heading">{title}</h4>
+      {children}
+    </div>
+  </>
+);
+
 export default function Footer() {
   const selectedMarket = useMarketStore(state => state.selectedMarket);
   const marketCode = selectedMarket?.code || 'us';
-
-  const FooterColumn = ({ title, children }: { title: string, children: React.ReactNode }) => (
-    <>
-      {/* Mobile: Accordion */}
-      <details className="group md:hidden border-b border-navy-800 py-4">
-        <summary className="font-bold text-lg font-heading flex justify-between items-center cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-          {title}
-          <svg className="w-5 h-5 text-navy-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </summary>
-        <div className="pt-4 pb-2">
-          {children}
-        </div>
-      </details>
-
-      {/* Desktop: Standard List */}
-      <div className="hidden md:block">
-        <h4 className="font-bold text-lg mb-6 font-heading">{title}</h4>
-        {children}
-      </div>
-    </>
-  );
 
   return (
     <footer className="bg-navy-900 text-white pt-12 md:pt-20 pb-10 border-t border-navy-800 mt-auto relative overflow-hidden">

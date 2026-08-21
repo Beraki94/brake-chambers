@@ -34,7 +34,7 @@ export default function TechnicalResourcesSection({ categoryName }: { categoryNa
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {resources.map((resource, idx) => (
           <Link 
             key={idx} 

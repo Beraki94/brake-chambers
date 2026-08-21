@@ -140,7 +140,7 @@ export default function TechnicalResourcesClient() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 md:gap-4">
                 {[
                   { title: "2024 Product Catalog", icon: <FileArchive className="w-5 h-5 text-amber-500" />, type: "PDF", link: "#" },
                   { title: "Safety & Install Guide", icon: <Shield className="w-5 h-5 text-amber-500" />, type: "PDF", link: "#" },

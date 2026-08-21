@@ -38,6 +38,7 @@ export default function Navbar() {
   const cartItems = useCartStore(state => state.items);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
 
     const handleScroll = () => {
@@ -52,6 +53,7 @@ export default function Navbar() {
 
   // Close mobile menu on route change
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
@@ -133,7 +135,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full flex flex-col shadow-sm">
       {/* Top Utility Bar (Desktop Only) */}
-      <div className="hidden md:flex bg-navy-900 text-white border-b border-navy-800 text-xs font-medium relative z-[60]">
+      <div className="hidden lg:flex bg-navy-900 text-white border-b border-navy-800 text-xs font-medium relative z-[60]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-9 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2 text-navy-200">
@@ -185,7 +187,7 @@ export default function Navbar() {
               {/* Cart Button (Hidden on Mobile) */}
               <Link
                 href={`/quote`}
-                className="hidden md:flex relative items-center justify-center md:px-7 md:py-3.5 w-10 h-10 md:w-auto md:h-auto bg-navy-900 hover:bg-navy-800 text-white rounded-full font-black transition-all shadow-lg group md:gap-2.5"
+                className="hidden lg:flex relative items-center justify-center md:px-7 md:py-3.5 w-10 h-10 md:w-auto md:h-auto bg-navy-900 hover:bg-navy-800 text-white rounded-full font-black transition-all shadow-lg group md:gap-2.5"
               >
                 <ShoppingBag className="h-4 w-4 md:h-5 md:w-5 text-white" />
                 <span className="hidden md:inline text-[12px] uppercase tracking-widest">Request Quote</span>
@@ -199,9 +201,9 @@ export default function Navbar() {
               {/* Mobile menu toggle */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden w-10 h-10 flex items-center justify-center rounded-full bg-navy-950 text-white hover:bg-navy-900 transition-transform hover:scale-105 shadow-md"
+                className="lg:hidden w-11 h-11 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-navy-950 text-white hover:bg-navy-900 transition-transform hover:scale-105 shadow-md"
               >
-                {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {isMobileMenuOpen ? <X className="h-5 w-5 md:h-6 md:w-6" /> : <Menu className="h-5 w-5 md:h-6 md:w-6" />}
               </button>
             </div>
           </div>
@@ -224,7 +226,7 @@ export default function Navbar() {
       />
 
       {/* Secondary Navigation (Desktop Only) - DYNAMIC MEGA MENUS */}
-      <div className={`hidden md:block relative z-40 transition-colors duration-300 ${isScrolled ? 'bg-navy-900 border-t border-navy-800 border-b-2 border-[#FFB000] shadow-md' : 'bg-slate-50 border-y border-navy-100 shadow-sm'}`}>
+      <div className={`hidden lg:block relative z-40 transition-colors duration-300 ${isScrolled ? 'bg-navy-900 border-t border-navy-800 border-b-2 border-[#FFB000] shadow-md' : 'bg-slate-50 border-y border-navy-100 shadow-sm'}`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <nav className={`flex items-center gap-6 lg:gap-8 h-12 text-sm font-semibold transition-colors duration-300 ${isScrolled ? 'text-navy-100' : 'text-navy-700'}`}>
 

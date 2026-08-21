@@ -59,7 +59,7 @@ export default function FleetReviewsSection({ categoryName }: { categoryName: st
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {reviews.map((review) => (
           <div key={review.id} className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm relative">
             <div className="flex items-center text-amber-500 mb-3">

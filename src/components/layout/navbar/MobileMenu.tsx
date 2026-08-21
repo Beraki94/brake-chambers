@@ -45,7 +45,7 @@ export default function MobileMenu({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-0 top-[100px] bg-navy-950/60 backdrop-blur-md z-40"
+            className="lg:hidden fixed inset-0 top-[100px] bg-navy-950/60 backdrop-blur-md z-40"
             onClick={() => setIsOpen(false)}
           />
           {/* Premium Light Menu Panel */}
@@ -54,7 +54,7 @@ export default function MobileMenu({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden absolute left-0 right-0 top-full bg-white z-50 shadow-2xl h-[calc(100vh-116px)] overflow-y-auto flex flex-col"
+            className="lg:hidden absolute left-0 right-0 top-full bg-white z-50 shadow-2xl h-[calc(100vh-116px)] overflow-y-auto flex flex-col"
           >
             <div className="px-4 pt-6 pb-24 flex-1 flex flex-col" ref={mobileSearchContainerRef}>
               <div className="relative mb-8">

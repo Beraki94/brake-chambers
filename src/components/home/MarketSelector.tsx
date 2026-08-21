@@ -15,6 +15,7 @@ export default function MarketSelector() {
   const currentMarket = useMarketStore(state => state.selectedMarket) || MARKETS[0];
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -43,12 +44,16 @@ export default function MarketSelector() {
       
       if (newMarketCode === 'en') {
         // To reliably restore original language, clear the cookie and reload
+        // eslint-disable-next-line react-hooks/immutability
         document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        // eslint-disable-next-line react-hooks/immutability
         document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
         window.location.reload();
       } else {
         // Set the Google Translate cookie for persistence
+        // eslint-disable-next-line react-hooks/immutability
         document.cookie = `googtrans=/en/${newMarketCode}; path=/`;
+        // eslint-disable-next-line react-hooks/immutability
         document.cookie = `googtrans=/en/${newMarketCode}; path=/; domain=${window.location.hostname}`;
         
         // Try to trigger Google Translate programmatically

@@ -55,6 +55,7 @@ export default function HomeClient() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
@@ -201,7 +202,7 @@ export default function HomeClient() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Spring Brakes */}
             <Link href="/spring-brakes" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
@@ -459,7 +460,7 @@ export default function HomeClient() {
               </div>
 
               {/* Right Column: Key Benefits */}
-              <div className="space-y-4">
+              <div className="hidden md:block space-y-4">
                 <div className="bg-navy-900/50 border border-navy-700/50 p-5 rounded-2xl flex items-start gap-4 hover:border-amber-500/30 transition-colors">
                   <div className="bg-emerald-500/10 border border-emerald-500/20 p-2.5 rounded-xl shrink-0 mt-0.5">
                     <Zap className="w-5 h-5 text-emerald-400" />
@@ -557,7 +558,7 @@ export default function HomeClient() {
                       <p className="text-white/90 text-sm md:text-base max-w-xl font-medium leading-relaxed text-left drop-shadow-sm">Submit warranty claims online with photo uploads to expedite the QA review process. Enjoy a streamlined approval workflow with no messy back-and-forth emails.</p>
                     </div>
                   </div>
-                  <Link href="/warranty" className="bg-navy-950 text-white px-8 py-4 rounded-xl font-extrabold text-[12px] uppercase tracking-widest hover:bg-navy-900 flex-shrink-0 whitespace-nowrap shadow-xl transform transition-transform hover:-translate-y-1">
+                  <Link href="/warranty" className="w-full md:w-auto text-center bg-navy-950 text-white px-8 py-4 rounded-xl font-extrabold text-[12px] uppercase tracking-widest hover:bg-navy-900 flex-shrink-0 whitespace-nowrap shadow-xl transform transition-transform hover:-translate-y-1">
                     Submit a Warranty Claim
                   </Link>
                 </div>
@@ -585,7 +586,7 @@ export default function HomeClient() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
             {/* Step 1 */}
             <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-8 border border-white shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all relative">
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-navy-900 text-white rounded-full flex items-center justify-center font-black text-xl shadow-lg border-4 border-slate-50 z-10">1</div>

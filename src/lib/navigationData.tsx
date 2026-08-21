@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { 
   Settings, Wrench, Disc, Package, 
   Truck, ShieldAlert, Bus, Factory,
@@ -208,9 +209,9 @@ export const COMPANY_MENU: MegaMenuConfig = {
         <div className="bg-slate-50 p-5 rounded-xl border border-slate-100 flex flex-col justify-center h-full">
           <h4 className="font-bold text-navy-900 mb-2 text-sm">Build With Us</h4>
           <p className="text-slate-600 text-xs mb-4">Partner with a manufacturer that controls the entire supply chain. Request custom engineering or volume pricing.</p>
-          <a href="/contact" className="inline-block bg-amber-500 hover:bg-amber-400 text-navy-950 font-bold px-4 py-2 rounded-lg text-xs transition-colors text-center">
+          <Link href="/contact" className="inline-block bg-amber-500 hover:bg-amber-400 text-navy-950 font-bold px-4 py-2 rounded-lg text-xs transition-colors text-center">
             Contact Sales
-          </a>
+          </Link>
         </div>
       )
     }

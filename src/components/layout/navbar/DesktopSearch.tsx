@@ -24,8 +24,8 @@ export default function DesktopSearch({
   const router = useRouter();
 
   return (
-    <div className="flex-1 w-full mx-auto hidden md:block max-w-4xl" ref={searchContainerRef}>
-      <div className="relative">
+    <div className="flex-1 w-full mx-auto hidden lg:block max-w-4xl" ref={searchContainerRef}>
+      <div className="relative group">
         <form onSubmit={handleSearch} className="relative group flex items-center w-full bg-white rounded-full border border-transparent focus-within:border-slate-500 focus-within:bg-white focus-within:ring-4 focus-within:ring-slate-500/10 transition-all overflow-hidden shadow-sm">
           <Search className="h-5 w-5 text-navy-400 ml-4 group-focus-within:text-slate-600 transition-colors" />
           <input

@@ -75,7 +75,7 @@ export default function WarrantyClient() {
               initial="hidden" 
               whileInView="visible" 
               viewport={{ once: true, margin: "-100px" }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6"
+              className="grid grid-cols-1 lg:grid-cols-3 gap-6"
             >
               {[
                 { icon: Zap, title: "100% Leak Testing", desc: "Every unit is pressure tested using automated pneumatics to detect microscopic air loss before packaging.", color: "emerald" },
@@ -107,7 +107,7 @@ export default function WarrantyClient() {
               initial="hidden" 
               whileInView="visible" 
               viewport={{ once: true, margin: "-100px" }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 relative"
+              className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative"
             >
               {/* Connector line for desktop */}
               <div className="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-navy-800 via-amber-500/50 to-navy-800 z-0"></div>
