@@ -1,27 +1,20 @@
 "use client";
 
 import React from 'react';
-import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { ArrowRight, Award, CheckCircle2, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
+import CompanyPageLayout from '@/components/company/CompanyPageLayout';
 
 export default function IsoCertificationsClient() {
   return (
-    <div className="bg-white min-h-screen">
-      <PageHeader 
-        badge="Global Standards"
-        title="ISO Certifications"
-        description="Our commitment to uncompromising quality is backed by rigorous international standards and continuous auditing."
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Company', href: '/company' },
-          { label: 'ISO Certifications' }
-        ]}
-      />
-
-      <section className="py-20">
-        <div className="container mx-auto px-4 max-w-5xl">
+    <CompanyPageLayout
+      badge="Global Standards"
+      title="ISO Certifications"
+      description="Our commitment to uncompromising quality is backed by rigorous international standards and continuous auditing."
+    >
+      <div className="space-y-12">
+        <div className="w-full">
           <div className="bg-navy-950 rounded-[3rem] p-12 text-center text-white relative overflow-hidden mb-20">
             <Award className="w-20 h-20 text-amber-500 mx-auto mb-6" />
             <SectionHeader
@@ -74,17 +67,15 @@ export default function IsoCertificationsClient() {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Next Step CTA */}
-      <section className="bg-slate-50 py-20 text-center border-t border-slate-200">
-        <div className="container mx-auto px-4 flex flex-col items-center">
+        {/* Next Step CTA */}
+        <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-slate-100">
           <SectionHeader title="See How We Test Our Products" className="!mb-6" />
           <Link href="/company/testing-laboratory" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-500 transition-colors uppercase tracking-widest text-lg">
             Inside the Testing Laboratory <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>
-      </section>
-    </div>
+      </div>
+    </CompanyPageLayout>
   );
 }

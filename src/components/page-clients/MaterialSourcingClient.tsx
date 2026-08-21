@@ -1,33 +1,26 @@
 "use client";
 
 import React from 'react';
-import PageHeader from '@/components/layout/PageHeader';
 import { ArrowRight, Layers, Droplet, Shield, Zap } from 'lucide-react';
 import Link from 'next/link';
 import SectionHeader from '@/components/ui/SectionHeader';
+import CompanyPageLayout from '@/components/company/CompanyPageLayout';
 
 export default function MaterialSourcingClient() {
   return (
-    <div className="bg-slate-50 min-h-screen pb-20">
-      <PageHeader 
-        badge="Supply Chain"
-        title="Material Sourcing"
-        description="The best engineering means nothing if raw materials fail. We source only premium-grade metals and synthetic compounds."
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Company', href: '/company' },
-          { label: 'Material Sourcing' }
-        ]}
-      />
-
-      <section className="py-20">
-        <div className="container mx-auto px-4 max-w-5xl">
-                    <SectionHeader
+    <CompanyPageLayout
+      badge="Supply Chain"
+      title="Material Sourcing"
+      description="The best engineering means nothing if raw materials fail. We source only premium-grade metals and synthetic compounds."
+    >
+      <div className="space-y-12">
+        <div className="w-full">
+          <SectionHeader
             title={<>No Compromises. <span className="text-slate-600">No Shortcuts.</span></>}
             description="While competitors thin their housings to save weight and cut costs, BRC utilizes heavy-gauge materials designed to resist rock strikes, vibration fatigue, and the immense torsional forces of heavy braking."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm">
               <Layers className="w-12 h-12 text-slate-500 mb-6" />
               <h3 className="text-2xl font-bold text-navy-900 mb-4">8-Gauge Steel Housings</h3>
@@ -58,18 +51,16 @@ export default function MaterialSourcingClient() {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Next Step CTA */}
-      <section className="bg-white py-16 border-t border-slate-200 text-center">
-        <div className="container mx-auto px-4 flex flex-col items-center">
+        {/* Next Step CTA */}
+        <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-slate-100">
           <SectionHeader title="Verified by Global Standards" className="!mb-6" />
 
           <Link href="/company/iso-certifications" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
             View ISO Certifications <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>
-      </section>
-    </div>
+      </div>
+    </CompanyPageLayout>
   );
 }

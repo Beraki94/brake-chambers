@@ -55,58 +55,58 @@ export default function ApplicationsClient() {
 
   const categoryGroups = [
     {
-      title: 'Commercial & Freight',
-      slug: 'commercial-freight',
+      title: 'Highway & Freight Fleets',
+      slug: 'highway-freight',
       desc: 'Built for the backbone of the supply chain. Designed for extreme mileage endurance and consistent performance on long-haul and regional routes.',
       icon: <Truck className="w-8 h-8" />,
       image: '/images/heavy_duty_truck.png',
       accent: 'amber',
       links: [
-        { id: '/applications/commercial-linehaul', title: 'Commercial Linehaul' },
-        { id: '/applications/heavy-duty-freight', title: 'Heavy-Duty Freight' },
-        { id: '/applications/regional-delivery', title: 'Regional Delivery' },
+        { id: '/applications/long-haul-semi', title: 'Long-Haul Semi Trucks' },
+        { id: '/applications/heavy-duty-trailer', title: 'Heavy-Duty Trailer Axles' },
+        { id: '/applications/medium-duty-trucks', title: 'Medium-Duty Box Trucks' },
       ],
-      cta: 'View Commercial Solutions'
+      cta: 'View Highway Solutions'
     },
     {
-      title: 'Severe-Duty',
+      title: 'Severe-Duty & Vocational',
       slug: 'severe-duty',
       desc: 'Engineered for the harshest environments where pavement ends. Reinforced housings and components built to withstand extreme vibration, impact, and high-cycle abuse.',
       icon: <ShieldAlert className="w-8 h-8" />,
       image: '/images/specialty_vehicle.png',
       accent: 'navy',
       links: [
-        { id: '/applications/refuse-sanitation', title: 'Refuse & Sanitation' },
-        { id: '/applications/off-highway-mining', title: 'Off-Highway & Mining' },
-        { id: '/applications/agricultural-transport', title: 'Agricultural Transport' },
+        { id: '/applications/garbage-refuse', title: 'Garbage & Waste Trucks' },
+        { id: '/applications/mining-construction', title: 'Mining & Construction Equipment' },
+        { id: '/applications/ag-trailers', title: 'Agricultural Trailers' },
       ],
       cta: 'View Severe-Duty Solutions'
     },
     {
-      title: 'Passenger & Transit',
-      slug: 'passenger-transit',
+      title: 'Passenger Transport',
+      slug: 'passenger-transport',
       desc: 'Precision modulation and fail-safe reliability for vehicles carrying passengers. Optimized for frequent stop-start city cycles and maximum safety.',
       icon: <Bus className="w-8 h-8" />,
       image: '/images/transit_bus.png',
       accent: 'amber',
       links: [
-        { id: '/applications/transit-coach-bus', title: 'Transit & Coach Buses' },
-        { id: '/applications/school-buses', title: 'School Buses' },
-        { id: '/applications/shuttle-fleets', title: 'Shuttle Fleets' },
+        { id: '/applications/transit-buses', title: 'City Bus & Transit Coach' },
+        { id: '/applications/school-buses', title: 'School Bus Fleets' },
+        { id: '/applications/shuttle-vans', title: 'Shuttle & Delivery Vans' },
       ],
-      cta: 'View Transit Solutions'
+      cta: 'View Passenger Solutions'
     },
     {
-      title: 'OEM & Custom',
-      slug: 'oem-custom',
+      title: 'Wholesale & Custom OEM',
+      slug: 'wholesale-custom',
       desc: 'Partner directly with the manufacturer for custom engineering, private labeling, and high-volume contract manufacturing.',
       icon: <Factory className="w-8 h-8" />,
       image: '/images/manufacturing_floor.png',
       accent: 'slate',
       links: [
-        { id: '/applications/fleet-inquiries', title: 'Fleet Volume Orders' },
-        { id: '/applications/custom-engineering', title: 'Custom Engineering' },
-        { id: '/applications/contract-manufacturing', title: 'Contract Manufacturing' },
+        { id: '/applications/bulk-wholesale', title: 'High Volume & Container Orders' },
+        { id: '/applications/custom-manufacturing', title: 'Custom OEM Manufacturing' },
+        { id: '/applications/private-label', title: 'Private Label & White Label' },
       ],
       cta: 'View OEM & Custom Solutions'
     }

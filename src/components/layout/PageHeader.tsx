@@ -14,7 +14,7 @@ interface PageHeaderProps {
 
 export default function PageHeader({ badge, title, description, children, imageSrc = '/images/engineering_blueprint.png', breadcrumbs, fullColorBackground = false }: PageHeaderProps) {
   return (
-    <section className="relative pt-6 md:pt-10 lg:pt-12 pb-24 md:pb-32 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8 bg-navy-950">
+    <section className="relative pt-6 md:pt-10 lg:pt-12 pb-16 md:pb-20 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8 bg-navy-950">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -70,7 +70,7 @@ export default function PageHeader({ badge, title, description, children, imageS
               {badge}
             </div>
           )}
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.15] mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-[1.15] mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
             {title}
           </h1>
           <p className="text-base md:text-xl mb-8 md:mb-10 leading-relaxed max-w-2xl font-light text-navy-100">

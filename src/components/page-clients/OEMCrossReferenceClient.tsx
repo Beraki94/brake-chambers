@@ -18,7 +18,7 @@ export default function OEMCrossReferenceClient() {
         badge="Cross-Reference Tool"
         title={
           <>
-            Find Your BRC Brake Chamber Equivalent by <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-300">OEM Part Number</span>
+            Find Direct OEM <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-300">Replacements</span>
           </>
         }
         description="Search by Bendix, Knorr-Bremse, ZF/WABCO, Haldex, SORL, or Meritor part number to find the exact BRC match. Same fit, form, and performance — guaranteed."

@@ -1,11 +1,11 @@
 "use client";
 
 import React from 'react';
-import PageHeader from '@/components/layout/PageHeader';
 import { ArrowRight, Settings, Cpu, ShieldAlert, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import SectionHeader from '@/components/ui/SectionHeader';
+import CompanyPageLayout from '@/components/company/CompanyPageLayout';
 
 export default function ProductionProcessClient() {
   const steps = [
@@ -36,26 +36,19 @@ export default function ProductionProcessClient() {
   ];
 
   return (
-    <div className="bg-white min-h-screen">
-      <PageHeader 
-        badge="Engineering & Production"
-        title="Production Process"
-        description="Automated precision. Lean manufacturing. Zero compromises. Discover how we build the world's most reliable brake chambers."
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Company', href: '/company' },
-          { label: 'Production Process' }
-        ]}
-      />
-
-      <section className="py-20">
-        <div className="container mx-auto px-4 max-w-5xl">
-                    <SectionHeader
+    <CompanyPageLayout
+      badge="Engineering & Production"
+      title="Production Process"
+      description="Automated precision. Lean manufacturing. Zero compromises. Discover how we build the world's most reliable brake chambers."
+    >
+      <div className="space-y-16">
+        <div className="w-full">
+          <SectionHeader
             title={<>The <span className="text-navy-600">Blueprint</span> of Quality</>}
             description="Our vertically integrated production lines are designed around one core principle: consistency. When a fleet installs a BRC brake chamber, they are getting a product engineered to perform identically to the million units manufactured before it."
           />
 
-          <div className="space-y-20">
+          <div className="space-y-20 mt-12">
             {steps.map((step, idx) => (
               <div key={idx} className={`flex flex-col ${idx % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12`}>
                 <div className="w-full md:w-1/2">
@@ -77,18 +70,16 @@ export default function ProductionProcessClient() {
             ))}
           </div>
         </div>
-      </section>
 
-      {/* Next Step CTA */}
-      <section className="bg-navy-950 py-20 text-center">
-        <div className="container mx-auto px-4 flex flex-col items-center">
+        {/* Next Step CTA */}
+        <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-slate-100">
           <SectionHeader title="Explore the Raw Materials We Use" className="!mb-6" />
 
           <Link href="/company/material-sourcing" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
             View Material Sourcing <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>
-      </section>
-    </div>
+      </div>
+    </CompanyPageLayout>
   );
 }

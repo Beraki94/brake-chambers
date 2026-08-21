@@ -2,12 +2,25 @@
 
 import React, { Suspense, useState, useEffect } from 'react';
 import Link from 'next/link';
-import MarketSelector from '@/components/home/MarketSelector';
-import { Smartphone, Search, Menu, ShoppingBag, X, Laptop as LaptopIcon, Headphones, User, Truck, Settings, Wrench, Disc, Package, ShieldAlert, Bus, Factory, ShieldCheck, CheckCircle, FileText, Ruler, BookOpen, FlaskConical, Users, FileSignature, Layers } from 'lucide-react';
-import { useParams, useRouter, usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { Menu, ShoppingBag, X, Headphones, User } from 'lucide-react';
 import { useCartStore } from '../../store/cart';
-import { motion, AnimatePresence } from 'framer-motion';
 import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '../../lib/data';
+import MarketSelector from '@/components/home/MarketSelector';
+
+// Data & Config
+import { 
+  PRODUCTS_MENU, 
+  APPLICATIONS_MENU, 
+  OEM_MENU, 
+  COMPANY_MENU,
+  OTHER_LINKS
+} from '@/lib/navigationData';
+
+// Subcomponents
+import DesktopSearch from './navbar/DesktopSearch';
+import DesktopMegaMenu from './navbar/DesktopMegaMenu';
+import MobileMenu from './navbar/MobileMenu';
 
 export default function Navbar() {
   const router = useRouter();
@@ -15,6 +28,7 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  
   const searchContainerRef = React.useRef<HTMLDivElement>(null);
   const mobileSearchContainerRef = React.useRef<HTMLDivElement>(null);
 
@@ -102,9 +116,17 @@ export default function Navbar() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
+      if (searchResults.length > 0) {
+        // Navigate to the first result
+        const firstResult = searchResults[0];
+        router.push(`/${firstResult.type}/${firstResult.item.slug}`);
+      } else {
+        // Fallback to OEM part search
+        router.push(`/oem-cross-reference/part-search`);
+      }
       setIsMobileMenuOpen(false);
       setShowDropdown(false);
+      setSearchQuery('');
     }
   };
 
@@ -137,71 +159,25 @@ export default function Navbar() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0 min-w-0 group">
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-navy-900 flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform">
-                <img src="/images/logo-brc.png" alt="BRC" className="h-6 md:h-7 w-auto object-contain brightness-0 invert" />
+              <div className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-navy-900 flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform">
+                <img src="/images/logo-brc.png" alt="BRC" className="h-7 md:h-9 w-auto object-contain brightness-0 invert" />
               </div>
               <div className="flex flex-col leading-none">
                 <span className="font-heading font-extrabold text-lg md:text-xl text-navy-950 tracking-tight">BRC</span>
-                <span className="text-[10px] md:text-xs font-semibold text-navy-800 tracking-wide">Brake Chambers</span>
+                <span className="text-[10px] md:text-xs font-bold text-navy-800 tracking-widest uppercase">Brake Chambers</span>
               </div>
             </Link>
 
-            {/* Main Search Bar (Center Desktop) - Expanded Width */}
-            <div className="flex-1 w-full mx-auto hidden md:block max-w-4xl" ref={searchContainerRef}>
-              <div className="relative">
-                <form onSubmit={handleSearch} className="relative group flex items-center w-full bg-white rounded-full border border-transparent focus-within:border-slate-500 focus-within:bg-white focus-within:ring-4 focus-within:ring-slate-500/10 transition-all overflow-hidden shadow-sm">
-                  <Search className="h-5 w-5 text-navy-400 ml-4 group-focus-within:text-slate-600 transition-colors" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => {
-                      setSearchQuery(e.target.value);
-                      setShowDropdown(true);
-                    }}
-                    onFocus={() => setShowDropdown(true)}
-                    placeholder="Search BRC catalog or part numbers..."
-                    className="flex-1 bg-transparent py-3 px-3 text-sm text-navy-900 focus:outline-none"
-                  />
-                  <button type="submit" className="pr-5 pl-3 flex items-center justify-center hover:bg-slate-50 h-full transition-colors text-navy-600 font-medium text-sm">
-                    Search
-                  </button>
-                </form>
-
-                {/* Desktop Live Search Dropdown */}
-                {showDropdown && searchResults.length > 0 && (
-                  <div className="absolute top-full mt-2 left-0 w-full bg-white rounded-xl shadow-xl border border-navy-100 overflow-hidden z-50">
-                    <ul className="py-2 max-h-[400px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-navy-200 [&::-webkit-scrollbar-track]:bg-navy-50">
-                      {searchResults.map((result, idx) => (
-                        <li key={`${result.type}-${result.item.slug}`}>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              router.push(`/${result.type}/${result.item.slug}`);
-                              setShowDropdown(false);
-                              setSearchQuery('');
-                            }}
-                            className="w-full text-left flex items-center gap-3 px-4 py-2 hover:bg-navy-50 transition-colors"
-                          >
-                            <div className="w-10 h-10 bg-navy-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                              <span className="text-xl">⚙️</span>
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <p className="text-sm font-bold text-navy-900 truncate">{result.item.name}</p>
-                              <p className="text-xs text-navy-500 capitalize">{result.type.replace('-', ' ')} &bull; {result.item.brandSlug}</p>
-                            </div>
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {showDropdown && searchQuery.trim() !== '' && searchResults.length === 0 && (
-                  <div className="absolute top-full mt-2 left-0 w-full bg-white rounded-xl shadow-xl border border-navy-100 overflow-hidden z-50 p-6 text-center">
-                    <p className="text-sm text-navy-500">No products found matching "{searchQuery}".</p>
-                  </div>
-                )}
-              </div>
-            </div>
+            {/* Main Search Bar (Center Desktop) */}
+            <DesktopSearch 
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              showDropdown={showDropdown}
+              setShowDropdown={setShowDropdown}
+              searchResults={searchResults}
+              handleSearch={handleSearch}
+              searchContainerRef={searchContainerRef}
+            />
 
             {/* Right side controls */}
             <div className="flex items-center gap-2.5 md:gap-4 flex-shrink-0">
@@ -233,407 +209,56 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu Dropdown */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <>
-            {/* Backdrop for closing */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden fixed inset-0 top-[100px] bg-navy-950/60 backdrop-blur-md z-40"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-            {/* Premium Light Menu Panel */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden absolute left-0 right-0 top-full bg-white z-50 shadow-2xl h-[calc(100vh-116px)] overflow-y-auto flex flex-col"
-            >
-              <div className="px-4 pt-6 pb-24 flex-1 flex flex-col" ref={mobileSearchContainerRef}>
-                <div className="relative mb-8">
-                  <form onSubmit={handleSearch} className="flex items-center w-full bg-slate-50 rounded-xl border border-slate-200 focus-within:border-amber-500 focus-within:bg-white overflow-hidden group transition-colors shadow-sm">
-                    <Search className="h-5 w-5 text-navy-400 ml-4 group-focus-within:text-amber-500 transition-colors" />
-                    <input
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => {
-                        setSearchQuery(e.target.value);
-                        setShowDropdown(true);
-                      }}
-                      onFocus={() => setShowDropdown(true)}
-                      placeholder="Search BRC catalog or part numbers..."
-                      className="flex-1 bg-transparent py-4 px-3 text-[15px] text-navy-900 focus:outline-none placeholder-slate-400"
-                    />
-                    <button type="submit" className="pr-4 pl-2 flex items-center justify-center text-navy-600 font-extrabold text-[12px] uppercase tracking-widest hover:text-amber-600 transition-colors">
-                      Search
-                    </button>
-                  </form>
-
-                  {/* Mobile Live Search Dropdown (Inline) */}
-                  {showDropdown && searchResults.length > 0 && (
-                    <div className="mt-3 w-full bg-white rounded-xl shadow-inner border border-navy-50 overflow-hidden z-50 max-h-[40vh] overflow-y-auto">
-                      <ul className="py-2">
-                        {searchResults.map((result, idx) => (
-                          <li key={`${result.type}-${result.item.slug}`}>
-                            <button
-                              type="button"
-                              onPointerDown={(e) => {
-                                // Use onPointerDown for immediate response on mobile before blur events can fire
-                                e.preventDefault();
-                                router.push(`/${result.type}/${result.item.slug}`);
-                                setShowDropdown(false);
-                                setSearchQuery('');
-                                setIsMobileMenuOpen(false);
-                              }}
-                              className="w-full text-left flex items-center gap-4 px-4 py-3 hover:bg-slate-50 transition-colors border-b border-navy-50/50 last:border-0"
-                            >
-                              <div className="w-10 h-10 bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-200">
-                                <span className="text-xl">⚙️</span>
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <p className="text-[14px] font-extrabold text-navy-900 truncate">{result.item.name}</p>
-                                <p className="text-[11px] font-bold text-navy-500 capitalize tracking-wider mt-0.5">{result.type.replace('-', ' ')} &bull; {result.item.brandSlug}</p>
-                              </div>
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {showDropdown && searchQuery.trim() !== '' && searchResults.length === 0 && (
-                    <div className="mt-3 w-full bg-white rounded-xl shadow-inner border border-navy-50 p-6 text-center">
-                      <p className="text-sm font-medium text-navy-500">No products found matching "{searchQuery}".</p>
-                    </div>
-                  )}
-                </div>
-
-                <div className="mb-8 flex justify-between items-center bg-slate-50 p-4 rounded-xl border border-slate-200">
-                  <span className="text-[13px] font-extrabold text-navy-500 uppercase tracking-widest">Region / Language</span>
-                  <Suspense fallback={<div className="w-24 h-8 bg-slate-200 rounded-full animate-pulse" />}>
-                    <MarketSelector />
-                  </Suspense>
-                </div>
-
-                <nav className="flex flex-col gap-2">
-                  <div className="pt-2 pb-2 px-3">
-                    <span className="text-[11px] font-extrabold text-navy-400 uppercase tracking-widest">Products</span>
-                  </div>
-                  <div className="pl-2 flex flex-col gap-1 mb-4">
-                    <Link href={`/spring-brakes`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
-                      <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Settings className="w-4 h-4 text-amber-600" /></div> Spring Brakes
-                    </Link>
-                    <Link href={`/service-chambers`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
-                      <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Wrench className="w-4 h-4 text-amber-600" /></div> Service Chambers
-                    </Link>
-                    <Link href={`/air-disc-brake-actuator`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
-                      <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Disc className="w-4 h-4 text-amber-600" /></div> Air Disc Actuators
-                    </Link>
-                    <Link href={`/chamber-parts-kits`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
-                      <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0"><Package className="w-4 h-4 text-amber-600" /></div> Parts & Kits
-                    </Link>
-                  </div>
-
-                  <div className="pt-4 pb-2 px-3 border-t border-slate-100">
-                    <span className="text-[11px] font-extrabold text-navy-400 uppercase tracking-widest">Company & Resources</span>
-                  </div>
-                  <div className="pl-2 flex flex-col gap-1 mb-4">
-                    <Link href={`/applications`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
-                      <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><Truck className="w-4 h-4 text-navy-600" /></div> Applications
-                    </Link>
-                    <Link href={`/oem-cross-reference`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
-                      <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><Search className="w-4 h-4 text-navy-600" /></div> OEM Cross-Reference
-                    </Link>
-                    <Link href={`/company`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
-                      <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><Factory className="w-4 h-4 text-navy-600" /></div> Company & Mfg
-                    </Link>
-                    <Link href={`/technical-resources`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
-                      <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><BookOpen className="w-4 h-4 text-navy-600" /></div> Technical Resources
-                    </Link>
-                    <Link href={`/blog`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
-                      <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><FileText className="w-4 h-4 text-navy-600" /></div> Insights & Blog
-                    </Link>
-                    <Link href={`/contact`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`flex items-center gap-3 p-3 font-bold rounded-xl transition-colors text-navy-800 hover:bg-slate-50 hover:text-navy-950 text-[15px]`}>
-                      <div className="w-8 h-8 rounded-full bg-navy-50 flex items-center justify-center flex-shrink-0"><Headphones className="w-4 h-4 text-navy-600" /></div> Contact Us
-                    </Link>
-                  </div>
-
-                  <div className="mt-6 flex flex-col gap-3">
-                    <Link href={`/quote`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-4 font-extrabold rounded-xl transition-colors flex items-center justify-center gap-2 bg-amber-500 text-navy-950 hover:bg-amber-400 text-[13px] uppercase tracking-widest shadow-lg shadow-amber-500/20`}>
-                      <ShoppingBag className="w-4 h-4" /> Request Quote {mounted && cartCount > 0 && <span className="bg-navy-950 text-white text-xs px-2 py-0.5 rounded-full ml-1">{cartCount}</span>}
-                    </Link>
-                    <Link href={`/distributors`} onClick={() => setTimeout(() => setIsMobileMenuOpen(false), 150)} className={`p-4 font-extrabold rounded-xl transition-colors flex items-center justify-center gap-2 bg-navy-900 text-white hover:bg-navy-800 text-[13px] uppercase tracking-widest border border-navy-700`}>
-                      <User className="w-4 h-4" /> Distributors
-                    </Link>
-                  </div>
-                </nav>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      <MobileMenu 
+        isOpen={isMobileMenuOpen}
+        setIsOpen={setIsMobileMenuOpen}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        showDropdown={showDropdown}
+        setShowDropdown={setShowDropdown}
+        searchResults={searchResults}
+        handleSearch={handleSearch}
+        mobileSearchContainerRef={mobileSearchContainerRef}
+        mounted={mounted}
+        cartCount={cartCount}
+      />
 
       {/* Secondary Navigation (Desktop Only) - DYNAMIC MEGA MENUS */}
       <div className={`hidden md:block relative z-40 transition-colors duration-300 ${isScrolled ? 'bg-navy-900 border-t border-navy-800 border-b-2 border-[#FFB000] shadow-md' : 'bg-slate-50 border-y border-navy-100 shadow-sm'}`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <nav className={`flex items-center gap-6 lg:gap-8 h-12 text-sm font-semibold transition-colors duration-300 ${isScrolled ? 'text-navy-100' : 'text-navy-700'}`}>
 
-            {/* Products Dropdown */}
+            {/* Mega Menus */}
+            <DesktopMegaMenu config={PRODUCTS_MENU} isActive={pathname.startsWith('/products') || pathname.startsWith('/spring-brakes') || pathname.startsWith('/service-chambers') || pathname.startsWith('/air-disc-brake-actuator') || pathname.startsWith('/chamber-parts-kits')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
+            <DesktopMegaMenu config={APPLICATIONS_MENU} isActive={pathname.startsWith('/applications')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
+            <DesktopMegaMenu config={OEM_MENU} isActive={pathname.startsWith('/oem-cross-reference')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
+            <DesktopMegaMenu config={COMPANY_MENU} isActive={pathname.startsWith('/company')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
+
+            {/* Technical Resources (Left Side) */}
             <div className="group h-full flex items-center">
-              <Link href="/products" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'group-hover:border-amber-400 group-hover:text-white' : 'group-hover:border-amber-500 group-hover:text-amber-600'}`}>
-                Products
-              </Link>
-              <div className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8">
-                  <div className="grid grid-cols-4 gap-8">
-                    {/* Column 1: Spring Brakes */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Settings className="w-5 h-5 text-amber-500" /> Spring Brakes</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/spring-brakes/30-30-air-brake-chambers" className={getLinkClass('/spring-brakes/30-30-air-brake-chambers')}>Type 30/30 Spring Brake</Link></li>
-                        <li><Link href="/spring-brakes/24-30-24-24-spring-brakes" className={getLinkClass('/spring-brakes/24-30-24-24-spring-brakes')}>Type 24/30 & 24/24 Chambers</Link></li>
-                        <li><Link href="/spring-brakes/20-24-spring-brake-chambers" className={getLinkClass('/spring-brakes/20-24-spring-brake-chambers')}>Type 20/24 Spring Brake</Link></li>
-                        <li><Link href="/spring-brakes/type-30-30-piggyback-kits" className={getLinkClass('/spring-brakes/type-30-30-piggyback-kits')}>Type 30/30 Piggyback Kits</Link></li>
-                      </ul>
-                      <Link href="/spring-brakes" className="inline-block mt-4 text-amber-500 font-bold hover:text-amber-600 transition-colors text-sm">
-                        View All Spring Brakes &rarr;
-                      </Link>
-                    </div>
-
-                    {/* Column 2: Service Chambers */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Wrench className="w-5 h-5 text-amber-500" /> Service Chambers</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/service-chambers/type-20-steer-axle-brake-chambers" className={getLinkClass('/service-chambers/type-20-steer-axle-brake-chambers')}>Type 20 Steer Axle Chamber</Link></li>
-                        <li><Link href="/service-chambers/type-30-service-chambers" className={getLinkClass('/service-chambers/type-30-service-chambers')}>Type 30 Service Chamber</Link></li>
-                        <li><Link href="/service-chambers/type-12-16-24-service-chambers" className={getLinkClass('/service-chambers/type-12-16-24-service-chambers')}>Type 12, 16 & 24 Chambers</Link></li>
-                        <li><Link href="/service-chambers/welded-clevis-brake-chambers" className={getLinkClass('/service-chambers/welded-clevis-brake-chambers')}>Welded Clevis Chambers</Link></li>
-                      </ul>
-                      <Link href="/service-chambers" className="inline-block mt-4 text-amber-500 font-bold hover:text-amber-600 transition-colors text-sm">
-                        View All Service Chambers &rarr;
-                      </Link>
-                    </div>
-
-                    {/* Column 3: Air Disc Actuators */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Disc className="w-5 h-5 text-amber-500" /> Air Disc Actuators</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/air-disc-brake-actuator/type-16-18-adb-actuators" className={getLinkClass('/air-disc-brake-actuator/type-16-18-adb-actuators')}>Type 16 & 18 ADB</Link></li>
-                        <li><Link href="/air-disc-brake-actuator/type-20-24-air-disc-brake-actuator" className={getLinkClass('/air-disc-brake-actuator/type-20-24-air-disc-brake-actuator')}>Type 20/24 ADB</Link></li>
-                        <li><Link href="/air-disc-brake-actuator/type-24-24-adb-chambers" className={getLinkClass('/air-disc-brake-actuator/type-24-24-adb-chambers')}>Type 24/24 ADB</Link></li>
-                        <li><Link href="/air-disc-brake-actuator/type-24-30-air-disc-brake-actuators" className={getLinkClass('/air-disc-brake-actuator/type-24-30-air-disc-brake-actuators')}>Type 24/30 ADB</Link></li>
-                      </ul>
-                      <Link href="/air-disc-brake-actuator" className="inline-block mt-4 text-amber-500 font-bold hover:text-amber-600 transition-colors text-sm">
-                        View All ADB Actuators &rarr;
-                      </Link>
-                    </div>
-
-                    {/* Column 4: Parts & Kits */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Package className="w-5 h-5 text-amber-500" /> Parts & Kits</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/chamber-parts-kits/air-brake-chamber-rebuild-kits" className={getLinkClass('/chamber-parts-kits/air-brake-chamber-rebuild-kits')}>Chamber Rebuild Kits</Link></li>
-                        <li><Link href="/chamber-parts-kits/brake-chamber-diaphragms" className={getLinkClass('/chamber-parts-kits/brake-chamber-diaphragms')}>Rubber Diaphragms</Link></li>
-                        <li><Link href="/chamber-parts-kits/clevis-pins-slack-adjuster-hardware" className={getLinkClass('/chamber-parts-kits/clevis-pins-slack-adjuster-hardware')}>Clevis Pins & Hardware</Link></li>
-                        <li><Link href="/chamber-parts-kits/brake-chamber-caging-bolts-tools" className={getLinkClass('/chamber-parts-kits/brake-chamber-caging-bolts-tools')}>Caging Bolts & Tools</Link></li>
-                      </ul>
-                      <Link href="/chamber-parts-kits" className="inline-block mt-4 text-amber-500 font-bold hover:text-amber-600 transition-colors text-sm">
-                        View All Parts & Tools &rarr;
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Applications */}
-            <div className="group h-full flex items-center">
-              <Link href="/applications" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'group-hover:border-amber-400 group-hover:text-white' : 'group-hover:border-amber-500 group-hover:text-amber-600'}`}>
-                Applications
-              </Link>
-              <div className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8">
-                  <div className="grid grid-cols-4 gap-8">
-                    {/* Column 1: Commercial & Freight */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Truck className="w-5 h-5 text-amber-500" /> Commercial & Freight</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/applications/commercial-linehaul" className={getLinkClass('/applications/commercial-linehaul')}>Commercial Linehaul</Link></li>
-                        <li><Link href="/applications/heavy-duty-freight" className={getLinkClass('/applications/heavy-duty-freight')}>Heavy-Duty Freight</Link></li>
-                        <li><Link href="/applications/regional-delivery" className={getLinkClass('/applications/regional-delivery')}>Regional Delivery</Link></li>
-                      </ul>
-                    </div>
-
-                    {/* Column 2: Severe-Duty & Specialized */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><ShieldAlert className="w-5 h-5 text-amber-500" /> Severe-Duty</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/applications/refuse-sanitation" className={getLinkClass('/applications/refuse-sanitation')}>Refuse & Sanitation Trucks</Link></li>
-                        <li><Link href="/applications/off-highway-mining" className={getLinkClass('/applications/off-highway-mining')}>Off-Highway & Mining</Link></li>
-                        <li><Link href="/applications/agricultural-transport" className={getLinkClass('/applications/agricultural-transport')}>Agricultural Transport</Link></li>
-                      </ul>
-                    </div>
-
-                    {/* Column 3: Passenger & Transit */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Bus className="w-5 h-5 text-amber-500" /> Passenger & Transit</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/applications/transit-coach-bus" className={getLinkClass('/applications/transit-coach-bus')}>Transit & Coach Buses</Link></li>
-                        <li><Link href="/applications/school-buses" className={getLinkClass('/applications/school-buses')}>School Buses</Link></li>
-                        <li><Link href="/applications/shuttle-fleets" className={getLinkClass('/applications/shuttle-fleets')}>Shuttle Fleets</Link></li>
-                      </ul>
-                    </div>
-
-                    {/* Column 4: OEM & Custom Solutions */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Factory className="w-5 h-5 text-amber-500" /> OEM & Custom</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/applications/fleet-inquiries" className={getLinkClass('/applications/fleet-inquiries')}>Fleet Volume Orders</Link></li>
-                        <li><Link href="/applications/custom-engineering" className={getLinkClass('/applications/custom-engineering')}>Custom Engineering</Link></li>
-                        <li><Link href="/applications/contract-manufacturing" className={getLinkClass('/applications/contract-manufacturing')}>Contract Manufacturing</Link></li>
-                        <li className="pt-2"><Link href="/quote" className="inline-flex items-center gap-2 transform transition-transform duration-200 text-amber-600 font-bold hover:text-amber-500 hover:translate-x-1 text-sm"><ShoppingBag className="w-4 h-4" /> Request Custom Quote</Link></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* OEM Cross-Reference */}
-            <div className="group h-full flex items-center">
-              <Link href={`/oem-cross-reference`} className={`transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'group-hover:border-amber-400 group-hover:text-white' : 'group-hover:border-amber-500 group-hover:text-amber-600'}`}>
-                OEM Cross-Reference
-              </Link>
-              <div className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8">
-                  <div className="grid grid-cols-4 gap-8">
-                    {/* Column 1: Major Brake Brands */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><ShieldCheck className="w-5 h-5 text-amber-500" /> Major Brake Brands</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/oem-cross-reference/bendix" className={getLinkClass('/oem-cross-reference/bendix')}>Bendix Equivalents</Link></li>
-                        <li><Link href="/oem-cross-reference/haldex" className={getLinkClass('/oem-cross-reference/haldex')}>Haldex Equivalents</Link></li>
-                        <li><Link href="/oem-cross-reference/meritor" className={getLinkClass('/oem-cross-reference/meritor')}>Meritor Equivalents</Link></li>
-                        <li><Link href="/oem-cross-reference/mgm" className={getLinkClass('/oem-cross-reference/mgm')}>MGM Equivalents</Link></li>
-                        <li><Link href="/oem-cross-reference/tse" className={getLinkClass('/oem-cross-reference/tse')}>TSE Equivalents</Link></li>
-                      </ul>
-                    </div>
-
-                    {/* Column 2: Truck OEMs */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Truck className="w-5 h-5 text-amber-500" /> Truck Manufacturers</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/oem-cross-reference/freightliner" className={getLinkClass('/oem-cross-reference/freightliner')}>Freightliner Replacements</Link></li>
-                        <li><Link href="/oem-cross-reference/peterbilt" className={getLinkClass('/oem-cross-reference/peterbilt')}>Peterbilt Replacements</Link></li>
-                        <li><Link href="/oem-cross-reference/kenworth" className={getLinkClass('/oem-cross-reference/kenworth')}>Kenworth Replacements</Link></li>
-                        <li><Link href="/oem-cross-reference/volvo-mack" className={getLinkClass('/oem-cross-reference/volvo-mack')}>Volvo / Mack Replacements</Link></li>
-                        <li><Link href="/oem-cross-reference/navistar" className={getLinkClass('/oem-cross-reference/navistar')}>Navistar Replacements</Link></li>
-                      </ul>
-                    </div>
-
-                    {/* Column 3: Axle & Suspension */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Settings className="w-5 h-5 text-amber-500" /> Axle & Suspension</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/oem-cross-reference/hendrickson" className={getLinkClass('/oem-cross-reference/hendrickson')}>Hendrickson Applications</Link></li>
-                        <li><Link href="/oem-cross-reference/saf-holland" className={getLinkClass('/oem-cross-reference/saf-holland')}>SAF-Holland Applications</Link></li>
-                        <li><Link href="/oem-cross-reference/dana" className={getLinkClass('/oem-cross-reference/dana')}>Dana Axle Applications</Link></li>
-                        <li><Link href="/oem-cross-reference/meritor-axles" className={getLinkClass('/oem-cross-reference/meritor-axles')}>Meritor Axle Applications</Link></li>
-                      </ul>
-                    </div>
-
-                    {/* Column 4: Interchange Tools */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Search className="w-5 h-5 text-amber-500" /> Interchange Tools</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/oem-cross-reference/part-search" className={getLinkClass('/oem-cross-reference/part-search')}>Part Number Search</Link></li>
-                        <li><Link href="/oem-cross-reference/visual-guide" className={getLinkClass('/oem-cross-reference/visual-guide')}>Visual Identification Guide</Link></li>
-                        <li><Link href="/oem-cross-reference/database" className={getLinkClass('/oem-cross-reference/database')}>Full Interchange Database</Link></li>
-                        <li className="pt-2"><Link href="/oem-cross-reference/request" className="inline-flex items-center gap-2 transform transition-transform duration-200 text-amber-600 font-bold hover:text-amber-500 hover:translate-x-1 text-sm"><CheckCircle className="w-4 h-4" /> Request a Cross-Match</Link></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Unified Company & Manufacturing Dropdown */}
-            <div className="group h-full flex items-center">
-              <Link href="/company" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'group-hover:border-amber-400 group-hover:text-white' : 'group-hover:border-amber-500 group-hover:text-amber-600'}`}>
-                Company
-              </Link>
-              <div className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl py-6">
-                  <div className="grid grid-cols-4 gap-6">
-                    {/* Column 1: About & Insights */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Users className="w-5 h-5 text-amber-500" /> About Us</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/company/our-story" className={getLinkClass('/company/our-story')}>Our Story</Link></li>
-                        <li><Link href="/company/leadership" className={getLinkClass('/company/leadership')}>Leadership Team</Link></li>
-                      </ul>
-                    </div>
-
-                    {/* Column 2: Manufacturing */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><Factory className="w-5 h-5 text-amber-500" /> Manufacturing</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/company/production-process" className={getLinkClass('/company/production-process')}>Production Process</Link></li>
-                        <li><Link href="/company/facility-overview" className={getLinkClass('/company/facility-overview')}>Facility Overview</Link></li>
-                        <li><Link href="/company/material-sourcing" className={getLinkClass('/company/material-sourcing')}>Material Sourcing</Link></li>
-                      </ul>
-                    </div>
-
-                    {/* Column 3: Quality & R&D */}
-                    <div>
-                      <h3 className="flex items-center gap-2 text-navy-900 font-bold text-lg mb-4 border-b border-slate-200 pb-2"><ShieldCheck className="w-5 h-5 text-amber-500" /> Quality & R&D</h3>
-                      <ul className="space-y-3">
-                        <li><Link href="/company/iso-certifications" className={getLinkClass('/company/iso-certifications')}>ISO Certifications</Link></li>
-                        <li><Link href="/company/testing-laboratory" className={getLinkClass('/company/testing-laboratory')}>Testing Laboratory</Link></li>
-                        <li><Link href="/company/research-and-innovations" className={getLinkClass('/company/research-and-innovations')}>R&D and Innovations</Link></li>
-                      </ul>
-                    </div>
-
-                    {/* Column 4: CTA */}
-                    <div className="flex flex-col justify-center">
-                      <div className="bg-slate-50 p-5 rounded-xl border border-slate-100 flex flex-col justify-center h-full">
-                        <h4 className="font-bold text-navy-900 mb-2 text-sm">Build With Us</h4>
-                        <p className="text-xs text-slate-500 mb-4 leading-relaxed">Partner directly with the manufacturer.</p>
-                        <Link href="/contact" className="inline-block text-center bg-navy-900 text-white font-bold py-2 px-3 rounded-lg hover:bg-navy-800 transition-colors text-xs">
-                          Discuss Project
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Technical Resources */}
-            <div className="group h-full flex items-center">
-              <Link href="/technical-resources" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'hover:border-amber-400 hover:text-white' : 'hover:border-amber-500 hover:text-amber-600'}`}>
+              <Link href="/technical-resources" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] ${
+                isActive('/technical-resources')
+                  ? 'border-amber-500 text-amber-600 font-bold'
+                  : 'border-transparent ' + (isScrolled ? 'hover:border-amber-400 hover:text-white' : 'hover:border-amber-500 hover:text-amber-600')
+              }`}>
                 Technical Resources
               </Link>
             </div>
 
             <div className="flex-1"></div>
 
-            {/* Blog */}
-            <div className="group h-full flex items-center">
-              <Link href="/blog" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'hover:border-amber-400 hover:text-white' : 'hover:border-amber-500 hover:text-amber-600'}`}>
-                Insights & Blog
-              </Link>
-            </div>
-
-            {/* Contact Us */}
-            <div className="group h-full flex items-center">
-              <Link href="/contact" className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] border-transparent ${isScrolled ? 'hover:border-amber-400 hover:text-white' : 'hover:border-amber-500 hover:text-amber-600'}`}>
-                Contact Us
-              </Link>
-            </div>
+            {/* Standalone Links (Right Side) */}
+            {OTHER_LINKS.filter(link => link.label !== 'Technical Resources').map((link, idx) => (
+              <div key={idx} className="group h-full flex items-center">
+                <Link href={link.href} className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] ${
+                  isActive(link.href)
+                    ? 'border-amber-500 text-amber-600 font-bold'
+                    : 'border-transparent ' + (isScrolled ? 'hover:border-amber-400 hover:text-white' : 'hover:border-amber-500 hover:text-amber-600')
+                }`}>
+                  {link.label}
+                </Link>
+              </div>
+            ))}
           </nav>
         </div>
       </div>

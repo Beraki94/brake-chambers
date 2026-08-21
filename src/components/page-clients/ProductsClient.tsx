@@ -322,10 +322,10 @@ export default function ProductsClient() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
-              { title: 'Heavy-Duty Trucks', rec: 'Spring Brakes (Type 30/30, 24/30)', img: '/images/heavy_duty_truck.png', link: '/applications/heavy-duty-trucks' },
-              { title: 'Commercial Trailers', rec: 'Service Chambers (Type 20, 30)', img: '/images/commercial_trailer.png', link: '/applications/commercial-trailers' },
+              { title: 'Heavy-Duty Trucks', rec: 'Spring Brakes (Type 30/30, 24/30)', img: '/images/heavy_duty_truck.png', link: '/applications/long-haul-semi' },
+              { title: 'Commercial Trailers', rec: 'Service Chambers (Type 20, 30)', img: '/images/commercial_trailer.png', link: '/applications/heavy-duty-trailer' },
               { title: 'Transit Buses', rec: 'Air Disc Actuators (Type 16/18)', img: '/images/transit_bus.png', link: '/applications/transit-buses' },
-              { title: 'Off-Highway & Mining', rec: 'Severe-Duty ADB (Type 24/24)', img: 'https://images.unsplash.com/photo-1579417865672-88126b8821eb?auto=format&fit=crop&w=800&q=80', link: '/applications/off-highway' }
+              { title: 'Off-Highway & Mining', rec: 'Severe-Duty ADB (Type 24/24)', img: 'https://images.unsplash.com/photo-1579417865672-88126b8821eb?auto=format&fit=crop&w=800&q=80', link: '/applications/mining-construction' }
             ].map((app, idx) => (
               <Link key={idx} href={app.link} className="group relative h-64 md:h-80 rounded-2xl md:rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
                 <Image

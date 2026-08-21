@@ -1,12 +1,12 @@
 "use client";
 
 import React from 'react';
-import PageHeader from '@/components/layout/PageHeader';
 import { motion } from 'framer-motion';
-import { ArrowRight, History, Globe2, Target, Users } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import SectionHeader from '@/components/ui/SectionHeader';
+import CompanyPageLayout from '@/components/company/CompanyPageLayout';
 
 export default function OurStoryClient() {
   const milestones = [
@@ -18,21 +18,13 @@ export default function OurStoryClient() {
   ];
 
   return (
-    <div className="bg-white min-h-screen">
-      <PageHeader 
-        badge="Our Heritage"
-        title="Our Story"
-        description="A legacy of uncompromising quality, from a specialized engineering firm to a global manufacturing powerhouse."
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Company', href: '/company' },
-          { label: 'Our Story' }
-        ]}
-      />
-
-      <section className="py-20">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+    <CompanyPageLayout
+      badge="Our Heritage"
+      title="Our Story"
+      description="A legacy of uncompromising quality, from a specialized engineering firm to a global manufacturing powerhouse."
+    >
+      <div className="space-y-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <SectionHeader
                 badge="Our Foundation"
@@ -51,49 +43,37 @@ export default function OurStoryClient() {
                 </p>
               </div>
             </div>
-            <div className="relative h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl">
-              <Image src="/images/manufacturing_floor.png" alt="Early engineering" fill className="object-cover grayscale" />
-              <div className="absolute inset-0 bg-navy-900/20"></div>
-            </div>
+          <div className="relative h-[250px] sm:h-[350px] lg:h-[500px] rounded-3xl lg:rounded-[2rem] overflow-hidden shadow-2xl mt-4 lg:mt-0">
+            <Image src="/images/manufacturing_floor.png" alt="Early engineering" fill className="object-cover grayscale" />
+            <div className="absolute inset-0 bg-navy-900/20"></div>
           </div>
+        </div>
 
-          {/* Timeline */}
-          <div className="py-20 border-t border-slate-200">
+        {/* Timeline */}
+        <div className="pt-16 border-t border-slate-200">
             <SectionHeader
               title="Our Journey"
             />
             <div className="max-w-4xl mx-auto">
-              {milestones.map((milestone, idx) => (
-                <div key={idx} className="flex gap-8 mb-12 group">
-                  <div className="flex flex-col items-center">
-                    <div className="w-16 h-16 rounded-full bg-navy-50 border-2 border-amber-500 flex items-center justify-center text-navy-900 font-bold group-hover:bg-amber-500 group-hover:text-white transition-colors shrink-0">
-                      {milestone.year}
-                    </div>
-                    {idx !== milestones.length - 1 && (
-                      <div className="w-1 h-full bg-slate-200 mt-4 group-hover:bg-amber-200 transition-colors"></div>
-                    )}
+            {milestones.map((milestone, idx) => (
+              <div key={idx} className="flex gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 group">
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-navy-50 border-2 border-amber-500 flex items-center justify-center text-navy-900 text-xs sm:text-base font-bold group-hover:bg-amber-500 group-hover:text-white transition-colors shrink-0">
+                    {milestone.year}
                   </div>
-                  <div className="pt-3 pb-8">
-                    <h3 className="text-2xl font-bold text-navy-900 mb-3">{milestone.title}</h3>
-                    <p className="text-slate-600 text-lg">{milestone.description}</p>
-                  </div>
+                  {idx !== milestones.length - 1 && (
+                    <div className="w-1 h-full bg-slate-200 mt-4 group-hover:bg-amber-200 transition-colors"></div>
+                  )}
                 </div>
-              ))}
-            </div>
+                <div className="pt-3 pb-8">
+                  <h3 className="text-2xl font-bold text-navy-900 mb-3">{milestone.title}</h3>
+                  <p className="text-slate-600 text-lg leading-relaxed">{milestone.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </section>
-
-      {/* Next Step CTA */}
-      <section className="bg-navy-950 py-20 text-center">
-        <div className="container mx-auto px-4 flex flex-col items-center">
-          <SectionHeader title="Meet the Team Behind the Engineering" className="!mb-6" />
-
-          <Link href="/company/leadership" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
-            View Leadership Team <ArrowRight className="w-6 h-6 ml-2" />
-          </Link>
-        </div>
-      </section>
-    </div>
+      </div>
+    </CompanyPageLayout>
   );
 }

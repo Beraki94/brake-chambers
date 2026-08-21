@@ -70,6 +70,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     weight: '18 lbs',
     oemPartNumbers: [
       { brand: 'Bendix', partNumber: '800021', notes: 'Direct Replacement' },
+      { brand: 'Bendix', partNumber: 'NT3030STD-WC', notes: 'Welded Clevis Equivalent' },
       { brand: 'Meritor', partNumber: 'R873030' },
       { brand: 'Haldex', partNumber: 'GC3030' },
       { brand: 'MGM', partNumber: '3230051' }

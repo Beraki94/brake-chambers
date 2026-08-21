@@ -1,11 +1,11 @@
 "use client";
 
 import React from 'react';
-import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { ArrowRight, Microscope, Thermometer, ShieldAlert, Activity, FlaskConical, Gauge, Cpu, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import CompanyPageLayout from '@/components/company/CompanyPageLayout';
 
 export default function TestingLaboratoryClient() {
   const stats = [
@@ -19,37 +19,37 @@ export default function TestingLaboratoryClient() {
     {
       title: '1 Million+ Cycle Testing',
       description: 'We subject our chambers to over 1,000,000 continuous actuate/release cycles under maximum operating pressure to ensure the center seals and return springs never fatigue prematurely.',
-      icon: <Activity className="w-8 h-8 text-emerald-400" />,
+      icon: <Activity className="w-8 h-8 text-amber-400" />,
       badge: 'Fatigue & Durability',
     },
     {
       title: 'Salt Spray Corrosion Chambers',
-      description: 'Chambers are placed in intense saline fog environments for hundemeralds of hours to simulate years of exposure to winter road salts and magnesium chloride — the #1 killer of inferior chambers.',
-      icon: <ShieldAlert className="w-8 h-8 text-emerald-400" />,
+      description: 'Chambers are placed in intense saline fog environments for hundambers of hours to simulate years of exposure to winter road salts and magnesium chloride — the #1 killer of inferior chambers.',
+      icon: <ShieldAlert className="w-8 h-8 text-amber-400" />,
       badge: 'Corrosion Resistance',
     },
     {
       title: 'Extreme Temperature Chambers',
       description: 'Our neoprene diaphragms are tested in environmental chambers ranging from -40°F (-40°C) to 200°F (93°C) to guarantee flexibility in Arctic cold and structural integrity in desert heat.',
-      icon: <Thermometer className="w-8 h-8 text-emerald-400" />,
+      icon: <Thermometer className="w-8 h-8 text-amber-400" />,
       badge: 'Thermal Performance',
     },
     {
       title: '100% End-of-Line Pneumatic Testing',
       description: 'We do not rely on batch testing. Every single brake chamber that leaves our facility is pneumatically leak-tested on the assembly line. If it leaks a fraction of a PSI, it gets scrapped.',
-      icon: <Microscope className="w-8 h-8 text-emerald-400" />,
+      icon: <Microscope className="w-8 h-8 text-amber-400" />,
       badge: 'Zero-Defect Policy',
     },
     {
       title: 'Burst Pressure Validation',
       description: 'Every housing design undergoes destructive burst pressure testing at 4× its rated operating pressure, validating our 8-gauge steel structural integrity under catastrophic failure scenarios.',
-      icon: <Gauge className="w-8 h-8 text-emerald-400" />,
+      icon: <Gauge className="w-8 h-8 text-amber-400" />,
       badge: 'Structural Safety',
     },
     {
       title: 'Diaphragm Ozone Testing',
       description: 'Rubber diaphragms are exposed to accelerated ozone environments equivalent to 10+ years of outdoor aging, ensuring they remain crack-free and flexible throughout their service life.',
-      icon: <FlaskConical className="w-8 h-8 text-emerald-400" />,
+      icon: <FlaskConical className="w-8 h-8 text-amber-400" />,
       badge: 'Material Longevity',
     },
   ];
@@ -64,21 +64,13 @@ export default function TestingLaboratoryClient() {
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-20">
-      <PageHeader
-        badge="Quality Assurance"
-        title="Testing Laboratory"
-        description="Where we try our hardest to break our own products — so they never break on you."
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Company', href: '/company' },
-          { label: 'Testing Laboratory' }
-        ]}
-      />
-
-      {/* Stats Bar */}
-      <section className="bg-white border-b border-slate-100 py-10">
-        <div className="container mx-auto px-4 max-w-5xl">
+    <CompanyPageLayout
+      badge="Quality Assurance"
+      title="Testing Laboratory"
+      description="Where we try our hardest to break our own products — so they never break on you."
+    >
+      <div className="space-y-12">
+        <div className="w-full">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, idx) => (
               <motion.div
@@ -95,13 +87,12 @@ export default function TestingLaboratoryClient() {
             ))}
           </div>
         </div>
-      </section>
 
       {/* Test Protocols Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 max-w-6xl">
+      <div className="py-4">
+        <div className="w-full">
           <SectionHeader
-            title={<>Failure is <span className="text-emerald-400">Not an Option</span></>}
+            title={<>Failure is <span className="text-amber-400">Not an Option</span></>}
             description="A commercial truck hauling 80,000 lbs cannot afford a brake failure. That is why our in-house testing laboratory is the most crucial department in our entire manufacturing facility."
           />
 
@@ -115,10 +106,10 @@ export default function TestingLaboratoryClient() {
                 transition={{ delay: idx * 0.08, duration: 0.5 }}
                 className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
               >
-                <div className="inline-block px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-5">
+                <div className="inline-block px-3 py-1 rounded-full bg-amber-50 border border-amber-100 text-amber-500 text-[10px] font-bold uppercase tracking-widest mb-5">
                   {test.badge}
                 </div>
-                <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                   {test.icon}
                 </div>
                 <h3 className="text-xl font-bold text-navy-900 mb-3">{test.title}</h3>
@@ -129,25 +120,25 @@ export default function TestingLaboratoryClient() {
             ))}
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Equipment Section */}
-      <section className="bg-white py-16 border-y border-slate-100">
-        <div className="container mx-auto px-4 max-w-6xl">
+      <div className="bg-white p-8 lg:p-12 border border-slate-100 rounded-3xl">
+        <div className="w-full">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             <div className="w-full lg:w-1/2">
               <SectionHeader
                 badge="Laboratory Equipment"
-                title={<>World-Class <span className="text-emerald-400">Test Equipment</span></>}
+                title={<>World-Class <span className="text-amber-400">Test Equipment</span></>}
                 description="Our laboratory is equipped with industry-leading precision instruments that run 24 hours a day, 7 days a week."
                 align="left"
-                accentColor="emerald"
+                accentColor="amber"
               />
               <div className="space-y-4">
                 {equipment.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-4 p-4 rounded-2xl border border-slate-100 hover:border-emerald-100 hover:bg-emerald-50/30 transition-all group">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <div key={idx} className="flex items-start gap-4 p-4 rounded-2xl border border-slate-100 hover:border-amber-100 hover:bg-amber-50/30 transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-4 h-4 text-amber-400" />
                     </div>
                     <div>
                       <div className="font-bold text-navy-900 text-sm">{item.name}</div>
@@ -160,10 +151,10 @@ export default function TestingLaboratoryClient() {
             <div className="w-full lg:w-1/2">
               <div className="bg-navy-950 rounded-[2.5rem] p-10 text-white relative overflow-hidden h-full min-h-[400px] flex flex-col justify-between">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none" />
-                <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-400/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
                 <div className="relative z-10">
-                  <div className="w-14 h-14 bg-emerald-400/10 rounded-2xl flex items-center justify-center mb-6 border border-emerald-400/20">
-                    <Cpu className="w-7 h-7 text-emerald-400" />
+                  <div className="w-14 h-14 bg-amber-400/10 rounded-2xl flex items-center justify-center mb-6 border border-amber-400/20">
+                    <Cpu className="w-7 h-7 text-amber-400" />
                   </div>
                   <h3 className="text-2xl font-extrabold text-white mb-4 font-heading tracking-tight">ISO-Audited Process</h3>
                   <p className="text-navy-200 text-base leading-relaxed mb-8">
@@ -184,17 +175,16 @@ export default function TestingLaboratoryClient() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Next Step CTA */}
-      <section className="bg-white py-16 border-t border-slate-200 text-center">
-        <div className="container mx-auto px-4 flex flex-col items-center">
+        {/* Next Step CTA */}
+        <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-slate-100">
           <SectionHeader title="Explore the Future of Braking" className="!mb-6" />
-          <Link href="/company/research-and-innovations" className="inline-flex items-center text-emerald-400 font-bold hover:text-emerald-400 transition-colors uppercase tracking-widest text-lg">
+          <Link href="/company/research-and-innovations" className="inline-flex items-center text-amber-400 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
             View R&D and Innovations <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>
-      </section>
-    </div>
+      </div>
+    </CompanyPageLayout>
   );
 }

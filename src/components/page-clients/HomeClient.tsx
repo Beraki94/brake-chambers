@@ -438,31 +438,60 @@ export default function HomeClient() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="max-w-2xl bg-navy-950/80 backdrop-blur-xl p-6 md:p-10 rounded-3xl border border-navy-800 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] transform transition-transform hover:-translate-y-1">
-            <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-gradient-to-r from-amber-500/20 to-transparent border border-amber-500/30 text-amber-400 text-[11px] font-bold uppercase tracking-widest">
-              PROPRIETARY R&D SPOTLIGHT
+          <div className="max-w-5xl bg-navy-950/80 backdrop-blur-xl p-6 md:p-10 lg:p-12 rounded-3xl border border-navy-800 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] transform transition-transform hover:-translate-y-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+              
+              {/* Left Column: Text & CTA */}
+              <div>
+                <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-gradient-to-r from-amber-500/20 to-transparent border border-amber-500/30 text-amber-400 text-[11px] font-bold uppercase tracking-widest">
+                  PROPRIETARY R&D SPOTLIGHT
+                </div>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-5 leading-tight">
+                  High Output Technology <span className="text-emerald-500">(HOT)</span><br/>
+                  <span className="text-xl md:text-2xl text-navy-200 mt-3 block">Redefining Air Disc Performance</span>
+                </h2>
+                <p className="text-sm md:text-base text-navy-200 mb-8 leading-relaxed font-light text-left">
+                  Traditional air disc brake actuators lose clamping force as internal friction builds over time. Our patented High Output Technology (HOT) corrects this by maximizing mechanical advantage through a proprietary internal mechanism. The result: unprecedented stopping power consistency and uncompromised safety.
+                </p>
+                <Link href="/technical-resources" className="inline-flex w-full sm:w-auto justify-center items-center text-navy-950 bg-white font-extrabold px-6 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5 text-center">
+                  <span>Download Tech Specs</span> <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0" />
+                </Link>
+              </div>
+
+              {/* Right Column: Key Benefits */}
+              <div className="space-y-4">
+                <div className="bg-navy-900/50 border border-navy-700/50 p-5 rounded-2xl flex items-start gap-4 hover:border-amber-500/30 transition-colors">
+                  <div className="bg-emerald-500/10 border border-emerald-500/20 p-2.5 rounded-xl shrink-0 mt-0.5">
+                    <Zap className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Consistent Clamping Force</h4>
+                    <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Overcomes internal friction to maintain peak stopping power over millions of cycles.</p>
+                  </div>
+                </div>
+
+                <div className="bg-navy-900/50 border border-navy-700/50 p-5 rounded-2xl flex items-start gap-4 hover:border-amber-500/30 transition-colors">
+                  <div className="bg-emerald-500/10 border border-emerald-500/20 p-2.5 rounded-xl shrink-0 mt-0.5">
+                    <ShieldCheck className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Reduced Brake Fade</h4>
+                    <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Advanced mechanical advantage ensures reliable performance even under heavy loads.</p>
+                  </div>
+                </div>
+
+                <div className="bg-navy-900/50 border border-navy-700/50 p-5 rounded-2xl flex items-start gap-4 hover:border-amber-500/30 transition-colors">
+                  <div className="bg-emerald-500/10 border border-emerald-500/20 p-2.5 rounded-xl shrink-0 mt-0.5">
+                    <Settings className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Patented Engineering</h4>
+                    <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Exclusive BRC internal mechanics you won't find in standard aftermarket generic actuators.</p>
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight">High Output Technology <span className="text-emerald-500">(HOT)</span><br/><span className="text-2xl md:text-3xl text-navy-200 mt-2 block">Redefining Air Disc Performance</span></h2>
-            <p className="text-sm md:text-base text-navy-200 mb-6 leading-relaxed font-light text-left">
-              Traditional air disc brake actuators lose clamping force as internal friction builds over time. Our patented High Output Technology (HOT) corrects this by maximizing mechanical advantage through a proprietary internal mechanism. The result: unprecedented stopping power consistency, reduced brake fade, and uncompromised safety across the entire vehicle lifecycle.
-            </p>
-            <ul className="space-y-4 mb-8 text-left">
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                <span className="text-white text-sm md:text-base"><strong className="text-amber-400">Consistent Clamping Force:</strong> Overcomes internal friction to maintain peak stopping power over millions of cycles.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                <span className="text-white text-sm md:text-base"><strong className="text-amber-400">Reduced Brake Fade:</strong> Advanced mechanical advantage ensures reliable performance even under heavy loads.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                <span className="text-white text-sm md:text-base"><strong className="text-amber-400">Patented Engineering:</strong> Exclusive BRC internal mechanics you won't find in standard aftermarket generic actuators.</span>
-              </li>
-            </ul>
-            <Link href="/technical-resources" className="inline-flex w-full sm:w-auto justify-center items-center text-navy-950 bg-white font-extrabold px-6 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5 text-center">
-              <span>Download Technical Specifications</span> <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0" />
-            </Link>
           </div>
         </div>
       </section>

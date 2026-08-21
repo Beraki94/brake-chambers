@@ -132,7 +132,7 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-4"
+            className={`grid grid-cols-1 md:grid-cols-2 ${data.technologies?.length === 3 ? 'lg:grid-cols-3' : ''} gap-6 lg:gap-8 mt-4`}
           >
             {data.technologies.map((tech: any, idx: number) => (
               <motion.div 
@@ -174,8 +174,8 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
               <div className="lg:w-1/2">
                 <SectionHeader
                   badge="Recommended"
-                  title="Upgrade Your Fleet"
-                  description={`The perfect brake chamber combination specifically recommended for ${data.title.toLowerCase()}.`}
+                  title={data.recommendedTitle || "Upgrade Your Fleet"}
+                  description={data.recommendedDesc || `The perfect brake chamber combination specifically recommended for ${data.title.toLowerCase()}.`}
                   align="left"
                   theme="dark"
                   accentColor="amber"
@@ -244,15 +244,15 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             <SectionHeader
               badge="Direct From The Source"
-              title={<>Need a custom volume quote for your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">{data.title}</span>?</>}
-              description="Connect directly with our engineering and wholesale team to get factory-direct container pricing and specifications tailored to your fleet."
+              title={data.cta?.heading ? <>{data.cta.heading}</> : <>Need a custom volume quote for your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">{data.title}</span>?</>}
+              description={data.cta?.subheading || "Connect directly with our engineering and wholesale team to get factory-direct container pricing and specifications tailored to your fleet."}
               align="center"
               theme="dark"
               accentColor="amber"
             />
             <motion.div variants={fadeInUp} className="mt-10">
-              <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 hover:bg-amber-400 text-navy-950 font-black px-10 py-5 rounded-xl transition-all duration-300 text-[14px] uppercase tracking-widest shadow-[0_0_30px_rgba(245,158,11,0.2)] hover:shadow-[0_0_40px_rgba(245,158,11,0.4)] transform hover:-translate-y-1">
-                Speak to an Engineer <ArrowRight className="w-5 h-5 ml-3" />
+              <Link href={data.cta?.link || "/quote"} className="inline-flex items-center justify-center bg-amber-500 hover:bg-amber-400 text-navy-950 font-black px-10 py-5 rounded-xl transition-all duration-300 text-[14px] uppercase tracking-widest shadow-[0_0_30px_rgba(245,158,11,0.2)] hover:shadow-[0_0_40px_rgba(245,158,11,0.4)] transform hover:-translate-y-1">
+                {data.cta?.buttonText || "Request a Quote"} <ArrowRight className="w-5 h-5 ml-3" />
               </Link>
             </motion.div>
           </motion.div>

@@ -46,20 +46,20 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0 md:gap-12 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 mb-12 md:mb-16">
           {/* Brand Info */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-3">
             <Link href="/" className="flex items-center gap-3 mb-6 relative group flex-shrink-0">
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-navy-800 border border-navy-700 flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform">
-                <img src="/images/logo-brc.png" alt="BRC" className="h-7 md:h-8 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity" />
+              <div className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-navy-800 border border-navy-700 flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform">
+                <img src="/images/logo-brc.png" alt="BRC" className="h-7 md:h-9 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="font-heading font-extrabold text-xl md:text-2xl text-white tracking-tight">BRC</span>
-                <span className="text-[10px] md:text-xs font-semibold text-navy-300 tracking-wide">Brake Chambers</span>
+                <span className="font-heading font-extrabold text-lg md:text-xl text-white tracking-tight">BRC</span>
+                <span className="text-[10px] md:text-xs font-bold text-navy-300 tracking-widest uppercase">Brake Chambers</span>
               </div>
             </Link>
-            <p className="text-navy-300 text-sm mb-4 leading-relaxed">
-              Premium commercial vehicle brake chambers shipped worldwide. ISO 9001 certified manufacturing for heavy-duty fleet performance.
+            <p className="text-navy-300 text-sm mb-5 leading-relaxed pr-4 text-justify">
+              Global manufacturer of premium aftermarket commercial air brake chambers. We supply ISO 9001 certified spring brakes, service chambers, air disc actuators, and exact OEM cross-reference replacement parts for heavy-duty trucks, trailers, and transit fleets worldwide.
             </p>
 
             <div className="flex flex-col gap-4">
@@ -82,7 +82,8 @@ export default function Footer() {
           </div>
           
           {/* Categories */}
-          <FooterColumn title="Our Catalog">
+          <div className="lg:col-span-2">
+            <FooterColumn title="Our Catalog">
             <ul className="space-y-3">
               <li><Link href={`/products`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors font-semibold">All Products</Link></li>
               <li><Link href={`/spring-brakes`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Spring Brakes</Link></li>
@@ -91,23 +92,27 @@ export default function Footer() {
               <li><Link href={`/chamber-parts-kits`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Chamber Parts & Kits</Link></li>
               <li><Link href={`/oem-cross-reference`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">OEM Cross-Reference</Link></li>
             </ul>
-          </FooterColumn>
+            </FooterColumn>
+          </div>
           
           {/* Applications */}
-          <FooterColumn title="Applications">
+          <div className="lg:col-span-2">
+            <FooterColumn title="Applications">
             <ul className="space-y-3">
               <li><Link href={`/applications`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors font-semibold">All Applications</Link></li>
-              <li><Link href={`/applications/commercial-linehaul`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Commercial & Freight</Link></li>
-              <li><Link href={`/applications/refuse-sanitation`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Severe-Duty Trucks</Link></li>
-              <li><Link href={`/applications/transit-coach-bus`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Passenger & Transit</Link></li>
-              <li><Link href={`/applications/off-highway-mining`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Off-Highway & Mining</Link></li>
-              <li><Link href={`/applications/fleet-inquiries`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">OEM & Custom</Link></li>
+              <li><Link href={`/applications/long-haul-semi`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Commercial & Freight</Link></li>
+              <li><Link href={`/applications/garbage-refuse`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Severe-Duty Trucks</Link></li>
+              <li><Link href={`/applications/transit-buses`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Passenger & Transit</Link></li>
+              <li><Link href={`/applications/mining-construction`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Off-Highway & Mining</Link></li>
+              <li><Link href={`/applications/bulk-wholesale`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">OEM & Custom</Link></li>
               <li><Link href={`/quote`} className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold mt-2 inline-block">Request Custom Quote</Link></li>
             </ul>
-          </FooterColumn>
+            </FooterColumn>
+          </div>
           
           {/* Information */}
-          <FooterColumn title="Support & Info">
+          <div className="lg:col-span-2">
+            <FooterColumn title="Support & Info">
             <ul className="space-y-3">
               <li><Link href={`/company`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Company & Manufacturing</Link></li>
               <li><Link href={`/technical-resources`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Technical Resources</Link></li>
@@ -115,10 +120,12 @@ export default function Footer() {
               <li><Link href={`/warranty`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Warranty Info</Link></li>
               <li><Link href={`/contact`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Contact Support</Link></li>
             </ul>
-          </FooterColumn>
+            </FooterColumn>
+          </div>
           
           {/* Contact */}
-          <FooterColumn title="Contact Factory">
+          <div className="lg:col-span-3">
+            <FooterColumn title="Contact Factory">
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" />
@@ -133,7 +140,8 @@ export default function Footer() {
                 <span className="text-navy-300 text-sm leading-relaxed">Block 3, No 55 Tianyang Rd, Fengqiao,<br/>Zhuji, Zhejiang. China 311811</span>
               </li>
             </ul>
-          </FooterColumn>
+            </FooterColumn>
+          </div>
         </div>
         
         <div className="pt-8 border-t border-navy-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">

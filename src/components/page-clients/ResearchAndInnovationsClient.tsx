@@ -1,11 +1,11 @@
 "use client";
 
 import React from 'react';
-import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { ArrowRight, Lightbulb, PenTool, TrendingUp, Cpu, FlaskConical, Layers, Zap, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import CompanyPageLayout from '@/components/company/CompanyPageLayout';
 
 export default function ResearchAndInnovationsClient() {
   const initiatives = [
@@ -62,21 +62,13 @@ export default function ResearchAndInnovationsClient() {
   ];
 
   return (
-    <div className="bg-white min-h-screen pb-20">
-      <PageHeader
-        badge="R&D Hub"
-        title="R&D and Innovations"
-        description="We don't just follow industry standards — we engineer the technologies that define them."
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Company', href: '/company' },
-          { label: 'R&D and Innovations' }
-        ]}
-      />
-
-      {/* Core R&D Initiatives */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 max-w-7xl">
+    <CompanyPageLayout
+      badge="R&D Hub"
+      title="R&D and Innovations"
+      description="We don't just follow industry standards — we engineer the technologies that define them."
+    >
+      <div className="space-y-12">
+        <div className="w-full">
           <SectionHeader
             title={<>Engineering <span className="text-amber-500">Tomorrow's</span> Safety</>}
             description="Our dedicated R&D division focuses on rapid prototyping, finite element analysis (FEA), and continuous metallurgical improvements to reduce component weight while increasing structural integrity."
@@ -110,11 +102,11 @@ export default function ResearchAndInnovationsClient() {
             ))}
           </div>
         </div>
-      </section>
+        </div>
 
       {/* Innovation Roadmap */}
-      <section className="bg-slate-50 border-t border-slate-200 py-20">
-        <div className="container mx-auto px-4 max-w-7xl">
+      <div className="bg-slate-50 p-8 lg:p-12 border border-slate-200 rounded-3xl">
+        <div className="w-full">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             <div className="w-full lg:w-5/12">
               <SectionHeader
@@ -185,17 +177,15 @@ export default function ResearchAndInnovationsClient() {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Bottom CTA */}
-      <section className="bg-white py-16 border-t border-slate-200 text-center">
-        <div className="container mx-auto px-4 flex flex-col items-center">
+        {/* Bottom CTA */}
+        <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-slate-100">
           <SectionHeader title="See Our Work Put to the Test" className="!mb-6" />
           <Link href="/company/testing-laboratory" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-500 transition-colors uppercase tracking-widest text-lg">
             Inside the Testing Laboratory <ArrowRight className="w-6 h-6 ml-2" />
           </Link>
         </div>
-      </section>
-    </div>
+      </div>
+    </CompanyPageLayout>
   );
 }
