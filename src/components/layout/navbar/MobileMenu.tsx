@@ -3,8 +3,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Search, ShoppingBag, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import MarketSelector from '@/components/home/MarketSelector';
+import MarketSelector from '@/features/home/components/MarketSelector';
 import { MOBILE_LINKS } from '@/lib/navigationData';
+import { useSearchModalStore } from '@/store/search';
+import Card from '@/components/ui/Card';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -34,6 +36,12 @@ export default function MobileMenu({
   cartCount
 }: MobileMenuProps) {
   const router = useRouter();
+  const { openSearch } = useSearchModalStore();
+
+  const handleOpenSearch = () => {
+    setIsOpen(false);
+    openSearch();
+  };
 
   return (
     <AnimatePresence>
@@ -54,67 +62,25 @@ export default function MobileMenu({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden absolute left-0 right-0 top-full bg-white z-50 shadow-2xl h-[calc(100vh-116px)] overflow-y-auto flex flex-col"
+            className="lg:hidden absolute left-0 right-0 top-full bg-white z-50 shadow-2xl h-[calc(100dvh-64px)] overflow-y-auto flex flex-col"
           >
             <div className="px-4 pt-6 pb-24 flex-1 flex flex-col" ref={mobileSearchContainerRef}>
               <div className="relative mb-8">
-                <form onSubmit={handleSearch} className="flex items-center w-full bg-slate-50 rounded-xl border border-slate-200 focus-within:border-amber-500 focus-within:bg-white overflow-hidden group transition-colors shadow-sm">
-                  <Search className="h-5 w-5 text-navy-400 ml-4 group-focus-within:text-amber-500 transition-colors" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => {
-                      setSearchQuery(e.target.value);
-                      setShowDropdown(true);
-                    }}
-                    onFocus={() => setShowDropdown(true)}
-                    placeholder="Search BRC catalog or part numbers..."
-                    className="flex-1 bg-transparent py-4 px-3 text-[15px] text-navy-900 focus:outline-none placeholder-slate-400"
-                  />
-                  <button type="submit" className="pr-4 pl-2 flex items-center justify-center text-navy-600 font-extrabold text-[12px] uppercase tracking-widest hover:text-amber-600 transition-colors">
+                <button 
+                  onClick={handleOpenSearch}
+                  className="flex items-center w-full bg-slate-50 rounded-xl border border-slate-200 focus-within:border-amber-500 focus-within:bg-white overflow-hidden group transition-colors shadow-sm text-left h-14"
+                >
+                  <Search className="h-5 w-5 text-navy-400 ml-4 group-hover:text-amber-500 transition-colors" />
+                  <span className="flex-1 bg-transparent px-3 text-[15px] text-slate-400 font-medium">
+                    Search catalog or part #...
+                  </span>
+                  <div className="pr-4 pl-2 flex items-center justify-center text-navy-600 font-extrabold text-[12px] uppercase tracking-widest group-hover:text-amber-600 transition-colors h-full border-l border-slate-200">
                     Search
-                  </button>
-                </form>
-
-                {/* Mobile Live Search Dropdown (Inline) */}
-                {showDropdown && searchResults.length > 0 && (
-                  <div className="mt-3 w-full bg-white rounded-xl shadow-inner border border-navy-50 overflow-hidden z-50 max-h-[40vh] overflow-y-auto">
-                    <ul className="py-2">
-                      {searchResults.map((result) => (
-                        <li key={`${result.type}-${result.item.slug}`}>
-                          <button
-                            type="button"
-                            onPointerDown={(e) => {
-                              // Use onPointerDown for immediate response on mobile before blur events can fire
-                              e.preventDefault();
-                              router.push(`/${result.type}/${result.item.slug}`);
-                              setShowDropdown(false);
-                              setSearchQuery('');
-                              setIsOpen(false);
-                            }}
-                            className="w-full text-left flex items-center gap-4 px-4 py-3 hover:bg-slate-50 transition-colors border-b border-navy-50/50 last:border-0"
-                          >
-                            <div className="w-10 h-10 bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-200">
-                              <span className="text-xl">⚙️</span>
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <p className="text-[14px] font-extrabold text-navy-900 truncate">{result.item.name}</p>
-                              <p className="text-[11px] font-bold text-navy-500 capitalize tracking-wider mt-0.5">{result.type.replace('-', ' ')} &bull; {result.item.brandSlug}</p>
-                            </div>
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
-                )}
-                {showDropdown && searchQuery.trim() !== '' && searchResults.length === 0 && (
-                  <div className="mt-3 w-full bg-white rounded-xl shadow-inner border border-navy-50 p-6 text-center">
-                    <p className="text-sm font-medium text-navy-500">No products found matching "{searchQuery}".</p>
-                  </div>
-                )}
+                </button>
               </div>
 
-              <div className="mb-8 flex justify-between items-center bg-slate-50 p-4 rounded-xl border border-slate-200">
+              <div className="p-4 sm:p-6 md:p-8 rounded-[1.25rem] mb-8 flex justify-between items-center bg-slate-50 border border-slate-200 shadow-sm relative z-50">
                 <span className="text-[13px] font-extrabold text-navy-500 uppercase tracking-widest">Region / Language</span>
                 <Suspense fallback={<div className="w-24 h-8 bg-slate-200 rounded-full animate-pulse" />}>
                   <MarketSelector />

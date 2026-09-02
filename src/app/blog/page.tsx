@@ -1,5 +1,5 @@
 import React from 'react';
-import BlogClient from '@/components/page-clients/BlogClient';
+import BlogClient from '@/features/blog/components/BlogClient';
 
 export const metadata = {
   title: 'Industry Insights & News | BRC Brake Chambers',

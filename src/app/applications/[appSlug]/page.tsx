@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { APPLICATION_DATA } from '@/data/applicationsData';
-import ApplicationDetailClient from '@/components/page-clients/ApplicationDetailClient';
+import ApplicationDetailClient from '@/features/applications/components/ApplicationDetailClient';
 
 export async function generateMetadata(props: { params: Promise<{ appSlug: string }> }): Promise<Metadata> {
   const params = await props.params;

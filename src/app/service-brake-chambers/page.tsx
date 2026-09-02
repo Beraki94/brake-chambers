@@ -2,12 +2,12 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { BRAKE_CHAMBERS } from '@/lib/data';
-import ProductListingLayout from '@/components/products/ProductListingLayout';
+import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Service Brake Chambers | BRC Manufacturer',
-  description: 'Factory-direct heavy-duty service brake chambers for steer axles and primary braking. Direct aftermarket replacements for Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex. IATF 16949 certified manufacturer.',
+  description: 'Factory-direct heavy-duty service brake chambers for steer axles and primary braking. Direct aftermarket replacements for Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex. manufacturer producing to IATF 16949 standards.',
   keywords: ['Service Brake Chambers', 'Type 20', 'Type 24', 'Type 30', 'Commercial Air Brakes', 'Heavy-Duty Brake Chambers', 'Bendix Replacement', 'Meritor Replacement'],
 };
 
@@ -37,7 +37,7 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
               Service brake chambers are the heart of your vehicle's primary braking system, translating compressed air into the mechanical force needed to stop Class 8 trucks and commercial trailers. At BRC, we manufacture high-reliability service chambers designed specifically for front steer axles and heavy-duty applications.
             </p>
             <p>
-              Our IATF 16949 certified manufacturing process ensures that every service chamber delivers consistent, even braking force. We utilize heavy-gauge steel housings and premium elastomeric diaphragms to prevent premature wear and resist corrosion from harsh road chemicals.
+              Our Manufactured to IATF 16949 standards manufacturing process ensures that every service chamber delivers consistent, even braking force. We utilize heavy-gauge steel housings and premium elastomeric diaphragms to prevent premature wear and resist corrosion from harsh road chemicals.
             </p>
           </div>
           <div>
@@ -53,8 +53,8 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
         </div>
       </section>
 
-      <section>
-        <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6">Frequently Asked Questions</h2>
+      <section className="mt-16 max-w-4xl mx-auto">
+        <h2 className="text-3xl lg:text-4xl font-extrabold text-navy-900 mb-10 text-center">Frequently Asked Questions</h2>
         <GlobalFAQAccordion faqs={[
           {
             q: 'What is the difference between a service brake and a spring brake?',
@@ -138,7 +138,7 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
   return (
     <ProductListingLayout
       title="Service Brake Chambers"
-      description="Factory-direct durable service brake chambers for steer axles and primary braking. Built to exceed OEM specifications. IATF 16949 Certified."
+      description="Factory-direct durable service brake chambers for steer axles and primary braking. Built to exceed OEM specifications. Manufactured to IATF 16949 standards."
       badge="Primary Braking"
       baseCategory="service-brake-chambers"
       products={products}

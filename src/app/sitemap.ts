@@ -7,30 +7,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Base routes
   const routes = [
     '',
-    '/about',
     '/contact',
     '/quote',
-    '/company',
-    '/company/iatf-certifications',
-    '/company/brake-testing-lab',
-    '/company/brake-r-and-d',
-    '/company/manufacturing-process',
-    '/company/production-facility',
-    '/company/material-sourcing',
-    '/company/leadership',
-    '/company/our-story',
-    '/spring-brake-chambers',
-    '/service-brake-chambers',
-    '/air-disc-brake-actuators',
-    '/parts-and-kits',
+    '/our-story',
     '/distributors',
-    '/oem-cross-reference',
-    '/technical-resources',
-    '/applications',
     '/privacy',
     '/terms',
     '/warranty',
     '/shipping',
+    '/blog',
+    '/applications',
+    '/technical-resources',
+    
+    // Manufacturing Hub
+    '/manufacturing',
+    '/manufacturing/process',
+    '/manufacturing/material-sourcing',
+    '/manufacturing/quality-assurance',
+    '/manufacturing/research-development',
+    '/manufacturing/custom-oem',
+    '/manufacturing/private-label',
+    '/manufacturing/high-volume-orders',
+    
+    // Top-level categories
+    '/spring-brake-chambers',
+    '/service-brake-chambers',
+    '/air-disc-brake-actuators',
+    '/parts-and-kits',
+    
+    // OEM Hub
+    '/oem-cross-reference',
+    '/oem-cross-reference/bulk-inquiries',
+    '/oem-cross-reference/database',
+    '/oem-cross-reference/request',
+    '/oem-cross-reference/visual-guide',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -40,11 +50,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Spring Brakes Categories
   const springBrakeCategories = [
-    'type-30-30',
-    'type-24-30',
-    'standard-stroke',
-    'long-stroke',
-    'welded-clevis'
+    'commercial-trailer',
+    'heavy-duty-truck',
+    'oem-replacement',
+    'severe-duty'
   ].map((slug) => ({
     url: `${baseUrl}/spring-brake-chambers/${slug}`,
     lastModified: new Date(),
@@ -54,12 +63,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Service Chambers Categories
   const serviceChamberCategories = [
-    'type-30',
-    'type-24',
-    'type-20',
-    'type-16'
+    'drive-axle',
+    'steer-axle',
+    'trailer-axle',
+    'transit-bus'
   ].map((slug) => ({
     url: `${baseUrl}/service-brake-chambers/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }));
+  
+  // ADB Categories
+  const adbCategories = [
+    'high-temp-adb',
+    'trailer-adb',
+    'truck-adb'
+  ].map((slug) => ({
+    url: `${baseUrl}/air-disc-brake-actuators/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.9,
@@ -67,10 +88,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Chamber Parts Categories
   const partCategories = [
-    'diaphragms',
-    'caging-bolts',
-    'clamp-bands',
-    'slack-adjusters'
+    'mounting-hardware',
+    'repair-kits',
+    'replacement-rubber'
   ].map((slug) => ({
     url: `${baseUrl}/parts-and-kits/${slug}`,
     lastModified: new Date(),
@@ -120,14 +140,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
+  // Technical Resource Pages
+  const technicalResources = [
+    'installation',
+    'caging',
+    'size-charts',
+    'stroke-length',
+    'selection-guides',
+    'identification',
+  ].map((slug) => ({
+    url: `${baseUrl}/technical-resources/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
   return [
     ...routes,
     ...springBrakeCategories,
     ...serviceChamberCategories,
+    ...adbCategories,
     ...partCategories,
     ...springBrakes,
     ...serviceChambers,
     ...accessories,
     ...oemCrossReferenceHubs,
+    ...technicalResources,
   ];
 }

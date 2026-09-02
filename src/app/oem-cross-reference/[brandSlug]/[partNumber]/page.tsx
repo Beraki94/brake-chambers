@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { BRAKE_CHAMBERS } from '@/lib/data';
-import ProductListCard from '@/components/products/ProductListCard';
+import ProductListCard from '@/features/products/components/ProductListCard';
 import PageHeader from '@/components/layout/PageHeader';
 import { Truck, CheckCircle2, ShieldCheck, ArrowRight, Cog, Settings2, Replace, BadgeCheck, Check } from 'lucide-react';
 
@@ -98,7 +98,7 @@ export default async function OEMPartNumberPage(
               <p className="text-emerald-700/80 text-sm font-medium">We found the exact BRC equivalent for your {oemOriginalBrand} part.</p>
             </div>
           </div>
-          <div className="flex items-center text-sm font-bold text-emerald-800 bg-white border border-emerald-200 px-4 py-2.5 rounded-xl shrink-0 shadow-sm">
+          <div className="flex items-center text-sm font-bold text-emerald-800 border border-emerald-200 bg-emerald-50 px-4 py-2.5 rounded-xl shrink-0 shadow-sm">
             <span className="text-emerald-600/70 mr-2 uppercase tracking-wider text-xs">OEM SKU:</span> <span className="font-mono text-emerald-700">{oemOriginalPart}</span>
           </div>
         </div>

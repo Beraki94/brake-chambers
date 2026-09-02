@@ -5,11 +5,14 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
-import ProductListCard from '@/components/products/ProductListCard';
-import AccessoryListCard from '@/components/product-detail/AccessoryListCard';
-import OEMCrossReferenceCard from '@/components/oem/OEMCrossReferenceCard';
-import OEMSearchForm from '@/components/oem/OEMSearchForm';
+import ProductListCard from '@/features/products/components/ProductListCard';
+import AccessoryListCard from '@/features/products/product-detail/AccessoryListCard';
+import OEMCrossReferenceCard from '@/features/oem/components/OEMCrossReferenceCard';
+import OEMSearchForm from '@/features/oem/components/OEMSearchForm';
 import PageHeader from '@/components/layout/PageHeader';
+import Card from '@/components/ui/Card';
+import SectionHeader from '@/components/ui/SectionHeader';
+import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import { Truck, ArrowLeft, ShieldCheck, Settings, CheckCircle2, ChevronRight, Zap } from 'lucide-react';
 
 const OEM_BRANDS: Record<string, { name: string, type: string, desc: string }> = {
@@ -186,60 +189,70 @@ export default async function OEMBrandPage(
       </PageHeader>
 
       {/* OEM Search Tool Prominent Placement */}
-      <section className="relative z-20 -mt-8 sm:-mt-12 lg:-mt-24 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl mb-12 lg:mb-24">
+      <section className="scroll-mt-32 lg:scroll-mt-40 relative z-20 -mt-12 lg:-mt-24 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-16 lg:mb-24">
         <div className="w-full">
           <OEMSearchForm />
         </div>
       </section>
 
-      <div className="container mx-auto px-4 max-w-7xl">
-      <div className="flex flex-col-reverse lg:flex-row gap-8 mb-16">
-        {/* Left Column: Trust & Engineering Proof */}
-        <div className="w-full lg:w-1/3 flex flex-col gap-6">
-          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-            <h3 className="text-xl font-bold text-navy-900 mb-6 flex items-center">
-              <Zap className="w-5 h-5 mr-2 text-[#FFB000]" />
-              Engineering Compatibility
-            </h3>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 mr-3 shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-bold text-navy-900 text-sm">Matching Stroke Lengths</h4>
-                  <p className="text-sm text-slate-600 mt-1">Both Standard and Long Stroke variants exactly match {brandInfo.name} travel limits.</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 mr-3 shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-bold text-navy-900 text-sm">Identical Port Angles</h4>
-                  <p className="text-sm text-slate-600 mt-1">Drop-in replacement means no rerouting of airline hoses or modifying fittings.</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 mr-3 shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-bold text-navy-900 text-sm">Mounting Hardware</h4>
-                  <p className="text-sm text-slate-600 mt-1">Stud sizes, spacing, and clevis threads align perfectly with existing brackets.</p>
-                </div>
-              </li>
-            </ul>
-          </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
+        <div className="flex flex-col-reverse lg:flex-row gap-8 lg:gap-12 mb-16 items-start">
+          
+          {/* Left Column: Trust & Engineering Proof (Sticky) */}
+          <div className="w-full lg:w-1/3 flex flex-col gap-6 lg:sticky lg:top-32">
+            <Card padding="none" className="bg-navy-950 border border-navy-800 shadow-xl overflow-hidden relative">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+              <div className="p-6 md:p-8 relative z-10">
+                <h3 className="text-xl font-extrabold text-white mb-6 flex items-center tracking-tight">
+                  <Zap className="w-5 h-5 mr-3 text-amber-500 flex-shrink-0" />
+                  Engineering Compatibility
+                </h3>
+                <ul className="space-y-5">
+                  <li className="flex items-start">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 mr-3 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-bold text-white text-sm">Matching Stroke Lengths</h4>
+                      <p className="text-sm text-navy-300 mt-1.5 leading-relaxed">Both Standard and Long Stroke variants exactly match {brandInfo.name} travel limits.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 mr-3 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-bold text-white text-sm">Identical Port Angles</h4>
+                      <p className="text-sm text-navy-300 mt-1.5 leading-relaxed">Drop-in replacement means no rerouting of airline hoses or modifying fittings.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 mr-3 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-bold text-white text-sm">Mounting Hardware</h4>
+                      <p className="text-sm text-navy-300 mt-1.5 leading-relaxed">Stud sizes, spacing, and clevis threads align perfectly with existing brackets.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </Card>
 
-          <div className="bg-navy-50 p-8 rounded-2xl border border-navy-100 text-center">
-            <h3 className="text-lg font-bold text-navy-900 mb-2">Need a specific {brandInfo.name} part number?</h3>
-            <p className="text-sm text-slate-600 mb-6">If you can't find your exact part in our standard online catalog, our engineers can map it for you instantly.</p>
-            <Link href="/contact" className="w-full block bg-navy-900 text-white font-bold py-3 rounded-xl hover:bg-[#FFB000] hover:text-navy-900 transition-colors shadow-md">
-              Request Part Mapping
-            </Link>
+            <div className="bg-amber-50 p-6 md:p-8 rounded-2xl border border-amber-200 shadow-sm relative overflow-hidden group hover:border-amber-400 transition-colors">
+              <div className="absolute -right-4 -top-4 w-24 h-24 bg-amber-100 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500 ease-out"></div>
+              <div className="relative z-10">
+                <h3 className="text-lg font-extrabold text-navy-900 mb-2 leading-tight">Need a specific {brandInfo.name} part number?</h3>
+                <p className="text-sm text-navy-700 mb-6 font-medium">If you can't find your exact part in our standard online catalog, our engineers can map it for you instantly.</p>
+                <Link href="/contact" className="w-full inline-flex justify-center items-center bg-navy-900 text-white font-bold py-3.5 px-6 rounded-xl hover:bg-navy-800 hover:shadow-lg transition-all duration-300 active:scale-[0.98]">
+                  Request Part Mapping
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
 
         {/* Right Column: Compatible Products */}
         <div className="w-full lg:w-2/3">
-          <h2 className="text-2xl font-bold text-navy-900 mb-6 flex items-center pb-2 border-b border-slate-200">
-            Top Replacements for {brandInfo.name}
-          </h2>
+          <div className="mb-8 pb-5 border-b-2 border-slate-100">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-navy-900 tracking-tight">
+              Top Replacements for <span className="text-amber-500">{brandInfo.name}</span>
+            </h2>
+            <p className="text-slate-500 mt-2">Showing direct aftermarket equivalents with identical specifications.</p>
+          </div>
 
           {matchingChambers.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
@@ -269,10 +282,13 @@ export default async function OEMBrandPage(
 
           {oemPartLinks.length > 0 && (
             <>
-              <h2 className="text-xl font-bold text-navy-900 mb-6 flex items-center pb-2 border-b border-slate-200 mt-8">
-                Individual {brandInfo.name} Part Numbers
-              </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
+              <div className="mb-8 pb-5 border-b-2 border-slate-100 mt-12">
+                <h2 className="text-xl md:text-2xl font-extrabold text-navy-900 tracking-tight">
+                  Individual <span className="text-amber-500">{brandInfo.name}</span> Part Numbers
+                </h2>
+                <p className="text-slate-500 mt-2 text-sm">Select a specific OEM part number to view its direct BRC equivalent.</p>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-4 mb-12">
                 {oemPartLinks.map(([partSlug, partData]) => (
                   <Link 
                     key={partSlug} 
@@ -289,9 +305,11 @@ export default async function OEMBrandPage(
 
           {matchingAccessories.length > 0 && (
             <>
-              <h2 className="text-xl font-bold text-navy-900 mb-6 flex items-center pb-2 border-b border-slate-200">
-                Compatible Accessories & Hardware
-              </h2>
+              <div className="mb-8 pb-5 border-b-2 border-slate-100 mt-8">
+                <h2 className="text-xl md:text-2xl font-extrabold text-navy-900 tracking-tight">
+                  Compatible Accessories & Hardware
+                </h2>
+              </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 {matchingAccessories.slice(0, 4).map(accessory => (
@@ -307,13 +325,16 @@ export default async function OEMBrandPage(
         </div>
       </div>
 
-      {/* Programmatic SEO Text Block */}
-      <section className="py-16 bg-white border-t border-slate-200 mt-16">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-extrabold text-navy-900 mb-6 tracking-tight">
-            Why cross-reference {brandInfo.name} {categoryNameForSeo ? categoryNameForSeo.toLowerCase() : 'brake chambers'}?
-          </h2>
-          <div className="prose prose-lg prose-slate text-slate-600 max-w-none">
+      {/* Programmatic SEO Text Block & FAQ */}
+      <section className="py-16 md:py-24 bg-white border-t border-slate-200 mt-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <SectionHeader
+            badge="Brand Insights & FAQ"
+            title={`Why cross-reference ${brandInfo.name} ${categoryNameForSeo ? categoryNameForSeo.toLowerCase() : 'brake chambers'}?`}
+            accentColor="amber"
+          />
+          
+          <div className="prose prose-lg prose-slate text-slate-600 max-w-none mt-10 mb-16">
             <p className="mb-4">
               When replacing <strong>{brandInfo.name}</strong> {categoryNameForSeo ? categoryNameForSeo.toLowerCase() : 'air brake components'}, fleet managers often face high markup costs associated with brand-name packaging. BRC Brake Chambers provides a factory-direct aftermarket alternative that matches or exceeds original equipment specifications.
             </p>
@@ -323,6 +344,28 @@ export default async function OEMBrandPage(
             <p>
               By utilizing our <strong>{brandInfo.name} interchange</strong> database, you ensure regulatory compliance (FMVSS-121) while significantly reducing your maintenance overhead. All recommended cross-references have undergone 1-million cycle life testing and rigorous 100% pneumatic leak checks.
             </p>
+          </div>
+
+          <SectionHeader
+            title="Frequently Asked Questions"
+            accentColor="navy"
+          />
+
+          <div className="mt-8">
+            <GlobalFAQAccordion faqs={[
+              { 
+                q: `Are BRC chambers exact replacements for ${brandInfo.name}?`, 
+                a: `Yes, BRC aftermarket chambers are engineered as exact drop-in replacements for ${brandInfo.name} equipment, featuring identical mounting hardware, port angles, and pushrod lengths.` 
+              },
+              { 
+                q: `Will using aftermarket parts void my ${brandInfo.name} warranty?`, 
+                a: "Under the Magnuson-Moss Warranty Act, it is illegal to void a warranty simply for using a high-quality aftermarket replacement part, unless they can prove the part caused the failure." 
+              },
+              {
+                q: "How accurate is the cross-reference mapping?",
+                a: "Our database is verified against manufacturer catalogs. If you have any doubts, our engineering team can manually confirm the exact cross-reference before you place an order."
+              }
+            ]} />
           </div>
         </div>
       </section>

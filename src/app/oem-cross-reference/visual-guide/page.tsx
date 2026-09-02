@@ -4,6 +4,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import { Ruler, ShieldCheck, Settings } from 'lucide-react';
 import Image from 'next/image';
+import Card from '@/components/ui/Card';
 
 export const metadata: Metadata = {
   title: 'Visual Identification Guide | BRC Brake Chambers',
@@ -25,10 +26,11 @@ export default function VisualGuidePage() {
         ]}
       />
 
-      <div className="container mx-auto px-4 max-w-5xl py-16">
+      <div className="container mx-auto px-4 max-w-7xl py-16">
         
         {/* Step 1: Pushrod Length */}
-        <section className="mb-20 bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+        <section className="mb-20 md:bg-white md:border md:border-slate-200 md:shadow-sm relative overflow-hidden h-full rounded-3xl">
+<Card padding="lg" className="h-full w-full">
           <div className="absolute top-0 right-0 w-64 h-64 bg-amber-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
           
           <div className="flex flex-col md:flex-row gap-12 items-center relative z-10">
@@ -59,10 +61,12 @@ export default function VisualGuidePage() {
                </div>
             </div>
           </div>
-        </section>
+        </Card>
+</section>
 
         {/* Step 2: Port Angles */}
-        <section className="mb-20 bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+        <section className="mb-20 md:bg-white md:border md:border-slate-200 md:shadow-sm relative overflow-hidden h-full rounded-3xl">
+<Card padding="lg" className="h-full w-full">
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-navy-50 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
           
           <div className="flex flex-col md:flex-row-reverse gap-12 items-center relative z-10">
@@ -93,7 +97,8 @@ export default function VisualGuidePage() {
                </div>
             </div>
           </div>
-        </section>
+        </Card>
+</section>
 
       </div>
 

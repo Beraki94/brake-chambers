@@ -1,7 +1,7 @@
 import React from 'react';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import PageHeader from '@/components/layout/PageHeader';
-import QuoteClient from '@/components/page-clients/QuoteClient';
+import QuoteClient from '@/features/quote/components/QuoteClient';
 
 export const metadata = {
   title: 'Global Wholesale RFQ | BRC Brake Chambers',

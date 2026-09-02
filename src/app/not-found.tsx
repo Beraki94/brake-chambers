@@ -3,7 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { ShieldAlert, ArrowRight, Cog } from 'lucide-react';
-import TrendingModelsMarquee from '@/components/shared/TrendingModelsMarquee';
+import TrendingModelsMarquee from '@/components/ui/TrendingModelsMarquee';
+import Card from '@/components/ui/Card';
 
 export default function NotFound() {
   return (
@@ -26,9 +27,11 @@ export default function NotFound() {
             <Link href="/products" className="px-8 py-4 bg-amber-500 text-navy-950 rounded-xl font-extrabold hover:bg-amber-400 transition-all shadow-[0_10px_30px_rgba(245,158,11,0.3)] transform hover:-translate-y-1 flex items-center gap-2 w-full sm:w-auto justify-center uppercase tracking-widest text-sm">
               View Catalog <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href="/contact" className="px-8 py-4 bg-white text-navy-900 border border-slate-200 rounded-xl font-bold hover:border-navy-900 hover:shadow-md transition-all flex items-center gap-2 w-full sm:w-auto justify-center uppercase tracking-widest text-sm">
+            <Link href="/contact" className="px-8 py-4 text-navy-900 -slate-200 font-bold hover:-navy-900 hover: flex items-center gap-2 w-full sm:w-auto justify-center uppercase tracking-widest text-sm h-full">
+<Card padding="sm" hoverEffect="lift" glowColor="navy" className="h-full w-full">
               Contact Support
-            </Link>
+            </Card>
+</Link>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import WarrantyClient from '@/components/page-clients/WarrantyClient';
+import WarrantyClient from '@/features/warranty/components/WarrantyClient';
 
 export const metadata = {
   title: 'Warranty | BRC Brake Chambers',

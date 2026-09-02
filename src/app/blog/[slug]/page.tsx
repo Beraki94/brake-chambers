@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { blogPosts } from '@/data/blogPosts';
-import BlogPostClient from '@/components/page-clients/BlogPostClient';
+import BlogPostClient from '@/features/blog/components/BlogPostClient';
 
 interface BlogPostPageProps {
   params: Promise<{

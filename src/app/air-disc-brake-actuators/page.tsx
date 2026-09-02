@@ -2,12 +2,12 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { BRAKE_CHAMBERS } from '@/lib/data';
-import ProductListingLayout from '@/components/products/ProductListingLayout';
+import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 
 export const metadata: Metadata = {
   title: 'Air Disc Brake (ADB) Actuators | BRC Manufacturer',
-  description: 'Factory-direct heavy-duty Air Disc Brake (ADB) actuators. Direct aftermarket replacements for Bendix, Meritor, and Wabco. IATF 16949 certified manufacturer.',
+  description: 'Factory-direct heavy-duty Air Disc Brake (ADB) actuators. Direct aftermarket replacements for Bendix, Meritor, and Wabco. manufacturer producing to IATF 16949 standards.',
   keywords: ['Air Disc Actuators', 'ADB Actuators', 'Type 20/24 ADB', 'Commercial Air Brakes', 'Bendix ADB22X Replacement'],
 };
 
@@ -51,8 +51,8 @@ export default async function AirDiscActuatorsPage(props: { searchParams?: Promi
         </div>
       </section>
 
-      <section className="mb-16">
-        <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6">Frequently Asked Questions</h2>
+      <section className="mb-16 mt-16 max-w-4xl mx-auto">
+        <h2 className="text-3xl lg:text-4xl font-extrabold text-navy-900 mb-10 text-center">Frequently Asked Questions</h2>
         <GlobalFAQAccordion faqs={[
           {
             q: 'Can I replace a standard spring brake with an ADB actuator?',

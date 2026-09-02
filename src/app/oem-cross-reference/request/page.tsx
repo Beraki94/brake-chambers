@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import PageHeader from '@/components/layout/PageHeader';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import { Mail, ShieldCheck, Clock, Camera } from 'lucide-react';
+import Card from '@/components/ui/Card';
 
 export const metadata: Metadata = {
   title: 'Request a Cross-Match | BRC Brake Chambers',
@@ -24,7 +25,7 @@ export default function RequestMatchPage() {
         ]}
       />
 
-      <div className="container mx-auto px-4 max-w-6xl py-16">
+      <div className="container mx-auto px-4 max-w-screen-2xl py-16">
         <div className="flex flex-col lg:flex-row gap-12">
           
           {/* Left: Info */}
@@ -69,7 +70,7 @@ export default function RequestMatchPage() {
           </div>
 
           {/* Right: Form */}
-          <div className="w-full lg:w-2/3 bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-sm">
+          <Card padding="lg" className="w-full lg:w-2/3 md:bg-white md:border md:border-slate-200 md:shadow-sm">
             <h2 className="text-2xl font-extrabold text-navy-900 mb-2">Submission Form</h2>
             <p className="text-slate-500 mb-8">Please fill out as much information as possible to expedite the match.</p>
             
@@ -125,7 +126,7 @@ export default function RequestMatchPage() {
                 Submit for Engineering Match
               </button>
             </form>
-          </div>
+          </Card>
 
         </div>
       </div>

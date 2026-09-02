@@ -3,9 +3,10 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
-import AccessoryListCard from '@/components/product-detail/AccessoryListCard';
-import FacetedSidebar from '@/components/products/FacetedSidebar';
+import AccessoryListCard from '@/features/products/product-detail/AccessoryListCard';
+import FacetedSidebar from '@/features/products/components/FacetedSidebar';
 import { Truck, CheckCircle2 } from 'lucide-react';import PageHeader from '@/components/layout/PageHeader';
+import Card from '@/components/ui/Card';
 
 
 export const metadata: Metadata = {
@@ -51,7 +52,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
         ]}
       />
 
-      <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-20">
+      <div className="container mx-auto px-4 lg:px-8 max-w-[1920px] relative z-20">
         <div className="flex flex-col lg:flex-row gap-8">
         <div className="w-full lg:w-64 flex-shrink-0 flex flex-col gap-4">
            <FacetedSidebar baseCategory="parts-and-kits" />
@@ -66,7 +67,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
              
              <h4 className="font-extrabold text-white text-sm mb-2 uppercase tracking-wide">Bulk OEM Orders</h4>
              <p className="text-xs mb-5 text-navy-200 leading-relaxed">
-               Custom paint, private labeling, and IATF 16949 certified manufacturing for large fleets.
+               Custom paint, private labeling, and Manufactured to IATF 16949 standards manufacturing for large fleets.
              </p>
              
              <Link href="/quote" className="w-full bg-amber-500 text-navy-900 text-xs font-extrabold px-4 py-2.5 rounded-xl hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20 flex items-center justify-center gap-1.5">
@@ -87,13 +88,13 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 bg-slate-50 rounded-2xl border border-slate-200">
+            <Card padding="md" className="text-center py-16 -slate-200">
               <h3 className="text-2xl font-bold text-navy-900 mb-3">No matching products found</h3>
               <p className="text-slate-500 mb-6 max-w-md mx-auto">We may still manufacture this specification. Contact our engineering team for custom requirements.</p>
               <Link href="/quote" className="inline-block bg-navy-900 text-white font-bold px-6 py-3 rounded-xl hover:bg-navy-800 transition-colors">
                 Contact Sales
               </Link>
-            </div>
+            </Card>
           )}
 
           

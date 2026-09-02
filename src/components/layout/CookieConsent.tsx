@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, X } from 'lucide-react';
 import Link from 'next/link';
+import Card from '@/components/ui/Card';
 
 export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,7 +14,6 @@ export default function CookieConsent() {
     const hasConsented = document.cookie.split('; ').find(row => row.startsWith('cookie-consent='));
     
     if (!hasConsented) {
-      // Delay showing the banner slightly for better UX
       const timer = setTimeout(() => {
         setIsVisible(true);
       }, 1000);
@@ -41,9 +41,9 @@ export default function CookieConsent() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-6 md:left-auto md:right-6 md:bottom-6 md:max-w-[420px]"
+          className="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-0 md:left-auto md:right-6 md:bottom-6 md:w-[420px] pointer-events-none"
         >
-          <div className="bg-white shadow-2xl rounded-2xl md:rounded-3xl border border-navy-100 overflow-hidden relative">
+          <Card padding="none" className="border-slate-200 pointer-events-auto shadow-2xl">
             {/* Top Amber Accent Line */}
             <div className="absolute top-0 left-0 w-full h-1.5 bg-[#FFB000]" />
             
@@ -88,7 +88,7 @@ export default function CookieConsent() {
                 </button>
               </div>
             </div>
-          </div>
+          </Card>
         </motion.div>
       )}
     </AnimatePresence>

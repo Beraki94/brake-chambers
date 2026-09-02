@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
-import ApplicationsClient from '@/components/page-clients/ApplicationsClient';
+import ApplicationsClient from '@/features/applications/components/ApplicationsClient';
 
 export const metadata: Metadata = {
   title: 'Industry Applications | Commercial Brake Chambers | BRC',

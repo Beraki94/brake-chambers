@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import DistributorsClient from '@/components/page-clients/DistributorsClient';
+import DistributorsClient from '@/features/distributors/components/DistributorsClient';
 
 export const metadata: Metadata = {
   title: 'Global Distributor Network & Partner Portal | BRC Brake Chambers',

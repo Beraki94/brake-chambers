@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Card from '@/components/ui/Card';
 
 export const metadata = {
   title: 'Terms of Service | BRC Brake Chambers',
@@ -25,7 +26,7 @@ export default function TermsPage() {
       </section>
 
       <section className="container mx-auto px-4 lg:px-8 max-w-4xl -mt-20 relative z-20">
-        <div className="bg-white rounded-2xl shadow-xl border border-navy-50 p-8 md:p-12 space-y-8 text-navy-600">
+        <Card padding="lg" className="-navy-50 md: space-y-8 text-navy-600">
           <div>
             <h2 className="text-2xl font-bold text-navy-900 mb-4">1. Business-to-Business (B2B) Only</h2>
             <p>BRC Brake Chambers operates strictly as a Business-to-Business (B2B) wholesale manufacturer. We require a minimum order quantity (MOQ) for most shipments (typically one pallet) to ensure competitive factory-direct pricing.</p>
@@ -42,7 +43,7 @@ export default function TermsPage() {
             <h2 className="text-2xl font-bold text-navy-900 mb-4">4. Payment Terms</h2>
             <p>Standard terms for international wholesale orders are 30% T/T deposit to commence manufacturing, and 70% balance before shipment, unless long-term credit terms have been established.</p>
           </div>
-        </div>
+        </Card>
       </section>
     </div>
   );

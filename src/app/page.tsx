@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import HomeClient from '@/components/page-clients/HomeClient';
+import HomeClient from '@/features/home/components/HomeClient';
 
 export const metadata: Metadata = {
   title: 'BRC Brake Chambers | Premier Aftermarket Manufacturer for Heavy-Duty Trucks',

@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
-import ProductsClient from '@/components/page-clients/ProductsClient';
+import ProductsClient from '@/features/products/components/ProductsClient';
 
 export const metadata: Metadata = {
   title: 'All Products | BRC Brake Chambers',

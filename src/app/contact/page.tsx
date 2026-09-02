@@ -1,6 +1,6 @@
 import React from 'react';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
-import ContactClient from '@/components/page-clients/ContactClient';
+import ContactClient from '@/features/contact/components/ContactClient';
 
 export const metadata = {
   title: 'Contact Us | BRC Brake Chambers',

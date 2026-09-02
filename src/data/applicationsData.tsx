@@ -295,17 +295,17 @@ export const APPLICATION_DATA: Record<string, any> = {
     keywords: ['brake chamber contract manufacturing', 'white label air brakes', 'OEM brake supplier', 'air brake factory'],
     faqs: [
       { q: 'Can you manufacture completely proprietary designs exclusively for our brand?', a: 'Yes. We offer confidential contract manufacturing. We will tool and produce your proprietary actuator designs under strict NDAs, ensuring your IP remains completely protected.' },
-      { q: 'What quality control certifications does your factory hold?', a: 'Our manufacturing campus is fully IATF 16949 compliant, ensuring top-tier automotive quality control and traceability on every single unit that leaves our line.' }
+      { q: 'What quality control certifications does your factory hold?', a: 'Our manufacturing campus is fully compliant with IATF 16949 standards, ensuring top-tier automotive quality control and traceability on every single unit that leaves our line.' }
     ],
     bgStyle: 'from-navy-900 to-navy-950',
     accent: 'text-amber-500',
     heroImage: 'https://images.unsplash.com/photo-1565011500332-9c16262b9a7c?auto=format&fit=crop&w=2000&q=80',
     challenge: {
       title: 'The Scaling & Capital Challenge',
-      desc: 'Scaling production for a new or rapidly expanding aftermarket brake brand requires massive capital investment. Building automated assembly lines, acquiring heavy steel stamping presses, and outfitting IATF 16949-certified testing laboratories takes years and millions of dollars. Attempting to source from unreliable overseas brokers leads to devastating quality control issues, brand-damaging recalls, and IP theft. The challenge is finding a proven, primary manufacturer capable of scaling your brand with perfect consistency.'
+      desc: 'Scaling production for a new or rapidly expanding aftermarket brake brand requires massive capital investment. Building automated assembly lines, acquiring heavy steel stamping presses, and outfitting testing laboratories compliant with IATF 16949 takes years and millions of dollars. Attempting to source from unreliable overseas brokers leads to devastating quality control issues, brand-damaging recalls, and IP theft. The challenge is finding a proven, primary manufacturer capable of scaling your brand with perfect consistency.'
     },
     technologies: [
-      { name: 'IATF 16949 Automated Assembly', desc: 'Our state-of-the-art automated production lines are capable of producing over 1,000,000 units annually with zero-defect consistency for your brand.', icon: <Factory className="w-8 h-8" /> },
+      { name: 'IATF 16949 Standard Automated Assembly', desc: 'Our state-of-the-art automated production lines are capable of producing over 1,000,000 units annually with zero-defect consistency for your brand.', icon: <Factory className="w-8 h-8" /> },
       { name: 'In-House 1M Cycle Testing', desc: 'We protect your brand reputation by rigorously lab-testing every batch on our 1-million cycle dynamometers to guarantee extreme lifecycle performance.', icon: <Activity className="w-8 h-8" /> },
       { name: 'Strict NDA & Confidentiality', desc: 'We offer completely confidential contract manufacturing, producing your proprietary designs and branding under strict Non-Disclosure Agreements.', icon: <ShieldAlert className="w-8 h-8" /> }
     ],

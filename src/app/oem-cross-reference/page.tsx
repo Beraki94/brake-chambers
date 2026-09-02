@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
-import OEMCrossReferenceClient from '@/components/page-clients/OEMCrossReferenceClient';
+import OEMCrossReferenceClient from '@/features/oem/components/OEMCrossReferenceClient';
 
 
 export const metadata: Metadata = {

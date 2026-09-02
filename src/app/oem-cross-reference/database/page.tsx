@@ -5,6 +5,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import { Download, Table, FileSpreadsheet } from 'lucide-react';
 import { BRAKE_CHAMBERS } from '@/lib/data';
+import Card from '@/components/ui/Card';
 
 export const metadata: Metadata = {
   title: 'Full Interchange Database | BRC Brake Chambers',
@@ -53,10 +54,10 @@ export default function DatabasePage() {
         ]}
       />
 
-      <div className="container mx-auto px-4 max-w-6xl py-12">
+      <div className="container mx-auto px-4 max-w-screen-2xl py-12">
         
         {/* Action Bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-center bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mb-8">
+        <Card padding="md" className="flex flex-col sm:flex-row justify-between items-center bg-white border border-slate-200 shadow-sm mb-8">
           <div className="flex items-center mb-4 sm:mb-0">
             <div className="w-12 h-12 bg-navy-50 rounded-full flex items-center justify-center mr-4">
               <Table className="w-6 h-6 text-navy-500" />
@@ -74,29 +75,29 @@ export default function DatabasePage() {
               <Download className="w-5 h-5 mr-2" /> Download PDF Guide
             </button>
           </div>
-        </div>
+        </Card>
 
         {/* Database Table */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <Card padding="none" className="overflow-hidden border border-slate-200">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-slate-100 border-b border-slate-200">
-                  <th className="p-4 font-bold text-navy-900">OEM Brand</th>
-                  <th className="p-4 font-bold text-navy-900">OEM Part #</th>
-                  <th className="p-4 font-bold text-navy-900">Category</th>
-                  <th className="p-4 font-bold text-navy-900">BRC Equivalent</th>
-                  <th className="p-4 font-bold text-navy-900 text-right">Action</th>
+                  <th className="p-3 sm:p-4 font-bold text-navy-900 whitespace-nowrap">OEM Brand</th>
+                  <th className="p-3 sm:p-4 font-bold text-navy-900 whitespace-nowrap">OEM Part #</th>
+                  <th className="p-3 sm:p-4 font-bold text-navy-900 whitespace-nowrap">Category</th>
+                  <th className="p-3 sm:p-4 font-bold text-navy-900 whitespace-nowrap">BRC Equivalent</th>
+                  <th className="p-3 sm:p-4 font-bold text-navy-900 text-right whitespace-nowrap">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {allMappings.map((row, idx) => (
                   <tr key={idx} className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                    <td className="p-4 font-medium text-slate-700">{row.oemBrand}</td>
-                    <td className="p-4 font-mono font-bold text-navy-900">{row.oemPart}</td>
-                    <td className="p-4 text-slate-500 text-sm">{row.category}</td>
-                    <td className="p-4 font-bold text-emerald-600">{row.brcEquivalent}</td>
-                    <td className="p-4 text-right">
+                    <td className="p-3 sm:p-4 font-medium text-slate-700 whitespace-nowrap">{row.oemBrand}</td>
+                    <td className="p-3 sm:p-4 font-mono font-bold text-navy-900 whitespace-nowrap">{row.oemPart}</td>
+                    <td className="p-3 sm:p-4 text-slate-500 text-sm whitespace-nowrap">{row.category}</td>
+                    <td className="p-3 sm:p-4 font-bold text-emerald-600 whitespace-nowrap">{row.brcEquivalent}</td>
+                    <td className="p-3 sm:p-4 text-right whitespace-nowrap">
                       <Link href={row.brcSlug} className="text-amber-600 hover:text-amber-700 font-bold text-sm hover:underline">
                         View Part
                       </Link>
@@ -106,7 +107,7 @@ export default function DatabasePage() {
               </tbody>
             </table>
           </div>
-        </div>
+        </Card>
 
       </div>
 

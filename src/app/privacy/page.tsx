@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Card from '@/components/ui/Card';
 
 export const metadata = {
   title: 'Privacy Policy | BRC Brake Chambers',
@@ -25,7 +26,7 @@ export default function PrivacyPage() {
       </section>
 
       <section className="container mx-auto px-4 lg:px-8 max-w-4xl -mt-20 relative z-20">
-        <div className="bg-white rounded-2xl shadow-xl border border-navy-50 p-8 md:p-12 space-y-8 text-navy-600">
+        <Card padding="lg" className="-navy-50 md: space-y-8 text-navy-600">
           <div>
             <h2 className="text-2xl font-bold text-navy-900 mb-4">1. Data Collection</h2>
             <p>We only collect data necessary to fulfill wholesale manufacturing orders, including company names, shipping addresses, tax IDs, and commercial contact information.</p>
@@ -36,9 +37,9 @@ export default function PrivacyPage() {
           </div>
           <div>
             <h2 className="text-2xl font-bold text-navy-900 mb-4">3. Security</h2>
-            <p>All sensitive documents, including RFQs and payment confirmations, are stored on encrypted servers compliant with ISO data security standards.</p>
+            <p>All sensitive documents, including RFQs and payment confirmations, are stored on encrypted servers compliant with strict data security standards.</p>
           </div>
-        </div>
+        </Card>
       </section>
     </div>
   );

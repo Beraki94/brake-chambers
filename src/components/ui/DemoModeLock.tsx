@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Card from '@/components/ui/Card';
 
 const ALLOWED_PATHS = [
   '/',
@@ -97,8 +98,9 @@ export default function DemoModeLock() {
             initial={{ scale: 0.95, y: 20 }}
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0 }}
-            className="bg-white rounded-[2rem] shadow-2xl p-8 md:p-12 max-w-lg w-full text-center border border-slate-100 flex flex-col items-center"
+            className="] md: max-w-lg w-full text-center -slate-100 flex flex-col items-center h-full"
           >
+<Card padding="lg" className="h-full w-full">
             <div className="w-20 h-20 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 relative shadow-inner">
               <Loader2 className="w-10 h-10 text-amber-500 animate-spin relative z-10" />
               <div className="absolute inset-0 rounded-2xl border-2 border-amber-500/30 animate-ping"></div>
@@ -123,7 +125,8 @@ export default function DemoModeLock() {
             >
               Continue Exploring
             </button>
-          </motion.div>
+          </Card>
+</motion.div>
         </motion.div>
       )}
     </AnimatePresence>

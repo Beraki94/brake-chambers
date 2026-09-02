@@ -14,13 +14,14 @@ interface PageHeaderProps {
 
 export default function PageHeader({ badge, title, description, children, imageSrc = '/images/engineering_blueprint.png', breadcrumbs, fullColorBackground = false }: PageHeaderProps) {
   return (
-    <section className="relative pt-6 md:pt-10 lg:pt-12 pb-16 md:pb-20 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8 bg-navy-950">
+    <section className="relative pt-6 md:pt-10 lg:pt-12 pb-24 md:pb-32 lg:pb-40 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8 bg-navy-950">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src={imageSrc}
           alt="Header Background"
           fill
+          unoptimized={imageSrc.startsWith('http')}
           className={`object-cover opacity-40 ${fullColorBackground ? '' : 'mix-blend-luminosity grayscale'}`}
           priority
         />
@@ -41,7 +42,7 @@ export default function PageHeader({ badge, title, description, children, imageS
       <div className="absolute top-0 right-0 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-amber-500 opacity-10 rounded-full blur-[80px] md:blur-[120px] -mr-20 -mt-20 md:-mr-40 md:-mt-40 mix-blend-screen pointer-events-none z-10"></div>
 
       {/* Content */}
-      <div className="container mx-auto max-w-7xl relative z-20">
+      <div className="container mx-auto max-w-[1920px] relative z-20">
         
         {/* TOP LEFT BREADCRUMB - Standardized Position */}
         {breadcrumbs && breadcrumbs.length > 0 && (
@@ -70,7 +71,7 @@ export default function PageHeader({ badge, title, description, children, imageS
               {badge}
             </div>
           )}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-[1.15] mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.15] mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
             {title}
           </h1>
           <p className="text-base md:text-xl mb-8 md:mb-10 leading-relaxed max-w-2xl font-light text-navy-100">

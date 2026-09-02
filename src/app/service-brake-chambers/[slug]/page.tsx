@@ -3,8 +3,8 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { BRAKE_CHAMBERS } from '@/lib/data';
 import { SERVICE_CHAMBERS_META } from '@/lib/categoryMeta';
-import ProductListingLayout from '@/components/products/ProductListingLayout';
-import ProductDetailLayout from '@/components/product-detail/ProductDetailLayout';
+import ProductListingLayout from '@/features/products/components/ProductListingLayout';
+import ProductDetailLayout from '@/features/products/product-detail/ProductDetailLayout';
 
 export async function generateStaticParams() {
   const categories = Object.keys(SERVICE_CHAMBERS_META).map((slug) => ({ slug }));

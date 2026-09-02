@@ -1,0 +1,66 @@
+"use client";
+
+import React from 'react';
+import { ArrowRight, Layers, Droplet, Shield, Zap } from 'lucide-react';
+import Link from 'next/link';
+import SectionHeader from '@/components/ui/SectionHeader';
+import CompanyPageLayout from '@/features/company/components/CompanyPageLayout';
+
+export default function MaterialSourcingClient() {
+  return (
+    <CompanyPageLayout
+      badge="Supply Chain"
+      title="Material Sourcing"
+      description="The best engineering means nothing if raw materials fail. We source only premium-grade metals and synthetic compounds."
+    >
+      <div className="space-y-12">
+        <div className="w-full">
+          <SectionHeader
+            title={<>No Compromises. <span className="text-slate-600">No Shortcuts.</span></>}
+            description="While competitors thin their housings to save weight and cut costs, BRC utilizes heavy-gauge materials designed to resist rock strikes, vibration fatigue, and the immense torsional forces of heavy braking."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm">
+              <Layers className="w-12 h-12 text-slate-500 mb-6" />
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">8-Gauge Steel Housings</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Our pressure housings are formed from premium 8-gauge steel, providing superior burst strength and resistance to road debris impacts compared to standard 9-gauge or 11-gauge alternatives.
+              </p>
+            </div>
+            <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm">
+              <Droplet className="w-12 h-12 text-slate-500 mb-6" />
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">Advanced Neoprene Rubber</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Our diaphragms are molded from advanced neoprene rubber compounds reinforced with high-strength nylon fabric. They maintain extreme flexibility in -40°F cold and resist degradation in high heat.
+              </p>
+            </div>
+            <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm">
+              <Shield className="w-12 h-12 text-slate-500 mb-6" />
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">Dual-Layer Corrosion Defense</h3>
+              <p className="text-slate-600 leading-relaxed">
+                We utilize a multi-stage cathodic electrodeposition (E-coat) followed by heavy epoxy coatings on our internal return springs and housing interiors to prevent rust flaking, the #1 cause of center seal failure.
+              </p>
+            </div>
+            <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm">
+              <Zap className="w-12 h-12 text-slate-500 mb-6" />
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">Machined Push-Rods</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Our push-rods are CNC machined from high-tensile steel to guarantee perfect linearity, preventing the binding and uneven wear that destroys center seals in inferior designs.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Next Step CTA */}
+        <div className="bg-white rounded-3xl p-12 text-center shadow-sm border border-slate-100">
+          <SectionHeader title="Verified by Global Standards" className="!mb-6" />
+
+          <Link href="/company/iatf-certifications" className="inline-flex items-center text-amber-500 font-bold hover:text-amber-400 transition-colors uppercase tracking-widest text-lg">
+            View IATF Certifications <ArrowRight className="w-6 h-6 ml-2" />
+          </Link>
+        </div>
+      </div>
+    </CompanyPageLayout>
+  );
+}

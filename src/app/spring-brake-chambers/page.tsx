@@ -2,12 +2,12 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { BRAKE_CHAMBERS } from '@/lib/data';
-import ProductListingLayout from '@/components/products/ProductListingLayout';
+import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Spring Brake Chambers | BRC Manufacturer',
-  description: 'Factory-direct heavy-duty spring brake chambers. Direct aftermarket replacements for Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex. IATF 16949 certified manufacturer.',
+  description: 'Factory-direct heavy-duty spring brake chambers. Direct aftermarket replacements for Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex. manufacturer producing to IATF 16949 standards.',
   keywords: ['Spring Brake Chambers', 'Type 30/30', 'Commercial Air Brakes', 'Heavy-Duty Brake Chambers', 'Bendix Replacement', 'Meritor Replacement'],
 };
 
@@ -41,7 +41,7 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
               Commercial fleets require absolute reliability when it comes to parking and emergency braking. BRC's heavy-duty spring brake chambers are engineered to exceed OEM standards, providing maximum hold and stopping power for Class 8 trucks, trailers, and heavy-duty vehicles.
             </p>
             <p>
-              Manufactured in our IATF 16949 certified facility, our chambers feature heavy-gauge steel construction, high-tensile strength power springs, and a superior epoxy powder-coating that resists salt, magnesium chloride, and severe road conditions.
+              Manufactured in our Manufactured to IATF 16949 standards facility, our chambers feature heavy-gauge steel construction, high-tensile strength power springs, and a superior epoxy powder-coating that resists salt, magnesium chloride, and severe road conditions.
             </p>
           </div>
           <div>
@@ -57,8 +57,8 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
         </div>
       </section>
 
-      <section>
-        <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6">Frequently Asked Questions</h2>
+      <section className="mt-16 max-w-4xl mx-auto">
+        <h2 className="text-3xl lg:text-4xl font-extrabold text-navy-900 mb-10 text-center">Frequently Asked Questions</h2>
         <GlobalFAQAccordion faqs={[
           {
             q: 'What does "Type 30/30" mean?',
@@ -142,7 +142,7 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
   return (
     <ProductListingLayout
       title="Spring Brake Chambers"
-      description="Factory-direct heavy-duty spring brake chambers for primary and emergency braking. Built to exceed OEM specifications. IATF 16949 Certified."
+      description="Factory-direct heavy-duty spring brake chambers for primary and emergency braking. Built to exceed OEM specifications. Manufactured to IATF 16949 standards."
       badge="Emergency & Parking"
       baseCategory="spring-brake-chambers"
       products={products}

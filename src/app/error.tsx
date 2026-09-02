@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
+import Card from '@/components/ui/Card';
 
 export default function Error({
   error,
@@ -39,10 +40,12 @@ export default function Error({
         </button>
         <Link
           href="/"
-          className="bg-white hover:bg-slate-50 text-navy-900 font-extrabold text-[12px] uppercase tracking-widest py-3.5 px-8 rounded-xl transition-all border-2 border-navy-200 active:scale-[0.98]"
+          className="hover: text-navy-900 font-extrabold text-[12px] uppercase tracking-widest py-3.5 px-8 -2 -navy-200 active:scale-[0.98] h-full"
         >
+<Card padding="md" className="h-full w-full">
           Return Home
-        </Link>
+        </Card>
+</Link>
       </div>
     </div>
   );

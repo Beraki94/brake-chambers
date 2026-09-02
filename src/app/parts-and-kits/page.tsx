@@ -2,12 +2,12 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { BRAKE_ACCESSORIES } from '@/lib/data';
-import ProductListingLayout from '@/components/products/ProductListingLayout';
+import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Brake Chamber Accessories | BRC Manufacturer',
-  description: 'Factory-direct heavy-duty brake chamber accessories and replacement parts. Direct aftermarket replacements for Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex. IATF 16949 certified manufacturer.',
+  description: 'Factory-direct heavy-duty brake chamber accessories and replacement parts. Direct aftermarket replacements for Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex. manufacturer producing to IATF 16949 standards.',
   keywords: ['Brake Chamber Accessories', 'Replacement Diaphragms', 'Clevis Kits', 'Commercial Air Brakes', 'Bendix Replacement', 'Meritor Replacement'],
 };
 
@@ -37,7 +37,7 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
               Regular maintenance is critical for the safety and longevity of your commercial air brake systems. BRC manufactures premium heavy-duty replacement parts and accessories, including high-performance diaphragms, clevis kits, and mounting hardware engineered to keep your fleet on the road.
             </p>
             <p>
-              By controlling the entire manufacturing process in our IATF 16949 certified facility, we offer uncompromised quality at factory-direct wholesale pricing. Every component is rigorously tested to ensure it meets or exceeds OEM performance standards.
+              By controlling the entire manufacturing process in our Manufactured to IATF 16949 standards facility, we offer uncompromised quality at factory-direct wholesale pricing. Every component is rigorously tested to ensure it meets or exceeds OEM performance standards.
             </p>
           </div>
           <div>
@@ -53,8 +53,8 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
         </div>
       </section>
 
-      <section className="mb-16">
-        <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6">Frequently Asked Questions</h2>
+      <section className="mb-16 mt-16 max-w-4xl mx-auto">
+        <h2 className="text-3xl lg:text-4xl font-extrabold text-navy-900 mb-10 text-center">Frequently Asked Questions</h2>
         <GlobalFAQAccordion faqs={[
           {
             q: 'What brake chamber accessories do you offer?',
@@ -66,7 +66,7 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
           },
           {
             q: 'Do you offer wholesale pricing for repair shops and fleets?',
-            a: 'Absolutely. As an IATF 16949 certified manufacturer, we supply distributors, repair shops, and large commercial fleets directly with bulk wholesale pricing, bypassing standard distribution markups.'
+            a: 'Absolutely. As an manufacturer producing to IATF 16949 standards, we supply distributors, repair shops, and large commercial fleets directly with bulk wholesale pricing, bypassing standard distribution markups.'
           }
         ]} />
       </section>
@@ -108,7 +108,7 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
               "name": "Do you offer wholesale pricing for repair shops and fleets?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Absolutely. As an IATF 16949 certified manufacturer, we supply distributors, repair shops, and large commercial fleets directly with bulk wholesale pricing, bypassing standard distribution markups."
+                "text": "Absolutely. As an manufacturer producing to IATF 16949 standards, we supply distributors, repair shops, and large commercial fleets directly with bulk wholesale pricing, bypassing standard distribution markups."
               }
             }
           ]
