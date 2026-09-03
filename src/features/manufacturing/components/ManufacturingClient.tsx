@@ -31,15 +31,15 @@ export default function ManufacturingClient() {
       step: '02',
       title: 'Precision Assembly',
       slug: 'manufacturing',
-      description: 'IATF 16949 certified facilities utilizing automated robotic welding, CNC machining, and precision assembly lines to guarantee absolute consistency across millions of units.',
+      description: 'facilities operating to IATF 16949 standards utilizing high-pressure aluminum die casting, automated robotic welding, CNC machining, and precision assembly lines to guarantee absolute consistency across millions of units.',
       image: '/images/manufacturing_floor.png',
       accent: 'navy',
       icon: <Factory className="w-8 h-8 text-navy-500" />,
       features: [
+        'In-House Aluminum Die Casting',
         'Automated Robotic Welding',
         'High-Precision CNC Machining',
-        'Continuous Flow Assembly Lines',
-        'Lean Manufacturing Principles'
+        'Continuous Flow Assembly Lines'
       ]
     },
     {
@@ -59,23 +59,25 @@ export default function ManufacturingClient() {
     },
     {
       step: '04',
-      title: 'Global Distribution',
+      title: 'Global Logistics',
       slug: 'distribution',
-      description: 'With strategic distribution centers across North America, we offer same-day shipping on standard SKUs, JIT delivery for OEMs, and robust inventory management.',
+      linkUrl: '/shipping',
+      linkText: 'Explore Global Logistics',
+      description: 'Once manufacturing and testing are complete, our export department handles the entire process. We deliver your FCL or LCL containers seamlessly to any major port in the world.',
       image: '/images/heavy_duty_truck.png',
       accent: 'slate',
       icon: <Globe2 className="w-8 h-8 text-slate-500" />,
       features: [
-        'Strategic North American Hubs',
-        'Just-In-Time (JIT) OEM Supply',
-        'Advanced Inventory Management',
-        'Same-Day Shipping on Core SKUs'
+        'Global Ocean Freight Routing',
+        'FCL & LCL Container Optimization',
+        'Full Customs & Export Clearance',
+        'ISPM-15 Certified Palletization'
       ]
     }
   ];
 
   const stats = [
-    { icon: Trophy, value: "IATF 16949", label: "Certified Facility" },
+    { icon: Trophy, value: "IATF 16949", label: "Compliant Facility" },
     { icon: Cog, value: "1M+", label: "Chambers Produced" },
     { icon: Users, value: "250+", label: "Dedicated Experts" },
     { icon: LineChart, value: "100%", label: "Pneumatic Testing" },
@@ -157,10 +159,10 @@ export default function ManufacturingClient() {
                       </div>
                       
                       <Link 
-                        href={`/manufacturing/${step.slug}`} 
+                        href={step.linkUrl || `/manufacturing/${step.slug}`} 
                         className={`inline-flex items-center justify-center gap-2 text-${step.accent}-600 font-extrabold hover:text-${step.accent}-700 transition-colors uppercase tracking-widest text-sm group/link`}
                       >
-                        View Engineering Specs <ArrowRight className={`w-5 h-5 group-hover/link:translate-x-1 transition-transform ${isEven ? 'lg:-translate-x-1 lg:group-hover/link:-translate-x-2' : ''} ${isEven ? 'lg:rotate-180' : ''}`} />
+                        {step.linkText || 'View Engineering Specs'} <ArrowRight className={`w-5 h-5 group-hover/link:translate-x-1 transition-transform ${isEven ? 'lg:-translate-x-1 lg:group-hover/link:-translate-x-2' : ''} ${isEven ? 'lg:rotate-180' : ''}`} />
                       </Link>
                     </motion.div>
                   </div>
@@ -256,31 +258,40 @@ export default function ManufacturingClient() {
                 className="!mb-8"
               />
               <div className="space-y-6">
-                <div className="flex gap-4 items-start">
-                  <div className="w-12 h-12 rounded-xl bg-navy-50 flex items-center justify-center shrink-0 mt-1">
-                    <ShieldCheck className="w-6 h-6 text-navy-900" />
+                <div className="flex gap-4 items-start group">
+                  <div className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-1 transition-transform group-hover:scale-110 duration-300">
+                    <ShieldCheck className="w-6 h-6 text-amber-500" />
                   </div>
                   <div>
                     <h4 className="font-bold text-xl text-navy-900 mb-1">8-Gauge Steel Housings</h4>
                     <p className="text-slate-600 text-sm leading-relaxed">Extra-thick pressure vessels resist denting from road debris and maintain perfect structural geometry under maximum braking force.</p>
                   </div>
                 </div>
-                <div className="flex gap-4 items-start">
-                  <div className="w-12 h-12 rounded-xl bg-navy-50 flex items-center justify-center shrink-0 mt-1">
-                    <Cog className="w-6 h-6 text-navy-900" />
+                <div className="flex gap-4 items-start group">
+                  <div className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-1 transition-transform group-hover:scale-110 duration-300">
+                    <Cog className="w-6 h-6 text-amber-500" />
                   </div>
                   <div>
                     <h4 className="font-bold text-xl text-navy-900 mb-1">Extreme-Temp Rubber Compounds</h4>
                     <p className="text-slate-600 text-sm leading-relaxed">Our proprietary diaphragm blends maintain flexibility at -40°F and resist thermal breakdown up to 200°F.</p>
                   </div>
                 </div>
-                <div className="flex gap-4 items-start">
-                  <div className="w-12 h-12 rounded-xl bg-navy-50 flex items-center justify-center shrink-0 mt-1">
-                    <CheckCircle2 className="w-6 h-6 text-navy-900" />
+                <div className="flex gap-4 items-start group">
+                  <div className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-1 transition-transform group-hover:scale-110 duration-300">
+                    <CheckCircle2 className="w-6 h-6 text-amber-500" />
                   </div>
                   <div>
                     <h4 className="font-bold text-xl text-navy-900 mb-1">Zinc-Plated Hardware</h4>
                     <p className="text-slate-600 text-sm leading-relaxed">All mounting studs, nuts, and clevis pins feature advanced zinc-plating for maximum resistance to galvanic corrosion.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 items-start group">
+                  <div className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-1 transition-transform group-hover:scale-110 duration-300">
+                    <Factory className="w-6 h-6 text-amber-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-xl text-navy-900 mb-1">Aluminum Die-Cast Bodies</h4>
+                    <p className="text-slate-600 text-sm leading-relaxed">We utilize high-pressure in-house aluminum die casting to produce lightweight, incredibly strong, and corrosion-resistant center bodies and non-pressure housings.</p>
                   </div>
                 </div>
               </div>

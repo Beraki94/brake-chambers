@@ -64,7 +64,7 @@ export default function ContactClient() {
     },
     {
       q: "What are your standard manufacturing lead times?",
-      a: "Standard production time for FCL (Full Container Load) orders is 15-25 business days. Transit time varies by destination, but typically ranges from 14-30 days for global ocean freight."
+      a: "Standard production time for FCL (Full Container Load) orders is 30 days. Transit time varies by destination, but typically ranges from 14-30 days for global ocean freight."
     },
     {
       q: "Do you offer private labeling or custom OEM branding?",

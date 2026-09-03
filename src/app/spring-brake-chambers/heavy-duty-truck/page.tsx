@@ -11,7 +11,7 @@ import Card from '@/components/ui/Card';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Truck Spring Brakes | BRC Manufacturer',
-  description: 'Premium spring brakes engineered specifically for Class 8 heavy-duty commercial trucks. Manufactured to IATF 16949 standards OEM replacements.',
+  description: 'Premium spring brakes engineered specifically for Class 8 heavy-duty commercial trucks. OEM replacements manufactured to IATF 16949 standards.',
 };
 
 export default async function SubCategoryPage(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
@@ -67,7 +67,7 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
              
              <h4 className="font-extrabold text-white text-sm mb-2 uppercase tracking-wide">Bulk OEM Orders</h4>
              <p className="text-xs mb-5 text-navy-200 leading-relaxed">
-               Custom paint, private labeling, and Manufactured to IATF 16949 standards manufacturing for large fleets.
+               Custom paint, private labeling, and manufacturing to IATF 16949 standards for large fleets.
              </p>
              
              <Link href="/quote" className="w-full bg-amber-500 text-navy-900 text-xs font-extrabold px-4 py-2.5 rounded-xl hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20 flex items-center justify-center gap-1.5">

@@ -54,7 +54,7 @@ export default function ProductSeoBlock({ product }: ProductSeoBlockProps) {
             Commercial fleets require absolute reliability when it comes to {functionText}. Our highly engineered <strong>{product.name}</strong> is manufactured to exceed OEM standards, providing maximum performance and safety for Class 8 trucks, trailers, and heavy-duty vehicles {strokeDesc}{pushRodDesc}.
           </p>
           <p>
-            {weight}this {componentText} utilizes premium {material.toLowerCase()} construction. Manufactured in our Manufactured to IATF 16949 standards facility, the housing and internal mechanisms are designed to prevent premature wear and resist severe corrosion from road salts, magnesium chloride, and extreme temperatures {maxTemp}.
+            {weight}this {componentText} utilizes premium {material.toLowerCase()} construction. Manufactured in our facility operating to IATF 16949 standards, the housing and internal mechanisms are designed to prevent premature wear and resist severe corrosion from road salts, magnesium chloride, and extreme temperatures {maxTemp}.
           </p>
         </div>
         <div>

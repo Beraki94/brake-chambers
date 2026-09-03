@@ -41,7 +41,7 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
               Commercial fleets require absolute reliability when it comes to parking and emergency braking. BRC's heavy-duty spring brake chambers are engineered to exceed OEM standards, providing maximum hold and stopping power for Class 8 trucks, trailers, and heavy-duty vehicles.
             </p>
             <p>
-              Manufactured in our Manufactured to IATF 16949 standards facility, our chambers feature heavy-gauge steel construction, high-tensile strength power springs, and a superior epoxy powder-coating that resists salt, magnesium chloride, and severe road conditions.
+              Manufactured in our facility operating to IATF 16949 standards, our chambers feature heavy-gauge steel construction, high-tensile strength power springs, and a superior epoxy powder-coating that resists salt, magnesium chloride, and severe road conditions.
             </p>
           </div>
           <div>

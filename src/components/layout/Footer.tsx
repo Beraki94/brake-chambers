@@ -59,7 +59,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-navy-300 text-sm mb-5 leading-relaxed pr-4 text-justify">
-              Global manufacturer of premium aftermarket commercial air brake chambers. We supply Manufactured to IATF 16949 standards spring brakes, service chambers, air disc actuators, and exact OEM cross-reference replacement parts for heavy-duty trucks, trailers, and transit fleets worldwide.
+              Global manufacturer of premium aftermarket commercial air brake chambers. We supply spring brakes manufactured to IATF 16949 standards, service chambers, air disc actuators, and exact OEM cross-reference replacement parts for heavy-duty trucks, trailers, and transit fleets worldwide.
             </p>
 
             <div className="flex flex-col gap-4">

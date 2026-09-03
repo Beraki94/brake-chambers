@@ -37,7 +37,7 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
               Regular maintenance is critical for the safety and longevity of your commercial air brake systems. BRC manufactures premium heavy-duty replacement parts and accessories, including high-performance diaphragms, clevis kits, and mounting hardware engineered to keep your fleet on the road.
             </p>
             <p>
-              By controlling the entire manufacturing process in our Manufactured to IATF 16949 standards facility, we offer uncompromised quality at factory-direct wholesale pricing. Every component is rigorously tested to ensure it meets or exceeds OEM performance standards.
+              By controlling the entire manufacturing process in our facility operating to IATF 16949 standards, we offer uncompromised quality at factory-direct wholesale pricing. Every component is rigorously tested to ensure it meets or exceeds OEM performance standards.
             </p>
           </div>
           <div>
@@ -66,7 +66,7 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
           },
           {
             q: 'Do you offer wholesale pricing for repair shops and fleets?',
-            a: 'Absolutely. As an manufacturer producing to IATF 16949 standards, we supply distributors, repair shops, and large commercial fleets directly with bulk wholesale pricing, bypassing standard distribution markups.'
+            a: 'Absolutely. As a manufacturer producing to IATF 16949 standards, we supply distributors, repair shops, and large commercial fleets directly with bulk wholesale pricing, bypassing standard distribution markups.'
           }
         ]} />
       </section>
@@ -108,7 +108,7 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
               "name": "Do you offer wholesale pricing for repair shops and fleets?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Absolutely. As an manufacturer producing to IATF 16949 standards, we supply distributors, repair shops, and large commercial fleets directly with bulk wholesale pricing, bypassing standard distribution markups."
+                "text": "Absolutely. As a manufacturer producing to IATF 16949 standards, we supply distributors, repair shops, and large commercial fleets directly with bulk wholesale pricing, bypassing standard distribution markups."
               }
             }
           ]

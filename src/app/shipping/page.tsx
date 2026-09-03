@@ -127,7 +127,7 @@ export default function ShippingPage() {
                   <h2 className="text-3xl font-black text-navy-900">Transit Lead Times</h2>
                 </div>
                 <p className="text-lg leading-relaxed font-light mb-6">
-                  Standard manufacturing lead times range from 15 to 30 days depending on the current production queue. Once loaded, estimated ocean transit times are highly predictable:
+                  Standard manufacturing lead times are 30 days. Once loaded, estimated ocean transit times are highly predictable:
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center justify-between bg-white border border-slate-200 p-4 rounded-xl shadow-sm">

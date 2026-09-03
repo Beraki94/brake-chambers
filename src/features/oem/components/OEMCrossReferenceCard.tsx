@@ -87,7 +87,7 @@ export default function OEMCrossReferenceCard({
       {/* Action Footer */}
       <div className="bg-slate-50 p-3 px-4 sm:px-5 border-t border-slate-100 flex justify-between items-center mt-auto">
         <span className="flex items-center text-xs font-bold text-emerald-700 uppercase tracking-wider">
-          <ShieldCheck size={16} className="mr-1.5" /> IATF 16949 Certified Factory
+          <ShieldCheck size={16} className="mr-1.5" /> Factory Operating to IATF 16949 Standards
         </span>
         <span className="text-amber-600 text-sm sm:text-base font-bold flex items-center group-hover:text-amber-500 transition-colors">
           View BRC Part <ChevronRight size={18} className="ml-1 transform group-hover:translate-x-1 transition-transform" />

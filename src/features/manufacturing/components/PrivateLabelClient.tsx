@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ArrowRight, Paintbrush, Tag, Package, Printer, CheckCircle2, Palette, Stamp, Box, Layers, ShieldCheck, Users, BarChart3, Truck } from 'lucide-react';
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/layout/PageHeader';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function PrivateLabelClient() {
 
@@ -67,9 +68,9 @@ export default function PrivateLabelClient() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center">
-            <h2 className="text-3xl md:text-5xl font-black text-navy-900 mb-6 tracking-tight leading-tight">
-              Your <span className="text-amber-500">Brand</span>. Our Manufacturing <span className="text-amber-500">Muscle</span>.
-            </h2>
+            <SectionHeader 
+              title={<>Your <span className="text-amber-500">Brand</span>. Our Manufacturing <span className="text-amber-500">Muscle</span>.</>}
+            />
             <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-6">
               Building a brake chamber brand from scratch requires millions in factory investment, 
               years of R&D, and deep manufacturing expertise. Our private label program lets you skip 
@@ -85,16 +86,13 @@ export default function PrivateLabelClient() {
       </section>
 
       {/* Private Label vs White Label Comparison */}
-      <section className="py-16 md:py-20 bg-slate-50 border-y border-slate-200">
+      <section className="py-16 md:py-20 bg-blue-50 border-y border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-12">
-            <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-white border border-slate-200 text-slate-600 text-[11px] font-bold uppercase tracking-widest shadow-sm">
-              Understanding the Difference
-            </div>
-            <h2 className="text-3xl md:text-4xl font-black text-navy-900 tracking-tight">
-              Private Label <span className="text-amber-500">vs</span> White Label
-            </h2>
-          </div>
+          <SectionHeader
+            badge="Understanding the Difference"
+            title={<>Private Label <span className="text-amber-500">vs</span> White Label</>}
+            accentColor="slate"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {/* Private Label */}
@@ -151,17 +149,12 @@ export default function PrivateLabelClient() {
       {/* What We Customize — Grid */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
-          <div className="text-center mb-16">
-            <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-amber-50 border border-amber-200 text-amber-600 text-[11px] font-bold uppercase tracking-widest">
-              Customization Options
-            </div>
-            <h2 className="text-3xl md:text-5xl font-black text-navy-900 tracking-tight">
-              Everything We <span className="text-amber-500">Customize</span>
-            </h2>
-            <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto mt-4">
-              From the housing color to the shipping pallet, every element can carry your brand identity.
-            </p>
-          </div>
+          <SectionHeader
+            badge="Customization Options"
+            title={<>Everything We <span className="text-amber-500">Customize</span></>}
+            description="From the housing color to the shipping pallet, every element can carry your brand identity."
+            accentColor="amber"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
             {customizations.map((item, idx) => (
@@ -190,14 +183,12 @@ export default function PrivateLabelClient() {
         <div className="absolute top-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] -ml-40 -mt-40"></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-block px-4 py-1.5 mb-4 rounded-full border border-navy-700 bg-navy-800/80 text-amber-400 text-[11px] font-bold uppercase tracking-widest">
-              4-Step Process
-            </div>
-            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">
-              From Concept to <span className="text-amber-400">Your Shelf</span>
-            </h2>
-          </div>
+          <SectionHeader
+            badge="4-Step Process"
+            title={<>From Concept to <span className="text-amber-400">Your Shelf</span></>}
+            theme="dark"
+            accentColor="amber"
+          />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-6">
             {steps.map((step, idx) => (
@@ -221,25 +212,23 @@ export default function PrivateLabelClient() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16 md:py-20 bg-slate-50 border-t border-slate-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
-          <h2 className="text-2xl md:text-4xl font-black text-navy-900 mb-4 tracking-tight">
-            Ready to Launch Your Brand?
-          </h2>
-          <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed mb-8 max-w-2xl mx-auto">
-            Start with a free brand consultation. We'll walk you through MOQs, customization options, 
-            lead times, and pricing to get your private label program off the ground.
-          </p>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-16 md:pb-24 mt-16 md:mt-24">
+        <div className="bg-slate-50 rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
+          <SectionHeader 
+            title="Ready to Launch Your Brand?" 
+            description="Start with a free brand consultation. We'll walk you through MOQs, customization options, lead times, and pricing to get your private label program off the ground."
+            className="!mb-8"
+          />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">
               Start Brand Consultation <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
-            <Link href="/manufacturing/custom-oem" className="inline-flex items-center justify-center bg-white border border-slate-200 text-navy-900 font-extrabold px-8 py-4 rounded-xl hover:border-amber-400 hover:text-amber-600 transition-all duration-300 shadow-sm uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">
-              Custom OEM Manufacturing
+            <Link href="/manufacturing/high-volume-orders" className="inline-flex items-center justify-center bg-white border border-slate-200 text-navy-900 font-extrabold px-8 py-4 rounded-xl hover:border-amber-400 hover:text-amber-600 transition-all duration-300 shadow-sm uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">
+              High Volume Orders
             </Link>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

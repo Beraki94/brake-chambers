@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import PageHeader from '@/components/layout/PageHeader';
 import Card from '@/components/ui/Card';
 import IconBox from '@/components/ui/IconBox';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function BrakeRandDClient() {
 
@@ -22,7 +23,7 @@ export default function BrakeRandDClient() {
       icon: <BarChart3 className="w-7 h-7 text-navy-500" />,
       title: 'Finite Element Analysis (FEA)',
       description: 'We digitally simulate extreme operating conditions — 120 PSI pneumatic bursts, torsional vibration from rough roads, and -40°F thermal shocks — to identify microscopic stress concentrations before a single prototype is built.',
-      highlights: ['Burst pressure simulation up to 200 PSI', 'Thermal cycling & fatigue analysis', 'Housing geometry optimization'],
+      highlights: ['Burst pressure simulation up to 200 PSI', 'Thermal cycling & fatigue analysis', 'Aluminum die-cast geometry optimization'],
     },
     {
       icon: <Microscope className="w-7 h-7 text-amber-500" />,
@@ -40,25 +41,25 @@ export default function BrakeRandDClient() {
 
   const roadmapItems = [
     {
-      icon: <Cpu className="w-6 h-6 text-amber-500" />,
+      icon: <Cpu />,
       title: 'Smart Sensor Integration',
       detail: 'Embedded stroke and temperature sensors enabling real-time telematics for fleet predictive maintenance — detecting wear before failure occurs.',
       status: 'In Development',
     },
     {
-      icon: <FlaskConical className="w-6 h-6 text-navy-500" />,
+      icon: <FlaskConical />,
       title: 'Next-Gen Elastomer Compounds',
       detail: 'Advanced synthetic rubber formulations engineered for extreme heat and UV resistance — targeting a continuous 200°F operating rating without compromising flex life.',
       status: 'Testing Phase',
     },
     {
-      icon: <Layers className="w-6 h-6 text-amber-500" />,
+      icon: <Layers />,
       title: 'Electric Vehicle Actuators',
       detail: 'Redesigned spring brake architectures purpose-built for electric semi-trucks, featuring regenerative braking integration and reduced parasitic air consumption.',
       status: 'Prototype',
     },
     {
-      icon: <Zap className="w-6 h-6 text-navy-500" />,
+      icon: <Zap />,
       title: 'Lightweight Composite Housings',
       detail: 'Carbon-fiber reinforced polymer (CFRP) housing prototypes delivering 30% weight reduction at equivalent burst strength — critical for next-gen fuel-efficiency mandates.',
       status: 'Research',
@@ -96,10 +97,9 @@ export default function BrakeRandDClient() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="text-3xl md:text-5xl font-black text-navy-900 mb-6 tracking-tight leading-tight">
-              We Don't Just <span className="text-amber-500">Build</span> Brake Chambers —{' '}
-              <span className="text-amber-500">We Engineer Them</span>
-            </h2>
+            <SectionHeader 
+              title={<>We Don't Just <span className="text-amber-500">Build</span> Brake Chambers — <span className="text-amber-500">We Engineer Them</span></>}
+            />
             <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-6">
               At BRC, research and development isn't a department — it's the foundation of everything we manufacture. 
               Every brake chamber we produce has been through hundreds of hours of digital simulation, physical testing, 
@@ -116,7 +116,7 @@ export default function BrakeRandDClient() {
       </section>
 
       {/* Section 2: By the Numbers */}
-      <section className="py-16 md:py-20 bg-slate-50 border-y border-slate-200">
+      <section className="py-16 md:py-20 bg-blue-50 border-y border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {stats.map((stat, idx) => (
@@ -145,16 +145,13 @@ export default function BrakeRandDClient() {
       {/* Section 3: Core R&D Capabilities — Alternating Layout */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
-          <div className="text-center mb-16">
-            <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-amber-50 border border-amber-200 text-amber-600 text-[11px] font-bold uppercase tracking-widest">
-              Core Capabilities
-            </div>
-            <h2 className="text-3xl md:text-5xl font-black text-navy-900 tracking-tight leading-tight">
-              How We <span className="text-amber-500">Develop</span> Brake Chambers
-            </h2>
-          </div>
+          <SectionHeader
+            badge="Core Capabilities"
+            title={<>How We <span className="text-amber-500">Develop</span> Brake Chambers</>}
+            accentColor="amber"
+          />
 
-          <div className="space-y-20 md:space-y-28">
+          <div className="space-y-20 md:space-y-28 mt-16 md:mt-20">
             {capabilities.map((cap, idx) => {
               const isEven = idx % 2 === 0;
               const images = [
@@ -167,7 +164,7 @@ export default function BrakeRandDClient() {
               return (
                 <div
                   key={idx}
-                  className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-10 lg:gap-16`}
+                  className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-10 lg:gap-16 group`}
                 >
                   {/* Text Content */}
                   <motion.div
@@ -178,14 +175,14 @@ export default function BrakeRandDClient() {
                     className="w-full lg:w-1/2"
                   >
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm flex items-center justify-center">
+                      <div className={`w-14 h-14 rounded-2xl border shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${isEven ? 'bg-amber-50 border-amber-100/50' : 'bg-navy-50 border-navy-100/50'}`}>
                         {cap.icon}
                       </div>
                       <span className="text-slate-400 font-black text-5xl md:text-6xl tracking-tighter opacity-20">
                         0{idx + 1}
                       </span>
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-black text-navy-900 mb-4 tracking-tight">
+                    <h3 className={`text-3xl md:text-4xl font-black text-navy-900 mb-4 tracking-tight transition-colors ${isEven ? 'group-hover:text-amber-600' : 'group-hover:text-navy-600'}`}>
                       {cap.title}
                     </h3>
                     <p className="text-slate-600 text-base md:text-lg leading-relaxed font-light mb-8">
@@ -209,13 +206,13 @@ export default function BrakeRandDClient() {
                     transition={{ duration: 0.7 }}
                     className="w-full lg:w-1/2"
                   >
-                    <div className="relative h-[280px] md:h-[380px] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 group">
+                    <div className="relative h-[280px] md:h-[380px] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 group-hover:shadow-3xl group-hover:-translate-y-2 transition-all duration-500 group/img">
                       <Image
                         src={images[idx]}
                         alt={cap.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-[8s] group-hover:scale-110 ease-out grayscale"
+                        className="object-cover transition-transform duration-[8s] group-hover/img:scale-110 ease-out grayscale"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent"></div>
                     </div>
@@ -285,85 +282,57 @@ export default function BrakeRandDClient() {
       {/* Section 5: Innovation Roadmap */}
       <section className="py-16 md:py-24 bg-slate-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
-            {/* Left: Roadmap items */}
-            <div className="w-full lg:w-1/2">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
               <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-white border border-slate-200 text-slate-600 text-[11px] font-bold uppercase tracking-widest shadow-sm">
                 Future Pipeline
               </div>
               <h2 className="text-3xl md:text-5xl font-black text-navy-900 tracking-tight leading-tight mb-4">
                 What We're <span className="text-amber-500">Building Next</span>
               </h2>
-              <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed mb-10">
+              <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto">
                 A glimpse into our active R&D roadmap. These programs are currently in prototype or 
                 early production-validation stages — positioning BRC at the forefront of heavy-duty 
                 braking innovation.
               </p>
-              <div className="space-y-4">
-                {roadmapItems.map((item, idx) => (
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {roadmapItems.map((item, idx) => {
+                const isEven = idx % 2 === 0;
+                return (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1, duration: 0.5 }}
                   >
-                    <Card padding="sm" hoverEffect="glow" glowColor="amber" className="flex gap-4 group">
-                      <IconBox icon={item.icon} color="slate" size="md" className="shrink-0 mt-0.5 group-hover:bg-amber-50 group-hover:text-amber-600 group-hover:border-amber-100" />
-                      <div className="flex-1">
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1">
-                          <h4 className="font-bold text-navy-900 text-sm md:text-base">{item.title}</h4>
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-amber-600 bg-amber-50 border border-amber-100 px-2 py-0.5 rounded-full self-start sm:self-auto">
-                            {item.status}
-                          </span>
-                        </div>
+                    <Card padding="sm" hoverEffect="glow" glowColor={isEven ? 'amber' : 'navy'} className="flex flex-col gap-4 group h-full">
+                      <div className="flex items-center justify-between">
+                        <IconBox 
+                          icon={item.icon} 
+                          color="slate" 
+                          size="md" 
+                          className={isEven 
+                            ? "group-hover:bg-amber-50 group-hover:text-amber-600 group-hover:border-amber-100" 
+                            : "group-hover:bg-navy-50 group-hover:text-navy-600 group-hover:border-navy-100"
+                          } 
+                        />
+                        <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border ${isEven ? 'text-amber-600 bg-amber-50 border-amber-100' : 'text-navy-600 bg-navy-50 border-navy-100'}`}>
+                          {item.status}
+                        </span>
+                      </div>
+                      <div>
+                        <h4 className={`font-bold text-navy-900 text-sm md:text-base mb-2 transition-colors ${isEven ? 'group-hover:text-amber-600' : 'group-hover:text-navy-600'}`}>
+                          {item.title}
+                        </h4>
                         <p className="text-slate-500 text-sm leading-relaxed">{item.detail}</p>
                       </div>
                     </Card>
                   </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: OEM Partnership CTA */}
-            <div className="w-full lg:w-1/2">
-              <div className="bg-navy-950 rounded-[2.5rem] p-8 md:p-12 lg:p-14 text-white relative overflow-hidden sticky top-8">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none" />
-                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-slate-500/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none" />
-                <div className="relative z-10">
-                  <div className="inline-block px-3 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-[10px] font-bold uppercase tracking-widest mb-6">
-                    OEM Partnership Program
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-5 tracking-tight leading-tight">
-                    Need a Custom Engineering Solution?
-                  </h3>
-                  <p className="text-navy-200 text-sm md:text-base leading-relaxed mb-8">
-                    Partner with our R&D team to prototype and manufacture the exact braking components 
-                    your vehicles need. We handle everything from initial FEA simulation to full-scale 
-                    production runs of 100,000+ units.
-                  </p>
-                  <ul className="space-y-3 mb-10">
-                    {[
-                      'Dedicated engineering team assignment',
-                      'NDA-protected development programs',
-                      'Rapid 3D prototyping within 2 weeks',
-                      'Full production scaling support',
-                    ].map((point, idx) => (
-                      <li key={idx} className="flex items-center gap-3 text-sm text-navy-200">
-                        <div className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center w-full sm:w-auto bg-amber-500 text-navy-950 font-extrabold text-[12px] md:text-[13px] px-8 py-4 rounded-xl hover:bg-amber-400 hover:-translate-y-1 transition-all shadow-xl hover:shadow-amber-500/30 uppercase tracking-widest"
-                  >
-                    Contact Our Engineering Team <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -371,36 +340,24 @@ export default function BrakeRandDClient() {
 
 
 
-      {/* Section 7: Next Step CTA */}
-      <section className="py-16 md:py-20 bg-slate-50 border-t border-slate-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
-          <h2 className="text-2xl md:text-4xl font-black text-navy-900 mb-4 tracking-tight">
-            See Our Engineering Put to the Test
-          </h2>
-          <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed mb-8 max-w-2xl mx-auto">
-            Every design our R&D team creates must survive our brutal quality assurance lab — salt spray chambers, 
-            burst pressure rigs, and million-cycle endurance testers. See how we validate our work.
-          </p>
-          <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4">
-            <Link
-              href="/manufacturing/quality-assurance"
-              className="inline-flex items-center justify-center bg-navy-900 text-white font-extrabold px-8 py-4 rounded-2xl hover:bg-amber-500 hover:text-navy-950 transition-all duration-300 shadow-xl uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto"
-            >
-              Inside the Testing Lab <ArrowRight className="w-4 h-4 ml-2" />
+      {/* Bottom CTA */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-16 md:pb-24 mt-16 md:mt-24">
+        <div className="bg-slate-50 rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
+          <SectionHeader 
+            title="See Our Engineering Put to the Test" 
+            description="Every design our R&D team creates must survive our brutal quality assurance lab — salt spray chambers, burst pressure rigs, and million-cycle endurance testers. See how we validate our work."
+            className="!mb-8"
+          />
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">
+              Request Consultation <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
-            <Link
-              href="/manufacturing/process"
-              className="w-full sm:w-auto group"
-            >
-              <Card padding="md" hoverEffect="lift" glowColor="amber" className="h-full w-full flex items-center justify-center bg-white border border-slate-200">
-                <span className="inline-flex items-center justify-center text-navy-900 font-extrabold uppercase tracking-widest text-[12px] md:text-[13px] group-hover:text-amber-600 transition-colors">
-                  Manufacturing Process <ArrowRight className="w-4 h-4 ml-2 text-slate-400 group-hover:text-amber-600 transition-colors" />
-                </span>
-              </Card>
+            <Link href="/manufacturing/quality-assurance" className="inline-flex items-center justify-center bg-white border border-slate-200 text-navy-900 font-extrabold px-8 py-4 rounded-xl hover:border-amber-400 hover:text-amber-600 transition-all duration-300 shadow-sm uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">
+              Quality Assurance Lab
             </Link>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

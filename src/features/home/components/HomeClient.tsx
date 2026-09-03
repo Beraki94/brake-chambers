@@ -18,7 +18,7 @@ const HERO_SLIDES = [
     badge: "Direct Factory",
     badgeIcon: <Settings className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
     title: <>OEM Brake Chamber <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Manufacturer.</span></>,
-    description: "Sourcing direct from our 50,000 sqm IATF 16949 certified production facility in Zhejiang. Eliminate middleman markups on premium aftermarket commercial vehicle components.",
+    description: "Sourcing direct from our 50,000 sqm production facility operating to IATF 16949 standards in Zhejiang. Eliminate middleman markups on premium aftermarket commercial vehicle components.",
     cta1: { text: "Get Factory Pricing", link: "/quote" },
     cta2: { text: "Tour Our Plant", link: "#facility" },
     image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2000&q=80",
@@ -158,7 +158,7 @@ export default function HomeClient() {
           {[...Array(2)].map((_, dupeIdx) => (
             <div key={dupeIdx} className="flex shrink-0 items-center">
               {[
-                'IATF 16949 Certified Factory',
+                'Factory Operating to IATF 16949 Standards',
                 'FMVSS-121 Safety Certified',
                 'OEM Drop-In Replacement',
                 'In-House Aluminum Die Casting',
@@ -354,7 +354,7 @@ export default function HomeClient() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Global Certifications:</strong> Tier-1 IATF 16949 certified quality systems.</span>
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Global Certifications:</strong> Tier-1 quality systems operating to IATF 16949 standards.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />

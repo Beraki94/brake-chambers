@@ -14,7 +14,7 @@ export default function BulkInquiriesPage() {
         <div className="container mx-auto max-w-4xl relative z-10">
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-6">Bulk Sourcing & OEM/ODM</h1>
           <p className="text-navy-200 text-lg md:text-xl leading-relaxed">
-            Partner directly with our IATF 16949 factory for high-volume custom manufacturing, private labeling, and exclusive distribution agreements.
+            Partner directly with our factory operating to IATF 16949 standards for high-volume custom manufacturing, private labeling, and exclusive distribution agreements.
           </p>
         </div>
       </section>

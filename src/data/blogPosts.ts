@@ -43,7 +43,7 @@ const buyingGuideContent = `
 <p>For fleet managers, purchasing agents, and heavy-duty parts distributors looking for wholesale pricing, the most cost-effective route is direct factory sourcing.</p>
 <p><strong>BRC Brake Chambers</strong> offers an optimized supply chain solution:</p>
 <ul>
-  <li><strong>Direct Manufacturing:</strong> We produce millions of units annually in our Manufactured to IATF 16949 standards facility.</li>
+  <li><strong>Direct Manufacturing:</strong> We produce millions of units annually in our facility operating to IATF 16949 standards.</li>
   <li><strong>Flexible Shipping:</strong> FOB Ningbo pricing with full container load (FCL) and less-than-container load (LCL) shipping directly to ports across North America, Europe, the Middle East, and Africa.</li>
   <li><strong>Private Labeling (OEM Service):</strong> For distributors, we offer custom laser etching, branded packaging, and bespoke product configurations.</li>
 </ul>
