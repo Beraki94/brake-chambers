@@ -11,6 +11,7 @@ import RelatedProducts from '@/features/products/product-detail/RelatedProducts'
 import TechnicalDownloads from '@/features/products/product-detail/TechnicalDownloads';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import TrendingModelsMarquee from '@/components/ui/TrendingModelsMarquee';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function ProductDetailLayout({
   product,
@@ -141,14 +142,14 @@ export default function ProductDetailLayout({
       
       {/* Product-Specific FAQ (Dynamic based on product) */}
       <section className="mt-16 pt-16 border-t border-slate-100 mb-20 max-w-4xl mx-auto">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-navy-900 mb-4">
-            Frequently Asked Questions about {product.name}
-          </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
-            Find technical details, warranty information, and OEM compatibility for this model.
-          </p>
-        </div>
+        <SectionHeader
+          title={`Frequently Asked Questions about ${product.name}`}
+          description="Find technical details, warranty information, and OEM compatibility for this model."
+          align="center"
+          theme="light"
+          accentColor="slate"
+          className="!mb-10"
+        />
         <GlobalFAQAccordion faqs={[
           {
             q: `What does the ${product.name} replace?`,

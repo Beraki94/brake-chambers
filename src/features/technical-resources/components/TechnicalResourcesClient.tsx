@@ -116,9 +116,16 @@ export default function TechnicalResourcesClient() {
                   className="w-full bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 p-6 md:p-8"
                 >
                   <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 mb-6">
-                    <div>
-                      <h2 className="text-xl font-extrabold text-navy-900 font-heading">Most Popular Resources</h2>
-                      <p className="text-slate-500 text-sm">Quick access to our most frequently viewed technical guides.</p>
+                    <div className="w-full">
+                      <SectionHeader
+                        title="Most Popular Resources"
+                        description="Quick access to our most frequently viewed technical guides."
+                        align="left"
+                        theme="light"
+                        accentColor="navy"
+                        plainText={true}
+                        className="!mb-0"
+                      />
                     </div>
                   </div>
 
@@ -158,15 +165,15 @@ export default function TechnicalResourcesClient() {
                   <div className="absolute top-0 right-0 w-32 md:w-64 h-32 md:h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-10 md:-mr-20 -mt-10 md:-mt-20 pointer-events-none"></div>
                   <div className="flex flex-col lg:flex-row">
                     <div className="w-full lg:w-1/2 p-6 md:p-8 lg:p-12 flex flex-col justify-center">
-                      <div className="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 rounded-full text-[11px] font-bold uppercase tracking-widest mb-4 self-start border border-amber-500/30">
-                        Video Training
-                      </div>
-                      <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-heading tracking-tight drop-shadow-lg">
-                        BRC <span className="text-amber-500">Video</span> Series
-                      </h2>
-                      <p className="text-navy-200 text-sm md:text-base lg:text-lg mb-8 font-light leading-relaxed">
-                        For visual learners and technicians on the shop floor. Watch our lead engineers walk through safe caging procedures, pushrod cutting, and complete installation step-by-step.
-                      </p>
+                      <SectionHeader
+                        badge="Video Training"
+                        title={<>BRC <span className="text-amber-500">Video</span> Series</>}
+                        description="For visual learners and technicians on the shop floor. Watch our lead engineers walk through safe caging procedures, pushrod cutting, and complete installation step-by-step."
+                        align="left"
+                        theme="dark"
+                        accentColor="amber"
+                        className="!mb-4"
+                      />
                       <Link href="/contact?subject=Video+Training+Access" className="inline-flex items-center gap-3 text-amber-500 font-extrabold hover:text-amber-400 transition-colors uppercase tracking-widest text-xs md:text-sm group mt-4 md:mt-0 self-start">
                         Request Video Access <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                       </Link>
@@ -193,6 +200,7 @@ export default function TechnicalResourcesClient() {
                     title="Browse by Topic"
                     description="Find the technical resource you need. Each guide contains detailed specifications, step-by-step procedures, and reference tables for technicians, engineers, and fleet managers."
                     align="left"
+                    plainText={true}
                   />
                 </div>
 
@@ -271,9 +279,15 @@ export default function TechnicalResourcesClient() {
                   {/* Internal Card Glow */}
                   <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
 
-                  <div className="max-w-xl relative z-10 text-center md:text-left">
-                    <h3 className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">Need Custom Engineering Support?</h3>
-                    <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed">If you require specific pushrod calculations, unique bracket alignments, or modified stroke limits, our engineering team is ready to assist.</p>
+                  <div className="max-w-xl relative z-10 w-full">
+                    <SectionHeader
+                      title="Need Custom Engineering Support?"
+                      description="If you require specific pushrod calculations, unique bracket alignments, or modified stroke limits, our engineering team is ready to assist."
+                      align="left"
+                      theme="dark"
+                      accentColor="amber"
+                      className="!mb-0"
+                    />
                   </div>
 
                   <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto shrink-0">

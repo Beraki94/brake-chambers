@@ -41,9 +41,12 @@ export default function CompanyClient() {
               className="space-y-8"
             >
               <SectionHeader
-                badge={<span className="flex items-center gap-1.5"><Globe2 className="w-3.5 h-3.5 text-amber-500" /> Our Story</span>}
+                badge={<><Globe2 className="w-3.5 h-3.5 text-amber-500 inline-block mr-1.5 relative -top-[1px]" /> Our Story</>}
                 title={<>Built on <span className="text-amber-500">Engineering Excellence</span></>}
                 align="left"
+                plainText={true}
+                theme="light"
+                accentColor="navy"
               />
               <div className="space-y-6 text-slate-600 text-lg leading-relaxed font-light text-justify">
                 <p>
@@ -92,10 +95,13 @@ export default function CompanyClient() {
       <section className="py-20 md:py-32 bg-white relative border-b border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
-            badge={<span className="flex items-center gap-1.5 justify-center"><Users className="w-3.5 h-3.5 text-amber-500" /> Executive Team</span>}
+            badge={<><Users className="w-3.5 h-3.5 text-amber-500 inline-block mr-1.5 relative -top-[1px]" /> Executive Team</>}
             title="Leadership Team"
             description="Driven by experts in commercial vehicle braking systems, metallurgy, and lean manufacturing."
             align="center"
+            plainText={true}
+            theme="light"
+            accentColor="navy"
           />
           <div className="space-y-16 mt-16">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
@@ -174,6 +180,9 @@ export default function CompanyClient() {
             title="Our Manufacturing Edge"
             description="Engineered with premium raw materials to guarantee zero air leakage and exact stroke lengths."
             align="center"
+            plainText={true}
+            theme="light"
+            accentColor="navy"
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto mt-16">
             <motion.div 
@@ -220,10 +229,13 @@ export default function CompanyClient() {
       <section className="py-20 md:py-32 bg-white relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
-            badge={<span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-amber-500" /> Quality Control</span>}
+            badge={<><ShieldCheck className="w-3.5 h-3.5 text-amber-500 inline-block mr-1.5 relative -top-[1px]" /> Quality Control</>}
             title="Batch-by-Batch Transparency"
             description="We implement strict quality inspection protocols for every single batch of orders. We provide authentic, reliable Quality Inspection Reports with your shipment, proving our commitment to zero-defect manufacturing."
             align="center"
+            plainText={true}
+            theme="light"
+            accentColor="navy"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
@@ -291,6 +303,7 @@ export default function CompanyClient() {
             align="center"
             theme="dark"
             accentColor="amber"
+            plainText={true}
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-6 mb-12">
@@ -323,12 +336,17 @@ export default function CompanyClient() {
             {/* Internal Card Glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
 
-            <div className="max-w-xl relative z-10 text-center md:text-left">
-              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-white/10 border border-white/20 text-amber-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-sm">
-                Ready to Partner?
-              </div>
-              <h3 className="text-3xl md:text-4xl font-extrabold mb-4">Partner With a Proven Manufacturer</h3>
-              <p className="text-navy-200 text-base md:text-lg font-light">Whether you need a custom OEM solution, private labeling, or a container of replacement chambers for your distribution network, BRC delivers.</p>
+            <div className="max-w-xl relative z-10 w-full">
+              <SectionHeader
+                badge="Ready to Partner?"
+                title="Partner With a Proven Manufacturer"
+                description="Whether you need a custom OEM solution, private labeling, or a container of replacement chambers for your distribution network, BRC delivers."
+                align="left"
+                theme="dark"
+                accentColor="amber"
+                plainText={true}
+                className="!mb-0"
+              />
             </div>
 
             <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto">

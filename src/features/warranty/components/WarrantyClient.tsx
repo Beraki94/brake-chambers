@@ -41,10 +41,15 @@ export default function WarrantyClient() {
                 </div>
               </motion.div>
               <motion.div variants={fadeInUp} className="md:w-2/3">
-                <h2 className="text-3xl font-extrabold text-navy-900 mb-4 font-heading">The BRC 1-Year Guarantee</h2>
-                <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                  BRC Brake Chambers provides a standard 1-year factory warranty on all spring and service brake assemblies against manufacturing defects in materials and workmanship, under normal heavy-duty use.
-                </p>
+                <SectionHeader
+                  title="The BRC 1-Year Guarantee"
+                  description="BRC Brake Chambers provides a standard 1-year factory warranty on all spring and service brake assemblies against manufacturing defects in materials and workmanship, under normal heavy-duty use."
+                  align="left"
+                  theme="light"
+                  accentColor="amber"
+                  plainText={true}
+                  className="!mb-6"
+                />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
                     "Defective Materials",
@@ -68,6 +73,7 @@ export default function WarrantyClient() {
               title="Rigorous Testing Protocols"
               description="Every chamber undergoes strict automated and manual validation processes at our facility operating to IATF 16949 standards, ensuring perfect sealing and structural integrity."
               accentColor="emerald"
+              plainText={true}
             />
             
             <motion.div 
@@ -97,9 +103,16 @@ export default function WarrantyClient() {
           <section className="bg-navy-950 rounded-3xl p-8 md:p-16 relative overflow-hidden shadow-2xl">
             <div className="absolute inset-0 bg-gradient-to-br from-navy-900 to-navy-950 opacity-50"></div>
             
-            <div className="relative z-10 text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-heading">Streamlined Claims Process</h2>
-              <p className="text-navy-200 max-w-2xl mx-auto">We understand downtime costs money. Our B2B claims process is designed to be fast, transparent, and hassle-free for our distribution partners.</p>
+            <div className="relative z-10 mb-12">
+              <SectionHeader
+                title="Streamlined Claims Process"
+                description="We understand downtime costs money. Our B2B claims process is designed to be fast, transparent, and hassle-free for our distribution partners."
+                align="center"
+                theme="dark"
+                accentColor="amber"
+                plainText={true}
+                className="!mb-0"
+              />
             </div>
 
             <motion.div 
@@ -140,6 +153,7 @@ export default function WarrantyClient() {
               title="Frequently Asked Questions"
               align="center"
               accentColor="amber"
+              plainText={true}
             />
             
             <div className="mt-8">

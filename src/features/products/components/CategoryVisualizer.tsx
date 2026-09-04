@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { ShieldEllipsis, Wrench, Disc } from 'lucide-react';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function CategoryVisualizer({ type }: { type: 'spring' | 'service' | 'parts' | 'adp' }) {
   const content = {
@@ -78,16 +79,15 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
 
       {/* Header (Top Center) */}
       <div className="relative z-10 w-full max-w-4xl px-6 md:px-8 pt-10 md:pt-16 pb-6 md:pb-8 flex flex-col items-center text-center">
-        <div className="inline-flex items-center px-4 py-1.5 mb-4 md:mb-6 rounded-full border border-navy-700 bg-navy-800/80 text-navy-300 text-[10px] md:text-[11px] font-bold uppercase tracking-widest">
-          <Icon className="w-3 h-3 mr-2 text-amber-500" /> {data.badge}
-        </div>
-
-        <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 md:mb-6 leading-tight">
-          {data.title}
-        </h2>
-        <p className="text-navy-200 text-sm md:text-base leading-relaxed">
-          {data.desc}
-        </p>
+        <SectionHeader
+          badge={<><Icon className="w-3 h-3 mr-2 inline-block text-amber-500 relative -top-[1px]" /> {data.badge}</>}
+          title={data.title}
+          description={data.desc}
+          align="center"
+          theme="dark"
+          accentColor="slate"
+          className="!mb-0"
+        />
       </div>
 
       {/* Visual Grid Area */}

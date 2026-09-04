@@ -225,7 +225,14 @@ export default function ContactClient() {
               viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-3xl sm:rounded-[2rem] shadow-xl border border-slate-100 p-6 sm:p-8 lg:p-10"
             >
-              <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-6 tracking-tight">Frequently Asked Questions</h3>
+              <SectionHeader
+                title="Frequently Asked Questions"
+                align="left"
+                theme="light"
+                accentColor="navy"
+                plainText={true}
+                className="!mb-6"
+              />
               <GlobalFAQAccordion faqs={faqs} />
               </motion.div>
             </div>
@@ -269,9 +276,15 @@ export default function ContactClient() {
             <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(245, 158, 11, 0.2) 1px, transparent 1px)', backgroundSize: '28px 28px' }}></div>
             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-amber-500/15 rounded-full blur-[80px] -mr-20 -mt-20 pointer-events-none"></div>
 
-            <motion.div variants={fadeInUp} className="relative z-10 text-center mb-8 sm:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3 sm:mb-4 font-heading">Global Distribution Network</h2>
-              <p className="text-navy-200 max-w-2xl mx-auto text-sm sm:text-base">We ship FCL containers to 40+ countries across six continents. Wherever your fleet operates, BRC chambers are ready to deliver.</p>
+            <motion.div variants={fadeInUp} className="relative z-10">
+              <SectionHeader
+                title="Global Distribution Network"
+                description="We ship FCL containers to 40+ countries across six continents. Wherever your fleet operates, BRC chambers are ready to deliver."
+                align="center"
+                theme="dark"
+                accentColor="amber"
+                className="!mb-8 sm:!mb-12"
+              />
             </motion.div>
 
             <motion.div variants={staggerContainer} className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6 relative z-10">

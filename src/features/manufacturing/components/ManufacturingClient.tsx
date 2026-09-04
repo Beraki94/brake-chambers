@@ -314,17 +314,15 @@ export default function ManufacturingClient() {
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] z-0 pointer-events-none"></div>
             
             <div className="relative z-10 flex-1 max-w-2xl text-center md:text-left">
-              <div className="inline-flex items-center px-4 py-1.5 mb-6 rounded-full border border-navy-700 bg-navy-800/80 text-navy-300 text-[11px] font-bold uppercase tracking-widest w-max mx-auto md:mx-0">
-                <Factory className="w-3 h-3 mr-2 text-amber-500" /> Contract Manufacturing
-              </div>
-              
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6 leading-tight">
-                Partner with <span className="text-amber-400">BRC Manufacturing</span>
-              </h2>
-              
-              <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed">
-                From initial CAD conceptualization to final production runs of 100,000+ units, we are ready to be your dedicated manufacturing arm.
-              </p>
+              <SectionHeader
+                badge={<><Factory className="w-3 h-3 mr-2 inline-block text-amber-500 relative -top-[1px]" /> Contract Manufacturing</>}
+                title={<>Partner with <span className="text-amber-400">BRC Manufacturing</span></>}
+                description="From initial CAD conceptualization to final production runs of 100,000+ units, we are ready to be your dedicated manufacturing arm."
+                align="left"
+                theme="dark"
+                accentColor="slate"
+                className="!mb-0"
+              />
             </div>
 
             <div className="relative z-10 flex flex-col w-full md:w-auto gap-4 min-w-[240px] shrink-0 mt-8 md:mt-0">

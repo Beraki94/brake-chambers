@@ -7,13 +7,15 @@ import { ArrowRight, CheckCircle2, HelpCircle, AlertTriangle } from 'lucide-reac
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 import SectionHeader from '@/components/ui/SectionHeader';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
+import Card from '@/components/ui/Card';
+import IconBox from '@/components/ui/IconBox';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import { APPLICATION_DATA } from '@/data/applicationsData';
 import { notFound } from 'next/navigation';
 
 export default function ApplicationDetailClient({ appSlug }: { appSlug: string }) {
   const data = APPLICATION_DATA[appSlug];
-  
+
   if (!data) {
     notFound();
   }
@@ -23,17 +25,17 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
       {/* Premium Hero Section */}
       <section className="relative pt-6 md:pt-10 lg:pt-12 pb-16 lg:pb-24 overflow-hidden bg-navy-950">
         <AnimatedGridBackground />
-        
+
         {/* Background image blending - increased opacity to be visible */}
         {data.heroImage && (
-           <div className="absolute inset-0 z-0">
-             <img src={data.heroImage} alt={data.title} className="w-full h-full object-cover opacity-40" />
-             <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 via-navy-950/60 to-navy-950" />
-           </div>
+          <div className="absolute inset-0 z-0">
+            <img src={data.heroImage} alt={data.title} className="w-full h-full object-cover opacity-40" />
+            <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 via-navy-950/60 to-navy-950" />
+          </div>
         )}
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          
+
           {/* TOP LEFT BREADCRUMB - Standardized Position */}
           <nav aria-label="Breadcrumb" className="mb-12 md:mb-16 mt-2">
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-navy-300 font-medium">
@@ -45,7 +47,7 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
             </ol>
           </nav>
 
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
@@ -64,55 +66,54 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
         </div>
       </section>
 
-      {/* The Challenge Section - Centered and High Impact */}
-      <section className="py-16 lg:py-24 bg-slate-50 relative overflow-hidden border-b border-slate-200">
-        {/* Subtle red ambient glow to highlight the urgency of the challenge */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-full bg-gradient-to-b from-red-500/10 to-transparent blur-[60px] pointer-events-none" />
-        <div className="container mx-auto px-4 lg:px-8 max-w-5xl relative z-10">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={staggerContainer}
-            className="text-center"
-          >
-            <motion.div variants={fadeInUp} className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-red-50 border border-red-100 text-red-500 mb-6 shadow-sm">
-              <AlertTriangle className="w-8 h-8" strokeWidth={1.5} />
-            </motion.div>
-            
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-extrabold text-navy-950 mb-8 tracking-tight">
-              {data.challenge.title}
-            </motion.h2>
-            
-            <motion.div variants={fadeInUp} className="relative mb-14 max-w-4xl mx-auto px-8 md:px-12">
-              <div className="absolute left-0 top-0 text-8xl text-red-500/15 font-serif leading-none -mt-4">"</div>
-              <p className="text-slate-600 text-xl lg:text-2xl leading-relaxed italic relative z-10 font-medium">
-                {data.challenge.desc}
-              </p>
-              <div className="absolute right-0 bottom-0 text-8xl text-red-500/15 font-serif leading-none rotate-180 -mb-8">"</div>
+      {/* The Challenge Section - Professional Two-Column Layout */}
+      <section className="py-16 md:py-20 bg-white relative overflow-hidden border-b border-slate-200">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="lg:w-1/2"
+            >
+              <SectionHeader
+                badge="The Challenge"
+                title={data.challenge.title}
+                description={data.challenge.desc}
+                align="left"
+                accentColor="amber"
+                plainText={true}
+              />
             </motion.div>
 
-            {/* Operating Parameters (SEO + Tech Specs) */}
+            {/* Operating Parameters Grid */}
             {data.specs && (
-              <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 border-t border-slate-200 pt-10">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+                className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full"
+              >
                 {data.specs.map((spec: any, idx: number) => (
-                  <div key={idx} className="bg-white rounded-xl p-5 border border-slate-200 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow flex flex-col justify-center min-h-[100px]">
-                    <div className="text-slate-500 text-[10px] font-extrabold uppercase tracking-widest mb-2">{spec.label}</div>
-                    <div className="text-navy-900 text-sm md:text-base font-bold leading-tight">{spec.value}</div>
-                  </div>
+                  <motion.div variants={fadeInUp} key={idx} className="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-200 transition-all flex flex-col justify-center min-h-[120px]">
+                    <div className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-2">{spec.label}</div>
+                    <div className="text-navy-950 text-base md:text-lg font-bold leading-tight">{spec.value}</div>
+                  </motion.div>
                 ))}
               </motion.div>
             )}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* The Solution / Technologies */}
-      <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
+      <section className="py-16 md:py-20 bg-blue-50 relative overflow-hidden border-t border-blue-100">
         {/* Subtle background pattern to match home page premium feel */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#0f172a 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
         <div className="container mx-auto px-4 lg:px-8 max-w-6xl relative z-10">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -127,7 +128,7 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
             />
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -135,21 +136,19 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
             className={`grid grid-cols-1 md:grid-cols-2 ${data.technologies?.length === 3 ? 'lg:grid-cols-3' : ''} gap-6 lg:gap-8 mt-4`}
           >
             {data.technologies.map((tech: any, idx: number) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 variants={fadeInUp}
-                className="group relative bg-white p-8 lg:p-10 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:border-amber-200 transition-all duration-300 flex flex-col sm:flex-row items-start gap-6 overflow-hidden"
               >
-                {/* Accent border on hover */}
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                <div className="relative z-10 w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center bg-amber-50 shadow-inner border border-amber-100 text-amber-600 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-navy-900 transition-all duration-300">
-                  {tech.icon}
-                </div>
-                <div>
-                  <h3 className="relative z-10 text-xl md:text-2xl font-bold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors">{tech.name}</h3>
-                  <p className="relative z-10 text-slate-600 text-base leading-relaxed font-medium">{tech.desc}</p>
-                </div>
+                <Card padding="md" hoverEffect="lift" className="group h-full flex flex-col">
+                  <IconBox icon={tech.icon} color="amber" size="lg" className="mb-6" />
+                  <h3 className="text-xl md:text-2xl font-bold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors">
+                    {tech.name}
+                  </h3>
+                  <p className="text-slate-600 text-base leading-relaxed font-medium">
+                    {tech.desc}
+                  </p>
+                </Card>
               </motion.div>
             ))}
           </motion.div>
@@ -162,9 +161,9 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
         {/* Glow effect */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500 opacity-5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-10"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-900/90 to-navy-950 z-0" />
-        
+
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -215,7 +214,7 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
       {/* FAQs */}
       <section className="py-20 lg:py-32 bg-slate-50 relative overflow-hidden border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -237,21 +236,21 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
       </section>
 
       {/* Application-Specific Bottom CTA */}
-      <section className="py-24 lg:py-32 bg-navy-950 border-t border-navy-800 relative overflow-hidden">
-        <AnimatedGridBackground opacity={0.08} />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-amber-500 opacity-[0.03] blur-[100px] pointer-events-none"></div>
+      <section className="py-24 lg:py-32 bg-[#F1EFE8] relative overflow-hidden">
+        <AnimatedGridBackground opacity={0.03} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-white opacity-50 blur-[100px] pointer-events-none"></div>
         <div className="container mx-auto px-4 lg:px-8 max-w-4xl text-center relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             <SectionHeader
               badge="Direct From The Source"
-              title={data.cta?.heading ? <>{data.cta.heading}</> : <>Need a custom volume quote for your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">{data.title}</span>?</>}
+              title={data.cta?.heading || `Need a custom volume quote for your ${data.title}?`}
               description={data.cta?.subheading || "Connect directly with our engineering and wholesale team to get factory-direct container pricing and specifications tailored to your fleet."}
               align="center"
-              theme="dark"
+              theme="light"
               accentColor="amber"
             />
             <motion.div variants={fadeInUp} className="mt-10">
-              <Link href={data.cta?.link || "/quote"} className="inline-flex items-center justify-center bg-amber-500 hover:bg-amber-400 text-navy-950 font-black px-10 py-5 rounded-xl transition-all duration-300 text-[14px] uppercase tracking-widest shadow-[0_0_30px_rgba(245,158,11,0.2)] hover:shadow-[0_0_40px_rgba(245,158,11,0.4)] transform hover:-translate-y-1">
+              <Link href={data.cta?.link || "/quote"} className="inline-flex items-center justify-center bg-navy-900 hover:bg-navy-800 text-white font-black px-10 py-5 rounded-xl transition-all duration-300 text-[14px] uppercase tracking-widest shadow-[0_10px_30px_rgba(15,23,42,0.2)] hover:shadow-[0_15px_40px_rgba(15,23,42,0.3)] transform hover:-translate-y-1">
                 {data.cta?.buttonText || "Request a Quote"} <ArrowRight className="w-5 h-5 ml-3" />
               </Link>
             </motion.div>

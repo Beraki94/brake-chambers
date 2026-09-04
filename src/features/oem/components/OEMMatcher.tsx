@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { ReplaceAll, ArrowRightLeft, ShieldCheck } from 'lucide-react';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 const competitors = [
   { id: 'bendix', name: 'Bendix', type: 'Piggyback Kit', match: 'BRC-PB-3030' },
@@ -21,17 +22,16 @@ export default function OEMMatcher() {
         style={{ backgroundImage: 'linear-gradient(#475569 1px, transparent 1px), linear-gradient(90deg, #475569 1px, transparent 1px)', backgroundSize: '40px 40px' }}
       ></div>
 
-      <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center px-4 py-1.5 mb-6 rounded-full border border-emerald-500/50 bg-emerald-500/10 text-emerald-400 text-[11px] font-bold uppercase tracking-widest">
-          <ReplaceAll className="w-3 h-3 mr-2" /> Direct-Fit Cross Reference
-        </div>
-        
-        <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
-          Exact Match Replacements.
-        </h2>
-        <p className="text-navy-200 text-sm md:text-base leading-relaxed">
-          Don't waste time guessing. Our aftermarket accessories and piggyback kits are engineered to be 100% direct-fit replacements for major OEM brands. Select a brand below to see the BRC equivalent.
-        </p>
+      <div className="relative z-10 max-w-3xl mx-auto">
+        <SectionHeader
+          badge={<><ReplaceAll className="w-3 h-3 mr-2 inline-block relative -top-[1px]" /> Direct-Fit Cross Reference</>}
+          title="Exact Match Replacements."
+          description="Don't waste time guessing. Our aftermarket accessories and piggyback kits are engineered to be 100% direct-fit replacements for major OEM brands. Select a brand below to see the BRC equivalent."
+          align="center"
+          theme="dark"
+          accentColor="emerald"
+          className="!mb-12"
+        />
       </div>
 
       <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-4 max-w-7xl mx-auto">

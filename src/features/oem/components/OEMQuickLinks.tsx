@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function OEMQuickLinks({ categoryName }: { categoryName: string }) {
   const oemBrands = [
@@ -19,11 +20,14 @@ export default function OEMQuickLinks({ categoryName }: { categoryName: string }
         <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
         <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] z-0"></div>
         
-        <div className="relative z-10 w-full md:w-5/12 flex flex-col">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Looking for a specific OEM replacement?</h2>
-          <p className="text-navy-200 text-base md:text-lg font-light mb-8">
-            Our {categoryName.toLowerCase()} are engineered as direct aftermarket drop-in replacements. Cross-reference your existing part numbers instantly.
-          </p>
+        <div className="relative z-10 w-full md:w-5/12 flex flex-col items-start">
+          <SectionHeader
+            title="Looking for a specific OEM replacement?"
+            description={`Our ${categoryName.toLowerCase()} are engineered as direct aftermarket drop-in replacements. Cross-reference your existing part numbers instantly.`}
+            align="left"
+            theme="dark"
+            className="!mb-8"
+          />
           <Link 
             href="/oem-cross-reference" 
             className="inline-flex w-fit items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-navy-950 px-8 py-4 rounded-xl font-black uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1"

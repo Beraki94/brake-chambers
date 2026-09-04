@@ -62,19 +62,20 @@ export default function CustomOemClient() {
       {/* Light Value Proposition (Section Grey) */}
       <section className="py-16 md:py-24 bg-slate-50 relative overflow-hidden border-b border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-black text-navy-900 mb-6 tracking-tight leading-tight">
-            Your Design. <span className="text-amber-500">Our Factory.</span>
-          </h2>
-          <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-3xl mx-auto">
-            You don't need to build a factory in China to get factory-direct margins. Partner with BRC 
-            to engineer, test, and mass-produce your proprietary brake chamber designs at scale — while 
-            we handle every aspect of manufacturing, testing, and logistics.
-          </p>
+          <SectionHeader
+            title={<>Your Design. <span className="text-amber-500">Our Factory.</span></>}
+            description="You don't need to build a factory in China to get factory-direct margins. Partner with BRC to engineer, test, and mass-produce your proprietary brake chamber designs at scale — while we handle every aspect of manufacturing, testing, and logistics."
+            align="center"
+            theme="light"
+            accentColor="amber"
+            plainText={true}
+            className="!mb-10"
+          />
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              { icon: <Lock className="w-5 h-5 text-navy-500" />, text: '100% IP Protection' },
+              { icon: <Lock className="w-5 h-5 text-emerald-500" />, text: '100% IP Protection' },
               { icon: <Settings className="w-5 h-5 text-amber-500" />, text: 'In-House Tooling' },
-              { icon: <FileText className="w-5 h-5 text-navy-500" />, text: 'NDA Before Review' },
+              { icon: <FileText className="w-5 h-5 text-emerald-500" />, text: 'NDA Before Review' },
             ].map((badge, idx) => (
               <div key={idx} className="bg-white border border-slate-200 px-5 py-3 rounded-full flex items-center gap-2 shadow-sm hover:shadow-md transition-shadow">
                 {badge.icon}
@@ -112,7 +113,7 @@ export default function CustomOemClient() {
       </section>
 
       {/* 3-Phase Development Process — Alternating Layout */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-blue-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
             badge="Development Phases"
@@ -183,15 +184,12 @@ export default function CustomOemClient() {
               <SectionHeader
                 badge="Confidentiality"
                 title="Your IP is Sacred"
+                description="We understand that your proprietary designs represent years of R&D investment. Our OEM program is built on a foundation of absolute confidentiality and intellectual property protection at every stage."
                 align="left"
+                theme="light"
                 accentColor="amber"
-                className="!mb-6"
+                className="!mb-8"
               />
-              <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed mb-8">
-                We understand that your proprietary designs represent years of R&D investment. Our 
-                OEM program is built on a foundation of absolute confidentiality and intellectual 
-                property protection at every stage.
-              </p>
               <div className="space-y-5">
                 {[
                   { title: 'Standard NDA Before Any Review', desc: 'We sign comprehensive non-disclosure agreements before you share a single CAD file or specification sheet.' },

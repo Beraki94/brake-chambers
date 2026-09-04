@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Ship, Truck, Globe2, Anchor, Package, FileText, CheckCircle2 } from 'lucide-react';
 import Card from '@/components/ui/Card';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export const metadata = {
   title: 'Global Logistics | BRC Brake Chambers',
@@ -16,13 +17,16 @@ export default function ShippingPage() {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px] -mr-40 -mt-40 mix-blend-screen pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[100px] -ml-40 -mb-40 mix-blend-screen pointer-events-none"></div>
         <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="inline-flex items-center px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-700 shadow-xl shadow-navy-950 text-amber-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
-            <Globe2 className="w-4 h-4 mr-2" /> Global Logistics
-          </div>
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-8 drop-shadow-lg leading-tight tracking-tight">Factory to <span className="text-amber-400">Doorstep.</span></h1>
-          <p className="text-navy-200 text-lg md:text-2xl font-light max-w-3xl mx-auto leading-relaxed">
-            We operate a seamless, globally integrated supply chain. From EXW factory floor to CIF at your destination port, our logistics team handles the complexities so you don't have to.
-          </p>
+          <SectionHeader
+            badge={<><Globe2 className="w-3.5 h-3.5 mr-2 inline-block relative -top-[1px]" /> Global Logistics</>}
+            title={<>Factory to <span className="text-amber-400">Doorstep.</span></>}
+            description="We operate a seamless, globally integrated supply chain. From EXW factory floor to CIF at your destination port, our logistics team handles the complexities so you don't have to."
+            align="center"
+            theme="dark"
+            accentColor="amber"
+            asH1={true}
+            className="!mb-0"
+          />
         </div>
       </section>
 
@@ -55,13 +59,16 @@ export default function ShippingPage() {
             {/* Left Column */}
             <div className="space-y-12">
               <div>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-amber-500">
-                    <Ship className="w-6 h-6" />
-                  </div>
-                  <h2 className="text-3xl font-black text-navy-900">Freight Volumes</h2>
-                </div>
-                <p className="text-lg leading-relaxed mb-6 font-light">We engineer our pallets to maximize spatial efficiency within standard ISO shipping containers. You never pay to ship dead air.</p>
+                <SectionHeader
+                  badge={<><Ship className="w-3.5 h-3.5 inline-block mr-1.5 relative -top-[1px]" /> Volume</>}
+                  title="Freight Volumes"
+                  description="We engineer our pallets to maximize spatial efficiency within standard ISO shipping containers. You never pay to ship dead air."
+                  align="left"
+                  theme="light"
+                  accentColor="amber"
+                  plainText={true}
+                  className="!mb-6"
+                />
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0 mt-1" />
@@ -81,28 +88,32 @@ export default function ShippingPage() {
               </div>
 
               <div>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-navy-50 rounded-xl flex items-center justify-center text-navy-600">
-                    <Package className="w-6 h-6" />
-                  </div>
-                  <h2 className="text-3xl font-black text-navy-900">Export Packaging</h2>
-                </div>
-                <p className="text-lg leading-relaxed font-light">
-                  All brake chambers are securely packaged on heat-treated wooden pallets strictly compliant with ISPM-15 international standards. Pallets are double shrink-wrapped, corner-protected, and steel-strapped to ensure absolute zero movement and zero damage during rough ocean transit. Custom retail cartons are also available for Private Label customers.
-                </p>
+                <SectionHeader
+                  badge={<><Package className="w-3.5 h-3.5 inline-block mr-1.5 relative -top-[1px]" /> Packaging</>}
+                  title="Export Packaging"
+                  description="All brake chambers are securely packaged on heat-treated wooden pallets strictly compliant with ISPM-15 international standards. Pallets are double shrink-wrapped, corner-protected, and steel-strapped to ensure absolute zero movement and zero damage during rough ocean transit. Custom retail cartons are also available for Private Label customers."
+                  align="left"
+                  theme="light"
+                  accentColor="navy"
+                  plainText={true}
+                  className="!mb-6"
+                />
               </div>
             </div>
 
             {/* Right Column */}
             <div className="space-y-12">
               <div>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-500">
-                    <Anchor className="w-6 h-6" />
-                  </div>
-                  <h2 className="text-3xl font-black text-navy-900">Incoterms & Customs</h2>
-                </div>
-                <p className="text-lg leading-relaxed font-light mb-6">We support all standard international trade terms. If you lack a dedicated freight forwarder, our in-house export department handles the entire booking process seamlessly.</p>
+                <SectionHeader
+                  badge={<><Anchor className="w-3.5 h-3.5 inline-block mr-1.5 relative -top-[1px]" /> Trade Terms</>}
+                  title="Incoterms & Customs"
+                  description="We support all standard international trade terms. If you lack a dedicated freight forwarder, our in-house export department handles the entire booking process seamlessly."
+                  align="left"
+                  theme="light"
+                  accentColor="emerald"
+                  plainText={true}
+                  className="!mb-6"
+                />
                 <Card padding="md" className="-slate-100 space-y-4">
                   <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                     <span className="font-bold text-navy-900">EXW</span>
@@ -120,15 +131,16 @@ export default function ShippingPage() {
               </div>
 
               <div>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-500">
-                    <Truck className="w-6 h-6" />
-                  </div>
-                  <h2 className="text-3xl font-black text-navy-900">Transit Lead Times</h2>
-                </div>
-                <p className="text-lg leading-relaxed font-light mb-6">
-                  Standard manufacturing lead times are 30 days. Once loaded, estimated ocean transit times are highly predictable:
-                </p>
+                <SectionHeader
+                  badge={<><Truck className="w-3.5 h-3.5 inline-block mr-1.5 relative -top-[1px]" /> Schedule</>}
+                  title="Transit Lead Times"
+                  description="Standard manufacturing lead times are 30 days. Once loaded, estimated ocean transit times are highly predictable:"
+                  align="left"
+                  theme="light"
+                  accentColor="navy"
+                  plainText={true}
+                  className="!mb-6"
+                />
                 <ul className="space-y-3">
                   <li className="flex items-center justify-between bg-white border border-slate-200 p-4 rounded-xl shadow-sm">
                     <span className="font-bold text-navy-900">North & South America</span>
@@ -150,10 +162,15 @@ export default function ShippingPage() {
 
         {/* CTA */}
         <div className="bg-slate-50 rounded-[3rem] p-12 md:p-16 text-center shadow-inner border border-slate-200 mb-20">
-          <h3 className="text-3xl font-black text-navy-900 mb-6 tracking-tight">Need a Logistics Quote?</h3>
-          <p className="text-slate-600 text-lg mb-10 max-w-2xl mx-auto font-light">
-            Contact our export team today. Tell us your port of destination and estimated volume, and we will calculate the exact CIF pricing for your order.
-          </p>
+          <SectionHeader
+            title="Need a Logistics Quote?"
+            description="Contact our export team today. Tell us your port of destination and estimated volume, and we will calculate the exact CIF pricing for your order."
+            align="center"
+            theme="light"
+            accentColor="amber"
+            plainText={true}
+            className="!mb-10"
+          />
           <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-black px-10 py-5 rounded-xl hover:bg-amber-400 hover:-translate-y-1 transition-all shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[13px]">
             Request Freight Quote <ArrowRight className="w-5 h-5 ml-3" />
           </Link>

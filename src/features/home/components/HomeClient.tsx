@@ -11,6 +11,7 @@ import { blogPosts } from '@/data/blogPosts';
 import BlogCard from '@/components/ui/BlogCard';
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 import TrendingModelsMarquee from '@/components/ui/TrendingModelsMarquee';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 const HERO_SLIDES = [
   {
@@ -192,11 +193,16 @@ export default function HomeClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-14 gap-6 text-center md:text-left">
             <div className="max-w-2xl flex flex-col items-center md:items-start">
-              <div className="inline-block px-3 py-1 mb-3 rounded-full bg-navy-900 text-amber-400 text-[11px] font-bold uppercase tracking-widest shadow-md">
-                Product Lines
-              </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700 mb-3 tracking-tight">Primary Product Categories</h2>
-              <p className="text-slate-600 text-sm md:text-base font-light max-w-2xl">Explore our comprehensive range of commercial vehicle brake solutions.</p>
+              <SectionHeader 
+                badge="Product Lines" 
+                title="Primary Product Categories" 
+                description="Explore our comprehensive range of commercial vehicle brake solutions." 
+                align="left" 
+                theme="light"
+                accentColor="navy" 
+                plainText={false}
+                className="!mb-0" 
+              />
             </div>
             <Link href="/products" className="hidden md:flex text-amber-600 font-extrabold uppercase tracking-widest text-[13px] items-center justify-center hover:text-amber-500 transition-colors bg-white px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md">
               View All BRC Chambers <ChevronRight className="w-4 h-4 ml-1" />
@@ -340,13 +346,16 @@ export default function HomeClient() {
 
             {/* Copy / Narrative */}
             <div className="w-full lg:w-1/2">
-              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-slate-100 text-amber-600 border border-slate-200 text-[11px] font-bold uppercase tracking-widest">
-                FACTORY-DIRECT SUPPLY
-              </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-6 tracking-tight">Inside Our <span className="text-amber-500">50,000 sqm</span> Manufacturing Hub.</h2>
-              <p className="text-slate-600 text-base md:text-lg mb-6 leading-relaxed">
-                By partnering directly with our IATF-certified factory in Zhejiang, China, you gain a vertically integrated manufacturing ally. We eliminate middleman markups and manage the entire lifecycle, delivering absolute OEM-quality precision backed by global logistical scale.
-              </p>
+              <SectionHeader
+                badge="FACTORY-DIRECT SUPPLY"
+                title={<>Inside Our <span className="text-amber-500">50,000 sqm</span> Manufacturing Hub.</>}
+                description="By partnering directly with our IATF-certified factory in Zhejiang, China, you gain a vertically integrated manufacturing ally. We eliminate middleman markups and manage the entire lifecycle, delivering absolute OEM-quality precision backed by global logistical scale."
+                align="left"
+                theme="light"
+                accentColor="amber"
+                plainText={true}
+                className="!mb-6"
+              />
               <ul className="space-y-4 mb-8 text-left">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
@@ -387,16 +396,16 @@ export default function HomeClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none"></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-navy-900 border border-navy-700 shadow-xl shadow-navy-950 text-amber-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
-            Direct Aftermarket Replacements
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-            Engineered as a Direct Match — Not a Generic Substitute
-          </h2>
-          <p className="text-navy-300 max-w-2xl mx-auto mb-12 text-sm md:text-base font-light leading-relaxed">
-            We manufacture aftermarket brake chambers to match the exact fit, form, and performance of leading OEM brands — so swapping to our parts doesn't mean swapping your specs.
-          </p>
+          <SectionHeader
+            badge="Direct Aftermarket Replacements"
+            title="Engineered as a Direct Match — Not a Generic Substitute"
+            description="We manufacture aftermarket brake chambers to match the exact fit, form, and performance of leading OEM brands — so swapping to our parts doesn't mean swapping your specs."
+            align="center"
+            theme="dark"
+            accentColor="amber"
+            plainText={true}
+            className="!mb-12"
+          />
 
           <motion.div
             variants={staggerContainer}
@@ -445,16 +454,16 @@ export default function HomeClient() {
               
               {/* Left Column: Text & CTA */}
               <div>
-                <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-gradient-to-r from-amber-500/20 to-transparent border border-amber-500/30 text-amber-400 text-[11px] font-bold uppercase tracking-widest">
-                  PROPRIETARY R&D SPOTLIGHT
-                </div>
-                <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-5 leading-tight">
-                  High Output Technology <span className="text-emerald-500">(HOT)</span><br/>
-                  <span className="text-xl md:text-2xl text-navy-200 mt-3 block">Redefining Air Disc Performance</span>
-                </h2>
-                <p className="text-sm md:text-base text-navy-200 mb-8 leading-relaxed font-light text-left">
-                  Traditional air disc brake actuators lose clamping force as internal friction builds over time. Our patented High Output Technology (HOT) corrects this by maximizing mechanical advantage through a proprietary internal mechanism. The result: unprecedented stopping power consistency and uncompromised safety.
-                </p>
+                <SectionHeader
+                  badge="PROPRIETARY R&D SPOTLIGHT"
+                  title={<>High Output Technology <span className="text-emerald-500">(HOT)</span><br/><span className="text-xl md:text-2xl text-navy-200 mt-3 block">Redefining Air Disc Performance</span></>}
+                  description="Traditional air disc brake actuators lose clamping force as internal friction builds over time. Our patented High Output Technology (HOT) corrects this by maximizing mechanical advantage through a proprietary internal mechanism. The result: unprecedented stopping power consistency and uncompromised safety."
+                  align="left"
+                  theme="dark"
+                  accentColor="amber"
+                  plainText={true}
+                  className="!mb-8"
+                />
                 <Link href="/technical-resources" className="inline-flex w-full sm:w-auto justify-center items-center text-navy-950 bg-white font-extrabold px-6 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5 text-center">
                   <span>Download Tech Specs</span> <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0" />
                 </Link>
@@ -503,13 +512,16 @@ export default function HomeClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
             <div className="lg:col-span-1 pr-6">
-              <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white border border-slate-200 shadow-sm text-amber-600 text-[11px] font-bold uppercase tracking-widest backdrop-blur-md">
-                Digital Ecosystem
-              </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-navy-950 leading-tight drop-shadow-sm">Smart Tools for Distributors & Fleets</h2>
-              <p className="text-navy-700 text-base mb-8 leading-relaxed font-medium">
-                Streamline cross-referencing, technician training, and warranty claims—without picking up the phone.
-              </p>
+              <SectionHeader
+                badge="Digital Ecosystem"
+                title="Smart Tools for Distributors & Fleets"
+                description="Streamline cross-referencing, technician training, and warranty claims—without picking up the phone."
+                align="left"
+                theme="light"
+                accentColor="amber"
+                plainText={true}
+                className="!mb-8"
+              />
             </div>
 
             <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -578,13 +590,16 @@ export default function HomeClient() {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="text-center mb-12">
-            <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-navy-50 border border-navy-100 text-navy-600 text-[11px] font-extrabold uppercase tracking-widest">
-              Partnership Process
-            </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-navy-900 mb-4 tracking-tight">3 Steps to Partner With Us</h2>
-            <p className="text-slate-600 text-sm md:text-base font-light max-w-2xl mx-auto">
-              From sample evaluation to direct container shipping, we make importing premium brake chambers from China seamless and secure.
-            </p>
+            <SectionHeader
+              badge="Partnership Process"
+              title="3 Steps to Partner With Us"
+              description="From sample evaluation to direct container shipping, we make importing premium brake chambers from China seamless and secure."
+              align="center"
+              theme="light"
+              accentColor="navy"
+              plainText={true}
+              className="!mb-0"
+            />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
@@ -630,13 +645,15 @@ export default function HomeClient() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
 
             <div className="max-w-2xl relative z-10 text-center md:text-left">
-              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-white/10 border border-white/20 text-amber-400 text-[11px] font-extrabold uppercase tracking-widest backdrop-blur-sm">
-                Corporate Headquarters
-              </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to bypass the middleman?</h2>
-              <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed mb-8">
-                Connect directly with our corporate headquarters in China. Our English-speaking export engineering team is standing by. <strong className="text-white font-bold">Direct from the source. No compromises.</strong>
-              </p>
+              <SectionHeader
+                badge="Corporate Headquarters"
+                title="Ready to bypass the middleman?"
+                description={<>Connect directly with our corporate headquarters in China. Our English-speaking export engineering team is standing by. <strong className="text-white font-bold">Direct from the source. No compromises.</strong></>}
+                align="left"
+                theme="dark"
+                accentColor="amber"
+                className="!mb-8"
+              />
               
               <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 sm:gap-6">
                 <a href="tel:+8613395856758" className="flex items-center gap-2.5 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/50 rounded-xl transition-all duration-300 backdrop-blur-sm group">

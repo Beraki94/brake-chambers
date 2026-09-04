@@ -102,8 +102,8 @@ export default function ApplicationsClient() {
     <div className="min-h-screen bg-slate-50 font-sans overflow-x-clip">
       <PageHeader
         badge="Applications"
-        title="Built for Your Operating Environment"
-        description="Whether you run long-haul freight, refuse trucks, city transit, or off-highway equipment — find the brake chambers engineered for your specific conditions."
+        title="We Manufacture The Best Brake Chambers For Your Fleet"
+        description="Whether you run long-haul freight, refuse trucks, city transit, or off-highway equipment — buy factory-direct brake chambers engineered to outlast the competition in your specific operating environment."
         imageSrc="/products/scattered_chambers_footer.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -238,10 +238,11 @@ export default function ApplicationsClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <SectionHeader
             badge="Tested for the Extremes"
-            title={<>Engineered for the <span className="text-amber-500">Harshest Conditions</span></>}
+            title="Engineered for the Harshest Conditions"
             description="Our application-specific designs don't just meet industry standards—they dominate the harshest elements on the planet."
             accentColor="amber"
             theme="dark"
+            plainText={true}
           />
 
           <motion.div
@@ -289,12 +290,15 @@ export default function ApplicationsClient() {
 
             {/* Right: Content */}
             <div className="w-full lg:w-1/2">
-              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-[11px] font-extrabold uppercase tracking-widest">
-                Real-World Results
-              </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-navy-900 mb-6 tracking-tight">
-                Fleet Success Snapshot: <br className="hidden sm:block" /><span className="text-amber-500">Arctic Mining Operator</span>
-              </h2>
+              <SectionHeader
+                badge="Real-World Results"
+                title={<>Fleet Success Snapshot: <br className="hidden sm:block" /><span className="text-amber-500">Arctic Mining Operator</span></>}
+                align="left"
+                theme="light"
+                accentColor="slate"
+                plainText={true}
+                className="!mb-6"
+              />
               
               <div className="space-y-6 mb-8">
                 <div className="bg-slate-50 border-l-4 border-slate-300 p-5 rounded-r-xl transition-all duration-300 hover:shadow-md">
@@ -336,13 +340,15 @@ export default function ApplicationsClient() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
 
             <div className="max-w-2xl relative z-10 text-center md:text-left">
-              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-white/10 border border-white/20 text-amber-400 text-[11px] font-extrabold uppercase tracking-widest backdrop-blur-sm">
-                Custom Solutions
-              </div>
-              <h3 className="text-3xl md:text-4xl font-extrabold mb-4">Need a Custom Brake Chamber Solution?</h3>
-              <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed">
-                Work directly with our engineering team to design, prototype, and manufacture custom air brake actuators that meet your exact mechanical requirements. <strong className="text-white font-bold">No middlemen. No compromises.</strong>
-              </p>
+              <SectionHeader
+                badge="Custom Solutions"
+                title="Need a Custom Brake Chamber Solution?"
+                description={<>Work directly with our engineering team to design, prototype, and manufacture custom air brake actuators that meet your exact mechanical requirements. <strong className="text-white font-bold">No middlemen. No compromises.</strong></>}
+                align="left"
+                theme="dark"
+                accentColor="amber"
+                className="!mb-0"
+              />
             </div>
 
             <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto shrink-0">

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Factory } from 'lucide-react';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 interface SubCategoryWholesaleCTAProps {
   categoryName: string;
@@ -14,17 +15,15 @@ export default function SubCategoryWholesaleCTA({ categoryName }: SubCategoryWho
       <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] z-0 pointer-events-none"></div>
       
       <div className="relative z-10 flex-1 max-w-2xl">
-        <div className="inline-flex items-center px-4 py-1.5 mb-6 rounded-full border border-navy-700 bg-navy-800/80 text-navy-300 text-[11px] font-bold uppercase tracking-widest w-max">
-          <Factory className="w-3 h-3 mr-2 text-amber-500" /> Factory Direct Wholesale
-        </div>
-        
-        <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6 leading-tight">
-          Procuring <span className="text-amber-400">{categoryName}</span> in Bulk?
-        </h2>
-        
-        <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed">
-          Skip the middlemen. We manufacture our {categoryName.toLowerCase()} directly to IATF 16949 automotive standards. Get preferential pricing, guaranteed lead times, and pallet shipping discounts when you order directly from BRC.
-        </p>
+        <SectionHeader
+          badge={<><Factory className="w-3 h-3 mr-2 inline-block text-amber-500 relative -top-[1px]" /> Factory Direct Wholesale</>}
+          title={<>Procuring <span className="text-amber-400">{categoryName}</span> in Bulk?</>}
+          description={`Skip the middlemen. We manufacture our ${categoryName.toLowerCase()} directly to IATF 16949 automotive standards. Get preferential pricing, guaranteed lead times, and pallet shipping discounts when you order directly from BRC.`}
+          align="left"
+          theme="dark"
+          accentColor="slate"
+          className="!mb-0"
+        />
       </div>
 
       <div className="relative z-10 flex flex-col w-full md:w-auto gap-4 min-w-[240px]">

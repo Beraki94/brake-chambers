@@ -2,6 +2,7 @@
 
 import React from 'react';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 interface SubCategoryFAQProps {
   categoryName: string;
@@ -25,14 +26,14 @@ export default function SubCategoryFAQ({ categoryName }: SubCategoryFAQProps) {
 
   return (
     <section className="mb-16 mt-16 max-w-4xl mx-auto">
-      <div className="text-center mb-10">
-        <h2 className="text-3xl lg:text-4xl font-extrabold text-navy-900 mb-4">
-          Frequently Asked Questions: <span className="text-amber-600">{categoryName}</span>
-        </h2>
-        <p className="text-slate-600 max-w-2xl mx-auto">
-          Find answers to common questions about our {categoryName.toLowerCase()} and wholesale operations.
-        </p>
-      </div>
+      <SectionHeader
+        title={<>Frequently Asked Questions: <span className="text-amber-600">{categoryName}</span></>}
+        description={`Find answers to common questions about our ${categoryName.toLowerCase()} and wholesale operations.`}
+        align="center"
+        theme="light"
+        accentColor="slate"
+        className="!mb-10"
+      />
       <GlobalFAQAccordion faqs={faqs} />
     </section>
   );

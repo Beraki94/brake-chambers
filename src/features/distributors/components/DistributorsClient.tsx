@@ -40,9 +40,16 @@ export default function DistributorsClient() {
         
         {/* Overlapping Quick Actions Box */}
         <div className="-mt-16 sm:-mt-20 bg-white border border-slate-200 rounded-2xl sm:rounded-[2rem] p-6 lg:p-8 shadow-xl shadow-slate-200/50 mb-10 sm:mb-16 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-           <div className="text-center md:text-left">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-navy-900 font-heading">Partner Portal</h2>
-              <p className="text-slate-500 text-sm sm:text-base mt-2 font-medium">Access B2B pricing, or apply to join our global network.</p>
+           <div className="w-full text-center md:text-left">
+              <SectionHeader
+                title="Partner Portal"
+                description="Access B2B pricing, or apply to join our global network."
+                align="left"
+                theme="light"
+                accentColor="navy"
+                plainText={true}
+                className="!mb-0"
+              />
            </div>
            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
               <button onClick={() => setActiveModal('login')} className="bg-navy-50 text-navy-900 hover:bg-navy-100 border border-navy-100 font-extrabold px-6 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md w-full md:w-auto text-base sm:text-lg">
@@ -93,14 +100,16 @@ export default function DistributorsClient() {
 
             {/* Right Side Grid */}
             <div className="w-full lg:w-3/4">
-              <div className="mb-8">
-                <h1 className="text-3xl md:text-4xl font-extrabold text-navy-900 font-heading tracking-tight mb-2">
-                  Global Authorized Network
-                </h1>
-                <p className="text-lg text-slate-500">
-                  {selectedRegion === 'All' ? 'Showing all international distributors.' : `Showing authorized distributors in ${selectedRegion}.`}
-                </p>
-              </div>
+              <SectionHeader
+                title="Global Authorized Network"
+                description={selectedRegion === 'All' ? 'Showing all international distributors.' : `Showing authorized distributors in ${selectedRegion}.`}
+                align="left"
+                theme="light"
+                accentColor="navy"
+                plainText={true}
+                asH1={true}
+                className="!mb-8"
+              />
 
               <div className="grid md:grid-cols-2 gap-6">
                 <AnimatePresence mode="popLayout">
@@ -221,8 +230,15 @@ export default function DistributorsClient() {
                     <div className="w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-navy-900/20">
                       <Lock className="w-8 h-8 text-white" />
                     </div>
-                    <h2 className="text-3xl font-extrabold text-navy-900 mb-2 font-heading tracking-tight">Partner Portal</h2>
-                    <p className="text-slate-500 font-medium">Sign in to access B2B pricing, live inventory, and bulk ordering.</p>
+                    <SectionHeader
+                      title="Partner Portal"
+                      description="Sign in to access B2B pricing, live inventory, and bulk ordering."
+                      align="center"
+                      theme="light"
+                      accentColor="navy"
+                      plainText={true}
+                      className="!mb-0"
+                    />
                   </div>
 
                   <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
@@ -273,6 +289,7 @@ export default function DistributorsClient() {
                     title="Become a BRC Distributor" 
                     description="Join our authorized network and gain access to factory-direct pricing, technical support, and marketing resources." 
                     accentColor="navy"
+                    plainText={true}
                   />
                   <form className="mt-12 grid md:grid-cols-2 gap-x-8 gap-y-6" onSubmit={(e) => e.preventDefault()}>
                     <div className="md:col-span-2">

@@ -250,15 +250,15 @@ export default function ProductsClient() {
 
             {/* Text + stats */}
             <div className="w-full lg:w-1/2">
-              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-navy-900 border border-navy-800 text-amber-400 text-[11px] font-extrabold uppercase tracking-widest">
-                Proven Reliability
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
-                Trusted by <span className="text-amber-500">Global Fleets</span>
-              </h2>
-              <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed mb-8">
-                From sub-zero Arctic logging routes to blistering desert mining operations, our brake chambers are the chosen aftermarket replacement for the world's most demanding fleets.
-              </p>
+              <SectionHeader
+                badge="Proven Reliability"
+                title={<>Trusted by <span className="text-amber-500">Global Fleets</span></>}
+                description="From sub-zero Arctic logging routes to blistering desert mining operations, our brake chambers are the chosen aftermarket replacement for the world's most demanding fleets."
+                align="left"
+                theme="dark"
+                accentColor="amber"
+                className="!mb-8"
+              />
               
               <div className="grid grid-cols-2 gap-6 pt-6 border-t border-navy-800/50">
                 <div>
@@ -305,15 +305,16 @@ export default function ProductsClient() {
           
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div className="max-w-2xl">
-              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-amber-50 border border-amber-200 text-amber-600 text-[11px] font-extrabold uppercase tracking-widest">
-                By Vehicle Application
-              </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-navy-900 mb-4 tracking-tight">
-                Not sure which brake chamber you need?
-              </h2>
-              <p className="text-slate-500 text-base md:text-lg font-light leading-relaxed">
-                Select your vehicle type to see the recommended products for your operating environment.
-              </p>
+              <SectionHeader
+                badge="By Vehicle Application"
+                title="Not sure which brake chamber you need?"
+                description="Select your vehicle type to see the recommended products for your operating environment."
+                align="left"
+                theme="light"
+                accentColor="amber"
+                plainText={true}
+                className="!mb-0"
+              />
             </div>
             <Link href="/applications" className="hidden md:inline-flex items-center text-amber-600 font-extrabold uppercase tracking-widest text-[13px] hover:text-amber-500 transition-colors group">
               Explore All Applications <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
@@ -368,16 +369,16 @@ export default function ProductsClient() {
             
             {/* Text Content */}
             <div className="max-w-2xl text-center lg:text-left relative z-10">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-4 rounded-full bg-amber-50 border border-amber-200 text-amber-600 text-[11px] font-extrabold uppercase tracking-widest shadow-sm">
-                <Search className="w-3.5 h-3.5" />
-                Find Your Match
-              </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy-900 mb-3 tracking-tight">
-                Already have an OEM part number?
-              </h2>
-              <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Enter your Bendix, Knorr-Bremse, ZF/WABCO, Haldex, SORL, or MGM part number to instantly find the matching BRC equivalent.
-              </p>
+              <SectionHeader
+                badge={<><Search className="w-3.5 h-3.5 inline-block mr-1.5 relative -top-[1px]" />Find Your Match</>}
+                title="Already have an OEM part number?"
+                description="Enter your Bendix, Knorr-Bremse, ZF/WABCO, Haldex, SORL, or MGM part number to instantly find the matching BRC equivalent."
+                align="left"
+                theme="light"
+                accentColor="amber"
+                plainText={true}
+                className="!mb-0"
+              />
             </div>
 
             {/* Action Area (Fake Input + Button) */}
@@ -411,13 +412,15 @@ export default function ProductsClient() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
 
             <div className="max-w-2xl relative z-10 text-center md:text-left">
-              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-white/10 border border-white/20 text-amber-400 text-[11px] font-extrabold uppercase tracking-widest backdrop-blur-sm">
-                Factory Direct
-              </div>
-              <h3 className="text-3xl md:text-4xl font-extrabold mb-4">Looking for Volume Pricing or Container Orders?</h3>
-              <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed">
-                Distributors and large fleets get direct factory pricing, tiered discounts, and reliable container shipping from our manufacturing hub factory in China. <strong className="text-white font-bold">No middlemen. No compromises.</strong>
-              </p>
+              <SectionHeader
+                badge="Factory Direct"
+                title="Looking for Volume Pricing or Container Orders?"
+                description={<>Distributors and large fleets get direct factory pricing, tiered discounts, and reliable container shipping from our manufacturing hub factory in China. <strong className="text-white font-bold">No middlemen. No compromises.</strong></>}
+                align="left"
+                theme="dark"
+                accentColor="amber"
+                className="!mb-0"
+              />
             </div>
 
             <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto shrink-0">

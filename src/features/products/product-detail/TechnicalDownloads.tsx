@@ -1,6 +1,7 @@
 import React from 'react';
 import { FileText, Download, ShieldCheck } from 'lucide-react';
 import Card from '@/components/ui/Card';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 interface TechnicalDownloadsProps {
   productName: string;
@@ -30,9 +31,14 @@ export default function TechnicalDownloads({ productName }: TechnicalDownloadsPr
 
   return (
     <section className="mb-16">
-      <h2 className="text-3xl font-extrabold text-navy-900 mb-8">
-        Downloads & Documentation
-      </h2>
+      <SectionHeader
+        title="Downloads & Documentation"
+        align="left"
+        theme="light"
+        accentColor="slate"
+        plainText={true}
+        className="!mb-8"
+      />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
         {downloads.map((doc, idx) => (
           <Card padding="md" hoverEffect="lift" glowColor="amber" className="group flex items-start gap-4 -slate-200 hover:-amber-400 hover: cursor-pointer">

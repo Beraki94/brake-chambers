@@ -71,9 +71,9 @@ export default function SectionHeader({
         </h2>
       )}
 
-      {/* Subtitle / Description - Matches Home Page typography */}
+      {/* Subtitle / Description - Scaled properly for all devices */}
       {description && (
-        <div className={`text-sm md:text-base leading-relaxed font-light
+        <div className={`text-base sm:text-lg md:text-xl leading-relaxed font-light
           ${isCenter && 'mx-auto max-w-2xl'} 
           ${isDark ? 'text-navy-200' : 'text-slate-600'}`}
         >

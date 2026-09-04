@@ -233,23 +233,29 @@ export default function BrakeRandDClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
-              <div className="inline-flex items-center px-4 py-1.5 mb-6 rounded-full border border-navy-700 bg-navy-800/80 text-amber-400 text-[11px] font-bold uppercase tracking-widest">
-                Digital Prototyping
-              </div>
-              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-8 leading-tight">
-                Simulating <span className="text-amber-400">Millions of Cycles</span> Before Production
-              </h2>
-              <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed mb-6">
-                Before a single ounce of steel is poured, our engineering team builds an exact digital twin of the 
-                proposed brake chamber in advanced 3D CAD software. We then subject this virtual model to conditions 
-                far beyond what any real-world application would demand.
-              </p>
-              <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed mb-8">
-                Using <strong className="text-white font-bold">Finite Element Analysis (FEA)</strong>, we digitally 
-                simulate 120 PSI pneumatic bursts, extreme torsional vibration, and -40°F thermal shocks. We identify 
-                microscopic stress fractures in the computer model, thicken the steel gauge exactly where needed, and 
-                shave off weight where it isn't — delivering housings that are both lighter and stronger.
-              </p>
+              <SectionHeader
+                badge="Digital Prototyping"
+                title={<>Simulating <span className="text-amber-400">Millions of Cycles</span> Before Production</>}
+                description={
+                  <>
+                    <span className="block mb-4 text-base md:text-lg text-navy-200 font-light leading-relaxed">
+                      Before a single ounce of steel is poured, our engineering team builds an exact digital twin of the 
+                      proposed brake chamber in advanced 3D CAD software. We then subject this virtual model to conditions 
+                      far beyond what any real-world application would demand.
+                    </span>
+                    <span className="block text-base md:text-lg text-navy-200 font-light leading-relaxed">
+                      Using <strong className="text-white font-bold">Finite Element Analysis (FEA)</strong>, we digitally 
+                      simulate 120 PSI pneumatic bursts, extreme torsional vibration, and -40°F thermal shocks. We identify 
+                      microscopic stress fractures in the computer model, thicken the steel gauge exactly where needed, and 
+                      shave off weight where it isn't — delivering housings that are both lighter and stronger.
+                    </span>
+                  </>
+                }
+                align="left"
+                theme="dark"
+                accentColor="amber"
+                className="!mb-6"
+              />
               <ul className="space-y-4">
                 {[
                   'Predictive failure modeling for springs and diaphragms',
@@ -283,19 +289,16 @@ export default function BrakeRandDClient() {
       <section className="py-16 md:py-24 bg-slate-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-white border border-slate-200 text-slate-600 text-[11px] font-bold uppercase tracking-widest shadow-sm">
-                Future Pipeline
-              </div>
-              <h2 className="text-3xl md:text-5xl font-black text-navy-900 tracking-tight leading-tight mb-4">
-                What We're <span className="text-amber-500">Building Next</span>
-              </h2>
-              <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto">
-                A glimpse into our active R&D roadmap. These programs are currently in prototype or 
-                early production-validation stages — positioning BRC at the forefront of heavy-duty 
-                braking innovation.
-              </p>
-            </div>
+            <SectionHeader
+              badge="Future Pipeline"
+              title={<>What We're <span className="text-amber-500">Building Next</span></>}
+              description="A glimpse into our active R&D roadmap. These programs are currently in prototype or early production-validation stages — positioning BRC at the forefront of heavy-duty braking innovation."
+              align="center"
+              theme="light"
+              accentColor="slate"
+              plainText={true}
+              className="!mb-16"
+            />
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {roadmapItems.map((item, idx) => {

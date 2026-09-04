@@ -58,7 +58,7 @@ export default function MaterialSourcingClient() {
                 Our push-rods are CNC machined from high-tensile steel to guarantee perfect linearity, preventing the binding and uneven wear that destroys center seals in inferior designs.
               </p>
             </div>
-            <div className="bg-white p-10 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+            <div className="bg-white p-10 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group md:col-span-2 md:w-[calc(50%-1rem)] md:mx-auto">
               <div className="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-100/50 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
                 <Box className="w-8 h-8 text-amber-500" />
               </div>

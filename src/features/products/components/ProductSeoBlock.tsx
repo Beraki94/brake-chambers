@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrakeChamber, BrakeAccessory } from '../../types';
+import { BrakeChamber, BrakeAccessory } from '@/types';
 import Card from '@/components/ui/Card';
 
 interface ProductSeoBlockProps {
@@ -35,7 +35,7 @@ export default function ProductSeoBlock({ product }: ProductSeoBlockProps) {
     : 'Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex';
     
   const oemParts = isChamber && product.oemPartNumbers && product.oemPartNumbers.length > 0
-    ? ` Specifically replacing part numbers like ${product.oemPartNumbers.map(p => p.partNumber).slice(0, 3).join(', ')},`
+    ? ` Specifically replacing part numbers like ${product.oemPartNumbers.map((p: any) => p.partNumber).slice(0, 3).join(', ')},`
     : '';
 
   return (
@@ -48,7 +48,7 @@ export default function ProductSeoBlock({ product }: ProductSeoBlockProps) {
         Why Choose the BRC {product.name}?
       </h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-700 leading-relaxed text-sm md:text-base relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-700 leading-relaxed text-base md:text-lg relative z-10">
         <div>
           <p className="mb-4">
             Commercial fleets require absolute reliability when it comes to {functionText}. Our highly engineered <strong>{product.name}</strong> is manufactured to exceed OEM standards, providing maximum performance and safety for Class 8 trucks, trailers, and heavy-duty vehicles {strokeDesc}{pushRodDesc}.

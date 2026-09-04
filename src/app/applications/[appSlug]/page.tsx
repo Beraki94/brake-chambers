@@ -13,14 +13,20 @@ export async function generateMetadata(props: { params: Promise<{ appSlug: strin
     };
   }
 
+  const url = `/applications/${params.appSlug}`;
+
   return {
     title: `${data.title} | BRC Air Brake Chambers`,
     description: data.desc,
     keywords: data.keywords.join(', '),
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       title: `${data.title} | BRC Air Brake Chambers`,
       description: data.desc,
-      type: 'website',
+      type: 'article',
+      url: url,
       images: [
         {
           url: data.heroImage || '/images/og-default.jpg',
@@ -29,6 +35,12 @@ export async function generateMetadata(props: { params: Promise<{ appSlug: strin
           alt: data.title,
         }
       ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${data.title} | BRC Air Brake Chambers`,
+      description: data.desc,
+      images: [data.heroImage || '/images/og-default.jpg'],
     }
   };
 }

@@ -13,6 +13,7 @@ import { useMarketStore } from '@/store/market';
 import { BRAKE_CHAMBERS } from '@/lib/data';
 
 import { Search, AlertCircle, CheckCircle2, ArrowRight } from 'lucide-react';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 
 
@@ -139,21 +140,20 @@ export default function OEMSearchForm() {
       <div className="relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
 
         <div className="flex-1 w-full lg:w-1/2">
-
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-bold uppercase tracking-widest mb-4">
-
-            <Search className="w-3.5 h-3.5" /> Live Database
-
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-extrabold text-navy-900 mb-3 tracking-tight">Interchange Search</h2>
-
-          <p className="text-slate-600 text-base">
-
-            Try searching for competitor parts like <code className="bg-slate-100 border border-slate-200 px-2 py-0.5 rounded text-navy-900 font-mono text-sm font-semibold shadow-sm">NT3030STD-WC</code> or <code className="bg-slate-100 border border-slate-200 px-2 py-0.5 rounded text-navy-900 font-mono text-sm font-semibold shadow-sm">GC3030</code>
-
-          </p>
-
+          <SectionHeader
+            badge={<><Search className="w-3.5 h-3.5 inline-block mr-1.5 relative -top-[1px]" /> Live Database</>}
+            title="Interchange Search"
+            description={
+              <>
+                Try searching for competitor parts like <code className="bg-slate-100 border border-slate-200 px-2 py-0.5 rounded text-navy-900 font-mono text-sm font-semibold shadow-sm">NT3030STD-WC</code> or <code className="bg-slate-100 border border-slate-200 px-2 py-0.5 rounded text-navy-900 font-mono text-sm font-semibold shadow-sm">GC3030</code>
+              </>
+            }
+            align="left"
+            theme="light"
+            accentColor="amber"
+            plainText={true}
+            className="!mb-0"
+          />
         </div>
 
 

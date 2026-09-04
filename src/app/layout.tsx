@@ -14,6 +14,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.brcbrakechambers.com'),
   title: 'BRC Brake Chambers | Professional Factory Sales',
   description: 'Premium quality commercial brake chambers, spring brakes, service brakes, and parts. OEM Cross-Reference available.',
   openGraph: {
