@@ -267,7 +267,7 @@ export default function GlobalSearchModal() {
                 )}
               </div>
               
-              <div className="bg-slate-50 p-3 border-t border-slate-100 text-center flex items-center justify-center gap-6 shrink-0">
+              <div className="hidden sm:flex bg-slate-50 p-3 border-t border-slate-100 text-center items-center justify-center gap-6 shrink-0">
                 <span className="text-xs font-medium text-slate-500 flex items-center gap-1"><kbd className="px-1.5 py-0.5 bg-white border border-slate-200 rounded font-sans shadow-sm">esc</kbd> to close</span>
                 <span className="text-xs font-medium text-slate-500 flex items-center gap-1"><kbd className="px-1.5 py-0.5 bg-white border border-slate-200 rounded font-sans shadow-sm">ctrl/cmd</kbd> + <kbd className="px-1.5 py-0.5 bg-white border border-slate-200 rounded font-sans shadow-sm">k</kbd> to search</span>
               </div>

@@ -140,6 +140,13 @@ export default function ProductListingLayout({
           )}
           
           
+          {isSubCategory && (
+            <div className="flex flex-col gap-8 mt-8 sm:mt-12 md:mt-16">
+              <SubCategoryComparisonTable products={paginatedProducts} categoryName={title} />
+              <SubCategoryWholesaleCTA categoryName={title} />
+              <SubCategoryFAQ categoryName={title} />
+            </div>
+          )}
         </div>
       </div>
 
@@ -155,14 +162,6 @@ export default function ProductListingLayout({
         </>
       )}
 
-      {isSubCategory && (
-        <>
-          <SubCategoryComparisonTable products={paginatedProducts} categoryName={title} />
-          <SubCategoryWholesaleCTA categoryName={title} />
-          <SubCategoryFAQ categoryName={title} />
-        </>
-      )}
-      
       </div>
     </>
   );
