@@ -177,23 +177,23 @@ export default function QuoteClient() {
         </div>
 
         {/* Right column: Value Props */}
-        <div className="flex flex-col gap-5 sm:gap-6">
-           <div className="bg-navy-900 text-white rounded-none sm:rounded-[2rem] p-6 sm:p-6 shadow-sm sm:shadow-xl relative overflow-hidden">
+        <div className="flex flex-col gap-5 sm:gap-6 px-4 sm:px-0 pb-8 sm:pb-0">
+           <div className="bg-navy-900 text-white rounded-2xl sm:rounded-[2rem] p-6 sm:p-6 shadow-sm sm:shadow-xl relative overflow-hidden">
              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500 opacity-10 rounded-full blur-2xl -mr-10 -mt-10"></div>
              <Truck className="w-6 h-6 sm:w-8 sm:h-8 text-amber-400 mb-3 sm:mb-4 relative z-10" />
              <h4 className="text-lg sm:text-xl font-bold mb-2 relative z-10">Private Labeling</h4>
-             <p className="text-navy-200 text-sm leading-relaxed relative z-10">
+             <p className="text-navy-200 text-sm sm:text-base leading-relaxed relative z-10">
                Build your own brand. We offer custom stamping, branded boxes, and custom paint colors for full container orders.
              </p>
            </div>
 
-           <div className="bg-white border-y sm:border border-slate-200 rounded-none sm:rounded-[2rem] p-6 sm:p-6 shadow-sm">
+           <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-[2rem] p-6 sm:p-6 shadow-sm">
              <Globe className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-500 mb-3 sm:mb-4" />
              <h4 className="text-lg sm:text-xl font-bold text-navy-900 mb-2">Global Logistics</h4>
-             <p className="text-slate-600 text-sm leading-relaxed mb-4">
+             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
                Our export team handles everything from EXW factory floor to CIF at your destination port.
              </p>
-             <ul className="text-sm text-slate-500 space-y-2">
+             <ul className="text-sm sm:text-base text-slate-500 space-y-2">
                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div> Manufactured to IATF 16949 standards</li>
                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div> Multi-Language Support</li>
                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div> Fast Turnaround</li>

@@ -139,20 +139,20 @@ export default function DistributorsClient() {
                         
                         <h3 className="text-xl font-extrabold text-navy-900 mb-2">{dist.name}</h3>
                         
-                        <div className="flex items-start gap-3 text-slate-500 text-sm mb-6">
+                        <div className="flex items-start gap-3 text-slate-500 mb-6">
                           <div className="mt-0.5 w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></div>
-                          <div className="font-medium leading-relaxed">
+                          <div className="font-medium leading-relaxed text-sm sm:text-base">
                             {dist.address}<br />
                             {dist.city}, {dist.country}
                           </div>
                         </div>
                         
                         <div className="mt-auto pt-6 border-t border-slate-100 space-y-3 mb-8">
-                          <a href={`tel:${dist.phone}`} className="flex items-center gap-3 text-sm text-navy-700 hover:text-amber-600 font-bold transition-colors">
+                          <a href={`tel:${dist.phone}`} className="flex items-center gap-3 text-sm sm:text-base text-navy-700 hover:text-amber-600 font-bold transition-colors">
                             <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center"><PhoneCall className="w-4 h-4 text-slate-400" /></div>
                             {dist.phone}
                           </a>
-                          <a href={`mailto:${dist.email}`} className="flex items-center gap-3 text-sm text-navy-700 hover:text-amber-600 font-bold transition-colors">
+                          <a href={`mailto:${dist.email}`} className="flex items-center gap-3 text-sm sm:text-base text-navy-700 hover:text-amber-600 font-bold transition-colors">
                             <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center"><Mail className="w-4 h-4 text-slate-400" /></div>
                             {dist.email}
                           </a>

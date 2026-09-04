@@ -84,7 +84,7 @@ export default function ContactClient() {
         ]}
       />
 
-      <div className="container mx-auto px-0 sm:px-4 lg:px-8 max-w-[1920px] -mt-6 sm:-mt-16 relative z-20">
+      <div className="container mx-auto px-4 sm:px-4 lg:px-8 max-w-[1920px] -mt-6 sm:-mt-16 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           
           {/* Left Sidebar — Contact Info Cards */}
@@ -99,13 +99,13 @@ export default function ContactClient() {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className={`bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-md border-y sm:border border-slate-100 ${card.borderHover} p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group`}
+                className={`bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-md border border-slate-100 ${card.borderHover} p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group`}
               >
                 <div className={`w-10 h-10 sm:w-12 sm:h-12 ${card.bgColor} ${card.textColor} rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
                   <card.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <h3 className="font-heading text-base sm:text-lg font-bold text-navy-900 mb-1">{card.title}</h3>
-                <p className="text-navy-500 text-xs sm:text-sm leading-relaxed mb-2 sm:mb-3 text-justify">{card.description}</p>
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-navy-900 mb-1">{card.title}</h3>
+                <p className="text-navy-500 text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 text-left">{card.description}</p>
                 {card.href ? (
                   <a href={card.href} className={`${card.textColor} text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1 break-all`}>
                     {card.value} <ArrowRight className="w-3 h-3 shrink-0" />
@@ -125,7 +125,7 @@ export default function ContactClient() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
-              className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-5 sm:p-8 lg:p-10"
+              className="bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl border border-slate-100 p-5 sm:p-8 lg:p-10"
             >
             <SectionHeader
               badge="Wholesale Inquiries"
@@ -223,7 +223,7 @@ export default function ContactClient() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
-              className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-5 sm:p-8 lg:p-10"
+              className="bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl border border-slate-100 p-5 sm:p-8 lg:p-10"
             >
               <SectionHeader
                 title="Frequently Asked Questions"
@@ -244,7 +244,7 @@ export default function ContactClient() {
           initial="hidden" 
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="mt-6 sm:mt-8 bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-0 sm:p-3 relative overflow-hidden group"
+          className="mt-6 sm:mt-8 bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl border border-slate-100 p-0 sm:p-3 relative overflow-hidden group"
         >
           <div className="absolute bottom-4 left-4 right-4 sm:top-8 sm:left-8 sm:bottom-auto sm:right-auto bg-white/95 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-xl border border-slate-100 z-20 pointer-events-none transform group-hover:scale-[1.02] sm:group-hover:scale-105 transition-transform duration-500">
             <h3 className="font-heading font-extrabold text-navy-900 text-base sm:text-lg mb-0.5 sm:mb-1 tracking-tight">BRC Manufacturing Headquarters</h3>
