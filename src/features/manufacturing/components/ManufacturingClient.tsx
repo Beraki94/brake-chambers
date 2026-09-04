@@ -30,7 +30,7 @@ export default function ManufacturingClient() {
     {
       step: '02',
       title: 'Precision Assembly',
-      slug: 'manufacturing',
+      slug: 'process',
       description: 'facilities operating to IATF 16949 standards utilizing high-pressure aluminum die casting, automated robotic welding, CNC machining, and precision assembly lines to guarantee absolute consistency across millions of units.',
       image: '/images/manufacturing_floor.png',
       accent: 'navy',
@@ -214,9 +214,10 @@ export default function ManufacturingClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="max-w-3xl mx-auto mb-16">
             <SectionHeader
-              title={<>Backed by <span className="text-amber-500">Data</span></>}
+              title="Backed by Data"
               description="We operate at the intersection of massive industrial scale and microscopic manufacturing tolerances. Here is what that looks like by the numbers."
               theme="dark"
+              plainText={true}
             />
           </div>
 
@@ -252,10 +253,11 @@ export default function ManufacturingClient() {
             <div className="w-full lg:w-1/2">
               <SectionHeader
                 badge="No Compromises"
-                title={<>Material <span className="text-amber-500">Superiority</span></>}
+                title="Material Superiority"
                 description="The best engineering in the world means nothing if the raw materials fail. We source only premium-grade metals and synthetic compounds to ensure our chambers survive environments where others crack, rust, or burst."
                 align="left"
                 className="!mb-8"
+                plainText={true}
               />
               <div className="space-y-6">
                 <div className="flex gap-4 items-start group">

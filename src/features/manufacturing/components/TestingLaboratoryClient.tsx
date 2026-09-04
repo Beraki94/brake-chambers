@@ -134,9 +134,10 @@ export default function TestingLaboratoryClient() {
           <div className="mb-16">
             <SectionHeader
               badge="Laboratory Equipment"
-              title={<>World-Class <span className="text-amber-500">Test Equipment</span></>}
+              title="World-Class Test Equipment"
               description="Our laboratory is equipped with industry-leading precision instruments that run 24 hours a day, 7 days a week."
               accentColor="amber"
+              plainText={true}
             />
           </div>
           
@@ -191,6 +192,7 @@ export default function TestingLaboratoryClient() {
             title="Ready for Custom Engineering?" 
             description="Bring your proprietary specs, and our R&D team will engineer, prototype, and mass-produce them at scale."
             className="!mb-8"
+            plainText={true}
           />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">

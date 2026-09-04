@@ -101,9 +101,9 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href={`/manufacturing`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors font-semibold">OEM & Factory</Link></li>
               <li><Link href={`/manufacturing/process`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Production Process</Link></li>
-              <li><Link href={`/manufacturing`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Private Labeling</Link></li>
-              <li><Link href={`/manufacturing`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Custom Actuators</Link></li>
-              <li><Link href={`/manufacturing`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Volume Orders</Link></li>
+              <li><Link href={`/manufacturing/private-label`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Private Labeling</Link></li>
+              <li><Link href={`/manufacturing/custom-oem`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Custom Actuators</Link></li>
+              <li><Link href={`/manufacturing/high-volume-orders`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Volume Orders</Link></li>
               <li><Link href={`/shipping`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Global Logistics</Link></li>
             </ul>
             </FooterColumn>

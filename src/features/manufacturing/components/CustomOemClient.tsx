@@ -116,7 +116,7 @@ export default function CustomOemClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
             badge="Development Phases"
-            title={<>The OEM <span className="text-amber-500">Development</span> Process</>}
+            title="The OEM Development Process"
             accentColor="amber"
           />
 
@@ -182,7 +182,7 @@ export default function CustomOemClient() {
             <div className="w-full lg:w-1/2">
               <SectionHeader
                 badge="Confidentiality"
-                title={<>Your IP is <span className="text-amber-500">Sacred</span></>}
+                title="Your IP is Sacred"
                 align="left"
                 accentColor="amber"
                 className="!mb-6"

@@ -87,6 +87,7 @@ export default function ProductionProcessClient() {
             title="Explore the Raw Materials We Use" 
             description="Discover how we source premium steel, rubber, and alloys to build the most reliable brake chambers on the market."
             className="!mb-8"
+            plainText={true}
           />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/quote" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">

@@ -90,8 +90,9 @@ export default function PrivateLabelClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <SectionHeader
             badge="Understanding the Difference"
-            title={<>Private Label <span className="text-amber-500">vs</span> White Label</>}
+            title="Private Label vs White Label"
             accentColor="slate"
+            plainText={true}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -151,9 +152,10 @@ export default function PrivateLabelClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
             badge="Customization Options"
-            title={<>Everything We <span className="text-amber-500">Customize</span></>}
+            title="Everything We Customize"
             description="From the housing color to the shipping pallet, every element can carry your brand identity."
             accentColor="amber"
+            plainText={true}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
@@ -185,9 +187,10 @@ export default function PrivateLabelClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] relative z-10">
           <SectionHeader
             badge="4-Step Process"
-            title={<>From Concept to <span className="text-amber-400">Your Shelf</span></>}
+            title="From Concept to Your Shelf"
             theme="dark"
             accentColor="amber"
+            plainText={true}
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-6">
@@ -218,6 +221,7 @@ export default function PrivateLabelClient() {
             title="Ready to Launch Your Brand?" 
             description="Start with a free brand consultation. We'll walk you through MOQs, customization options, lead times, and pricing to get your private label program off the ground."
             className="!mb-8"
+            plainText={true}
           />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">

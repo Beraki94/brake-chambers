@@ -15,12 +15,12 @@ export default function SubCategoryComparisonTable({ products, categoryName }: S
 
   return (
     <section className="mt-16 bg-white rounded-3xl shadow-xl shadow-navy-900/5 border border-slate-200 overflow-hidden">
-      <div className="bg-gradient-to-r from-navy-900 to-navy-800 px-4 sm:px-8 py-5 sm:py-6">
-        <h2 className="text-xl font-bold text-white flex items-center">
-          <span className="text-amber-400 mr-3">⚙️</span>
+      <div className="bg-slate-50 border-b border-slate-200 px-4 sm:px-8 py-5 sm:py-6">
+        <h2 className="text-xl font-bold text-navy-900 flex items-center">
+          <span className="text-amber-500 mr-3">⚙️</span>
           {categoryName} Technical Comparison
         </h2>
-        <p className="text-navy-100 text-sm mt-2">
+        <p className="text-slate-600 text-sm mt-2">
           Compare specifications across our top {categoryName.toLowerCase()} to find the exact match for your fleet.
         </p>
       </div>

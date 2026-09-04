@@ -147,7 +147,7 @@ export default function BrakeRandDClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
             badge="Core Capabilities"
-            title={<>How We <span className="text-amber-500">Develop</span> Brake Chambers</>}
+            title="How We Develop Brake Chambers"
             accentColor="amber"
           />
 

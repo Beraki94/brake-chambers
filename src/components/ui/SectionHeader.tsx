@@ -9,6 +9,7 @@ export interface SectionHeaderProps {
   accentColor?: 'amber' | 'red' | 'navy' | 'slate' | 'emerald';
   className?: string;
   asH1?: boolean;
+  plainText?: boolean;
 }
 
 export default function SectionHeader({
@@ -19,7 +20,8 @@ export default function SectionHeader({
   theme = 'light',
   accentColor = 'amber',
   className = '',
-  asH1 = false
+  asH1 = false,
+  plainText = false
 }: SectionHeaderProps) {
   const isDark = theme === 'dark';
   const isCenter = align === 'center';
@@ -32,7 +34,7 @@ export default function SectionHeader({
     slate: isDark ? 'text-slate-400' : 'text-slate-500',
     emerald: isDark ? 'text-emerald-400' : 'text-emerald-600',
   };
-  
+
   // Badge BG Maps (matching home page)
   const badgeBgClasses = {
     amber: isDark ? 'bg-navy-900 border-navy-700 shadow-navy-950/50' : 'bg-amber-50 border-amber-100 shadow-sm',
@@ -44,7 +46,7 @@ export default function SectionHeader({
 
   return (
     <div className={`${isCenter ? 'flex flex-col items-center text-center mx-auto' : 'flex flex-col items-start text-left'} max-w-3xl mb-14 md:mb-16 ${className}`}>
-      
+
       {/* Eyebrow Badge - Matches Home Page design exactly */}
       {badge && (
         <div className={`inline-block px-3 py-1 mb-3 md:mb-4 rounded-full border text-[11px] font-bold uppercase tracking-widest
@@ -57,13 +59,13 @@ export default function SectionHeader({
       {/* Main Title - Matches Home Page design exactly */}
       {asH1 ? (
         <h1 className={`text-3xl md:text-5xl font-extrabold mb-4 tracking-tight pb-2
-          ${isDark ? 'text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
+          ${isDark ? 'text-white' : plainText ? 'text-navy-900' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
         >
           {title}
         </h1>
       ) : (
         <h2 className={`text-3xl md:text-5xl font-extrabold mb-4 tracking-tight pb-2
-          ${isDark ? 'text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
+          ${isDark ? 'text-white' : plainText ? 'text-navy-900' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
         >
           {title}
         </h2>

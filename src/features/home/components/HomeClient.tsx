@@ -180,7 +180,7 @@ export default function HomeClient() {
       </div>
 
 {/* 3. Comprehensive Product Architecture */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-slate-100 relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-blue-50 relative overflow-hidden">
         {/* Subtle background gradient accents */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-b from-navy-100/40 to-transparent rounded-full blur-[100px] -z-10 translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
 

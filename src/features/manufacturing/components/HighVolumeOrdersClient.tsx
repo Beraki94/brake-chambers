@@ -140,7 +140,7 @@ export default function HighVolumeOrdersClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
             badge="Pricing Tiers"
-            title={<>Volume <span className="text-amber-500">Discount</span> Structure</>}
+            title="Volume Discount Structure"
             description="Transparent tiered pricing — the more you order, the better your margins."
             accentColor="amber"
           />
@@ -189,7 +189,7 @@ export default function HighVolumeOrdersClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] relative z-10">
           <SectionHeader
             badge="Why Scale With BRC"
-            title={<>The High-Volume <span className="text-amber-400">Advantage</span></>}
+            title="The High-Volume Advantage"
             theme="dark"
             accentColor="amber"
           />

@@ -86,9 +86,9 @@ export default function ProductDetailLayout({
 
           {/* OEM Table */}
           <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden mb-8 shadow-sm">
-            <div className="bg-gradient-to-r from-navy-900 to-navy-800 px-6 py-4">
-              <h2 className="font-bold text-white flex items-center text-sm tracking-wide uppercase">
-                <ShieldCheck size={18} className="mr-2 text-amber-400"/> Direct OEM Cross-Reference
+            <div className="bg-slate-50 border-b border-slate-200 px-6 py-4">
+              <h2 className="font-bold text-navy-900 flex items-center text-sm tracking-wide uppercase">
+                <ShieldCheck size={18} className="mr-2 text-amber-500"/> Direct OEM Cross-Reference
               </h2>
             </div>
             <div className="p-0 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-200 pb-2">
