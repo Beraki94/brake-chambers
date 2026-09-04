@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Globe, Package, Truck, ArrowRight, Trash2, Edit2, CheckCircle2, User, Building, Mail } from 'lucide-react';
+import { Globe, Package, Truck, ArrowRight, Trash2, Edit2, CheckCircle2, User, Building, Mail, Info } from 'lucide-react';
 import { useCartStore } from '@/store/cart';
 
 export default function QuoteClient() {
@@ -31,21 +31,21 @@ export default function QuoteClient() {
         </h3>
 
         {isEmpty ? (
-          <div className="flex flex-col items-center justify-center py-8 sm:py-10 px-4 sm:px-8 text-center bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center mb-4 sm:mb-6 shadow-sm border border-slate-100">
-              <Package className="w-8 h-8 sm:w-10 sm:h-10 text-slate-300" />
+          <div className="flex flex-col items-center justify-center py-6 sm:py-10 px-4 sm:px-8 text-center bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 mx-4 sm:mx-0">
+            <div className="w-12 h-12 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center mb-3 sm:mb-6 shadow-sm border border-slate-100">
+              <Package className="w-6 h-6 sm:w-10 sm:h-10 text-slate-300" />
             </div>
-            <h4 className="text-xl sm:text-2xl font-bold text-navy-900 mb-2 sm:mb-3">Your quote list is empty</h4>
-            <p className="text-sm sm:text-base text-slate-500 max-w-md mx-auto leading-relaxed mb-6 sm:mb-8">
-              To request a quote, please browse our catalog or use our OEM cross-reference tool to add specific part numbers to your RFQ.
+            <h4 className="text-base sm:text-xl font-bold text-navy-900 mb-2">No Products Selected</h4>
+            <p className="text-slate-500 text-sm sm:text-base max-w-sm mx-auto mb-5 sm:mb-6">
+              Browse our catalog and add items to your quote request to get factory-direct pricing.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto">
-              <Link href="/products" className="w-full sm:w-auto justify-center bg-amber-500 hover:bg-amber-400 text-navy-950 font-bold px-6 sm:px-8 py-3.5 rounded-xl shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2 text-sm sm:text-base">
-                Browse Products <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </Link>
-              <Link href="/oem-cross-reference" className="w-full sm:w-auto justify-center bg-white hover:bg-slate-50 text-navy-900 font-bold px-6 sm:px-8 py-3.5 rounded-xl shadow-sm border border-slate-200 transition-all flex items-center gap-2 text-sm sm:text-base">
-                OEM Reference
-              </Link>
+            <Link href="/products" className="bg-navy-900 hover:bg-navy-800 text-white font-extrabold px-5 sm:px-8 py-3 sm:py-4 rounded-xl shadow-lg shadow-navy-900/20 transition-all flex items-center justify-center gap-2 group text-sm sm:text-base">
+              Browse Products <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            
+            <div className="mt-4 sm:hidden text-[11px] text-slate-400 font-bold flex items-center justify-center gap-1.5 uppercase tracking-wide">
+              <Info className="w-3.5 h-3.5" /> 
+              Quote form appears here after adding items
             </div>
           </div>
         ) : (
@@ -90,7 +90,7 @@ export default function QuoteClient() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
         {/* Left column: Form */}
-        <div className="lg:col-span-2">
+        <div className={`lg:col-span-2 ${isEmpty ? 'hidden lg:block' : 'block'}`}>
           <form className="bg-white p-5 sm:p-8 lg:p-10 rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl shadow-slate-200/50 border-y sm:border border-slate-100 flex flex-col gap-5 sm:gap-6 h-fit relative">
             
             {/* If cart is empty, optionally show a small warning on the form */}
@@ -177,7 +177,7 @@ export default function QuoteClient() {
         </div>
 
         {/* Right column: Value Props */}
-        <div className="flex flex-col gap-5 sm:gap-6 px-4 sm:px-0 pb-8 sm:pb-0">
+        <div className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-0">
            <div className="bg-navy-900 text-white rounded-2xl sm:rounded-[2rem] p-6 sm:p-6 shadow-sm sm:shadow-xl relative overflow-hidden">
              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500 opacity-10 rounded-full blur-2xl -mr-10 -mt-10"></div>
              <Truck className="w-6 h-6 sm:w-8 sm:h-8 text-amber-400 mb-3 sm:mb-4 relative z-10" />

@@ -84,7 +84,7 @@ export default function ContactClient() {
         ]}
       />
 
-      <div className="container mx-auto px-4 sm:px-4 lg:px-8 max-w-[1920px] -mt-6 sm:-mt-16 relative z-20">
+      <div className="container mx-auto px-0 sm:px-4 lg:px-8 max-w-[1920px] -mt-6 sm:-mt-16 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           
           {/* Left Sidebar — Contact Info Cards */}
@@ -93,7 +93,7 @@ export default function ContactClient() {
             initial="hidden" 
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            className="lg:col-span-1 order-2 lg:order-1 grid grid-cols-1 gap-3 sm:gap-4"
+            className="lg:col-span-1 order-2 lg:order-1 grid grid-cols-1 gap-3 sm:gap-4 px-4 sm:px-0"
           >
             {contactCards.map((card, i) => (
               <motion.div
@@ -125,7 +125,7 @@ export default function ContactClient() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
-              className="bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl border border-slate-100 p-5 sm:p-8 lg:p-10"
+              className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-5 sm:p-8 lg:p-10"
             >
             <SectionHeader
               badge="Wholesale Inquiries"
@@ -223,7 +223,7 @@ export default function ContactClient() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
-              className="bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl border border-slate-100 p-5 sm:p-8 lg:p-10"
+              className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-5 sm:p-8 lg:p-10"
             >
               <SectionHeader
                 title="Frequently Asked Questions"
@@ -244,7 +244,7 @@ export default function ContactClient() {
           initial="hidden" 
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="mt-6 sm:mt-8 bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl border border-slate-100 p-0 sm:p-3 relative overflow-hidden group"
+          className="mt-6 sm:mt-8 bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-0 sm:p-3 relative overflow-hidden group"
         >
           <div className="absolute bottom-4 left-4 right-4 sm:top-8 sm:left-8 sm:bottom-auto sm:right-auto bg-white/95 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-xl border border-slate-100 z-20 pointer-events-none transform group-hover:scale-[1.02] sm:group-hover:scale-105 transition-transform duration-500">
             <h3 className="font-heading font-extrabold text-navy-900 text-base sm:text-lg mb-0.5 sm:mb-1 tracking-tight">BRC Manufacturing Headquarters</h3>
@@ -270,9 +270,9 @@ export default function ContactClient() {
           initial="hidden" 
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="mt-16 md:mt-24"
+          className="mt-16 md:mt-24 px-4 sm:px-0"
         >
-          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-none sm:rounded-[2rem] p-6 sm:p-8 lg:p-12 relative overflow-hidden shadow-none sm:shadow-2xl">
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 lg:p-12 relative overflow-hidden shadow-none sm:shadow-2xl">
             <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(245, 158, 11, 0.2) 1px, transparent 1px)', backgroundSize: '28px 28px' }}></div>
             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-amber-500/15 rounded-full blur-[80px] -mr-20 -mt-20 pointer-events-none"></div>
 
