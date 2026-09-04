@@ -84,7 +84,7 @@ export default function ContactClient() {
         ]}
       />
 
-      <div className="container mx-auto px-3 sm:px-4 lg:px-8 max-w-[1920px] -mt-16 relative z-20">
+      <div className="container mx-auto px-0 sm:px-4 lg:px-8 max-w-[1920px] -mt-6 sm:-mt-16 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           
           {/* Left Sidebar — Contact Info Cards */}
@@ -99,7 +99,7 @@ export default function ContactClient() {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className={`bg-white rounded-2xl sm:rounded-[2rem] shadow-md border border-slate-100 ${card.borderHover} p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group`}
+                className={`bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-md border-y sm:border border-slate-100 ${card.borderHover} p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group`}
               >
                 <div className={`w-10 h-10 sm:w-12 sm:h-12 ${card.bgColor} ${card.textColor} rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
                   <card.icon className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -125,7 +125,7 @@ export default function ContactClient() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
-              className="bg-white rounded-3xl sm:rounded-[2rem] shadow-xl border border-slate-100 p-6 sm:p-8 lg:p-10"
+              className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-5 sm:p-8 lg:p-10"
             >
             <SectionHeader
               badge="Wholesale Inquiries"
@@ -153,11 +153,11 @@ export default function ContactClient() {
                   <div>
                     <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Full Name <span className="text-red-500">*</span></label>
                     <div className="relative">
-                      <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                      <User className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
                       <input 
                         type="text" 
                         required
-                        className="w-full pl-12 bg-slate-50 border border-slate-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
                         placeholder="John Doe" 
                       />
                     </div>
@@ -165,11 +165,11 @@ export default function ContactClient() {
                   <div>
                     <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Email Address <span className="text-red-500">*</span></label>
                     <div className="relative">
-                      <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                      <Mail className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
                       <input 
                         type="email" 
                         required
-                        className="w-full pl-12 bg-slate-50 border border-slate-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
                         placeholder="john@company.com" 
                       />
                     </div>
@@ -177,11 +177,11 @@ export default function ContactClient() {
                   <div>
                     <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Company / Fleet Name <span className="text-red-500">*</span></label>
                     <div className="relative">
-                      <Building className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                      <Building className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
                       <input 
                         type="text" 
                         required
-                        className="w-full pl-12 bg-slate-50 border border-slate-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
                         placeholder="Global Trucking Logistics" 
                       />
                     </div>
@@ -189,10 +189,10 @@ export default function ContactClient() {
                   <div>
                     <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Phone / WhatsApp <span className="text-slate-400 font-normal">(Optional)</span></label>
                     <div className="relative">
-                      <Phone className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                      <Phone className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
                       <input 
                         type="text" 
-                        className="w-full pl-12 bg-slate-50 border border-slate-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
                         placeholder="+1 234 567 8900" 
                       />
                     </div>
@@ -203,7 +203,7 @@ export default function ContactClient() {
                   <textarea 
                     rows={4} 
                     required
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 resize-none" 
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 resize-none" 
                     placeholder="Please include part numbers, estimated quantities, or destination country for shipping quotes..."
                   ></textarea>
                 </div>
@@ -223,7 +223,7 @@ export default function ContactClient() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
-              className="bg-white rounded-3xl sm:rounded-[2rem] shadow-xl border border-slate-100 p-6 sm:p-8 lg:p-10"
+              className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-5 sm:p-8 lg:p-10"
             >
               <SectionHeader
                 title="Frequently Asked Questions"
@@ -244,7 +244,7 @@ export default function ContactClient() {
           initial="hidden" 
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="mt-6 sm:mt-8 bg-white rounded-3xl sm:rounded-[2rem] shadow-xl border border-slate-100 p-2 sm:p-3 relative overflow-hidden group"
+          className="mt-6 sm:mt-8 bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-0 sm:p-3 relative overflow-hidden group"
         >
           <div className="absolute bottom-4 left-4 right-4 sm:top-8 sm:left-8 sm:bottom-auto sm:right-auto bg-white/95 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-xl border border-slate-100 z-20 pointer-events-none transform group-hover:scale-[1.02] sm:group-hover:scale-105 transition-transform duration-500">
             <h3 className="font-heading font-extrabold text-navy-900 text-base sm:text-lg mb-0.5 sm:mb-1 tracking-tight">BRC Manufacturing Headquarters</h3>
@@ -272,7 +272,7 @@ export default function ContactClient() {
           viewport={{ once: true, margin: "-100px" }}
           className="mt-16 md:mt-24"
         >
-          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-3xl sm:rounded-[2rem] p-6 sm:p-8 lg:p-12 relative overflow-hidden shadow-2xl">
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-none sm:rounded-[2rem] p-6 sm:p-8 lg:p-12 relative overflow-hidden shadow-none sm:shadow-2xl">
             <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(245, 158, 11, 0.2) 1px, transparent 1px)', backgroundSize: '28px 28px' }}></div>
             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-amber-500/15 rounded-full blur-[80px] -mr-20 -mt-20 pointer-events-none"></div>
 

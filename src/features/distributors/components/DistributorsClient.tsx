@@ -36,10 +36,10 @@ export default function DistributorsClient() {
       />
 
       {/* Main Content Area */}
-      <section className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] relative z-20 flex-grow flex flex-col mb-16">
+      <section className="container mx-auto px-0 sm:px-6 lg:px-8 max-w-[1920px] relative z-20 flex-grow flex flex-col mb-16">
         
         {/* Overlapping Quick Actions Box */}
-        <div className="-mt-16 sm:-mt-20 bg-white border border-slate-200 rounded-2xl sm:rounded-[2rem] p-6 lg:p-8 shadow-xl shadow-slate-200/50 mb-10 sm:mb-16 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="-mt-8 sm:-mt-20 bg-white border-y sm:border border-slate-200 rounded-none sm:rounded-[2rem] p-6 lg:p-8 shadow-sm sm:shadow-xl shadow-slate-200/50 mb-10 sm:mb-16 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
            <div className="w-full text-center md:text-left">
               <SectionHeader
                 title="Partner Portal"
@@ -52,17 +52,17 @@ export default function DistributorsClient() {
               />
            </div>
            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-              <button onClick={() => setActiveModal('login')} className="bg-navy-50 text-navy-900 hover:bg-navy-100 border border-navy-100 font-extrabold px-6 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md w-full md:w-auto text-base sm:text-lg">
-                 <Lock className="w-5 h-5"/> Partner Login
+              <button onClick={() => setActiveModal('login')} className="bg-navy-50 text-navy-900 hover:bg-navy-100 border border-navy-100 font-extrabold px-6 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md w-full md:w-auto text-base sm:text-lg whitespace-nowrap">
+                 <Lock className="w-5 h-5 shrink-0"/> Partner Login
               </button>
-              <button onClick={() => setActiveModal('register')} className="bg-amber-500 text-navy-950 hover:bg-amber-400 font-extrabold px-6 py-4 rounded-xl shadow-lg shadow-amber-500/25 transition-all flex items-center justify-center gap-2 w-full md:w-auto text-base sm:text-lg hover:-translate-y-0.5">
-                 <FileSignature className="w-5 h-5"/> Become a Partner
+              <button onClick={() => setActiveModal('register')} className="bg-amber-500 text-navy-950 hover:bg-amber-400 font-extrabold px-6 py-4 rounded-xl shadow-lg shadow-amber-500/25 transition-all flex items-center justify-center gap-2 w-full md:w-auto text-base sm:text-lg hover:-translate-y-0.5 whitespace-nowrap">
+                 <FileSignature className="w-5 h-5 shrink-0"/> Become a Partner
               </button>
            </div>
         </div>
 
         {/* Network Content (Always Visible) */}
-        <div className="w-full flex-grow relative min-h-[400px]">
+        <div className="w-full flex-grow relative min-h-[400px] px-4 sm:px-0">
           <div className="flex flex-col lg:flex-row gap-12">
             
             {/* Left Sticky Sidebar for Regions */}
@@ -121,7 +121,7 @@ export default function DistributorsClient() {
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
                       key={dist.id}
-                      className="bg-white rounded-[2rem] border border-slate-200/60 p-8 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-slate-200/80 transition-all duration-300 flex flex-col relative overflow-hidden group"
+                      className="bg-white rounded-2xl sm:rounded-[2rem] border border-slate-200/60 p-6 sm:p-8 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-slate-200/80 transition-all duration-300 flex flex-col relative overflow-hidden group"
                     >
                       {/* Decorative abstract map/grid watermark */}
                       <div className="absolute -right-12 -top-12 w-48 h-48 bg-slate-50 rounded-full opacity-50 group-hover:bg-amber-50 transition-colors duration-500 -z-0"></div>
@@ -174,7 +174,7 @@ export default function DistributorsClient() {
               </div>
               
               {filteredDistributors.length === 0 && (
-                <div className="text-center py-20 bg-white rounded-3xl border border-slate-200 mt-6 shadow-sm">
+                <div className="text-center py-12 sm:py-20 px-4 sm:px-8 bg-white rounded-2xl sm:rounded-3xl border border-slate-200 mt-6 shadow-sm">
                   <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Globe className="w-8 h-8 text-slate-300" />
                   </div>
@@ -182,9 +182,9 @@ export default function DistributorsClient() {
                   <p className="text-slate-500 font-medium mb-6 max-w-md mx-auto">We are actively looking for qualified partners to exclusively represent BRC in this territory.</p>
                   <button 
                     onClick={() => setActiveModal('register')} 
-                    className="inline-flex items-center gap-2 bg-amber-500 text-navy-950 font-bold px-6 py-3 rounded-xl hover:bg-amber-400 transition-colors shadow-md shadow-amber-500/20"
+                    className="inline-flex items-center gap-2 bg-amber-500 text-navy-950 font-bold px-6 py-3 rounded-xl hover:bg-amber-400 transition-colors shadow-md shadow-amber-500/20 whitespace-nowrap"
                   >
-                    Apply for Territory Rights <ArrowRight className="w-4 h-4" />
+                    Apply for Territory Rights <ArrowRight className="w-4 h-4 shrink-0" />
                   </button>
                 </div>
               )}
@@ -248,7 +248,7 @@ export default function DistributorsClient() {
                         <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                         <input 
                           type="email" 
-                          className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all text-navy-900 font-medium"
+                          className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all text-base text-navy-900 font-medium"
                           placeholder="partner@company.com"
                         />
                       </div>
@@ -263,14 +263,14 @@ export default function DistributorsClient() {
                         <Lock className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                         <input 
                           type="password" 
-                          className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all text-navy-900 font-medium"
+                          className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all text-base text-navy-900 font-medium"
                           placeholder="••••••••"
                         />
                       </div>
                     </div>
 
-                    <button type="submit" className="w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-extrabold py-4 rounded-xl transition-all shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 group mt-4">
-                      Sign In Securely <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <button type="submit" className="w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-extrabold py-4 rounded-xl transition-all shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 group mt-4 whitespace-nowrap">
+                      Sign In Securely <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </form>
                 </div>
@@ -296,35 +296,35 @@ export default function DistributorsClient() {
                       <label className="block text-sm font-bold text-navy-900 mb-2">Company Name</label>
                       <div className="relative">
                         <Building className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                        <input type="text" className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all font-medium" placeholder="Acme Truck Parts LLC" />
+                        <input type="text" className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="Acme Truck Parts LLC" />
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-navy-900 mb-2">Contact Name</label>
                       <div className="relative">
                         <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                        <input type="text" className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all font-medium" placeholder="John Doe" />
+                        <input type="text" className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="John Doe" />
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-navy-900 mb-2">Business Email</label>
                       <div className="relative">
                         <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                        <input type="email" className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all font-medium" placeholder="john@company.com" />
+                        <input type="email" className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="john@company.com" />
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-navy-900 mb-2">Phone Number</label>
                       <div className="relative">
                         <Phone className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                        <input type="tel" className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all font-medium" placeholder="+1 (555) 000-0000" />
+                        <input type="tel" className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="+1 (555) 000-0000" />
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-navy-900 mb-2">Country / Region</label>
                       <div className="relative">
                         <Globe className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                        <select className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-navy-900 font-medium appearance-none">
+                        <select className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base text-navy-900 font-medium appearance-none">
                           <option>United States</option>
                           <option>Canada</option>
                           <option>Mexico</option>
@@ -341,8 +341,8 @@ export default function DistributorsClient() {
                       </label>
                     </div>
                     <div className="md:col-span-2 mt-4">
-                      <button type="submit" className="w-full bg-navy-900 hover:bg-navy-800 text-white font-extrabold py-5 rounded-xl transition-all shadow-lg hover:shadow-xl shadow-navy-900/20 flex items-center justify-center gap-2 group text-lg">
-                        Submit Partnership Application <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      <button type="submit" className="w-full bg-navy-900 hover:bg-navy-800 text-white font-extrabold py-5 rounded-xl transition-all shadow-lg hover:shadow-xl shadow-navy-900/20 flex items-center justify-center gap-2 group text-base sm:text-lg whitespace-nowrap">
+                        Submit Partnership Application <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform" />
                       </button>
                     </div>
                   </form>
