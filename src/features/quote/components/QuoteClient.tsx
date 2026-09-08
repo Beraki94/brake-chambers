@@ -21,10 +21,10 @@ export default function QuoteClient() {
   const isEmpty = items.length === 0;
 
   return (
-    <div className="container mx-auto px-0 sm:px-4 lg:px-8 max-w-screen-2xl -mt-8 sm:-mt-20 relative z-20">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl -mt-8 sm:-mt-20 relative z-20">
       
       {/* Prominent Selected Items Section */}
-      <div className="bg-white border-y sm:border border-slate-200 rounded-none sm:rounded-[2rem] p-5 sm:p-8 lg:p-10 shadow-sm sm:shadow-xl shadow-slate-200/50 mb-8">
+      <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 lg:p-10 shadow-sm sm:shadow-xl shadow-slate-200/50 mb-8">
         <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3 border-b border-slate-100 pb-4">
           <Package className="w-6 h-6 sm:w-8 sm:h-8 text-amber-500 shrink-0" /> 
           Selected Items for Quote
@@ -91,7 +91,7 @@ export default function QuoteClient() {
       <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
         {/* Left column: Form */}
         <div className={`lg:col-span-2 ${isEmpty ? 'hidden lg:block' : 'block'}`}>
-          <form className="bg-white p-5 sm:p-8 lg:p-10 rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl shadow-slate-200/50 border-y sm:border border-slate-100 flex flex-col gap-5 sm:gap-6 h-fit relative">
+          <form className="bg-white p-6 sm:p-8 lg:p-10 rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-5 sm:gap-6 h-fit relative">
             
             {/* If cart is empty, optionally show a small warning on the form */}
             {isEmpty && (
@@ -177,26 +177,43 @@ export default function QuoteClient() {
         </div>
 
         {/* Right column: Value Props */}
-        <div className="flex flex-col gap-4 sm:gap-6 px-4 sm:px-0">
-           <div className="bg-navy-900 text-white rounded-2xl sm:rounded-[2rem] p-6 sm:p-6 shadow-sm sm:shadow-xl relative overflow-hidden">
-             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500 opacity-10 rounded-full blur-2xl -mr-10 -mt-10"></div>
-             <Truck className="w-6 h-6 sm:w-8 sm:h-8 text-amber-400 mb-3 sm:mb-4 relative z-10" />
-             <h4 className="text-lg sm:text-xl font-bold mb-2 relative z-10">Private Labeling</h4>
-             <p className="text-navy-200 text-sm sm:text-base leading-relaxed relative z-10">
+        <div className="flex flex-col gap-4 sm:gap-6">
+           <div className="bg-gradient-to-b from-navy-800 to-navy-900 text-white rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 shadow-sm sm:shadow-xl relative overflow-hidden border border-navy-700 shadow-navy-900/10 group flex flex-col transform hover:-translate-y-2 transition-all duration-500 hover:border-amber-500/50">
+             {/* Glow effect on hover */}
+             <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+             
+             {/* Corner Element */}
+             <div className="absolute top-0 right-0 w-32 h-32 bg-navy-700/40 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none"></div>
+
+             <div className="relative z-10 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
+               <Truck className="w-6 h-6 sm:w-7 sm:h-7 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
+             </div>
+             
+             <h4 className="text-lg sm:text-xl font-extrabold mb-3 relative z-10 group-hover:text-amber-400 transition-colors">Private Labeling</h4>
+             <p className="text-navy-300 text-sm sm:text-base font-light leading-relaxed relative z-10">
                Build your own brand. We offer custom stamping, branded boxes, and custom paint colors for full container orders.
              </p>
            </div>
 
-           <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-[2rem] p-6 sm:p-6 shadow-sm">
-             <Globe className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-500 mb-3 sm:mb-4" />
-             <h4 className="text-lg sm:text-xl font-bold text-navy-900 mb-2">Global Logistics</h4>
-             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
+           <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 shadow-sm hover:shadow-xl shadow-slate-200/50 group flex flex-col relative overflow-hidden transform hover:-translate-y-2 transition-all duration-500 hover:border-emerald-500/30">
+             {/* Glow effect on hover */}
+             <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+             
+             {/* Corner Element */}
+             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none"></div>
+
+             <div className="relative z-10 w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm border border-slate-100 group-hover:border-emerald-200 group-hover:bg-emerald-50/50 transition-colors">
+               <Globe className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
+             </div>
+             
+             <h4 className="text-lg sm:text-xl font-extrabold text-navy-900 mb-3 relative z-10 group-hover:text-emerald-600 transition-colors">Global Logistics</h4>
+             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 relative z-10">
                Our export team handles everything from EXW factory floor to CIF at your destination port.
              </p>
-             <ul className="text-sm sm:text-base text-slate-500 space-y-2">
-               <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div> Manufactured to IATF 16949 standards</li>
-               <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div> Multi-Language Support</li>
-               <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div> Fast Turnaround</li>
+             <ul className="text-sm sm:text-base text-slate-500 space-y-3 relative z-10">
+               <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" /> Manufactured to IATF 16949 standards</li>
+               <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" /> Multi-Language Support</li>
+               <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" /> Fast Turnaround</li>
              </ul>
            </div>
         </div>

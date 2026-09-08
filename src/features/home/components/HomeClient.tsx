@@ -415,17 +415,18 @@ export default function HomeClient() {
             className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center items-center gap-3 md:gap-6 mb-12"
           >
             {[
-              { name: "BENDIX", hoverBorder: "hover:border-emerald-500/50", hoverText: "group-hover:text-emerald-400" },
-              { name: "MERITOR", hoverBorder: "hover:border-amber-500/50", hoverText: "group-hover:text-amber-400" },
-              { name: "HALDEX", hoverBorder: "hover:border-sky-500/50", hoverText: "group-hover:text-sky-400" },
-              { name: "WABCO", hoverBorder: "hover:border-indigo-500/50", hoverText: "group-hover:text-indigo-400" },
-              { name: "MGM BRAKES", hoverBorder: "hover:border-rose-500/50", hoverText: "group-hover:text-rose-400" }
+              { name: "BENDIX", dot: "bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]", hoverBorder: "hover:border-emerald-500/50", hoverText: "group-hover:text-emerald-400" },
+              { name: "MERITOR", dot: "bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.5)]", hoverBorder: "hover:border-amber-500/50", hoverText: "group-hover:text-amber-400" },
+              { name: "HALDEX", dot: "bg-sky-500 shadow-[0_0_10px_rgba(14,165,233,0.5)]", hoverBorder: "hover:border-sky-500/50", hoverText: "group-hover:text-sky-400" },
+              { name: "WABCO", dot: "bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]", hoverBorder: "hover:border-indigo-500/50", hoverText: "group-hover:text-indigo-400" },
+              { name: "MGM BRAKES", dot: "bg-rose-500 shadow-[0_0_10px_rgba(243,64,94,0.5)]", hoverBorder: "hover:border-rose-500/50", hoverText: "group-hover:text-rose-400" }
             ].map((brand, idx) => (
               <motion.div
                 key={brand.name}
                 variants={scaleIn}
-                className={`bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 px-4 py-3 sm:px-8 sm:py-4 rounded-xl shadow-lg flex items-center justify-center min-w-[140px] sm:min-w-[160px] group hover:bg-navy-800 transition-all duration-300 transform hover:-translate-y-1 ${brand.hoverBorder} ${idx === 4 ? 'col-span-2 sm:col-span-1' : ''}`}
+                className={`bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 px-4 py-3 sm:px-8 sm:py-4 rounded-xl shadow-lg flex items-center justify-center gap-3 min-w-[140px] sm:min-w-[160px] group hover:bg-navy-800 transition-all duration-300 transform hover:-translate-y-1 ${brand.hoverBorder} ${idx === 4 ? 'col-span-2 sm:col-span-1' : ''}`}
               >
+                <div className={`w-2 h-2 rounded-full ${brand.dot} group-hover:scale-125 transition-transform duration-300`}></div>
                 <span className={`text-white font-extrabold text-sm sm:text-lg tracking-widest transition-colors drop-shadow-md ${brand.hoverText}`}>
                   {brand.name}
                 </span>

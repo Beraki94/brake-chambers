@@ -55,8 +55,8 @@ export default function ApplicationsClient() {
 
   const categoryGroups = [
     {
-      title: 'Highway & Freight Fleets',
-      slug: 'highway-freight',
+      title: 'Commercial & Freight',
+      slug: 'commercial-freight',
       desc: 'Built for the backbone of the supply chain. Designed for extreme mileage endurance and consistent performance on long-haul and regional routes.',
       icon: <Truck className="w-8 h-8" />,
       image: '/images/heavy_duty_truck.png',
@@ -66,7 +66,8 @@ export default function ApplicationsClient() {
         { id: '/applications/heavy-duty-trailer', title: 'Heavy-Duty Trailer Axles' },
         { id: '/applications/medium-duty-trucks', title: 'Medium-Duty Box Trucks' },
       ],
-      cta: 'View Highway Solutions'
+      cta: 'View Heavy-Duty Products',
+      ctaLink: '/products'
     },
     {
       title: 'Severe-Duty & Vocational',
@@ -80,7 +81,8 @@ export default function ApplicationsClient() {
         { id: '/applications/mining-construction', title: 'Mining & Construction Equipment' },
         { id: '/applications/ag-trailers', title: 'Agricultural Trailers' },
       ],
-      cta: 'View Severe-Duty Solutions'
+      cta: 'View Severe-Duty Products',
+      ctaLink: '/products'
     },
     {
       title: 'Passenger Transport',
@@ -94,7 +96,8 @@ export default function ApplicationsClient() {
         { id: '/applications/school-buses', title: 'School Bus Fleets' },
         { id: '/applications/shuttle-vans', title: 'Shuttle & Delivery Vans' },
       ],
-      cta: 'View Passenger Solutions'
+      cta: 'View Transit Products',
+      ctaLink: '/products'
     }
   ];
 
@@ -195,7 +198,7 @@ export default function ApplicationsClient() {
 
                         <div className="mt-auto">
                           <Link
-                            href={`/${group.slug}`}
+                            href={group.ctaLink}
                             className={`inline-flex w-full items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-amber-500 text-navy-950 rounded-xl font-black uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl transform hover:-translate-y-1 group/btn ${a.btnHover}`}
                           >
                             {group.cta}
@@ -214,10 +217,15 @@ export default function ApplicationsClient() {
       </div>
 
       {/* Tested for the Extremes */}
-      <section className="py-16 md:py-24 bg-navy-950 border-y border-navy-900 relative overflow-hidden">
-        {/* Subtle Background Pattern */}
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none z-0" />
+      <section className="py-16 md:py-24 bg-navy-950 border-y border-navy-800 relative overflow-hidden">
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale z-0"></div>
+        
+        {/* Animated Grid Layer */}
+        <AnimatedGridBackground opacity={0.08} />
+        
+        {/* Top/Bottom Fade Masks */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 
         {/* Rotating Brake Chamber Watermark */}
         <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] lg:w-[800px] lg:h-[800px] opacity-[0.03] pointer-events-none animate-[spin_120s_linear_infinite] z-0">
@@ -250,7 +258,7 @@ export default function ApplicationsClient() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
           >
             {[
               { icon: ThermometerSnowflake, title: "Sub-Zero Rated", desc: "Maintains flexibility and prevents cracking in -40°F Arctic linehaul conditions." },
@@ -261,13 +269,16 @@ export default function ApplicationsClient() {
               <motion.div
                 key={idx}
                 variants={fadeInUp}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl lg:rounded-[2rem] p-6 sm:p-8 border border-white/10 shadow-xl hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.2)] hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-500 group"
+                className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 rounded-2xl lg:rounded-[2rem] p-6 sm:p-8 shadow-xl shadow-navy-900/10 group flex flex-col relative overflow-hidden transform hover:-translate-y-2 transition-all duration-500 hover:border-amber-500/50"
               >
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-white/10 border border-white/5 group-hover:scale-110 transition-transform duration-300">
-                  <stat.icon className="w-7 h-7 text-white group-hover:text-amber-400 transition-colors" />
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+
+                <div className="relative z-10 w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
+                  <stat.icon className="w-7 h-7 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h4 className="text-xl font-extrabold text-white mb-3">{stat.title}</h4>
-                <p className="text-navy-200 text-sm md:text-base leading-relaxed font-light">{stat.desc}</p>
+                <h4 className="relative z-10 text-xl font-extrabold text-white mb-3 group-hover:text-amber-400 transition-colors">{stat.title}</h4>
+                <p className="relative z-10 text-navy-300 text-sm md:text-base leading-relaxed font-light">{stat.desc}</p>
               </motion.div>
             ))}
           </motion.div>

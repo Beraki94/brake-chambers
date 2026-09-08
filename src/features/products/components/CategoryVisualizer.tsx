@@ -120,25 +120,41 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
 
         {/* Card 1 (Left Flank) */}
         <div className="w-full lg:w-1/3 flex justify-center lg:justify-end">
-          <div className="w-full max-w-sm bg-navy-900/60 backdrop-blur-md border border-cyan-500/30 shadow-[0_0_30px_rgba(34,211,238,0.05)] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] transform lg:translate-y-[-2rem] transition-transform hover:-translate-y-1 hover:border-cyan-500/50">
-             <span className="flex items-center gap-2 text-cyan-400 uppercase tracking-widest text-[10px] font-black mb-2 md:mb-3">
-               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_5px_rgba(34,211,238,0.8)]"></span>
-               {data.tab1}
-             </span>
-             <h3 className="text-white text-xl md:text-2xl font-bold mb-3 md:mb-4">{data.highlight1Title}</h3>
-             <p className="text-navy-200 text-xs md:text-sm leading-relaxed">{data.highlight1Desc}</p>
+          <div className="w-full max-w-sm bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 shadow-xl shadow-navy-900/10 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] transform lg:translate-y-[-2rem] transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/50 group relative overflow-hidden flex flex-col">
+             {/* Glow effect on hover */}
+             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+             
+             {/* Corner Element */}
+             <div className="absolute top-0 right-0 w-32 h-32 bg-navy-700/40 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none"></div>
+
+             <div className="relative z-10 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl py-1.5 px-3 mb-4 self-start flex items-center group-hover:border-cyan-500/50 transition-colors">
+               <span className="flex items-center gap-2 text-cyan-400 uppercase tracking-widest text-[10px] font-black group-hover:text-cyan-300 transition-colors">
+                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)] group-hover:scale-125 transition-transform"></span>
+                 {data.tab1}
+               </span>
+             </div>
+             <h3 className="relative z-10 text-white text-xl md:text-2xl font-extrabold mb-3 md:mb-4 group-hover:text-cyan-400 transition-colors">{data.highlight1Title}</h3>
+             <p className="relative z-10 text-navy-300 font-light text-xs md:text-sm leading-relaxed">{data.highlight1Desc}</p>
           </div>
         </div>
 
         {/* Card 2 (Right Flank) */}
         <div className="w-full lg:w-1/3 flex justify-center lg:justify-start">
-          <div className="w-full max-w-sm bg-navy-900/60 backdrop-blur-md border border-amber-500/30 shadow-[0_0_30px_rgba(251,191,36,0.05)] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] transform lg:translate-y-[2rem] transition-transform hover:-translate-y-1 hover:border-amber-500/50">
-             <span className="flex items-center gap-2 text-amber-400 uppercase tracking-widest text-[10px] font-black mb-2 md:mb-3">
-               <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_5px_rgba(251,191,36,0.8)]"></span>
-               {data.tab2}
-             </span>
-             <h3 className="text-white text-xl md:text-2xl font-bold mb-3 md:mb-4">{data.highlight2Title}</h3>
-             <p className="text-navy-200 text-xs md:text-sm leading-relaxed">{data.highlight2Desc}</p>
+          <div className="w-full max-w-sm bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 shadow-xl shadow-navy-900/10 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] transform lg:translate-y-[2rem] transition-all duration-500 hover:-translate-y-1 hover:border-amber-500/50 group relative overflow-hidden flex flex-col">
+             {/* Glow effect on hover */}
+             <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+             
+             {/* Corner Element */}
+             <div className="absolute top-0 right-0 w-32 h-32 bg-navy-700/40 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none"></div>
+
+             <div className="relative z-10 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl py-1.5 px-3 mb-4 self-start flex items-center group-hover:border-amber-500/50 transition-colors">
+               <span className="flex items-center gap-2 text-amber-400 uppercase tracking-widest text-[10px] font-black group-hover:text-amber-300 transition-colors">
+                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)] group-hover:scale-125 transition-transform"></span>
+                 {data.tab2}
+               </span>
+             </div>
+             <h3 className="relative z-10 text-white text-xl md:text-2xl font-extrabold mb-3 md:mb-4 group-hover:text-amber-400 transition-colors">{data.highlight2Title}</h3>
+             <p className="relative z-10 text-navy-300 font-light text-xs md:text-sm leading-relaxed">{data.highlight2Desc}</p>
           </div>
         </div>
 

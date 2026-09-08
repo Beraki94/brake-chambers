@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { fadeInUp, slideInLeft } from '@/lib/animations';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
+import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 import TrendingModelsMarquee from '@/components/ui/TrendingModelsMarquee';
 
 export default function ManufacturingClient() {
@@ -206,13 +207,18 @@ export default function ManufacturingClient() {
       </section>
 
       {/* By the Numbers */}
-      <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden">
-        {/* Background glow effects */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden border-y border-navy-800">
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale z-0"></div>
+        
+        {/* Animated Grid Layer */}
+        <AnimatedGridBackground opacity={0.08} />
+        
+        {/* Top/Bottom Fade Masks */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="max-w-3xl mx-auto mb-16">
+          <div className="max-w-3xl mx-auto mb-16 relative z-10">
             <SectionHeader
               title="Backed by Data"
               description="We operate at the intersection of massive industrial scale and microscopic manufacturing tolerances. Here is what that looks like by the numbers."
@@ -221,7 +227,7 @@ export default function ManufacturingClient() {
             />
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 relative z-10">
             {stats.map((stat, idx) => (
               <motion.div 
                 key={idx}
@@ -229,15 +235,18 @@ export default function ManufacturingClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className="bg-white/5 backdrop-blur-md rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-white/10 hover:border-amber-500/50 hover:bg-white/10 shadow-xl hover:-translate-y-2 transition-all duration-300 group"
+                className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 rounded-[2rem] p-4 sm:p-6 md:p-8 text-center shadow-xl shadow-navy-900/10 group flex flex-col relative overflow-hidden transform hover:-translate-y-2 transition-all duration-500 hover:border-amber-500/50"
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto bg-amber-500/10 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 border border-amber-500/20 group-hover:border-amber-500/50 group-hover:bg-amber-500/20">
-                  <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-amber-400 transition-transform duration-300 group-hover:rotate-12 group-hover:text-amber-300" aria-hidden="true" />
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+
+                <div className="relative z-10 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 md:mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
+                  <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-amber-400 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
                 </div>
-                <div className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-1 sm:mb-2 tracking-tight transition-colors">
+                <div className="relative z-10 text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-1 sm:mb-2 tracking-tight transition-colors group-hover:text-amber-400">
                   {stat.value}
                 </div>
-                <div className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-400 uppercase tracking-wider group-hover:text-slate-300 transition-colors">
+                <div className="relative z-10 text-[10px] sm:text-xs md:text-sm font-light text-navy-300 uppercase tracking-wider group-hover:text-amber-300 transition-colors">
                   {stat.label}
                 </div>
               </motion.div>

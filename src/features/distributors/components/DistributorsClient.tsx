@@ -36,10 +36,10 @@ export default function DistributorsClient() {
       />
 
       {/* Main Content Area */}
-      <section className="container mx-auto px-0 sm:px-6 lg:px-8 max-w-[1920px] relative z-20 flex-grow flex flex-col mb-16">
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] relative z-20 flex-grow flex flex-col mb-16">
         
         {/* Overlapping Quick Actions Box */}
-        <div className="-mt-8 sm:-mt-20 bg-white border-y sm:border border-slate-200 rounded-none sm:rounded-[2rem] p-6 lg:p-8 shadow-sm sm:shadow-xl shadow-slate-200/50 mb-10 sm:mb-16 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="-mt-8 sm:-mt-20 bg-white border border-slate-200 rounded-2xl sm:rounded-[2rem] p-6 lg:p-8 shadow-sm sm:shadow-xl shadow-slate-200/50 mb-10 sm:mb-16 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
            <div className="w-full text-center md:text-left">
               <SectionHeader
                 title="Partner Portal"
@@ -62,7 +62,7 @@ export default function DistributorsClient() {
         </div>
 
         {/* Network Content (Always Visible) */}
-        <div className="w-full flex-grow relative min-h-[400px] px-4 sm:px-0">
+        <div className="w-full flex-grow relative min-h-[400px]">
           <div className="flex flex-col lg:flex-row gap-12">
             
             {/* Left Sticky Sidebar for Regions */}

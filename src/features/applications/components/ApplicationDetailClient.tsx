@@ -66,8 +66,11 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
         </div>
       </section>
 
-      {/* The Challenge Section - Professional Two-Column Layout */}
+      {/* The Challenge Section - White with Central Red Blend */}
       <section className="py-16 md:py-20 bg-white relative overflow-hidden border-b border-slate-200">
+        {/* Central Red Glow Blend */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-red-600 opacity-[0.04] md:opacity-[0.06] rounded-full blur-[100px] pointer-events-none z-0"></div>
+        
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
             <motion.div
@@ -94,11 +97,11 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={staggerContainer}
-                className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full"
+                className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full relative z-10"
               >
                 {data.specs.map((spec: any, idx: number) => (
-                  <motion.div variants={fadeInUp} key={idx} className="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-200 transition-all flex flex-col justify-center min-h-[120px]">
-                    <div className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-2">{spec.label}</div>
+                  <motion.div variants={fadeInUp} key={idx} className="bg-slate-50/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/60 shadow-sm hover:shadow-md hover:border-amber-200 transition-all flex flex-col justify-center min-h-[120px]">
+                    <div className="text-amber-600 text-[10px] font-black uppercase tracking-widest mb-2">{spec.label}</div>
                     <div className="text-navy-950 text-base md:text-lg font-bold leading-tight">{spec.value}</div>
                   </motion.div>
                 ))}

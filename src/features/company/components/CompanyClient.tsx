@@ -6,6 +6,7 @@ import { ArrowRight, CheckCircle2, ShieldCheck, Microscope, Globe2, TestTube, Li
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
+import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 
 export default function CompanyClient() {
   const milestones = [
@@ -290,10 +291,15 @@ export default function CompanyClient() {
       </section>
 
       {/* SECTION 4: CERTIFICATIONS & COMPLIANCE */}
-      <section className="py-20 md:py-32 bg-navy-900 relative overflow-hidden border-t border-navy-800">
-        {/* Subtle Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-amber-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+      <section className="py-20 md:py-32 bg-navy-950 relative overflow-hidden border-t border-navy-800">
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale z-0"></div>
+        
+        {/* Animated Grid Layer */}
+        <AnimatedGridBackground opacity={0.08} />
+        
+        {/* Top/Bottom Fade Masks */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] relative z-10">
           <SectionHeader
@@ -313,10 +319,15 @@ export default function CompanyClient() {
               { title: "FMVSS 121", desc: "Federal Motor Vehicle Safety Standards — Compliant" },
               { title: "SAE J1469", desc: "Air Brake Actuator Standards — Compliant" }
             ].map((badge, idx) => (
-              <div key={idx} className="bg-navy-800/50 border border-navy-700 rounded-2xl p-6 flex flex-col items-center text-center shadow-lg hover:border-amber-500/50 transition-colors group">
-                <CheckCircle2 className="w-10 h-10 text-emerald-500 mb-4 group-hover:scale-110 transition-transform" />
-                <h4 className="text-white font-bold text-lg mb-2">{badge.title}</h4>
-                <p className="text-navy-300 text-sm font-light">{badge.desc}</p>
+              <div key={idx} className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 rounded-2xl p-6 flex flex-col items-center text-center shadow-xl shadow-navy-900/10 hover:border-amber-500/50 transform hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden">
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                
+                <div className="relative z-10 w-16 h-16 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
+                  <CheckCircle2 className="w-8 h-8 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h4 className="relative z-10 text-white font-extrabold text-lg mb-2 group-hover:text-amber-400 transition-colors">{badge.title}</h4>
+                <p className="relative z-10 text-navy-300 text-sm font-light leading-relaxed">{badge.desc}</p>
               </div>
             ))}
           </div>

@@ -213,10 +213,15 @@ export const MOBILE_LINKS = {
     { label: 'Air Disc Actuators', href: '/air-disc-brake-actuators', icon: <Disc className="w-4 h-4 text-amber-600" /> },
     { label: 'Parts & Kits', href: '/parts-and-kits', icon: <Package className="w-4 h-4 text-amber-600" /> },
   ],
+  applications: [
+    { label: 'Commercial & Freight', href: '/applications', icon: <Truck className="w-4 h-4 text-navy-600" /> },
+    { label: 'Severe-Duty & Vocational', href: '/applications', icon: <ShieldAlert className="w-4 h-4 text-navy-600" /> },
+    { label: 'Passenger Transport', href: '/applications', icon: <Bus className="w-4 h-4 text-navy-600" /> },
+  ],
   company: [
     { label: 'OEM Cross-Reference', href: '/oem-cross-reference', icon: <Search className="w-4 h-4 text-navy-600" /> },
     { label: 'Manufacturing', href: '/manufacturing', icon: <Factory className="w-4 h-4 text-navy-600" /> },
-    { label: 'Applications', href: '/applications', icon: <Truck className="w-4 h-4 text-navy-600" /> },
+    { label: 'Applications Overview', href: '/applications', icon: <Truck className="w-4 h-4 text-navy-600" /> },
     { label: 'Technical Resources', href: '/technical-resources', icon: <BookOpen className="w-4 h-4 text-navy-600" /> },
     { label: 'About Us', href: '/our-story', icon: <Users className="w-4 h-4 text-navy-600" /> },
     { label: 'Insights & Blog', href: '/blog', icon: <FileText className="w-4 h-4 text-navy-600" /> },

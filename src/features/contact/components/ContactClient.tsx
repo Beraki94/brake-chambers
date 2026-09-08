@@ -84,8 +84,8 @@ export default function ContactClient() {
         ]}
       />
 
-      <div className="container mx-auto px-0 sm:px-4 lg:px-8 max-w-[1920px] -mt-6 sm:-mt-16 relative z-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] -mt-6 sm:-mt-16 relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-6 sm:gap-8">
           
           {/* Left Sidebar — Contact Info Cards */}
           <motion.div 
@@ -93,7 +93,7 @@ export default function ContactClient() {
             initial="hidden" 
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            className="lg:col-span-1 order-2 lg:order-1 grid grid-cols-1 gap-3 sm:gap-4 px-4 sm:px-0"
+            className="lg:col-span-1 order-2 lg:order-1 grid grid-cols-1 gap-4"
           >
             {contactCards.map((card, i) => (
               <motion.div
@@ -125,7 +125,7 @@ export default function ContactClient() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
-              className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-5 sm:p-8 lg:p-10"
+              className="bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl border border-slate-100 p-6 sm:p-8 lg:p-10"
             >
             <SectionHeader
               badge="Wholesale Inquiries"
@@ -223,7 +223,7 @@ export default function ContactClient() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
-              className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-5 sm:p-8 lg:p-10"
+              className="bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl border border-slate-100 p-6 sm:p-8 lg:p-10"
             >
               <SectionHeader
                 title="Frequently Asked Questions"
@@ -244,24 +244,41 @@ export default function ContactClient() {
           initial="hidden" 
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="mt-6 sm:mt-8 bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-0 sm:p-3 relative overflow-hidden group"
+          className="mt-16 sm:mt-20 lg:mt-24 bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl border border-slate-100 overflow-hidden relative"
         >
-          <div className="absolute bottom-4 left-4 right-4 sm:top-8 sm:left-8 sm:bottom-auto sm:right-auto bg-white/95 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-xl border border-slate-100 z-20 pointer-events-none transform group-hover:scale-[1.02] sm:group-hover:scale-105 transition-transform duration-500">
-            <h3 className="font-heading font-extrabold text-navy-900 text-base sm:text-lg mb-0.5 sm:mb-1 tracking-tight">BRC Manufacturing Headquarters</h3>
-            <p className="text-xs sm:text-sm font-medium text-slate-500 flex items-center gap-1.5 sm:gap-2"><MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 shrink-0" /> <span className="truncate">Block 3, No 55 Tianyang Rd, Fengqiao, Zhuji</span></p>
+          {/* Main Map Container */}
+          <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[550px] group bg-slate-100">
+            {/* Amber Duotone Overlay - covers the entire map seamlessly */}
+            <div className="absolute inset-0 bg-amber-500/15 mix-blend-color z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-1000 ease-out"></div>
+            
+            {/* The Google Map */}
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110190.57398188172!2d121.4633716503816!3d29.87834529999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x344d634db8bebaeb%3A0xeab5c8148b301764!2sNingbo%2C%20Zhejiang%2C%20China!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+              className="absolute inset-0 w-full h-full filter grayscale-[0.8] contrast-[1.1] opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ease-out z-0"
+              style={{ border: 0 }} 
+              allowFullScreen={false} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+            
+            {/* Floating Info Card - Positioned at bottom left, fully responsive */}
+            <div className="absolute bottom-0 left-0 w-full sm:w-auto p-4 sm:p-6 z-20 pointer-events-none flex justify-center sm:justify-start">
+              <div className="bg-white/95 backdrop-blur-md px-5 sm:px-6 py-4 sm:py-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/50 transform group-hover:-translate-y-1 sm:group-hover:-translate-y-2 transition-transform duration-500 w-full sm:w-auto max-w-[400px]">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-amber-50 rounded-xl flex items-center justify-center shrink-0 shadow-inner">
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500" />
+                  </div>
+                  <div className="flex flex-col justify-center">
+                    <h3 className="font-heading font-extrabold text-navy-900 text-base sm:text-lg mb-0.5 sm:mb-1 tracking-tight">BRC Manufacturing Headquarters</h3>
+                    <p className="text-xs sm:text-sm font-medium text-slate-500 leading-relaxed">
+                      Block 3, No 55 Tianyang Rd, Fengqiao,<br className="hidden sm:block" />
+                      Zhuji, Zhejiang, China
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          
-          {/* Amber Duotone Overlay */}
-          <div className="absolute inset-0 bg-amber-500/30 mix-blend-color z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-1000 ease-out rounded-[1.25rem] sm:rounded-[1.5rem] m-2 sm:m-3"></div>
-          
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110190.57398188172!2d121.4633716503816!3d29.87834529999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x344d634db8bebaeb%3A0xeab5c8148b301764!2sNingbo%2C%20Zhejiang%2C%20China!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-            className="w-full h-[300px] sm:h-[400px] lg:h-[450px] rounded-[1.25rem] sm:rounded-[1.5rem] filter grayscale contrast-[1.1] opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ease-out relative z-0"
-            style={{ border: 0 }} 
-            allowFullScreen={false} 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
         </motion.div>
 
         {/* Additional Section: Global Reach */}
@@ -270,7 +287,7 @@ export default function ContactClient() {
           initial="hidden" 
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="mt-16 md:mt-24 px-4 sm:px-0"
+          className="mt-12 sm:mt-16 md:mt-24"
         >
           <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 lg:p-12 relative overflow-hidden shadow-none sm:shadow-2xl">
             <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(245, 158, 11, 0.2) 1px, transparent 1px)', backgroundSize: '28px 28px' }}></div>

@@ -90,7 +90,7 @@ export default function TestingLaboratoryClient() {
         </div>
 
       {/* Test Protocols Section */}
-      <div className="-mx-4 sm:mx-0 px-4 sm:px-8 md:px-12 py-10 md:py-12 bg-blue-50/50 sm:border border-blue-100/50 rounded-none sm:rounded-3xl md:rounded-[2.5rem] my-8 md:my-12">
+      <div className="px-4 sm:px-8 md:px-12 py-10 md:py-12 bg-blue-50/50 border border-blue-100/50 rounded-3xl md:rounded-[2.5rem] my-8 md:my-12">
         <div className="w-full">
           <SectionHeader
             title={<>Failure is <span className="text-amber-500">Not an Option</span></>}
@@ -129,7 +129,7 @@ export default function TestingLaboratoryClient() {
       </div>
 
       {/* Equipment & Quality Section */}
-      <div className="-mx-4 sm:mx-0 px-4 sm:px-8 md:px-12 py-10 md:py-12 bg-white sm:border border-slate-100 rounded-none sm:rounded-3xl">
+      <div className="px-4 sm:px-8 md:px-12 py-10 md:py-12 bg-white border border-slate-100 rounded-3xl">
         <div className="max-w-5xl mx-auto">
           <div className="mb-16">
             <SectionHeader
@@ -157,7 +157,7 @@ export default function TestingLaboratoryClient() {
         </div>
 
         {/* ISO Callout Banner */}
-        <div className="-mx-4 sm:mx-0 bg-navy-950 rounded-none sm:rounded-3xl md:rounded-[2.5rem] p-6 sm:p-8 md:p-12 text-white relative overflow-hidden flex flex-col md:flex-row items-center gap-8 md:gap-10">
+        <div className="bg-navy-950 rounded-3xl md:rounded-[2.5rem] p-6 sm:p-8 md:p-12 text-white relative overflow-hidden flex flex-col md:flex-row items-center gap-8 md:gap-10">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none" />
           <div className="absolute top-0 right-0 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
           
