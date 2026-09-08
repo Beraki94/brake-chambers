@@ -7,6 +7,7 @@ import { ArrowRight, CheckCircle2, Package, Ship, TrendingDown, Users, Clock, Gl
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
+import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 
 export default function HighVolumeOrdersClient() {
 
@@ -123,12 +124,16 @@ export default function HighVolumeOrdersClient() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {stats.map((stat, idx) => (
               <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className="bg-white rounded-3xl p-6 md:p-8 text-center border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-                <div className="w-14 h-14 md:w-16 md:h-16 mx-auto bg-amber-50 rounded-2xl flex items-center justify-center mb-4 md:mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                className="bg-white rounded-3xl p-6 md:p-8 text-center border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+                
+                {/* The Top Right Circle Decoration */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
+                
+                <div className="relative z-10 w-14 h-14 md:w-16 md:h-16 mx-auto bg-amber-50/80 rounded-2xl flex items-center justify-center mb-4 md:mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300 border border-amber-100/50">
                   <stat.icon className="w-7 h-7 md:w-8 md:h-8 text-amber-500" aria-hidden="true" />
                 </div>
-                <div className="text-3xl md:text-5xl font-black text-navy-900 mb-2 tracking-tight group-hover:text-amber-600 transition-colors">{stat.value}</div>
-                <div className="text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">{stat.label}</div>
+                <div className="relative z-10 text-3xl md:text-5xl font-black text-navy-900 mb-2 tracking-tight group-hover:text-amber-600 transition-colors">{stat.value}</div>
+                <div className="relative z-10 text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -182,9 +187,13 @@ export default function HighVolumeOrdersClient() {
       </section>
 
       {/* Advantages — 2-Column Grid */}
-      <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] -mr-40 -mb-40"></div>
+      <section className="py-20 lg:py-32 bg-navy-950 relative overflow-hidden border-y border-navy-800">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
+        
+        <AnimatedGridBackground opacity={0.08} />
+        
+        {/* Fade out masks to make the grid and image blend smoothly into the dark section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] relative z-10">
           <SectionHeader
@@ -194,18 +203,16 @@ export default function HighVolumeOrdersClient() {
             accentColor="amber"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {advantages.map((adv, idx) => (
               <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.08, duration: 0.6 }}
-                className="bg-navy-900/60 backdrop-blur-md border border-navy-700 rounded-3xl p-8 hover:border-amber-500/50 transition-all duration-300 group">
-                <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 rounded-2xl bg-navy-800 border border-navy-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    {adv.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-bold text-white mb-2">{adv.title}</h3>
-                    <p className="text-navy-200 text-sm leading-relaxed">{adv.description}</p>
-                  </div>
+                className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 rounded-[2rem] p-8 lg:p-10 hover:border-slate-600 hover:from-navy-700 hover:to-navy-800 transition-all duration-300 transform hover:-translate-y-1 shadow-2xl group flex flex-col md:flex-row items-start gap-6">
+                <div className="w-16 h-16 bg-navy-950/80 border border-navy-700 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:border-slate-600 transition-all duration-300 shadow-inner">
+                  {adv.icon}
+                </div>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-extrabold text-white mb-3 tracking-tight">{adv.title}</h3>
+                  <p className="text-slate-400 text-base leading-relaxed font-light">{adv.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -215,7 +222,7 @@ export default function HighVolumeOrdersClient() {
 
       {/* Bottom CTA */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-16 md:pb-24 mt-16 md:mt-24">
-        <div className="bg-slate-50 rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
+        <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
           <SectionHeader 
             title="Request Your Volume Pricing" 
             description="Tell us your target volumes and product mix, and we'll provide a detailed quotation with tiered pricing, container optimization analysis, and estimated lead times."

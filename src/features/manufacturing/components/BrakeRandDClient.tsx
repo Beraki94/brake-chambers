@@ -9,6 +9,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import Card from '@/components/ui/Card';
 import IconBox from '@/components/ui/IconBox';
 import SectionHeader from '@/components/ui/SectionHeader';
+import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 
 export default function BrakeRandDClient() {
 
@@ -128,12 +129,17 @@ export default function BrakeRandDClient() {
                 transition={{ delay: idx * 0.1, duration: 0.6 }}
               >
                 <Card padding="md" hoverEffect="lift" className="text-center group h-full flex flex-col justify-center">
-                  <IconBox icon={<stat.icon />} color="amber" size="lg" className="mx-auto mb-4 md:mb-6" />
-                  <div className="text-3xl md:text-5xl font-black text-navy-900 mb-2 tracking-tight group-hover:text-amber-600 transition-colors">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
-                    {stat.label}
+                  {/* The Top Right Circle Decoration */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
+                  
+                  <div className="relative z-10">
+                    <IconBox icon={<stat.icon />} color="amber" size="lg" className="mx-auto mb-4 md:mb-6" />
+                    <div className="text-3xl md:text-5xl font-black text-navy-900 mb-2 tracking-tight group-hover:text-amber-600 transition-colors">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
+                      {stat.label}
+                    </div>
                   </div>
                 </Card>
               </motion.div>
@@ -225,63 +231,70 @@ export default function BrakeRandDClient() {
       </section>
 
       {/* Section 4: Digital Simulation Deep-Dive */}
-      <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] -mr-40 -mt-40"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-navy-500/20 rounded-full blur-[80px] -ml-20 -mb-20"></div>
+      <section className="py-20 lg:py-32 bg-navy-950 relative overflow-hidden border-y border-navy-800">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
+        
+        <AnimatedGridBackground opacity={0.08} />
+        
+        {/* Fade out masks to make the grid and image blend smoothly into the dark section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-              <SectionHeader
-                badge="Digital Prototyping"
-                title={<>Simulating <span className="text-amber-400">Millions of Cycles</span> Before Production</>}
-                description={
-                  <>
-                    <span className="block mb-4 text-base md:text-lg text-navy-200 font-light leading-relaxed">
-                      Before a single ounce of steel is poured, our engineering team builds an exact digital twin of the 
-                      proposed brake chamber in advanced 3D CAD software. We then subject this virtual model to conditions 
-                      far beyond what any real-world application would demand.
-                    </span>
-                    <span className="block text-base md:text-lg text-navy-200 font-light leading-relaxed">
-                      Using <strong className="text-white font-bold">Finite Element Analysis (FEA)</strong>, we digitally 
-                      simulate 120 PSI pneumatic bursts, extreme torsional vibration, and -40°F thermal shocks. We identify 
-                      microscopic stress fractures in the computer model, thicken the steel gauge exactly where needed, and 
-                      shave off weight where it isn't — delivering housings that are both lighter and stronger.
-                    </span>
-                  </>
-                }
-                align="left"
-                theme="dark"
-                accentColor="amber"
-                className="!mb-6"
-              />
-              <ul className="space-y-4">
-                {[
-                  'Predictive failure modeling for springs and diaphragms',
-                  'Optimized housing geometries for maximum burst strength',
-                  'Rapid iterations reducing R&D timeline from months to weeks',
-                  'Virtual endurance testing exceeding 1 million actuation cycles',
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                    <span className="text-navy-100 text-sm md:text-base">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
+          <SectionHeader
+            badge="Digital Prototyping"
+            title="Simulating Millions of Cycles Before Production"
+            description="Before a single ounce of steel is poured, our engineering team builds an exact digital twin in advanced 3D CAD software. Using Finite Element Analysis (FEA), we digitally simulate extreme pneumatic bursts, torsional vibration, and thermal shocks to identify stress fractures and optimize housing geometries before manufacturing begins."
+            align="center"
+            theme="dark"
+            accentColor="amber"
+            plainText={true}
+            className="!mb-12"
+          />
 
-            <div className="relative h-[350px] md:h-[500px] rounded-[2rem] overflow-hidden border border-navy-800 shadow-2xl group">
-              <Image src="/images/engineering_blueprint.png" alt="Brake Chamber FEA Simulation" fill className="object-cover group-hover:scale-110 transition-transform duration-[10s]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 to-transparent"></div>
-              <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8">
-                <div className="bg-navy-900/90 backdrop-blur-md p-4 md:p-6 rounded-xl border border-navy-700">
-                  <h4 className="text-amber-400 font-bold mb-1 md:mb-2 uppercase tracking-widest text-xs md:text-sm">Active Simulation</h4>
-                  <p className="text-white font-light text-xs md:text-sm">Stress distribution mapped across a Type 30/30 housing under 150 PSI test load.</p>
-                </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap justify-center items-center gap-3 md:gap-6 mb-16"
+          >
+            {[
+              { name: "Predictive Modeling", dot: "bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.5)]", hoverBorder: "hover:border-amber-500/50", hoverText: "group-hover:text-amber-400" },
+              { name: "Optimized Geometries", dot: "bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]", hoverBorder: "hover:border-emerald-500/50", hoverText: "group-hover:text-emerald-400" },
+              { name: "Rapid Iterations", dot: "bg-sky-500 shadow-[0_0_10px_rgba(14,165,233,0.5)]", hoverBorder: "hover:border-sky-500/50", hoverText: "group-hover:text-sky-400" },
+              { name: "Virtual Endurance", dot: "bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]", hoverBorder: "hover:border-indigo-500/50", hoverText: "group-hover:text-indigo-400" }
+            ].map((feature, idx) => (
+              <motion.div
+                key={feature.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1, duration: 0.4 }}
+                className={`bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 px-6 py-4 rounded-xl shadow-lg flex items-center justify-center gap-3 min-w-[200px] group hover:bg-navy-800 transition-all duration-300 transform hover:-translate-y-1 ${feature.hoverBorder}`}
+              >
+                <div className={`w-2 h-2 rounded-full ${feature.dot} group-hover:scale-125 transition-transform duration-300`}></div>
+                <span className={`text-white font-extrabold text-sm sm:text-base tracking-widest transition-colors drop-shadow-md ${feature.hoverText}`}>
+                  {feature.name}
+                </span>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative h-[300px] md:h-[450px] lg:h-[550px] w-full max-w-5xl mx-auto rounded-[2rem] overflow-hidden border border-navy-800 shadow-2xl group"
+          >
+            <Image src="/images/engineering_blueprint.png" alt="Brake Chamber FEA Simulation" fill className="object-cover group-hover:scale-105 transition-transform duration-[10s]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent"></div>
+            <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 text-left">
+              <div className="bg-navy-900/90 backdrop-blur-md p-5 md:p-8 rounded-2xl border border-navy-700 inline-block max-w-xl">
+                <h4 className="text-amber-400 font-bold mb-2 uppercase tracking-widest text-xs md:text-sm">Active Simulation</h4>
+                <p className="text-white font-light text-sm md:text-base leading-relaxed">Stress distribution mapped across a Type 30/30 housing under 150 PSI test load, ensuring zero micro-fractures under extreme braking events.</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -345,7 +358,7 @@ export default function BrakeRandDClient() {
 
       {/* Bottom CTA */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-16 md:pb-24 mt-16 md:mt-24">
-        <div className="bg-slate-50 rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
+        <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
           <SectionHeader 
             title="See Our Engineering Put to the Test" 
             description="Every design our R&D team creates must survive our brutal quality assurance lab — salt spray chambers, burst pressure rigs, and million-cycle endurance testers. See how we validate our work."

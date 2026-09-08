@@ -59,8 +59,8 @@ export default function CustomOemClient() {
         ]}
       />
 
-      {/* Light Value Proposition (Section Grey) */}
-      <section className="py-16 md:py-24 bg-slate-50 relative overflow-hidden border-b border-slate-200">
+      {/* Light Value Proposition (Section Blue) */}
+      <section className="py-16 md:py-24 bg-blue-50 relative overflow-hidden border-b border-blue-100/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
           <SectionHeader
             title={<>Your Design. <span className="text-amber-500">Our Factory.</span></>}
@@ -97,14 +97,19 @@ export default function CustomOemClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className="bg-white rounded-3xl p-6 md:p-8 text-center border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col items-center justify-center h-full"
+                className="bg-white rounded-3xl p-6 md:p-8 text-center border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col items-center justify-center h-full relative overflow-hidden"
               >
-                <IconBox icon={<stat.icon />} color="amber" size="lg" className="mb-4 md:mb-6" />
-                <div className="text-3xl md:text-5xl font-black text-navy-900 mb-2 tracking-tight group-hover:text-amber-600 transition-colors">
-                  {stat.value}
-                </div>
-                <div className="text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
-                  {stat.label}
+                {/* Top Right Circle Decoration */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none"></div>
+
+                <div className="relative z-10 flex flex-col items-center justify-center w-full">
+                  <IconBox icon={<stat.icon />} color="amber" size="lg" className="mb-4 md:mb-6 transition-colors" />
+                  <div className="text-3xl md:text-5xl font-black text-navy-900 mb-2 tracking-tight group-hover:text-amber-600 transition-colors">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
+                    {stat.label}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -113,7 +118,7 @@ export default function CustomOemClient() {
       </section>
 
       {/* 3-Phase Development Process — Alternating Layout */}
-      <section className="py-16 md:py-24 bg-blue-50">
+      <section className="py-16 md:py-24 bg-[#F1EFE8]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
             badge="Development Phases"
@@ -213,7 +218,7 @@ export default function CustomOemClient() {
 
       {/* Bottom CTA */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-16 md:pb-24 mt-16 md:mt-24">
-        <div className="bg-slate-50 rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
+        <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
           <SectionHeader 
             title="Ready to Discuss Your Project?" 
             description="We sign standard NDAs to protect your intellectual property before reviewing any files. Reach out to our engineering liaison team to get started."

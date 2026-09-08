@@ -3,10 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Paintbrush, Tag, Package, Printer, CheckCircle2, Palette, Stamp, Box, Layers, ShieldCheck, Users, BarChart3, Truck } from 'lucide-react';
+import { ArrowRight, Paintbrush, Tag, Package, Printer, CheckCircle2, Palette, Stamp, Box, Layers, ShieldCheck, Users, BarChart3, Truck, MessageSquare, Settings } from 'lucide-react';
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
+import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 
 export default function PrivateLabelClient() {
 
@@ -44,10 +45,10 @@ export default function PrivateLabelClient() {
   ];
 
   const steps = [
-    { step: '01', title: 'Brand Consultation', desc: 'Share your brand guidelines, color palette, logo files, and packaging requirements. We assign a dedicated project manager to coordinate every detail.' },
-    { step: '02', title: 'Sample Production', desc: 'We produce physical samples with your branding applied — painted housings, engraved logos, and printed packaging — for your approval before committing to full production.' },
-    { step: '03', title: 'Production Run', desc: 'Once samples are approved, we integrate your branding into our production line. Custom paint, engraving, and packaging happen seamlessly alongside standard manufacturing.' },
-    { step: '04', title: 'Packaging & Delivery', desc: 'Finished products are packed in your branded boxes, palletized with your markings, and shipped directly to your distribution centers or end customers.' },
+    { step: '01', title: 'Brand Consultation', desc: 'Share your brand guidelines, color palette, logo files, and packaging requirements. We assign a dedicated project manager to coordinate every detail.', icon: <MessageSquare className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" /> },
+    { step: '02', title: 'Sample Production', desc: 'We produce physical samples with your branding applied — painted housings, engraved logos, and printed packaging — for your approval before committing to full production.', icon: <Settings className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" /> },
+    { step: '03', title: 'Production Run', desc: 'Once samples are approved, we integrate your branding into our production line. Custom paint, engraving, and packaging happen seamlessly alongside standard manufacturing.', icon: <Package className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" /> },
+    { step: '04', title: 'Packaging & Delivery', desc: 'Finished products are packed in your branded boxes, palletized with your markings, and shipped directly to your distribution centers or end customers.', icon: <Truck className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" /> },
   ];
 
   return (
@@ -98,7 +99,7 @@ export default function PrivateLabelClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {/* Private Label */}
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="bg-white rounded-3xl p-8 md:p-10 border-2 border-amber-200 shadow-sm relative overflow-hidden">
+              className="bg-white rounded-3xl p-8 md:p-10 border border-amber-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-[50px] -mr-10 -mt-10"></div>
               <div className="relative z-10">
                 <div className="inline-block px-3 py-1 mb-4 rounded-full bg-amber-50 border border-amber-200 text-amber-600 text-[11px] font-bold uppercase tracking-widest">
@@ -122,7 +123,7 @@ export default function PrivateLabelClient() {
 
             {/* White Label */}
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm relative overflow-hidden">
+              className="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-navy-500/5 rounded-full blur-[50px] -mr-10 -mt-10"></div>
               <div className="relative z-10">
                 <div className="inline-block px-3 py-1 mb-4 rounded-full bg-slate-50 border border-slate-200 text-slate-600 text-[11px] font-bold uppercase tracking-widest">
@@ -166,13 +167,18 @@ export default function PrivateLabelClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08, duration: 0.6 }}
-                className="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                className="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
               >
-                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  {item.icon}
+                {/* Top Right Circle Decoration */}
+                <div className={`absolute top-0 right-0 w-24 h-24 ${idx % 2 === 0 ? 'bg-amber-100/50' : 'bg-blue-50'} rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none`}></div>
+
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-lg md:text-xl font-black text-navy-900 mb-3 tracking-tight">{item.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
                 </div>
-                <h3 className="text-lg md:text-xl font-black text-navy-900 mb-3 tracking-tight">{item.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -180,9 +186,13 @@ export default function PrivateLabelClient() {
       </section>
 
       {/* How It Works — Horizontal Timeline */}
-      <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-        <div className="absolute top-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] -ml-40 -mt-40"></div>
+      <section className="py-20 lg:py-32 bg-navy-950 relative overflow-hidden border-y border-navy-800">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
+        
+        <AnimatedGridBackground opacity={0.08} />
+        
+        {/* Fade out masks to make the grid and image blend smoothly into the dark section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] relative z-10">
           <SectionHeader
@@ -193,7 +203,7 @@ export default function PrivateLabelClient() {
             plainText={true}
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((step, idx) => (
               <motion.div
                 key={idx}
@@ -201,12 +211,18 @@ export default function PrivateLabelClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.12, duration: 0.6 }}
-                className="bg-navy-900/60 backdrop-blur-md border border-navy-700 rounded-3xl p-8 hover:border-amber-500/50 transition-all duration-300 group relative"
+                className="bg-navy-900 border border-navy-800 rounded-3xl p-8 hover:border-amber-500/50 hover:bg-navy-800 transition-all duration-500 shadow-xl shadow-navy-900/10 group transform hover:-translate-y-1 relative overflow-hidden flex flex-col h-full"
               >
-                <span className="text-6xl font-black text-navy-800 absolute top-4 right-6 group-hover:text-navy-700 transition-colors">{step.step}</span>
-                <div className="relative z-10">
-                  <h3 className="text-xl font-bold text-white mb-4 mt-8">{step.title}</h3>
-                  <p className="text-navy-200 text-sm leading-relaxed">{step.desc}</p>
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <span className="text-7xl font-black text-navy-800/50 absolute top-4 right-4 group-hover:text-navy-700/50 transition-colors pointer-events-none z-0">{step.step}</span>
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
+                    {step.icon}
+                  </div>
+                  <h3 className="text-xl font-extrabold text-white mb-4">{step.title}</h3>
+                  <p className="text-navy-300 text-sm leading-relaxed font-light flex-grow">{step.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -216,7 +232,7 @@ export default function PrivateLabelClient() {
 
       {/* Bottom CTA */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-16 md:pb-24 mt-16 md:mt-24">
-        <div className="bg-slate-50 rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
+        <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
           <SectionHeader 
             title="Ready to Launch Your Brand?" 
             description="Start with a free brand consultation. We'll walk you through MOQs, customization options, lead times, and pricing to get your private label program off the ground."

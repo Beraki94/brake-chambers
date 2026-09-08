@@ -105,21 +105,24 @@ export default function TestingLaboratoryClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08, duration: 0.5 }}
-                className="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
+                className="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden"
               >
-                <div className="flex items-center justify-between mb-6">
+                {/* Top Right Circle Decoration */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50/60 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none"></div>
+
+                <div className="relative z-10 flex items-center justify-between mb-6">
                   <IconBox 
                     icon={test.icon} 
                     color="slate" 
                     size="lg" 
-                    className="group-hover:bg-amber-50 group-hover:text-amber-600 group-hover:border-amber-100" 
+                    className="group-hover:bg-amber-50 group-hover:text-amber-600 group-hover:border-amber-100 transition-colors" 
                   />
-                  <div className="inline-block px-3 py-1 rounded-full bg-amber-50 border border-amber-100 text-amber-600 text-[10px] font-bold uppercase tracking-widest">
+                  <div className="inline-block px-3 py-1 rounded-full bg-amber-50 border border-amber-100 text-amber-600 text-[10px] font-bold uppercase tracking-widest bg-white/50 backdrop-blur-sm">
                     {test.badge}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-navy-900 mb-3">{test.title}</h3>
-                <p className="text-slate-600 leading-relaxed text-sm">
+                <h3 className="relative z-10 text-xl font-bold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors">{test.title}</h3>
+                <p className="relative z-10 text-slate-600 leading-relaxed text-sm">
                   {test.description}
                 </p>
               </motion.div>
@@ -187,7 +190,7 @@ export default function TestingLaboratoryClient() {
       </div>
 
         {/* Bottom CTA */}
-        <div className="bg-slate-50 rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200 mt-16">
+        <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200 mt-16">
           <SectionHeader 
             title="Ready for Custom Engineering?" 
             description="Bring your proprietary specs, and our R&D team will engineer, prototype, and mass-produce them at scale."

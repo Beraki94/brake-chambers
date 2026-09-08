@@ -82,7 +82,7 @@ export default function ProductionProcessClient() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="bg-slate-50 rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200 mt-16">
+        <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200 mt-16">
           <SectionHeader 
             title="Explore the Raw Materials We Use" 
             description="Discover how we source premium steel, rubber, and alloys to build the most reliable brake chambers on the market."
