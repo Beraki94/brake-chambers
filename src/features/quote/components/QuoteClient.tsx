@@ -24,8 +24,8 @@ export default function QuoteClient() {
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl -mt-8 sm:-mt-20 relative z-20">
       
       {/* Prominent Selected Items Section */}
-      <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 lg:p-10 shadow-sm sm:shadow-xl shadow-slate-200/50 mb-8">
-        <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3 border-b border-slate-100 pb-4">
+      <div className="bg-white border-y sm:border border-slate-200 rounded-none sm:rounded-[2rem] p-5 sm:p-8 lg:p-10 shadow-sm sm:shadow-xl shadow-slate-200/50 mb-8 -mx-4 sm:mx-0">
+        <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3 border-b border-slate-100 pb-4 px-4 sm:px-0">
           <Package className="w-6 h-6 sm:w-8 sm:h-8 text-amber-500 shrink-0" /> 
           Selected Items for Quote
         </h3>
@@ -91,7 +91,7 @@ export default function QuoteClient() {
       <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
         {/* Left column: Form */}
         <div className={`lg:col-span-2 ${isEmpty ? 'hidden lg:block' : 'block'}`}>
-          <form className="bg-white p-6 sm:p-8 lg:p-10 rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-5 sm:gap-6 h-fit relative">
+          <form className="bg-white p-5 sm:p-8 lg:p-10 rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl shadow-slate-200/50 border-y sm:border border-slate-100 flex flex-col gap-5 sm:gap-6 h-fit relative -mx-4 sm:mx-0">
             
             {/* If cart is empty, optionally show a small warning on the form */}
             {isEmpty && (

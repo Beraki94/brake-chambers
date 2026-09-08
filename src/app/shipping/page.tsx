@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function ShippingPage() {
   return (
-    <div className="bg-[#F8FAFC] pb-20">
+    <div className="bg-[#F8FAFC] pb-20 overflow-x-clip">
       <section className="bg-navy-950 relative pt-24 pb-36 border-b border-navy-800 overflow-hidden text-center px-4">
         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(245, 158, 11, 0.15) 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px] -mr-40 -mt-40 mix-blend-screen pointer-events-none"></div>

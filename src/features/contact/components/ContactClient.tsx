@@ -73,7 +73,7 @@ export default function ContactClient() {
   ];
 
   return (
-    <div className="bg-[#F8FAFC] pb-16 md:pb-24 font-sans">
+    <div className="bg-[#F8FAFC] pb-16 md:pb-24 font-sans overflow-x-clip">
       <PageHeader
         badge="Customer Support"
         title="Contact BRC Global Sales"
@@ -125,7 +125,7 @@ export default function ContactClient() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
-              className="bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl border border-slate-100 p-6 sm:p-8 lg:p-10"
+              className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-6 sm:p-8 lg:p-10 -mx-4 sm:mx-0"
             >
             <SectionHeader
               badge="Wholesale Inquiries"
@@ -223,7 +223,7 @@ export default function ContactClient() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
-              className="bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl border border-slate-100 p-6 sm:p-8 lg:p-10"
+              className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-6 sm:p-8 lg:p-10 -mx-4 sm:mx-0"
             >
               <SectionHeader
                 title="Frequently Asked Questions"
@@ -244,7 +244,7 @@ export default function ContactClient() {
           initial="hidden" 
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="mt-16 sm:mt-20 lg:mt-24 bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-xl border border-slate-100 overflow-hidden relative"
+          className="mt-16 sm:mt-20 lg:mt-24 bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 overflow-hidden relative -mx-4 sm:mx-0"
         >
           {/* Main Map Container */}
           <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[550px] group bg-slate-100">

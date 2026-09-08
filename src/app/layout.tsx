@@ -51,7 +51,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://translate.googleapis.com" crossOrigin="anonymous" />
       </head>
-      <body suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable} font-sans bg-[#F8FAFC] text-navy-900 flex flex-col min-h-screen`}>
+      <body suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable} font-sans bg-[#F8FAFC] text-navy-900 flex flex-col min-h-screen overflow-x-clip`}>
         <NextTopLoader
           color="#FFB000"
           initialPosition={0.08}

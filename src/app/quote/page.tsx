@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function QuotePage() {
   return (
-    <div className="bg-[#F8FAFC] pb-16 md:pb-24">
+    <div className="bg-[#F8FAFC] pb-16 md:pb-24 overflow-x-clip">
       <PageHeader
         badge="Wholesale Pricing"
         title="Global Wholesale RFQ"
