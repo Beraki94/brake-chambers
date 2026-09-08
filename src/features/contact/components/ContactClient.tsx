@@ -99,9 +99,13 @@ export default function ContactClient() {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className={`bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-md border border-slate-100 ${card.borderHover} p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group`}
+                className={`bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-md border border-slate-100 ${card.borderHover} p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group relative overflow-hidden`}
               >
-                <div className={`w-10 h-10 sm:w-12 sm:h-12 ${card.bgColor} ${card.textColor} rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+                {/* Top Right Circle Decoration */}
+                <div className={`absolute top-0 right-0 w-32 h-32 ${card.bgColor} rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none`}></div>
+
+                <div className="relative z-10">
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 ${card.bgColor} ${card.textColor} rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
                   <card.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <h3 className="font-heading text-lg sm:text-xl font-bold text-navy-900 mb-1">{card.title}</h3>
@@ -113,6 +117,7 @@ export default function ContactClient() {
                 ) : (
                   <span className="text-slate-700 text-xs sm:text-sm font-bold">{card.value}</span>
                 )}
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -237,14 +242,15 @@ export default function ContactClient() {
               </motion.div>
             </div>
           </div>
+        </div>
           
-        {/* Factory Location Map */}
+        {/* Factory Location Map - Full Width */}
         <motion.div 
           variants={fadeInUp} 
           initial="hidden" 
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="mt-16 sm:mt-20 lg:mt-24 bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 overflow-hidden relative -mx-4 sm:mx-0"
+          className="mt-16 sm:mt-20 lg:mt-24 bg-white border-y border-slate-200 overflow-hidden relative w-full"
         >
           {/* Main Map Container */}
           <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[550px] group bg-slate-100">
@@ -281,9 +287,11 @@ export default function ContactClient() {
           </div>
         </motion.div>
 
-        {/* Additional Section: Global Reach */}
-        <motion.section 
-          variants={staggerContainer} 
+        {/* Re-open container for the next section */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
+          {/* Additional Section: Global Reach */}
+          <motion.section 
+            variants={staggerContainer} 
           initial="hidden" 
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
