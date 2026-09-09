@@ -246,10 +246,10 @@ export default function ProductsClient() {
       <section className="py-16 md:py-24 bg-navy-950 border-b border-navy-800 relative overflow-hidden">
         {/* Background Image Layer */}
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
-        
+
         {/* Animated Grid Layer */}
         <AnimatedGridBackground opacity={0.08} />
-        
+
         {/* Top/Bottom Fade Masks */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none"></div>
 
@@ -267,7 +267,7 @@ export default function ProductsClient() {
                 accentColor="amber"
                 className="!mb-8"
               />
-              
+
               <div className="grid grid-cols-2 gap-6 pt-6 border-t border-navy-800/50">
                 <div>
                   <div className="text-4xl sm:text-5xl font-black text-white mb-1">1.2M+</div>
@@ -303,14 +303,14 @@ export default function ProductsClient() {
       <section className="py-12 md:py-20 bg-slate-50 border-b border-slate-200 relative overflow-hidden">
         {/* Subtle Background Elements */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-white/60 -skew-x-12 translate-x-1/4 pointer-events-none z-0" />
-        
+
         {/* Rotating Brake Chamber Watermark */}
         <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] lg:w-[800px] lg:h-[800px] opacity-[0.06] pointer-events-none animate-[spin_120s_linear_infinite] z-0">
           <img src="/products/spring-brake.jpg" alt="Brake Chamber Background" className="w-full h-full object-contain mix-blend-multiply grayscale drop-shadow-2xl" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          
+
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div className="max-w-2xl">
               <SectionHeader
@@ -347,7 +347,7 @@ export default function ProductsClient() {
                 {/* Heavy dark gradient overlay to ensure text readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-900/60 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-amber-900/20 mix-blend-color" />
-                
+
                 <div className="absolute bottom-0 left-0 w-full p-6 lg:p-8 flex flex-col justify-end">
                   <h3 className="text-xl lg:text-2xl font-extrabold text-white mb-1 group-hover:text-amber-400 transition-colors">
                     {app.title}
@@ -371,10 +371,10 @@ export default function ProductsClient() {
       <section className="py-10 md:py-16 bg-blue-50 relative overflow-hidden border-b border-blue-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200 p-6 sm:p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-12 relative overflow-hidden">
-            
+
             {/* Subtle background element for depth */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-[80px] pointer-events-none -mr-10 -mt-10"></div>
-            
+
             {/* Text Content */}
             <div className="max-w-2xl text-center lg:text-left relative z-10">
               <SectionHeader
@@ -395,11 +395,11 @@ export default function ProductsClient() {
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Search className="h-5 w-5 text-slate-400" />
                 </div>
-                <input 
-                  type="text" 
-                  placeholder="e.g. 5061011..." 
+                <input
+                  type="text"
+                  placeholder="e.g. 5061011..."
                   className="w-full pl-11 pr-4 py-3.5 md:py-4 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-700 focus:outline-none hover:border-amber-400 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all shadow-inner cursor-pointer"
-                  onClick={() => window.location.href='/oem-cross-reference'}
+                  onClick={() => window.location.href = '/oem-cross-reference'}
                   readOnly
                 />
               </div>

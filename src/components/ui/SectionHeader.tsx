@@ -58,13 +58,13 @@ export default function SectionHeader({
 
       {/* Main Title - Matches Home Page design exactly */}
       {asH1 ? (
-        <h1 className={`text-3xl md:text-5xl font-extrabold mb-4 tracking-tight pb-2
+        <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight pb-2
           ${isDark ? 'text-white' : plainText ? 'text-navy-900' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
         >
           {title}
         </h1>
       ) : (
-        <h2 className={`text-3xl md:text-5xl font-extrabold mb-4 tracking-tight pb-2
+        <h2 className={`text-3xl md:text-4xl font-extrabold mb-4 tracking-tight pb-2
           ${isDark ? 'text-white' : plainText ? 'text-navy-900' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
         >
           {title}
