@@ -15,14 +15,6 @@ import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import { TECHNICAL_RESOURCES_DATA } from '@/lib/technicalResourcesData';
 
 export default function TechnicalResourcesClient() {
-  const [activeResourceSlug, setActiveResourceSlug] = useState<string | null>(null);
-
-  const handleResourceClick = (e: React.MouseEvent, slug: string) => {
-    e.preventDefault();
-    setActiveResourceSlug(slug);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const categories = [
     {
       id: 'installation',
@@ -80,32 +72,25 @@ export default function TechnicalResourcesClient() {
     },
   ];
 
-  const activeData = activeResourceSlug ? TECHNICAL_RESOURCES_DATA[activeResourceSlug] : null;
-
   return (
     <div className="min-h-screen bg-slate-50 font-sans overflow-x-clip pb-16">
       <PageHeader
         badge="Engineering Support"
-        title={activeData ? activeData.title : "Installation Guides, Specs, & Documentation"}
-        description={activeData ? activeData.description : "Access our comprehensive technical library — installation procedures, sizing specifications, caging guides, and selection tools. Everything you need to install, maintain, and troubleshoot BRC brake chambers with confidence."}
-        imageSrc={activeData ? activeData.imageSrc : "/products/brake_chambers_diagram.png"}
-        breadcrumbs={activeData ? [
-          { label: 'Home', href: '/' },
-          { label: 'Technical Resources', href: '#' },
-          { label: activeData.title }
-        ] : [
+        title="Installation Guides, Specs, & Documentation"
+        description="Access our comprehensive technical library — installation procedures, sizing specifications, caging guides, and selection tools. Everything you need to install, maintain, and troubleshoot BRC brake chambers with confidence."
+        imageSrc="/products/brake_chambers_diagram.png"
+        breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Technical Resources' }
         ]}
       />
 
       <div className="relative z-20 -mt-6 md:-mt-10">
-        {!activeData ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
             {/* SECTION 1: QUICK LINKS */}
             <section className="relative">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
@@ -135,10 +120,9 @@ export default function TechnicalResourcesClient() {
                       { title: "Installation Guide", desc: "Step-by-step procedures", icon: <Wrench className="w-5 h-5 text-amber-500" />, slug: "installation" },
                       { title: "Chamber Selection Guide", desc: "Match by vocation", icon: <BookOpen className="w-5 h-5 text-navy-500" />, slug: "selection-guides" }
                     ].map((item, idx) => (
-                      <a
+                      <Link
                         key={idx}
-                        href={`#${item.slug}`}
-                        onClick={(e) => handleResourceClick(e, item.slug)}
+                        href={`/technical-resources/${item.slug}`}
                         className="flex items-center justify-between p-3 md:p-4 bg-slate-50 rounded-xl border border-slate-100 hover:border-navy-200 hover:shadow-md transition-all group cursor-pointer"
                       >
                         <div className="flex items-center gap-3 w-full overflow-hidden mr-2">
@@ -151,7 +135,7 @@ export default function TechnicalResourcesClient() {
                           </div>
                         </div>
                         <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-navy-900 transition-colors flex-shrink-0" aria-hidden="true" />
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </motion.div>
@@ -242,10 +226,9 @@ export default function TechnicalResourcesClient() {
                         {/* Resource Items Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                           {category.items.map((item, idx) => (
-                            <a
+                            <Link
                               key={idx}
-                              href={`#${item.slug}`}
-                              onClick={(e) => handleResourceClick(e, item.slug)}
+                              href={`/technical-resources/${item.slug}`}
                               className={`flex items-start gap-4 p-5 md:p-6 bg-slate-50/80 rounded-xl border border-slate-100 transition-all duration-300 group hover:shadow-lg hover:bg-white hover:-translate-y-0.5 cursor-pointer
                                 ${category.accent === 'amber' ? 'hover:border-amber-300' : 'hover:border-navy-300'}
                               `}
@@ -265,7 +248,7 @@ export default function TechnicalResourcesClient() {
                               <ArrowRight className={`w-5 h-5 flex-shrink-0 mt-1 transition-all duration-300 group-hover:translate-x-1
                                 ${category.accent === 'amber' ? 'text-slate-300 group-hover:text-amber-500' : 'text-slate-300 group-hover:text-navy-500'}
                               `} aria-hidden="true" />
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       </div>
@@ -302,210 +285,6 @@ export default function TechnicalResourcesClient() {
               </div>
             </section>
           </motion.div>
-        ) : (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="container mx-auto px-4 lg:px-8 max-w-[1920px]"
-          >
-            <div className="mb-6">
-              <button
-                onClick={() => {
-                  setActiveResourceSlug(null);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="inline-flex items-center gap-2 text-navy-600 font-bold hover:text-amber-600 transition-colors bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-100 hover:shadow-md"
-              >
-                <ChevronLeft className="w-4 h-4" /> Back to Technical Library
-              </button>
-            </div>
-
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-              {/* Main Content Area */}
-              <div className="flex-grow space-y-10">
-
-                {/* Main Content Card */}
-                <div className="bg-white rounded-[2rem] p-6 sm:p-10 lg:p-12 shadow-xl shadow-slate-200/40 border border-slate-100 relative overflow-hidden">
-
-                  {/* Optional Alert Box */}
-                  {activeData.alert && (
-                    <div className={`mb-10 p-6 rounded-2xl border flex gap-4 
-                      ${activeData.alert.type === 'danger' ? 'bg-red-50 border-red-200' : ''}
-                      ${activeData.alert.type === 'warning' ? 'bg-amber-50 border-amber-200' : ''}
-                      ${activeData.alert.type === 'info' ? 'bg-blue-50 border-blue-200' : ''}
-                    `}>
-                      <div className={`shrink-0 mt-1
-                        ${activeData.alert.type === 'danger' ? 'text-red-600' : ''}
-                        ${activeData.alert.type === 'warning' ? 'text-amber-600' : ''}
-                        ${activeData.alert.type === 'info' ? 'text-blue-600' : ''}
-                      `}>
-                        {activeData.alert.type === 'danger' && <AlertOctagon className="w-8 h-8" aria-hidden="true" />}
-                        {activeData.alert.type === 'warning' && <AlertTriangle className="w-8 h-8" aria-hidden="true" />}
-                        {activeData.alert.type === 'info' && <Info className="w-8 h-8" aria-hidden="true" />}
-                      </div>
-                      <div>
-                        <h4 className={`text-lg font-black tracking-tight mb-2 uppercase
-                          ${activeData.alert.type === 'danger' ? 'text-red-900' : ''}
-                          ${activeData.alert.type === 'warning' ? 'text-amber-900' : ''}
-                          ${activeData.alert.type === 'info' ? 'text-blue-900' : ''}
-                        `}>{activeData.alert.title}</h4>
-                        <p className={`font-medium leading-relaxed
-                          ${activeData.alert.type === 'danger' ? 'text-red-800' : ''}
-                          ${activeData.alert.type === 'warning' ? 'text-amber-800' : ''}
-                          ${activeData.alert.type === 'info' ? 'text-blue-800' : ''}
-                        `}>{activeData.alert.message}</p>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Dynamic Sections */}
-                  <div className="space-y-12">
-                    {activeData.sections.map((section: any, sIdx: number) => (
-                      <div key={sIdx}>
-                        <h2 className="text-2xl font-bold text-navy-900 mb-6 font-heading tracking-tight">{section.title}</h2>
-
-                        {section.content && (
-                          <p className="text-slate-600 text-lg leading-relaxed mb-6">{section.content}</p>
-                        )}
-
-                        {/* Render Bullets */}
-                        {section.bullets && (
-                          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                            {section.bullets.map((bullet: string, bIdx: number) => (
-                              <li key={bIdx} className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-slate-200 transition-colors">
-                                <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" aria-hidden="true" />
-                                <span className="text-slate-700 leading-relaxed font-medium">{bullet}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-
-                        {/* Render Numbered Steps */}
-                        {section.steps && (
-                          <div className="space-y-6 mt-8">
-                            {section.steps.map((step: any, stepIdx: number) => (
-                              <div key={stepIdx} className="flex gap-6 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm relative overflow-hidden group hover:border-navy-200 transition-colors">
-                                <div className="absolute top-0 left-0 w-2 h-full bg-navy-100 group-hover:bg-amber-500 transition-colors"></div>
-                                <div className="w-12 h-12 shrink-0 bg-navy-900 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-inner">
-                                  {stepIdx + 1}
-                                </div>
-                                <div>
-                                  <h3 className="text-lg font-bold text-navy-900 mb-2">{step.title}</h3>
-                                  <p className="text-slate-600 leading-relaxed">{step.desc}</p>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-
-                        {/* Render Tables */}
-                        {section.table && (
-                          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-                            <div className="overflow-x-auto">
-                              <table className="w-full text-left border-collapse">
-                                <thead>
-                                  <tr className="bg-navy-900 text-white">
-                                    {section.table.headers.map((header: string, hIdx: number) => (
-                                      <th key={hIdx} className="p-4 font-bold text-sm tracking-wide">{header}</th>
-                                    ))}
-                                  </tr>
-                                </thead>
-                                <tbody className="divide-y divide-slate-100">
-                                  {section.table.rows.map((row: string[], rIdx: number) => (
-                                    <tr key={rIdx} className="hover:bg-slate-50 transition-colors">
-                                      {row.map((cell: string, cIdx: number) => (
-                                        <td key={cIdx} className={`p-4 text-sm ${cIdx === 0 ? 'font-bold text-navy-900' : 'text-slate-600'}`}>
-                                          {cell}
-                                        </td>
-                                      ))}
-                                    </tr>
-                                  ))}
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Render FAQs */}
-                        {section.faqs && (
-                          <div className="mt-8">
-                            <GlobalFAQAccordion
-                              faqs={section.faqs.map((f: any) => ({ q: f.question, a: f.answer }))}
-                              theme="light"
-                            />
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Optional Download CTA */}
-                {activeData.download && (
-                  <div className="bg-gradient-to-br from-navy-900 to-navy-950 rounded-[2rem] p-8 lg:p-10 shadow-xl border border-navy-800 text-white flex flex-col sm:flex-row items-center justify-between gap-8 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
-                    <div className="relative z-10 text-center sm:text-left">
-                      <h3 className="text-2xl font-bold mb-2">Download Offline Copy</h3>
-                      <p className="text-navy-200 text-lg">{activeData.download.name} ({activeData.download.size})</p>
-                    </div>
-                    <button className="relative z-10 shrink-0 bg-amber-500 hover:bg-amber-400 text-navy-900 font-black px-8 py-4 rounded-xl transition-all duration-300 flex items-center gap-3 hover:-translate-y-1 shadow-lg shadow-amber-500/20 uppercase tracking-widest text-sm">
-                      <Download className="w-5 h-5" aria-hidden="true" /> Download PDF
-                    </button>
-                  </div>
-                )}
-              </div>
-
-              {/* Sidebar */}
-              <div className="w-full lg:w-[320px] shrink-0 space-y-6">
-
-                {/* Related Topics Sidebar */}
-                {(() => {
-                  const relatedItems = Object.entries(TECHNICAL_RESOURCES_DATA)
-                    .filter(([slug, item]) => item.category === activeData.category && slug !== activeResourceSlug)
-                    .map(([slug, item]) => ({ slug, ...item }));
-
-                  if (relatedItems.length === 0) return null;
-
-                  return (
-                    <div className="bg-white rounded-3xl p-6 shadow-md shadow-slate-200/50 border border-slate-100 lg:sticky lg:top-24">
-                      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
-                        <div className="p-2 bg-navy-50 text-navy-500 rounded-lg">
-                          {activeData.icon}
-                        </div>
-                        <h3 className="text-base font-black text-navy-900 uppercase tracking-widest">
-                          More in Category
-                        </h3>
-                      </div>
-
-                      <div className="space-y-2">
-                        {relatedItems.map((item) => (
-                          <button
-                            key={item.slug}
-                            onClick={(e) => handleResourceClick(e as any, item.slug)}
-                            className="w-full text-left group flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all"
-                          >
-                            <span className="text-[15px] font-bold text-slate-600 group-hover:text-amber-600 transition-colors">
-                              {item.title}
-                            </span>
-                            <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-amber-500 group-hover:translate-x-1 transition-all" aria-hidden="true" />
-                          </button>
-                        ))}
-                      </div>
-
-                      <div className="mt-8 pt-6 border-t border-slate-100">
-                        <Link href="/contact" className="w-full flex items-center justify-center gap-2 bg-navy-900 text-white font-bold px-4 py-3 rounded-xl hover:bg-navy-800 transition-all hover:shadow-md uppercase tracking-wider text-xs">
-                          Contact Engineering <ChevronRight className="w-4 h-4" aria-hidden="true" />
-                        </Link>
-                      </div>
-                    </div>
-                  );
-                })()}
-
-              </div>
-
-            </div>
-          </motion.div>
-        )}
       </div>
     </div>
   );

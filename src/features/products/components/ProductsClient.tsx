@@ -80,28 +80,37 @@ export default function ProductsClient() {
       bg: 'bg-amber-500/20 border-amber-400/30',
       glow: 'bg-amber-500',
       overlay: 'bg-amber-900/20',
-      cardText: 'group-hover/card:text-amber-700',
+      cardText: 'group-hover/card:text-amber-600',
       gradient: 'from-amber-400/10',
       borderBar: 'bg-amber-400',
-      iconHover: 'group-hover/card:from-amber-400 group-hover/card:to-amber-500 group-hover/card:text-navy-950',
+      circleBg: 'bg-amber-50',
+      iconBox: 'bg-amber-50 border-amber-100 text-amber-600',
+      hoverBorder: 'hover:border-amber-200',
+      btnHover: 'group-hover/card:border-amber-200 group-hover/card:bg-amber-50 text-amber-600',
     },
     navy: {
       bg: 'bg-navy-500/20 border-navy-400/30',
       glow: 'bg-navy-500',
       overlay: 'bg-navy-900/20',
-      cardText: 'group-hover/card:text-navy-700',
+      cardText: 'group-hover/card:text-navy-600',
       gradient: 'from-navy-400/10',
       borderBar: 'bg-navy-400',
-      iconHover: 'group-hover/card:from-navy-400 group-hover/card:to-navy-500 group-hover/card:text-white',
+      circleBg: 'bg-navy-50',
+      iconBox: 'bg-navy-50 border-navy-100 text-navy-600',
+      hoverBorder: 'hover:border-navy-200',
+      btnHover: 'group-hover/card:border-navy-200 group-hover/card:bg-navy-50 text-navy-600',
     },
     emerald: {
       bg: 'bg-emerald-500/20 border-emerald-400/30',
       glow: 'bg-emerald-500',
       overlay: 'bg-emerald-900/20',
-      cardText: 'group-hover/card:text-emerald-700',
+      cardText: 'group-hover/card:text-emerald-600',
       gradient: 'from-emerald-400/10',
       borderBar: 'bg-emerald-400',
-      iconHover: 'group-hover/card:from-emerald-400 group-hover/card:to-emerald-500 group-hover/card:text-white',
+      circleBg: 'bg-emerald-50',
+      iconBox: 'bg-emerald-50 border-emerald-100 text-emerald-600',
+      hoverBorder: 'hover:border-emerald-200',
+      btnHover: 'group-hover/card:border-emerald-200 group-hover/card:bg-emerald-50 text-emerald-600',
     },
   };
 
@@ -117,16 +126,7 @@ export default function ProductsClient() {
           { label: 'Home', href: '/' },
           { label: 'Products' }
         ]}
-      >
-        <div className="flex flex-col sm:flex-row gap-6 mt-4">
-          <Link href="/oem-cross-reference" className="inline-flex items-center text-navy-200 hover:text-white font-medium text-sm transition-colors group">
-            Search by OEM Part Number <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link href="/applications" className="inline-flex items-center text-navy-200 hover:text-white font-medium text-sm transition-colors group">
-            View by Vehicle Application <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-      </PageHeader>
+      />
 
       {/* MAIN PRODUCT CATEGORIES */}
       <section className="relative z-20 -mt-20 pb-16 md:pb-24">
@@ -187,7 +187,7 @@ export default function ProductsClient() {
                         href={`/${group.slug}`}
                         className="inline-flex items-center text-amber-400 hover:text-amber-300 font-black tracking-widest uppercase text-[12px] transition-all group/link"
                       >
-                        View Technical Specs <ArrowRight className="w-4 h-4 ml-2 transform group-hover/link:translate-x-2 transition-transform" />
+                        View {group.title} <ArrowRight className="w-4 h-4 ml-2 transform group-hover/link:translate-x-2 transition-transform" />
                       </Link>
                     </div>
                   </div>
@@ -207,6 +207,9 @@ export default function ProductsClient() {
                     >
                       {/* Gradient wash on hover */}
                       <div className={`absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br ${a.gradient} to-transparent`} />
+
+                      {/* Top right circle accent */}
+                      <div className={`absolute top-0 right-0 w-24 h-24 lg:w-32 lg:h-32 ${a.circleBg} rounded-bl-full -mr-2 -mt-2 transition-transform duration-500 group-hover/card:scale-110 z-0`}></div>
 
                       {/* Left accent bar */}
                       <div className={`absolute left-0 top-6 bottom-6 w-[3px] rounded-full opacity-0 group-hover/card:opacity-100 transition-all duration-300 ${a.borderBar}`} />

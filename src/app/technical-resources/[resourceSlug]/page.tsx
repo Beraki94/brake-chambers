@@ -11,6 +11,7 @@ import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 // SEO-specific data for each resource page
 import { SEO_DATA, TECHNICAL_RESOURCES_DATA } from '@/lib/technicalResourcesData';
 import Card from '@/components/ui/Card';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export async function generateMetadata(props: { params: Promise<{ resourceSlug: string }> }): Promise<Metadata> {
   const params = await props.params;
@@ -54,10 +55,14 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
     notFound();
   }
 
-  // Find other items in the same category for the sidebar navigation
-  const relatedItems = Object.entries(TECHNICAL_RESOURCES_DATA)
-    .filter(([slug, item]) => item.category === data.category && slug !== resourceSlug)
-    .map(([slug, item]) => ({ slug, ...item }));
+  // Group all technical resources by category for the sidebar navigation
+  const groupedResources = Object.entries(TECHNICAL_RESOURCES_DATA).reduce((acc, [slug, item]) => {
+    if (!acc[item.category]) {
+      acc[item.category] = [];
+    }
+    acc[item.category].push({ slug, ...item });
+    return acc;
+  }, {} as Record<string, any[]>);
 
 
   const jsonLd = {
@@ -113,18 +118,18 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
         ]}
       />
 
-      <div className="container mx-auto px-4 lg:px-8 max-w-[1920px] -mt-20 relative z-20">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+      <div className="container mx-auto px-4 lg:px-8 max-w-[1920px] -mt-6 sm:-mt-12 lg:-mt-20 relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12">
           
           {/* Main Content Area */}
-          <div className="flex-grow space-y-10">
+          <div className="lg:col-span-2 space-y-10">
             
             {/* Main Content Card */}
-            <Card padding="lg" className="] sm: lg: -slate-100 relative overflow-hidden">
+            <div className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 px-4 py-8 sm:p-8 lg:p-12 -mx-4 sm:mx-0 relative overflow-hidden">
               
               {/* Optional Alert Box */}
               {data.alert && (
-                <div className={`mb-10 p-6 rounded-2xl border flex gap-4 
+                <div className={`mb-8 sm:mb-10 p-4 sm:p-6 rounded-xl sm:rounded-2xl border flex flex-col sm:flex-row gap-3 sm:gap-4 
                   ${data.alert.type === 'danger' ? 'bg-red-50 border-red-200' : ''}
                   ${data.alert.type === 'warning' ? 'bg-amber-50 border-amber-200' : ''}
                   ${data.alert.type === 'info' ? 'bg-blue-50 border-blue-200' : ''}
@@ -157,7 +162,14 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
               <div className="space-y-12">
                 {data.sections.map((section: any, sIdx: number) => (
                   <div key={sIdx}>
-                    <h2 className="text-2xl font-bold text-navy-900 mb-6 font-heading tracking-tight">{section.title}</h2>
+                    <SectionHeader 
+                      title={section.title} 
+                      align="left" 
+                      theme="light" 
+                      plainText={true}
+                      asH1={false}
+                      className="!mb-6" 
+                    />
                     
                     {section.content && (
                       <p className="text-slate-600 text-lg leading-relaxed mb-6">{section.content}</p>
@@ -179,13 +191,12 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
                     {section.steps && (
                       <div className="space-y-6 mt-8">
                         {section.steps.map((step: any, stepIdx: number) => (
-                          <div key={stepIdx} className="flex gap-6 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm relative overflow-hidden group hover:border-navy-200 transition-colors">
-                            <div className="absolute top-0 left-0 w-2 h-full bg-navy-100 group-hover:bg-amber-500 transition-colors"></div>
-                            <div className="w-12 h-12 shrink-0 bg-navy-900 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-inner">
+                          <div key={stepIdx} className="flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-xl bg-slate-50 border border-slate-100 hover:border-slate-200 transition-colors">
+                            <div className="w-8 h-8 shrink-0 bg-amber-500 text-navy-900 rounded-full flex items-center justify-center font-bold shadow-sm mt-0.5">
                               {stepIdx + 1}
                             </div>
                             <div>
-                              <h3 className="text-lg font-bold text-navy-900 mb-2">{step.title}</h3>
+                              <h3 className="text-lg font-bold text-navy-900 mb-1.5">{step.title}</h3>
                               <p className="text-slate-600 leading-relaxed">{step.desc}</p>
                             </div>
                           </div>
@@ -195,9 +206,9 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
 
                     {/* Render Tables */}
                     {section.table && (
-                      <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-                        <div className="overflow-x-auto">
-                          <table className="w-full text-left border-collapse">
+                      <div className="mt-8 overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200 shadow-sm">
+                        <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+                          <table className="w-full min-w-[700px] text-left border-collapse">
                             <thead>
                               <tr className="bg-navy-900 text-white">
                                 {section.table.headers.map((header: string, hIdx: number) => (
@@ -233,60 +244,88 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
                   </div>
                 ))}
               </div>
-            </Card>
+            </div>
 
-            {/* Optional Download CTA */}
+            {/* Premium Download CTA */}
             {data.download && (
-              <div className="bg-gradient-to-br from-navy-900 to-navy-950 rounded-[2rem] p-8 lg:p-10 shadow-xl border border-navy-800 text-white flex flex-col sm:flex-row items-center justify-between gap-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
-                <div className="relative z-10 text-center sm:text-left">
-                  <h3 className="text-2xl font-bold mb-2">Download Offline Copy</h3>
-                  <p className="text-navy-200 text-lg">{data.download.name} ({data.download.size})</p>
+              <div className="group bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-none sm:rounded-[2rem] p-8 lg:p-10 shadow-2xl border-y sm:border border-navy-700 hover:border-amber-500/50 text-white flex flex-col sm:flex-row items-center justify-between gap-8 relative overflow-hidden transition-all duration-500 hover:shadow-amber-500/10 -mx-4 sm:mx-0">
+                {/* Background Patterns */}
+                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent z-0 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px] -mr-40 -mt-40 z-0 transition-transform duration-700 group-hover:scale-110"></div>
+                <div className="absolute inset-0 bg-[url('/patterns/grid-pattern.svg')] opacity-[0.03] z-0 pointer-events-none"></div>
+                
+                <div className="relative z-10 text-center sm:text-left flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                  <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-amber-500/10 group-hover:border-amber-500/30 transition-all duration-500 shadow-inner">
+                    <FileText className="w-8 h-8 text-amber-500" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl lg:text-3xl font-black mb-2 tracking-tight text-white group-hover:text-amber-400 transition-colors duration-300">Download Offline Copy</h3>
+                    <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1 sm:gap-2 text-navy-200">
+                      <span className="font-medium text-base">{data.download.name}</span>
+                      <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-navy-600"></span>
+                      <span className="text-amber-500/90 font-bold">{data.download.size}</span>
+                    </div>
+                  </div>
                 </div>
-                <button className="relative z-10 shrink-0 bg-amber-500 hover:bg-amber-400 text-navy-900 font-black px-8 py-4 rounded-xl transition-all duration-300 flex items-center gap-3 hover:-translate-y-1 shadow-lg shadow-amber-500/20 uppercase tracking-widest text-sm">
-                  <Download className="w-5 h-5" aria-hidden="true" /> Download PDF
-                </button>
+                
+                <a href="#" className="relative z-10 shrink-0 w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-navy-950 font-black px-8 py-4 sm:py-5 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 hover:-translate-y-1 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-sm group/btn overflow-hidden">
+                  <span className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-out"></span>
+                  <Download className="w-5 h-5 relative z-10 group-hover/btn:-mt-1 transition-all duration-300" aria-hidden="true" /> 
+                  <span className="relative z-10">Download PDF</span>
+                </a>
               </div>
             )}
           </div>
 
-          {/* Sidebar */}
-          <div className="w-full lg:w-[320px] shrink-0 space-y-6">
+              {/* Sidebar */}
+              <div className="lg:col-span-1 space-y-6">
             
-            {/* Related Topics Sidebar */}
-            {relatedItems.length > 0 && (
-              <Card padding="md" className="-slate-100 lg:sticky lg:top-24">
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
-                  <div className="p-2 bg-navy-50 text-navy-500 rounded-lg">
-                    {data.icon}
+            {/* Table of Contents Sidebar */}
+            <Card padding="md" className="border-slate-100 lg:sticky lg:top-24">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                <div className="p-2 bg-navy-50 text-navy-500 rounded-lg">
+                  <FileText className="w-5 h-5" aria-hidden="true" />
+                </div>
+                <h3 className="text-base font-black text-navy-900 uppercase tracking-widest">
+                  Technical Library
+                </h3>
+              </div>
+              
+              <div className="space-y-6">
+                {Object.entries(groupedResources).map(([category, items]) => (
+                  <div key={category} className="space-y-3">
+                    <h4 className="text-xs font-black text-slate-400 uppercase tracking-widest px-3">{category}</h4>
+                    <div className="space-y-1">
+                      {items.map((item) => {
+                        const isActive = item.slug === resourceSlug;
+                        return (
+                          <Link 
+                            key={item.slug} 
+                            href={`/technical-resources/${item.slug}`}
+                            className={`group flex items-center justify-between p-3 rounded-xl border transition-all ${
+                              isActive 
+                                ? 'bg-amber-50 border-amber-200 text-amber-700' 
+                                : 'bg-transparent border-transparent hover:bg-slate-50 hover:border-slate-100 text-slate-600'
+                            }`}
+                          >
+                            <span className={`text-[15px] font-bold ${isActive ? 'text-amber-700' : 'group-hover:text-amber-600'} transition-colors`}>
+                              {item.title}
+                            </span>
+                            {!isActive && <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-amber-500 group-hover:translate-x-1 transition-all" aria-hidden="true" />}
+                          </Link>
+                        )
+                      })}
+                    </div>
                   </div>
-                  <h3 className="text-base font-black text-navy-900 uppercase tracking-widest">
-                    More in Category
-                  </h3>
-                </div>
-                
-                <div className="space-y-2">
-                  {relatedItems.map((item) => (
-                    <Link 
-                      key={item.slug} 
-                      href={`/technical-resources/${item.slug}`}
-                      className="group flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all"
-                    >
-                      <span className="text-[15px] font-bold text-slate-600 group-hover:text-amber-600 transition-colors">
-                        {item.title}
-                      </span>
-                      <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-amber-500 group-hover:translate-x-1 transition-all" aria-hidden="true" />
-                    </Link>
-                  ))}
-                </div>
+                ))}
+              </div>
 
-                <div className="mt-8 pt-6 border-t border-slate-100">
-                  <Link href="/contact" className="w-full flex items-center justify-center gap-2 bg-navy-900 text-white font-bold px-4 py-3 rounded-xl hover:bg-navy-800 transition-all hover:shadow-md uppercase tracking-wider text-xs">
-                    Contact Engineering <ChevronRight className="w-4 h-4" aria-hidden="true" />
-                  </Link>
-                </div>
-              </Card>
-            )}
+              <div className="mt-8 pt-6 border-t border-slate-100">
+                <Link href="/contact" className="w-full flex items-center justify-center gap-2 bg-navy-900 text-white font-bold px-4 py-3 rounded-xl hover:bg-navy-800 transition-all hover:shadow-md uppercase tracking-wider text-xs">
+                  Contact Engineering <ChevronRight className="w-4 h-4" aria-hidden="true" />
+                </Link>
+              </div>
+            </Card>
             
           </div>
 

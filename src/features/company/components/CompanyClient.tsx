@@ -73,8 +73,8 @@ export default function CompanyClient() {
                 <div className="absolute inset-0 bg-navy-900/10 mix-blend-overlay"></div>
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy-950 to-transparent h-48 opacity-80"></div>
                 
-                <div className="absolute bottom-8 left-8 right-8">
-                  <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white relative overflow-hidden">
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-8">
+                  <div className="bg-white/90 backdrop-blur-md p-4 sm:p-6 rounded-2xl shadow-xl border border-white relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-amber-400 to-amber-600"></div>
                     <h4 className="text-navy-900 font-extrabold text-xl mb-2">Our Leadership</h4>
                     <p className="text-slate-600 text-sm leading-relaxed">
@@ -93,7 +93,7 @@ export default function CompanyClient() {
       </section>
 
       {/* SECTION 1.5: LEADERSHIP TEAM */}
-      <section className="py-20 md:py-32 bg-white relative border-b border-slate-200">
+      <section className="py-20 md:py-32 bg-blue-50 relative border-b border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
             badge={<><Users className="w-3.5 h-3.5 text-amber-500 inline-block mr-1.5 relative -top-[1px]" /> Executive Team</>}
@@ -132,7 +132,7 @@ export default function CompanyClient() {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
                   key={idx} 
-                  className="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 text-center group"
+                  className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 text-center group"
                 >
                   <div className="w-40 h-40 mx-auto bg-slate-200 rounded-full mb-6 overflow-hidden relative">
                     <img src={`https://i.pravatar.cc/300?img=${leader.img}`} alt={leader.name} className="w-full h-full object-cover grayscale transition-all duration-500" />
@@ -162,7 +162,7 @@ export default function CompanyClient() {
                 alt="BRC Leadership Team on the manufacturing floor" 
                 className="w-full h-[300px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-900/40 to-transparent flex flex-col justify-end p-8 md:p-12">
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-900/40 to-transparent flex flex-col justify-end p-6 sm:p-8 md:p-12">
                 <h3 className="text-white text-3xl md:text-4xl font-black mb-2 tracking-tight">United by Precision</h3>
                 <p className="text-navy-100 max-w-2xl text-lg">
                   Our diverse executive board combines decades of tier-1 automotive manufacturing experience with forward-thinking engineering to redefine commercial vehicle safety.
@@ -190,7 +190,7 @@ export default function CompanyClient() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between"
+              className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between"
             >
               <div>
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">Heavy-Duty Internals</h3>
@@ -209,7 +209,7 @@ export default function CompanyClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between"
+              className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between"
             >
               <div>
                 <h3 className="text-2xl font-bold text-navy-900 mb-4">Custom OEM Capabilities</h3>
@@ -244,13 +244,15 @@ export default function CompanyClient() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-amber-300 transition-all duration-300 group"
+              className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-amber-300 transition-all duration-300 group relative overflow-hidden"
             >
-              <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <div className="absolute top-0 right-0 w-24 h-24 lg:w-32 lg:h-32 bg-amber-100/50 rounded-bl-full -mr-2 -mt-2 transition-transform duration-500 group-hover:scale-110 z-0"></div>
+              
+              <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10">
                 <Microscope className="w-7 h-7" />
               </div>
-              <h4 className="text-xl font-extrabold text-navy-900 mb-4">Authentic Test Reports</h4>
-              <p className="text-slate-600 font-light leading-relaxed">
+              <h4 className="text-xl font-extrabold text-navy-900 mb-4 relative z-10">Authentic Test Reports</h4>
+              <p className="text-slate-600 font-light leading-relaxed relative z-10">
                 We utilize advanced detection equipment to document the testing process. Real quality inspection reports are generated and provided with every batch.
               </p>
             </motion.div>
@@ -260,13 +262,15 @@ export default function CompanyClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-amber-300 transition-all duration-300 group"
+              className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-amber-300 transition-all duration-300 group relative overflow-hidden"
             >
-              <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <div className="absolute top-0 right-0 w-24 h-24 lg:w-32 lg:h-32 bg-amber-100/50 rounded-bl-full -mr-2 -mt-2 transition-transform duration-500 group-hover:scale-110 z-0"></div>
+
+              <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10">
                 <TestTube className="w-7 h-7" />
               </div>
-              <h4 className="text-xl font-extrabold text-navy-900 mb-4">Material Verification</h4>
-              <p className="text-slate-600 font-light leading-relaxed">
+              <h4 className="text-xl font-extrabold text-navy-900 mb-4 relative z-10">Material Verification</h4>
+              <p className="text-slate-600 font-light leading-relaxed relative z-10">
                 From the 13.5mm high-grade spring steel to the thickened housing materials, all incoming raw components are rigorously verified against OEM specifications.
               </p>
             </motion.div>
@@ -276,13 +280,15 @@ export default function CompanyClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-amber-300 transition-all duration-300 group"
+              className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-amber-300 transition-all duration-300 group relative overflow-hidden"
             >
-              <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <div className="absolute top-0 right-0 w-24 h-24 lg:w-32 lg:h-32 bg-amber-100/50 rounded-bl-full -mr-2 -mt-2 transition-transform duration-500 group-hover:scale-110 z-0"></div>
+
+              <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10">
                 <ShieldCheck className="w-7 h-7" />
               </div>
-              <h4 className="text-xl font-extrabold text-navy-900 mb-4">Pneumatic Leak Testing</h4>
-              <p className="text-slate-600 font-light leading-relaxed">
+              <h4 className="text-xl font-extrabold text-navy-900 mb-4 relative z-10">Pneumatic Leak Testing</h4>
+              <p className="text-slate-600 font-light leading-relaxed relative z-10">
                 100% end-of-line pneumatic leak testing for every single chamber under specified air pressure conditions. If it isn't completely airtight, it is rejected.
               </p>
             </motion.div>
@@ -356,7 +362,7 @@ export default function CompanyClient() {
                 theme="dark"
                 accentColor="amber"
                 plainText={true}
-                className="!mb-0"
+                className="mb-8 md:!mb-0"
               />
             </div>
 

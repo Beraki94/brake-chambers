@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, HelpCircle, AlertTriangle } from 'lucide-react';
+import { ArrowRight, CheckCircle2, HelpCircle, AlertTriangle, PackagePlus, ShieldAlert, Wrench, Settings } from 'lucide-react';
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 import SectionHeader from '@/components/ui/SectionHeader';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
@@ -70,7 +70,7 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
       <section className="py-16 md:py-20 bg-white relative overflow-hidden border-b border-slate-200">
         {/* Central Red Glow Blend */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-red-600 opacity-[0.04] md:opacity-[0.06] rounded-full blur-[100px] pointer-events-none z-0"></div>
-        
+
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
             <motion.div
@@ -159,11 +159,15 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
       </section>
 
       {/* Recommended Package - Call to Action */}
-      <section className="py-20 lg:py-32 bg-navy-950 relative overflow-hidden">
-        <AnimatedGridBackground />
+      <section className="py-20 lg:py-32 bg-navy-950 relative overflow-hidden border-t border-navy-900">
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale z-0"></div>
+        {/* Animated Grid Layer */}
+        <AnimatedGridBackground opacity={0.08} />
         {/* Glow effect */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500 opacity-5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-900/90 to-navy-950 z-0" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500 opacity-5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0"></div>
+        {/* Top/Bottom Fade Masks */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
           <motion.div
@@ -183,32 +187,43 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
                   accentColor="amber"
                   className="mb-6 md:mb-8"
                 />
-                <motion.div variants={fadeInUp} className="inline-flex items-center px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold tracking-wide uppercase shadow-lg shadow-amber-900/20">
-                  <CheckCircle2 className="w-4 h-4 mr-2" /> All recommended packages are manufactured to IATF 16949 standards and 1M-cycle lab tested
+                <motion.div variants={fadeInUp} className="inline-flex items-center px-4 py-2 rounded-full bg-navy-900/80 border border-navy-700/50 text-slate-300 text-xs font-bold tracking-wide uppercase shadow-lg backdrop-blur-sm">
+                  <CheckCircle2 className="w-4 h-4 mr-2 text-amber-500" /> All recommended packages are manufactured to IATF 16949 standards and 1M-cycle lab tested
                 </motion.div>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-              {data.recommendedPackage.map((pkg: any, idx: number) => (
-                <motion.div key={idx} variants={fadeInUp}>
-                  <Link href={pkg.link} className="block group h-full">
-                    <div className="h-full bg-navy-900/40 backdrop-blur-sm border border-navy-700/50 rounded-2xl p-8 lg:p-10 hover:border-amber-500/50 hover:bg-navy-800/80 transition-all duration-500 flex flex-col justify-between shadow-2xl relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-bl-[100px] transition-all duration-500 group-hover:bg-amber-500/10"></div>
-                      <div className="relative z-10">
-                        <div className="w-12 h-12 bg-navy-800 rounded-lg flex items-center justify-center text-amber-500 mb-6 group-hover:scale-110 transition-transform">
-                          <CheckCircle2 className="w-6 h-6" />
-                        </div>
-                        <h3 className="text-2xl lg:text-3xl font-extrabold text-white mb-4 group-hover:text-amber-400 transition-colors tracking-tight">{pkg.name}</h3>
-                        <p className="text-slate-400 text-base lg:text-lg mb-8 leading-relaxed font-light">{pkg.desc}</p>
+              {data.recommendedPackage.map((pkg: any, idx: number) => {
+                // Determine icon based on product type
+                let Icon = PackagePlus;
+                if (pkg.link.includes('spring-brake') || pkg.link.includes('sealed')) Icon = ShieldAlert;
+                else if (pkg.link.includes('service-brake')) Icon = CheckCircle2;
+                else if (pkg.link.includes('parts') || pkg.link.includes('piggyback')) Icon = Wrench;
+                else if (pkg.link.includes('air-disc')) Icon = Settings;
+
+                return (
+                <motion.div key={idx} variants={fadeInUp} className="h-full">
+                  <Link href={pkg.link} className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 p-8 lg:p-10 rounded-[2rem] hover:border-amber-500/50 transition-all duration-500 flex flex-col justify-between shadow-2xl relative overflow-hidden h-full group transform hover:-translate-y-2">
+                    {/* Glow effect on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                    
+                    <div className="relative z-10">
+                      {/* Stats-style Icon Box */}
+                      <div className="w-16 h-16 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-2xl flex items-center justify-center mb-8 group-hover:border-amber-500/50 transition-colors duration-300">
+                        <Icon className="w-8 h-8 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                       </div>
-                      <div className="relative z-10 flex items-center text-amber-500 font-bold uppercase tracking-widest text-sm bg-navy-950/50 w-max px-6 py-3 rounded-xl border border-navy-700 group-hover:border-amber-500/30 group-hover:bg-amber-500/10 transition-all">
-                        View Product Details <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-2 transition-transform" />
-                      </div>
+                      <h3 className="text-2xl lg:text-3xl font-extrabold text-white mb-4 group-hover:text-amber-400 transition-colors tracking-tight">{pkg.name}</h3>
+                      <p className="text-slate-400 text-base lg:text-lg mb-8 leading-relaxed font-light">{pkg.desc}</p>
+                    </div>
+                    {/* Consistent Outline Button */}
+                    <div className="relative z-10 flex items-center justify-between text-white font-bold uppercase tracking-widest text-[13px] bg-navy-900/50 w-full sm:w-max px-8 py-4 rounded-xl border border-navy-700 group-hover:border-amber-500/50 group-hover:bg-navy-800 transition-all shadow-lg">
+                      View Product Details <ArrowRight className="w-5 h-5 ml-4 text-amber-500 group-hover:translate-x-2 transition-transform" />
                     </div>
                   </Link>
                 </motion.div>
-              ))}
+                );
+              })}
             </div>
           </motion.div>
         </div>

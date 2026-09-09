@@ -4,6 +4,7 @@ import Script from 'next/script';
 import { BRAKE_CHAMBERS } from '@/lib/data';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Service Brake Chambers | BRC Manufacturer',
@@ -54,7 +55,12 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
       </section>
 
       <section className="mt-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl lg:text-4xl font-extrabold text-navy-900 mb-10 text-center">Frequently Asked Questions</h2>
+        <SectionHeader
+          badge="FAQ"
+          title="Frequently Asked Questions"
+          align="center"
+          accentColor="amber"
+        />
         <GlobalFAQAccordion faqs={[
           {
             q: 'What is the difference between a service brake and a spring brake?',

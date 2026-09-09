@@ -3,6 +3,7 @@ import Link from 'next/link';
 import BulkOemCard from '@/components/ui/BulkOemCard';
 import type { Metadata } from 'next';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
+import SectionHeader from '@/components/ui/SectionHeader';
 import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
 import ProductListCard from '@/features/products/components/ProductListCard';
 import FacetedSidebar from '@/features/products/components/FacetedSidebar';
@@ -123,7 +124,12 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
       {/* FAQ Section */}
       <div className="mt-16 mb-12">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-extrabold text-navy-900 mb-8 text-center">Frequently Asked Questions</h2>
+          <SectionHeader
+            badge="FAQ"
+            title="Frequently Asked Questions"
+            align="center"
+            accentColor="amber"
+          />
           <GlobalFAQAccordion faqs={[
             {
               q: 'What is a piggyback kit?',
