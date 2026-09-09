@@ -87,6 +87,7 @@ export default function ProductsClient() {
       iconBox: 'bg-amber-50 border-amber-100 text-amber-600',
       hoverBorder: 'hover:border-amber-200',
       btnHover: 'group-hover/card:border-amber-200 group-hover/card:bg-amber-50 text-amber-600',
+      iconHover: 'group-hover/card:text-amber-600 group-hover/card:bg-amber-100',
     },
     navy: {
       bg: 'bg-navy-500/20 border-navy-400/30',
@@ -99,6 +100,7 @@ export default function ProductsClient() {
       iconBox: 'bg-navy-50 border-navy-100 text-navy-600',
       hoverBorder: 'hover:border-navy-200',
       btnHover: 'group-hover/card:border-navy-200 group-hover/card:bg-navy-50 text-navy-600',
+      iconHover: 'group-hover/card:text-navy-600 group-hover/card:bg-navy-100',
     },
     emerald: {
       bg: 'bg-emerald-500/20 border-emerald-400/30',
@@ -111,6 +113,7 @@ export default function ProductsClient() {
       iconBox: 'bg-emerald-50 border-emerald-100 text-emerald-600',
       hoverBorder: 'hover:border-emerald-200',
       btnHover: 'group-hover/card:border-emerald-200 group-hover/card:bg-emerald-50 text-emerald-600',
+      iconHover: 'group-hover/card:text-emerald-600 group-hover/card:bg-emerald-100',
     },
   };
 
