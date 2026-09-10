@@ -11,7 +11,7 @@ export default function BulkOemCard() {
         <Truck size={20} className="text-amber-400" />
       </div>
       
-      <h4 className="font-extrabold text-white text-sm mb-2 uppercase tracking-wide group-hover:text-amber-400 transition-colors">Bulk OEM Orders</h4>
+      <h3 className="font-extrabold text-white text-sm mb-2 uppercase tracking-wide group-hover:text-amber-400 transition-colors">Bulk OEM Orders</h3>
       <p className="text-xs mb-5 text-navy-200 leading-relaxed font-light">
         Custom paint, private labeling, and manufacturing to IATF 16949 standards for large fleets.
       </p>

@@ -12,9 +12,9 @@ export default function OEMCrossReferenceCTA() {
           <Layers className="w-7 h-7 text-amber-500" />
         </div>
         <div>
-          <h3 className="text-xl md:text-2xl font-extrabold text-white mb-1.5 flex items-center gap-2">
+          <h2 className="text-xl md:text-2xl font-extrabold text-white mb-1.5 flex items-center gap-2">
             Looking for a specific part number?
-          </h3>
+          </h2>
           <p className="text-navy-200 text-sm md:text-base">
             Instantly cross-reference <strong className="text-white">Bendix, Knorr-Bremse, ZF/WABCO, Meritor, Haldex,</strong> and <strong className="text-white">Wabco</strong> parts to find the exact BRC equivalent.
           </p>

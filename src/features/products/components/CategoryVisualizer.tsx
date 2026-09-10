@@ -68,7 +68,7 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
   const Icon = data.icon;
 
   return (
-    <div className="w-full mt-10 md:mt-16 mb-8 rounded-[2rem] lg:rounded-[2.5rem] bg-navy-950 border border-navy-800 shadow-2xl relative overflow-hidden flex flex-col items-center">
+    <div className="-mx-4 sm:mx-0 w-[calc(100%+2rem)] sm:w-full mt-10 md:mt-16 mb-8 rounded-none sm:rounded-[2rem] lg:rounded-[2.5rem] bg-navy-950 border-y border-navy-800 sm:border sm:border-navy-800 shadow-2xl relative overflow-hidden flex flex-col items-center">
       
       {/* Background glow */}
       <div className="absolute top-0 left-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] rounded-full blur-[80px] md:blur-[120px] transition-colors duration-1000 z-0 pointer-events-none bg-cyan-500/5"></div>
@@ -120,7 +120,7 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
 
         {/* Card 1 (Left Flank) */}
         <div className="w-full lg:w-1/3 flex justify-center lg:justify-end">
-          <div className="w-full max-w-sm bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 shadow-xl shadow-navy-900/10 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] transform lg:translate-y-[-2rem] transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/50 group relative overflow-hidden flex flex-col">
+          <div className="w-full md:max-w-sm bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 shadow-xl shadow-navy-900/10 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] transform lg:translate-y-[-2rem] transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/50 group relative overflow-hidden flex flex-col">
              {/* Glow effect on hover */}
              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
              
@@ -140,7 +140,7 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
 
         {/* Card 2 (Right Flank) */}
         <div className="w-full lg:w-1/3 flex justify-center lg:justify-start">
-          <div className="w-full max-w-sm bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 shadow-xl shadow-navy-900/10 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] transform lg:translate-y-[2rem] transition-all duration-500 hover:-translate-y-1 hover:border-amber-500/50 group relative overflow-hidden flex flex-col">
+          <div className="w-full md:max-w-sm bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 shadow-xl shadow-navy-900/10 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] transform lg:translate-y-[2rem] transition-all duration-500 hover:-translate-y-1 hover:border-amber-500/50 group relative overflow-hidden flex flex-col">
              {/* Glow effect on hover */}
              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
              

@@ -35,7 +35,13 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
   const seoContent = (
     <>
       <section className="mb-12">
-        <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6">Why Choose BRC Spring Brake Chambers?</h2>
+        <SectionHeader
+          badge="Features"
+          title="Why Choose BRC Spring Brake Chambers?"
+          align="left"
+          accentColor="amber"
+          className="!mb-8"
+        />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-700 leading-relaxed text-sm md:text-base">
           <div>
             <p className="mb-4">

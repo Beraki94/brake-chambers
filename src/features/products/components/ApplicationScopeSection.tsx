@@ -27,14 +27,14 @@ const applications = [
 export default function ApplicationScopeSection() {
   return (
     <div className="mt-12 sm:mt-16 mb-8 bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-6 sm:p-8 md:p-10 lg:p-12">
-      <h3 className="text-2xl font-extrabold text-navy-900 mb-8 text-center">Global Fleet Applications</h3>
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
+      <h2 className="text-2xl font-extrabold text-navy-900 mb-8 text-center">Global Fleet Applications</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
         {applications.map((app, idx) => (
           <div key={idx} className="flex flex-col items-center">
             <div className="w-14 h-14 sm:w-16 sm:h-16 bg-amber-50 text-amber-500 rounded-2xl flex items-center justify-center mb-4 hover:scale-105 transition-transform duration-300 border border-amber-100">
               <app.icon className="w-7 h-7 sm:w-8 sm:h-8" />
             </div>
-            <h4 className="font-bold text-navy-900 mb-1 sm:mb-2 text-sm sm:text-base">{app.title}</h4>
+            <h3 className="font-bold text-navy-900 mb-1 sm:mb-2 text-sm sm:text-base">{app.title}</h3>
             <p className="text-xs sm:text-sm text-slate-600">{app.description}</p>
           </div>
         ))}

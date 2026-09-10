@@ -84,7 +84,7 @@ export default function ProductListingLayout({
         badge={badge}
         breadcrumbs={[{ label: 'Home', href: '/' }, ...breadcrumbs]}
       />
-      <div className="container mx-auto px-4 lg:px-8 py-8 max-w-[1920px]">
+      <div className="container mx-auto px-4 lg:px-8 py-6 lg:py-8 max-w-[1920px]">
 
       {!isSubCategory && <TrustBanner />}
 
@@ -103,7 +103,9 @@ export default function ProductListingLayout({
           </div>
 
           {products.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4">
+            <>
+              <h2 className="sr-only">Available Products</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4">
               {paginatedProducts.map(product => (
                 cardType === 'product' ? (
                   <ProductListCard key={product.slug} product={product} categoryPath={baseCategory} />
@@ -112,6 +114,7 @@ export default function ProductListingLayout({
                 )
               ))}
             </div>
+            </>
           ) : (
             <div className="bg-slate-50 rounded-2xl p-8 sm:p-12 border border-slate-200 text-center">
               <h3 className="text-lg font-bold text-navy-900 mb-2">No Products Found</h3>
@@ -123,14 +126,14 @@ export default function ProductListingLayout({
           {totalPages > 1 && <Pagination totalPages={totalPages} />}
           
           {seoText && (
-            <div className="mt-8 sm:mt-12 md:mt-16 bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 text-slate-600 prose prose-slate max-w-none">
+            <div className="mt-6 sm:mt-10 md:mt-16 bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-8 text-slate-600 prose prose-slate max-w-none">
               {seoText}
             </div>
           )}
           
           
           {isSubCategory && (
-            <div className="flex flex-col gap-8 mt-8 sm:mt-12 md:mt-16">
+            <div className="flex flex-col gap-6 sm:gap-8 mt-6 sm:mt-10 md:mt-16">
               <SubCategoryComparisonTable products={paginatedProducts} categoryName={title} />
               <SubCategoryWholesaleCTA categoryName={title} />
               <SubCategoryFAQ categoryName={title} />
@@ -145,13 +148,15 @@ export default function ProductListingLayout({
       {!isSubCategory && (
         <>
           <ManufacturingQualityGrid />
-          <FleetReviewsSection categoryName={title} />
           <OEMQuickLinks categoryName={title} />
-          <TechnicalResourcesSection categoryName={title} />
         </>
       )}
 
       </div>
+
+      {!isSubCategory && (
+        <FleetReviewsSection categoryName={title} />
+      )}
     </>
   );
 }

@@ -45,7 +45,7 @@ export default function SectionHeader({
   };
 
   return (
-    <div className={`${isCenter ? 'flex flex-col items-center text-center mx-auto' : 'flex flex-col items-start text-left'} max-w-3xl mb-14 md:mb-16 ${className}`}>
+    <div className={`${isCenter ? 'flex flex-col items-center text-center mx-auto' : 'flex flex-col items-start text-left'} max-w-3xl mb-10 md:mb-16 ${className}`}>
 
       {/* Eyebrow Badge - Matches Home Page design exactly */}
       {badge && (
@@ -58,13 +58,13 @@ export default function SectionHeader({
 
       {/* Main Title - Matches Home Page design exactly */}
       {asH1 ? (
-        <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight pb-2
+        <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 md:mb-4 tracking-tight pb-1 md:pb-2
           ${isDark ? 'text-white' : plainText ? 'text-navy-900' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
         >
           {title}
         </h1>
       ) : (
-        <h2 className={`text-3xl md:text-4xl font-extrabold mb-4 tracking-tight pb-2
+        <h2 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 md:mb-4 tracking-tight pb-1 md:pb-2
           ${isDark ? 'text-white' : plainText ? 'text-navy-900' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
         >
           {title}
@@ -73,7 +73,7 @@ export default function SectionHeader({
 
       {/* Subtitle / Description - Scaled properly for all devices */}
       {description && (
-        <div className={`text-base sm:text-lg md:text-xl leading-relaxed font-light
+        <div className={`text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-light
           ${isCenter && 'mx-auto max-w-2xl'} 
           ${isDark ? 'text-navy-200' : 'text-slate-600'}`}
         >
