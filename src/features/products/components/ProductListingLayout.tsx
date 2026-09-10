@@ -126,7 +126,7 @@ export default function ProductListingLayout({
           {totalPages > 1 && <Pagination totalPages={totalPages} />}
           
           {seoText && (
-            <div className="mt-6 sm:mt-10 md:mt-16 bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-8 text-slate-600 prose prose-slate max-w-none">
+            <div className="mt-6 sm:mt-10 md:mt-16 bg-slate-50 border-y sm:border border-slate-200 rounded-none sm:rounded-2xl p-5 sm:p-8 text-slate-600 prose prose-slate max-w-none -mx-4 sm:mx-0 w-[calc(100%+2rem)] sm:w-auto">
               {seoText}
             </div>
           )}

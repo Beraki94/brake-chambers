@@ -25,16 +25,18 @@ export default function SubCategoryFAQ({ categoryName }: SubCategoryFAQProps) {
   ];
 
   return (
-    <section className="mb-16 mt-16 max-w-4xl mx-auto">
-      <SectionHeader
-        title={<>Frequently Asked Questions: <span className="text-amber-600">{categoryName}</span></>}
-        description={`Find answers to common questions about our ${categoryName.toLowerCase()} and wholesale operations.`}
-        align="center"
-        theme="light"
-        accentColor="slate"
-        className="!mb-10"
-      />
-      <GlobalFAQAccordion faqs={faqs} />
+    <section className="mt-6 sm:mt-10 md:mt-16 mb-16 bg-slate-50 border-y sm:border border-slate-200 rounded-none sm:rounded-2xl p-5 sm:p-8 -mx-4 sm:mx-0 w-[calc(100%+2rem)] sm:w-auto">
+      <div className="max-w-4xl mx-auto">
+        <SectionHeader
+          title={<>Frequently Asked Questions: <span className="text-amber-600">{categoryName}</span></>}
+          description={`Find answers to common questions about our ${categoryName.toLowerCase()} and wholesale operations.`}
+          align="center"
+          theme="light"
+          accentColor="slate"
+          className="!mb-10"
+        />
+        <GlobalFAQAccordion faqs={faqs} />
+      </div>
     </section>
   );
 }

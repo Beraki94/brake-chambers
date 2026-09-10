@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrakeChamber, BrakeAccessory } from '@/types';
 import Card from '@/components/ui/Card';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 interface ProductSeoBlockProps {
   product: BrakeChamber | BrakeAccessory;
@@ -39,14 +40,16 @@ export default function ProductSeoBlock({ product }: ProductSeoBlockProps) {
     : '';
 
   return (
-    <section className="mt-12 -navy-50 md: relative overflow-hidden h-full">
-<Card padding="lg" className="h-full w-full">
+    <section className="mt-12 sm:mt-16 relative h-full -mx-4 sm:mx-0 w-[calc(100%+2rem)] sm:w-auto">
+      <Card padding="lg" className="h-full w-full rounded-none sm:rounded-3xl border-x-0 sm:border-x">
       {/* Decorative accent */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl"></div>
       
-      <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6 relative z-10">
-        Why Choose the BRC {product.name}?
-      </h2>
+      <SectionHeader 
+        title={<>Why Choose the BRC <span className="text-amber-600">{product.name}</span>?</>}
+        align="left"
+        className="!mb-6"
+      />
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-700 leading-relaxed text-base md:text-lg relative z-10">
         <div>

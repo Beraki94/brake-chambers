@@ -41,7 +41,7 @@ export default function TechnicalDownloads({ productName }: TechnicalDownloadsPr
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
         {downloads.map((doc, idx) => (
-          <Card padding="md" hoverEffect="lift" glowColor="amber" className="group flex items-start gap-4 -slate-200 hover:-amber-400 hover: cursor-pointer">
+          <Card key={idx} padding="md" hoverEffect="lift" glowColor="amber" className="group flex items-start gap-4 border-slate-200 hover:border-amber-400 cursor-pointer">
             <div className="flex-shrink-0 mt-1">
               {doc.icon}
             </div>

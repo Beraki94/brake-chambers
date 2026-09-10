@@ -31,14 +31,14 @@ export default function GlobalFAQAccordion({ faqs, theme = 'light' }: GlobalFAQA
         return (
           <div
             key={idx}
-            className={`rounded-2xl transition-all duration-300 overflow-hidden ${isDark
-                ? 'bg-navy-800 border border-navy-700 hover:border-navy-600'
-                : 'bg-blue-50 border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-300'
+            className={`sm:rounded-2xl transition-all duration-300 overflow-hidden ${isDark
+                ? 'bg-navy-800 border-y sm:border border-navy-700 hover:border-navy-600'
+                : 'bg-blue-50 border-y sm:border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-300'
               }`}
           >
             <button
               onClick={() => toggleFaq(idx)}
-              className="w-full text-left px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-2xl"
+              className="w-full text-left px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 sm:rounded-2xl"
               aria-expanded={isOpen}
             >
               <span className={`font-bold pr-4 sm:pr-8 text-base sm:text-lg leading-tight ${isDark ? 'text-white' : 'text-navy-900'}`}>

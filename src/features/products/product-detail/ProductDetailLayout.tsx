@@ -7,7 +7,6 @@ import { ShieldCheck, Truck, Download, ChevronRight, Check } from 'lucide-react'
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CategoryPromoBanner from '@/features/products/components/CategoryPromoBanner';
 import ProductSeoBlock from '@/features/products/components/ProductSeoBlock';
-import RelatedProducts from '@/features/products/product-detail/RelatedProducts';
 import TechnicalDownloads from '@/features/products/product-detail/TechnicalDownloads';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import TrendingModelsMarquee from '@/components/ui/TrendingModelsMarquee';
@@ -71,16 +70,22 @@ export default function ProductDetailLayout({
           <h1 className="text-3xl lg:text-4xl font-extrabold text-navy-900 mb-6 leading-tight">{product.name}</h1>
           
           {/* Logistics Box */}
-          <div className="bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-2xl p-6 mb-8 shadow-sm">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Wholesale Logistics</h3>
-            <div className="grid grid-cols-2 gap-4 lg:gap-6">
-               <div className="flex flex-col">
-                <span className="text-2xl lg:text-3xl font-extrabold text-navy-900">{product.moq || 50}</span>
-                <span className="text-xs text-slate-500 font-medium leading-tight">Minimum Order</span>
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 text-white border border-navy-700 rounded-3xl p-6 lg:p-8 mb-8 shadow-xl relative overflow-hidden group">
+            {/* Decorative Accent */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-bl-full transition-transform duration-700 group-hover:scale-110 z-0 pointer-events-none"></div>
+            <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl z-0 pointer-events-none"></div>
+            
+            <h2 className="text-[11px] font-black text-amber-400 uppercase tracking-widest mb-6 relative z-10 flex items-center">
+              <Truck size={16} className="mr-2" /> Wholesale Logistics
+            </h2>
+            <div className="grid grid-cols-2 gap-4 lg:gap-6 relative z-10">
+               <div className="flex flex-col border-r border-navy-700/50 pr-4">
+                <span className="text-3xl lg:text-4xl font-black text-white mb-1 tracking-tight drop-shadow-sm">{product.moq || 50}<span className="text-sm font-bold text-navy-400 ml-1 tracking-normal">pcs</span></span>
+                <span className="text-[10px] sm:text-xs text-navy-300 font-bold uppercase tracking-wider leading-tight">Minimum Order</span>
               </div>
-              <div className="flex flex-col">
-                <span className="text-2xl lg:text-3xl font-extrabold text-navy-900">{product.palletQuantity || 120}</span>
-                <span className="text-xs text-slate-500 font-medium leading-tight">Standard Pallet</span>
+              <div className="flex flex-col pl-2">
+                <span className="text-3xl lg:text-4xl font-black text-white mb-1 tracking-tight drop-shadow-sm">{product.palletQuantity || 120}<span className="text-sm font-bold text-navy-400 ml-1 tracking-normal">pcs</span></span>
+                <span className="text-[10px] sm:text-xs text-navy-300 font-bold uppercase tracking-wider leading-tight">Standard Pallet</span>
               </div>
             </div>
           </div>
@@ -141,28 +146,29 @@ export default function ProductDetailLayout({
       <ProductSeoBlock product={product} />
       
       {/* Product-Specific FAQ (Dynamic based on product) */}
-      <section className="mt-16 pt-16 border-t border-slate-100 mb-20 max-w-4xl mx-auto">
-        <SectionHeader
-          title={`Frequently Asked Questions about ${product.name}`}
-          description="Find technical details, warranty information, and OEM compatibility for this model."
-          align="center"
-          theme="light"
-          accentColor="slate"
-          className="!mb-10"
-        />
-        <GlobalFAQAccordion faqs={[
-          {
-            q: `What does the ${product.name} replace?`,
-            a: `It is an exact aftermarket replacement for ${isChamber && product.oemPartNumbers && product.oemPartNumbers.length > 0 ? product.oemPartNumbers.map((p: any) => p.brand + ' ' + p.partNumber).join(', ') : 'major OEM brands like Bendix, Meritor, and Haldex'}.`
-          },
-          {
-            q: `Is this ${isChamber ? product.type : 'component'} covered by warranty?`,
-            a: "Yes, all BRC products are rigorously tested in our Automotive Standards facility and backed by a comprehensive industry warranty against manufacturing defects."
-          }
-        ]} />
+      <section className="mt-16 mb-20 bg-slate-50 border-y sm:border border-slate-200 rounded-none sm:rounded-2xl p-5 sm:p-8 -mx-4 sm:mx-0 w-[calc(100%+2rem)] sm:w-auto">
+        <div className="max-w-4xl mx-auto">
+          <SectionHeader
+            title={<>Frequently Asked Questions about <span className="text-amber-600">{product.name}</span></>}
+            description="Find technical details, warranty information, and OEM compatibility for this model."
+            align="center"
+            theme="light"
+            accentColor="slate"
+            className="!mb-10"
+          />
+          <GlobalFAQAccordion faqs={[
+            {
+              q: `What does the ${product.name} replace?`,
+              a: `It is an exact aftermarket replacement for ${isChamber && product.oemPartNumbers && product.oemPartNumbers.length > 0 ? product.oemPartNumbers.map((p: any) => p.brand + ' ' + p.partNumber).join(', ') : 'major OEM brands like Bendix, Meritor, and Haldex'}.`
+            },
+            {
+              q: `Is this ${isChamber ? product.type : 'component'} covered by warranty?`,
+              a: "Yes, all BRC products are rigorously tested in our Automotive Standards facility and backed by a comprehensive industry warranty against manufacturing defects."
+            }
+          ]} />
+        </div>
       </section>
 
-      <RelatedProducts currentSlug={product.slug} category={isChamber ? product.category : product.category} isAccessory={!isChamber} />
       <TechnicalDownloads productName={product.name} />
 
       <TrendingModelsMarquee />

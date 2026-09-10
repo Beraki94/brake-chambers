@@ -34,6 +34,9 @@ export async function generateMetadata(
       title: `${product.name} | BRC Manufacturer`,
       description: `Wholesale ${product.name}. Direct replacement for commercial applications. Factory direct pricing and bulk shipping available.`,
       keywords,
+      alternates: {
+        canonical: `https://www.brcbrakechambers.com/${product.slug}`
+      }
     };
   }
 

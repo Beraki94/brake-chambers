@@ -96,7 +96,7 @@ export default function FleetReviewsSection({ categoryName }: { categoryName: st
   };
 
   return (
-    <section className="mt-8 sm:mt-12 py-12 sm:py-16 w-full bg-white border-y border-slate-100 overflow-hidden">
+    <section className="mt-6 sm:mt-10 py-12 sm:py-16 w-full bg-blue-50 border-y border-slate-200 overflow-hidden">
       
       {/* Header Section (Restricted Width) */}
       <div className="container mx-auto px-4 lg:px-8 max-w-[1920px]">
@@ -156,15 +156,18 @@ export default function FleetReviewsSection({ categoryName }: { categoryName: st
           Mobile: Native touch scrolling with snap (better UX)
           Desktop: Overflow hidden with CSS marquee auto-scroll 
         */}
-        <div className="flex md:overflow-hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6 pt-2 px-4 md:px-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <div className="md:overflow-hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6 pt-2 px-4 md:px-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {/* Inner scrolling track */}
-          <div className="flex w-max gap-4 md:gap-6 md:px-6 animate-desktop-scroll">
+          <div className="flex items-stretch w-max gap-4 md:gap-6 md:px-6 animate-desktop-scroll">
             {duplicatedReviews.map((review, index) => (
               <div 
                 key={`${review.id}-${index}`} 
-                className="flex flex-col snap-center sm:snap-align-none flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 relative group hover:border-amber-200 md:hover:-translate-y-1 transition-all duration-300 shadow-sm md:hover:shadow-md cursor-pointer h-full"
+                className="flex flex-col snap-center sm:snap-align-none flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 relative group hover:border-amber-200 md:hover:-translate-y-1 transition-all duration-300 shadow-sm md:hover:shadow-md cursor-pointer overflow-hidden"
               >
-                <Quote className="absolute top-4 right-4 w-10 h-10 text-slate-200 md:group-hover:text-amber-100 transition-colors" />
+                {/* Decorative Top Right Circle */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-bl-full transition-transform duration-500 group-hover:scale-110 z-0"></div>
+                
+                <Quote className="absolute top-4 right-4 w-10 h-10 text-slate-200 md:group-hover:text-amber-300 transition-colors z-10" />
                 
                 <div className="flex items-center mb-4 relative z-10">
                   {[...Array(5)].map((_, i) => (
