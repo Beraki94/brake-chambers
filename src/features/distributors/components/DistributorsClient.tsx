@@ -24,7 +24,7 @@ export default function DistributorsClient() {
   const filteredDistributors = MOCK_DISTRIBUTORS.filter(d => selectedRegion === 'All' || d.region === selectedRegion);
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans overflow-x-clip relative">
+    <article className="min-h-screen bg-slate-50 flex flex-col font-sans overflow-x-clip relative">
       <PageHeader
         badge="Global Network & Portal"
         title="Partner with the Industry Leader"
@@ -352,7 +352,7 @@ export default function DistributorsClient() {
           </div>
         )}
       </AnimatePresence>
-    </div>
+    </article>
   );
 }
 

@@ -73,7 +73,7 @@ export default function TechnicalResourcesClient() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans overflow-x-clip pb-16">
+    <article className="min-h-screen bg-slate-50 font-sans overflow-x-clip">
       <PageHeader
         badge="Engineering Support"
         title="Installation Guides, Specs, & Documentation"
@@ -85,7 +85,7 @@ export default function TechnicalResourcesClient() {
         ]}
       />
 
-      <div className="relative z-20 -mt-6 md:-mt-10">
+      <div className="relative z-20 -mt-12 sm:-mt-24">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -98,7 +98,7 @@ export default function TechnicalResourcesClient() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="w-full bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 p-6 md:p-8"
+                  className="w-full bg-white rounded-[2rem] shadow-2xl shadow-navy-900/5 border border-slate-100 p-8 md:p-12"
                 >
                   <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 mb-6">
                     <div className="w-full">
@@ -235,8 +235,8 @@ export default function TechnicalResourcesClient() {
                             >
                               <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm transition-all duration-300
                                 ${category.accent === 'amber'
-                                  ? 'bg-white text-slate-400 group-hover:bg-amber-500 group-hover:text-white group-hover:shadow-amber-500/20'
-                                  : 'bg-white text-slate-400 group-hover:bg-navy-500 group-hover:text-white group-hover:shadow-navy-500/20'
+                                  ? 'bg-white text-amber-500 group-hover:bg-amber-500 group-hover:text-white group-hover:shadow-amber-500/20'
+                                  : 'bg-white text-navy-500 group-hover:bg-navy-500 group-hover:text-white group-hover:shadow-navy-500/20'
                                 }
                               `}>
                                 {item.icon}
@@ -267,6 +267,7 @@ export default function TechnicalResourcesClient() {
 
                   <div className="max-w-xl relative z-10 w-full">
                     <SectionHeader
+                      badge="Engineering Support"
                       title="Need Custom Engineering Support?"
                       description="If you require specific pushrod calculations, unique bracket alignments, or modified stroke limits, our engineering team is ready to assist."
                       align="left"
@@ -286,7 +287,7 @@ export default function TechnicalResourcesClient() {
             </section>
           </motion.div>
       </div>
-    </div>
+    </article>
   );
 }
 

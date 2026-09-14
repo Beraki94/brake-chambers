@@ -3,7 +3,6 @@
 import { useEffect } from 'react';
 import { AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
-import Card from '@/components/ui/Card';
 
 export default function Error({
   error,
@@ -18,7 +17,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-[60vh] flex flex-col items-center justify-center px-4 text-center w-full">
+    <div className="min-h-[80vh] flex flex-col items-center justify-center py-24 px-4 text-center w-full">
       <div className="w-20 h-20 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-red-100/50">
         <AlertTriangle className="w-10 h-10" />
       </div>
@@ -31,21 +30,19 @@ export default function Error({
         We encountered an unexpected error while trying to load this content. It might be a temporary delay or a network issue.
       </p>
       
-      <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-xs sm:max-w-none">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-xs sm:max-w-none">
         <button
           onClick={() => reset()}
-          className="bg-[#FFB000] hover:bg-[#e59d00] text-navy-950 font-extrabold text-[12px] uppercase tracking-widest py-3.5 px-8 rounded-xl transition-all shadow-md shadow-amber-500/20 active:scale-[0.98] border-2 border-[#FFB000] hover:border-[#e59d00]"
+          className="bg-amber-500 hover:bg-amber-400 text-navy-950 font-extrabold text-[13px] uppercase tracking-widest py-4 px-8 rounded-xl transition-all shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 w-full sm:w-auto text-center"
         >
           Try Again
         </button>
         <Link
           href="/"
-          className="hover: text-navy-900 font-extrabold text-[12px] uppercase tracking-widest py-3.5 px-8 -2 -navy-200 active:scale-[0.98] h-full"
+          className="bg-white hover:bg-slate-50 border border-slate-200 text-navy-900 font-extrabold text-[13px] uppercase tracking-widest py-4 px-8 rounded-xl transition-all shadow-sm transform hover:-translate-y-1 w-full sm:w-auto text-center block"
         >
-<Card padding="md" className="h-full w-full">
           Return Home
-        </Card>
-</Link>
+        </Link>
       </div>
     </div>
   );

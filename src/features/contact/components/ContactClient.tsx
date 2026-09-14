@@ -231,10 +231,11 @@ export default function ContactClient() {
               className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-6 sm:p-8 lg:p-10 -mx-4 sm:mx-0"
             >
               <SectionHeader
+                badge="FAQ"
                 title="Frequently Asked Questions"
                 align="left"
                 theme="light"
-                accentColor="navy"
+                accentColor="amber"
                 plainText={true}
                 className="!mb-6"
               />
@@ -303,6 +304,7 @@ export default function ContactClient() {
 
             <motion.div variants={fadeInUp} className="relative z-10">
               <SectionHeader
+                badge="Global Reach"
                 title="Global Distribution Network"
                 description="We ship FCL containers to 40+ countries across six continents. Wherever your fleet operates, BRC chambers are ready to deliver."
                 align="center"

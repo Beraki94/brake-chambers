@@ -254,7 +254,7 @@ export default function Navbar() {
               <div key={idx} className="group h-full flex items-center">
                 <Link href={link.href} className={`cursor-pointer transition-colors py-3 h-full flex items-center border-b-[3px] ${
                   isActive(link.href)
-                    ? 'border-amber-500 text-amber-600 font-bold'
+                    ? `font-bold ${isScrolled ? 'border-amber-400 text-amber-400' : 'border-amber-500 text-amber-600'}`
                     : 'border-transparent ' + (isScrolled ? 'hover:border-amber-400 hover:text-white' : 'hover:border-amber-500 hover:text-amber-600')
                 }`}>
                   {link.label}

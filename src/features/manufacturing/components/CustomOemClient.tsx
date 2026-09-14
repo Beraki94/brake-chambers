@@ -46,7 +46,7 @@ export default function CustomOemClient() {
   ];
 
   return (
-    <div className="min-h-screen bg-white font-sans overflow-x-clip">
+    <article className="min-h-screen bg-white font-sans overflow-x-clip">
       <PageHeader
         badge="Custom Engineering"
         title="Custom OEM Manufacturing"
@@ -234,7 +234,7 @@ export default function CustomOemClient() {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

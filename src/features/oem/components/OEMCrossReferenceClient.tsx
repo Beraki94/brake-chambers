@@ -236,13 +236,15 @@ export default function OEMCrossReferenceClient() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
 
             <div className="max-w-2xl relative z-10 text-center md:text-left">
-              <div className="inline-block px-3 py-1 mb-4 rounded-full bg-white/10 border border-white/20 text-amber-400 text-[11px] font-extrabold uppercase tracking-widest backdrop-blur-sm">
-                Engineering Support
-              </div>
-              <h3 className="text-3xl md:text-4xl font-extrabold mb-4">Need a Custom Cross-Reference?</h3>
-              <p className="text-navy-200 text-base md:text-lg font-light leading-relaxed">
-                If you have a specialized or legacy part number not found in our database, our engineering team can reverse-engineer and match it to a BRC equivalent within 24 hours. <strong className="text-white font-bold">No guesswork. No compromises.</strong>
-              </p>
+              <SectionHeader
+                badge="Engineering Support"
+                title="Need a Custom Cross-Reference?"
+                description={<>If you have a specialized or legacy part number not found in our database, our engineering team can reverse-engineer and match it to a BRC equivalent within 24 hours. <strong className="text-white font-bold">No guesswork. No compromises.</strong></>}
+                align="left"
+                theme="dark"
+                accentColor="amber"
+                className="!mb-0"
+              />
             </div>
 
             <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto shrink-0">

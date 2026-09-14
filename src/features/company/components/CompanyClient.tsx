@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, CheckCircle2, ShieldCheck, Microscope, Globe2, TestTube, Lightbulb, Mail, Users } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, Microscope, Globe2, TestTube, Lightbulb, Mail, Users, Cog, Factory } from 'lucide-react';
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -18,7 +18,7 @@ export default function CompanyClient() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans overflow-x-clip">
+    <article className="min-h-screen bg-slate-50 font-sans overflow-x-clip">
       <PageHeader
         badge="About BRC"
         title="Built by Engineers. Trusted by Fleets."
@@ -31,9 +31,11 @@ export default function CompanyClient() {
       />
 
       {/* SECTION 1: THE STORY */}
-      <section className="py-20 md:py-32 relative bg-white border-b border-slate-200">
+      <section className="pb-20 md:pb-32 relative bg-slate-50 border-b border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Overlapping Card Container */}
+          <div className="bg-white rounded-[2rem] shadow-2xl shadow-navy-900/5 border border-slate-100 p-8 sm:p-12 lg:p-16 -mt-12 sm:-mt-24 relative z-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -42,12 +44,12 @@ export default function CompanyClient() {
               className="space-y-8"
             >
               <SectionHeader
-                badge={<><Globe2 className="w-3.5 h-3.5 text-amber-500 inline-block mr-1.5 relative -top-[1px]" /> Our Story</>}
+                badge="Our Story"
                 title={<>Built on <span className="text-amber-500">Engineering Excellence</span></>}
                 align="left"
                 plainText={true}
                 theme="light"
-                accentColor="navy"
+                accentColor="amber"
               />
               <div className="space-y-6 text-slate-600 text-lg leading-relaxed font-light text-justify">
                 <p>
@@ -89,6 +91,7 @@ export default function CompanyClient() {
               <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-navy-100 rounded-full blur-3xl opacity-60 -z-10"></div>
             </motion.div>
           </div>
+          </div>
         </div>
       </section>
 
@@ -96,13 +99,13 @@ export default function CompanyClient() {
       <section className="py-20 md:py-32 bg-blue-50 relative border-b border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
-            badge={<><Users className="w-3.5 h-3.5 text-amber-500 inline-block mr-1.5 relative -top-[1px]" /> Executive Team</>}
+            badge="Executive Team"
             title="Leadership Team"
             description="Driven by experts in commercial vehicle braking systems, metallurgy, and lean manufacturing."
             align="center"
             plainText={true}
             theme="light"
-            accentColor="navy"
+            accentColor="amber"
           />
           <div className="space-y-16 mt-16">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
@@ -183,23 +186,28 @@ export default function CompanyClient() {
             align="center"
             plainText={true}
             theme="light"
-            accentColor="navy"
+            accentColor="amber"
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto mt-16">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between"
+              className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col justify-between group relative overflow-hidden"
             >
               <div>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">Heavy-Duty Internals</h3>
+                <h3 className="text-2xl font-bold text-navy-900 mb-4 tracking-tight group-hover:text-amber-500 transition-colors duration-300">Heavy-Duty Internals</h3>
                 <p className="text-slate-600 leading-relaxed font-light mb-6">
                   Unlike generic aftermarket substitutes, we utilize high-grade, large-diameter return springs available in <strong className="text-navy-900 font-bold">13mm, 13.2mm, and 13.5mm wire specifications</strong>. Combined with thickened pushrods and reinforced outer housings, our chambers guarantee the specified driving and parking force required for heavy loads.
                 </p>
               </div>
-              <div className="bg-slate-50 rounded-xl p-4 border border-slate-100 mt-4">
-                <span className="text-amber-600 font-bold text-[11px] uppercase tracking-widest block mb-1">Guaranteed Performance</span>
+              <div className="bg-gradient-to-r from-amber-50 to-white rounded-xl p-4 border border-amber-100/50 mt-auto group-hover:border-amber-200 transition-colors duration-500">
+                <span className="text-amber-600 font-bold text-[11px] uppercase tracking-widest flex items-center gap-2 mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 relative">
+                    <span className="absolute inset-0 rounded-full bg-amber-500 animate-ping opacity-75"></span>
+                  </span>
+                  Guaranteed Performance
+                </span>
                 <span className="text-navy-900 font-medium text-sm">Exact stroke lengths: 57mm, 64mm, and 75mm.</span>
               </div>
             </motion.div>
@@ -209,16 +217,21 @@ export default function CompanyClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between"
+              className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col justify-between group relative overflow-hidden"
             >
               <div>
-                <h3 className="text-2xl font-bold text-navy-900 mb-4">Custom OEM Capabilities</h3>
+                <h3 className="text-2xl font-bold text-navy-900 mb-4 tracking-tight group-hover:text-navy-600 transition-colors duration-300">Custom OEM Capabilities</h3>
                 <p className="text-slate-600 leading-relaxed font-light mb-6">
                   Our standard production features premium <strong className="text-navy-900 font-bold">Black and Gold anti-corrosion coatings</strong>, but our mature production line allows for full customization based on client requirements. We package securely using custom cartons and export pallets for safe transit via ocean, rail, or air freight.
                 </p>
               </div>
-              <div className="bg-slate-50 rounded-xl p-4 border border-slate-100 mt-4">
-                <span className="text-amber-600 font-bold text-[11px] uppercase tracking-widest block mb-1">European ADB Expansion</span>
+              <div className="bg-gradient-to-r from-navy-50 to-white rounded-xl p-4 border border-navy-100/50 mt-auto group-hover:border-navy-200 transition-colors duration-500">
+                <span className="text-navy-600 font-bold text-[11px] uppercase tracking-widest flex items-center gap-2 mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-navy-500 relative">
+                    <span className="absolute inset-0 rounded-full bg-navy-500 animate-ping opacity-75"></span>
+                  </span>
+                  European ADB Expansion
+                </span>
                 <span className="text-navy-900 font-medium text-sm">Newly developed Air Disc Brakes matching HALDEX, KNORR & WABCO quality at factory-direct pricing.</span>
               </div>
             </motion.div>
@@ -230,13 +243,13 @@ export default function CompanyClient() {
       <section className="py-20 md:py-32 bg-white relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
-            badge={<><ShieldCheck className="w-3.5 h-3.5 text-amber-500 inline-block mr-1.5 relative -top-[1px]" /> Quality Control</>}
+            badge="Quality Control"
             title="Batch-by-Batch Transparency"
             description="We implement strict quality inspection protocols for every single batch of orders. We provide authentic, reliable Quality Inspection Reports with your shipment, proving our commitment to zero-defect manufacturing."
             align="center"
             plainText={true}
             theme="light"
-            accentColor="navy"
+            accentColor="amber"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
@@ -377,7 +390,6 @@ export default function CompanyClient() {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
-

@@ -102,7 +102,7 @@ export default function ApplicationsClient() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans overflow-x-clip">
+    <article className="min-h-screen bg-slate-50 font-sans overflow-x-clip">
       <PageHeader
         badge="Applications"
         title="We Manufacture The Best Brake Chambers For Your Fleet"
@@ -371,6 +371,6 @@ export default function ApplicationsClient() {
         </div>
       </div>
 
-    </div>
+    </article>
   );
 }

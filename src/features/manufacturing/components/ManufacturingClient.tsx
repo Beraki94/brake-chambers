@@ -85,7 +85,7 @@ export default function ManufacturingClient() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans pb-0 overflow-x-clip">
+    <article className="min-h-screen bg-slate-50 font-sans pb-0 overflow-x-clip">
       <PageHeader
         badge="How We Build"
         title="Manufacturing"
@@ -96,11 +96,12 @@ export default function ManufacturingClient() {
           { label: 'Manufacturing' }
         ]}
       />
-      
-      {/* Clean Intro Section instead of a massive card */}
-      <section className="pt-16 md:pt-24 pb-4 md:pb-8 bg-white relative">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center relative z-10">
+
+      {/* Overlapping Intro Section */}
+      <section className="pb-4 md:pb-8 bg-slate-50 relative z-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl text-center relative z-10 -mt-12 sm:-mt-24">
           <motion.div
+            className="bg-white rounded-[2rem] shadow-2xl shadow-navy-900/5 border border-slate-100 p-8 sm:p-12 lg:p-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -116,9 +117,9 @@ export default function ManufacturingClient() {
       </section>
 
       {/* Step-by-Step Timeline Section */}
-      <section className="pt-4 md:pt-8 pb-16 md:pb-24 bg-white relative overflow-hidden">
+      <section className="pt-4 md:pt-8 pb-16 md:pb-24 bg-slate-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative">
-          
+
           {/* Central Vertical Line (Visible on Desktop) */}
           <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-slate-100 via-slate-200 to-slate-100 -translate-x-1/2 z-0"></div>
 
@@ -128,10 +129,10 @@ export default function ManufacturingClient() {
 
               return (
                 <div key={idx} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24 group/row`}>
-                  
+
                   {/* Content Block */}
                   <div className={`w-full lg:w-1/2 flex flex-col ${isEven ? 'lg:items-end lg:text-right' : 'lg:items-start lg:text-left'}`}>
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: "-100px" }}
@@ -141,15 +142,15 @@ export default function ManufacturingClient() {
                       <div className={`inline-flex items-center gap-3 px-5 py-2 rounded-full bg-${step.accent}-50 border border-${step.accent}-100 mb-6 shadow-sm`}>
                         <span className={`text-${step.accent}-600 font-extrabold uppercase tracking-widest text-sm`}>Step {step.step}</span>
                       </div>
-                      
+
                       <h3 className="text-3xl md:text-4xl font-black text-navy-900 mb-6 font-heading tracking-tight">
                         {step.title}
                       </h3>
-                      
+
                       <p className="text-slate-600 text-lg leading-relaxed font-light mb-8">
                         {step.description}
                       </p>
-                      
+
                       <div className={`flex flex-col gap-4 mb-10 ${isEven ? 'lg:items-end' : 'lg:items-start'}`}>
                         {step.features.map((feature, fIdx) => (
                           <div key={fIdx} className={`flex items-center gap-3 ${isEven ? 'lg:flex-row-reverse' : ''}`}>
@@ -158,9 +159,9 @@ export default function ManufacturingClient() {
                           </div>
                         ))}
                       </div>
-                      
-                      <Link 
-                        href={step.linkUrl || `/manufacturing/${step.slug}`} 
+
+                      <Link
+                        href={step.linkUrl || `/manufacturing/${step.slug}`}
                         className={`inline-flex items-center justify-center gap-2 text-${step.accent}-600 font-extrabold hover:text-${step.accent}-700 transition-colors uppercase tracking-widest text-sm group/link`}
                       >
                         {step.linkText || 'View Engineering Specs'} <ArrowRight className={`w-5 h-5 group-hover/link:translate-x-1 transition-transform ${isEven ? 'lg:-translate-x-1 lg:group-hover/link:-translate-x-2' : ''} ${isEven ? 'lg:rotate-180' : ''}`} />
@@ -171,28 +172,28 @@ export default function ManufacturingClient() {
                   {/* Timeline Center Node (Visible on Desktop) */}
                   <div className="hidden lg:flex w-16 h-16 absolute left-1/2 -translate-x-1/2 bg-white rounded-full border-4 border-slate-100 items-center justify-center shadow-xl z-20 transition-all duration-500 group-hover/row:scale-110 group-hover/row:border-slate-200">
                     <div className={`w-10 h-10 rounded-full bg-${step.accent}-50 flex items-center justify-center`}>
-                      {React.cloneElement(step.icon as React.ReactElement<any>, { 
+                      {React.cloneElement(step.icon as React.ReactElement<any>, {
                         className: `w-6 h-6 text-${step.accent}-500 transition-transform duration-500 group-hover/row:rotate-12`,
-                        'aria-hidden': 'true' 
+                        'aria-hidden': 'true'
                       })}
                     </div>
                   </div>
 
                   {/* Image Block */}
                   <div className="w-full lg:w-1/2">
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, scale: 0.95 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ duration: 0.8 }}
                       className="relative h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 group"
                     >
-                      <Image 
-                        src={step.image} 
-                        alt={step.title} 
-                        fill 
+                      <Image
+                        src={step.image}
+                        alt={step.title}
+                        fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-[10s] group-hover/row:scale-110 ease-out grayscale" 
+                        className="object-cover transition-transform duration-[10s] group-hover/row:scale-110 ease-out grayscale"
                       />
                       {/* Gradient overlay to ensure image isn't too overpowering */}
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent"></div>
@@ -210,26 +211,28 @@ export default function ManufacturingClient() {
       <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden border-y border-navy-800">
         {/* Background Image Layer */}
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale z-0"></div>
-        
+
         {/* Animated Grid Layer */}
         <AnimatedGridBackground opacity={0.08} />
-        
+
         {/* Top/Bottom Fade Masks */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="max-w-3xl mx-auto mb-16 relative z-10">
             <SectionHeader
+              badge="By The Numbers"
               title="Backed by Data"
               description="We operate at the intersection of massive industrial scale and microscopic manufacturing tolerances. Here is what that looks like by the numbers."
               theme="dark"
+              accentColor="amber"
               plainText={true}
             />
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 relative z-10">
             {stats.map((stat, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -315,28 +318,28 @@ export default function ManufacturingClient() {
       </section>
 
       {/* OEM Partner Call to Action */}
-      <section className="py-16 md:py-24 bg-amber-50 relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-[#F1EFE8] relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-10 md:p-16 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 group">
             {/* Decorative Background Elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0 pointer-events-none"></div>
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] z-0 pointer-events-none"></div>
-            
+
             <div className="relative z-10 flex-1 max-w-2xl text-center md:text-left">
               <SectionHeader
-                badge={<><Factory className="w-3 h-3 mr-2 inline-block text-amber-500 relative -top-[1px]" /> Contract Manufacturing</>}
+                badge="Contract Manufacturing"
                 title={<>Partner with <span className="text-amber-400">BRC Manufacturing</span></>}
                 description="From initial CAD conceptualization to final production runs of 100,000+ units, we are ready to be your dedicated manufacturing arm."
                 align="left"
                 theme="dark"
-                accentColor="slate"
+                accentColor="amber"
                 className="!mb-0"
               />
             </div>
 
             <div className="relative z-10 flex flex-col w-full md:w-auto gap-4 min-w-[240px] shrink-0 mt-8 md:mt-0">
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="bg-amber-500 text-navy-950 font-black py-4 px-8 rounded-xl hover:bg-amber-400 transition-all shadow-xl shadow-amber-500/20 text-center uppercase tracking-widest text-[13px] transform hover:-translate-y-1"
               >
                 Request Factory Quote
@@ -345,8 +348,8 @@ export default function ManufacturingClient() {
           </div>
         </div>
       </section>
-      
+
       <TrendingModelsMarquee />
-    </div>
+    </article>
   );
 }

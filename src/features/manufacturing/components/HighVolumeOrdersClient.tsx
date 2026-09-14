@@ -84,7 +84,7 @@ export default function HighVolumeOrdersClient() {
   ];
 
   return (
-    <div className="min-h-screen bg-white font-sans overflow-x-clip">
+    <article className="min-h-screen bg-white font-sans overflow-x-clip">
       <PageHeader
         badge="Scale & Save"
         title="High Volume Orders"
@@ -238,7 +238,7 @@ export default function HighVolumeOrdersClient() {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

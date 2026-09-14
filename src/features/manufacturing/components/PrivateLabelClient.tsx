@@ -52,7 +52,7 @@ export default function PrivateLabelClient() {
   ];
 
   return (
-    <div className="min-h-screen bg-white font-sans overflow-x-clip">
+    <article className="min-h-screen bg-white font-sans overflow-x-clip">
       <PageHeader
         badge="Brand Building"
         title="Private Label & White Label"
@@ -92,11 +92,11 @@ export default function PrivateLabelClient() {
           <SectionHeader
             badge="Understanding the Difference"
             title="Private Label vs White Label"
-            accentColor="slate"
+            accentColor="amber"
             plainText={true}
           />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {/* Private Label */}
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
               className="bg-white rounded-3xl p-8 md:p-10 border border-amber-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
@@ -144,6 +144,7 @@ export default function PrivateLabelClient() {
                 </ul>
               </div>
             </motion.div>
+          </div>
           </div>
         </div>
       </section>
@@ -249,7 +250,7 @@ export default function PrivateLabelClient() {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

@@ -13,7 +13,7 @@ interface BlogPostClientProps {
 
 export default function BlogPostClient({ post }: BlogPostClientProps) {
   return (
-    <div className="min-h-screen bg-slate-50 pt-16 pb-16">
+    <article className="min-h-screen bg-slate-50 pt-16 pb-16">
       <article className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         {/* Back Link */}
         <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="mb-8">
@@ -100,6 +100,6 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
           </motion.div>
         </div>
       </article>
-    </div>
+    </article>
   );
 }

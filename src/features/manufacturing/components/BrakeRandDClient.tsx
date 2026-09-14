@@ -75,7 +75,7 @@ export default function BrakeRandDClient() {
   ];
 
   return (
-    <div className="min-h-screen bg-white font-sans overflow-x-clip">
+    <article className="min-h-screen bg-white font-sans overflow-x-clip">
       <PageHeader
         badge="Engineering Hub"
         title="Brake R&D"
@@ -308,7 +308,7 @@ export default function BrakeRandDClient() {
               description="A glimpse into our active R&D roadmap. These programs are currently in prototype or early production-validation stages — positioning BRC at the forefront of heavy-duty braking innovation."
               align="center"
               theme="light"
-              accentColor="slate"
+              accentColor="amber"
               plainText={true}
               className="!mb-16"
             />
@@ -374,6 +374,6 @@ export default function BrakeRandDClient() {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

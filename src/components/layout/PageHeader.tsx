@@ -14,7 +14,7 @@ interface PageHeaderProps {
 
 export default function PageHeader({ badge, title, description, children, imageSrc = '/images/engineering_blueprint.png', breadcrumbs, fullColorBackground = false }: PageHeaderProps) {
   return (
-    <section className="relative pt-6 md:pt-10 lg:pt-12 pb-24 md:pb-32 lg:pb-40 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8 bg-navy-950">
+    <header className="relative pt-6 md:pt-10 lg:pt-12 pb-24 md:pb-32 lg:pb-40 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8 bg-navy-950">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -67,7 +67,7 @@ export default function PageHeader({ badge, title, description, children, imageS
         {/* Left-Aligned Hero Content */}
         <div className="max-w-4xl text-left">
           {badge && (
-            <div className="inline-block px-3 py-1 mb-4 md:px-4 md:py-1.5 md:mb-6 rounded-full bg-gradient-to-r from-navy-800 to-navy-900 border border-navy-700 text-amber-400 text-[10px] md:text-[11px] font-bold uppercase tracking-widest shadow-xl shadow-navy-950 whitespace-nowrap">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[11px] font-bold uppercase tracking-widest mb-6 text-amber-400 bg-navy-900 border-navy-700 shadow-navy-950/50">
               {badge}
             </div>
           )}
@@ -81,6 +81,6 @@ export default function PageHeader({ badge, title, description, children, imageS
           {children}
         </div>
       </div>
-    </section>
+    </header>
   );
 }
