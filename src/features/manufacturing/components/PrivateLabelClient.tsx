@@ -212,17 +212,17 @@ export default function PrivateLabelClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.12, duration: 0.6 }}
-                className="bg-navy-900 border border-navy-800 rounded-3xl p-8 hover:border-amber-500/50 hover:bg-navy-800 transition-all duration-500 shadow-xl shadow-navy-900/10 group transform hover:-translate-y-1 relative overflow-hidden flex flex-col h-full"
+                className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 rounded-[2rem] p-8 hover:border-amber-500/50 transition-all duration-500 shadow-xl group transform hover:-translate-y-1 relative overflow-hidden flex flex-col h-full"
               >
                 {/* Glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                <span className="text-7xl font-black text-navy-800/50 absolute top-4 right-4 group-hover:text-navy-700/50 transition-colors pointer-events-none z-0">{step.step}</span>
+                <span className="text-7xl font-black text-navy-800/50 absolute top-4 right-4 group-hover:text-amber-500/10 transition-colors pointer-events-none z-0">{step.step}</span>
                 <div className="relative z-10 flex flex-col h-full">
-                  <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
+                  <div className="w-14 h-14 bg-navy-950 rounded-2xl flex items-center justify-center mb-6 border border-navy-800 shadow-[0_0_10px_rgba(245,158,11,0.2)] group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] group-hover:scale-110 transition-all duration-300 group-hover:border-amber-500/50 text-amber-500">
                     {step.icon}
                   </div>
-                  <h3 className="text-xl font-extrabold text-white mb-4">{step.title}</h3>
+                  <h3 className="text-xl font-extrabold text-white mb-4 group-hover:text-amber-400 transition-colors">{step.title}</h3>
                   <p className="text-navy-300 text-sm leading-relaxed font-light flex-grow">{step.desc}</p>
                 </div>
               </motion.div>

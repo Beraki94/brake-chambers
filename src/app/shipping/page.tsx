@@ -101,42 +101,42 @@ export default function ShippingPage() {
             
             {/* Full Width Grid for Hubs */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-              <div className="flex flex-col items-center text-center gap-2 bg-navy-900/50 p-6 md:p-8 rounded-2xl border border-navy-800/80 backdrop-blur-sm transition-colors hover:bg-navy-900 hover:border-navy-700">
-                <div className="w-12 h-12 bg-navy-950 rounded-full flex items-center justify-center border border-navy-800 shadow-inner mb-2">
+              <div className="flex flex-col items-center text-center gap-4 bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 p-6 md:p-8 rounded-xl shadow-lg group hover:bg-navy-800 transition-all duration-300 transform hover:-translate-y-1 hover:border-amber-500/50">
+                <div className="w-12 h-12 bg-navy-950 rounded-full flex items-center justify-center border border-navy-800 shadow-[0_0_10px_rgba(245,158,11,0.3)] group-hover:shadow-[0_0_15px_rgba(245,158,11,0.6)] group-hover:scale-110 transition-all duration-300 mb-1">
                   <MapPin className="w-5 h-5 text-amber-500" />
                 </div>
                 <div>
-                  <strong className="text-white block font-black text-lg mb-1">Americas</strong>
+                  <strong className="text-white block font-extrabold text-lg tracking-widest mb-2 group-hover:text-amber-400 transition-colors drop-shadow-md">Americas</strong>
                   <span className="text-navy-300 text-sm leading-relaxed">Long Beach, LA<br/>Houston, New York</span>
                 </div>
               </div>
 
-              <div className="flex flex-col items-center text-center gap-2 bg-navy-900/50 p-6 md:p-8 rounded-2xl border border-navy-800/80 backdrop-blur-sm transition-colors hover:bg-navy-900 hover:border-navy-700">
-                <div className="w-12 h-12 bg-navy-950 rounded-full flex items-center justify-center border border-navy-800 shadow-inner mb-2">
+              <div className="flex flex-col items-center text-center gap-4 bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 p-6 md:p-8 rounded-xl shadow-lg group hover:bg-navy-800 transition-all duration-300 transform hover:-translate-y-1 hover:border-amber-500/50">
+                <div className="w-12 h-12 bg-navy-950 rounded-full flex items-center justify-center border border-navy-800 shadow-[0_0_10px_rgba(245,158,11,0.3)] group-hover:shadow-[0_0_15px_rgba(245,158,11,0.6)] group-hover:scale-110 transition-all duration-300 mb-1">
                   <MapPin className="w-5 h-5 text-amber-500" />
                 </div>
                 <div>
-                  <strong className="text-white block font-black text-lg mb-1">Europe</strong>
+                  <strong className="text-white block font-extrabold text-lg tracking-widest mb-2 group-hover:text-amber-400 transition-colors drop-shadow-md">Europe</strong>
                   <span className="text-navy-300 text-sm leading-relaxed">Rotterdam<br/>Hamburg, Antwerp</span>
                 </div>
               </div>
 
-              <div className="flex flex-col items-center text-center gap-2 bg-navy-900/50 p-6 md:p-8 rounded-2xl border border-navy-800/80 backdrop-blur-sm transition-colors hover:bg-navy-900 hover:border-navy-700">
-                <div className="w-12 h-12 bg-navy-950 rounded-full flex items-center justify-center border border-navy-800 shadow-inner mb-2">
+              <div className="flex flex-col items-center text-center gap-4 bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 p-6 md:p-8 rounded-xl shadow-lg group hover:bg-navy-800 transition-all duration-300 transform hover:-translate-y-1 hover:border-amber-500/50">
+                <div className="w-12 h-12 bg-navy-950 rounded-full flex items-center justify-center border border-navy-800 shadow-[0_0_10px_rgba(245,158,11,0.3)] group-hover:shadow-[0_0_15px_rgba(245,158,11,0.6)] group-hover:scale-110 transition-all duration-300 mb-1">
                   <MapPin className="w-5 h-5 text-amber-500" />
                 </div>
                 <div>
-                  <strong className="text-white block font-black text-lg mb-1">Middle East</strong>
+                  <strong className="text-white block font-extrabold text-lg tracking-widest mb-2 group-hover:text-amber-400 transition-colors drop-shadow-md">Middle East</strong>
                   <span className="text-navy-300 text-sm leading-relaxed">Jebel Ali<br/>Jeddah, Dammam</span>
                 </div>
               </div>
 
-              <div className="flex flex-col items-center text-center gap-2 bg-navy-900/50 p-6 md:p-8 rounded-2xl border border-navy-800/80 backdrop-blur-sm transition-colors hover:bg-navy-900 hover:border-navy-700">
-                <div className="w-12 h-12 bg-navy-950 rounded-full flex items-center justify-center border border-navy-800 shadow-inner mb-2">
+              <div className="flex flex-col items-center text-center gap-4 bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 p-6 md:p-8 rounded-xl shadow-lg group hover:bg-navy-800 transition-all duration-300 transform hover:-translate-y-1 hover:border-amber-500/50">
+                <div className="w-12 h-12 bg-navy-950 rounded-full flex items-center justify-center border border-navy-800 shadow-[0_0_10px_rgba(245,158,11,0.3)] group-hover:shadow-[0_0_15px_rgba(245,158,11,0.6)] group-hover:scale-110 transition-all duration-300 mb-1">
                   <MapPin className="w-5 h-5 text-amber-500" />
                 </div>
                 <div>
-                  <strong className="text-white block font-black text-lg mb-1">Oceania</strong>
+                  <strong className="text-white block font-extrabold text-lg tracking-widest mb-2 group-hover:text-amber-400 transition-colors drop-shadow-md">Oceania</strong>
                   <span className="text-navy-300 text-sm leading-relaxed">Sydney, Melbourne<br/>Brisbane, Auckland</span>
                 </div>
               </div>
