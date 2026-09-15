@@ -477,7 +477,7 @@ export default function HomeClient() {
                     <Zap className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div>
-                    <h4 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Consistent Clamping Force</h4>
+                    <h3 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Consistent Clamping Force</h3>
                     <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Overcomes internal friction to maintain peak stopping power over millions of cycles.</p>
                   </div>
                 </div>
@@ -487,7 +487,7 @@ export default function HomeClient() {
                     <ShieldCheck className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div>
-                    <h4 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Reduced Brake Fade</h4>
+                    <h3 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Reduced Brake Fade</h3>
                     <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Advanced mechanical advantage ensures reliable performance even under heavy loads.</p>
                   </div>
                 </div>
@@ -497,7 +497,7 @@ export default function HomeClient() {
                     <Settings className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div>
-                    <h4 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Patented Engineering</h4>
+                    <h3 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Patented Engineering</h3>
                     <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Exclusive BRC internal mechanics you won't find in standard aftermarket generic actuators.</p>
                   </div>
                 </div>

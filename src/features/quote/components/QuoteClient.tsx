@@ -25,17 +25,17 @@ export default function QuoteClient() {
       
       {/* Prominent Selected Items Section */}
       <div className="bg-white border-y sm:border border-slate-200 rounded-none sm:rounded-[2rem] p-5 sm:p-8 lg:p-10 shadow-sm sm:shadow-xl shadow-slate-200/50 mb-8 -mx-4 sm:mx-0">
-        <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3 border-b border-slate-100 pb-4 px-4 sm:px-0">
+        <h2 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3 border-b border-slate-100 pb-4 px-4 sm:px-0">
           <Package className="w-6 h-6 sm:w-8 sm:h-8 text-amber-500 shrink-0" /> 
           Selected Items for Quote
-        </h3>
+        </h2>
 
         {isEmpty ? (
           <div className="flex flex-col items-center justify-center py-6 sm:py-10 px-4 sm:px-8 text-center bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 mx-4 sm:mx-0">
             <div className="w-12 h-12 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center mb-3 sm:mb-6 shadow-sm border border-slate-100">
               <Package className="w-6 h-6 sm:w-10 sm:h-10 text-slate-300" />
             </div>
-            <h4 className="text-base sm:text-xl font-bold text-navy-900 mb-2">No Products Selected</h4>
+            <h3 className="text-base sm:text-xl font-bold text-navy-900 mb-2">No Products Selected</h3>
             <p className="text-slate-500 text-sm sm:text-base max-w-sm mx-auto mb-5 sm:mb-6">
               Browse our catalog and add items to your quote request to get factory-direct pricing.
             </p>
@@ -55,7 +55,7 @@ export default function QuoteClient() {
                 <div key={item.id} className="flex flex-col sm:flex-row gap-4 p-5 sm:p-4 border border-slate-100 bg-slate-50 rounded-xl relative group">
                   <div className="flex-1 pr-10 sm:pr-12">
                     <p className="text-[10px] sm:text-xs font-bold text-amber-500 mb-1 uppercase tracking-wider">{item.product.brandSlug === 'brc' ? 'BRC' : item.product.brandSlug}</p>
-                    <h5 className="font-bold text-navy-900 text-base sm:text-lg leading-snug mb-1 sm:mb-0">{item.product.name}</h5>
+                    <h3 className="font-bold text-navy-900 text-base sm:text-lg leading-snug mb-1 sm:mb-0">{item.product.name}</h3>
                     <p className="text-xs sm:text-sm text-slate-500 mb-3">SKU: {item.product.slug.toUpperCase()}</p>
                     
                     <div className="flex items-center gap-3">
@@ -100,13 +100,13 @@ export default function QuoteClient() {
                   <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
-                  <h4 className="text-lg font-bold text-navy-900 mb-2">Select Products First</h4>
+                  <h3 className="text-lg font-bold text-navy-900 mb-2">Select Products First</h3>
                   <p className="text-sm text-slate-500 mb-4">Please add items to your quote list before submitting your request.</p>
                 </div>
               </div>
             )}
 
-            <h3 className="text-lg sm:text-xl font-bold text-navy-900 border-b border-slate-100 pb-3">Contact Information</h3>
+            <h2 className="text-lg sm:text-xl font-bold text-navy-900 border-b border-slate-100 pb-3">Contact Information</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">First Name *</label>
@@ -141,7 +141,7 @@ export default function QuoteClient() {
               </div>
             </div>
 
-            <h3 className="text-lg sm:text-xl font-bold text-navy-900 border-b border-slate-100 pb-3 mt-4">Order Requirements</h3>
+            <h2 className="text-lg sm:text-xl font-bold text-navy-900 border-b border-slate-100 pb-3 mt-4">Order Requirements</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               <div>
@@ -189,7 +189,7 @@ export default function QuoteClient() {
                <Truck className="w-6 h-6 sm:w-7 sm:h-7 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
              </div>
              
-             <h4 className="text-lg sm:text-xl font-extrabold mb-3 relative z-10 group-hover:text-amber-400 transition-colors">Private Labeling</h4>
+             <h3 className="text-lg sm:text-xl font-extrabold mb-3 relative z-10 group-hover:text-amber-400 transition-colors">Private Labeling</h3>
              <p className="text-navy-300 text-sm sm:text-base font-light leading-relaxed relative z-10">
                Build your own brand. We offer custom stamping, branded boxes, and custom paint colors for full container orders.
              </p>
@@ -206,7 +206,7 @@ export default function QuoteClient() {
                <Globe className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
              </div>
              
-             <h4 className="text-lg sm:text-xl font-extrabold text-navy-900 mb-3 relative z-10 group-hover:text-emerald-600 transition-colors">Global Logistics</h4>
+             <h3 className="text-lg sm:text-xl font-extrabold text-navy-900 mb-3 relative z-10 group-hover:text-emerald-600 transition-colors">Global Logistics</h3>
              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 relative z-10">
                Our export team handles everything from EXW factory floor to CIF at your destination port.
              </p>

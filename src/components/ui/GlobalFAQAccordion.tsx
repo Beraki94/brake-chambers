@@ -32,8 +32,8 @@ export default function GlobalFAQAccordion({ faqs, theme = 'light' }: GlobalFAQA
           <div
             key={idx}
             className={`sm:rounded-2xl transition-all duration-300 overflow-hidden ${isDark
-                ? 'bg-navy-800 border-y sm:border border-navy-700 hover:border-navy-600'
-                : 'bg-blue-50 border-y sm:border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-300'
+              ? 'bg-navy-800 border-y sm:border border-navy-700 hover:border-navy-600'
+              : 'bg-blue-50 border-y sm:border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-300'
               }`}
           >
             <button
@@ -46,10 +46,10 @@ export default function GlobalFAQAccordion({ faqs, theme = 'light' }: GlobalFAQA
               </span>
               <div
                 className={`w-7 h-7 sm:w-8 sm:h-8 shrink-0 rounded-full flex items-center justify-center transition-transform duration-300 ${isOpen
-                    ? 'rotate-180 bg-amber-500 text-navy-950 shadow-md shadow-amber-500/20'
-                    : isDark
-                      ? 'bg-navy-900 text-slate-400'
-                      : 'bg-slate-50 text-slate-400 border border-slate-100'
+                  ? 'rotate-180 bg-amber-500 text-navy-950 shadow-md shadow-amber-500/20'
+                  : isDark
+                    ? 'bg-navy-900 text-slate-400'
+                    : 'bg-slate-50 text-slate-400 border border-slate-100'
                   }`}
               >
                 <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />

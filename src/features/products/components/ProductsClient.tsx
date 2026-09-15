@@ -180,9 +180,9 @@ export default function ProductsClient() {
                           {group.tag}
                         </div>
                       )}
-                      <h3 className="text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-3 drop-shadow-lg group-hover:translate-x-2 transition-transform duration-300">
+                      <h2 className="text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-3 drop-shadow-lg group-hover:translate-x-2 transition-transform duration-300">
                         {group.title}
-                      </h3>
+                      </h2>
                       <p className="text-navy-100 text-sm md:text-base leading-relaxed font-light mb-6 max-w-sm text-justify">
                         {group.desc}
                       </p>
@@ -221,9 +221,9 @@ export default function ProductsClient() {
                         {/* Colored top dash — grows on hover */}
                         <div className={`w-8 h-1 rounded-full mb-5 transition-all duration-300 group-hover/card:w-14 ${a.borderBar}`} />
                         <div className="mb-3 lg:mb-4">
-                          <h4 className={`text-lg sm:text-xl lg:text-2xl font-extrabold text-navy-900 transition-colors ${a.cardText} leading-tight`}>
+                          <h3 className={`text-lg sm:text-xl lg:text-2xl font-extrabold text-navy-900 transition-colors ${a.cardText} leading-tight`}>
                             {link.title}
-                          </h4>
+                          </h3>
                         </div>
                         <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed text-justify">
                           {link.desc}

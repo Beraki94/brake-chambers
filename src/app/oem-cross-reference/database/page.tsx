@@ -5,7 +5,6 @@ import PageHeader from '@/components/layout/PageHeader';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import { Download, Table, FileSpreadsheet } from 'lucide-react';
 import { BRAKE_CHAMBERS } from '@/lib/data';
-import Card from '@/components/ui/Card';
 
 export const metadata: Metadata = {
   title: 'Full Interchange Database | BRC Brake Chambers',
@@ -42,7 +41,7 @@ export default function DatabasePage() {
   allMappings.sort((a, b) => a.oemBrand.localeCompare(b.oemBrand));
 
   return (
-    <div className="bg-slate-50 min-h-screen font-sans">
+    <div className="bg-[#F8FAFC] pb-16 md:pb-24 font-sans overflow-x-clip">
       <PageHeader
         badge="Master List"
         title="Full Interchange Database"
@@ -54,60 +53,64 @@ export default function DatabasePage() {
         ]}
       />
 
-      <div className="container mx-auto px-4 max-w-screen-2xl py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] -mt-6 sm:-mt-16 relative z-20">
         
-        {/* Action Bar */}
-        <Card padding="md" className="flex flex-col sm:flex-row justify-between items-center bg-white border border-slate-200 shadow-sm mb-8">
-          <div className="flex items-center mb-4 sm:mb-0">
-            <div className="w-12 h-12 bg-navy-50 rounded-full flex items-center justify-center mr-4">
-              <Table className="w-6 h-6 text-navy-500" />
+        <div className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-4 sm:p-8 lg:p-10 -mx-4 sm:mx-0 flex flex-col gap-6 sm:gap-8">
+          
+          {/* Action Bar */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div className="flex items-center w-full md:w-auto">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-navy-50 rounded-xl flex items-center justify-center mr-4 shrink-0 shadow-inner">
+                <Table className="w-6 h-6 sm:w-7 sm:h-7 text-navy-600" />
+              </div>
+              <div>
+                <h2 className="font-extrabold text-navy-900 text-lg sm:text-xl">Live Web Index</h2>
+                <p className="text-sm font-medium text-slate-500">{allMappings.length} exact matches found</p>
+              </div>
             </div>
-            <div>
-              <h3 className="font-bold text-navy-900 text-lg">Live Web Index</h3>
-              <p className="text-sm text-slate-500">{allMappings.length} exact matches found</p>
+            
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full md:w-auto">
+              <button className="w-full sm:w-auto flex justify-center items-center px-6 py-3.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 text-navy-900 font-bold rounded-xl transition-colors shadow-sm">
+                <FileSpreadsheet className="w-5 h-5 mr-2 text-slate-500" /> Export CSV
+              </button>
+              <button className="w-full sm:w-auto flex justify-center items-center px-6 py-3.5 bg-amber-500 hover:bg-amber-400 text-navy-950 font-extrabold rounded-xl transition-transform transform hover:-translate-y-0.5 shadow-lg shadow-amber-500/20">
+                <Download className="w-5 h-5 mr-2" /> Download PDF Guide
+              </button>
             </div>
           </div>
-          <div className="flex gap-4">
-            <button className="flex items-center px-6 py-3 bg-slate-100 hover:bg-slate-200 text-navy-900 font-bold rounded-xl transition-colors">
-              <FileSpreadsheet className="w-5 h-5 mr-2" /> Export CSV
-            </button>
-            <button className="flex items-center px-6 py-3 bg-amber-500 hover:bg-amber-400 text-navy-950 font-bold rounded-xl transition-colors shadow-lg shadow-amber-500/20">
-              <Download className="w-5 h-5 mr-2" /> Download PDF Guide
-            </button>
-          </div>
-        </Card>
 
-        {/* Database Table */}
-        <Card padding="none" className="overflow-hidden border border-slate-200">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-slate-100 border-b border-slate-200">
-                  <th className="p-3 sm:p-4 font-bold text-navy-900 whitespace-nowrap">OEM Brand</th>
-                  <th className="p-3 sm:p-4 font-bold text-navy-900 whitespace-nowrap">OEM Part #</th>
-                  <th className="p-3 sm:p-4 font-bold text-navy-900 whitespace-nowrap">Category</th>
-                  <th className="p-3 sm:p-4 font-bold text-navy-900 whitespace-nowrap">BRC Equivalent</th>
-                  <th className="p-3 sm:p-4 font-bold text-navy-900 text-right whitespace-nowrap">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {allMappings.map((row, idx) => (
-                  <tr key={idx} className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                    <td className="p-3 sm:p-4 font-medium text-slate-700 whitespace-nowrap">{row.oemBrand}</td>
-                    <td className="p-3 sm:p-4 font-mono font-bold text-navy-900 whitespace-nowrap">{row.oemPart}</td>
-                    <td className="p-3 sm:p-4 text-slate-500 text-sm whitespace-nowrap">{row.category}</td>
-                    <td className="p-3 sm:p-4 font-bold text-emerald-600 whitespace-nowrap">{row.brcEquivalent}</td>
-                    <td className="p-3 sm:p-4 text-right whitespace-nowrap">
-                      <Link href={row.brcSlug} className="text-amber-600 hover:text-amber-700 font-bold text-sm hover:underline">
-                        View Part
-                      </Link>
-                    </td>
+          {/* Database Table Container */}
+          <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200 shadow-sm">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse min-w-[800px]">
+                <thead>
+                  <tr className="bg-navy-900 text-white border-b border-navy-800">
+                    <th className="p-4 sm:p-5 font-bold tracking-wide text-sm whitespace-nowrap">OEM Brand</th>
+                    <th className="p-4 sm:p-5 font-bold tracking-wide text-sm whitespace-nowrap">OEM Part #</th>
+                    <th className="p-4 sm:p-5 font-bold tracking-wide text-sm whitespace-nowrap">Category</th>
+                    <th className="p-4 sm:p-5 font-bold tracking-wide text-sm whitespace-nowrap">BRC Equivalent</th>
+                    <th className="p-4 sm:p-5 font-bold tracking-wide text-sm text-right whitespace-nowrap">Action</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {allMappings.map((row, idx) => (
+                    <tr key={idx} className="hover:bg-slate-50 transition-colors group">
+                      <td className="p-4 sm:p-5 font-medium text-slate-700 whitespace-nowrap group-hover:text-navy-900">{row.oemBrand}</td>
+                      <td className="p-4 sm:p-5 font-mono font-bold text-navy-900 whitespace-nowrap bg-slate-50/50 group-hover:bg-transparent">{row.oemPart}</td>
+                      <td className="p-4 sm:p-5 text-slate-500 text-sm whitespace-nowrap uppercase tracking-wider">{row.category}</td>
+                      <td className="p-4 sm:p-5 font-bold text-emerald-600 whitespace-nowrap">{row.brcEquivalent}</td>
+                      <td className="p-4 sm:p-5 text-right whitespace-nowrap">
+                        <Link href={row.brcSlug} className="inline-flex items-center justify-center px-4 py-2 bg-white border border-amber-200 text-amber-700 hover:bg-amber-50 hover:text-amber-800 font-bold text-xs rounded-lg transition-colors shadow-sm">
+                          View Part
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </Card>
+        </div>
 
       </div>
 

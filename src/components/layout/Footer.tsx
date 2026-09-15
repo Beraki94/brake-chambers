@@ -23,7 +23,7 @@ const FooterColumn = ({ title, children }: { title: string, children: React.Reac
 
     {/* Desktop: Standard List */}
     <div className="hidden md:block">
-      <h4 className="font-bold text-lg mb-6 font-heading">{title}</h4>
+      <div className="font-bold text-lg mb-6 font-heading">{title}</div>
       {children}
     </div>
   </>

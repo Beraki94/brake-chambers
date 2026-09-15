@@ -207,7 +207,6 @@ export default function OEMCrossReferenceClient() {
       <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <SectionHeader
-            badge="Cross-Reference FAQ"
             title="Frequently Asked Questions"
             accentColor="amber"
           />

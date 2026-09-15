@@ -277,7 +277,7 @@ export default function ApplicationsClient() {
                 <div className="relative z-10 w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
                   <stat.icon className="w-7 h-7 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h4 className="relative z-10 text-xl font-extrabold text-white mb-3 group-hover:text-amber-400 transition-colors">{stat.title}</h4>
+                <h3 className="relative z-10 text-xl font-extrabold text-white mb-3 group-hover:text-amber-400 transition-colors">{stat.title}</h3>
                 <p className="relative z-10 text-navy-300 text-sm md:text-base leading-relaxed font-light">{stat.desc}</p>
               </motion.div>
             ))}
@@ -313,18 +313,18 @@ export default function ApplicationsClient() {
               
               <div className="space-y-6 mb-8">
                 <div className="bg-slate-50 border-l-4 border-slate-300 p-5 rounded-r-xl transition-all duration-300 hover:shadow-md">
-                  <h4 className="font-bold text-navy-900 mb-1 flex items-center gap-2">
+                  <h3 className="font-bold text-navy-900 mb-1 flex items-center gap-2">
                     <ShieldAlert className="w-4 h-4 text-slate-500" /> Challenge
-                  </h4>
+                  </h3>
                   <p className="text-slate-600 text-sm md:text-base font-light">
                     Extreme cold causing frozen diaphragms and costly roadside repairs.
                   </p>
                 </div>
                 
                 <div className="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl shadow-sm shadow-amber-500/10 transition-all duration-300 hover:shadow-md hover:shadow-amber-500/20">
-                  <h4 className="font-bold text-navy-900 mb-1 flex items-center gap-2">
+                  <h3 className="font-bold text-navy-900 mb-1 flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-amber-500" /> Result
-                  </h4>
+                  </h3>
                   <p className="text-slate-700 text-sm md:text-base font-medium">
                     Zero failures after switching to BRC Sub-Zero rated chambers. Maintenance costs reduced 25%.
                   </p>

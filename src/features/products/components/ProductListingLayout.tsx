@@ -84,7 +84,7 @@ export default function ProductListingLayout({
         badge={badge}
         breadcrumbs={[{ label: 'Home', href: '/' }, ...breadcrumbs]}
       />
-      <div className="container mx-auto px-4 lg:px-8 py-6 lg:py-8 max-w-[1920px]">
+      <div className={`container mx-auto px-4 lg:px-8 pt-6 lg:pt-8 max-w-[1920px] ${isSubCategory ? 'pb-16 lg:pb-24' : 'pb-6 lg:pb-8'}`}>
 
       {!isSubCategory && <TrustBanner />}
 
@@ -133,7 +133,7 @@ export default function ProductListingLayout({
           
           
           {isSubCategory && (
-            <div className="flex flex-col gap-6 sm:gap-8 mt-6 sm:mt-10 md:mt-16">
+            <div className="flex flex-col gap-12 sm:gap-16 mt-10 sm:mt-16">
               <SubCategoryComparisonTable products={paginatedProducts} categoryName={title} />
               <SubCategoryWholesaleCTA categoryName={title} />
               <SubCategoryFAQ categoryName={title} />

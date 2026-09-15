@@ -62,7 +62,7 @@ export default function TrendingModelsMarquee() {
                   </div>
                   
                   <div className="flex items-start justify-between gap-2 mb-2">
-                    <h4 className="font-extrabold text-navy-900 text-lg truncate">{chamber.name}</h4>
+                    <h3 className="font-extrabold text-navy-900 text-lg truncate">{chamber.name}</h3>
                     <ArrowUpRight className="w-5 h-5 text-slate-400 group-hover/card:text-amber-500 transition-colors flex-shrink-0" />
                   </div>
                   
@@ -106,7 +106,7 @@ export default function TrendingModelsMarquee() {
                   </div>
                   
                   <div className="flex items-start justify-between gap-2 mb-2">
-                    <h4 className="font-extrabold text-navy-900 text-lg truncate">{chamber.name}</h4>
+                    <h3 className="font-extrabold text-navy-900 text-lg truncate">{chamber.name}</h3>
                     <ArrowUpRight className="w-5 h-5 text-slate-400 group-hover/card:text-amber-500 transition-colors flex-shrink-0" />
                   </div>
                   

@@ -144,11 +144,11 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
                       {data.alert.type === 'info' && <Info className="w-8 h-8" aria-hidden="true" />}
                     </div>
                     <div>
-                      <h4 className={`text-lg md:text-xl font-black tracking-tight mb-2 uppercase
+                      <div className={`text-lg md:text-xl font-black tracking-tight mb-2 uppercase
                       ${data.alert.type === 'danger' ? 'text-red-900' : ''}
                       ${data.alert.type === 'warning' ? 'text-amber-900' : ''}
                       ${data.alert.type === 'info' ? 'text-blue-900' : ''}
-                    `}>{data.alert.title}</h4>
+                    `}>{data.alert.title}</div>
                       <p className={`font-medium leading-relaxed
                       ${data.alert.type === 'danger' ? 'text-red-800' : ''}
                       ${data.alert.type === 'warning' ? 'text-amber-800' : ''}

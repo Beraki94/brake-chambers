@@ -33,22 +33,22 @@ export default function ShippingPage() {
         <section aria-label="Logistics Statistics" className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16">
           <Card padding="md" className="bg-white border-slate-100 shadow-xl shadow-navy-900/5 text-center transform transition-all duration-300 hover:-translate-y-1">
             <Globe2 className="w-8 h-8 text-amber-500 mx-auto mb-3" />
-            <h4 className="text-3xl md:text-4xl font-black text-navy-900 mb-1">100+</h4>
+            <div className="text-3xl md:text-4xl font-black text-navy-900 mb-1">100+</div>
             <p className="text-slate-500 text-xs md:text-sm font-bold uppercase tracking-wider">Countries Shipped</p>
           </Card>
           <Card padding="md" className="bg-white border-slate-100 shadow-xl shadow-navy-900/5 text-center transform transition-all duration-300 hover:-translate-y-1">
             <Clock className="w-8 h-8 text-amber-500 mx-auto mb-3" />
-            <h4 className="text-3xl md:text-4xl font-black text-navy-900 mb-1">20-35</h4>
+            <div className="text-3xl md:text-4xl font-black text-navy-900 mb-1">20-35</div>
             <p className="text-slate-500 text-xs md:text-sm font-bold uppercase tracking-wider">Days to Americas</p>
           </Card>
           <Card padding="md" className="bg-white border-slate-100 shadow-xl shadow-navy-900/5 text-center transform transition-all duration-300 hover:-translate-y-1">
             <ShieldCheck className="w-8 h-8 text-amber-500 mx-auto mb-3" />
-            <h4 className="text-3xl md:text-4xl font-black text-navy-900 mb-1">ISPM-15</h4>
+            <div className="text-3xl md:text-4xl font-black text-navy-900 mb-1">ISPM-15</div>
             <p className="text-slate-500 text-xs md:text-sm font-bold uppercase tracking-wider">Treated Pallets</p>
           </Card>
           <Card padding="md" className="bg-white border-slate-100 shadow-xl shadow-navy-900/5 text-center transform transition-all duration-300 hover:-translate-y-1">
             <Package className="w-8 h-8 text-amber-500 mx-auto mb-3" />
-            <h4 className="text-3xl md:text-4xl font-black text-navy-900 mb-1">Zero</h4>
+            <div className="text-3xl md:text-4xl font-black text-navy-900 mb-1">Zero</div>
             <p className="text-slate-500 text-xs md:text-sm font-bold uppercase tracking-wider">Dead Container Space</p>
           </Card>
         </section>

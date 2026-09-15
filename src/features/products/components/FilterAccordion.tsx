@@ -38,7 +38,7 @@ export default function FilterAccordion({ title, children, isOpen, onToggle }: F
           <span>{title}</span>
           <span className={`text-slate-400 transition-transform ${isActuallyOpen ? 'rotate-90' : ''}`}>&gt;</span>
         </summary>
-        <div className="bg-blue-50 border-t border-navy-800">
+        <div className="bg-white border-t border-navy-800">
           {children}
         </div>
       </details>
@@ -48,7 +48,7 @@ export default function FilterAccordion({ title, children, isOpen, onToggle }: F
         <div className="bg-navy-900 text-white font-bold py-3 px-4 text-sm flex justify-between items-center">
           <span>{title}</span>
         </div>
-        <div className="bg-blue-50 border-t border-navy-800">
+        <div className="bg-white border-t border-navy-800">
           {children}
         </div>
       </div>

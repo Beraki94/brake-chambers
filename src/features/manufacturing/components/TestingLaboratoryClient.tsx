@@ -168,7 +168,7 @@ export default function TestingLaboratoryClient() {
             <div className="w-14 h-14 bg-amber-400/10 rounded-2xl flex items-center justify-center mb-6 border border-amber-400/20">
               <Cpu className="w-7 h-7 text-amber-400" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-4 font-heading tracking-tight">IATF-Aligned Quality System</h3>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4 font-heading tracking-tight">IATF-Aligned Quality System</h2>
             <p className="text-navy-200 text-sm md:text-base leading-relaxed">
               Every test result is logged in our quality management system—operating strictly to IATF 16949 standards—providing full traceability from raw material to finished chamber for every batch we produce.
             </p>

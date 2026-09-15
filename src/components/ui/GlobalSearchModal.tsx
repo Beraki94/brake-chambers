@@ -192,9 +192,9 @@ export default function GlobalSearchModal() {
                     {/* Catalog Results */}
                     {searchResults.catalog.length > 0 && (
                       <div>
-                        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 px-2 flex items-center gap-2">
+                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 px-2 flex items-center gap-2">
                           <Package className="w-3.5 h-3.5" /> BRC Products ({searchResults.catalog.length})
-                        </h4>
+                        </div>
                         <div className="flex flex-col gap-1">
                           {searchResults.catalog.slice(0, 5).map((result) => (
                             <button
@@ -219,9 +219,9 @@ export default function GlobalSearchModal() {
                     {/* OEM Results */}
                     {searchResults.oem.length > 0 && (
                       <div>
-                        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 px-2 flex items-center gap-2">
+                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 px-2 flex items-center gap-2">
                           <ShieldCheck className="w-3.5 h-3.5" /> OEM Cross-References ({searchResults.oem.length})
-                        </h4>
+                        </div>
                         <div className="flex flex-col gap-1">
                           {searchResults.oem.slice(0, 5).map((result) => (
                             <button

@@ -115,7 +115,7 @@ export const MANUFACTURING_MENU: MegaMenuConfig = {
       links: [],
       extraContent: (
         <div className="bg-slate-50 p-5 rounded-xl border border-slate-100 flex flex-col justify-center h-full">
-          <h4 className="font-bold text-navy-900 mb-2 text-sm">Build With Us</h4>
+          <div className="font-bold text-navy-900 mb-2 text-sm">Build With Us</div>
           <p className="text-slate-600 text-xs mb-4">Partner with a manufacturer that controls the entire supply chain. Request custom engineering or volume pricing.</p>
           <Link href="/quote" className="inline-block bg-amber-500 hover:bg-amber-400 text-navy-950 font-bold px-4 py-2 rounded-lg text-xs transition-colors text-center">
             Request Factory Direct Pricing

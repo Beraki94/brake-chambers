@@ -78,7 +78,7 @@ export default function CompanyClient() {
                 <div className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-8">
                   <div className="bg-white/90 backdrop-blur-md p-4 sm:p-6 rounded-2xl shadow-xl border border-white relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-amber-400 to-amber-600"></div>
-                    <h4 className="text-navy-900 font-extrabold text-xl mb-2">Our Leadership</h4>
+                    <h3 className="text-navy-900 font-extrabold text-xl mb-2">Our Leadership</h3>
                     <p className="text-slate-600 text-sm leading-relaxed">
                       Led by our executive team and master engineers, we combine decades of experience in commercial vehicle braking systems, metallurgical science, and lean manufacturing to set the global standard.
                     </p>
@@ -264,7 +264,7 @@ export default function CompanyClient() {
               <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10">
                 <Microscope className="w-7 h-7" />
               </div>
-              <h4 className="text-xl font-extrabold text-navy-900 mb-4 relative z-10">Authentic Test Reports</h4>
+              <h3 className="text-xl font-extrabold text-navy-900 mb-4 relative z-10">Authentic Test Reports</h3>
               <p className="text-slate-600 font-light leading-relaxed relative z-10">
                 We utilize advanced detection equipment to document the testing process. Real quality inspection reports are generated and provided with every batch.
               </p>
@@ -282,7 +282,7 @@ export default function CompanyClient() {
               <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10">
                 <TestTube className="w-7 h-7" />
               </div>
-              <h4 className="text-xl font-extrabold text-navy-900 mb-4 relative z-10">Material Verification</h4>
+              <h3 className="text-xl font-extrabold text-navy-900 mb-4 relative z-10">Material Verification</h3>
               <p className="text-slate-600 font-light leading-relaxed relative z-10">
                 From the 13.5mm high-grade spring steel to the thickened housing materials, all incoming raw components are rigorously verified against OEM specifications.
               </p>
@@ -300,7 +300,7 @@ export default function CompanyClient() {
               <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10">
                 <ShieldCheck className="w-7 h-7" />
               </div>
-              <h4 className="text-xl font-extrabold text-navy-900 mb-4 relative z-10">Pneumatic Leak Testing</h4>
+              <h3 className="text-xl font-extrabold text-navy-900 mb-4 relative z-10">Pneumatic Leak Testing</h3>
               <p className="text-slate-600 font-light leading-relaxed relative z-10">
                 100% end-of-line pneumatic leak testing for every single chamber under specified air pressure conditions. If it isn't completely airtight, it is rejected.
               </p>
@@ -345,7 +345,7 @@ export default function CompanyClient() {
                 <div className="relative z-10 w-16 h-16 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
                   <CheckCircle2 className="w-8 h-8 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h4 className="relative z-10 text-white font-extrabold text-lg mb-2 group-hover:text-amber-400 transition-colors">{badge.title}</h4>
+                <h3 className="relative z-10 text-white font-extrabold text-lg mb-2 group-hover:text-amber-400 transition-colors">{badge.title}</h3>
                 <p className="relative z-10 text-navy-300 text-sm font-light leading-relaxed">{badge.desc}</p>
               </div>
             ))}

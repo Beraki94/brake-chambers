@@ -205,7 +205,7 @@ export default function CustomOemClient() {
                   <div key={idx} className="flex gap-4 items-start">
                     <IconBox icon={<ShieldCheck />} color="amber" size="md" className="shrink-0 mt-1 shadow-sm group-hover:scale-110 transition-transform" />
                     <div>
-                      <h4 className="font-bold text-lg text-navy-900 mb-1">{item.title}</h4>
+                      <h3 className="font-bold text-lg text-navy-900 mb-1">{item.title}</h3>
                       <p className="text-slate-600 text-sm md:text-base leading-relaxed">{item.desc}</p>
                     </div>
                   </div>

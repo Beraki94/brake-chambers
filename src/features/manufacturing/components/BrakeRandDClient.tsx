@@ -290,7 +290,7 @@ export default function BrakeRandDClient() {
             <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 text-left">
               <div className="bg-navy-900/90 backdrop-blur-md p-5 md:p-8 rounded-2xl border border-navy-700 inline-block max-w-xl">
-                <h4 className="text-amber-400 font-bold mb-2 uppercase tracking-widest text-xs md:text-sm">Active Simulation</h4>
+                <h3 className="text-amber-400 font-bold mb-2 uppercase tracking-widest text-xs md:text-sm">Active Simulation</h3>
                 <p className="text-white font-light text-sm md:text-base leading-relaxed">Stress distribution mapped across a Type 30/30 housing under 150 PSI test load, ensuring zero micro-fractures under extreme braking events.</p>
               </div>
             </div>
@@ -340,9 +340,9 @@ export default function BrakeRandDClient() {
                         </span>
                       </div>
                       <div>
-                        <h4 className={`font-bold text-navy-900 text-sm md:text-base mb-2 transition-colors ${isEven ? 'group-hover:text-amber-600' : 'group-hover:text-navy-600'}`}>
+                        <h3 className={`font-bold text-navy-900 text-sm md:text-base mb-2 transition-colors ${isEven ? 'group-hover:text-amber-600' : 'group-hover:text-navy-600'}`}>
                           {item.title}
-                        </h4>
+                        </h3>
                         <p className="text-slate-500 text-sm leading-relaxed">{item.detail}</p>
                       </div>
                     </Card>

@@ -231,7 +231,6 @@ export default function ContactClient() {
               className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-6 sm:p-8 lg:p-10 -mx-4 sm:mx-0"
             >
               <SectionHeader
-                badge="FAQ"
                 title="Frequently Asked Questions"
                 align="left"
                 theme="light"

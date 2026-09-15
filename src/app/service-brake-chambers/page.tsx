@@ -56,7 +56,6 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
 
       <section className="mt-16 max-w-4xl mx-auto">
         <SectionHeader
-          badge="FAQ"
           title="Frequently Asked Questions"
           align="center"
           accentColor="amber"

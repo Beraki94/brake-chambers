@@ -91,36 +91,36 @@ export default function ProductDetailLayout({
           </div>
 
           {/* OEM Table */}
-          <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden mb-8 shadow-sm">
-            <div className="bg-slate-50 border-b border-slate-200 px-6 py-4">
-              <h2 className="font-bold text-navy-900 flex items-center text-sm tracking-wide uppercase">
+          <div className="border-y sm:border border-slate-200 rounded-none sm:rounded-xl overflow-hidden mb-2 sm:mb-8 -mx-5 sm:mx-0">
+            <div className="bg-slate-50 border-b border-slate-200 px-5 sm:px-5 py-3 sm:py-4">
+              <h2 className="font-bold text-navy-900 flex items-center text-xs sm:text-sm tracking-wide uppercase">
                 <ShieldCheck size={18} className="mr-2 text-amber-500"/> Direct OEM Cross-Reference
               </h2>
             </div>
-            <div className="p-0 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-200 pb-2">
-              <table className="w-full text-sm text-left">
-                <thead className="bg-slate-50 text-slate-500 text-[11px] uppercase font-bold tracking-wider whitespace-nowrap">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left">
+                <thead className="bg-white border-b border-slate-100 text-slate-500 text-[11px] sm:text-xs uppercase font-bold tracking-wider">
                   <tr>
-                    <th className="px-3 py-3 md:px-6 md:py-3 border-b border-slate-100">Brand</th>
-                    <th className="px-3 py-3 md:px-6 md:py-3 border-b border-slate-100">Part Number</th>
-                    <th className="px-3 py-3 md:px-6 md:py-3 border-b border-slate-100">Notes</th>
+                    <th className="px-4 py-3 sm:px-5 sm:py-3 whitespace-nowrap">Brand</th>
+                    <th className="px-4 py-3 sm:px-5 sm:py-3 whitespace-nowrap">Part Number</th>
+                    <th className="px-4 py-3 sm:px-5 sm:py-3 whitespace-nowrap">Notes</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-slate-50 text-sm">
                   {product.oemPartNumbers && product.oemPartNumbers.length > 0 ? (
                     product.oemPartNumbers.map((oem: any, idx: number) => (
-                      <tr key={idx} className="hover:bg-amber-50/30 transition-colors group">
-                        <td className="px-3 py-3 md:px-6 md:py-4 font-semibold text-navy-900 whitespace-nowrap">{oem.brand}</td>
-                        <td className="px-3 py-3 md:px-6 md:py-4 font-mono font-bold text-navy-700 bg-slate-50/50 group-hover:bg-amber-100/50 group-hover:text-amber-700 transition-colors whitespace-nowrap">{oem.partNumber}</td>
-                        <td className="px-3 py-3 md:px-6 md:py-4 text-slate-500 text-xs min-w-[120px]">{oem.notes || 'Direct Drop-in Replacement'}</td>
+                      <tr key={idx} className="hover:bg-slate-50 transition-colors">
+                        <td className="px-4 py-3 sm:px-5 sm:py-4 font-semibold text-navy-900 whitespace-nowrap">{oem.brand}</td>
+                        <td className="px-4 py-3 sm:px-5 sm:py-4 font-mono font-bold text-navy-700 whitespace-nowrap">{oem.partNumber}</td>
+                        <td className="px-4 py-3 sm:px-5 sm:py-4 text-slate-500 text-xs sm:text-sm min-w-[120px]">{oem.notes || 'Direct Drop-in Replacement'}</td>
                       </tr>
                     ))
                   ) : (
                     product.crossReferenceBrands?.map((brand: string, idx: number) => (
                       <tr key={idx} className="hover:bg-slate-50 transition-colors">
-                        <td className="px-3 py-3 md:px-6 md:py-4 font-semibold text-navy-900 whitespace-nowrap">{brand}</td>
-                        <td className="px-3 py-3 md:px-6 md:py-4 font-mono text-slate-400 whitespace-nowrap">Match by Specs</td>
-                        <td className="px-3 py-3 md:px-6 md:py-4 text-slate-400 text-xs min-w-[120px]">-</td>
+                        <td className="px-4 py-3 sm:px-5 sm:py-4 font-semibold text-navy-900 whitespace-nowrap">{brand}</td>
+                        <td className="px-4 py-3 sm:px-5 sm:py-4 font-mono text-slate-400 whitespace-nowrap">Match by Specs</td>
+                        <td className="px-4 py-3 sm:px-5 sm:py-4 text-slate-400 text-xs min-w-[120px]">-</td>
                       </tr>
                     ))
                   )}
@@ -131,7 +131,7 @@ export default function ProductDetailLayout({
 
 
           {/* Static CTA Buttons */}
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 pt-6 border-t border-slate-100">
+          <div className="mt-4 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 pt-5 sm:pt-6 border-t border-slate-100">
             <Link href="/quote" className="flex-1 bg-amber-500 hover:bg-amber-400 text-navy-950 text-center font-black py-4 rounded-xl transition-all shadow-xl shadow-amber-500/20 uppercase tracking-widest text-sm flex items-center justify-center">
               Submit Bulk RFQ
             </Link>

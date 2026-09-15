@@ -73,10 +73,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
         onToggle={() => setOpenSection(openSection === "Categories" ? null : "Categories")}
       >
           <ul className="py-2">
-            <li><Link href={`/spring-brake-chambers`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Spring Brakes</Link></li>
-            <li><Link href={`/service-brake-chambers`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Service Chambers</Link></li>
-            <li><Link href={`/air-disc-brake-actuators`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Air Disc Actuators</Link></li>
-            <li><Link href={`/parts-and-kits`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Parts & Kits</Link></li>
+            <li><Link href={`/spring-brake-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${baseCategory === 'spring-brake-chambers' ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Spring Brakes</Link></li>
+            <li><Link href={`/service-brake-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${baseCategory === 'service-brake-chambers' ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Service Chambers</Link></li>
+            <li><Link href={`/air-disc-brake-actuators`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${baseCategory === 'air-disc-brake-actuators' ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Air Disc Actuators</Link></li>
+            <li><Link href={`/parts-and-kits`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${baseCategory === 'parts-and-kits' ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Parts & Kits</Link></li>
           </ul>
         </FilterAccordion>
       )}
@@ -88,12 +88,12 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
         onToggle={() => setOpenSection(openSection === "Spring Brake Types" ? null : "Spring Brake Types")}
       >
           <ul className="py-2">
-            <li><Link href={`/spring-brake-chambers/30-30-air-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('30-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30/30 Spring Brake</Link></li>
-            <li><Link href={`/spring-brake-chambers/36-36-spring-brakes`} className={`block px-4 py-2 text-sm ${pathname.includes('36-36') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 36/36 Spring Brake</Link></li>
-            <li><Link href={`/spring-brake-chambers/24-30-24-24-spring-brakes`} className={`block px-4 py-2 text-sm ${pathname.includes('24-30-24-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/30 & 24/24 Chambers</Link></li>
-            <li><Link href={`/spring-brake-chambers/30-28-spring-brakes`} className={`block px-4 py-2 text-sm ${pathname.includes('30-28') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30/28 Spring Brake</Link></li>
-            <li><Link href={`/spring-brake-chambers/20-24-spring-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('20-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20/24 Spring Brake</Link></li>
-            <li><Link href={`/spring-brake-chambers/type-30-30-piggyback-kits`} className={`block px-4 py-2 text-sm ${pathname.includes('piggyback') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30/30 Piggyback Kits</Link></li>
+            <li><Link href={`/spring-brake-chambers/30-30-air-brake-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('30-30') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 30/30 Spring Brake</Link></li>
+            <li><Link href={`/spring-brake-chambers/36-36-spring-brakes`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('36-36') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 36/36 Spring Brake</Link></li>
+            <li><Link href={`/spring-brake-chambers/24-30-24-24-spring-brakes`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('24-30-24-24') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 24/30 & 24/24 Chambers</Link></li>
+            <li><Link href={`/spring-brake-chambers/30-28-spring-brakes`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('30-28') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 30/28 Spring Brake</Link></li>
+            <li><Link href={`/spring-brake-chambers/20-24-spring-brake-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('20-24') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 20/24 Spring Brake</Link></li>
+            <li><Link href={`/spring-brake-chambers/type-30-30-piggyback-kits`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('piggyback') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 30/30 Piggyback Kits</Link></li>
             <li><Link href={`/spring-brake-chambers`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Spring Brakes</Link></li>
           </ul>
         </FilterAccordion>
@@ -106,11 +106,11 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
         onToggle={() => setOpenSection(openSection === "Service Chamber Types" ? null : "Service Chamber Types")}
       >
           <ul className="py-2">
-            <li><Link href={`/service-brake-chambers/type-20-steer-axle-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('20-steer') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20 Steer Axle Brake Chambers</Link></li>
-            <li><Link href={`/service-brake-chambers/type-30-service-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('type-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 30 Service Chambers</Link></li>
-            <li><Link href={`/service-brake-chambers/type-36-service-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('type-36') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 36 Service Chambers</Link></li>
-            <li><Link href={`/service-brake-chambers/type-12-16-24-service-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('12-16-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 12, 16 & 24 Service Chambers</Link></li>
-            <li><Link href={`/service-brake-chambers/welded-clevis-brake-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('welded-clevis') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Welded Clevis Brake Chambers</Link></li>
+            <li><Link href={`/service-brake-chambers/type-20-steer-axle-brake-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('20-steer') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 20 Steer Axle Brake Chambers</Link></li>
+            <li><Link href={`/service-brake-chambers/type-30-service-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('type-30') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 30 Service Chambers</Link></li>
+            <li><Link href={`/service-brake-chambers/type-36-service-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('type-36') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 36 Service Chambers</Link></li>
+            <li><Link href={`/service-brake-chambers/type-12-16-24-service-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('12-16-24') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 12, 16 & 24 Service Chambers</Link></li>
+            <li><Link href={`/service-brake-chambers/welded-clevis-brake-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('welded-clevis') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Welded Clevis Brake Chambers</Link></li>
             <li><Link href={`/service-brake-chambers`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Service Chambers</Link></li>
           </ul>
         </FilterAccordion>
@@ -123,10 +123,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
         onToggle={() => setOpenSection(openSection === "Air Disc Actuators" ? null : "Air Disc Actuators")}
       >
           <ul className="py-2">
-            <li><Link href={`/air-disc-brake-actuators/type-16-18-adb-actuators`} className={`block px-4 py-2 text-sm ${pathname.includes('16-18') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 16 & 18 ADB</Link></li>
-            <li><Link href={`/air-disc-brake-actuators/type-20-24-air-disc-brake-actuator`} className={`block px-4 py-2 text-sm ${pathname.includes('20-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 20/24 ADB</Link></li>
-            <li><Link href={`/air-disc-brake-actuators/type-24-24-adb-chambers`} className={`block px-4 py-2 text-sm ${pathname.includes('24-24') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/24 ADB</Link></li>
-            <li><Link href={`/air-disc-brake-actuators/type-24-30-air-disc-brake-actuators`} className={`block px-4 py-2 text-sm ${pathname.includes('24-30') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Type 24/30 ADB</Link></li>
+            <li><Link href={`/air-disc-brake-actuators/type-16-18-adb-actuators`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('16-18') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 16 & 18 ADB</Link></li>
+            <li><Link href={`/air-disc-brake-actuators/type-20-24-air-disc-brake-actuator`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('20-24') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 20/24 ADB</Link></li>
+            <li><Link href={`/air-disc-brake-actuators/type-24-24-adb-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('24-24') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 24/24 ADB</Link></li>
+            <li><Link href={`/air-disc-brake-actuators/type-24-30-air-disc-brake-actuators`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('24-30') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Type 24/30 ADB</Link></li>
             <li><Link href={`/air-disc-brake-actuators`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Air Disc Actuators</Link></li>
           </ul>
         </FilterAccordion>
@@ -139,12 +139,12 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
         onToggle={() => setOpenSection(openSection === "Parts & Kits Types" ? null : "Parts & Kits Types")}
       >
           <ul className="py-2">
-            <li><Link href={`/parts-and-kits/air-brake-chamber-rebuild-kits`} className={`block px-4 py-2 text-sm ${pathname.includes('rebuild-kits') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Air Brake Chamber Rebuild Kits</Link></li>
-            <li><Link href={`/parts-and-kits/brake-chamber-diaphragms`} className={`block px-4 py-2 text-sm ${pathname.includes('diaphragm') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Brake Chamber Diaphragms</Link></li>
-            <li><Link href={`/parts-and-kits/clevis-pins-slack-adjuster-hardware`} className={`block px-4 py-2 text-sm ${pathname.includes('clevis') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Clevis Pins & Hardware</Link></li>
-            <li><Link href={`/parts-and-kits/brake-chamber-caging-bolts-tools`} className={`block px-4 py-2 text-sm ${pathname.includes('caging') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Caging Bolts & Tools</Link></li>
-            <li><Link href={`/parts-and-kits/brake-chamber-clamp-bands`} className={`block px-4 py-2 text-sm ${pathname.includes('clamp') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Clamp Bands</Link></li>
-            <li><Link href={`/parts-and-kits/automatic-manual-slack-adjusters`} className={`block px-4 py-2 text-sm ${pathname.includes('slack-adjuster') ? 'text-slate-600 font-bold bg-navy-50' : 'text-navy-600 hover:bg-navy-50'}`}>Slack Adjusters</Link></li>
+            <li><Link href={`/parts-and-kits/air-brake-chamber-rebuild-kits`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('rebuild-kits') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Air Brake Chamber Rebuild Kits</Link></li>
+            <li><Link href={`/parts-and-kits/brake-chamber-diaphragms`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('diaphragm') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Brake Chamber Diaphragms</Link></li>
+            <li><Link href={`/parts-and-kits/clevis-pins-slack-adjuster-hardware`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('clevis') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Clevis Pins & Hardware</Link></li>
+            <li><Link href={`/parts-and-kits/brake-chamber-caging-bolts-tools`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('caging') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Caging Bolts & Tools</Link></li>
+            <li><Link href={`/parts-and-kits/brake-chamber-clamp-bands`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('clamp') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Clamp Bands</Link></li>
+            <li><Link href={`/parts-and-kits/automatic-manual-slack-adjusters`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${pathname.includes('slack-adjuster') ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Slack Adjusters</Link></li>
             <li><Link href={`/parts-and-kits`} className={`block px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-navy-50 mt-2 border-t border-slate-100 pt-2`}>&larr; All Parts & Kits</Link></li>
           </ul>
         </FilterAccordion>
@@ -158,10 +158,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
         <div className="p-4 flex flex-col gap-2 max-h-60 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-navy-200 [&::-webkit-scrollbar-track]:bg-navy-50">
           {BRANDS.map(brand => (
-            <label key={brand} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer hover:bg-slate-50 p-1 -mx-1 rounded transition-colors">
+            <label key={brand} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('brand', brand) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
               <input
                 type="checkbox"
-                className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                 checked={isChecked('brand', brand)}
                 onChange={() => handleToggle('brand', brand)}
               />
@@ -180,10 +180,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
           <div className="p-4 flex flex-col gap-2">
             {['Diaphragm', 'Slack Adjuster', 'Clamp Band', 'Caging Bolt', 'Hardware Kit'].map(type => (
-              <label key={type} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+              <label key={type} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('filter', type) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                 <input
                   type="checkbox"
-                  className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                  className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                   checked={isChecked('filter', type)}
                   onChange={() => handleToggle('filter', type)}
                 />
@@ -205,10 +205,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
               <div className="p-4 flex flex-col gap-2 max-h-48 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-navy-200">
                 {ADB_MODELS.map(model => (
-                  <label key={model} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                  <label key={model} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('model', model) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                     <input
                       type="checkbox"
-                      className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                      className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                       checked={isChecked('model', model)}
                       onChange={() => handleToggle('model', model)}
                     />
@@ -226,10 +226,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
             <div className="p-4 flex flex-col gap-2">
               {APPLICATIONS.filter(a => a.includes('Disc')).map(app => (
-                <label key={app} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <label key={app} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('application', app) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                    className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                     checked={isChecked('application', app)}
                     onChange={() => handleToggle('application', app)}
                   />
@@ -252,10 +252,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
               <div className="p-4 flex flex-col gap-2 max-h-48 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-navy-200">
                 {SPRING_MODELS.map(model => (
-                  <label key={model} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                  <label key={model} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('model', model) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                     <input
                       type="checkbox"
-                      className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                      className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                       checked={isChecked('model', model)}
                       onChange={() => handleToggle('model', model)}
                     />
@@ -273,10 +273,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
             <div className="p-4 flex flex-col gap-2">
               {STROKE_INCHES.map(stroke => (
-                <label key={stroke} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <label key={stroke} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('strokeInch', stroke) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                    className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                     checked={isChecked('strokeInch', stroke)}
                     onChange={() => handleToggle('strokeInch', stroke)}
                   />
@@ -293,10 +293,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
             <div className="p-4 flex flex-col gap-2">
               {PUSH_ROD_LENGTHS.map(length => (
-                <label key={length} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <label key={length} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('pushRodLength', length) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                    className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                     checked={isChecked('pushRodLength', length)}
                     onChange={() => handleToggle('pushRodLength', length)}
                   />
@@ -313,10 +313,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
             <div className="p-4 flex flex-col gap-2">
               {APPLICATIONS.map(app => (
-                <label key={app} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <label key={app} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('application', app) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                    className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                     checked={isChecked('application', app)}
                     onChange={() => handleToggle('application', app)}
                   />
@@ -339,10 +339,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
               <div className="p-4 flex flex-col gap-2 max-h-48 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-navy-200">
                 {SERVICE_MODELS.map(model => (
-                  <label key={model} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                  <label key={model} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('model', model) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                     <input
                       type="checkbox"
-                      className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                      className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                       checked={isChecked('model', model)}
                       onChange={() => handleToggle('model', model)}
                     />
@@ -360,10 +360,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
             <div className="p-4 flex flex-col gap-2">
               {STROKE_INCHES.map(stroke => (
-                <label key={stroke} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <label key={stroke} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('strokeInch', stroke) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                    className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                     checked={isChecked('strokeInch', stroke)}
                     onChange={() => handleToggle('strokeInch', stroke)}
                   />
@@ -380,10 +380,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
             <div className="p-4 flex flex-col gap-2">
               {APPLICATIONS.map(app => (
-                <label key={app} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <label key={app} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('application', app) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                    className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                     checked={isChecked('application', app)}
                     onChange={() => handleToggle('application', app)}
                   />
@@ -405,10 +405,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
             <div className="p-4 flex flex-col gap-2">
               {['Spring Brake', 'Service Brake', 'Air Disc Actuator', 'Accessory'].map(type => (
-                <label key={type} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <label key={type} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('categoryFilter', type) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                    className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                     checked={isChecked('categoryFilter', type)}
                     onChange={() => handleToggle('categoryFilter', type)}
                   />
@@ -425,10 +425,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
             <div className="p-4 flex flex-col gap-2">
               {['Diaphragm', 'Slack Adjuster', 'Clamp Band', 'Caging Bolt', 'Hardware Kit', 'Piggyback Kit'].map(type => (
-                <label key={type} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <label key={type} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('filter', type) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                    className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                     checked={isChecked('filter', type)}
                     onChange={() => handleToggle('filter', type)}
                   />
@@ -445,10 +445,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
             <div className="p-4 flex flex-col gap-2 max-h-48 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-navy-200">
               {[...SPRING_MODELS, ...SERVICE_MODELS, ...ADB_MODELS].map(model => (
-                <label key={model} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <label key={model} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('model', model) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                    className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                     checked={isChecked('model', model)}
                     onChange={() => handleToggle('model', model)}
                   />
@@ -465,10 +465,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
             <div className="p-4 flex flex-col gap-2">
               {STROKE_INCHES.map(stroke => (
-                <label key={stroke} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                <label key={stroke} className={`flex items-center gap-2 text-sm cursor-pointer hover:bg-slate-50 p-1.5 -mx-1.5 rounded transition-colors ${isChecked('strokeInch', stroke) ? 'font-bold text-navy-900 bg-slate-100' : 'text-gray-700'}`}>
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 text-slate-600 focus:ring-slate-500"
+                    className="rounded border-gray-300 text-amber-500 focus:ring-amber-500"
                     checked={isChecked('strokeInch', stroke)}
                     onChange={() => handleToggle('strokeInch', stroke)}
                   />
@@ -489,10 +489,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
       >
           <ul className="py-2">
             <li><Link href={`/products`} className="block px-4 py-2 text-sm font-bold text-amber-600 hover:bg-navy-50 mb-2 border-b border-slate-100 pb-2">View Full Catalog</Link></li>
-            <li><Link href={`/spring-brake-chambers`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Spring Brakes</Link></li>
-            <li><Link href={`/service-brake-chambers`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Service Chambers</Link></li>
-            <li><Link href={`/air-disc-brake-actuators`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Air Disc Actuators</Link></li>
-            <li><Link href={`/parts-and-kits`} className="block px-4 py-2 text-sm text-navy-600 hover:bg-navy-50">Parts & Kits</Link></li>
+            <li><Link href={`/spring-brake-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${baseCategory === 'spring-brake-chambers' ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Spring Brakes</Link></li>
+            <li><Link href={`/service-brake-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${baseCategory === 'service-brake-chambers' ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Service Chambers</Link></li>
+            <li><Link href={`/air-disc-brake-actuators`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${baseCategory === 'air-disc-brake-actuators' ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Air Disc Actuators</Link></li>
+            <li><Link href={`/parts-and-kits`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${baseCategory === 'parts-and-kits' ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Parts & Kits</Link></li>
           </ul>
         </FilterAccordion>
       )}

@@ -126,7 +126,6 @@ export default async function SubCategoryPage(props: { searchParams?: Promise<{ 
       <div className="mt-16 mb-12">
         <div className="max-w-3xl mx-auto">
           <SectionHeader
-            badge="FAQ"
             title="Frequently Asked Questions"
             align="center"
             accentColor="amber"

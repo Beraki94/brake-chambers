@@ -2,8 +2,8 @@ import React from 'react';
 import type { Metadata } from 'next';
 import PageHeader from '@/components/layout/PageHeader';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
-import { Mail, ShieldCheck, Clock, Camera } from 'lucide-react';
-import Card from '@/components/ui/Card';
+import SectionHeader from '@/components/ui/SectionHeader';
+import { Mail, ShieldCheck, Clock, Camera, User, Building, Phone, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Request a Cross-Match | BRC Brake Chambers',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RequestMatchPage() {
   return (
-    <div className="bg-slate-50 min-h-screen font-sans">
+    <div className="bg-[#F8FAFC] pb-16 md:pb-24 font-sans overflow-x-clip">
       <PageHeader
         badge="Engineering Support"
         title="Request a Cross-Match"
@@ -25,38 +25,40 @@ export default function RequestMatchPage() {
         ]}
       />
 
-      <div className="container mx-auto px-4 max-w-screen-2xl py-16">
-        <div className="flex flex-col lg:flex-row gap-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] -mt-6 sm:-mt-16 relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-6 sm:gap-8">
           
-          {/* Left: Info */}
-          <div className="w-full lg:w-1/3">
-            <h2 className="text-2xl font-extrabold text-navy-900 mb-6">How It Works</h2>
-            
-            <div className="space-y-8 relative before:absolute before:inset-y-0 before:left-[19px] before:w-[2px] before:bg-slate-200">
-              <div className="relative z-10 flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center font-bold text-navy-950 shrink-0">1</div>
-                <div>
-                  <h3 className="font-bold text-navy-900 text-lg mb-1">Submit Data</h3>
-                  <p className="text-slate-600 text-sm">Provide the part number, brand (if known), or upload a photo of the data tag and the chamber body.</p>
+          {/* Left Sidebar: Info */}
+          <div className="lg:col-span-1 order-2 lg:order-1 flex flex-col gap-4">
+            <div className="bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-md border border-slate-100 p-6 sm:p-8">
+              <h2 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-6">How It Works</h2>
+              
+              <div className="space-y-8 relative before:absolute before:inset-y-0 before:left-[19px] before:w-[2px] before:bg-slate-200">
+                <div className="relative z-10 flex gap-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center font-bold text-navy-950 shrink-0">1</div>
+                  <div>
+                    <h3 className="font-bold text-navy-900 text-lg mb-1">Submit Data</h3>
+                    <p className="text-slate-600 text-sm">Provide the part number, brand (if known), or upload a photo of the data tag and the chamber body.</p>
+                  </div>
                 </div>
-              </div>
-              <div className="relative z-10 flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center font-bold text-navy-950 shrink-0">2</div>
-                <div>
-                  <h3 className="font-bold text-navy-900 text-lg mb-1">Engineering Review</h3>
-                  <p className="text-slate-600 text-sm">Our team will manually cross-reference the specs against our internal master database of over 10,000 components.</p>
+                <div className="relative z-10 flex gap-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center font-bold text-navy-950 shrink-0">2</div>
+                  <div>
+                    <h3 className="font-bold text-navy-900 text-lg mb-1">Engineering Review</h3>
+                    <p className="text-slate-600 text-sm">Our team will manually cross-reference the specs against our internal master database of over 10,000 components.</p>
+                  </div>
                 </div>
-              </div>
-              <div className="relative z-10 flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center font-bold text-navy-950 shrink-0">3</div>
-                <div>
-                  <h3 className="font-bold text-navy-900 text-lg mb-1">Guaranteed Match</h3>
-                  <p className="text-slate-600 text-sm">We'll email you the exact BRC equivalent part number, ensuring a 100% drop-in fitment.</p>
+                <div className="relative z-10 flex gap-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center font-bold text-navy-950 shrink-0">3</div>
+                  <div>
+                    <h3 className="font-bold text-navy-900 text-lg mb-1">Guaranteed Match</h3>
+                    <p className="text-slate-600 text-sm">We'll email you the exact BRC equivalent part number, ensuring a 100% drop-in fitment.</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-12 bg-navy-900 rounded-2xl p-6 text-white shadow-xl shadow-navy-900/20">
+            <div className="bg-navy-900 rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 text-white shadow-xl shadow-navy-900/20">
               <h3 className="font-bold text-lg mb-4 flex items-center">
                 <Clock className="w-5 h-5 mr-2 text-amber-500" /> 24-Hour SLA
               </h3>
@@ -69,64 +71,110 @@ export default function RequestMatchPage() {
             </div>
           </div>
 
-          {/* Right: Form */}
-          <Card padding="lg" className="w-full lg:w-2/3 md:bg-white md:border md:border-slate-200 md:shadow-sm">
-            <h2 className="text-2xl font-extrabold text-navy-900 mb-2">Submission Form</h2>
-            <p className="text-slate-500 mb-8">Please fill out as much information as possible to expedite the match.</p>
-            
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-bold text-navy-900 mb-2">Your Name *</label>
-                  <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all" placeholder="John Doe" />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-navy-900 mb-2">Company / Fleet *</label>
-                  <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all" placeholder="Logistics Inc" />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-bold text-navy-900 mb-2">Email Address *</label>
-                  <input type="email" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all" placeholder="john@example.com" />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-navy-900 mb-2">Phone Number</label>
-                  <input type="tel" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all" placeholder="(555) 123-4567" />
-                </div>
-              </div>
-
-              <div className="border-t border-slate-100 pt-6 mt-6">
-                <h3 className="text-lg font-bold text-navy-900 mb-4">Part Information</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          {/* Right Side: Form */}
+          <div className="lg:col-span-2 2xl:col-span-3 order-1 lg:order-2 flex flex-col gap-6 sm:gap-8">
+            <div className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-6 sm:p-8 lg:p-10 -mx-4 sm:mx-0">
+              <SectionHeader
+                badge="Engineering Match"
+                title="Submission Form"
+                align="left"
+                accentColor="amber"
+                className="!mb-6 sm:!mb-8"
+              />
+              <p className="text-slate-500 mb-8 -mt-4">Please fill out as much information as possible to expedite the match.</p>
+              
+              <form className="space-y-4 sm:space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
                   <div>
-                    <label className="block text-sm font-bold text-navy-900 mb-2">Unknown Part Number(s)</label>
-                    <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all font-mono uppercase" placeholder="e.g. NT3030STD" />
+                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Your Name <span className="text-red-500">*</span></label>
+                    <div className="relative">
+                      <User className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
+                      <input 
+                        type="text" 
+                        required
+                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        placeholder="John Doe" 
+                      />
+                    </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-navy-900 mb-2">Suspected Brand / OEM</label>
-                    <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all" placeholder="Bendix, Meritor, etc." />
+                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Company / Fleet <span className="text-red-500">*</span></label>
+                    <div className="relative">
+                      <Building className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
+                      <input 
+                        type="text" 
+                        required
+                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        placeholder="Logistics Inc" 
+                      />
+                    </div>
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-bold text-navy-900 mb-2">Additional Context (Optional)</label>
-                  <textarea rows={4} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all resize-none" placeholder="Provide vehicle application, pushrod length, or any other identifying marks..."></textarea>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+                  <div>
+                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Email Address <span className="text-red-500">*</span></label>
+                    <div className="relative">
+                      <Mail className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
+                      <input 
+                        type="email" 
+                        required
+                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        placeholder="john@example.com" 
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Phone Number <span className="text-slate-400 font-normal">(Optional)</span></label>
+                    <div className="relative">
+                      <Phone className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
+                      <input 
+                        type="tel" 
+                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        placeholder="(555) 123-4567" 
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div className="border-2 border-dashed border-slate-200 rounded-2xl p-8 text-center hover:bg-slate-50 transition-colors cursor-pointer">
-                <Camera className="w-8 h-8 text-slate-400 mx-auto mb-3" />
-                <p className="text-navy-900 font-bold mb-1">Upload Data Tag Photos</p>
-                <p className="text-slate-500 text-sm">Drag and drop images here, or click to browse. Max 5MB per file.</p>
-              </div>
+                <div className="border-t border-slate-100 pt-6 mt-6">
+                  <h3 className="text-lg font-bold text-navy-900 mb-4">Part Information</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5 mb-5">
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Unknown Part Number(s)</label>
+                      <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all font-mono uppercase placeholder:font-sans placeholder:normal-case placeholder:text-slate-400" placeholder="e.g. NT3030STD" />
+                    </div>
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Suspected Brand / OEM</label>
+                      <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" placeholder="Bendix, Meritor, etc." />
+                    </div>
+                  </div>
 
-              <button type="button" className="w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-8 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1">
-                Submit for Engineering Match
-              </button>
-            </form>
-          </Card>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Additional Context <span className="text-slate-400 font-normal">(Optional)</span></label>
+                    <textarea 
+                      rows={4} 
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all resize-none placeholder:text-slate-400" 
+                      placeholder="Provide vehicle application, pushrod length, or any other identifying marks..."
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div className="border-2 border-dashed border-slate-200 rounded-2xl p-6 sm:p-8 text-center hover:bg-slate-50 transition-colors cursor-pointer mt-2">
+                  <Camera className="w-8 h-8 text-slate-400 mx-auto mb-3" />
+                  <p className="text-navy-900 font-bold mb-1">Upload Data Tag Photos</p>
+                  <p className="text-slate-500 text-sm">Drag and drop images here, or click to browse. Max 5MB per file.</p>
+                </div>
+
+                <button 
+                  type="button" 
+                  className="w-full bg-navy-900 hover:bg-navy-800 text-white font-extrabold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl shadow-navy-900/20 flex items-center justify-center gap-2 group text-lg mt-6"
+                >
+                  Submit for Engineering Match <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </form>
+            </div>
+          </div>
 
         </div>
       </div>

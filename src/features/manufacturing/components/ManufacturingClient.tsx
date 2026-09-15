@@ -277,7 +277,7 @@ export default function ManufacturingClient() {
                     <ShieldCheck className="w-6 h-6 text-amber-500" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-xl text-navy-900 mb-1">8-Gauge Steel Housings</h4>
+                    <h3 className="font-bold text-xl text-navy-900 mb-1">8-Gauge Steel Housings</h3>
                     <p className="text-slate-600 text-sm leading-relaxed">Extra-thick pressure vessels resist denting from road debris and maintain perfect structural geometry under maximum braking force.</p>
                   </div>
                 </div>
@@ -286,7 +286,7 @@ export default function ManufacturingClient() {
                     <Cog className="w-6 h-6 text-amber-500" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-xl text-navy-900 mb-1">Extreme-Temp Rubber Compounds</h4>
+                    <h3 className="font-bold text-xl text-navy-900 mb-1">Extreme-Temp Rubber Compounds</h3>
                     <p className="text-slate-600 text-sm leading-relaxed">Our proprietary diaphragm blends maintain flexibility at -40°F and resist thermal breakdown up to 200°F.</p>
                   </div>
                 </div>
@@ -295,7 +295,7 @@ export default function ManufacturingClient() {
                     <CheckCircle2 className="w-6 h-6 text-amber-500" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-xl text-navy-900 mb-1">Zinc-Plated Hardware</h4>
+                    <h3 className="font-bold text-xl text-navy-900 mb-1">Zinc-Plated Hardware</h3>
                     <p className="text-slate-600 text-sm leading-relaxed">All mounting studs, nuts, and clevis pins feature advanced zinc-plating for maximum resistance to galvanic corrosion.</p>
                   </div>
                 </div>
@@ -304,7 +304,7 @@ export default function ManufacturingClient() {
                     <Factory className="w-6 h-6 text-amber-500" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-xl text-navy-900 mb-1">Aluminum Die-Cast Bodies</h4>
+                    <h3 className="font-bold text-xl text-navy-900 mb-1">Aluminum Die-Cast Bodies</h3>
                     <p className="text-slate-600 text-sm leading-relaxed">We utilize high-pressure in-house aluminum die casting to produce lightweight, incredibly strong, and corrosion-resistant center bodies and non-pressure housings.</p>
                   </div>
                 </div>
