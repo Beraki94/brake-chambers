@@ -41,7 +41,7 @@ export default function ProductSeoBlock({ product }: ProductSeoBlockProps) {
 
   return (
     <section className="mt-12 sm:mt-16 relative h-full -mx-4 sm:mx-0 w-[calc(100%+2rem)] sm:w-auto">
-      <Card padding="lg" className="h-full w-full rounded-none sm:rounded-3xl border-x-0 sm:border-x">
+      <Card padding="lg" className="h-full w-full rounded-none sm:rounded-3xl border-x-0 sm:border-x !bg-blue-50 !border-slate-200">
       {/* Decorative accent */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl"></div>
       

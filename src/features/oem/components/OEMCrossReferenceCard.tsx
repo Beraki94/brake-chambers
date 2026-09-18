@@ -74,7 +74,7 @@ export default function OEMCrossReferenceCard({
               {product.name}
             </h3>
             <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-semibold text-slate-500">
-              <span className="bg-slate-100 px-2.5 py-1 rounded border border-slate-200 text-navy-700">
+              <span className="bg-slate-100 px-2.5 py-1 rounded border border-slate-200 shadow-sm text-slate-500">
                 {product.type}
               </span>
               {product.strokeSize && <span>Stroke: <span className="text-navy-900">{product.strokeSize}</span></span>}

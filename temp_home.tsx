@@ -22,7 +22,7 @@ const HERO_SLIDES = [
     description: "Sourcing direct from our 50,000 sqm production facility operating to IATF 16949 standards in Zhejiang. Eliminate middleman markups on premium aftermarket commercial vehicle components.",
     cta1: { text: "Get Factory Pricing", link: "/quote" },
     cta2: { text: "Tour Our Plant", link: "#facility" },
-    image: "/images/home/hero-factory.png",
+    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2000&q=80",
     gradient: "from-navy-950 via-navy-950/90 to-transparent",
     glow: "bg-amber-500"
   },
@@ -30,13 +30,13 @@ const HERO_SLIDES = [
     id: 2,
     badge: "Heavy-Duty Engineering",
     badgeIcon: <Cpu className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>Precision-Built for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Trucks and Trailers.</span></>,
+    title: <>Precision-Built for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-emerald-500 to-navy-400">Trucks and Trailers.</span></>,
     description: "Engineered to eliminate air leaks and guarantee perfectly balanced braking under extreme road pressure. Built to match strict Bendix, Haldex, Meritor, Knorr-Bremse, and Wabco tolerances.",
     cta1: { text: "View Product Catalog", link: "/products" },
     cta2: { text: "Request Test Samples", link: "/contact" },
-    image: "/images/home/hero-truck-v2.png",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80",
     gradient: "from-navy-950 via-navy-950/80 to-transparent",
-    glow: "bg-amber-500"
+    glow: "bg-emerald-500"
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const HERO_SLIDES = [
     description: "Streamlining global B2B procurement with predictable lead times and hassle-free port logistics. Handling direct container shipping, FCL, and LCL for distributors worldwide.",
     cta1: { text: "Start Wholesale Inquiry", link: "/contact" },
     cta2: { text: "Global Logistics", link: "/shipping" },
-    image: "/images/home/hero-port.png",
+    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2000&q=80",
     gradient: "from-navy-950 via-navy-950/90 to-transparent",
     glow: "bg-amber-500"
   }
@@ -82,7 +82,7 @@ export default function HomeClient() {
             <img
               src={slide.image}
               alt="Heavy-Duty Commercial Brake Chamber Manufacturing Facility"
-              className="absolute inset-0 w-full h-full object-cover object-[25%_center] md:object-center opacity-85 scale-100 md:scale-105 animate-[slow-pan_20s_ease-in-out_infinite_alternate]"
+              className="absolute inset-0 w-full h-full object-cover object-[25%_center] md:object-center opacity-40 scale-100 md:scale-105 animate-[slow-pan_20s_ease-in-out_infinite_alternate]"
               style={{ animationPlayState: index === currentSlide ? 'running' : 'paused' }}
             />
             {/* Image Overlay Gradient matching Application Detail pages */}
@@ -180,7 +180,7 @@ export default function HomeClient() {
         </div>
       </div>
 
-      {/* 3. Comprehensive Product Architecture */}
+{/* 3. Comprehensive Product Architecture */}
       <section className="py-16 md:py-24 bg-blue-50 relative overflow-hidden">
         {/* Subtle background gradient accents */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-b from-navy-100/40 to-transparent rounded-full blur-[100px] -z-10 translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
@@ -193,15 +193,15 @@ export default function HomeClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-14 gap-6 text-center md:text-left">
             <div className="max-w-2xl flex flex-col items-center md:items-start">
-              <SectionHeader
-                badge="Product Lines"
-                title="Primary Product Categories"
-                description="Explore our comprehensive range of commercial vehicle brake solutions."
-                align="left"
+              <SectionHeader 
+                badge="Product Lines" 
+                title="Primary Product Categories" 
+                description="Explore our comprehensive range of commercial vehicle brake solutions." 
+                align="left" 
                 theme="light"
-                accentColor="navy"
+                accentColor="navy" 
                 plainText={false}
-                className="!mb-0"
+                className="!mb-0" 
               />
             </div>
             <Link href="/products" className="hidden md:flex text-amber-600 font-extrabold uppercase tracking-widest text-[13px] items-center justify-center hover:text-amber-500 transition-colors bg-white px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md">
@@ -212,7 +212,7 @@ export default function HomeClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Spring Brakes */}
             <Link href="/spring-brake-chambers" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
-              <div className="absolute inset-0 bg-[url('/images/home/spring-brakes-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
               <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
@@ -231,7 +231,7 @@ export default function HomeClient() {
                 </div>
                 <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
                   <div className="w-full h-full animate-[spin_60s_linear_infinite] [animation-delay:-0s] group-hover:[animation-play-state:paused] flex items-center justify-center">
-                    <img src="/images/home/compination-spring-brake.png" alt="Spring Brake Chamber" className="w-[115%] sm:w-[130%] h-[115%] sm:h-[130%] max-w-none object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" />
+                    <img src="/products/spring-brake.jpg" alt="Spring Brake Chamber" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
                   </div>
                 </div>
               </div>
@@ -239,7 +239,7 @@ export default function HomeClient() {
 
             {/* Service Brakes */}
             <Link href="/service-brake-chambers" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
-              <div className="absolute inset-0 bg-[url('/images/home/service-brakes-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8ed7c80a71?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
               <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
@@ -258,7 +258,7 @@ export default function HomeClient() {
                 </div>
                 <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
                   <div className="w-full h-full animate-[spin_60s_linear_infinite] [animation-delay:-15s] group-hover:[animation-play-state:paused] flex items-center justify-center">
-                    <img src="/images/home/service-brake-chamber.png" alt="Service Brake Chamber" className="w-auto h-[60%] sm:w-[110%] sm:h-[110%] max-w-none object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" />
+                    <img src="/products/service-brake.jpg" alt="Service Brake Chamber" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
                   </div>
                 </div>
               </div>
@@ -266,7 +266,7 @@ export default function HomeClient() {
 
             {/* Air Disc Brakes */}
             <Link href="/air-disc-brake-actuators" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
-              <div className="absolute inset-0 bg-[url('/images/home/air-disc-brakes-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
               <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
@@ -285,7 +285,7 @@ export default function HomeClient() {
                 </div>
                 <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
                   <div className="w-full h-full animate-[spin_60s_linear_infinite] [animation-delay:-30s] group-hover:[animation-play-state:paused] flex items-center justify-center">
-                    <img src="/images/home/air-disc-brake-chambers.png" alt="Air Disc Brake Chamber" className="w-[70%] sm:w-[75%] h-[70%] sm:h-[75%] object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" />
+                    <img src="/products/air-disc-brake.jpg" alt="Air Disc Brake Chamber" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
                   </div>
                 </div>
               </div>
@@ -293,7 +293,7 @@ export default function HomeClient() {
 
             {/* Piggybacks & Accessories */}
             <Link href="/parts-and-kits" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
-              <div className="absolute inset-0 bg-[url('/images/home/piggybacks-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
               <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
@@ -312,7 +312,7 @@ export default function HomeClient() {
                 </div>
                 <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
                   <div className="w-full h-full animate-[spin_60s_linear_infinite] [animation-delay:-45s] group-hover:[animation-play-state:paused] flex items-center justify-center">
-                    <img src="/images/home/piggy-accessory.png" alt="Piggyback & Accessories" className="w-[70%] h-[70%] sm:w-[100%] sm:h-[100%] max-w-none object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" />
+                    <img src="/products/piggyback.jpg" alt="Piggyback & Accessories" className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500" style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1) brightness(1.05)' }} />
                   </div>
                 </div>
               </div>
@@ -327,17 +327,17 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* NEW: Inside Our Facility (The Factory Proof) */}
+{/* NEW: Inside Our Facility (The Factory Proof) */}
       <section id="facility" className="py-16 md:py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             {/* Image Grid / Factory Floor */}
             <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="col-span-2 rounded-2xl overflow-hidden h-64 md:h-80 shadow-lg">
-                <img src="/images/home/assembly-line.jpg" alt="Brake Chamber Assembly Line" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Brake Chamber Assembly Line" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
               </motion.div>
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
-                <img src="/images/home/quality-control.jpg" alt="Quality Control Testing" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80" alt="Quality Control Testing" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
               </motion.div>
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
                 <img src="/facility/cnc_machining_center.jpg" alt="CNC Machining Center" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
@@ -386,9 +386,9 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* NEW: Aftermarket Brands Showcase */}
+{/* NEW: Aftermarket Brands Showcase */}
       <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden border-b border-navy-800">
-        <div className="absolute inset-0 bg-[url('/images/home/quality-control.jpg')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
 
         {/* Subtle Modern Dot Grid Background */}
         <AnimatedGridBackground opacity={0.08} />
@@ -440,10 +440,10 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 5. R&D and Innovation Highlight */}
+{/* 5. R&D and Innovation Highlight */}
       <section className="relative overflow-hidden bg-navy-950 py-16 md:py-24 flex items-center border-t border-navy-800 group">
         <div className="absolute inset-0 overflow-hidden">
-          <img src="/images/home/lab-testing.png" alt="Laboratory Testing" className="w-full h-full object-cover opacity-30 mix-blend-luminosity grayscale group-hover:scale-105 transition-transform duration-[10s]" />
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="Laboratory Testing" className="w-full h-full object-cover opacity-30 mix-blend-luminosity grayscale group-hover:scale-105 transition-transform duration-[10s]" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/95 to-transparent"></div>
           {/* Accent gradient bar */}
           <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-emerald-400 to-emerald-600 shadow-[0_0_30px_rgba(16,185,129,0.6)]"></div>
@@ -452,12 +452,12 @@ export default function HomeClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="max-w-5xl bg-navy-950/80 backdrop-blur-xl p-6 md:p-10 lg:p-12 rounded-3xl border border-navy-800 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] transform transition-transform hover:-translate-y-1">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-
+              
               {/* Left Column: Text & CTA */}
               <div>
                 <SectionHeader
                   badge="PROPRIETARY R&D SPOTLIGHT"
-                  title={<>High Output Technology <span className="text-emerald-500">(HOT)</span><br /><span className="text-xl md:text-2xl text-navy-200 mt-3 block">Redefining Air Disc Performance</span></>}
+                  title={<>High Output Technology <span className="text-emerald-500">(HOT)</span><br/><span className="text-xl md:text-2xl text-navy-200 mt-3 block">Redefining Air Disc Performance</span></>}
                   description="Traditional air disc brake actuators lose clamping force as internal friction builds over time. Our patented High Output Technology (HOT) corrects this by maximizing mechanical advantage through a proprietary internal mechanism. The result: unprecedented stopping power consistency and uncompromised safety."
                   align="left"
                   theme="dark"
@@ -508,7 +508,7 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 4. Digital B2B Tools & Support */}
+{/* 4. Digital B2B Tools & Support */}
       <section className="py-16 md:py-24 relative overflow-hidden bg-[#F1EFE8]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
@@ -655,14 +655,14 @@ export default function HomeClient() {
                 accentColor="amber"
                 className="!mb-8"
               />
-
+              
               <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 sm:gap-6">
                 <a href="tel:+8613395856758" className="flex items-center gap-2.5 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/50 rounded-xl transition-all duration-300 backdrop-blur-sm group">
-                  <Phone className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
+                  <Phone className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" /> 
                   <span className="font-bold text-sm tracking-wide text-white">+86 13395856758</span>
                 </a>
                 <a href="mailto:sales@brakechambers.com" className="flex items-center gap-2.5 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/50 rounded-xl transition-all duration-300 backdrop-blur-sm group">
-                  <Mail className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
+                  <Mail className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" /> 
                   <span className="font-bold text-sm tracking-wide text-white">sales@brakechambers.com</span>
                 </a>
               </div>

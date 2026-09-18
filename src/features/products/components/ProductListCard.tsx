@@ -9,14 +9,14 @@ export default function ProductListCard({ product, categoryPath }: { product: Br
     <Link href={`/${categoryPath}/${product.slug}`} className="h-full flex flex-row items-stretch bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg hover:border-amber-200 hover:-translate-y-1 transition-all duration-300 group">
       
       {/* Left: Image (Flexible height, fixed width on desktop) */}
-      <div className="w-[100px] sm:w-40 md:w-48 aspect-square sm:aspect-auto sm:min-h-full flex-shrink-0 relative bg-white flex items-center justify-center p-2 sm:p-4 border-r border-slate-100">
+      <div className="w-[100px] sm:w-36 md:w-40 aspect-square sm:aspect-auto sm:min-h-full flex-shrink-0 relative bg-white flex items-center justify-center p-2 sm:p-4 border-r border-slate-100">
         <Image 
           src={product.galleryUrls[0]} 
           alt={product.name}
           fill
           className="object-contain p-2 sm:p-4 group-hover:scale-105 transition-transform duration-300"
         />
-        <div className="absolute top-0 right-0 bg-navy-50 text-navy-600 text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-bl-lg border-b border-l border-navy-100 z-10">
+        <div className="absolute top-0 right-0 bg-slate-100 text-slate-500 shadow-sm text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-bl-lg border-b border-l border-slate-200 z-10">
           {product.type}
         </div>
       </div>

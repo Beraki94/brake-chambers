@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
 import ProductDetailLayout from '@/features/products/product-detail/ProductDetailLayout';
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const chambers = BRAKE_CHAMBERS.map((p) => ({ slug: p.slug }));
   const accessories = BRAKE_ACCESSORIES.map((p) => ({ slug: p.slug }));
@@ -27,7 +29,8 @@ export async function generateMetadata(
       'Commercial Air Brake', 
       'OEM Replacement',
       ...('crossReferenceBrands' in product ? (product.crossReferenceBrands || []) : []),
-      ...('oemPartNumbers' in product ? (product.oemPartNumbers?.map((o: any) => o.partNumber) || []) : [])
+      ...('oemPartNumbers' in product ? (product.oemPartNumbers?.map((o: any) => o.partNumber) || []) : []),
+      ...('hiddenSearchTags' in product ? (product.hiddenSearchTags || []) : [])
     ].join(', ');
 
     return {

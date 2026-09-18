@@ -20,7 +20,9 @@ export interface BrakeChamber {
   brandSlug: string;
   category: ChamberCategory;
   priceUSD: number;
-  type: string; // e.g. "Type 30/30", "Type 20"
+  type: string; // e.g. "Type 30/30", "Type 16"
+  modelDesignation?: string; // e.g. "T16"
+  brakingMethod?: string; // e.g. "Single Diaphragm", "Double Diaphragm"
   strokeSize: string; // e.g. "Standard", "Long Stroke"
   strokeInch?: string; // e.g. "2-1/2 in", "3 in"
   pushRodLengthInch?: string; // e.g. "8 in", "18 in"
@@ -30,16 +32,38 @@ export interface BrakeChamber {
   application?: string; // e.g. "S-Cam Brake", "Disc"
   crossReferenceBrands?: string[]; // e.g. ["Bendix", "Haldex"]
   oemPartNumbers?: { brand: string; partNumber: string; notes?: string }[];
+  hiddenSearchTags?: string[]; // e.g. ["423.104.900.0", "4231049000", "T16 brake chamber"]
+  
   material: string; // e.g. "Steel", "Aluminum"
   includedItems: string[];
   description: string;
+  
   specifications: {
     maxOperatingPressure: string;
     operatingTemperature: string;
     pushRodLength: string;
     portSize: string;
     weight: string;
+    
+    // Detailed Metric Specifications
+    strokeMetric?: string; // e.g. "75 mm"
+    pushrodLengthMetric?: string; // (L) e.g. "190 mm"
+    mountingBoltSpacing?: string; // (A) e.g. "76.2 mm"
+    mountingStudThread?: string; // (B) e.g. "2 x M12 × 1.5"
+    mountingStudLength?: string; // (C) e.g. "31 mm"
+    clevisPinDiameter?: string; // (D) e.g. "14 mm"
+    yokeClevisGapWidth?: string; // (E) e.g. "14.5 mm"
+    inletPortThreadSize?: string; // (M) e.g. "2 x M16 × 1.5"
+    sphericalRadius?: string; // (R) e.g. "SR8"
+    boltCircleDiameter?: string; // Japanese Flange e.g. "φ87.5"
+    flangeHoleConfiguration?: string; // Japanese Flange e.g. "4-φ10.5"
+    pilotDiameter?: string; // Japanese Flange e.g. "φ55"
+    flangeDimension?: string; // (C) e.g. "80 mm"
+    bodyLength?: string; // (L) e.g. "340 mm"
+    bodyOffset?: string; // (L) e.g. "50 mm"
+    hydraulicPortSize?: string; // (N) e.g. "G3/8""
   };
+  
   galleryUrls: string[];
   factoryVideoUrl?: string;
   promoVideoUrl?: string;

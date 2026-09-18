@@ -30,7 +30,7 @@ export default function TechnicalDownloads({ productName }: TechnicalDownloadsPr
   ];
 
   return (
-    <section className="mb-16">
+    <section>
       <SectionHeader
         title="Downloads & Documentation"
         align="left"

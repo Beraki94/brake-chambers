@@ -97,7 +97,7 @@ export default function ProductListingLayout({
            <BulkOemCard />
         </div>
 
-        <div className="flex-grow">
+        <div className="flex-grow min-w-0">
           <div className="bg-navy-900 p-3 rounded-xl shadow-md flex justify-start items-center mb-5 text-sm">
             <div className="text-white font-bold tracking-wide px-2">Showing {products.length} products</div>
           </div>
@@ -105,7 +105,7 @@ export default function ProductListingLayout({
           {products.length > 0 ? (
             <>
               <h2 className="sr-only">Available Products</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">
               {paginatedProducts.map(product => (
                 cardType === 'product' ? (
                   <ProductListCard key={product.slug} product={product} categoryPath={baseCategory} />
