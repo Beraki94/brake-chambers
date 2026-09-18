@@ -63,7 +63,7 @@ export default function ProductsClient() {
       tag: 'Rebuild Kits · Diaphragms · Hardware',
       desc: 'Genuine replacement components for field servicing and maintenance. Includes rebuild kits, diaphragms, caging bolts, clevis pins, and hardware.',
       icon: <Package className="w-10 h-10 text-white" />,
-      image: '/images/manufacturing_floor.png',
+      image: '/images/products/brc-brake-chamber-replacement-parts-kits.jpg',
       accent: 'navy',
       links: [
         { id: '/parts-and-kits/air-brake-chamber-rebuild-kits', title: 'Chamber Rebuild Kits', desc: 'All-in-One Overhaul' },
