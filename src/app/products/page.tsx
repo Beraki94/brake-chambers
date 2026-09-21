@@ -4,8 +4,8 @@ import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import ProductsClient from '@/features/products/components/ProductsClient';
 
 export const metadata: Metadata = {
-  title: 'All Products | BRC Brake Chambers',
-  description: 'Browse our complete catalog of premium commercial vehicle brake chambers, air disc actuators, and replacement parts.',
+  title: 'Commercial Brake Chamber Catalog — Spring, Service & ADB | BRC',
+  description: "Browse BRC's full range of OEM-grade brake chambers: spring brakes, service chambers, air disc actuators, and replacement parts. IATF 16949 standard manufacturing.",
 };
 
 export default function ProductsPage() {

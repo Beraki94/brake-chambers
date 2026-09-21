@@ -5,6 +5,7 @@ import { BRAKE_CHAMBERS } from '@/lib/data';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { ShieldCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Service Brake Chambers | BRC Manufacturer',
@@ -38,7 +39,7 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
               Service brake chambers are the heart of your vehicle's primary braking system, translating compressed air into the mechanical force needed to stop Class 8 trucks and commercial trailers. At BRC, we manufacture high-reliability service chambers designed specifically for front steer axles and heavy-duty applications.
             </p>
             <p>
-              Our Manufactured to IATF 16949 standards manufacturing process ensures that every service chamber delivers consistent, even braking force. We utilize heavy-gauge steel housings and premium elastomeric diaphragms to prevent premature wear and resist corrosion from harsh road chemicals.
+              Our manufacturing process, operating to IATF 16949 standards, ensures that every service chamber delivers consistent, even braking force. We utilize heavy-gauge steel housings and premium elastomeric diaphragms to prevent premature wear and resist corrosion from harsh road chemicals.
             </p>
           </div>
           <div>
@@ -56,7 +57,7 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
 
       <section className="mt-16 max-w-4xl mx-auto">
         <SectionHeader
-          title="Frequently Asked Questions"
+          title="Service Brake Chambers: OEM Replacements for Steer & Drive Axles"
           align="center"
           accentColor="amber"
         />
@@ -142,15 +143,16 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
 
   return (
     <ProductListingLayout
-      title="Service Brake Chambers"
-      description="Factory-direct durable service brake chambers for steer axles and primary braking. Built to exceed OEM specifications. Manufactured to IATF 16949 standards."
       badge="Primary Braking"
+        badgeIcon={ShieldCheck}
+      title="Service Brake Chambers — OEM Replacements for Steer & Drive Axles"
+      description="Factory-direct service brake chambers engineered for steer axle, drive axle, and trailer applications. Direct fit, form, and function replacement for Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO. Manufactured to IATF 16949 standards. Request factory pricing."
       baseCategory="service-brake-chambers"
       products={products}
       searchParams={searchParams}
       visualizerType="service"
       seoText={seoContent}
       breadcrumbs={[{ label: 'Service Brakes' }]}
-    />
+      />
   );
 }

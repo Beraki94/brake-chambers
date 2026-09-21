@@ -73,10 +73,10 @@ export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
         onToggle={() => setOpenSection(openSection === "Categories" ? null : "Categories")}
       >
           <ul className="py-2">
-            <li><Link href={`/spring-brake-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${baseCategory === 'spring-brake-chambers' ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Spring Brakes</Link></li>
-            <li><Link href={`/service-brake-chambers`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${baseCategory === 'service-brake-chambers' ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Service Chambers</Link></li>
-            <li><Link href={`/air-disc-brake-actuators`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${baseCategory === 'air-disc-brake-actuators' ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Air Disc Actuators</Link></li>
-            <li><Link href={`/parts-and-kits`} className={`block px-4 py-2 text-sm border-l-4 transition-colors ${baseCategory === 'parts-and-kits' ? 'text-navy-900 font-extrabold bg-amber-50 border-amber-500' : 'text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900'}`}>Parts & Kits</Link></li>
+            <li><Link href={`/spring-brake-chambers`} className="block px-4 py-2 text-sm border-l-4 transition-colors text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900">Spring Brakes</Link></li>
+            <li><Link href={`/service-brake-chambers`} className="block px-4 py-2 text-sm border-l-4 transition-colors text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900">Service Chambers</Link></li>
+            <li><Link href={`/air-disc-brake-actuators`} className="block px-4 py-2 text-sm border-l-4 transition-colors text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900">Air Disc Actuators</Link></li>
+            <li><Link href={`/parts-and-kits`} className="block px-4 py-2 text-sm border-l-4 transition-colors text-navy-600 border-transparent hover:bg-slate-50 hover:text-navy-900">Parts & Kits</Link></li>
           </ul>
         </FilterAccordion>
       )}

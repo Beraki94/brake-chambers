@@ -5,6 +5,7 @@ import { BRAKE_ACCESSORIES } from '@/lib/data';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { Wrench } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Brake Chamber Accessories | BRC Manufacturer',
@@ -56,7 +57,7 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
 
       <section className="mb-16 mt-16 max-w-4xl mx-auto">
         <SectionHeader
-          title="Frequently Asked Questions"
+          title="Brake Chamber Parts & Kits: Diaphragms, Caging Bolts & Hardware"
           align="center"
           accentColor="amber"
         />
@@ -142,9 +143,10 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
 
   return (
     <ProductListingLayout
-      title="Chamber Parts & Kits"
-      description="Factory-direct repair kits, diaphragms, and hardware for commercial air brake chambers. Precision manufactured to OEM specifications."
       badge="Maintenance & Repair"
+        badgeIcon={Wrench}
+      title="Brake Chamber Parts & Kits — Diaphragms, Caging Bolts & Hardware"
+      description="Factory-direct replacement parts for commercial brake chambers. Repair kits, rubber diaphragms, caging bolts, clevis pins, and mounting hardware are all precision-manufactured to OEM specifications. In-stock and ready to ship worldwide."
       baseCategory="parts-and-kits"
       products={products}
       searchParams={searchParams}
@@ -152,6 +154,6 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
       seoText={seoContent}
       breadcrumbs={[{ label: 'Chamber Parts & Kits' }]}
       cardType="accessory"
-    />
+      />
   );
 }

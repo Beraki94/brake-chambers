@@ -161,7 +161,7 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
       {/* Recommended Package - Call to Action */}
       <section className="py-20 lg:py-32 bg-navy-950 relative overflow-hidden border-t border-navy-900">
         {/* Background Image Layer */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale z-0"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5   z-0"></div>
         {/* Animated Grid Layer */}
         <AnimatedGridBackground opacity={0.08} />
         {/* Glow effect */}

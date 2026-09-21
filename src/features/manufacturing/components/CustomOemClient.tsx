@@ -164,7 +164,7 @@ export default function CustomOemClient() {
                     className="w-full lg:w-1/2"
                   >
                     <div className="relative h-[280px] md:h-[380px] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 group">
-                      <Image src={phase.image} alt={phase.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition-transform duration-[8s] group-hover:scale-110 ease-out grayscale" />
+                      <Image src={phase.image} alt={phase.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition-transform duration-[8s] group-hover:scale-110 ease-out " />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent"></div>
                     </div>
                   </motion.div>
@@ -181,7 +181,7 @@ export default function CustomOemClient() {
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
             <div className="w-full lg:w-1/2">
               <div className="relative h-[300px] md:h-[400px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 group">
-                <Image src="/images/engineering_blueprint.png" alt="OEM IP Protection" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-[8s] grayscale" />
+                <Image src="/images/engineering_blueprint.png" alt="OEM IP Protection" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-[8s] " />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900/50 to-transparent"></div>
               </div>
             </div>

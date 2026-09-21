@@ -87,9 +87,10 @@ export default function ManufacturingClient() {
   return (
     <article className="min-h-screen bg-slate-50 font-sans pb-0 overflow-x-clip">
       <PageHeader
-        badge="How We Build"
-        title="Manufacturing"
-        description="Take an exclusive look inside our world-class facilities to see how we engineer, cast, and assemble the most reliable heavy-duty brake chambers on the market."
+      badge="Inside the Factory"
+        badgeIcon={Factory}
+      title="Brake Chamber Manufacturing: Inside Our Factory"
+      description="Take a virtual tour of our 50,000 sqm brake chamber production floor in Zhejiang, China. See how we cast, machine, assemble, and stress-test every chamber to IATF 16949 standards. Export-ready and OEM-grade."
         imageSrc="/images/engineering_blueprint.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -193,7 +194,7 @@ export default function ManufacturingClient() {
                         alt={step.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-[10s] group-hover/row:scale-110 ease-out grayscale"
+                        className="object-cover transition-transform duration-[10s] group-hover/row:scale-110 ease-out "
                       />
                       {/* Gradient overlay to ensure image isn't too overpowering */}
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent"></div>
@@ -210,7 +211,7 @@ export default function ManufacturingClient() {
       {/* By the Numbers */}
       <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden border-y border-navy-800">
         {/* Background Image Layer */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale z-0"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5   z-0"></div>
 
         {/* Animated Grid Layer */}
         <AnimatedGridBackground opacity={0.08} />

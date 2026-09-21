@@ -5,7 +5,7 @@ const qualityFeatures = [
   {
     icon: Factory,
     title: "Automotive Standards",
-    description: "Manufactured in our audited, certified facility for total quality control."
+    description: "Manufactured in our audited facility operating to global standards for total quality control."
   },
   {
     icon: Target,

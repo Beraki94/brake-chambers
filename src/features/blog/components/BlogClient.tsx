@@ -9,6 +9,7 @@ import BlogCard from '@/components/ui/BlogCard';
 import { blogPosts, BlogPostCategory } from '@/data/blogPosts';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import TrendingModelsMarquee from '@/components/ui/TrendingModelsMarquee';
+import { Newspaper } from 'lucide-react';
 
 const categories: (BlogPostCategory | 'All')[] = [
   'All',
@@ -30,9 +31,10 @@ export default function BlogClient() {
   return (
     <article className="min-h-screen bg-slate-50 font-sans overflow-x-clip pb-0">
       <PageHeader
-        badge="News & Updates"
-        title="Industry Insights & News"
-        description="Technical bulletins, engineering updates, and company announcements from BRC Brake Chambers."
+      badge="Brake Chamber Insights"
+        badgeIcon={Newspaper}
+      title="Brake Chamber Blog: Technical Guides, Industry News & Updates"
+      description="Technical bulletins, installation guides, cross-reference updates, and industry news from BRC Brake Chambers. Written for fleet managers, technicians, and distributors who spec, install, and sell commercial brake chambers."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Blog' }

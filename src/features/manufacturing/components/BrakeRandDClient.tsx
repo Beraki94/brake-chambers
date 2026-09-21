@@ -218,7 +218,7 @@ export default function BrakeRandDClient() {
                         alt={cap.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-[8s] group-hover/img:scale-110 ease-out grayscale"
+                        className="object-cover transition-transform duration-[8s] group-hover/img:scale-110 ease-out "
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent"></div>
                     </div>
@@ -232,7 +232,7 @@ export default function BrakeRandDClient() {
 
       {/* Section 4: Digital Simulation Deep-Dive */}
       <section className="py-20 lg:py-32 bg-navy-950 relative overflow-hidden border-y border-navy-800">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5  "></div>
         
         <AnimatedGridBackground opacity={0.08} />
         

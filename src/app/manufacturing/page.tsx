@@ -4,8 +4,8 @@ import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import ManufacturingClient from '@/features/manufacturing/components/ManufacturingClient';
 
 export const metadata: Metadata = {
-  title: 'Manufacturing & OEM Solutions | BRC Brake Chambers',
-  description: 'Discover BRC\'s vertically integrated manufacturing process, custom OEM actuator solutions, private labeling, and high-volume wholesale distribution.',
+  title: 'Brake Chamber Manufacturing: Inside Our Factory | BRC',
+  description: 'Tour our 50,000 sqm brake chamber factory in Zhejiang, China. See how we cast, machine, assemble & stress-test every chamber to IATF 16949 standards. Export-ready.',
 };
 
 export default function ManufacturingPage() {

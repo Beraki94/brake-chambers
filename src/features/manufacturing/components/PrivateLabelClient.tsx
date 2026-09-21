@@ -188,7 +188,7 @@ export default function PrivateLabelClient() {
 
       {/* How It Works — Horizontal Timeline */}
       <section className="py-20 lg:py-32 bg-navy-950 relative overflow-hidden border-y border-navy-800">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5  "></div>
         
         <AnimatedGridBackground opacity={0.08} />
         

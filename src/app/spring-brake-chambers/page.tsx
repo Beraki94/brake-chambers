@@ -5,6 +5,7 @@ import { BRAKE_CHAMBERS } from '@/lib/data';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { Settings } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Heavy-Duty Commercial Spring Brake Chambers | BRC Manufacturer',
@@ -36,8 +37,9 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
     <>
       <section className="mb-12">
         <SectionHeader
-          badge="Features"
-          title="Why Choose BRC Spring Brake Chambers?"
+          badge="Emergency & Parking"
+        badgeIcon={Settings}
+          title="Spring Brake Chambers: Heavy-Duty OEM Replacements"
           align="left"
           accentColor="amber"
           className="!mb-8"
@@ -152,15 +154,15 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
 
   return (
     <ProductListingLayout
-      title="Spring Brake Chambers"
-      description="Factory-direct heavy-duty spring brake chambers for primary and emergency braking. Built to exceed OEM specifications. Manufactured to IATF 16949 standards."
       badge="Emergency & Parking"
+      title="Spring Brake Chambers — Heavy-Duty OEM Replacements"
+      description="Factory-direct spring brake chambers (combination and double diaphragm) for heavy-duty trucks, trailers, and transit buses. Direct replacement for Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO. Type 20/24, 24/24, 30/30, and 24/30 available. Manufactured to IATF 16949 standards."
       baseCategory="spring-brake-chambers"
       products={products}
       searchParams={searchParams}
       visualizerType="spring"
       seoText={seoContent}
       breadcrumbs={[{ label: 'Spring Brakes' }]}
-    />
+      />
   );
 }

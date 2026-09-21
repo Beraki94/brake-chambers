@@ -5,6 +5,7 @@ import { BRAKE_CHAMBERS } from '@/lib/data';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { Disc } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Air Disc Brake (ADB) Actuators | BRC Manufacturer',
@@ -54,7 +55,7 @@ export default async function AirDiscActuatorsPage(props: { searchParams?: Promi
 
       <section className="mb-16 mt-16 max-w-4xl mx-auto">
         <SectionHeader
-          title="Frequently Asked Questions"
+          title="Air Disc Brake Actuators (ADB): High-Output Technology"
           align="center"
           accentColor="amber"
         />
@@ -128,15 +129,16 @@ export default async function AirDiscActuatorsPage(props: { searchParams?: Promi
 
   return (
     <ProductListingLayout
-      title="Air Disc Actuators (ADB)"
-      description="Next-generation Air Disc Brake (ADB) actuators for modern commercial vehicles. Superior stopping power and completely sealed from environmental contaminants."
       badge="Disc Brake Systems"
+        badgeIcon={Disc}
+      title="Air Disc Brake Actuators (ADB) — High-Output Technology"
+      description="Next-generation air disc brake actuators delivering superior clamping force, reduced brake fade, and longer pad life. Direct replacement for Bendix, Haldex, Meritor, and WABCO. HOT Technology inside. Manufactured to IATF 16949 standards. Factory-direct pricing."
       baseCategory="air-disc-brake-actuators"
       products={products}
       searchParams={searchParams}
       visualizerType="adp"
       seoText={seoContent}
       breadcrumbs={[{ label: 'Air Disc Actuators' }]}
-    />
+      />
   );
 }

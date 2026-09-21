@@ -13,6 +13,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import Card from '@/components/ui/Card';
 import SectionHeader from '@/components/ui/SectionHeader';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
+import CrossReferenceMarquee from '@/components/ui/CrossReferenceMarquee';
 import { Truck, ArrowLeft, ShieldCheck, Settings, CheckCircle2, ChevronRight, Zap } from 'lucide-react';
 
 const OEM_BRANDS: Record<string, { name: string, type: string, desc: string }> = {
@@ -372,6 +373,8 @@ export default async function OEMBrandPage(
             </div>
           </div>
         </section>
+
+        <CrossReferenceMarquee filterBrand={brandInfo.name} />
 
         {/* JSON-LD Schema */}
         <Script id={`brand-hub-${originalSlug}-schema`} type="application/ld+json" dangerouslySetInnerHTML={{

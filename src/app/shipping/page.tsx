@@ -17,9 +17,10 @@ export default function ShippingPage() {
       
       {/* 1. PAGE HEADER */}
       <PageHeader
-        badge="Supply Chain"
-        title="Factory to Doorstep."
-        description="We operate a seamless, globally integrated supply chain. From EXW factory floor to CIF at your destination port, our logistics team handles the complexities so you don't have to."
+      badge="Supply Chain & Logistics"
+        badgeIcon={Ship}
+      title="Brake Chamber Shipping & Global Logistics: FCL, LCL, Door-to-Door"
+      description="From our factory floor to your destination port or warehouse. BRC handles EXW, FOB, CIF, and DDP terms for brake chamber shipments worldwide. FCL, LCL, and door-to-door container logistics."
         imageSrc="/images/shipping_cargo.png" 
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -78,7 +79,7 @@ export default function ShippingPage() {
         {/* 4. DISTRIBUTION NETWORK HUBS */}
         <section aria-labelledby="hubs-heading" className="bg-navy-950 -mx-4 sm:mx-0 rounded-none sm:rounded-[2rem] md:rounded-[3rem] px-4 sm:px-8 md:px-12 lg:px-16 py-10 md:py-14 mb-12 md:mb-20 relative overflow-hidden shadow-2xl shadow-navy-900/20 border-y sm:border border-navy-800">
           
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5  "></div>
           {/* Subtle Modern Dot Grid Background */}
           <AnimatedGridBackground opacity={0.08} />
           {/* Fade out masks to make the grid blend smoothly into the dark section */}

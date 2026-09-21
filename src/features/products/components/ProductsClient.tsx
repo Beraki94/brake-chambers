@@ -13,12 +13,12 @@ import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 export default function ProductsClient() {
   const categoryGroups = [
     {
-      title: 'Spring Brakes',
+      title: 'Spring Brake Chambers',
       slug: 'spring-brake-chambers',
       tag: 'Parking & Emergency Chambers',
-      desc: 'High-durability spring brakes for heavy-duty trucks and trailers. Available in standard stroke, long stroke, and welded clevis configurations.',
+      desc: 'Heavy-duty combination spring brake chambers for trucks and trailers. Double diaphragm design manages both service and parking brake functions. Available in standard long-stroke and welded clevis configurations. Direct replacement for Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO.',
       icon: <Settings className="w-10 h-10 text-white" />,
-      image: '/images/heavy_duty_truck.png',
+      image: '/images/home/spring-brakes-bg.jpg',
       accent: 'amber',
       links: [
         { id: '/spring-brake-chambers/30-30-air-brake-chambers', title: 'Type 30/30 Spring Brake', desc: 'Standard & Long Stroke' },
@@ -31,9 +31,9 @@ export default function ProductsClient() {
       title: 'Service Chambers',
       slug: 'service-brake-chambers',
       tag: 'Steer & Drive Axles',
-      desc: 'Reliable single-diaphragm service chambers engineered for immediate response, extended service life, and consistent braking performance.',
+      desc: 'Single-diaphragm service brake chambers engineered for immediate pneumatic response, extended service life, and consistent braking performance. Available for steer axle, drive axle, and trailer applications. Direct replacement for Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO.',
       icon: <Wrench className="w-10 h-10 text-white" />,
-      image: '/images/commercial_trailer.png',
+      image: '/images/home/service-brakes-bg.jpg',
       accent: 'navy',
       links: [
         { id: '/service-brake-chambers/type-20-steer-axle-brake-chambers', title: 'Type 20 Steer Axle', desc: 'Precision Control' },
@@ -46,9 +46,9 @@ export default function ProductsClient() {
       title: 'Air Disc Actuators',
       slug: 'air-disc-brake-actuators',
       tag: 'High Output Technology (HOT)',
-      desc: 'Advanced ADB actuators for modern fleets requiring superior stopping power, reduced brake fade, and consistent performance under extreme heat and heavy loads.',
+      desc: 'Next-generation air disc brake actuators for modern commercial fleets. HOT Technology delivers superior clamping force, reduced brake fade, and consistent performance under extreme heat and heavy loads. Direct replacement for Bendix, Haldex, Meritor, and WABCO.',
       icon: <Disc className="w-10 h-10 text-white" />,
-      image: '/images/transit_bus.png',
+      image: '/images/home/air-disc-brakes-bg.jpg',
       accent: 'amber',
       links: [
         { id: '/air-disc-brake-actuators/type-16-18-adb-actuators', title: 'Type 16 & 18 ADB', desc: 'Linear Output' },
@@ -61,9 +61,9 @@ export default function ProductsClient() {
       title: 'Chamber Parts & Kits',
       slug: 'parts-and-kits',
       tag: 'Rebuild Kits · Diaphragms · Hardware',
-      desc: 'Genuine replacement components for field servicing and maintenance. Includes rebuild kits, diaphragms, caging bolts, clevis pins, and hardware.',
+      desc: 'OEM-spec replacement components for field servicing and maintenance of commercial brake chambers. Includes rebuild kits, rubber diaphragms, caging bolts, clevis pins, and mounting hardware. In-stock and ready to ship worldwide.',
       icon: <Package className="w-10 h-10 text-white" />,
-      image: '/images/products/brc-brake-chamber-replacement-parts-kits.jpg',
+      image: '/images/home/piggybacks-bg.jpg',
       accent: 'navy',
       links: [
         { id: '/parts-and-kits/air-brake-chamber-rebuild-kits', title: 'Chamber Rebuild Kits', desc: 'All-in-One Overhaul' },
@@ -123,8 +123,9 @@ export default function ProductsClient() {
       {/* PAGE HEADER — do not modify */}
       <PageHeader
         badge="Heavy-Duty Components"
-        title="Complete Brake Chamber Catalog"
-        description="Browse our full range of OEM-grade commercial vehicle brake chambers and replacement parts. Every product includes technical specifications, dimensional data, and direct OEM cross-reference options."
+        badgeIcon={Package}
+        title="Commercial Brake Chamber Catalog: Spring, Service & ADB"
+        description="Browse BRC's full range of OEM-grade brake chambers and replacement parts for trucks, trailers, and commercial fleets. Spring brakes, service chambers, air disc actuators, piggyback kits, and hardware. Every product includes technical specs and direct OEM cross-reference."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Products' }
@@ -161,9 +162,9 @@ export default function ProductsClient() {
                     alt={group.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-[10s] group-hover:scale-110 ease-out grayscale mix-blend-luminosity opacity-80"
+                    className="object-cover transition-transform duration-[10s] group-hover:scale-110 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-900/90 to-navy-900/40 opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-900/60 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-90" />
                   <div className={`absolute inset-0 ${a.overlay} mix-blend-color`} />
                   <div className={`absolute -bottom-20 -right-20 w-64 h-64 blur-[80px] rounded-full transition-opacity duration-500 opacity-0 group-hover:opacity-40 ${a.glow}`} />
 
@@ -180,7 +181,7 @@ export default function ProductsClient() {
                           {group.tag}
                         </div>
                       )}
-                      <h2 className="text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-3 drop-shadow-lg group-hover:translate-x-2 transition-transform duration-300">
+                      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-3 drop-shadow-lg group-hover:translate-x-2 transition-transform duration-300">
                         {group.title}
                       </h2>
                       <p className="text-navy-100 text-sm md:text-base leading-relaxed font-light mb-6 max-w-sm text-justify">
@@ -248,7 +249,7 @@ export default function ProductsClient() {
       {/* TRUSTED BY GLOBAL FLEETS - DARK THEME */}
       <section className="py-16 md:py-24 bg-navy-950 border-b border-navy-800 relative overflow-hidden">
         {/* Background Image Layer */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity"></div>
 
         {/* Animated Grid Layer */}
         <AnimatedGridBackground opacity={0.08} />
@@ -264,7 +265,7 @@ export default function ProductsClient() {
               <SectionHeader
                 badge="Proven Reliability"
                 title={<>Trusted by <span className="text-amber-500">Global Fleets</span></>}
-                description="From sub-zero Arctic logging routes to blistering desert mining operations, our brake chambers are the chosen aftermarket replacement for the world's most demanding fleets."
+                description="From sub-zero Arctic logging routes to blistering desert mining operations, BRC brake chambers are the chosen aftermarket replacement for the world's most demanding fleets. Every chamber is manufactured to IATF 16949 standards and pressure-tested before shipment."
                 align="left"
                 theme="dark"
                 accentColor="amber"
@@ -277,7 +278,7 @@ export default function ProductsClient() {
                   <div className="text-xs sm:text-sm font-bold text-amber-500 uppercase tracking-widest">Units Deployed</div>
                 </div>
                 <div>
-                  <div className="text-4xl sm:text-5xl font-black text-white mb-1">35+</div>
+                  <div className="text-4xl sm:text-5xl font-black text-white mb-1">30+</div>
                   <div className="text-xs sm:text-sm font-bold text-amber-500 uppercase tracking-widest">Countries Served</div>
                 </div>
               </div>
@@ -289,12 +290,12 @@ export default function ProductsClient() {
                 <img
                   src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80"
                   alt="Fleet trucks"
-                  className="rounded-2xl lg:rounded-3xl shadow-xl shadow-navy-950/50 w-full h-48 sm:h-56 lg:h-64 object-cover object-center grayscale opacity-90 transition-all duration-500 hover:grayscale-0 hover:opacity-100"
+                  className="rounded-2xl lg:rounded-3xl shadow-xl shadow-navy-950/50 w-full h-48 sm:h-56 lg:h-64 object-cover object-center transition-all duration-500 hover:opacity-90"
                 />
                 <img
                   src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80"
                   alt="Global logistics"
-                  className="rounded-2xl lg:rounded-3xl shadow-xl shadow-navy-950/50 w-full h-60 sm:h-72 lg:h-80 object-cover object-center mt-6 sm:mt-8 lg:mt-12 grayscale opacity-90 transition-all duration-500 hover:grayscale-0 hover:opacity-100"
+                  className="rounded-2xl lg:rounded-3xl shadow-xl shadow-navy-950/50 w-full h-60 sm:h-72 lg:h-80 object-cover object-center mt-6 sm:mt-8 lg:mt-12 transition-all duration-500 hover:opacity-90"
                 />
               </div>
             </div>
@@ -318,8 +319,8 @@ export default function ProductsClient() {
             <div className="max-w-2xl">
               <SectionHeader
                 badge="By Vehicle Application"
-                title="Not sure which brake chamber you need?"
-                description="Select your vehicle type to see the recommended products for your operating environment."
+                title="Brake Chambers by Vehicle Type"
+                description="Select your vehicle type to see the recommended brake chambers for your operating environment. Each application page includes product recommendations, OEM cross-reference data, and installation specs."
                 align="left"
                 theme="light"
                 accentColor="amber"
@@ -328,15 +329,15 @@ export default function ProductsClient() {
               />
             </div>
             <Link href="/applications" className="hidden md:inline-flex items-center text-amber-600 font-extrabold uppercase tracking-widest text-[13px] hover:text-amber-500 transition-colors group">
-              Explore All Applications <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+              Explore All Brake Chamber Applications <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
-              { title: 'Heavy-Duty Trucks', rec: 'Spring Brakes (Type 30/30, 24/30)', img: '/images/heavy_duty_truck.png', link: '/applications/long-haul-semi' },
-              { title: 'Commercial Trailers', rec: 'Service Chambers (Type 20, 30)', img: '/images/commercial_trailer.png', link: '/applications/heavy-duty-trailer' },
-              { title: 'Transit Buses', rec: 'Air Disc Actuators (Type 16/18)', img: '/images/transit_bus.png', link: '/applications/transit-buses' },
+              { title: 'Heavy-Duty Trucks', rec: 'Spring Brakes (Type 30/30, 24/30)', img: '/images/home/spring-brakes-bg.jpg', link: '/applications/long-haul-semi' },
+              { title: 'Commercial Trailers', rec: 'Service Chambers (Type 20, 30)', img: '/images/home/service-brakes-bg.jpg', link: '/applications/heavy-duty-trailer' },
+              { title: 'Transit Buses', rec: 'Air Disc Actuators (Type 16/18)', img: '/images/home/air-disc-brakes-bg.jpg', link: '/applications/transit-buses' },
               { title: 'Off-Highway & Mining', rec: 'Severe-Duty ADB (Type 24/24)', img: 'https://images.unsplash.com/photo-1579417865672-88126b8821eb?auto=format&fit=crop&w=800&q=80', link: '/applications/mining-construction' }
             ].map((app, idx) => (
               <Link key={idx} href={app.link} className="group relative h-64 md:h-80 rounded-2xl md:rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
@@ -345,7 +346,7 @@ export default function ProductsClient() {
                   alt={app.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 25vw"
-                  className="object-cover transition-transform duration-[10s] group-hover:scale-110 grayscale mix-blend-luminosity opacity-80"
+                  className="object-cover transition-transform duration-[10s] group-hover:scale-110"
                 />
                 {/* Heavy dark gradient overlay to ensure text readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-900/60 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
@@ -364,9 +365,12 @@ export default function ProductsClient() {
             ))}
           </div>
 
-          <Link href="/applications" className="mt-8 md:hidden inline-flex items-center text-amber-600 font-extrabold uppercase tracking-widest text-[13px] hover:text-amber-500 transition-colors group">
-            Explore All Applications <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="mt-10 md:hidden flex w-full justify-center text-center">
+            <Link href="/applications" className="inline-flex items-center justify-center text-amber-600 font-extrabold uppercase tracking-widest text-[13px] hover:text-amber-500 transition-colors group leading-snug">
+              <span>Explore All Brake Chamber<br/>Applications</span>
+              <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0 transform group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -382,8 +386,8 @@ export default function ProductsClient() {
             <div className="max-w-2xl text-center lg:text-left relative z-10">
               <SectionHeader
                 badge={<><Search className="w-3.5 h-3.5 inline-block mr-1.5 relative -top-[1px]" />Find Your Match</>}
-                title="Already have an OEM part number?"
-                description="Enter your Bendix, Knorr-Bremse, ZF/WABCO, Haldex, SORL, or MGM part number to instantly find the matching BRC equivalent."
+                title="Already Have an OEM Brake Chamber Part Number?"
+                description="Enter your Bendix, Knorr-Bremse, ZF/WABCO, Haldex, SORL, or MGM part number and instantly find the matching BRC brake chamber equivalent. Every cross-reference is verified for fit, form, and function. Live database updated weekly."
                 align="left"
                 theme="light"
                 accentColor="amber"
@@ -394,20 +398,21 @@ export default function ProductsClient() {
 
             {/* Action Area (Fake Input + Button) */}
             <div className="w-full lg:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3 lg:shrink-0 relative z-10">
-              <div className="relative w-full sm:w-64">
+              <div className="relative w-full sm:w-[340px]">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Search className="h-5 w-5 text-slate-400" />
                 </div>
                 <input
                   type="text"
-                  placeholder="e.g. 5061011..."
+                  placeholder="Enter OEM part number (e.g. 5009011)"
                   className="w-full pl-11 pr-4 py-3.5 md:py-4 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-700 focus:outline-none hover:border-amber-400 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all shadow-inner cursor-pointer"
                   onClick={() => window.location.href = '/oem-cross-reference'}
                   readOnly
                 />
               </div>
-              <Link href="/oem-cross-reference" className="inline-flex items-center justify-center bg-navy-900 hover:bg-navy-800 text-white font-bold px-6 py-3.5 md:py-4 rounded-xl text-[13px] uppercase tracking-widest transition-all shadow-md transform hover:-translate-y-0.5 whitespace-nowrap border border-navy-700">
-                Search Database <ArrowRight className="ml-2 w-4 h-4" />
+              <Link href="/oem-cross-reference" className="flex w-full sm:w-auto items-center justify-center text-center bg-navy-900 hover:bg-navy-800 text-white font-bold px-6 py-3.5 md:py-4 rounded-xl text-[12px] sm:text-[13px] uppercase tracking-widest transition-all shadow-md transform hover:-translate-y-0.5 whitespace-normal sm:whitespace-nowrap border border-navy-700 leading-snug">
+                <span>Search Brake Chamber Database</span>
+                <ArrowRight className="ml-2 w-4 h-4 flex-shrink-0" />
               </Link>
             </div>
           </div>
@@ -424,9 +429,9 @@ export default function ProductsClient() {
 
             <div className="max-w-2xl relative z-10 text-center md:text-left">
               <SectionHeader
-                badge="Factory Direct"
+                badge="Factory-Direct Pricing"
                 title="Looking for Volume Pricing or Container Orders?"
-                description={<>Distributors and large fleets get direct factory pricing, tiered discounts, and reliable container shipping from our manufacturing hub factory in China. <strong className="text-white font-bold">No middlemen. No compromises.</strong></>}
+                description={<>Distributors and large fleets get direct factory pricing, tiered discounts, and reliable container shipping from our IATF 16949 factory in Zhejiang, China. <strong className="text-white font-bold">No middlemen. No hidden markups.</strong></>}
                 align="left"
                 theme="dark"
                 accentColor="amber"

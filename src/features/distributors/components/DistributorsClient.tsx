@@ -27,8 +27,9 @@ export default function DistributorsClient() {
     <article className="min-h-screen bg-slate-50 flex flex-col font-sans overflow-x-clip relative">
       <PageHeader
         badge="Global Network & Portal"
-        title="Partner with the Industry Leader"
-        description="Find an authorized BRC distributor near you, log in to the wholesale partner portal, or apply to join our global network."
+        badgeIcon={Globe}
+        title="Become a BRC Brake Chamber Distributor: Global Partner Network"
+        description="Join BRC's global network of authorized brake chamber distributors. Access wholesale pricing, private-label programs, marketing support, and priority factory logistics. Apply to become a distributor or log in to the partner portal."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Distributors' }

@@ -9,7 +9,8 @@ import CategoryPromoBanner from '@/features/products/components/CategoryPromoBan
 import ProductSeoBlock from '@/features/products/components/ProductSeoBlock';
 import TechnicalDownloads from '@/features/products/product-detail/TechnicalDownloads';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
-import TrendingModelsMarquee from '@/components/ui/TrendingModelsMarquee';
+import RelatedProducts from './RelatedProducts';
+import CrossReferenceMarquee from '@/components/ui/CrossReferenceMarquee';
 import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function ProductDetailLayout({
@@ -316,7 +317,8 @@ export default function ProductDetailLayout({
         </div>
       </div>
 
-      <TrendingModelsMarquee />
+      {/* NEW CROSS REF MARQUEE */}
+      <CrossReferenceMarquee />
 
     </>
   );

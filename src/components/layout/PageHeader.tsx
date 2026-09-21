@@ -2,8 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { LucideIcon } from 'lucide-react';
+
 interface PageHeaderProps {
   badge?: React.ReactNode;
+  badgeIcon?: LucideIcon | React.ElementType;
   title: React.ReactNode;
   description: React.ReactNode;
   children?: React.ReactNode;
@@ -12,9 +15,9 @@ interface PageHeaderProps {
   fullColorBackground?: boolean;
 }
 
-export default function PageHeader({ badge, title, description, children, imageSrc = '/images/engineering_blueprint.png', breadcrumbs, fullColorBackground = false }: PageHeaderProps) {
+export default function PageHeader({ badge, badgeIcon: BadgeIcon, title, description, children, imageSrc = '/images/engineering_blueprint.png', breadcrumbs, fullColorBackground = false }: PageHeaderProps) {
   return (
-    <header className="relative pt-6 md:pt-10 lg:pt-12 pb-24 md:pb-32 lg:pb-40 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8 bg-navy-950">
+    <header className="relative pt-8 md:pt-10 lg:pt-12 pb-24 md:pb-32 lg:pb-40 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8 bg-navy-950">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -22,7 +25,7 @@ export default function PageHeader({ badge, title, description, children, imageS
           alt="Header Background"
           fill
           unoptimized={imageSrc.startsWith('http')}
-          className={`object-cover opacity-40 ${fullColorBackground ? '' : 'mix-blend-luminosity grayscale'}`}
+          className={`object-cover opacity-40 ${fullColorBackground ? '' : ' '}`}
           priority
         />
         {/* Dark Gradient Overlay to ensure text readability */}
@@ -42,11 +45,11 @@ export default function PageHeader({ badge, title, description, children, imageS
       <div className="absolute top-0 right-0 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-amber-500 opacity-10 rounded-full blur-[80px] md:blur-[120px] -mr-20 -mt-20 md:-mr-40 md:-mt-40 mix-blend-screen pointer-events-none z-10"></div>
 
       {/* Content */}
-      <div className="container mx-auto max-w-[1920px] relative z-20">
-        
+      <div className="container mx-auto max-w-7xl relative z-20">
+
         {/* TOP LEFT BREADCRUMB - Standardized Position */}
         {breadcrumbs && breadcrumbs.length > 0 && (
-          <nav aria-label="Breadcrumb" className="mb-12 md:mb-16 mt-2">
+          <nav aria-label="Breadcrumb" className="mb-6 md:mb-10">
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-navy-300 font-medium">
               {breadcrumbs.map((crumb, idx) => (
                 <React.Fragment key={idx}>
@@ -65,19 +68,20 @@ export default function PageHeader({ badge, title, description, children, imageS
         )}
 
         {/* Left-Aligned Hero Content */}
-        <div className="max-w-4xl text-left">
+        <div className="max-w-3xl text-left">
           {badge && (
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[11px] font-bold uppercase tracking-widest mb-6 text-amber-400 bg-navy-900 border-navy-700 shadow-navy-950/50">
-              {badge}
+            <div className="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1 mb-3 md:px-4 md:py-1.5 md:mb-4 rounded-full bg-gradient-to-r from-navy-800 to-navy-900 border border-navy-700 text-amber-400 text-[10px] md:text-[11px] font-bold uppercase tracking-widest shadow-xl shadow-navy-950 whitespace-nowrap">
+              {BadgeIcon && <BadgeIcon className="w-3.5 h-3.5 md:w-4 md:h-4 -mt-0.5" />}
+              <span>{badge}</span>
             </div>
           )}
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.15] mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 md:mb-5 tracking-tight drop-shadow-2xl">
             {title}
           </h1>
-          <p className="text-base md:text-xl mb-8 md:mb-10 leading-relaxed max-w-2xl font-light text-navy-100">
+          <p className="text-sm md:text-lg mb-6 md:mb-8 leading-relaxed max-w-2xl font-light text-navy-100">
             {description}
           </p>
-          
+
           {children}
         </div>
       </div>

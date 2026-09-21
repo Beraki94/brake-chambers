@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, CheckCircle2, ShieldCheck, Microscope, Globe2, TestTube, Lightbulb, Mail, Users, Cog, Factory } from 'lucide-react';
+import { Building2, ArrowRight, CheckCircle2, ShieldCheck, Microscope, Globe2, TestTube, Lightbulb, Mail, Users, Cog, Factory } from 'lucide-react';
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -20,9 +20,10 @@ export default function CompanyClient() {
   return (
     <article className="min-h-screen bg-slate-50 font-sans overflow-x-clip">
       <PageHeader
-        badge="About BRC"
-        title="Built by Engineers. Trusted by Fleets."
-        description="Deep engineering, vertically integrated manufacturing, and uncompromising quality control. Welcome to BRC Brake Chambers — where every chamber is designed, tested, and built in our own factory."
+      badge="About BRC"
+        badgeIcon={Building2}
+      title="Built by Engineers. Trusted by Fleets."
+      description="BRC Brake Chambers is a Chinese manufacturer of OEM-quality aftermarket brake chambers. Founded on deep engineering, vertically integrated production, and a single mission: give fleets worldwide a factory-direct alternative to overpriced OEM parts."
         imageSrc="/images/engineering_blueprint.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -71,7 +72,7 @@ export default function CompanyClient() {
               className="relative"
             >
               <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
-                <Image src="/images/manufacturing_floor.png" alt="BRC Manufacturing Floor" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                <Image src="/images/manufacturing_floor.png" alt="BRC Manufacturing Floor" fill className="object-cover  hover:-0 transition-all duration-700" />
                 <div className="absolute inset-0 bg-navy-900/10 mix-blend-overlay"></div>
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy-950 to-transparent h-48 opacity-80"></div>
                 
@@ -138,7 +139,7 @@ export default function CompanyClient() {
                   className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 text-center group"
                 >
                   <div className="w-40 h-40 mx-auto bg-slate-200 rounded-full mb-6 overflow-hidden relative">
-                    <img src={`https://i.pravatar.cc/300?img=${leader.img}`} alt={leader.name} className="w-full h-full object-cover grayscale transition-all duration-500" />
+                    <img src={`https://i.pravatar.cc/300?img=${leader.img}`} alt={leader.name} className="w-full h-full object-cover  transition-all duration-500" />
                   </div>
                   <h3 className="text-2xl font-bold text-navy-900 mb-1">{leader.name}</h3>
                   <p className="text-amber-600 text-sm font-bold uppercase tracking-widest mb-4">{leader.role}</p>
@@ -312,7 +313,7 @@ export default function CompanyClient() {
       {/* SECTION 4: CERTIFICATIONS & COMPLIANCE */}
       <section className="py-20 md:py-32 bg-navy-950 relative overflow-hidden border-t border-navy-800">
         {/* Background Image Layer */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale z-0"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5   z-0"></div>
         
         {/* Animated Grid Layer */}
         <AnimatedGridBackground opacity={0.08} />
@@ -323,7 +324,7 @@ export default function CompanyClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] relative z-10">
           <SectionHeader
             badge="Certifications & Compliance"
-            title="Certified to Global Standards"
+            title="Operating to Global Standards"
             description="We don't self-certify. Our entire manufacturing ecosystem is audited strictly under international quality management systems."
             align="center"
             theme="dark"
@@ -333,8 +334,8 @@ export default function CompanyClient() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-6 mb-12">
             {[
-              { title: "Automotive Standards", desc: "Quality Management Systems — Certified" },
-              { title: "Automotive Standards", desc: "Automotive Quality Management — Certified" },
+              { title: "Automotive Standards", desc: "Quality Management Systems — Compliant" },
+              { title: "Automotive Standards", desc: "Automotive Quality Management — Compliant" },
               { title: "FMVSS 121", desc: "Federal Motor Vehicle Safety Standards — Compliant" },
               { title: "SAE J1469", desc: "Air Brake Actuator Standards — Compliant" }
             ].map((badge, idx) => (

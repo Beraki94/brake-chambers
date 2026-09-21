@@ -76,8 +76,9 @@ export default function TechnicalResourcesClient() {
     <article className="min-h-screen bg-slate-50 font-sans overflow-x-clip">
       <PageHeader
         badge="Engineering Support"
-        title="Installation Guides, Specs, & Documentation"
-        description="Access our comprehensive technical library — installation procedures, sizing specifications, caging guides, and selection tools. Everything you need to install, maintain, and troubleshoot BRC brake chambers with confidence."
+        badgeIcon={BookOpen}
+        title="Brake Chamber Technical Resources: Guides, Specs & Data Sheets"
+        description="Access BRC's technical library: installation procedures, sizing specifications, caging guides, torque specs, and chamber selection tools. Everything engineers, technicians, and fleet managers need to spec and install BRC brake chambers correctly."
         imageSrc="/products/brake_chambers_diagram.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },

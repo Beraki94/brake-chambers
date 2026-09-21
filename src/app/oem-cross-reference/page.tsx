@@ -6,8 +6,8 @@ import OEMCrossReferenceClient from '@/features/oem/components/OEMCrossReference
 
 
 export const metadata: Metadata = {
-  title: 'OEM Cross-Reference Tool | BRC Brake Chambers',
-  description: 'Instantly find BRC factory-direct aftermarket equivalents for Bendix, Haldex, Meritor, and Wabco brake chambers. Free commercial air brake cross-reference.',
+  title: 'OEM Brake Chamber Cross-Reference — Find Direct Replacements | BRC',
+  description: 'Search Bendix, Haldex, Meritor, Knorr-Bremse, WABCO, SORL, TSE & MGM part numbers and find the exact BRC brake chamber equivalent. Verified fit, form & function.',
   keywords: ['Brake Chamber Cross Reference', 'Bendix Interchange', 'Haldex Replacement', 'Meritor Cross Reference', 'Wabco Air Brakes', 'MGM Brakes'],
 };
 

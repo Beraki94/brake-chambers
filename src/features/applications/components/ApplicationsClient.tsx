@@ -104,9 +104,10 @@ export default function ApplicationsClient() {
   return (
     <article className="min-h-screen bg-slate-50 font-sans overflow-x-clip">
       <PageHeader
-        badge="Applications"
-        title="We Manufacture The Best Brake Chambers For Your Fleet"
-        description="Whether you run long-haul freight, refuse trucks, city transit, or off-highway equipment — buy factory-direct brake chambers engineered to outlast the competition in your specific operating environment."
+      badge="By Vehicle & Industry"
+        badgeIcon={Truck}
+      title="Brake Chambers by Application: Trucks, Trailers, Transit & Off-Highway"
+      description="Find the right BRC brake chamber for your operating environment. Heavy-duty trucks, commercial trailers, transit buses, refuse vehicles, and off-highway equipment. Each application page recommends the exact spring, service, or ADB chamber for the job."
         imageSrc="/products/scattered_chambers_footer.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -142,7 +143,7 @@ export default function ApplicationsClient() {
                         alt={group.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover grayscale group-hover:scale-105 transition-transform duration-700"
+                        className="object-cover  group-hover:scale-105 transition-transform duration-700"
                       />
                     </div>
                   </motion.div>
@@ -219,7 +220,7 @@ export default function ApplicationsClient() {
       {/* Tested for the Extremes */}
       <section className="py-16 md:py-24 bg-navy-950 border-y border-navy-800 relative overflow-hidden">
         {/* Background Image Layer */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale z-0"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5   z-0"></div>
         
         {/* Animated Grid Layer */}
         <AnimatedGridBackground opacity={0.08} />
@@ -295,7 +296,7 @@ export default function ApplicationsClient() {
               <img 
                 src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80" 
                 alt="Arctic Mining Truck" 
-                className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-3xl shadow-xl relative z-10 grayscale opacity-90 transition-all duration-500 hover:grayscale-0 hover:opacity-100"
+                className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-3xl shadow-xl relative z-10  opacity-90 transition-all duration-500 hover:-0 hover:opacity-100"
               />
             </div>
 

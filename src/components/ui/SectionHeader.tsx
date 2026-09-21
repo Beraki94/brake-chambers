@@ -2,6 +2,7 @@ import React from 'react';
 
 export interface SectionHeaderProps {
   badge?: React.ReactNode;
+  badgeIcon?: React.ElementType;
   title: React.ReactNode;
   description?: React.ReactNode;
   align?: 'left' | 'center';
@@ -64,7 +65,7 @@ export default function SectionHeader({
           {title}
         </h1>
       ) : (
-        <h2 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 md:mb-4 tracking-tight pb-1 md:pb-2
+        <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 md:mb-4 tracking-tight pb-1 md:pb-2
           ${isDark ? 'text-white' : plainText ? 'text-navy-900' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
         >
           {title}

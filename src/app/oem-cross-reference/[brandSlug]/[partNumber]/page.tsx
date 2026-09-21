@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { BRAKE_CHAMBERS } from '@/lib/data';
 import ProductListCard from '@/features/products/components/ProductListCard';
 import PageHeader from '@/components/layout/PageHeader';
+import CrossReferenceMarquee from '@/components/ui/CrossReferenceMarquee';
 import { Truck, CheckCircle2, ShieldCheck, ArrowRight, Cog, Settings2, Replace, BadgeCheck, Check } from 'lucide-react';
 
 export async function generateStaticParams() {
@@ -235,6 +236,9 @@ export default async function OEMPartNumberPage(
           
         </div>
       </div>
+
+      {/* Suggested Cross References */}
+      <CrossReferenceMarquee filterBrand={oemOriginalBrand} maxItems={15} />
     </div>
   );
 }

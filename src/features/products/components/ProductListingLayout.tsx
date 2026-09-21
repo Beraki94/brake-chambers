@@ -22,6 +22,7 @@ interface ProductListingLayoutProps {
   title: string;
   description: string;
   badge?: string;
+  badgeIcon?: React.ElementType;
   baseCategory: "all" | "spring-brake-chambers" | "service-brake-chambers" | "parts-and-kits" | "air-disc-brake-actuators";
   products: any[];
   searchParams?: { [key: string]: string | string[] | undefined };
@@ -36,6 +37,7 @@ export default function ProductListingLayout({
   title,
   description,
   badge,
+  badgeIcon,
   baseCategory,
   products: initialProducts,
   searchParams,
@@ -82,6 +84,7 @@ export default function ProductListingLayout({
         title={title}
         description={description}
         badge={badge}
+        badgeIcon={badgeIcon}
         breadcrumbs={[{ label: 'Home', href: '/' }, ...breadcrumbs]}
       />
       <div className={`container mx-auto px-4 lg:px-8 pt-6 lg:pt-8 max-w-[1920px] ${isSubCategory ? 'pb-16 lg:pb-24' : 'pb-6 lg:pb-8'}`}>

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Clock, Send, Globe, Truck, MessageCircle, ArrowRight, CheckCircle, User, Building } from 'lucide-react';
+import { PhoneCall, Mail, Phone, MapPin, Clock, Send, Globe, Truck, MessageCircle, ArrowRight, CheckCircle, User, Building } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
@@ -75,9 +75,10 @@ export default function ContactClient() {
   return (
     <div className="bg-[#F8FAFC] pb-16 md:pb-24 font-sans overflow-x-clip">
       <PageHeader
-        badge="Customer Support"
-        title="Contact BRC Global Sales"
-        description="Ready to equip your fleet with world-class safety? Our dedicated OEM and wholesale agents are available to assist with technical specs, cross-referencing, and bulk quotes."
+      badge="Customer Support"
+        badgeIcon={PhoneCall}
+      title="Contact BRC: Brake Chamber Sales & Technical Support"
+      description="Ready to equip your fleet with world-class brake chambers? Our OEM and wholesale team can assist with technical specs, cross-referencing, sample orders, and bulk quotes. Response within 24 hours."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Contact Us' }
@@ -260,7 +261,7 @@ export default function ContactClient() {
             {/* The Google Map */}
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110190.57398188172!2d121.4633716503816!3d29.87834529999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x344d634db8bebaeb%3A0xeab5c8148b301764!2sNingbo%2C%20Zhejiang%2C%20China!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-              className="absolute inset-0 w-full h-full filter grayscale-[0.8] contrast-[1.1] opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ease-out z-0"
+              className="absolute inset-0 w-full h-full filter -[0.8] contrast-[1.1] opacity-90 group-hover:-0 group-hover:opacity-100 transition-all duration-1000 ease-out z-0"
               style={{ border: 0 }} 
               allowFullScreen={false} 
               loading="lazy" 

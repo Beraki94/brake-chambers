@@ -18,10 +18,10 @@ const HERO_SLIDES = [
     id: 1,
     badge: "Direct Factory",
     badgeIcon: <Settings className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>OEM Brake Chamber <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Manufacturer.</span></>,
-    description: "Sourcing direct from our 50,000 sqm production facility operating to IATF 16949 standards in Zhejiang. Eliminate middleman markups on premium aftermarket commercial vehicle components.",
+    title: <>OEM Brake Chamber <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Manufacturer <br className="block md:hidden" />in China.</span></>,
+    description: "Source direct from our 50,000 sqm operating to IATF 16949 standards facility in Zhejiang, China. Eliminate middleman markups on premium aftermarket brake chambers for trucks, trailers, and commercial fleets worldwide.",
     cta1: { text: "Get Factory Pricing", link: "/quote" },
-    cta2: { text: "Tour Our Plant", link: "#facility" },
+    cta2: { text: "Request Free Samples", link: "/contact" },
     image: "/images/home/hero-factory.png",
     gradient: "from-navy-950 via-navy-950/90 to-transparent",
     glow: "bg-amber-500"
@@ -30,8 +30,8 @@ const HERO_SLIDES = [
     id: 2,
     badge: "Heavy-Duty Engineering",
     badgeIcon: <Cpu className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>Precision-Built for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Trucks and Trailers.</span></>,
-    description: "Engineered to eliminate air leaks and guarantee perfectly balanced braking under extreme road pressure. Built to match strict Bendix, Haldex, Meritor, Knorr-Bremse, and Wabco tolerances.",
+    title: <>Precision-Built Brake Chambers for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Trucks & Trailers.</span></>,
+    description: "Engineered to eliminate air leaks and deliver perfectly balanced braking under extreme road pressure. Direct fit, form, and function match for Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO tolerances.",
     cta1: { text: "View Product Catalog", link: "/products" },
     cta2: { text: "Request Test Samples", link: "/contact" },
     image: "/images/home/hero-truck-v2.png",
@@ -42,10 +42,10 @@ const HERO_SLIDES = [
     id: 3,
     badge: "International Export",
     badgeIcon: <Globe2 className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
-    title: <>Global Supplier for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">30+ Countries.</span></>,
-    description: "Streamlining global B2B procurement with predictable lead times and hassle-free port logistics. Handling direct container shipping, FCL, and LCL for distributors worldwide.",
+    title: <>Global Brake Chamber Supplier <br />to <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">30+ Countries.</span></>,
+    description: "Streamlined global B2B procurement with predictable lead times and hassle-free port logistics. Direct container shipping, FCL, and LCL handled for distributors, fleets, and importers worldwide.",
     cta1: { text: "Start Wholesale Inquiry", link: "/contact" },
-    cta2: { text: "Global Logistics", link: "/shipping" },
+    cta2: { text: "View Export Capabilities", link: "/shipping" },
     image: "/images/home/hero-port.png",
     gradient: "from-navy-950 via-navy-950/90 to-transparent",
     glow: "bg-amber-500"
@@ -103,22 +103,22 @@ export default function HomeClient() {
         ></div>
 
         {/* Content Container */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-30 py-16 md:py-24">
-          <div className="max-w-3xl min-h-[380px] sm:min-h-[350px] flex flex-col justify-center relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-30 pt-8 pb-20 md:pt-12 md:pb-20">
+          <div className="max-w-3xl grid relative">
 
             {HERO_SLIDES.map((slide, index) => (
               <div
                 key={slide.id}
-                className={`absolute inset-0 flex flex-col justify-center transition-all duration-700 ease-out ${index === currentSlide
-                  ? 'opacity-100 translate-y-0 visible'
-                  : 'opacity-0 translate-y-8 invisible'
+                className={`col-start-1 row-start-1 flex flex-col justify-start transition-all duration-700 ease-out ${index === currentSlide
+                  ? 'opacity-100 translate-y-0 z-10 visible'
+                  : 'opacity-0 translate-y-8 z-0 invisible pointer-events-none'
                   }`}
               >
                 <div>
                   <div className="inline-block px-3 py-1 mb-4 md:px-4 md:py-1.5 md:mb-6 rounded-full bg-gradient-to-r from-navy-800 to-navy-900 border border-navy-700 text-amber-400 text-[10px] md:text-[11px] font-bold uppercase tracking-widest shadow-xl shadow-navy-950 whitespace-nowrap">
                     {slide.badgeIcon} {slide.badge}
                   </div>
-                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.15] mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
                     {slide.title}
                   </h1>
                   <p className="text-base md:text-xl mb-8 md:mb-10 leading-relaxed max-w-2xl font-light text-navy-100">
@@ -128,9 +128,9 @@ export default function HomeClient() {
                     <Link href={slide.cta1.link} className="bg-amber-500 hover:bg-amber-400 text-navy-950 font-black px-6 py-3.5 md:px-8 md:py-3.5 rounded-xl transition-all duration-300 shadow-xl shadow-amber-500/20 text-center flex items-center justify-center gap-2 uppercase tracking-wide text-[12px] md:text-[13px] transform hover:-translate-y-0.5 w-full sm:w-auto">
                       {slide.cta1.text} <ArrowRight className="w-4 h-4" />
                     </Link>
-                    <Link href={slide.cta2.link} className="bg-navy-900/60 backdrop-blur-md border border-navy-600 hover:border-amber-500 hover:text-amber-400 text-white font-bold px-6 py-3.5 md:px-8 md:py-3.5 rounded-xl transition-all duration-300 text-center uppercase tracking-wide text-[12px] md:text-[13px] shadow-xl shadow-navy-950 transform hover:-translate-y-0.5 w-full sm:w-auto">
-                      {slide.cta2.text}
-                    </Link>
+                    <Link href={slide.cta2.link} className="bg-navy-900/60 backdrop-blur-md border border-navy-600 hover:border-amber-500 hover:text-amber-400 text-white font-bold px-6 py-3.5 md:px-8 md:py-3.5 rounded-xl transition-all duration-300 text-center flex items-center justify-center uppercase tracking-wide text-[12px] md:text-[13px] shadow-xl shadow-navy-950 transform hover:-translate-y-0.5 w-full sm:w-auto whitespace-normal sm:whitespace-nowrap">
+                {slide.cta2.text}
+              </Link>
                   </div>
                 </div>
               </div>
@@ -187,7 +187,7 @@ export default function HomeClient() {
 
         {/* Premium Fixed Parallax Background */}
         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-          <div className="w-full h-full bg-[url('/products/spring-brake.jpg')] bg-fixed bg-center bg-no-repeat bg-[length:800px_800px] mix-blend-multiply grayscale"></div>
+          <div className="w-full h-full bg-[url('/products/spring-brake.jpg')] bg-fixed bg-center bg-no-repeat bg-[length:800px_800px] mix-blend-multiply "></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
@@ -195,11 +195,11 @@ export default function HomeClient() {
             <div className="max-w-2xl flex flex-col items-center md:items-start">
               <SectionHeader
                 badge="Product Lines"
-                title="Primary Product Categories"
-                description="Explore our comprehensive range of commercial vehicle brake solutions."
+                title="Explore Our Brake Chamber Range: Spring, Service, ADB & Parts"
+                description="Explore BRC's complete range of aftermarket brake chambers for trucks, trailers, and commercial fleets. Every category is manufactured to IATF 16949 standards and cross-referenced against Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO part numbers."
                 align="left"
                 theme="light"
-                accentColor="navy"
+                accentColor="amber"
                 plainText={false}
                 className="!mb-0"
               />
@@ -212,21 +212,21 @@ export default function HomeClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Spring Brakes */}
             <Link href="/spring-brake-chambers" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
-              <div className="absolute inset-0 bg-[url('/images/home/spring-brakes-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('/images/home/spring-brakes-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700   z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
               <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Combination Spring Brakes (Drum)</h3>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Combination Spring Brakes (Drum)</h3>
                       <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">Double Diaphragm · S-Cam Setup</p>
                     </div>
                   </div>
-                  <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-4">Heavy-duty tandem units managing both service braking and parking brake functions for traditional S-cam drum axles. Engineered to outlast OEM standards with advanced corrosion-resistant e-coating.</div>
-                  <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">Type 20/24 — Type 24/30 — Type 30/30 — Type 36/36</div>
+                  <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-4">Heavy-duty combination spring brake chambers managing both service and parking brake functions. Precision-machined internal bore delivers consistent mechanical advantage across millions of cycles. Available in Type 20/24, 24/24, 30/30, and 24/30.</div>
+                  <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">Type 20/24 · Type 24/24 · Type 30/30 · Type 24/30</div>
                   <div className="flex items-center text-amber-600 font-extrabold text-[12px] uppercase tracking-widest group-hover:text-amber-500 transition-colors">
-                    Explore Spring Brakes <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                    View Spring Brake Specs <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
                 <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
@@ -239,21 +239,21 @@ export default function HomeClient() {
 
             {/* Service Brakes */}
             <Link href="/service-brake-chambers" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
-              <div className="absolute inset-0 bg-[url('/images/home/service-brakes-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('/images/home/service-brakes-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700   z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
               <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Service Brake Chambers (Drum)</h3>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Service Brake Chambers (Drum)</h3>
                       <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">Single Diaphragm · Steer & Drive Axles</p>
                     </div>
                   </div>
-                  <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-4">Compact, highly durable chambers engineered for precision pneumatic response on drum brake systems. Designed for fast actuation and extended service life on steer and drive axles.</div>
-                  <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">Size 9 — Size 12 — Size 16 — Size 20 — Size 24 — Size 30 — Size 36</div>
+                  <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-4">Factory-direct service brake chambers engineered for precise pneumatic response on drum brake systems. Available for steer axle, drive axle, and trailer applications. Manufactured to IATF 16949 standards and pressure-tested before shipment.</div>
+                  <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">Size 9 · Size 12 · Size 16 · Size 20 · Size 24 · Size 30</div>
                   <div className="flex items-center text-amber-600 font-extrabold text-[12px] uppercase tracking-widest group-hover:text-amber-500 transition-colors">
-                    Explore Service Chambers <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                    View Service Specs <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
                 <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
@@ -266,21 +266,21 @@ export default function HomeClient() {
 
             {/* Air Disc Brakes */}
             <Link href="/air-disc-brake-actuators" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
-              <div className="absolute inset-0 bg-[url('/images/home/air-disc-brakes-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('/images/home/air-disc-brakes-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700   z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
               <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Air Disc Brake (ADB) Chambers</h3>
-                      <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">High-Output Technology · Direct-Clamping</p>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Air Disc Brake (ADB) Actuators</h3>
+                      <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">High-Output Technology · Severe-Duty Rated</p>
                     </div>
                   </div>
-                  <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-4">Next-generation disc-specific chambers delivering superior clamping force, reduced brake fade, and shorter pushrods. Ideal for severe-duty trucks, transit buses, and off-highway applications.</div>
-                  <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">HOT Technology — Severe-Duty Rated — Corrosion-Resistant Housing</div>
+                  <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-4">Next-generation air disc brake actuators delivering superior clamping force, reduced brake fade, and longer pad life. Built with our proprietary HOT Technology for high-mileage, high-temperature, and severe-duty applications.</div>
+                  <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">HOT Technology · Severe-Duty Rated</div>
                   <div className="flex items-center text-amber-600 font-extrabold text-[12px] uppercase tracking-widest group-hover:text-amber-500 transition-colors">
-                    Explore ADB Chambers <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                    View ADB Specs <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
                 <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
@@ -293,21 +293,21 @@ export default function HomeClient() {
 
             {/* Piggybacks & Accessories */}
             <Link href="/parts-and-kits" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
-              <div className="absolute inset-0 bg-[url('/images/home/piggybacks-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700 grayscale mix-blend-luminosity z-0 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('/images/home/piggybacks-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700   z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
               <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Piggybacks & Replacement Parts</h3>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Brake Chamber Parts & Kits</h3>
                       <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">Repair Kits · Diaphragms · Hardware</p>
                     </div>
                   </div>
-                  <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-4">Genuine aftermarket repair components to extend chamber life without replacing the entire unit. Includes piggyback kits, diaphragms, caging bolts, clamp bands, and mounting hardware.</div>
-                  <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">OEM-Spec Components — In-Stock Ready to Ship — Bulk Pricing Available</div>
+                  <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-4">OEM-spec brake chamber repair components to extend the service life of your existing chambers. Includes piggyback kits, rubber diaphragms, caging bolts, clevis pins, and mounting hardware. In-stock and ready to ship worldwide.</div>
+                  <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">OEM-Spec · In-Stock · Ready to Ship</div>
                   <div className="flex items-center text-amber-600 font-extrabold text-[12px] uppercase tracking-widest group-hover:text-amber-500 transition-colors">
-                    Explore Parts & Kits <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                    Explore Brake Chamber Parts <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
                 <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative mt-4 sm:mt-0 flex items-center justify-center">
@@ -334,13 +334,13 @@ export default function HomeClient() {
             {/* Image Grid / Factory Floor */}
             <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="col-span-2 rounded-2xl overflow-hidden h-64 md:h-80 shadow-lg">
-                <img src="/images/home/assembly-line.jpg" alt="Brake Chamber Assembly Line" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
+                <img src="/images/brc5.jpg" alt="Brake Chamber Assembly Line" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
               </motion.div>
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
-                <img src="/images/home/quality-control.jpg" alt="Quality Control Testing" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
+                <img src="/images/brc4.jpg" alt="Quality Control Testing" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
               </motion.div>
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
-                <img src="/facility/cnc_machining_center.jpg" alt="CNC Machining Center" className="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700" />
+                <img src="/images/brc10.jpg" alt="CNC Machining Center" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
               </motion.div>
             </div>
 
@@ -348,8 +348,8 @@ export default function HomeClient() {
             <div className="w-full lg:w-1/2">
               <SectionHeader
                 badge="FACTORY-DIRECT SUPPLY"
-                title={<>Inside Our <span className="text-amber-500">50,000 sqm</span> Manufacturing Hub.</>}
-                description="By partnering directly with our IATF-certified factory in Zhejiang, China, you gain a vertically integrated manufacturing ally. We eliminate middleman markups and manage the entire lifecycle, delivering absolute OEM-quality precision backed by global logistical scale."
+                title={<>Inside Our <span className="text-amber-500">50,000 sqm</span> Brake Chamber Factory</>}
+                description="BRC operates a vertically integrated brake chamber factory in Zhejiang, China, operating to IATF 16949 standards. By sourcing direct, you eliminate middleman markups and manage the full production lifecycle, from raw material to export-ready container."
                 align="left"
                 theme="light"
                 accentColor="amber"
@@ -359,27 +359,27 @@ export default function HomeClient() {
               <ul className="space-y-4 mb-8 text-left">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">50,000 Sqm Manufacturing Facility:</strong> State-of-the-art infrastructure guaranteeing high-volume production and consistent supply.</span>
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">50,000 Sqm Factory:</strong> State-of-the-art production infrastructure for high-volume brake chamber output and consistent supply.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Global Certifications:</strong> Tier-1 quality systems operating to IATF 16949 standards.</span>
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">IATF 16949 Standards:</strong> Tier-1 automotive quality systems audited to global standards.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">High-Volume Capacity:</strong> Fully automated assembly lines scaling to 1M+ units annually.</span>
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">1M+ Units / Year:</strong> Fully automated assembly lines scaling to meet container-level demand.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Rigorous R&D:</strong> In-house metallurgical engineering and stress-testing labs.</span>
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">100% Tested:</strong> Every chamber is pressure-tested at end-of-line, and designs are lab-verified for 1,000,000+ continuous cycles.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Seamless Logistics:</strong> Turnkey ocean-freight shipping and customs compliance.</span>
+                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Export Logistics:</strong> Turnkey ocean freight, from rapid 7-day LCL dispatches to full 40ft container staging.</span>
                 </li>
               </ul>
-              <Link href="/contact" className="inline-flex items-center bg-navy-900 text-white font-bold px-8 py-4 rounded-xl hover:bg-amber-500 hover:text-navy-950 transition-all duration-300 shadow-xl uppercase tracking-widest text-[12px] transform hover:-translate-y-1">
-                Take a Virtual Tour <ChevronRight className="w-4 h-4 ml-2" />
+              <Link href="/contact" className="inline-flex w-full sm:w-auto justify-center items-center bg-navy-900 text-white font-bold px-6 sm:px-8 py-4 rounded-xl hover:bg-amber-500 hover:text-navy-950 transition-all duration-300 shadow-xl uppercase tracking-widest text-[11px] sm:text-[12px] transform hover:-translate-y-1 text-center whitespace-normal">
+                <span>See the manufacturing process</span> <ChevronRight className="w-4 h-4 ml-2 flex-shrink-0" />
               </Link>
             </div>
           </div>
@@ -388,7 +388,7 @@ export default function HomeClient() {
 
       {/* NEW: Aftermarket Brands Showcase */}
       <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden border-b border-navy-800">
-        <div className="absolute inset-0 bg-[url('/images/home/quality-control.jpg')] bg-cover bg-center opacity-5 mix-blend-luminosity grayscale"></div>
+        <div className="absolute inset-0 bg-[url('/images/home/quality-control.jpg')] bg-cover bg-center opacity-5  "></div>
 
         {/* Subtle Modern Dot Grid Background */}
         <AnimatedGridBackground opacity={0.08} />
@@ -397,9 +397,9 @@ export default function HomeClient() {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
           <SectionHeader
-            badge="Direct Aftermarket Replacements"
-            title="Engineered as a Direct Match — Not a Generic Substitute"
-            description="We manufacture aftermarket brake chambers to match the exact fit, form, and performance of leading OEM brands — so swapping to our parts doesn't mean swapping your specs."
+            badge="OEM-Compatible Aftermarket"
+            title="Engineered as a Direct OEM Replacement"
+            description="BRC brake chambers are manufactured to match the exact fit, form, and function of leading OEM brands. Swapping to BRC doesn't mean swapping your specs. It means sourcing the same performance at factory-direct pricing."
             align="center"
             theme="dark"
             accentColor="amber"
@@ -435,7 +435,7 @@ export default function HomeClient() {
           </motion.div>
 
           <Link href="/oem-cross-reference" className="inline-flex w-full sm:w-auto justify-center items-center text-navy-950 bg-white font-extrabold px-4 sm:px-8 py-4 sm:py-3.5 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(245,158,11,0.3)] text-[11px] sm:text-[12px] uppercase tracking-widest transform hover:-translate-y-0.5 text-center">
-            <span>Search the OEM Cross-Reference Database</span> <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0" />
+            <span>Search the OEM Part Database</span> <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0" />
           </Link>
         </div>
       </section>
@@ -443,7 +443,7 @@ export default function HomeClient() {
       {/* 5. R&D and Innovation Highlight */}
       <section className="relative overflow-hidden bg-navy-950 py-16 md:py-24 flex items-center border-t border-navy-800 group">
         <div className="absolute inset-0 overflow-hidden">
-          <img src="/images/home/lab-testing.png" alt="Laboratory Testing" className="w-full h-full object-cover opacity-30 mix-blend-luminosity grayscale group-hover:scale-105 transition-transform duration-[10s]" />
+          <img src="/images/home/lab-testing.png" alt="Laboratory Testing" className="w-full h-full object-cover opacity-30   group-hover:scale-105 transition-transform duration-[10s]" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/95 to-transparent"></div>
           {/* Accent gradient bar */}
           <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-emerald-400 to-emerald-600 shadow-[0_0_30px_rgba(16,185,129,0.6)]"></div>
@@ -457,8 +457,8 @@ export default function HomeClient() {
               <div>
                 <SectionHeader
                   badge="PROPRIETARY R&D SPOTLIGHT"
-                  title={<>High Output Technology <span className="text-emerald-500">(HOT)</span><br /><span className="text-xl md:text-2xl text-navy-200 mt-3 block">Redefining Air Disc Performance</span></>}
-                  description="Traditional air disc brake actuators lose clamping force as internal friction builds over time. Our patented High Output Technology (HOT) corrects this by maximizing mechanical advantage through a proprietary internal mechanism. The result: unprecedented stopping power consistency and uncompromised safety."
+                  title={<>High Output Technology <span className="text-emerald-500">(HOT)</span><br /><span className="text-xl md:text-2xl text-navy-200 mt-3 block">for Air Disc Brake Actuators</span></>}
+                  description="Standard air disc actuators lose clamping force as internal friction builds over time. BRC's patented HOT Technology corrects this through a proprietary internal mechanism that maintains mechanical advantage over millions of cycles, delivering consistent stopping performance under heavy loads."
                   align="left"
                   theme="dark"
                   accentColor="amber"
@@ -478,7 +478,7 @@ export default function HomeClient() {
                   </div>
                   <div>
                     <h3 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Consistent Clamping Force</h3>
-                    <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Overcomes internal friction to maintain peak stopping power over millions of cycles.</p>
+                    <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Overcomes friction loss to maintain peak stopping power across the actuator's full service life.</p>
                   </div>
                 </div>
 
@@ -488,7 +488,7 @@ export default function HomeClient() {
                   </div>
                   <div>
                     <h3 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Reduced Brake Fade</h3>
-                    <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Advanced mechanical advantage ensures reliable performance even under heavy loads.</p>
+                    <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Mechanical design maintains reliable performance even under sustained heavy loads and high heat.</p>
                   </div>
                 </div>
 
@@ -497,7 +497,7 @@ export default function HomeClient() {
                     <Settings className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div>
-                    <h3 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Patented Engineering</h3>
+                    <h3 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Patented Internal Design</h3>
                     <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Exclusive BRC internal mechanics you won't find in standard aftermarket generic actuators.</p>
                   </div>
                 </div>
@@ -511,12 +511,12 @@ export default function HomeClient() {
       {/* 4. Digital B2B Tools & Support */}
       <section className="py-16 md:py-24 relative overflow-hidden bg-[#F1EFE8]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             <div className="lg:col-span-1 pr-6">
               <SectionHeader
-                badge="Digital Ecosystem"
-                title="Smart Tools for Distributors & Fleets"
-                description="Streamline cross-referencing, technician training, and warranty claims—without picking up the phone."
+                badge="B2B Support Tools"
+                title="Part Lookups, Training & Warranty: All Online"
+                description="Self-service tools built for brake chamber distributors, fleet managers, and shop technicians. No phone calls. No waiting on email replies."
                 align="left"
                 theme="light"
                 accentColor="amber"
@@ -534,10 +534,10 @@ export default function HomeClient() {
                   <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
                     <Search className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <h3 className="text-xl font-extrabold text-white mb-3">Instant OEM Cross-Reference Database</h3>
-                  <p className="text-navy-300 text-sm md:text-base mb-8 leading-relaxed font-light text-left">Type in a Bendix, Knorr-Bremse, ZF/WABCO, Haldex, SORL, or MGM part number and get the matching BRC equivalent in seconds. Eliminate manual cross-referencing errors and procurement delays.</p>
+                  <h3 className="text-xl font-extrabold text-white mb-3">Instant OEM Part Lookup</h3>
+                  <p className="text-navy-300 text-sm md:text-base mb-8 leading-relaxed font-light text-left">Enter a Bendix, Knorr-Bremse, ZF/WABCO, Haldex, SORL, or MGM part number and get the matching BRC brake chamber in seconds. No account required.</p>
                   <div className="text-amber-400 text-[11px] font-extrabold uppercase tracking-widest flex items-center group-hover:text-amber-300">
-                    Launch Cross-Reference Tool <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-2 transition-transform duration-300" />
+                    Launch Part Lookup Tool <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
               </Link>
@@ -568,11 +568,11 @@ export default function HomeClient() {
                       <ShieldCheck className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-extrabold text-white mb-2 drop-shadow-md">Warranty Claims Portal</h3>
-                      <p className="text-white/90 text-sm md:text-base max-w-xl font-medium leading-relaxed text-left drop-shadow-sm">Submit warranty claims online with photo uploads to expedite the QA review process. Enjoy a streamlined approval workflow with no messy back-and-forth emails.</p>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-2 drop-shadow-md">Industry-Leading 3-Year Warranty</h3>
+                      <p className="text-white/90 text-sm md:text-base max-w-xl font-medium leading-relaxed text-left drop-shadow-sm">Enjoy complete peace of mind. Every BRC chamber is backed by a comprehensive defect warranty with a streamlined, no-hassle online claims process.</p>
                     </div>
                   </div>
-                  <Link href="/warranty" className="w-full md:w-auto text-center bg-navy-950 text-white px-8 py-4 rounded-xl font-extrabold text-[12px] uppercase tracking-widest hover:bg-navy-900 flex-shrink-0 whitespace-nowrap shadow-xl transform transition-transform hover:-translate-y-1">
+                  <Link href="/warranty" className="w-full md:w-auto flex items-center justify-center text-center bg-navy-950 text-white px-6 sm:px-8 py-4 rounded-xl font-extrabold text-[12px] uppercase tracking-widest hover:bg-navy-900 flex-shrink-0 whitespace-normal sm:whitespace-nowrap shadow-xl transform transition-transform hover:-translate-y-1">
                     Submit a Warranty Claim
                   </Link>
                 </div>
@@ -586,18 +586,18 @@ export default function HomeClient() {
       <section className="pt-12 pb-16 md:pt-16 md:pb-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
         {/* Prominent Rotating Brake Chamber Background (Watermark) */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] lg:w-[700px] lg:h-[700px] opacity-[0.15] pointer-events-none animate-[spin_120s_linear_infinite] z-0">
-          <img src="/products/spring-brake.jpg" alt="Brake Chamber Background" className="w-full h-full object-contain mix-blend-multiply grayscale drop-shadow-2xl" />
+          <img src="/products/spring-brake.jpg" alt="Brake Chamber Background" className="w-full h-full object-contain mix-blend-multiply  drop-shadow-2xl" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="text-center mb-12">
             <SectionHeader
-              badge="Partnership Process"
-              title="3 Steps to Partner With Us"
-              description="From sample evaluation to direct container shipping, we make importing premium brake chambers from China seamless and secure."
+              badge="How to Order Wholesale"
+              title="Source Brake Chambers from China in 3 Steps"
+              description="From sample evaluation to direct container shipping, BRC makes importing aftermarket brake chambers scalable, predictable, and secure."
               align="center"
               theme="light"
-              accentColor="navy"
+              accentColor="amber"
               plainText={true}
               className="!mb-0"
             />
@@ -610,8 +610,8 @@ export default function HomeClient() {
               <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6">
                 <FileText className="w-6 h-6 text-amber-500" />
               </div>
-              <h3 className="text-xl font-extrabold text-navy-900 mb-3">Request Catalog & Pricing</h3>
-              <p className="text-slate-600 text-sm">Tell us your market requirements. We will provide a comprehensive wholesale catalog and customized OEM-level pricing — so you know exactly what you're buying and at what cost.</p>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-4">Get Your Custom Wholesale Quote</h3>
+              <p className="text-slate-600 text-sm md:text-base leading-relaxed">Tell us your brake chamber requirements. We send a full wholesale catalog with factory-direct pricing, so you know exactly what you&apos;re buying and at what cost.</p>
             </div>
 
             {/* Step 2 */}
@@ -620,8 +620,8 @@ export default function HomeClient() {
               <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6">
                 <CheckCircle className="w-6 h-6 text-amber-500" />
               </div>
-              <h3 className="text-xl font-extrabold text-navy-900 mb-3">Order Evaluation Samples</h3>
-              <p className="text-slate-600 text-sm">Verify our quality firsthand. We express-ship sample units directly from our factory for your engineering team to approve — so you have zero risk before committing to volume.</p>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-4">Order Evaluation Samples</h3>
+              <p className="text-slate-600 text-sm md:text-base leading-relaxed">Order brake chamber samples directly from our factory for your engineering team to approve. Zero technical risk before committing to volume.</p>
             </div>
 
             {/* Step 3 */}
@@ -630,8 +630,8 @@ export default function HomeClient() {
               <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6">
                 <Globe2 className="w-6 h-6 text-amber-500" />
               </div>
-              <h3 className="text-xl font-extrabold text-navy-900 mb-3">Scale to Container Orders</h3>
-              <p className="text-slate-600 text-sm">Once approved, we scale production. Our export team handles LCL, FCL, and direct container shipping logistics to your warehouse — so you focus on your business, not on freight logistics.</p>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-4">Scale to Container Orders</h3>
+              <p className="text-slate-600 text-sm md:text-base leading-relaxed">Once approved, we produce and stage your order for container shipping. We handle Incoterms, FCL/LCL, and direct delivery to your port or 3PL warehouse.</p>
             </div>
           </div>
         </div>
@@ -647,9 +647,9 @@ export default function HomeClient() {
 
             <div className="max-w-2xl relative z-10 text-center md:text-left">
               <SectionHeader
-                badge="Corporate Headquarters"
-                title="Ready to bypass the middleman?"
-                description={<>Connect directly with our corporate headquarters in China. Our English-speaking export engineering team is standing by. <strong className="text-white font-bold">Direct from the source. No compromises.</strong></>}
+                badge="Factory-Direct Contact"
+                title="Work Directly With Our Factory in China"
+                description={<>Connect with our export engineering team in Zhejiang. We respond in English, quote in USD, and manage your brake chamber order from first inquiry to final container. No trading companies. No hidden markups.</>}
                 align="left"
                 theme="dark"
                 accentColor="amber"

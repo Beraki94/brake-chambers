@@ -11,7 +11,7 @@ const COMPANY_PAGES = [
   { name: "Manufacturing Process", href: "/company/manufacturing-process", description: "Explore our end-to-end automated manufacturing." },
   { name: "Production Facility", href: "/company/production-facility", description: "Take a tour of our state-of-the-art Zhuji plant." },
   { name: "Material Sourcing", href: "/company/material-sourcing", description: "Learn about our uncompromising steel and rubber standards." },
-  { name: "IATF Certifications", href: "/company/iatf-certifications", description: "Review our global compliance and auditing standards." },
+  { name: "IATF Compliance", href: "/company/iatf-certifications", description: "Review our global compliance and auditing standards." },
   { name: "Brake Testing Lab", href: "/company/brake-testing-lab", description: "See how we simulate 1 million+ cycles and extreme conditions." },
   { name: "Brake R&D", href: "/company/brake-r-and-d", description: "Discover what's next in heavy-duty braking technology." }
 ];
