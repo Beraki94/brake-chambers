@@ -15,31 +15,48 @@ export default function CustomOemClient() {
     {
       phase: '01',
       title: 'CAD Concept & Design Review',
-      description: 'Send us your CAD files, engineering drawings, or even a physical sample. Our team analyzes the design for manufacturability, identifies cost-reduction opportunities, and proposes material and geometry optimizations — all before any tooling investment.',
+      description: 'Send us your CAD files, engineering drawings, or a physical sample. Our team analyzes the design for manufacturability, identifies cost-reduction opportunities, and proposes material and geometry optimizations, all before any tooling investment is made.',
       icon: <PenTool />,
-      features: ['3D Modeling & Stress Analysis', 'Material Selection Consultation', 'DFM (Design for Manufacturing) Audits', 'Cost Engineering & Value Analysis'],
+      features: [
+        '3D Modeling & Stress Analysis: Your design is modeled in CAD and stress-tested through FEA.', 
+        'Material Selection Consultation: Engineering team recommends optimal steel grade, rubber compound, or aluminum alloy.', 
+        'DFM (Design for Manufacturing) Audits: Design reviewed against our production capability before tooling is cut.', 
+        'Cost Engineering & Value Analysis: Cost-reduction opportunities identified without compromising performance.'
+      ],
       image: '/images/engineering_blueprint.png',
     },
     {
       phase: '02',
       title: 'Rapid Prototyping & Validation',
-      description: 'Before committing to expensive production tooling, we create fully functional prototypes using rapid 3D printing and low-volume CNC machining. Prototypes undergo real-world pneumatic testing, dimensional verification, and performance benchmarking against your requirements.',
+      description: 'Before committing to production tooling, BRC creates functional prototypes using rapid 3D printing and low-volume CNC machining. Prototypes undergo pneumatic testing, dimensional verification, and performance benchmarking against your specifications.',
       icon: <Microscope />,
-      features: ['Functional Metal Prototypes in 14 Days', 'Pneumatic & Burst Pressure Testing', 'Iterative Design Refinement', 'Customer Sign-Off Before Tooling'],
+      features: [
+        'Functional Metal Prototypes in 14 Days: In-house CNC machining center produces working samples for bench validation.', 
+        'Pneumatic & Burst Pressure Testing: Prototypes tested to the same standards as our catalog chambers.', 
+        'Iterative Design Refinement: Every test result feeds back into the CAD model.', 
+        'Customer Sign-Off Before Tooling: No volume tooling is committed until you approve the prototype.'
+      ],
       image: '/images/commercial_trailer.png',
     },
     {
       phase: '03',
       title: 'Tooling, Production & Delivery',
-      description: 'Once prototypes are approved, we develop custom aluminum die-casting molds and stamping dies in-house. Our automated production lines scale seamlessly from pilot runs of 500 units to full production of 500,000+ units — with 100% end-of-line testing on every chamber.',
+      description: 'Once prototypes are approved, BRC develops custom aluminum die-casting molds and stamping dies in-house. Our automated production lines scale from pilot runs of 500 units to full production runs of 100,000+ units per program, with 100% end-of-line testing on every chamber.',
       icon: <Factory />,
-      features: ['Custom Aluminum Die-Casting Molds', 'Automated Robotic Welding & Assembly', 'Scalable 500 to 500,000+ Units', '100% End-of-Line Quality Testing'],
+      features: [
+        'Custom Aluminum Die-Casting Molds: In-house mold development for custom housing geometry.', 
+        'Automated Robotic Welding & Assembly: Consistent weld penetration and assembly tolerance across every unit.', 
+        'Scalable Production: Pilot runs from 500 units, scaling to full container-load production.', 
+        '100% End-of-Line Quality Testing: Same pneumatic and dimensional testing standards as our catalog chambers.'
+      ],
       image: '/images/manufacturing_floor.png',
+      linkText: 'View High-Volume Orders →',
+      linkHref: '/manufacturing/high-volume-orders'
     },
   ];
 
   const stats = [
-    { value: '500K+', label: 'Annual Unit Capacity', icon: Factory },
+    { value: '1M+', label: 'Produced Annually', icon: Factory },
     { value: '14', label: 'Days to First Prototype', icon: Cog },
     { value: '100%', label: 'IP Protection', icon: Lock },
     { value: '50+', label: 'OEM Programs Delivered', icon: Handshake },
@@ -49,8 +66,8 @@ export default function CustomOemClient() {
     <article className="min-h-screen bg-white font-sans overflow-x-clip">
       <PageHeader
         badge="Custom Engineering"
-        title="Custom OEM Manufacturing"
-        description="We are the manufacturing powerhouse behind some of the world's most recognized brake brands. Bring your proprietary specs, and we will engineer, prototype, and mass-produce them at scale."
+        title="Custom OEM Brake Chamber Manufacturing"
+        description="BRC develops and manufactures custom brake chambers to buyer specifications, from initial CAD design to prototype validation and volume production. Bring your drawings, part numbers, or physical samples, and our engineering team will reverse-engineer or improve them at scale."
         imageSrc="/images/manufacturing_floor.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -64,7 +81,7 @@ export default function CustomOemClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
           <SectionHeader
             title={<>Your Design. <span className="text-amber-500">Our Factory.</span></>}
-            description="You don't need to build a factory in China to get factory-direct margins. Partner with BRC to engineer, test, and mass-produce your proprietary brake chamber designs at scale — while we handle every aspect of manufacturing, testing, and logistics."
+            description="You don't need to build a factory in China to get factory-direct margins. Partner with BRC to engineer, test, and mass-produce your proprietary brake chamber designs at scale, while we handle manufacturing, testing, and logistics."
             align="center"
             theme="light"
             accentColor="amber"
@@ -97,17 +114,19 @@ export default function CustomOemClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className="bg-white rounded-3xl p-6 md:p-8 text-center border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col items-center justify-center h-full relative overflow-hidden"
+                className="bg-white rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col items-center justify-center h-full relative overflow-hidden"
               >
                 {/* Top Right Circle Decoration */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none"></div>
 
                 <div className="relative z-10 flex flex-col items-center justify-center w-full">
-                  <IconBox icon={<stat.icon />} color="amber" size="lg" className="mb-4 md:mb-6 transition-colors" />
-                  <div className="text-3xl md:text-5xl font-black text-navy-900 mb-2 tracking-tight group-hover:text-amber-600 transition-colors">
+                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4 md:mb-6 shadow-sm border border-amber-100 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-md">
+                    <stat.icon className="w-6 h-6 md:w-8 md:h-8" aria-hidden="true" />
+                  </div>
+                  <div className="text-2xl sm:text-3xl md:text-5xl font-black text-navy-900 mb-2 tracking-tight group-hover:text-amber-600 transition-colors">
                     {stat.value}
                   </div>
-                  <div className="text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
+                  <div className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
                     {stat.label}
                   </div>
                 </div>
@@ -121,8 +140,9 @@ export default function CustomOemClient() {
       <section className="py-16 md:py-24 bg-[#F1EFE8]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
-            badge="Development Phases"
-            title="The OEM Development Process"
+            badge="Development Process"
+            title="Our Custom OEM Development Process"
+            description="Every custom brake chamber program follows a controlled development process: design review, rapid prototyping, tooling, and volume production. Each phase has defined deliverables and sign-off points."
             accentColor="amber"
           />
 
@@ -139,21 +159,34 @@ export default function CustomOemClient() {
                     className="w-full lg:w-1/2"
                   >
                     <div className="flex items-center gap-3 mb-6">
-                      <IconBox icon={phase.icon} color={isEven ? "amber" : "navy"} size="lg" className="group-hover:scale-110 transition-transform shadow-sm" />
+                      <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        {React.cloneElement(phase.icon as React.ReactElement<any>, { className: `w-7 h-7 md:w-8 md:h-8 ${isEven ? 'text-amber-500' : 'text-navy-500'}` })}
+                      </div>
                       <span className="text-slate-400 font-black text-5xl md:text-6xl tracking-tighter opacity-20">
                         {phase.phase}
                       </span>
                     </div>
                     <h3 className={`text-2xl md:text-3xl font-black text-navy-900 mb-4 tracking-tight transition-colors ${isEven ? 'group-hover:text-amber-600' : 'group-hover:text-navy-600'}`}>{phase.title}</h3>
                     <p className="text-slate-600 text-base md:text-lg leading-relaxed font-light mb-8">{phase.description}</p>
-                    <div className="space-y-3">
-                      {phase.features.map((f, fIdx) => (
-                        <div key={fIdx} className="flex items-center gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-amber-500 flex-shrink-0" />
-                          <span className="text-navy-900 font-semibold text-sm md:text-base">{f}</span>
-                        </div>
-                      ))}
+                    <div className="space-y-3 mb-8">
+                      {phase.features.map((f, fIdx) => {
+                        const [title, desc] = f.split(': ');
+                        return (
+                          <div key={fIdx} className="flex gap-3">
+                            <CheckCircle2 className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                            <div>
+                              <span className="text-navy-900 font-bold text-sm md:text-base">{title}: </span>
+                              <span className="text-slate-600 text-sm md:text-base">{desc}</span>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
+                    {phase.linkText && (
+                      <Link href={phase.linkHref || "#"} className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 transition-colors">
+                        {phase.linkText}
+                      </Link>
+                    )}
                   </motion.div>
 
                   <motion.div
@@ -187,9 +220,9 @@ export default function CustomOemClient() {
             </div>
             <div className="w-full lg:w-1/2">
               <SectionHeader
-                badge="Confidentiality"
-                title="Your IP is Sacred"
-                description="We understand that your proprietary designs represent years of R&D investment. Our OEM program is built on a foundation of absolute confidentiality and intellectual property protection at every stage."
+                badge="Intellectual Property Protection"
+                title="Your IP is Protected"
+                description="We understand that your proprietary designs represent years of R&D investment. Our custom OEM program is built on absolute confidentiality and intellectual property protection at every stage."
                 align="left"
                 theme="light"
                 accentColor="amber"
@@ -198,12 +231,12 @@ export default function CustomOemClient() {
               <div className="space-y-5">
                 {[
                   { title: 'Standard NDA Before Any Review', desc: 'We sign comprehensive non-disclosure agreements before you share a single CAD file or specification sheet.' },
-                  { title: 'Dedicated Engineering Team', desc: 'Your project is assigned to a dedicated team that operates independently — your designs are never shared across other client programs.' },
+                  { title: 'Dedicated Engineering Team', desc: 'Your project is assigned to a dedicated team that operates independently, so your designs are never shared across other client programs.' },
                   { title: 'Exclusive Tooling Ownership', desc: 'All custom molds, dies, and tooling developed for your program remain your intellectual property. You own what you pay for.' },
-                  { title: 'Segregated Production Runs', desc: 'Custom OEM orders run on segregated lines with controlled access — ensuring your products never mix with standard catalog items.' },
+                  { title: 'Segregated Production Runs', desc: 'Custom OEM orders run on segregated lines with controlled access, ensuring your products never mix with standard catalog items.' },
                 ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4 items-start">
-                    <IconBox icon={<ShieldCheck />} color="amber" size="md" className="shrink-0 mt-1 shadow-sm group-hover:scale-110 transition-transform" />
+                  <div key={idx} className="flex gap-3 items-start">
+                    <CheckCircle2 className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
                     <div>
                       <h3 className="font-bold text-lg text-navy-900 mb-1">{item.title}</h3>
                       <p className="text-slate-600 text-sm md:text-base leading-relaxed">{item.desc}</p>
@@ -220,16 +253,17 @@ export default function CustomOemClient() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-16 md:pb-24 mt-16 md:mt-24">
         <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
           <SectionHeader 
-            title="Ready to Discuss Your Project?" 
-            description="We sign standard NDAs to protect your intellectual property before reviewing any files. Reach out to our engineering liaison team to get started."
+            badge="Start Your OEM Project"
+            title="Ready to Start Your Custom OEM Brake Chamber Project?" 
+            description="We sign standard NDAs before reviewing any files. Send us your drawings, part numbers, or samples, and our engineering team responds within 24 hours."
             className="!mb-8"
           />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">
+            <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto">
               Request OEM Consultation <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
-            <Link href="/manufacturing/private-label" className="inline-flex items-center justify-center bg-white border border-slate-200 text-navy-900 font-extrabold px-8 py-4 rounded-xl hover:border-amber-400 hover:text-amber-600 transition-all duration-300 shadow-sm uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">
-              Private Label Program
+            <Link href="/manufacturing/research-development" className="inline-flex items-center justify-center bg-white border border-slate-200 text-navy-900 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:border-amber-400 hover:text-amber-600 transition-all duration-300 shadow-sm uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto">
+              View Engineering Capabilities
             </Link>
           </div>
         </div>
@@ -237,4 +271,7 @@ export default function CustomOemClient() {
     </article>
   );
 }
+
+
+
 

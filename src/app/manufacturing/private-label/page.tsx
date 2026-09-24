@@ -4,8 +4,8 @@ import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import PrivateLabelClient from '@/features/manufacturing/components/PrivateLabelClient';
 
 export const metadata: Metadata = {
-  title: 'Private Label & White Label Brake Chambers | BRC',
-  description: 'Launch your own aftermarket brake chamber brand. BRC manufactures, brands, and packages brake chambers under your name — custom paint, laser engraving, branded packaging, and full factory-direct margins.',
+  title: 'Private Label & White Label Brake Chambers: Build Your Brand | BRC',
+  description: 'Launch your own private label or white label brake chamber brand. Custom paint, laser engraving, branded packaging. Full factory-direct margins.',
 };
 
 export default function PrivateLabelPage() {

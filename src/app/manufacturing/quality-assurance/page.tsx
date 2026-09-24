@@ -4,8 +4,8 @@ import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import TestingLaboratoryClient from '@/features/manufacturing/components/TestingLaboratoryClient';
 
 export const metadata: Metadata = {
-  title: 'Quality Assurance & Testing Lab — Brake Chamber QA | BRC',
-  description: 'Inside BRC\'s 24-hour QA laboratory: 100% pneumatic leak testing, 1M+ cycle endurance tests, salt spray corrosion chambers, and FMVSS-121 compliance validation for every brake chamber.',
+  title: 'Brake Chamber Quality Assurance: Inside Our Testing Lab | BRC',
+  description: 'Every BRC brake chamber passes 1M+ cycle tests, 500-hour salt spray, and 100% pneumatic leak testing. IATF 16949 quality system. Full traceability.',
 };
 
 export default function TestingLaboratoryPage() {

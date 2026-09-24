@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { PhoneCall, Mail, Phone, MapPin, Clock, Send, Globe, Truck, MessageCircle, ArrowRight, CheckCircle, User, Building } from 'lucide-react';
+import { PhoneCall, Mail, Phone, MapPin, Clock, Send, Globe, Truck, MessageCircle, ArrowRight, CheckCircle, User, Building, HelpCircle } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
@@ -12,8 +13,9 @@ const contactCards = [
   {
     icon: Phone,
     title: "Technical Sales Support",
-    description: "For immediate assistance with OEM cross-referencing and inventory.",
+    description: "Direct line to our engineering team for OEM cross-referencing, part specifications, and inventory checks.",
     value: "+86 13395856758",
+    subtext: "Same number - WhatsApp available",
     href: "tel:+8613395856758",
     color: "emerald",
     bgColor: "bg-emerald-50",
@@ -22,9 +24,10 @@ const contactCards = [
   },
   {
     icon: Mail,
-    title: "Email Us",
-    description: "For formal RFQs, container shipping logistics, and partnerships.",
+    title: "Wholesale & RFQ",
+    description: "For formal RFQs, container shipping logistics, distribution partnerships, and pricing tiers.",
     value: "sales@brakechambers.com",
+    subtext: "Typical response time: 2-4 hours",
     href: "mailto:sales@brakechambers.com",
     color: "amber",
     bgColor: "bg-amber-50",
@@ -33,10 +36,10 @@ const contactCards = [
   },
   {
     icon: MapPin,
-    title: "Global Headquarters",
+    title: "Manufacturing Facility",
     description: "Block 3, No 55 Tianyang Rd, Fengqiao, Zhuji, Zhejiang. China 311811",
-    value: "View on Map",
-    href: "#",
+    value: "View on Google Maps",
+    href: "#map-section",
     color: "navy",
     bgColor: "bg-navy-50",
     textColor: "text-navy-600",
@@ -45,8 +48,8 @@ const contactCards = [
   {
     icon: Clock,
     title: "Business Hours",
-    description: "Monday – Saturday: 08:00 – 18:00 CST (GMT+8). Closed Sundays & Chinese public holidays.",
-    value: "08:00 – 18:00 CST",
+    description: "Monday - Saturday: 08:00 - 18:00 CST (GMT+8). Closed Sundays and Chinese public holidays.",
+    value: "US: Prev day 19:00 - 05:00 EST | EU: 02:00 - 12:00 CET",
     href: undefined,
     color: "slate",
     bgColor: "bg-slate-50",
@@ -60,25 +63,37 @@ export default function ContactClient() {
   const faqs = [
     {
       q: "What is your Minimum Order Quantity (MOQ)?",
-      a: "For direct factory pricing, our MOQ is typically 1 standard pallet (approx. 50-100 units depending on the chamber size). For initial testing and prototyping, we can accommodate smaller LCL shipments."
+      a: "For standard catalog brake chambers, our MOQ is 500 units per order (LCL pilot order). For customized or private label orders, MOQ is typically 1,000 units per part number. Sample orders of 1-5 units are available for evaluation - contact us for sample pricing."
     },
     {
       q: "What are your standard manufacturing lead times?",
-      a: "Standard production time for FCL (Full Container Load) orders is 30 days. Transit time varies by destination, but typically ranges from 14-30 days for global ocean freight."
+      a: "Standard catalog orders ship 30 days from order confirmation. Custom OEM or private label orders require 45-60 days depending on tooling and packaging requirements. Sample orders ship within 5-7 business days."
     },
     {
       q: "Do you offer private labeling or custom OEM branding?",
-      a: "Yes. We offer comprehensive private labeling services including custom laser etching, branded packaging, and custom paint coding for our high-volume distribution partners."
+      a: "Yes. We offer both private label (custom paint, laser engraving, branded packaging on BRC-manufactured chambers) and custom OEM (full design-to-production of your proprietary chamber design). See our private label and custom OEM pages for details."
+    },
+    {
+      q: "What payment terms do you accept?",
+      a: "Standard terms are 30% deposit / 70% balance before shipment via T/T (bank wire). For long-term partners, we offer L/C at sight and revolving credit terms. Contact sales@brakechambers.com for terms specific to your order size."
+    },
+    {
+      q: "Which countries do you ship to?",
+      a: "BRC exports to 40+ countries across North America, Australia, New Zealand, Europe, and the Middle East. We handle FCL, LCL, and door-to-door container shipping with EXW, FOB, CIF, and DDP terms available."
+    },
+    {
+      q: "What is your warranty policy?",
+      a: "BRC brake chambers are covered by a 3-year limited warranty against manufacturing defects. Warranty claims are submitted through our online portal with photo documentation. Response within 24 hours. See our warranty page for full terms."
     }
   ];
 
   return (
     <div className="bg-[#F8FAFC] pb-16 md:pb-24 font-sans overflow-x-clip">
       <PageHeader
-      badge="Customer Support"
+        badge="Customer Support"
         badgeIcon={PhoneCall}
-      title="Contact BRC: Brake Chamber Sales & Technical Support"
-      description="Ready to equip your fleet with world-class brake chambers? Our OEM and wholesale team can assist with technical specs, cross-referencing, sample orders, and bulk quotes. Response within 24 hours."
+        title="Contact BRC: Brake Chamber Sales & Technical Support"
+        description="Connect with our OEM and wholesale team in Zhejiang, China. We respond to technical specifications, cross-reference requests, sample orders, and bulk pricing inquiries within 24 hours."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Contact Us' }
@@ -88,7 +103,7 @@ export default function ContactClient() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] -mt-6 sm:-mt-16 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-6 sm:gap-8">
           
-          {/* Left Sidebar — Contact Info Cards */}
+          {/* Left Sidebar - Contact Info Cards */}
           <motion.div 
             variants={staggerContainer} 
             initial="hidden" 
@@ -100,30 +115,33 @@ export default function ContactClient() {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className={`bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-md border border-slate-100 ${card.borderHover} p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group relative overflow-hidden`}
+                className={"bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-md border border-slate-100 p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group relative overflow-hidden " + card.borderHover}
               >
                 {/* Top Right Circle Decoration */}
-                <div className={`absolute top-0 right-0 w-32 h-32 ${card.bgColor} rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none`}></div>
+                <div className={"absolute top-0 right-0 w-32 h-32 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none " + card.bgColor}></div>
 
                 <div className="relative z-10">
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 ${card.bgColor} ${card.textColor} rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
-                  <card.icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                </div>
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-navy-900 mb-1">{card.title}</h3>
-                <p className="text-navy-500 text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 text-left">{card.description}</p>
-                {card.href ? (
-                  <a href={card.href} className={`${card.textColor} text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1 break-all`}>
-                    {card.value} <ArrowRight className="w-3 h-3 shrink-0" />
-                  </a>
-                ) : (
-                  <span className="text-slate-700 text-xs sm:text-sm font-bold">{card.value}</span>
-                )}
+                  <div className={"w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm " + card.bgColor + " " + card.textColor}>
+                    <card.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </div>
+                  <h3 className="font-heading text-lg sm:text-xl font-bold text-navy-900 mb-1">{card.title}</h3>
+                  <p className="text-navy-500 text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 text-left">{card.description}</p>
+                  
+                  {card.subtext && <p className="text-slate-500 text-xs mb-2 italic">{card.subtext}</p>}
+
+                  {card.href ? (
+                    <a href={card.href} className={card.textColor + " text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1 break-all"}>
+                      {card.value} <ArrowRight className="w-3 h-3 shrink-0" />
+                    </a>
+                  ) : (
+                    <span className="text-slate-700 text-xs sm:text-sm font-bold">{card.value}</span>
+                  )}
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Right Side — Form & FAQ */}
+          {/* Right Side - Form & FAQ */}
           <div className="lg:col-span-2 order-1 lg:order-2 flex flex-col gap-6 sm:gap-8">
             {/* The Form */}
             <motion.div 
@@ -193,6 +211,18 @@ export default function ContactClient() {
                     </div>
                   </div>
                   <div>
+                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Country <span className="text-red-500">*</span></label>
+                    <div className="relative">
+                      <Globe className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
+                      <input 
+                        type="text" 
+                        required
+                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        placeholder="United States" 
+                      />
+                    </div>
+                  </div>
+                  <div>
                     <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Phone / WhatsApp <span className="text-slate-400 font-normal">(Optional)</span></label>
                     <div className="relative">
                       <Phone className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
@@ -203,13 +233,31 @@ export default function ContactClient() {
                       />
                     </div>
                   </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Inquiry Type <span className="text-red-500">*</span></label>
+                    <div className="relative">
+                      <HelpCircle className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
+                      <select 
+                        required
+                        defaultValue=""
+                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all text-navy-900 appearance-none"
+                      >
+                        <option value="" disabled>Select an option...</option>
+                        <option value="technical">Technical Support</option>
+                        <option value="sample">Sample Request</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="press">Press</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
                 <div>
                   <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Message & Requirements <span className="text-red-500">*</span></label>
                   <textarea 
                     rows={4} 
                     required
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 resize-none" 
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 resize-none pt-3" 
                     placeholder="Please include part numbers, estimated quantities, or destination country for shipping quotes..."
                   ></textarea>
                 </div>
@@ -254,7 +302,7 @@ export default function ContactClient() {
           className="mt-16 sm:mt-20 lg:mt-24 bg-white border-y border-slate-200 overflow-hidden relative w-full"
         >
           {/* Main Map Container */}
-          <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[550px] group bg-slate-100">
+          <div id="map-section" className="relative w-full h-[350px] sm:h-[450px] lg:h-[550px] group bg-slate-100">
             {/* Amber Duotone Overlay - covers the entire map seamlessly */}
             <div className="absolute inset-0 bg-amber-500/15 mix-blend-color z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-1000 ease-out"></div>
             
@@ -289,7 +337,7 @@ export default function ContactClient() {
         </motion.div>
 
         {/* Re-open container for the next section */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] mb-20">
           {/* Additional Section: Global Reach */}
           <motion.section 
             variants={staggerContainer} 
@@ -331,7 +379,46 @@ export default function ContactClient() {
           </div>
         </motion.section>
       </div>
+      
+      {/* SECTION 7: BOTTOM CTA */}
+      <section className="py-16 md:py-24 bg-[#F1EFE8] relative overflow-hidden mt-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-10 md:p-16 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 group">
+            {/* Decorative Background Elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0 pointer-events-none"></div>
+            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] z-0 pointer-events-none"></div>
+
+            <div className="relative z-10 flex-1 max-w-2xl text-center md:text-left">
+              <SectionHeader
+                badge="Ready to Order?"
+                title={<>Request a Wholesale <span className="text-amber-400">Brake Chamber Quote</span></>}
+                description="Tell us your target volumes, brake chamber types, and destination country. Our team will respond with factory-direct pricing, estimated lead times, and shipping options within 24 hours."
+                align="left"
+                theme="dark"
+                accentColor="amber"
+                className="!mb-0"
+                plainText={true}
+              />
+            </div>
+
+            <div className="relative z-10 flex flex-col w-full md:w-auto gap-4 min-w-[240px] shrink-0 mt-8 md:mt-0">
+              <Link 
+                href="/quote" 
+                className="bg-amber-500 text-navy-950 font-black py-4 px-8 rounded-xl hover:bg-amber-400 transition-all shadow-xl shadow-amber-500/20 text-center uppercase tracking-widest text-[13px] transform hover:-translate-y-1"
+              >
+                Request a Quote <ArrowRight className="inline-block w-4 h-4 ml-2 -mt-1" />
+              </Link>
+              <Link 
+                href="/contact?subject=Sample+Request" 
+                className="bg-navy-800 text-white border border-navy-600 font-black py-4 px-8 rounded-xl hover:bg-navy-700 hover:border-navy-500 transition-all text-center uppercase tracking-widest text-[13px] transform hover:-translate-y-1"
+              >
+                Order Evaluation Samples
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
-

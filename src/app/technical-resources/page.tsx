@@ -5,15 +5,14 @@ import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import TechnicalResourcesClient from '@/features/technical-resources/components/TechnicalResourcesClient';
 
 export const metadata: Metadata = {
-  title: 'Brake Chamber Technical Resources | BRC Engineering',
-  description: 'Access BRC brake chamber installation guides, size & dimension charts, stroke length limits, caging procedures, and selection guides. Free technical documentation for Types 12–36 service and spring brake chambers.',
-  keywords: 'brake chamber installation guide, brake chamber size chart, spring brake caging procedure, stroke length limits, CVSA readjustment limits, brake chamber dimensions, Type 30 brake chamber specs, long stroke brake chamber, brake chamber selection guide, commercial brake chamber specifications',
+  title: 'Brake Chamber Technical Resources - Guides, Specs & Data Sheets | BRC',
+  description: 'Installation guides, size charts, torque specs, and selection guides for BRC brake chambers. Technical resources for engineers, technicians & fleet managers.',
   alternates: {
     canonical: 'https://brcengineering.com/technical-resources',
   },
   openGraph: {
-    title: 'Brake Chamber Technical Resources | BRC Engineering',
-    description: 'Installation guides, size charts, stroke length specs, and caging procedures for all BRC brake chamber types. Free technical documentation.',
+    title: 'Brake Chamber Technical Resources - Guides, Specs & Data Sheets | BRC',
+    description: 'Installation guides, size charts, torque specs, and selection guides for BRC brake chambers. Technical resources for engineers, technicians & fleet managers.',
     url: 'https://brcengineering.com/technical-resources',
     type: 'website',
   },

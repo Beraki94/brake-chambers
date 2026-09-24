@@ -15,9 +15,9 @@ export default function ManufacturingClient() {
   const steps = [
     {
       step: '01',
-      title: 'Research & Development',
+      title: 'Brake Chamber Research & Development',
       slug: 'research-development',
-      description: 'Our in-house engineering team uses advanced CAD, FEA, and rapid prototyping to continuously improve chamber design, reducing weight while increasing burst strength and longevity.',
+      description: 'Our in-house engineering team develops every BRC brake chamber using advanced CAD modeling, FEA simulation, and rapid prototyping, reducing weight while increasing burst strength and cycle longevity.',
       image: '/images/engineering_blueprint.png',
       accent: 'amber',
       icon: <Microscope className="w-8 h-8 text-amber-500" />,
@@ -26,13 +26,14 @@ export default function ManufacturingClient() {
         'Finite Element Analysis (FEA)',
         'Rapid 3D Prototyping',
         'Custom OEM Engineering'
-      ]
+      ],
+      linkText: 'Explore Brake Chamber R&D'
     },
     {
       step: '02',
-      title: 'Precision Assembly',
+      title: 'Brake Chamber Precision Assembly',
       slug: 'process',
-      description: 'facilities operating to IATF 16949 standards utilizing high-pressure aluminum die casting, automated robotic welding, CNC machining, and precision assembly lines to guarantee absolute consistency across millions of units.',
+      description: 'Our factory operates to IATF 16949 standards with in-house aluminum die casting, robotic welding, and CNC machining. Every chamber is assembled to consistent tolerances across millions of units.',
       image: '/images/manufacturing_floor.png',
       accent: 'navy',
       icon: <Factory className="w-8 h-8 text-navy-500" />,
@@ -41,13 +42,14 @@ export default function ManufacturingClient() {
         'Automated Robotic Welding',
         'High-Precision CNC Machining',
         'Continuous Flow Assembly Lines'
-      ]
+      ],
+      linkText: 'Explore Our Production Process'
     },
     {
       step: '03',
-      title: 'Quality Assurance',
+      title: 'Brake Chamber Quality Assurance',
       slug: 'quality-assurance',
-      description: 'Every BRC spring brake undergoes 100% pneumatic leak testing and mechanical cycle testing before boxing. We don\'t do batch testing; we test every single unit.',
+      description: 'Every BRC brake chamber undergoes 100% pneumatic leak testing and mechanical cycle testing before leaving the factory. We test every single unit, not a batch sample.',
       image: '/images/commercial_trailer.png',
       accent: 'amber',
       icon: <ShieldCheck className="w-8 h-8 text-amber-500" />,
@@ -56,32 +58,32 @@ export default function ManufacturingClient() {
         'Salt Spray & Corrosion Resistance',
         'Extreme Temperature Cycle Testing',
         'Burst Strength Validation'
-      ]
+      ],
+      linkText: 'Explore Quality Assurance & Lab'
     },
     {
       step: '04',
-      title: 'Global Logistics',
+      title: 'Export-Ready Brake Chamber Packaging',
       slug: 'distribution',
       linkUrl: '/shipping',
-      linkText: 'Explore Global Logistics',
-      description: 'Once manufacturing and testing are complete, our export department handles the entire process. We deliver your FCL or LCL containers seamlessly to any major port in the world.',
+      linkText: 'View Shipping & Logistics',
+      description: 'Once manufacturing and testing are complete, every brake chamber is palletized and packaged for export under ISPM-15 standards. Our export department coordinates container loading for FCL and LCL shipments to any major port worldwide.',
       image: '/images/heavy_duty_truck.png',
       accent: 'slate',
       icon: <Globe2 className="w-8 h-8 text-slate-500" />,
       features: [
-        'Global Ocean Freight Routing',
-        'FCL & LCL Container Optimization',
-        'Full Customs & Export Clearance',
-        'ISPM-15 Certified Palletization'
+        'ISPM-15 Certified Palletization: Heat-treated pallets accepted at all major ports.',
+        'Export-Ready Packaging: Corrosion-resistant wrapping and moisture barriers.',
+        'Container Optimization: FCL and LCL loading planned to maximize freight efficiency.'
       ]
     }
   ];
 
   const stats = [
     { icon: Trophy, value: "IATF 16949", label: "Compliant Facility" },
-    { icon: Cog, value: "1M+", label: "Chambers Produced" },
-    { icon: Users, value: "250+", label: "Dedicated Experts" },
-    { icon: LineChart, value: "100%", label: "Pneumatic Testing" },
+    { icon: Cog, value: "1M+", label: "Brake Chambers Produced Annually" },
+    { icon: Users, value: "250+", label: "Manufacturing Specialists" },
+    { icon: LineChart, value: "100%", label: "Pneumatic Testing Before Shipment" },
   ];
 
   return (
@@ -109,8 +111,9 @@ export default function ManufacturingClient() {
             transition={{ duration: 0.8 }}
           >
             <SectionHeader
-              title={<>The BRC <span className="text-amber-500 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Step-by-Step</span> Process</>}
-              description="We don't just assemble parts. We control the entire lifecycle of our products, ensuring every chamber exceeds industry standards from initial design to final delivery."
+              badge="Production Overview"
+              title={<>Our Brake Chamber <span className="text-amber-500 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Production Process</span></>}
+              description="Every BRC brake chamber passes through four controlled stages: R&D, precision assembly, quality assurance, and export packaging. Each stage is documented and audited to IATF 16949 standards."
               className="max-w-2xl mx-auto"
             />
           </motion.div>
@@ -222,9 +225,9 @@ export default function ManufacturingClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="max-w-3xl mx-auto mb-16 relative z-10">
             <SectionHeader
-              badge="By The Numbers"
-              title="Backed by Data"
-              description="We operate at the intersection of massive industrial scale and microscopic manufacturing tolerances. Here is what that looks like by the numbers."
+              badge="By the Numbers"
+              title="Brake Chamber Manufacturing at Scale"
+              description="Our factory operates at the intersection of industrial scale and precision tolerances. Here is what our brake chamber production looks like by the numbers."
               theme="dark"
               accentColor="amber"
               plainText={true}
@@ -265,9 +268,9 @@ export default function ManufacturingClient() {
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
             <div className="w-full lg:w-1/2">
               <SectionHeader
-                badge="No Compromises"
-                title="Material Superiority"
-                description="The best engineering in the world means nothing if the raw materials fail. We source only premium-grade metals and synthetic compounds to ensure our chambers survive environments where others crack, rust, or burst."
+                badge="Material Engineering"
+                title="Brake Chamber Materials & Construction"
+                description="We source only premium-grade metals and synthetic compounds to ensure our chambers survive the environments where others fail, from Arctic cold to desert heat."
                 align="left"
                 className="!mb-8"
                 plainText={true}
@@ -328,9 +331,9 @@ export default function ManufacturingClient() {
 
             <div className="relative z-10 flex-1 max-w-2xl text-center md:text-left">
               <SectionHeader
-                badge="Contract Manufacturing"
-                title={<>Partner with <span className="text-amber-400">BRC Manufacturing</span></>}
-                description="From initial CAD conceptualization to final production runs of 100,000+ units, we are ready to be your dedicated manufacturing arm."
+                badge="Custom OEM Manufacturing"
+                title={<>Partner With Our <span className="text-amber-400">Brake Chamber Factory</span></>}
+                description="BRC supports custom OEM manufacturing, private labeling, and high-volume brake chamber orders. Send us your specifications, and our engineering team will respond within 24 hours."
                 align="left"
                 theme="dark"
                 accentColor="amber"
@@ -345,10 +348,17 @@ export default function ManufacturingClient() {
               >
                 Request Factory Quote
               </Link>
+              <Link
+                href="/oem-cross-reference"
+                className="bg-navy-800 text-white border border-navy-600 font-black py-4 px-8 rounded-xl hover:bg-navy-700 hover:border-navy-500 transition-all text-center uppercase tracking-widest text-[13px]"
+              >
+                Explore Custom OEM Manufacturing
+              </Link>
             </div>
           </div>
         </div>
       </section>
+
 
       <TrendingModelsMarquee />
     </article>

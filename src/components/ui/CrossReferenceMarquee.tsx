@@ -39,7 +39,13 @@ export default function CrossReferenceMarquee({ filterBrand, maxItems = 15 }: Cr
       }
     });
 
-    allMatches.sort((a, b) => (a.oemPart > b.oemPart ? 1 : -1));
+    // Sort by the reversed part number string to deterministically scramble them.
+    // This perfectly mixes up the list so new families don't stack together visually!
+    allMatches.sort((a, b) => {
+      const revA = a.oemPart.split('').reverse().join('');
+      const revB = b.oemPart.split('').reverse().join('');
+      return revA > revB ? 1 : -1;
+    });
     return allMatches.slice(0, maxItems);
   }, [filterBrand, maxItems]);
 

@@ -15,12 +15,12 @@ export default function PrivateLabelClient() {
     {
       icon: <Paintbrush className="w-7 h-7 text-amber-500" />,
       title: 'Custom Paint & Powder Coating',
-      description: 'Choose any RAL color for housing exteriors. We apply industrial-grade powder coating or wet paint finishes that match your brand identity while maintaining our corrosion-resistant e-coat base layer.',
+      description: 'Choose any RAL color for chamber housings. Applied with industrial-grade powder coating or wet paint for maximum corrosion resistance and visual branding.',
     },
     {
       icon: <Stamp className="w-7 h-7 text-navy-500" />,
       title: 'Laser Engraving & Stamping',
-      description: 'Your logo, part numbers, and branding permanently laser-engraved directly into the housing metal. Unlike printed stickers that peel off, laser marking is permanent and survives the harshest environments.',
+      description: 'Your logo and part numbers laser-engraved directly into the housing metal. Unlike printed stickers that peel off, laser marking is permanent and survives harsh environments.',
     },
     {
       icon: <Box className="w-7 h-7 text-amber-500" />,
@@ -30,33 +30,33 @@ export default function PrivateLabelClient() {
     {
       icon: <Tag className="w-7 h-7 text-navy-500" />,
       title: 'Custom Labels & Documentation',
-      description: 'Branded warning labels, spec sheets, installation guides, and warranty cards — all printed with your company information. Your customers see your brand at every touchpoint.',
+      description: 'Branded warning labels, spec sheets, installation guides, and warranty cards, all printed with your company information. Your customers see your brand at every touchpoint.',
     },
     {
       icon: <Palette className="w-7 h-7 text-amber-500" />,
       title: 'Custom Spring & Bracket Colors',
-      description: 'Differentiate your products with custom-colored internal springs and mounting brackets. A simple visual identifier that tells technicians they are installing your premium brand.',
+      description: 'Differentiate your brake chambers with custom-colored internal springs and mounting brackets. A simple visual identifier that helps technicians confirm they are installing your premium brand.',
     },
     {
       icon: <Layers className="w-7 h-7 text-navy-500" />,
       title: 'Pallet & Container Branding',
-      description: 'Even your shipping pallets and container markings carry your brand. From warehouse to installation bay, every touchpoint reinforces your identity to distributors and technicians.',
+      description: 'Every shipping pallet and container marking carries your brand. From warehouse to installation bay, every touchpoint reinforces your brand identity to distributors and technicians.',
     },
   ];
 
   const steps = [
     { step: '01', title: 'Brand Consultation', desc: 'Share your brand guidelines, color palette, logo files, and packaging requirements. We assign a dedicated project manager to coordinate every detail.', icon: <MessageSquare className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" /> },
-    { step: '02', title: 'Sample Production', desc: 'We produce physical samples with your branding applied — painted housings, engraved logos, and printed packaging — for your approval before committing to full production.', icon: <Settings className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" /> },
-    { step: '03', title: 'Production Run', desc: 'Once samples are approved, we integrate your branding into our production line. Custom paint, engraving, and packaging happen seamlessly alongside standard manufacturing.', icon: <Package className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" /> },
-    { step: '04', title: 'Packaging & Delivery', desc: 'Finished products are packed in your branded boxes, palletized with your markings, and shipped directly to your distribution centers or end customers.', icon: <Truck className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" /> },
+    { step: '02', title: 'Sample Production', desc: 'We produce physical samples with your branding applied, painted, engraved, packaged, for your approval before committing to full production.', icon: <Settings className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" /> },
+    { step: '03', title: 'Production Run', desc: 'Once approved, we integrate your branding into our production line. Custom parts, engraving, and packaging happen seamlessly alongside standard manufacturing.', icon: <Package className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" /> },
+    { step: '04', title: 'Packaging & Delivery', desc: 'Finished products are packed in your branded boxes, palletized with your markings, and shipped directly to your distribution center or end customer.', icon: <Truck className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" /> },
   ];
 
   return (
     <article className="min-h-screen bg-white font-sans overflow-x-clip">
       <PageHeader
         badge="Brand Building"
-        title="Private Label & White Label"
-        description="Launch your own aftermarket brake chamber brand without building a factory. We manufacture, brand, package, and ship — you sell under your name with full factory-direct margins."
+        title="Private Label & White Label Brake Chambers"
+        description="Launch your own aftermarket brake chamber brand without building a factory. BRC manufactures, brands, packages, and ships, you sell under your name with full factory-direct margins."
         imageSrc="/images/commercial_trailer.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -74,13 +74,13 @@ export default function PrivateLabelClient() {
             />
             <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-6">
               Building a brake chamber brand from scratch requires millions in factory investment, 
-              years of R&D, and deep manufacturing expertise. Our private label program lets you skip 
-              all of that. We provide the engineering, production, and quality — you provide the brand.
+              years of R&D, and deep manufacturing expertise. Our private label brake chamber program lets you skip 
+              all of that, we provide the engineering, production, and quality; you provide the brand.
             </p>
             <p className="text-slate-500 text-base md:text-lg font-light leading-relaxed max-w-3xl mx-auto">
-              Whether you're an established distributor looking to launch a house brand, or a new entrant 
-              wanting to compete with premium aftermarket names — we provide the full manufacturing backbone 
-              to make it happen. Same factory. Same quality. Your name on the box.
+              Whether you're an established distributor launching a house brand, or a new entrant 
+              competing with premium aftermarket names, we provide the full manufacturing backbone. 
+              Same factory. Same quality. Your name on the box.
             </p>
           </motion.div>
         </div>
@@ -91,11 +91,12 @@ export default function PrivateLabelClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <SectionHeader
             badge="Understanding the Difference"
-            title="Private Label vs White Label"
+            title="Private Label vs White Label Brake Chambers"
+            description="Two ways to sell BRC brake chambers under your own brand, each suited to a different stage of brand development."
             accentColor="amber"
             plainText={true}
           />
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto mt-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {/* Private Label */}
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
@@ -107,7 +108,7 @@ export default function PrivateLabelClient() {
                 </div>
                 <h3 className="text-2xl font-black text-navy-900 mb-4">Private Label</h3>
                 <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6">
-                  Full custom branding on BRC-manufactured products. Your logo, your colors, your 
+                  Full custom branding on BRC-manufactured brake chambers. Your logo, your colors, your 
                   packaging, your part numbers. The product is exclusively yours.
                 </p>
                 <ul className="space-y-3">
@@ -131,7 +132,7 @@ export default function PrivateLabelClient() {
                 </div>
                 <h3 className="text-2xl font-black text-navy-900 mb-4">White Label</h3>
                 <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6">
-                  Ready-made BRC products in unbranded or neutral packaging. You apply your own labels 
+                  Ready-made BRC brake chambers in unbranded or neutral packaging. You apply your own labels 
                   and branding at your facility. Fastest path to market.
                 </p>
                 <ul className="space-y-3">
@@ -154,13 +155,13 @@ export default function PrivateLabelClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
             badge="Customization Options"
-            title="Everything We Customize"
-            description="From the housing color to the shipping pallet, every element can carry your brand identity."
+            title="What We Customize for Private Label Brake Chambers"
+            description="From housing color to shipping pallet, every element can carry your brand identity."
             accentColor="amber"
             plainText={true}
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 mt-10">
             {customizations.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -197,14 +198,15 @@ export default function PrivateLabelClient() {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] relative z-10">
           <SectionHeader
-            badge="4-Step Process"
-            title="From Concept to Your Shelf"
+            badge="Private Label Process"
+            title="From Brand Concept to Your Shelf in 4 Steps"
+            description="Every private label brake chamber program follows the same controlled four-step process."
             theme="dark"
             accentColor="amber"
             plainText={true}
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
             {steps.map((step, idx) => (
               <motion.div
                 key={idx}
@@ -235,17 +237,18 @@ export default function PrivateLabelClient() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-16 md:pb-24 mt-16 md:mt-24">
         <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
           <SectionHeader 
-            title="Ready to Launch Your Brand?" 
-            description="Start with a free brand consultation. We'll walk you through MOQs, customization options, lead times, and pricing to get your private label program off the ground."
+            badge="Launch Your Private Label"
+            title="Ready to Launch Your Private Label Brake Chamber Brand?" 
+            description="Start with a free brand consultation. We'll walk you through MOQs, customization options, lead times, and pricing to get your private label brake chamber program off the ground."
             className="!mb-8"
             plainText={true}
           />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">
+            <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto">
               Start Brand Consultation <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
-            <Link href="/manufacturing/high-volume-orders" className="inline-flex items-center justify-center bg-white border border-slate-200 text-navy-900 font-extrabold px-8 py-4 rounded-xl hover:border-amber-400 hover:text-amber-600 transition-all duration-300 shadow-sm uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">
-              High Volume Orders
+            <Link href="/manufacturing/custom-oem" className="inline-flex items-center justify-center bg-white border border-slate-200 text-navy-900 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:border-amber-400 hover:text-amber-600 transition-all duration-300 shadow-sm uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto">
+              Explore Custom OEM Manufacturing
             </Link>
           </div>
         </div>
@@ -253,4 +256,5 @@ export default function PrivateLabelClient() {
     </article>
   );
 }
+
 

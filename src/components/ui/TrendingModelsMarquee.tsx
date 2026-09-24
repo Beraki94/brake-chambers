@@ -16,9 +16,15 @@ export default function TrendingModelsMarquee() {
   const popularChambers = [];
   const seenImages = new Set<string>();
 
-  for (const chamber of BRAKE_CHAMBERS) {
+  // Use a prime step to deterministically scatter the selection across the whole list (avoids hydration mismatches while preventing clustering)
+  const step = 7;
+  for (let i = 0; i < BRAKE_CHAMBERS.length; i++) {
+    const index = (i * step) % BRAKE_CHAMBERS.length;
+    const chamber = BRAKE_CHAMBERS[index];
     const primaryImage = chamber.galleryUrls?.[0];
-    if (primaryImage && !seenImages.has(primaryImage)) {
+    
+    // Only pick products that have a real image uploaded (not a placeholder or generic brake)
+    if (primaryImage && !primaryImage.includes('placeholder') && !primaryImage.includes('brc-brakechambers-') && !seenImages.has(primaryImage)) {
       seenImages.add(primaryImage);
       popularChambers.push(chamber);
     }

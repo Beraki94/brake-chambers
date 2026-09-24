@@ -17,26 +17,28 @@ export default function BrakeRandDClient() {
     {
       icon: <PenTool className="w-7 h-7 text-amber-500" />,
       title: '3D CAD Modeling & Design',
-      description: 'Every new brake chamber begins as a precision 3D CAD model. Our engineers build parametric designs that can be rapidly iterated — adjusting housing wall thickness, diaphragm geometry, push rod stroke lengths, and port locations before any metal is cut.',
-      highlights: ['SolidWorks & NX parametric design', 'Full assembly interference checks', 'Design-for-Manufacturing (DFM) reviews'],
+      description: 'Every new BRC brake chamber begins as a parametric 3D CAD model. Our engineers iterate housing wall thickness, diaphragm geometry, push-rod stroke length, and port location digitally — before any physical tooling is cut. This reduces tooling cost and shortens development time.',
+      highlights: ['SolidWorks & Pro/E Parametric Design', 'Full Assembly Interference Checks', 'Design-for-Manufacturing (DFM) Reviews'],
     },
     {
       icon: <BarChart3 className="w-7 h-7 text-navy-500" />,
       title: 'Finite Element Analysis (FEA)',
-      description: 'We digitally simulate extreme operating conditions — 120 PSI pneumatic bursts, torsional vibration from rough roads, and -40°F thermal shocks — to identify microscopic stress concentrations before a single prototype is built.',
-      highlights: ['Burst pressure simulation up to 200 PSI', 'Thermal cycling & fatigue analysis', 'Aluminum die-cast geometry optimization'],
+      description: 'We digitally simulate real-world brake chamber operating conditions — pneumatic burst pressure, torsional vibration from rough roads, and -40°F thermal shock — to identify stress concentrations before a physical prototype is built. Every BRC design is FEA-validated.',
+      highlights: ['Burst Pressure Simulation', 'Thermal Cycling & Fatigue Analysis', 'Aluminum Die-Cast Geometry Optimization'],
     },
     {
       icon: <Microscope className="w-7 h-7 text-amber-500" />,
       title: 'Rapid Prototyping',
-      description: 'Once the digital design passes FEA validation, we produce physical prototypes using 3D printing and low-volume CNC machining. Prototypes undergo real-world bench testing within 2 weeks, accelerating the development cycle dramatically.',
-      highlights: ['Functional metal prototypes in 14 days', 'In-house CNC machining center', 'Iterative design-test-refine loops'],
+      description: 'Once the digital design passes FEA validation, BRC produces functional prototypes using 3D printing and low-volume CNC machining. Prototypes undergo bench testing before volume tooling is committed.',
+      highlights: ['Functional Metal Prototypes', 'In-House Prototype Lab', 'Iterative Design-Test-Refine Loops'],
     },
     {
       icon: <FlaskConical className="w-7 h-7 text-navy-500" />,
-      title: 'Metallurgical & Elastomer Lab',
-      description: 'Our in-house materials lab tests raw steel tensile strength, rubber compound ozone resistance, and zinc plating adhesion. We control material quality at the molecular level to ensure every component meets or exceeds OEM specifications.',
-      highlights: ['Tensile & hardness testing equipment', 'Salt spray corrosion chambers', 'Rubber aging & UV resistance tests'],
+      title: 'Materials Validation in R&D',
+      description: 'Design is only as good as the material behind it. Our R&D team validates every material candidate through tensile testing, salt spray corrosion exposure, and rubber aging analysis — before those materials are approved for production.',
+      highlights: ['Tensile & Hardness Testing', 'Salt Spray Corrosion Testing', 'Rubber Aging & UV Testing'],
+      linkText: 'See Material Sourcing',
+      linkUrl: '/manufacturing/material-sourcing'
     },
   ];
 
@@ -68,18 +70,18 @@ export default function BrakeRandDClient() {
   ];
 
   const stats = [
-    { value: '50+', label: 'Engineers & Technicians', icon: Cog },
-    { value: '14', label: 'Days to First Prototype', icon: Lightbulb },
-    { value: '200+', label: 'Active SKU Designs', icon: Layers },
-    { value: '100%', label: 'FEA-Validated Designs', icon: ShieldCheck },
+    { value: '50+', label: 'Engineering Specialists', icon: Cog },
+    { value: '200+', label: 'Active Brake Chamber Designs', icon: Layers },
+    { value: '100%', label: 'FEA-Validated Before Prototyping', icon: ShieldCheck },
+    { value: 'Full', label: 'In-House Prototype Capability', icon: Factory },
   ];
 
   return (
     <article className="min-h-screen bg-white font-sans overflow-x-clip">
       <PageHeader
-        badge="Engineering Hub"
-        title="Brake R&D"
-        description="Inside BRC's dedicated research and development division — where advanced CAD design, FEA simulation, rapid prototyping, and metallurgical science converge to build the next generation of heavy-duty brake chambers."
+        badge="Engineering & R&D"
+        title="Brake Chamber R&D: Engineering the Next Generation"
+        description="BRC's in-house R&D team combines advanced CAD modeling, FEA simulation, rapid prototyping, and metallurgical science to engineer heavy-duty brake chambers. Every design is validated to IATF 16949 standards before it reaches the production line."
         imageSrc="/images/engineering_blueprint.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -99,18 +101,14 @@ export default function BrakeRandDClient() {
             className="text-center"
           >
             <SectionHeader 
-              title={<>We Don't Just <span className="text-amber-500">Build</span> Brake Chambers — <span className="text-amber-500">We Engineer Them</span></>}
+              badge="R&D Philosophy"
+              title={<>How BRC Engineers <span className="text-amber-500 whitespace-nowrap">Brake Chambers</span></>} className="!mb-6 md:!mb-10"
             />
             <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-6">
-              At BRC, research and development isn't a department — it's the foundation of everything we manufacture. 
-              Every brake chamber we produce has been through hundreds of hours of digital simulation, physical testing, 
-              and iterative refinement before it ever reaches an assembly line.
+              At BRC, R&D is not a support function — it is the foundation of every brake chamber we manufacture. Each new design passes through thousands of hours of digital simulation, physical prototyping, and iterative refinement before it reaches the production line.
             </p>
             <p className="text-slate-500 text-base md:text-lg font-light leading-relaxed max-w-3xl mx-auto">
-              Our R&D team works at the intersection of mechanical engineering, materials science, and 
-              manufacturing technology. From designing lighter, stronger housings using advanced high-strength 
-              steels to developing proprietary rubber compounds that survive extreme temperature swings — we 
-              control every variable that determines whether a brake chamber performs reliably or fails on the road.
+              Our engineering team works across mechanical design, materials science, and manufacturing technology. From lightweight high-strength steel housings to proprietary rubber compounds rated for extreme temperatures, we control the design variables that determine how a brake chamber performs in the field.
             </p>
           </motion.div>
         </div>
@@ -128,16 +126,18 @@ export default function BrakeRandDClient() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.6 }}
               >
-                <Card padding="md" hoverEffect="lift" className="text-center group h-full flex flex-col justify-center">
+                <Card padding="sm" hoverEffect="lift" className="text-center group h-full flex flex-col justify-center">
                   {/* The Top Right Circle Decoration */}
                   <div className="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
                   
-                  <div className="relative z-10">
-                    <IconBox icon={<stat.icon />} color="amber" size="lg" className="mx-auto mb-4 md:mb-6" />
-                    <div className="text-3xl md:text-5xl font-black text-navy-900 mb-2 tracking-tight group-hover:text-amber-600 transition-colors">
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4 md:mb-6 shadow-sm border border-amber-100 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-md">
+                      <stat.icon className="w-6 h-6 md:w-8 md:h-8" />
+                    </div>
+                    <div className="text-2xl sm:text-3xl md:text-5xl font-black text-navy-900 mb-2 tracking-tight group-hover:text-amber-600 transition-colors">
                       {stat.value}
                     </div>
-                    <div className="text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
+                    <div className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
                       {stat.label}
                     </div>
                   </div>
@@ -152,8 +152,8 @@ export default function BrakeRandDClient() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
-            badge="Core Capabilities"
-            title="How We Develop Brake Chambers"
+            badge="Core R&D Capabilities"
+            title="Inside Our Brake Chamber R&D Process"
             accentColor="amber"
           />
 
@@ -202,6 +202,16 @@ export default function BrakeRandDClient() {
                         </div>
                       ))}
                     </div>
+                    {/* @ts-ignore */}
+                    {cap.linkText && cap.linkUrl && (
+                      <div className="mt-8">
+                        {/* @ts-ignore */}
+                        <Link href={cap.linkUrl} className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 uppercase tracking-widest text-sm transition-colors">
+                          {/* @ts-ignore */}
+                          {cap.linkText} <ArrowRight className="w-4 h-4 ml-2" />
+                        </Link>
+                      </div>
+                    )}
                   </motion.div>
 
                   {/* Image */}
@@ -242,8 +252,8 @@ export default function BrakeRandDClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
           <SectionHeader
             badge="Digital Prototyping"
-            title="Simulating Millions of Cycles Before Production"
-            description="Before a single ounce of steel is poured, our engineering team builds an exact digital twin in advanced 3D CAD software. Using Finite Element Analysis (FEA), we digitally simulate extreme pneumatic bursts, torsional vibration, and thermal shocks to identify stress fractures and optimize housing geometries before manufacturing begins."
+            title="Simulating Millions of Brake Chamber Cycles Before Production"
+            description="Every BRC brake chamber design is first built as a digital model in 3D CAD. Using Finite Element Analysis (FEA), we simulate pneumatic bursts, torsional vibration, and thermal shock — identifying stress points and optimizing housing geometry before any physical tooling is committed."
             align="center"
             theme="dark"
             accentColor="amber"
@@ -304,8 +314,8 @@ export default function BrakeRandDClient() {
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               badge="Future Pipeline"
-              title={<>What We're <span className="text-amber-500">Building Next</span></>}
-              description="A glimpse into our active R&D roadmap. These programs are currently in prototype or early production-validation stages — positioning BRC at the forefront of heavy-duty braking innovation."
+              title={<>Brake Chamber R&D Pipeline: <span className="text-amber-500">What's Next</span></>}
+              description="BRC's active R&D programs are focused on the next generation of commercial brake chamber technology. Each program below is in active development or validation stage."
               align="center"
               theme="light"
               accentColor="amber"
@@ -360,16 +370,18 @@ export default function BrakeRandDClient() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-16 md:pb-24 mt-16 md:mt-24">
         <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
           <SectionHeader 
-            title="See Our Engineering Put to the Test" 
-            description="Every design our R&D team creates must survive our brutal quality assurance lab — salt spray chambers, burst pressure rigs, and million-cycle endurance testers. See how we validate our work."
+            badge="Engineering Collaboration"
+            title="Need a Custom Brake Chamber Design?" 
+            description="BRC's engineering team supports custom brake chamber development — from initial CAD design to prototype testing and volume production. Send us your specifications and our team will respond within 24 hours."
             className="!mb-8"
+            plainText={true}
           />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">
-              Request Consultation <ArrowRight className="w-4 h-4 ml-2" />
+            <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto">
+              Contact Engineering <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
-            <Link href="/manufacturing/quality-assurance" className="inline-flex items-center justify-center bg-white border border-slate-200 text-navy-900 font-extrabold px-8 py-4 rounded-xl hover:border-amber-400 hover:text-amber-600 transition-all duration-300 shadow-sm uppercase tracking-widest text-[12px] md:text-[13px] transform hover:-translate-y-1 w-full sm:w-auto">
-              Quality Assurance Lab
+            <Link href="/manufacturing/custom-oem" className="inline-flex items-center justify-center bg-white border border-slate-200 text-navy-900 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:border-amber-400 hover:text-amber-600 transition-all duration-300 shadow-sm uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto">
+              Explore Custom OEM Manufacturing <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </div>
         </div>
@@ -377,3 +389,6 @@ export default function BrakeRandDClient() {
     </article>
   );
 }
+
+
+

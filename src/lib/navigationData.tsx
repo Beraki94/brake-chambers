@@ -134,7 +134,7 @@ export const APPLICATIONS_MENU: MegaMenuConfig = {
       title: 'Commercial & Freight',
       icon: <Truck className="w-5 h-5 text-amber-500" />,
       links: [
-        { label: 'Long-Haul Semi Trucks', href: '/applications/long-haul-semi' },
+        { label: 'Long-Haul Semi Trucks', href: '/applications/long-haul-semi-trucks' },
         { label: 'Heavy-Duty Trailer Axles', href: '/applications/heavy-duty-trailer' },
         { label: 'Medium-Duty Box Trucks', href: '/applications/medium-duty-trucks' },
       ]

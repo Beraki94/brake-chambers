@@ -3,9 +3,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Truck, Bus, Factory, ShieldAlert, ArrowRight, CheckCircle2, ThermometerSnowflake, Flame, Droplets, Activity, Settings } from 'lucide-react';
+import { Truck, Bus, Factory, ShieldAlert, ArrowRight, CheckCircle2, ThermometerSnowflake, Flame, Droplets, Activity, MapPin, Globe2, Users, Cog, LineChart } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { fadeInUp, staggerContainer, slideInLeft, slideInRight } from '@/lib/animations';
+import { fadeInUp, staggerContainer } from '@/lib/animations';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
@@ -14,13 +14,13 @@ export default function ApplicationsClient() {
   const accentMap = {
     amber: {
       gradient: 'from-amber-50/50',
-      iconBorder: 'border-amber-100',
-      iconBg: 'bg-amber-50',
-      iconText: 'text-amber-500',
+      iconBorder: 'border-amber-200',
+      iconBg: 'bg-amber-100',
+      iconText: 'text-amber-600',
       linkHoverBorder: 'hover:border-amber-300',
       linkHoverShadow: 'hover:shadow-md',
-      linkHoverIconBg: 'group-hover/link:bg-amber-50',
-      linkHoverIconText: 'group-hover/link:text-amber-500',
+      linkHoverIconBg: 'group-hover/link:bg-amber-200',
+      linkHoverIconText: 'group-hover/link:text-amber-700',
       linkHoverText: 'group-hover/link:text-amber-700',
       imgGlow: 'bg-amber-900/20 group-hover:bg-amber-900/10',
       btnHover: 'hover:bg-amber-400 shadow-amber-500/20'
@@ -55,48 +55,51 @@ export default function ApplicationsClient() {
 
   const categoryGroups = [
     {
-      title: 'Commercial & Freight',
+      title: 'Brake Chambers for Commercial Trucks & Trailers',
       slug: 'commercial-freight',
-      desc: 'Built for the backbone of the supply chain. Designed for extreme mileage endurance and consistent performance on long-haul and regional routes.',
+      badge: 'Commercial & Freight',
+      desc: 'Long-haul semi trucks, heavy-duty trailer axles, and medium-duty box trucks. These applications demand high-cycle spring brake chambers and service chambers rated for extreme mileage and consistent pneumatic response.',
       icon: <Truck className="w-8 h-8" />,
       image: '/images/heavy_duty_truck.png',
       accent: 'amber',
       links: [
-        { id: '/applications/long-haul-semi', title: 'Long-Haul Semi Trucks' },
+        { id: '/applications/long-haul-semi-trucks', title: 'Long-Haul Semi Trucks' },
         { id: '/applications/heavy-duty-trailer', title: 'Heavy-Duty Trailer Axles' },
         { id: '/applications/medium-duty-trucks', title: 'Medium-Duty Box Trucks' },
       ],
-      cta: 'View Heavy-Duty Products',
+      cta: 'View Truck & Trailer Brake Chambers',
       ctaLink: '/products'
     },
     {
-      title: 'Severe-Duty & Vocational',
+      title: 'Brake Chambers for Mining, Construction & Agriculture',
       slug: 'severe-duty',
-      desc: 'Engineered for the harshest environments where pavement ends. Reinforced housings and components built to withstand extreme vibration, impact, and high-cycle abuse.',
+      badge: 'Severe-Duty & Off-Highway',
+      desc: 'Off-highway equipment operates under sustained load, extreme heat, and heavy contamination. These applications require severe-duty ADB actuators and heavy-gauge spring brake chambers engineered for high-cycle endurance.',
       icon: <ShieldAlert className="w-8 h-8" />,
       image: '/images/specialty_vehicle.png',
-      accent: 'navy',
+      accent: 'amber',
       links: [
-        { id: '/applications/garbage-refuse', title: 'Garbage & Waste Trucks' },
         { id: '/applications/mining-construction', title: 'Mining & Construction Equipment' },
-        { id: '/applications/ag-trailers', title: 'Agricultural Trailers' },
+        { id: '/applications/ag-trailers', title: 'Agricultural Trailers & Harvesters' },
+        { id: '/applications/oil-field', title: 'Oil Field & Fracking Rigs' },
       ],
-      cta: 'View Severe-Duty Products',
+      cta: 'View Severe-Duty Brake Chambers',
       ctaLink: '/products'
     },
     {
-      title: 'Passenger Transport',
+      title: 'Brake Chambers for Transit Buses & Passenger Vehicles',
       slug: 'passenger-transport',
-      desc: 'Precision modulation and fail-safe reliability for vehicles carrying passengers. Optimized for frequent stop-start city cycles and maximum safety.',
+      badge: 'Transit & Passenger',
+      desc: 'City buses, intercity coaches, school buses, and shuttle fleets demand low-noise, high-cycle brake chambers. BRC supplies air disc brake actuators and service chambers engineered for stop-and-go duty cycles and passenger comfort.',
       icon: <Bus className="w-8 h-8" />,
       image: '/images/transit_bus.png',
       accent: 'amber',
       links: [
-        { id: '/applications/transit-buses', title: 'City Bus & Transit Coach' },
+        { id: '/applications/transit-buses', title: 'City & Intercity Transit Buses' },
         { id: '/applications/school-buses', title: 'School Bus Fleets' },
         { id: '/applications/shuttle-vans', title: 'Shuttle & Delivery Vans' },
       ],
-      cta: 'View Transit Products',
+      cta: 'View Transit Brake Chambers',
       ctaLink: '/products'
     }
   ];
@@ -104,10 +107,10 @@ export default function ApplicationsClient() {
   return (
     <article className="min-h-screen bg-slate-50 font-sans overflow-x-clip">
       <PageHeader
-      badge="By Vehicle & Industry"
+        badge="By Vehicle & Industry"
         badgeIcon={Truck}
-      title="Brake Chambers by Application: Trucks, Trailers, Transit & Off-Highway"
-      description="Find the right BRC brake chamber for your operating environment. Heavy-duty trucks, commercial trailers, transit buses, refuse vehicles, and off-highway equipment. Each application page recommends the exact spring, service, or ADB chamber for the job."
+        title="Brake Chambers by Application: Trucks, Trailers, Transit & Off-Highway"
+        description="Find the right BRC brake chamber for your operating environment. Heavy-duty trucks, commercial trailers, transit buses, refuse vehicles, and off-highway equipment. Each application page recommends the exact spring, service, or air disc brake chamber for the job."
         imageSrc="/products/scattered_chambers_footer.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -115,7 +118,7 @@ export default function ApplicationsClient() {
         ]}
       />
 
-      {/* Overlapping Container to bridge the dark header and light background */}
+      {/* Categories container */}
       <div className="-mt-20 relative z-20 pb-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex flex-col gap-16 md:gap-20">
@@ -124,60 +127,50 @@ export default function ApplicationsClient() {
               const a = accentMap[group.accent as keyof typeof accentMap] ?? accentMap.amber;
               return (
                 <div key={idx} className={`flex flex-col lg:flex-row gap-8 lg:gap-12 lg:items-center ${isEven ? '' : 'lg:flex-row-reverse'}`}>
-
                   {/* Image side */}
                   <motion.div
-                    initial={{ opacity: 0, x: isEven ? -100 : 100 }}
+                    initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="w-full lg:w-1/2 flex"
                   >
                     <div className="relative w-full rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden shadow-2xl group border border-slate-200/50 min-h-[300px] sm:min-h-[360px] lg:min-h-[450px] lg:aspect-[16/11]">
-                      {/* Interactive Gradients */}
                       <div className={`absolute inset-0 z-10 transition-colors duration-700 ${a.imgGlow}`} />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-30 transition-opacity duration-700" />
-
                       <Image
                         src={group.image}
                         alt={group.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover  group-hover:scale-105 transition-transform duration-700"
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                     </div>
                   </motion.div>
 
                   {/* Content side */}
                   <motion.div
-                    initial={{ opacity: 0, y: 50 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                    transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
                     className="w-full lg:w-1/2 flex"
                   >
                     <div className="bg-white p-6 sm:p-8 md:p-10 lg:p-12 rounded-[2rem] lg:rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col justify-center w-full relative overflow-hidden group/card">
-
-                      {/* Subtle hover background glow */}
                       <div className={`absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-br ${a.gradient} to-transparent`} />
-
+                      
                       <div className="relative z-10">
-                        <div className="flex items-center gap-4 sm:gap-5 mb-6 sm:mb-8">
-                          <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center border flex-shrink-0 shadow-sm ${a.iconBg} ${a.iconBorder} ${a.iconText}`}>
-                            {React.cloneElement(group.icon as React.ReactElement<any>, {
-                              className: 'w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-500 group-hover/card:rotate-12 group-hover/card:scale-110',
-                              'aria-hidden': 'true'
-                            })}
-                          </div>
+                        <div className={`inline-flex items-center gap-3 px-4 py-1.5 rounded-full ${a.iconBg} ${a.iconBorder} border mb-6 shadow-sm`}>
+                          <span className={`${a.iconText} font-extrabold uppercase tracking-widest text-[11px]`}>{group.badge}</span>
+                        </div>
+                        <div className="flex items-center gap-4 sm:gap-5 mb-6">
                           <h2 className="text-3xl lg:text-4xl font-extrabold text-navy-900 font-heading tracking-tight leading-tight">
                             {group.title}
                           </h2>
                         </div>
-
-                        <p className="text-slate-600 mb-6 sm:mb-10 leading-relaxed font-light text-base md:text-lg">
+                        <p className="text-slate-600 mb-8 leading-relaxed font-light text-base md:text-lg">
                           {group.desc}
                         </p>
-
                         <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-12">
                           <h3 className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Key Applications</h3>
                           <div className="flex flex-col gap-2 sm:gap-3">
@@ -187,8 +180,8 @@ export default function ApplicationsClient() {
                                 href={link.id}
                                 className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-slate-50/80 backdrop-blur-sm rounded-xl border border-slate-100 transition-all group/link hover:bg-white ${a.linkHoverBorder} ${a.linkHoverShadow} hover:-translate-y-1 transform`}
                               >
-                                <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0 transition-colors ${a.linkHoverIconBg}`}>
-                                  <CheckCircle2 className={`w-3 h-3 sm:w-4 sm:h-4 text-slate-300 transition-colors ${a.linkHoverIconText}`} aria-hidden="true" />
+                                <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shadow-sm shrink-0 transition-colors ${a.iconBg} ${a.linkHoverIconBg}`}>
+                                  <CheckCircle2 className={`w-3 h-3 sm:w-4 sm:h-4 transition-colors ${a.iconText} ${a.linkHoverIconText}`} aria-hidden="true" />
                                 </div>
                                 <span className={`font-bold text-navy-800 text-sm transition-colors ${a.linkHoverText}`}>{link.title}</span>
                                 <ArrowRight className={`w-4 h-4 md:w-5 md:h-5 text-slate-300 ml-auto transition-all group-hover/link:translate-x-1 ${a.linkHoverIconText}`} aria-hidden="true" />
@@ -196,7 +189,6 @@ export default function ApplicationsClient() {
                             ))}
                           </div>
                         </div>
-
                         <div className="mt-auto">
                           <Link
                             href={group.ctaLink}
@@ -209,7 +201,6 @@ export default function ApplicationsClient() {
                       </div>
                     </div>
                   </motion.div>
-
                 </div>
               );
             })}
@@ -217,38 +208,63 @@ export default function ApplicationsClient() {
         </div>
       </div>
 
-      {/* Tested for the Extremes */}
+      {/* Regional Coverage (NEW) */}
+      <section className="py-16 md:py-24 bg-blue-50 relative border-t border-blue-100 overflow-hidden">
+        {/* Subtle background pattern to match home page premium feel */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#0f172a 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <SectionHeader
+            badge="Regional Coverage"
+            title="Brake Chambers by Region"
+            description="BRC ships to distributors, importers, and fleet operators across four major regions. Each region has specific regulatory requirements and operating environments."
+            align="center"
+            plainText={true}
+            theme="light"
+            accentColor="amber"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-12 md:mt-16">
+            {[
+              { region: "North America", desc: "FMVSS-121 compliant brake chambers for Class 7–8 trucks, trailers, and transit buses.", link: "/applications/north-america" },
+              { region: "Australia & New Zealand", desc: "ADR-compliant brake chambers for road trains, prime movers, B-doubles, and dog trailers.", link: "/applications/australia" },
+              { region: "Europe", desc: "ECE R13 compliant brake chambers for HGVs, articulated trucks, and transit fleets.", link: "/applications/europe" },
+              { region: "Middle East", desc: "Heavy-duty brake chambers for desert, mining, and construction fleets in UAE, Saudi Arabia, Qatar, and Oman.", link: "/applications/middle-east" }
+            ].map((market, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 relative overflow-hidden group flex flex-col"
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-navy-50 rounded-bl-[100px] -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-125 z-0"></div>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-amber-100 border border-amber-200 group-hover:bg-amber-200 flex items-center justify-center mb-4 sm:mb-6 relative z-10 transition-colors duration-300 shadow-sm">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="text-xl font-bold text-navy-900 mb-3 relative z-10">{market.region}</h3>
+                <p className="text-slate-600 text-sm font-light leading-relaxed relative z-10 flex-grow mb-6">{market.desc}</p>
+                
+                <Link href={market.link} className="inline-flex items-center text-amber-600 font-extrabold text-xs uppercase tracking-widest hover:text-amber-700 transition-colors relative z-10 mt-auto group/link">
+                  View {market.region.split(' ')[0]} Applications <ArrowRight className="w-4 h-4 ml-1 group-hover/link:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Extreme Environments */}
       <section className="py-16 md:py-24 bg-navy-950 border-y border-navy-800 relative overflow-hidden">
-        {/* Background Image Layer */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5   z-0"></div>
-        
-        {/* Animated Grid Layer */}
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 z-0"></div>
         <AnimatedGridBackground opacity={0.08} />
-        
-        {/* Top/Bottom Fade Masks */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 
-        {/* Rotating Brake Chamber Watermark */}
-        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] lg:w-[800px] lg:h-[800px] opacity-[0.03] pointer-events-none animate-[spin_120s_linear_infinite] z-0">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-white fill-current">
-            <path d="M50,5 A45,45 0 1,0 95,50 A45,45 0 0,0 50,5 Z M50,15 A35,35 0 1,1 15,50 A35,35 0 0,1 50,15 Z M45,45 L45,20 L55,20 L55,45 L80,45 L80,55 L55,55 L55,80 L45,80 L45,55 L20,55 L20,45 Z" />
-            <circle cx="50" cy="50" r="10" />
-            <circle cx="20" cy="50" r="4" />
-            <circle cx="80" cy="50" r="4" />
-            <circle cx="50" cy="20" r="4" />
-            <circle cx="50" cy="80" r="4" />
-            <circle cx="29" cy="29" r="3" />
-            <circle cx="71" cy="71" r="3" />
-            <circle cx="29" cy="71" r="3" />
-            <circle cx="71" cy="29" r="3" />
-          </svg>
-        </div>
-        
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <SectionHeader
             badge="Tested for the Extremes"
-            title="Engineered for the Harshest Conditions"
-            description="Our application-specific designs don't just meet industry standards—they dominate the harshest elements on the planet."
+            title="Brake Chambers Engineered for Extreme Environments"
+            description="BRC brake chambers are tested to operate in the environments where other aftermarket chambers fail, from Arctic cold to desert heat, from mining dust to coastal humidity."
             accentColor="amber"
             theme="dark"
             plainText={true}
@@ -259,22 +275,20 @@ export default function ApplicationsClient() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10 mt-12"
           >
             {[
-              { icon: ThermometerSnowflake, title: "Sub-Zero Rated", desc: "Maintains flexibility and prevents cracking in -40°F Arctic linehaul conditions." },
-              { icon: Flame, title: "High-Heat Tolerant", desc: "Advanced seals and return springs withstand intense thermal soak on steep descents." },
-              { icon: Droplets, title: "Corrosion Proof", desc: "Multi-stage E-coating delivers unmatched resistance against winter road salts." },
-              { icon: Activity, title: "Vibration Dampening", desc: "Reinforced steel housings prevent stress fractures on off-highway mining roads." }
+              { icon: ThermometerSnowflake, title: "Sub-Zero Rated", desc: "Maintains diaphragm flexibility and prevents cracking at -40°F (-40°C), validated for Arctic linehaul and Canadian winter fleets." },
+              { icon: Flame, title: "High-Heat Validated", desc: "Neoprene and internal components tested up to 200°F (93°C) for desert and mining applications." },
+              { icon: Droplets, title: "Corrosion Resistant", desc: "500-hour salt spray testing validates protection against winter road salt and coastal humidity." },
+              { icon: Activity, title: "Contamination Sealed", desc: "Sealed housings prevent dust, mud, and debris ingress, critical for off-highway and construction use." }
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
                 variants={fadeInUp}
                 className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 rounded-2xl lg:rounded-[2rem] p-6 sm:p-8 shadow-xl shadow-navy-900/10 group flex flex-col relative overflow-hidden transform hover:-translate-y-2 transition-all duration-500 hover:border-amber-500/50"
               >
-                {/* Glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
-
                 <div className="relative z-10 w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
                   <stat.icon className="w-7 h-7 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                 </div>
@@ -286,86 +300,82 @@ export default function ApplicationsClient() {
         </div>
       </section>
 
-      {/* Fleet Success Snapshot */}
+      {/* Trusted by Fleets (REPLACES FLEET SUCCESS SNAPSHOT) */}
       <section className="py-16 md:py-24 bg-white relative overflow-hidden border-t border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-            {/* Left: Image */}
-            <div className="w-full lg:w-1/2 relative">
-              <div className="absolute top-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2 z-0"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80" 
-                alt="Arctic Mining Truck" 
-                className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-3xl shadow-xl relative z-10  opacity-90 transition-all duration-500 hover:-0 hover:opacity-100"
-              />
-            </div>
+          <SectionHeader
+            badge="Trusted by Fleets Worldwide"
+            title="Brake Chambers Deployed in 30+ Countries"
+            description="BRC brake chambers are currently in service across North America, Australia, Europe, and the Middle East, on long-haul fleets, mining operations, transit bus networks, and construction equipment."
+            align="center"
+            theme="light"
+            accentColor="amber"
+            plainText={true}
+          />
 
-            {/* Right: Content */}
-            <div className="w-full lg:w-1/2">
-              <SectionHeader
-                badge="Real-World Results"
-                title={<>Fleet Success Snapshot: <br className="hidden sm:block" /><span className="text-amber-500">Arctic Mining Operator</span></>}
-                align="left"
-                theme="light"
-                accentColor="slate"
-                plainText={true}
-                className="!mb-6"
-              />
-              
-              <div className="space-y-6 mb-8">
-                <div className="bg-slate-50 border-l-4 border-slate-300 p-5 rounded-r-xl transition-all duration-300 hover:shadow-md">
-                  <h3 className="font-bold text-navy-900 mb-1 flex items-center gap-2">
-                    <ShieldAlert className="w-4 h-4 text-slate-500" /> Challenge
-                  </h3>
-                  <p className="text-slate-600 text-sm md:text-base font-light">
-                    Extreme cold causing frozen diaphragms and costly roadside repairs.
-                  </p>
-                </div>
-                
-                <div className="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl shadow-sm shadow-amber-500/10 transition-all duration-300 hover:shadow-md hover:shadow-amber-500/20">
-                  <h3 className="font-bold text-navy-900 mb-1 flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-amber-500" /> Result
-                  </h3>
-                  <p className="text-slate-700 text-sm md:text-base font-medium">
-                    Zero failures after switching to BRC Sub-Zero rated chambers. Maintenance costs reduced 25%.
-                  </p>
-                </div>
-              </div>
-
-              <Link 
-                href="/blog/arctic-mining-success" 
-                className="inline-flex items-center font-bold text-amber-500 hover:text-amber-600 transition-colors group tracking-wide"
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 relative z-10 mt-12 md:mt-16">
+            {[
+              { icon: Cog, value: "1.2M+", label: "Units Deployed" },
+              { icon: Globe2, value: "30+", label: "Countries Served" },
+              { icon: Users, value: "250+", label: "Fleet Customers" },
+              { icon: LineChart, value: "100%", label: "Pre-Delivery Tested" }
+            ].map((stat, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1, duration: 0.6 }}
+                className="bg-white border border-slate-200 rounded-[2rem] p-6 sm:p-8 text-center shadow-lg shadow-slate-200/50 group flex flex-col relative overflow-hidden transform hover:-translate-y-2 transition-all duration-500 hover:border-amber-300"
               >
-                Read Full Story <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                <div className="relative z-10 w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-amber-100 border border-amber-200 shadow-sm rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transition-colors group-hover:bg-amber-200 text-amber-600">
+                  <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
+                </div>
+                <div className="relative z-10 text-3xl sm:text-4xl lg:text-5xl font-black text-navy-900 mb-2 tracking-tight transition-colors group-hover:text-amber-600">
+                  {stat.value}
+                </div>
+                <div className="relative z-10 text-[10px] sm:text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider group-hover:text-amber-600 transition-colors">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-
-      {/* Final CTA Section */}
+      {/* Bottom CTA */}
       <div className="py-16 md:py-24 bg-[#F1EFE8] relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-10 md:p-16 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
-            {/* Internal Card Glow */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-10 md:p-16 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0 pointer-events-none"></div>
+            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] z-0 pointer-events-none"></div>
 
-            <div className="max-w-2xl relative z-10 text-center md:text-left">
+            <div className="relative z-10 flex-1 max-w-2xl text-center md:text-left">
               <SectionHeader
-                badge="Custom Solutions"
-                title="Need a Custom Brake Chamber Solution?"
-                description={<>Work directly with our engineering team to design, prototype, and manufacture custom air brake actuators that meet your exact mechanical requirements. <strong className="text-white font-bold">No middlemen. No compromises.</strong></>}
+                badge="Application Support"
+                title="Not Sure Which Brake Chamber Fits Your Application?"
+                description="Send us your vehicle type, axle configuration, and current chamber part number. Our engineering team will identify the exact BRC replacement, or recommend a custom configuration if nothing in our catalog fits."
                 align="left"
                 theme="dark"
                 accentColor="amber"
                 className="!mb-0"
+                plainText={true}
               />
             </div>
 
-            <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto shrink-0">
-              <Link href="/quote" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-4 sm:py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
-                Request Custom Quote
+            <div className="relative z-10 flex flex-col w-full md:w-auto gap-4 min-w-[240px] shrink-0 mt-8 md:mt-0">
+              <Link 
+                href="/contact" 
+                className="bg-amber-500 text-navy-950 font-black py-4 px-8 rounded-xl hover:bg-amber-400 transition-all shadow-xl shadow-amber-500/20 text-center uppercase tracking-widest text-[13px] transform hover:-translate-y-1 flex items-center justify-center"
+              >
+                Ask the Engineering Team <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+              <Link 
+                href="/oem-cross-reference" 
+                className="bg-navy-800 text-white border border-navy-600 font-black py-4 px-8 rounded-xl hover:bg-navy-700 hover:border-navy-500 transition-all text-center uppercase tracking-widest text-[13px] transform hover:-translate-y-1 flex items-center justify-center"
+              >
+                Search OEM Cross-Reference <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </div>
           </div>

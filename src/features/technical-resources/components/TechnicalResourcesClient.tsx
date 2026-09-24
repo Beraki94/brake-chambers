@@ -21,20 +21,20 @@ export default function TechnicalResourcesClient() {
       title: 'Installation & Maintenance',
       icon: <Wrench className="w-7 h-7 text-amber-500" />,
       accent: 'amber',
-      desc: 'Step-by-step OEM installation procedures and safe caging procedures. Ensure your BRC chambers are installed correctly and maintained for maximum lifespan.',
+      desc: 'Each guide contains detailed specifications, step-by-step procedures, and reference tables for technicians, engineers, and fleet managers.',
       items: [
         {
           title: 'Installation Guides',
-          subtitle: 'Step-by-step mounting, pushrod cutting, and air line connection procedures',
+          subtitle: 'Step-by-step mounting, push-rod cutting, and air line connection procedures.',
           slug: 'installation',
           icon: <Wrench className="w-5 h-5" />,
         },
         {
           title: 'Safe Caging Procedures',
-          subtitle: 'Critical safety procedures for manually caging spring brakes during maintenance',
+          subtitle: 'Critical safety procedures for manually caging spring brakes during maintenance.',
           slug: 'caging',
           icon: <Shield className="w-5 h-5" />,
-        },
+        }
       ],
     },
     {
@@ -42,34 +42,34 @@ export default function TechnicalResourcesClient() {
       title: 'Specifications & Sizing',
       icon: <FileArchive className="w-7 h-7 text-navy-500" />,
       accent: 'navy',
-      desc: 'Detailed size charts, stroke length guides, and thread specifications for precise component matching. Find the exact chamber for your truck, trailer, or bus application.',
+      desc: 'Detailed size charts, stroke length guides, and thread specifications for precise component matching.',
       items: [
         {
           title: 'Size & Dimension Charts',
-          subtitle: 'OD, mounting stud centers, pushrod threads, and weight for Type 12 through Type 36',
+          subtitle: 'OD, mounting stud centers, push-rod lengths, and thread weights for Type 12 through Type 36.',
           slug: 'size-charts',
           icon: <Ruler className="w-5 h-5" />,
         },
         {
           title: 'Stroke Length Guide',
-          subtitle: 'Standard vs. long-stroke limits and CVSA out-of-service readjustment criteria',
+          subtitle: 'Standard vs. long-stroke limits and CVSA out-of-service readjustment criteria.',
           slug: 'stroke-length',
           icon: <FileText className="w-5 h-5" />,
         },
         {
           title: 'Chamber Selection Guides',
-          subtitle: 'Choose the correct chamber by vocation: linehaul, severe duty, transit, or heavy haul',
+          subtitle: 'Choose the correct chamber by vocation: linehaul, severe-duty, transit, or heavy haul.',
           slug: 'selection-guides',
-          icon: <Settings className="w-5 h-5" />,
+          icon: <BookOpen className="w-5 h-5" />,
         },
         {
           title: 'Visual Identification Guide',
-          subtitle: 'How to identify chamber sizes and stroke types without part numbers',
+          subtitle: 'How to identify chamber sizes and stroke types without part numbers.',
           slug: 'identification',
           icon: <Eye className="w-5 h-5" />,
         },
       ],
-    },
+    }
   ];
 
   return (
@@ -143,7 +143,7 @@ export default function TechnicalResourcesClient() {
               </div>
             </section>
 
-            {/* SECTION 2: VIDEO TRAINING BANNER */}
+                        {/* SECTION 2: VIDEO TRAINING BANNER */}
             <section className="py-16 md:py-24 relative">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
                 <div id="video-training" className="scroll-mt-32 lg:scroll-mt-40 bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 rounded-[2rem] shadow-xl shadow-navy-900/10 relative overflow-hidden group flex flex-col lg:flex-row transform hover:-translate-y-2 transition-all duration-500 hover:border-amber-500/50">
@@ -155,16 +155,19 @@ export default function TechnicalResourcesClient() {
 
                   <div className="w-full lg:w-1/2 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative z-10">
                     <SectionHeader
-                      badge="Video Training"
-                      title={<>BRC <span className="text-amber-500">Video</span> Series</>}
-                      description="For visual learners and technicians on the shop floor. Watch our lead engineers walk through safe caging procedures, pushrod cutting, and complete installation step-by-step."
+                      badge="Video Training Library"
+                      title={<>Brake Chamber Installation & <span className="text-amber-500">Maintenance Videos</span></>}
+                      description="Step-by-step video walkthroughs from our lead engineers. Covers safe caging procedures, push-rod cutting, torque specs, and complete installation - filmed on the shop floor."
                       align="left"
                       theme="dark"
                       accentColor="amber"
                       className="!mb-4"
                     />
-                    <Link href="/contact?subject=Video+Training+Access" className="inline-flex items-center gap-3 text-amber-500 font-extrabold group-hover/btn:text-amber-400 transition-colors uppercase tracking-widest text-xs md:text-sm group/btn mt-4 md:mt-0 self-start">
-                      Request Video Access <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transform group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
+                    <ul className="space-y-3 mb-8 text-slate-300 font-light text-sm">
+                      <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-amber-500" /> Video Training Content Coming Soon</li>
+                    </ul>
+                    <Link href="/contact?subject=Video+Training+Access" className="inline-flex items-center gap-3 bg-amber-500 px-6 py-3 rounded-lg text-navy-950 font-extrabold hover:bg-amber-400 transition-colors uppercase tracking-widest text-xs md:text-sm group/btn mt-4 md:mt-0 self-start shadow-lg shadow-amber-500/20 transform hover:-translate-y-1">
+                      Notify Me <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transform group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
                     </Link>
                   </div>
                   <div className="w-full lg:w-1/2 relative min-h-[250px] md:min-h-[300px] lg:min-h-full overflow-hidden rounded-b-[2rem] lg:rounded-bl-none lg:rounded-r-[2rem] m-[2px]">
@@ -179,13 +182,14 @@ export default function TechnicalResourcesClient() {
               </div>
             </section>
 
-            {/* SECTION 3: LIBRARY CATEGORIES */}
-            <section className="py-16 md:py-24 relative bg-slate-50 border-t border-slate-200">
+            {/* SECTION 2: LIBRARY CATEGORIES */}
+
+            <section className="py-16 md:py-24 relative bg-blue-50 border-t border-blue-100">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
                 <div className="mb-10 lg:mb-16">
                   <SectionHeader
                     badge="Technical Library"
-                    title="Browse by Topic"
+                    title="Browse Brake Chamber Resources by Topic"
                     description="Find the technical resource you need. Each guide contains detailed specifications, step-by-step procedures, and reference tables for technicians, engineers, and fleet managers."
                     align="left"
                     plainText={true}

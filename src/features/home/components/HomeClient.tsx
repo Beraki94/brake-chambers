@@ -187,7 +187,7 @@ export default function HomeClient() {
 
         {/* Premium Fixed Parallax Background */}
         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-          <div className="w-full h-full bg-[url('/products/spring-brake.jpg')] bg-fixed bg-center bg-no-repeat bg-[length:800px_800px] mix-blend-multiply "></div>
+          <div className="w-full h-full bg-[url('/images/brc-truck-background.jpg')] bg-fixed bg-center bg-no-repeat bg-cover mix-blend-multiply "></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">

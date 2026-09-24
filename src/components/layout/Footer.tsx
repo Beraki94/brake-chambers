@@ -114,7 +114,7 @@ export default function Footer() {
             <FooterColumn title="Applications">
             <ul className="space-y-3">
               <li><Link href={`/applications`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors font-semibold">Vehicle Types</Link></li>
-              <li><Link href={`/applications/long-haul-semi`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Commercial Freight</Link></li>
+              <li><Link href={`/applications/long-haul-semi-trucks`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Commercial Freight</Link></li>
               <li><Link href={`/applications/garbage-refuse`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Severe-Duty</Link></li>
               <li><Link href={`/applications/transit-buses`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Passenger Transit</Link></li>
               <li><Link href={`/applications/mining-construction`} className="text-navy-300 hover:text-slate-400 text-sm transition-colors">Off-Highway</Link></li>

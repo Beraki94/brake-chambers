@@ -335,7 +335,7 @@ export default function ProductsClient() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
-              { title: 'Heavy-Duty Trucks', rec: 'Spring Brakes (Type 30/30, 24/30)', img: '/images/home/spring-brakes-bg.jpg', link: '/applications/long-haul-semi' },
+              { title: 'Heavy-Duty Trucks', rec: 'Spring Brakes (Type 30/30, 24/30)', img: '/images/home/spring-brakes-bg.jpg', link: '/applications/long-haul-semi-trucks' },
               { title: 'Commercial Trailers', rec: 'Service Chambers (Type 20, 30)', img: '/images/home/service-brakes-bg.jpg', link: '/applications/heavy-duty-trailer' },
               { title: 'Transit Buses', rec: 'Air Disc Actuators (Type 16/18)', img: '/images/home/air-disc-brakes-bg.jpg', link: '/applications/transit-buses' },
               { title: 'Off-Highway & Mining', rec: 'Severe-Duty ADB (Type 24/24)', img: 'https://images.unsplash.com/photo-1579417865672-88126b8821eb?auto=format&fit=crop&w=800&q=80', link: '/applications/mining-construction' }

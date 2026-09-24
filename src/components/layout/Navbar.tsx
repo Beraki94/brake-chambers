@@ -157,16 +157,16 @@ export default function Navbar() {
       {/* Main Header */}
       <div className="bg-[#FFB000] border-b border-[#e59d00] relative z-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
-          <div className="h-16 md:h-20 flex items-center justify-between gap-4 md:gap-8">
+          <div className="h-20 md:h-24 flex items-center justify-between gap-4 md:gap-8">
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0 min-w-0 group">
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-navy-900 flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform">
-                <img src="/images/logo-brc.png" alt="BRC" className="h-6 md:h-7 w-auto object-contain brightness-0 invert" />
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-navy-900 flex items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform">
+                <img src="/images/logo-brc.png" alt="BRC" className="h-7 md:h-8 w-auto object-contain brightness-0 invert" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="font-heading font-extrabold text-lg md:text-xl text-navy-950 tracking-tight">BRC</span>
-                <span className="text-[10px] md:text-xs font-bold text-navy-800 tracking-widest uppercase">Brake Chambers</span>
+                <span className="font-heading font-extrabold text-xl md:text-2xl text-navy-950 tracking-tight">BRC</span>
+                <span className="text-xs md:text-[13px] font-bold text-navy-800 tracking-widest uppercase">Brake Chambers</span>
               </div>
             </Link>
 
@@ -201,9 +201,9 @@ export default function Navbar() {
               {/* Mobile menu toggle */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden w-11 h-11 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-navy-950 text-white hover:bg-navy-900 transition-transform hover:scale-105 shadow-md"
+                className="lg:hidden w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-navy-950 text-white hover:bg-navy-900 transition-transform hover:scale-105 shadow-md"
               >
-                {isMobileMenuOpen ? <X className="h-5 w-5 md:h-6 md:w-6" /> : <Menu className="h-5 w-5 md:h-6 md:w-6" />}
+                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
             </div>
           </div>

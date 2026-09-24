@@ -4,8 +4,8 @@ import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import CustomOemClient from '@/features/manufacturing/components/CustomOemClient';
 
 export const metadata: Metadata = {
-  title: 'Custom OEM Brake Chamber Manufacturing | BRC',
-  description: 'Partner with BRC to engineer and mass-produce proprietary brake chamber designs. Full CAD prototyping, FEA validation, in-house tooling, and 100% IP protection from NDA to delivery.',
+  title: 'Custom OEM Brake Chamber Manufacturing: Design to Production | BRC',
+  description: 'BRC manufactures custom brake chambers to your specifications. CAD design review, prototyping, custom tooling, and volume production. IP protected.',
 };
 
 export default function CustomOemPage() {

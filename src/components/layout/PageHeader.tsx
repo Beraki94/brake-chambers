@@ -49,15 +49,19 @@ export default function PageHeader({ badge, badgeIcon: BadgeIcon, title, descrip
 
         {/* TOP LEFT BREADCRUMB - Standardized Position */}
         {breadcrumbs && breadcrumbs.length > 0 && (
-          <nav aria-label="Breadcrumb" className="mb-6 md:mb-10">
-            <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-navy-300 font-medium">
+          <nav aria-label="Breadcrumb" className="mb-6 md:mb-10 w-full">
+            <ol className="flex items-center gap-x-2 text-sm text-navy-300 font-medium whitespace-nowrap overflow-hidden">
               {breadcrumbs.map((crumb, idx) => (
                 <React.Fragment key={idx}>
-                  {idx > 0 && <li><span className="text-navy-600">/</span></li>}
+                  {idx > 0 && <li className="flex-shrink-0"><span className="text-navy-600">/</span></li>}
                   {crumb.href ? (
-                    <li><Link href={crumb.href} className="hover:text-amber-400 transition-colors">{crumb.label}</Link></li>
+                    <li className="flex-shrink-0">
+                      <Link href={crumb.href} className="hover:text-amber-400 transition-colors block">
+                        {crumb.label}
+                      </Link>
+                    </li>
                   ) : (
-                    <li className="text-white" aria-current={idx === breadcrumbs.length - 1 ? 'page' : undefined}>
+                    <li className="text-white min-w-0 flex-shrink truncate" aria-current={idx === breadcrumbs.length - 1 ? 'page' : undefined}>
                       {crumb.label}
                     </li>
                   )}

@@ -4,8 +4,8 @@ import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import BrakeRandDClient from '@/features/manufacturing/components/BrakeRandDClient';
 
 export const metadata: Metadata = {
-  title: 'Brake R&D — Engineering & Innovation | BRC Brake Chambers',
-  description: 'Inside BRC\'s brake chamber R&D division: CAD design, FEA simulation, rapid prototyping, and metallurgical innovation for next-generation heavy-duty spring brake and air disc brake actuators.',
+  title: 'Brake Chamber R&D: Engineering the Next Generation | BRC',
+  description: 'Inside BRC\'s brake chamber R&D process: 3D CAD modeling, FEA simulation, rapid prototyping, and materials validation. Every design is validated to IATF 16949 standards.',
 };
 
 export default function BrakeRandDPage() {

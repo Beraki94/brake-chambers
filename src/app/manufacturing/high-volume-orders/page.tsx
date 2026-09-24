@@ -4,8 +4,8 @@ import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import HighVolumeOrdersClient from '@/features/manufacturing/components/HighVolumeOrdersClient';
 
 export const metadata: Metadata = {
-  title: 'High Volume Brake Chamber Orders — Factory-Direct Pricing | BRC',
-  description: 'Factory-direct tiered pricing on high-volume brake chamber orders. From 500-unit starter orders to 20,000+ unit strategic programs with dedicated account management and container optimization.',
+  title: 'High-Volume Brake Chamber Orders: Factory-Direct Volume Pricing | BRC',
+  description: 'Volume brake chamber orders from 500 to 20,000+ units. Tiered factory-direct pricing, priority production, container optimization, and dedicated account management.',
 };
 
 export default function HighVolumeOrdersPage() {

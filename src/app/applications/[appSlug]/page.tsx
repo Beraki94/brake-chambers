@@ -16,15 +16,15 @@ export async function generateMetadata(props: { params: Promise<{ appSlug: strin
   const url = `/applications/${params.appSlug}`;
 
   return {
-    title: `${data.title} | BRC Air Brake Chambers`,
-    description: data.desc,
+    title: data.metaTitle || `${data.title} | BRC Air Brake Chambers`,
+    description: data.metaDesc || data.desc,
     keywords: data.keywords.join(', '),
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${data.title} | BRC Air Brake Chambers`,
-      description: data.desc,
+      title: data.metaTitle || `${data.title} | BRC Air Brake Chambers`,
+      description: data.metaDesc || data.desc,
       type: 'article',
       url: url,
       images: [

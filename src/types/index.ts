@@ -62,6 +62,7 @@ export interface BrakeChamber {
     bodyLength?: string; // (L) e.g. "340 mm"
     bodyOffset?: string; // (L) e.g. "50 mm"
     hydraulicPortSize?: string; // (N) e.g. "G3/8""
+    centerBossThread?: string; // e.g. "1 3/4"-12UN-2A"
   };
   
   galleryUrls: string[];

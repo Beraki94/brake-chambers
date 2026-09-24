@@ -267,10 +267,15 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
               theme="light"
               accentColor="amber"
             />
-            <motion.div variants={fadeInUp} className="mt-10">
-              <Link href={data.cta?.link || "/quote"} className="inline-flex items-center justify-center bg-navy-900 hover:bg-navy-800 text-white font-black px-10 py-5 rounded-xl transition-all duration-300 text-[14px] uppercase tracking-widest shadow-[0_10px_30px_rgba(15,23,42,0.2)] hover:shadow-[0_15px_40px_rgba(15,23,42,0.3)] transform hover:-translate-y-1">
+            <motion.div variants={fadeInUp} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href={data.cta?.link || "/quote"} className="inline-flex items-center justify-center bg-navy-900 hover:bg-navy-800 text-white font-black px-8 py-4 rounded-xl transition-all duration-300 text-[14px] uppercase tracking-widest shadow-[0_10px_30px_rgba(15,23,42,0.2)] hover:shadow-[0_15px_40px_rgba(15,23,42,0.3)] transform hover:-translate-y-1 w-full sm:w-auto">
                 {data.cta?.buttonText || "Request a Quote"} <ArrowRight className="w-5 h-5 ml-3" />
               </Link>
+              {data.cta?.secondaryButton && (
+                <Link href={data.cta.secondaryButton.link} className="inline-flex items-center justify-center bg-transparent border-2 border-navy-900 text-navy-900 hover:bg-navy-50 font-black px-8 py-4 rounded-xl transition-all duration-300 text-[14px] uppercase tracking-widest transform hover:-translate-y-1 w-full sm:w-auto">
+                  {data.cta.secondaryButton.text} <ArrowRight className="w-5 h-5 ml-3" />
+                </Link>
+              )}
             </motion.div>
           </motion.div>
         </div>
