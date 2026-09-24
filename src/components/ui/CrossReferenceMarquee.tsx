@@ -53,7 +53,7 @@ export default function CrossReferenceMarquee({ filterBrand, maxItems = 15 }: Cr
 
   return (
     <div className="relative w-full flex overflow-x-hidden group py-4">
-        <div className="flex animate-[marquee_30s_linear_infinite] group-hover:[animation-play-state:paused] whitespace-nowrap min-w-max pb-4 pt-2">
+        <div className="flex animate-[marquee_60s_linear_infinite] group-hover:[animation-play-state:paused] whitespace-nowrap min-w-max pb-4 pt-2">
           
           {/* First set */}
           <div className="flex gap-6 px-3">

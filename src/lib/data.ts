@@ -542,7 +542,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '15 mm',
     hiddenSearchTags: ['925.384.001.0', '9253840010', '1624ShortStrokeSpring', 'Short Stroke Spring Brake', 'Metric Stub Rod Maxibrake'],
-    galleryUrls: ['/products/brc-t1624-short-stroke-spring-brake-8.jpg', '/products/brc-t1624-short-stroke-spring-brake-8-drawing.jpg'],
+    galleryUrls: ['/products/brc-t1624-short-stroke-spring-brake-8-v2.jpg', '/products/brc-t1624-short-stroke-spring-brake-8-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '925.384.001.0', notes: 'Direct Match' }
     ]
@@ -560,7 +560,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '15 mm',
     hiddenSearchTags: ['925.380.002.0', '9253800020', '2024ShortStrokeSpring', 'Short Stroke Spring Brake', 'SR8 Spherical Double Diaphragm'],
-    galleryUrls: ['/products/brc-t1624-short-stroke-spring-brake-8.jpg', '/products/brc-t1624-short-stroke-spring-brake-8-drawing.jpg'],
+    galleryUrls: ['/products/brc-t1624-short-stroke-spring-brake-8-v2.jpg', '/products/brc-t1624-short-stroke-spring-brake-8-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '925.380.002.0', notes: 'Direct Match' }
     ]
@@ -853,7 +853,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     bodyLength: '250 mm',
     hiddenSearchTags: ['890.400.349.0', 'Heavy Duty Combination Chamber', 'Metric Maxibrake Pot'],
-    galleryUrls: ['/products/brc-t2430-metric-hd-spring-brake-15-drawing.jpg', '/products/brc-t2430-metric-hd-spring-brake-15.jpg'],
+    galleryUrls: ['/products/brc-t2430-metric-hd-spring-brake-15-v3.jpg', '/products/brc-t2430-metric-hd-spring-brake-15-drawing-v3.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '890.400.349.0', notes: 'Direct Match' }
     ]
@@ -872,7 +872,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     bodyLength: '250 mm',
     hiddenSearchTags: ['890.400.351.0', 'Heavy Duty Combination Chamber'],
-    galleryUrls: ['/products/brc-t2430-metric-hd-spring-brake-15-drawing.jpg', '/products/brc-t2430-metric-hd-spring-brake-15.jpg'],
+    galleryUrls: ['/products/brc-t2430-metric-hd-spring-brake-15-v3.jpg', '/products/brc-t2430-metric-hd-spring-brake-15-drawing-v3.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '890.400.351.0', notes: 'Direct Match' }
     ]
@@ -891,7 +891,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     bodyLength: '250 mm',
     hiddenSearchTags: ['890.400.353.0', 'Heavy Duty Combination Chamber', 'T30/30 Piston Diaphragm Cylinder'],
-    galleryUrls: ['/products/brc-t2430-metric-hd-spring-brake-15-drawing.jpg', '/products/brc-t2430-metric-hd-spring-brake-15.jpg'],
+    galleryUrls: ['/products/brc-t2430-metric-hd-spring-brake-15-v3.jpg', '/products/brc-t2430-metric-hd-spring-brake-15-drawing-v3.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '890.400.353.0', notes: 'Direct Match' }
     ]
@@ -910,7 +910,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-VOSS 22×1.5',
     bodyLength: '200 mm',
     hiddenSearchTags: ['925.490.925.0', 'VOSS 22x1.5 Brake Chamber', 'European Truck Spring Brake'],
-    galleryUrls: ['/products/brc-t2424-wabco-standard-port-16-drawing.jpg', '/products/brc-t2424-wabco-standard-port-16.jpg'],
+    galleryUrls: ['/products/brc-t2424-wabco-standard-port-16-v3.jpg', '/products/brc-t2424-wabco-standard-port-16-drawing-v3.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '925.490.925.0', notes: 'Direct Match' }
     ]
@@ -929,7 +929,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     bodyLength: '200 mm',
     hiddenSearchTags: ['925.491.110.0', 'WABCO Piston Diaphragm Cylinder'],
-    galleryUrls: ['/products/brc-t2424-wabco-standard-port-16-drawing.jpg', '/products/brc-t2424-wabco-standard-port-16.jpg'],
+    galleryUrls: ['/products/brc-t2424-wabco-standard-port-16-v3.jpg', '/products/brc-t2424-wabco-standard-port-16-drawing-v3.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '925.491.110.0', notes: 'Direct Match' }
     ]
@@ -948,7 +948,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-VOSS 22×1.5',
     bodyLength: '250 mm',
     hiddenSearchTags: ['925.492.102.0', 'VOSS 22x1.5 Brake Chamber', 'European Truck Spring Brake'],
-    galleryUrls: ['/products/brc-t2424-wabco-standard-port-16-drawing.jpg', '/products/brc-t2424-wabco-standard-port-16.jpg'],
+    galleryUrls: ['/products/brc-t2424-wabco-standard-port-16-v3.jpg', '/products/brc-t2424-wabco-standard-port-16-drawing-v3.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '925.492.102.0', notes: 'Direct Match' }
     ]
@@ -966,7 +966,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '15 mm',
     hiddenSearchTags: ['925.464.459.0', 'Short Stroke Piston Diaphragm Chamber', '15mm Stub Rod Actuator'],
-    galleryUrls: ['/products/brc-t2416-short-stroke-spring-17.jpg', '/products/brc-t2416-short-stroke-spring-17-drawing.jpg'],
+    galleryUrls: ['/products/brc-t2416-short-stroke-spring-17-v2.jpg', '/products/brc-t2416-short-stroke-spring-17-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '925.464.459.0', notes: 'Direct Match' }
     ]
@@ -984,7 +984,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '15 mm',
     hiddenSearchTags: ['925.461.299.0', 'Short Stroke Piston Diaphragm Chamber'],
-    galleryUrls: ['/products/brc-t2416-short-stroke-spring-17.jpg', '/products/brc-t2416-short-stroke-spring-17-drawing.jpg'],
+    galleryUrls: ['/products/brc-t2416-short-stroke-spring-17-v2.jpg', '/products/brc-t2416-short-stroke-spring-17-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '925.461.299.0', notes: 'Direct Match' }
     ]

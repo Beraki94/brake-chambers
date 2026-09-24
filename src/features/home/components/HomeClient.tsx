@@ -186,8 +186,10 @@ export default function HomeClient() {
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-b from-navy-100/40 to-transparent rounded-full blur-[100px] -z-10 translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
 
         {/* Premium Fixed Parallax Background */}
-        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-          <div className="w-full h-full bg-[url('/images/brc-truck-background.jpg')] bg-fixed bg-center bg-no-repeat bg-cover mix-blend-multiply "></div>
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute inset-0 w-full h-full bg-[url('/images/brc-truck-background.jpg')] bg-fixed bg-right bg-no-repeat bg-cover opacity-40 mix-blend-multiply"></div>
+          {/* Gradient Overlay: Solid on the left for text readability, fading to transparent on the right for image visibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-blue-50/90 to-transparent"></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
@@ -443,7 +445,7 @@ export default function HomeClient() {
       {/* 5. R&D and Innovation Highlight */}
       <section className="relative overflow-hidden bg-navy-950 py-16 md:py-24 flex items-center border-t border-navy-800 group">
         <div className="absolute inset-0 overflow-hidden">
-          <img src="/images/home/lab-testing.png" alt="Laboratory Testing" className="w-full h-full object-cover opacity-30   group-hover:scale-105 transition-transform duration-[10s]" />
+          <img src="/images/brc-truck-background.jpg" alt="Commercial Truck" className="w-full h-full object-cover opacity-30   group-hover:scale-105 transition-transform duration-[10s]" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/95 to-transparent"></div>
           {/* Accent gradient bar */}
           <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-emerald-400 to-emerald-600 shadow-[0_0_30px_rgba(16,185,129,0.6)]"></div>

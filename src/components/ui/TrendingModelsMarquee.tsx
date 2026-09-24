@@ -70,13 +70,13 @@ export default function TrendingModelsMarquee() {
                   href={`/${urlCategory}/${chamber.slug}`}
                   className="w-72 bg-white border border-slate-200 rounded-3xl p-5 flex flex-col hover:border-amber-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group/card relative shrink-0"
                 >
-                  <div className="w-full h-40 bg-slate-50 rounded-2xl relative mb-5 overflow-hidden flex items-center justify-center border border-slate-100">
+                  <div className="w-full h-48 sm:h-52 bg-slate-50 rounded-2xl relative mb-5 overflow-hidden flex items-center justify-center border border-slate-100">
                     {chamber.galleryUrls?.[0] ? (
                       <Image
                         src={chamber.galleryUrls[0]}
                         alt={chamber.name}
                         fill
-                        className="object-contain p-4 transition-transform duration-700 group-hover/card:scale-110"
+                        className="object-contain p-2 transition-transform duration-700 group-hover/card:scale-110"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-slate-400 text-sm font-medium">
@@ -114,13 +114,13 @@ export default function TrendingModelsMarquee() {
                   href={`/${urlCategory}/${chamber.slug}`}
                   className="w-72 bg-white border border-slate-200 rounded-3xl p-5 flex flex-col hover:border-amber-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group/card relative shrink-0"
                 >
-                  <div className="w-full h-40 bg-slate-50 rounded-2xl relative mb-5 overflow-hidden flex items-center justify-center border border-slate-100">
+                  <div className="w-full h-48 sm:h-52 bg-slate-50 rounded-2xl relative mb-5 overflow-hidden flex items-center justify-center border border-slate-100">
                     {chamber.galleryUrls?.[0] ? (
                       <Image
                         src={chamber.galleryUrls[0]}
                         alt={chamber.name}
                         fill
-                        className="object-contain p-4 transition-transform duration-700 group-hover/card:scale-110"
+                        className="object-contain p-2 transition-transform duration-700 group-hover/card:scale-110"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-slate-400 text-sm font-medium">
