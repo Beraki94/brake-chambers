@@ -3,364 +3,293 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Microscope, Factory, ShieldCheck, Globe2, Trophy, Users, Cog, LineChart, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Microscope, Factory, ShieldCheck, Trophy, Users, Cog, LineChart, CheckCircle2, Layers, PenTool, Tag, Package, Settings } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { fadeInUp, slideInLeft } from '@/lib/animations';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
-import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
-import TrendingModelsMarquee from '@/components/ui/TrendingModelsMarquee';
 
 export default function ManufacturingClient() {
-  const steps = [
-    {
-      step: '01',
-      title: 'Brake Chamber Research & Development',
-      slug: 'research-development',
-      description: 'Our in-house engineering team develops every BRC brake chamber using advanced CAD modeling, FEA simulation, and rapid prototyping, reducing weight while increasing burst strength and cycle longevity.',
-      image: '/images/engineering_blueprint.png',
-      accent: 'amber',
-      icon: <Microscope className="w-8 h-8 text-amber-500" />,
-      features: [
-        'Advanced 3D CAD Modeling',
-        'Finite Element Analysis (FEA)',
-        'Rapid 3D Prototyping',
-        'Custom OEM Engineering'
-      ],
-      linkText: 'Explore Brake Chamber R&D'
-    },
-    {
-      step: '02',
-      title: 'Brake Chamber Precision Assembly',
-      slug: 'process',
-      description: 'Our factory operates to IATF 16949 standards with in-house aluminum die casting, robotic welding, and CNC machining. Every chamber is assembled to consistent tolerances across millions of units.',
-      image: '/images/manufacturing_floor.png',
-      accent: 'navy',
-      icon: <Factory className="w-8 h-8 text-navy-500" />,
-      features: [
-        'In-House Aluminum Die Casting',
-        'Automated Robotic Welding',
-        'High-Precision CNC Machining',
-        'Continuous Flow Assembly Lines'
-      ],
-      linkText: 'Explore Our Production Process'
-    },
-    {
-      step: '03',
-      title: 'Brake Chamber Quality Assurance',
-      slug: 'quality-assurance',
-      description: 'Every BRC brake chamber undergoes 100% pneumatic leak testing and mechanical cycle testing before leaving the factory. We test every single unit, not a batch sample.',
-      image: '/images/commercial_trailer.png',
-      accent: 'amber',
-      icon: <ShieldCheck className="w-8 h-8 text-amber-500" />,
-      features: [
-        '100% End-of-Line Pneumatic Testing',
-        'Salt Spray & Corrosion Resistance',
-        'Extreme Temperature Cycle Testing',
-        'Burst Strength Validation'
-      ],
-      linkText: 'Explore Quality Assurance & Lab'
-    },
-    {
-      step: '04',
-      title: 'Export-Ready Brake Chamber Packaging',
-      slug: 'distribution',
-      linkUrl: '/shipping',
-      linkText: 'View Shipping & Logistics',
-      description: 'Once manufacturing and testing are complete, every brake chamber is palletized and packaged for export under ISPM-15 standards. Our export department coordinates container loading for FCL and LCL shipments to any major port worldwide.',
-      image: '/images/heavy_duty_truck.png',
-      accent: 'slate',
-      icon: <Globe2 className="w-8 h-8 text-slate-500" />,
-      features: [
-        'ISPM-15 Certified Palletization: Heat-treated pallets accepted at all major ports.',
-        'Export-Ready Packaging: Corrosion-resistant wrapping and moisture barriers.',
-        'Container Optimization: FCL and LCL loading planned to maximize freight efficiency.'
-      ]
-    }
-  ];
-
   const stats = [
-    { icon: Trophy, value: "IATF 16949", label: "Compliant Facility" },
+    { icon: Trophy, value: "IATF 16949", label: "Aligned Facility" },
     { icon: Cog, value: "1M+", label: "Brake Chambers Produced Annually" },
     { icon: Users, value: "250+", label: "Manufacturing Specialists" },
     { icon: LineChart, value: "100%", label: "Pneumatic Testing Before Shipment" },
   ];
 
+  const subPages = [
+    {
+      title: "Brake Chamber Production Process",
+      desc: "Four controlled stages: stamping, robotic welding, e-coating, and automated assembly.",
+      icon: <Settings className="w-8 h-8 text-amber-500 transition-colors" />,
+      link: "/manufacturing/process",
+      linkText: "Explore the Production Process"
+    },
+    {
+      title: "Brake Chamber Material Sourcing",
+      desc: "8-gauge steel, high-strength neoprene rubber, and ADC12 aluminum. Verified before production.",
+      icon: <Layers className="w-8 h-8 text-amber-500 transition-colors" />,
+      link: "/manufacturing/material-sourcing",
+      linkText: "Explore Material Sourcing"
+    },
+    {
+      title: "Brake Chamber R&D",
+      desc: "3D CAD modeling, FEA simulation, and rapid prototyping. How we design the next generation.",
+      icon: <Microscope className="w-8 h-8 text-amber-500 transition-colors" />,
+      link: "/manufacturing/research-development",
+      linkText: "Explore Brake Chamber R&D"
+    },
+    {
+      title: "Brake Chamber Quality Assurance",
+      desc: "1M+ cycle testing, salt spray chambers, burst pressure validation, and 100% leak testing.",
+      icon: <ShieldCheck className="w-8 h-8 text-amber-500 transition-colors" />,
+      link: "/manufacturing/quality-assurance",
+      linkText: "Explore Quality Assurance"
+    },
+    {
+      title: "Custom OEM Manufacturing",
+      desc: "Bring your proprietary brake chamber design and we will engineer, prototype, and mass-produce it.",
+      icon: <PenTool className="w-8 h-8 text-amber-500 transition-colors" />,
+      link: "/manufacturing/custom-oem",
+      linkText: "Explore Custom OEM Manufacturing"
+    },
+    {
+      title: "Private Label Brake Chambers",
+      desc: "Launch your own brake chamber brand with custom paint, laser engraving, and branded packaging.",
+      icon: <Tag className="w-8 h-8 text-amber-500 transition-colors" />,
+      link: "/manufacturing/private-label",
+      linkText: "Explore Private Label"
+    },
+    {
+      title: "High-Volume Brake Chamber Orders",
+      desc: "Tiered factory-direct pricing from 500-unit pilot orders to annual container programs.",
+      icon: <Package className="w-8 h-8 text-amber-500 transition-colors" />,
+      link: "/manufacturing/high-volume-orders",
+      linkText: "Explore High-Volume Orders"
+    }
+  ];
+
+  const facts = [
+    { label: "Location", value: "Fengqiao Industrial Zone, Zhuji, Zhejiang Province, China 311811" },
+    { label: "Factory Size", value: "50,000 sqm vertically integrated production facility" },
+    { label: "Annual Capacity", value: "1M+ brake chambers produced annually" },
+    { label: "Manufacturing Staff", value: "250+ production and quality specialists on the factory floor" },
+    { label: "Export Ports", value: "Ningbo-Zhoushan Port and Port of Shanghai" },
+    { label: "Quality System", value: "IATF 16949-aligned" },
+    { label: "Buyers Welcome", value: "Factory visits and third-party audits available on request" }
+  ];
+
   return (
     <article className="min-h-screen bg-slate-50 font-sans pb-0 overflow-x-clip">
+      {/* SECTION 1 - HERO */}
       <PageHeader
-      badge="Inside the Factory"
+        badge="Inside the Factory"
         badgeIcon={Factory}
-      title="Brake Chamber Manufacturing: Inside Our Factory"
-      description="Take a virtual tour of our 50,000 sqm brake chamber production floor in Zhejiang, China. See how we cast, machine, assemble, and stress-test every chamber to IATF 16949 standards. Export-ready and OEM-grade."
-        imageSrc="/images/engineering_blueprint.png"
+        title="Brake Chamber Manufacturing in China: Inside Our Zhejiang Factory"
+        description="BRC operates a 50,000 sqm brake chamber factory in Zhejiang, China. Every chamber is manufactured under our IATF 16949-aligned quality system and stress-tested before shipment to distributors in 30+ countries."
+        imageSrc="/images/manufacturing_floor.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Manufacturing' }
         ]}
       />
 
-      {/* Overlapping Intro Section */}
-      <section className="pb-4 md:pb-8 bg-slate-50 relative z-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl text-center relative z-10 -mt-12 sm:-mt-24">
+      {/* SECTION 3 & STATS BAR - COMBINED FOR SEAMLESS OVERLAP */}
+      <section className="pb-16 md:pb-32 relative z-10 bg-navy-900 border-t border-transparent">
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url("/images/brc4.jpg")' }}
+        />
+        <div className="absolute inset-0 z-0 bg-navy-950/60" />
+        
+        {/* White overlay ONLY at the top to separate from the PageHeader */}
+        <div className="absolute top-0 inset-x-0 h-[300px] bg-gradient-to-b from-white/60 to-transparent z-0 pointer-events-none" />
+        <div className="absolute top-0 inset-x-0 h-px bg-white/40 z-0 pointer-events-none" />
+        
+        {/* OVERLAPPING STATS BAR (Half on PageHeader, Half on Image) */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-20 -mt-12 md:-mt-24 mb-10 md:mb-24">
+          <div className="bg-white rounded-2xl md:rounded-[2rem] shadow-2xl shadow-navy-900/5 border border-slate-200 overflow-hidden">
+            <div className="grid grid-cols-2 md:grid-cols-4 p-2 md:p-4 lg:p-6">
+              {stats.map((stat, idx) => (
+                <div 
+                  key={idx} 
+                  className={`flex flex-col items-center justify-center text-center px-2 py-5 md:p-6 hover:-translate-y-1 transition-transform duration-300
+                    ${idx % 2 === 0 ? 'border-r border-slate-100' : ''} 
+                    ${idx < 2 ? 'border-b border-slate-100 md:border-b-0' : ''} 
+                    ${idx !== 3 ? 'md:border-r border-slate-100' : ''}
+                  `}
+                >
+                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-amber-50 flex items-center justify-center mb-3 md:mb-4">
+                    <stat.icon className="w-5 h-5 md:w-7 md:h-7 text-amber-500" />
+                  </div>
+                  <h4 className="text-lg md:text-2xl font-black text-navy-900 mb-1 md:mb-2">{stat.value}</h4>
+                  <p className="text-slate-500 text-[9px] md:text-xs uppercase tracking-wider md:tracking-widest font-bold">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* MANUFACTURING OVERVIEW CONTENT */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10">
           <motion.div
-            className="bg-white rounded-[2rem] shadow-2xl shadow-navy-900/5 border border-slate-100 p-8 sm:p-12 lg:p-16"
-            initial={{ opacity: 0, y: 30 }}
+            className="bg-white rounded-[2rem] shadow-2xl p-8 sm:p-12 lg:p-16 relative overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <SectionHeader
-              badge="Production Overview"
-              title={<>Our Brake Chamber <span className="text-amber-500 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Production Process</span></>}
-              description="Every BRC brake chamber passes through four controlled stages: R&D, precision assembly, quality assurance, and export packaging. Each stage is documented and audited to IATF 16949 standards."
-              className="max-w-2xl mx-auto"
-            />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+            
+            <span className="inline-block py-1.5 px-4 rounded-full bg-amber-50 text-amber-600 border border-amber-100 font-bold uppercase tracking-widest text-xs mb-6 shadow-sm">
+              Production Overview
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black text-navy-900 mb-8">How We Manufacture Brake Chambers</h2>
+            
+            <div className="prose prose-lg prose-slate text-slate-600 mb-10 max-w-none">
+              <p className="mb-6">
+                Every BRC brake chamber passes through four controlled production stages: R&D, precision assembly, quality assurance, and export packaging. Each stage is documented and audited under our IATF 16949-aligned quality system.
+              </p>
+              <p>
+                From raw steel intake to final container loading, our vertically integrated factory controls every step of brake chamber manufacturing. This lets us deliver consistent OEM-grade quality at factory-direct pricing, without middlemen or trading companies.
+              </p>
+            </div>
+            
+            <div className="text-right">
+              <Link href="/manufacturing/process" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 uppercase tracking-widest text-sm group">
+                Explore Our Brake Chamber Production Process <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Step-by-Step Timeline Section */}
-      <section className="pt-4 md:pt-8 pb-16 md:pb-24 bg-slate-50 relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative">
-
-          {/* Central Vertical Line (Visible on Desktop) */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-slate-100 via-slate-200 to-slate-100 -translate-x-1/2 z-0"></div>
-
-          <div className="space-y-16 lg:space-y-24 relative z-10">
-            {steps.map((step, idx) => {
-              const isEven = idx % 2 === 0;
-
-              return (
-                <div key={idx} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24 group/row`}>
-
-                  {/* Content Block */}
-                  <div className={`w-full lg:w-1/2 flex flex-col ${isEven ? 'lg:items-end lg:text-right' : 'lg:items-start lg:text-left'}`}>
-                    <motion.div
-                      initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.8 }}
-                      className="max-w-lg"
-                    >
-                      <div className={`inline-flex items-center gap-3 px-5 py-2 rounded-full bg-${step.accent}-50 border border-${step.accent}-100 mb-6 shadow-sm`}>
-                        <span className={`text-${step.accent}-600 font-extrabold uppercase tracking-widest text-sm`}>Step {step.step}</span>
-                      </div>
-
-                      <h3 className="text-3xl md:text-4xl font-black text-navy-900 mb-6 font-heading tracking-tight">
-                        {step.title}
-                      </h3>
-
-                      <p className="text-slate-600 text-lg leading-relaxed font-light mb-8">
-                        {step.description}
-                      </p>
-
-                      <div className={`flex flex-col gap-4 mb-10 ${isEven ? 'lg:items-end' : 'lg:items-start'}`}>
-                        {step.features.map((feature, fIdx) => (
-                          <div key={fIdx} className={`flex items-center gap-3 ${isEven ? 'lg:flex-row-reverse' : ''}`}>
-                            <CheckCircle2 className={`w-6 h-6 text-${step.accent}-500 flex-shrink-0`} />
-                            <span className="text-navy-900 font-semibold">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      <Link
-                        href={step.linkUrl || `/manufacturing/${step.slug}`}
-                        className={`inline-flex items-center justify-center gap-2 text-${step.accent}-600 font-extrabold hover:text-${step.accent}-700 transition-colors uppercase tracking-widest text-sm group/link`}
-                      >
-                        {step.linkText || 'View Engineering Specs'} <ArrowRight className={`w-5 h-5 group-hover/link:translate-x-1 transition-transform ${isEven ? 'lg:-translate-x-1 lg:group-hover/link:-translate-x-2' : ''} ${isEven ? 'lg:rotate-180' : ''}`} />
-                      </Link>
-                    </motion.div>
-                  </div>
-
-                  {/* Timeline Center Node (Visible on Desktop) */}
-                  <div className="hidden lg:flex w-16 h-16 absolute left-1/2 -translate-x-1/2 bg-white rounded-full border-4 border-slate-100 items-center justify-center shadow-xl z-20 transition-all duration-500 group-hover/row:scale-110 group-hover/row:border-slate-200">
-                    <div className={`w-10 h-10 rounded-full bg-${step.accent}-50 flex items-center justify-center`}>
-                      {React.cloneElement(step.icon as React.ReactElement<any>, {
-                        className: `w-6 h-6 text-${step.accent}-500 transition-transform duration-500 group-hover/row:rotate-12`,
-                        'aria-hidden': 'true'
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Image Block */}
-                  <div className="w-full lg:w-1/2">
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.8 }}
-                      className="relative h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 group"
-                    >
-                      <Image
-                        src={step.image}
-                        alt={step.title}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-[10s] group-hover/row:scale-110 ease-out "
-                      />
-                      {/* Gradient overlay to ensure image isn't too overpowering */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent"></div>
-                    </motion.div>
-                  </div>
-
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* By the Numbers */}
-      <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden border-y border-navy-800">
-        {/* Background Image Layer */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5   z-0"></div>
-
-        {/* Animated Grid Layer */}
-        <AnimatedGridBackground opacity={0.08} />
-
-        {/* Top/Bottom Fade Masks */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
-
+      {/* SECTION 4 - SUB-PAGE NAVIGATION GRID */}
+      <section className="py-12 md:py-16 bg-blue-50 border-y border-blue-100 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="max-w-3xl mx-auto mb-16 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <SectionHeader
-              badge="By the Numbers"
-              title="Brake Chamber Manufacturing at Scale"
-              description="Our factory operates at the intersection of industrial scale and precision tolerances. Here is what our brake chamber production looks like by the numbers."
-              theme="dark"
-              accentColor="amber"
+              badge="Explore Manufacturing"
+              title="Inside Our Brake Chamber Manufacturing Operation"
+              description="Each stage of our brake chamber manufacturing process has a dedicated deep-dive. Choose a topic below."
               plainText={true}
             />
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 relative z-10">
-            {stats.map((stat, idx) => (
-              <motion.div
+          {/* Grid Layout: 2-Column Horizontal Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            {subPages.map((page, idx) => (
+              <Link
+                href={page.link}
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 rounded-[2rem] p-4 sm:p-6 md:p-8 text-center shadow-xl shadow-navy-900/10 group flex flex-col relative overflow-hidden transform hover:-translate-y-2 transition-all duration-500 hover:border-amber-500/50"
+                className={`bg-slate-800 rounded-2xl p-6 md:p-8 border border-slate-700 shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:border-amber-500/50 transition-all duration-300 flex flex-col sm:flex-row gap-6 group items-start relative overflow-hidden ${idx === 6 ? 'lg:col-span-2 lg:max-w-3xl lg:mx-auto w-full' : ''}`}
               >
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
-
-                <div className="relative z-10 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 md:mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
-                  <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-amber-400 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
+                {/* Icon Left - NO HOVER EFFECTS */}
+                <div className="relative z-10 w-16 h-16 rounded-2xl bg-slate-700/50 border border-slate-600/50 flex items-center justify-center shrink-0">
+                  <div className="[&>svg]:w-8 [&>svg]:h-8 [&>svg]:text-amber-400">
+                    {page.icon}
+                  </div>
                 </div>
-                <div className="relative z-10 text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-1 sm:mb-2 tracking-tight transition-colors group-hover:text-amber-400">
-                  {stat.value}
+                
+                {/* Text Content Right */}
+                <div className="relative z-10 flex flex-col flex-1">
+                  <div className="flex items-start justify-between mb-2">
+                    {/* Title - NO HOVER EFFECTS */}
+                    <h3 className="text-xl md:text-2xl font-black text-white tracking-tight pr-4 leading-tight">
+                      {page.title}
+                    </h3>
+                    
+                    {/* Button - HOVER EFFECTS ONLY HERE (Always active on mobile) */}
+                    <div className="w-8 h-8 rounded-full bg-amber-500 border-amber-400 md:bg-slate-700/50 border md:border-slate-600/50 flex items-center justify-center shrink-0 group-hover:bg-amber-500 group-hover:border-amber-400 transition-colors duration-300">
+                      <ArrowRight className="w-4 h-4 text-slate-900 md:text-slate-400 group-hover:text-slate-900 group-hover:translate-x-0.5 transition-all" />
+                    </div>
+                  </div>
+                  <p className="text-slate-300 leading-relaxed text-sm md:text-base font-light">
+                    {page.desc}
+                  </p>
                 </div>
-                <div className="relative z-10 text-[10px] sm:text-xs md:text-sm font-light text-navy-300 uppercase tracking-wider group-hover:text-amber-300 transition-colors">
-                  {stat.label}
-                </div>
-              </motion.div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Material Superiority */}
-      <section className="py-16 md:py-24 bg-blue-50 border-t border-slate-200 relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+      {/* SECTION 5 - FACTORY FOOTPRINT */}
+      <section className="py-12 md:py-16 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="w-full lg:w-1/2">
-              <SectionHeader
-                badge="Material Engineering"
-                title="Brake Chamber Materials & Construction"
-                description="We source only premium-grade metals and synthetic compounds to ensure our chambers survive the environments where others fail, from Arctic cold to desert heat."
-                align="left"
-                className="!mb-8"
-                plainText={true}
-              />
-              <div className="space-y-6">
-                <div className="flex gap-4 items-start group">
-                  <div className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-1 transition-transform group-hover:scale-110 duration-300">
-                    <ShieldCheck className="w-6 h-6 text-amber-500" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl text-navy-900 mb-1">8-Gauge Steel Housings</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">Extra-thick pressure vessels resist denting from road debris and maintain perfect structural geometry under maximum braking force.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4 items-start group">
-                  <div className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-1 transition-transform group-hover:scale-110 duration-300">
-                    <Cog className="w-6 h-6 text-amber-500" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl text-navy-900 mb-1">Extreme-Temp Rubber Compounds</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">Our proprietary diaphragm blends maintain flexibility at -40°F and resist thermal breakdown up to 200°F.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4 items-start group">
-                  <div className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-1 transition-transform group-hover:scale-110 duration-300">
-                    <CheckCircle2 className="w-6 h-6 text-amber-500" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl text-navy-900 mb-1">Zinc-Plated Hardware</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">All mounting studs, nuts, and clevis pins feature advanced zinc-plating for maximum resistance to galvanic corrosion.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4 items-start group">
-                  <div className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 mt-1 transition-transform group-hover:scale-110 duration-300">
-                    <Factory className="w-6 h-6 text-amber-500" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl text-navy-900 mb-1">Aluminum Die-Cast Bodies</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">We utilize high-pressure in-house aluminum die casting to produce lightweight, incredibly strong, and corrosion-resistant center bodies and non-pressure housings.</p>
-                  </div>
-                </div>
+              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl h-[400px] lg:h-[600px] border border-slate-100">
+                <Image 
+                  src="/images/manufacturing_floor.png" 
+                  alt="BRC Brake Chamber Factory Floor in Zhejiang, China" 
+                  fill 
+                  className="object-cover"
+                />
               </div>
             </div>
+            
             <div className="w-full lg:w-1/2">
-              <img src="/products/spring-brake.jpg" alt="Brake Chamber Engineering" className="rounded-[2.5rem] shadow-2xl border border-slate-200 w-full" />
+              <span className="inline-block py-1.5 px-4 rounded-full bg-amber-50 text-amber-600 border border-amber-100 font-bold uppercase tracking-widest text-xs mb-6 shadow-sm">
+                Our Factory
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black text-navy-900 mb-6">Inside Our 50,000 Sqm Brake Chamber Factory in Zhejiang, China</h2>
+              <p className="text-slate-600 text-lg leading-relaxed mb-10">
+                Our vertically integrated factory in Zhejiang, China is built for one purpose: manufacturing brake chambers at scale without sacrificing precision.
+              </p>
+              
+              <div className="space-y-6">
+                {facts.map((fact, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <CheckCircle2 className="w-6 h-6 text-amber-500 shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-navy-900">{fact.label}:</span> <span className="text-slate-600">{fact.value}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* OEM Partner Call to Action */}
-      <section className="py-16 md:py-24 bg-[#F1EFE8] relative overflow-hidden">
+      {/* SECTION 6 - BOTTOM CTA */}
+      <section className="py-12 md:py-16 bg-[#F1EFE8] relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-10 md:p-16 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 group">
-            {/* Decorative Background Elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0 pointer-events-none"></div>
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] z-0 pointer-events-none"></div>
 
             <div className="relative z-10 flex-1 max-w-2xl text-center md:text-left">
               <SectionHeader
-                badge="Custom OEM Manufacturing"
-                title={<>Partner With Our <span className="text-amber-400">Brake Chamber Factory</span></>}
-                description="BRC supports custom OEM manufacturing, private labeling, and high-volume brake chamber orders. Send us your specifications, and our engineering team will respond within 24 hours."
+                badge="Work With BRC"
+                title="Ready to Source Brake Chambers From a Chinese Manufacturer?"
+                description="Send us your specifications, target volumes, and destination country. Our export engineering team responds within 24 business hours with factory-direct pricing and lead times."
                 align="left"
                 theme="dark"
                 accentColor="amber"
                 className="!mb-0"
+                plainText={true}
               />
             </div>
 
             <div className="relative z-10 flex flex-col w-full md:w-auto gap-4 min-w-[240px] shrink-0 mt-8 md:mt-0">
-              <Link
-                href="/contact"
-                className="bg-amber-500 text-navy-950 font-black py-4 px-8 rounded-xl hover:bg-amber-400 transition-all shadow-xl shadow-amber-500/20 text-center uppercase tracking-widest text-[13px] transform hover:-translate-y-1"
+              <Link 
+                href="/quote" 
+                className="bg-amber-500 text-navy-950 font-black py-4 px-8 rounded-xl hover:bg-amber-400 transition-all shadow-xl shadow-amber-500/20 text-center uppercase tracking-widest text-[13px] transform hover:-translate-y-1 flex items-center justify-center"
               >
-                Request Factory Quote
+                Request Factory Quote <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
-              <Link
-                href="/oem-cross-reference"
-                className="bg-navy-800 text-white border border-navy-600 font-black py-4 px-8 rounded-xl hover:bg-navy-700 hover:border-navy-500 transition-all text-center uppercase tracking-widest text-[13px]"
+              <Link 
+                href="/contact" 
+                className="bg-navy-800 text-white border border-navy-600 font-black py-4 px-8 rounded-xl hover:bg-navy-700 hover:border-navy-500 transition-all text-center uppercase tracking-widest text-[13px] transform hover:-translate-y-1 flex items-center justify-center"
               >
-                Explore Custom OEM Manufacturing
+                Contact Engineering <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-
-      <TrendingModelsMarquee />
     </article>
   );
 }

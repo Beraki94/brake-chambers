@@ -24,33 +24,35 @@ export default function GlobalFAQAccordion({ faqs, theme = 'light' }: GlobalFAQA
   const isDark = theme === 'dark';
 
   return (
-    <div className="w-full space-y-4">
+    <div className="w-full space-y-3">
       {faqs.map((faq, idx) => {
         const isOpen = openIndex === idx;
 
         return (
           <div
             key={idx}
-            className={`sm:rounded-2xl transition-all duration-300 overflow-hidden ${isDark
-              ? 'bg-navy-800 border-y sm:border border-navy-700 hover:border-navy-600'
-              : 'bg-blue-50 border-y sm:border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-300'
-              }`}
+            className={`rounded-2xl transition-all duration-300 overflow-hidden border ${
+              isOpen
+                ? 'bg-slate-100 border-amber-400 shadow-md'
+                : 'bg-slate-100 border-slate-200 shadow-sm hover:border-amber-300 hover:shadow-md'
+            }`}
           >
             <button
               onClick={() => toggleFaq(idx)}
-              className="w-full text-left px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 sm:rounded-2xl"
+              className="w-full text-left px-5 sm:px-7 py-4 sm:py-5 flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
               aria-expanded={isOpen}
             >
-              <span className={`font-bold pr-4 sm:pr-8 text-base sm:text-lg leading-tight ${isDark ? 'text-white' : 'text-navy-900'}`}>
+              <span className={`font-bold pr-4 sm:pr-8 text-base sm:text-lg leading-tight transition-colors duration-200 ${
+                isOpen ? 'text-amber-600' : 'text-navy-900'
+              }`}>
                 {faq.q}
               </span>
               <div
-                className={`w-7 h-7 sm:w-8 sm:h-8 shrink-0 rounded-full flex items-center justify-center transition-transform duration-300 ${isOpen
-                  ? 'rotate-180 bg-amber-500 text-navy-950 shadow-md shadow-amber-500/20'
-                  : isDark
-                    ? 'bg-navy-900 text-slate-400'
-                    : 'bg-slate-50 text-slate-400 border border-slate-100'
-                  }`}
+                className={`w-8 h-8 shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  isOpen
+                    ? 'rotate-180 bg-amber-500 text-navy-950 shadow-lg shadow-amber-500/40'
+                    : 'bg-amber-500 text-navy-950 hover:bg-amber-400 shadow-md shadow-amber-500/30'
+                }`}
               >
                 <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
@@ -64,8 +66,8 @@ export default function GlobalFAQAccordion({ faqs, theme = 'light' }: GlobalFAQA
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
-                  <div className={`px-4 sm:px-6 pb-4 sm:pb-6 pt-1 sm:pt-2 text-sm sm:text-base leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                    {faq.a}
+                  <div className="px-5 sm:px-7 pb-5 sm:pb-6 pt-0 text-sm sm:text-base leading-relaxed text-slate-600 border-t border-slate-200">
+                    <div className="pt-4">{faq.a}</div>
                   </div>
                 </motion.div>
               )}

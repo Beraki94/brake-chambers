@@ -14,14 +14,14 @@ export default function HighVolumeOrdersClient() {
   const tiers = [
     {
       tier: 'LCL Pilot Order',
-      range: '500 – 1,999 units',
+      range: '500 - 1,999 units',
       discount: 'Base Pricing',
       color: 'slate',
       features: ['Standard catalog products', 'LCL ocean freight support', 'Standard 30-day lead time', 'Email-based account support'],
     },
     {
       tier: 'Standard FCL',
-      range: '2,000 – 4,999 units',
+      range: '2,000 - 4,999 units',
       discount: 'Volume Discount',
       color: 'amber',
       popular: true,
@@ -29,7 +29,7 @@ export default function HighVolumeOrdersClient() {
     },
     {
       tier: 'Multi-Container',
-      range: '5,000 – 19,999 units',
+      range: '5,000 - 19,999 units',
       discount: 'Tier 2 Pricing',
       color: 'navy',
       features: ['Custom OEM engineering available', 'Full container (FCL) optimization', 'Priority allocation scheduling', 'Quarterly business reviews'],
@@ -87,8 +87,8 @@ export default function HighVolumeOrdersClient() {
     <article className="min-h-screen bg-white font-sans overflow-x-clip">
       <PageHeader
         badge="Volume Pricing & Scale"
-        title="High-Volume Brake Chamber Orders: Factory-Direct Pricing at Scale"
-        description="From 500-unit pilot orders to multi-container annual programs, BRC offers tiered factory-direct pricing, priority production scheduling, and dedicated account management for distributors and fleets."
+        title="High-Volume Brake Chamber Orders From China: Factory-Direct Pricing"
+        description="From 500-unit pilot orders to multi-container annual programs, BRC offers tiered factory-direct pricing, priority production scheduling, and dedicated account management for distributors and fleets ordering from China."
         imageSrc="/images/manufacturing_floor.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -98,14 +98,15 @@ export default function HighVolumeOrdersClient() {
       />
 
       {/* Intro */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center">
             <SectionHeader 
+              badge="Factory-Direct Pricing"
               title={<>Factory-Direct Brake Chamber <span className="text-amber-500">Pricing</span> at Scale</>}
             />
             <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-6">
-              When you buy directly from our factory, you eliminate every middleman markup between the 
+              When you buy directly from our factory in China, you eliminate every middleman markup between the 
               production line and your warehouse. Our tiered pricing program rewards volume with progressively 
               better per-unit costs, passing our manufacturing efficiency directly to your bottom line.
             </p>
@@ -119,22 +120,22 @@ export default function HighVolumeOrdersClient() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 md:py-20 bg-blue-50 border-y border-slate-200">
+      <section className="py-12 md:py-16 bg-blue-50 border-y border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {stats.map((stat, idx) => (
               <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className="bg-white rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+                className="bg-slate-800 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-slate-700 shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
                 
                 {/* The Top Right Circle Decoration */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
+                <div className="absolute top-0 right-0 w-24 h-24 bg-slate-700/30 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
                 
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4 md:mb-6 shadow-sm border border-amber-100 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-md">
+                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-slate-700/50 text-amber-400 flex items-center justify-center mb-4 md:mb-6 shadow-sm border border-slate-600/50 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-400 transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-md">
                     <stat.icon className="w-6 h-6 md:w-8 md:h-8" aria-hidden="true" />
                   </div>
-                  <div className="text-2xl sm:text-3xl md:text-5xl font-black text-navy-900 mb-2 tracking-tight group-hover:text-amber-600 transition-colors">{stat.value}</div>
-                  <div className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">{stat.label}</div>
+                  <div className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-2 tracking-tight group-hover:text-amber-400 transition-colors">{stat.value}</div>
+                  <div className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-400 uppercase tracking-wider">{stat.label}</div>
                 </div>
               </motion.div>
             ))}
@@ -143,7 +144,7 @@ export default function HighVolumeOrdersClient() {
       </section>
 
       {/* Volume Tiers */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
             badge="Pricing Tiers"
@@ -224,7 +225,7 @@ export default function HighVolumeOrdersClient() {
       </section>
 
       {/* Bottom CTA */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-16 md:pb-24 mt-16 md:mt-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-12 md:pb-16 mt-12 md:mt-16">
         <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
           <SectionHeader 
             badge="Request Volume Pricing"

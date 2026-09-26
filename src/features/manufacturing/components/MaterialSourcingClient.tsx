@@ -1,163 +1,215 @@
 "use client";
 
 import React from 'react';
-import { ArrowRight, Layers, Droplet, Shield, Zap, Box, Info } from 'lucide-react';
+import { ArrowRight, Layers, Droplet, Shield, Zap, Box, CheckCircle2, Factory, Scale } from 'lucide-react';
 import Link from 'next/link';
 import SectionHeader from '@/components/ui/SectionHeader';
-import CompanyPageLayout from '@/features/company/components/CompanyPageLayout';
+import PageHeader from '@/components/layout/PageHeader';
+import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 
 export default function MaterialSourcingClient() {
+  const materials = [
+    {
+      badge: 'Structural Material',
+      title: '8-Gauge Steel Housings',
+      description: 'BRC pressure housings are stamped from verified 8-gauge steel, thicker than the 9-gauge and 11-gauge housings used by many aftermarket suppliers. The heavier gauge delivers superior burst strength, improved fatigue resistance, and greater tolerance to road debris impact.',
+      icon: <Layers className="w-8 h-8 text-amber-500" />,
+      specs: [
+        { label: 'Material Grade', value: '8-gauge (4.2mm) cold-rolled steel' },
+        { label: 'Property Focus', value: 'Burst strength, fatigue resistance' },
+        { label: 'Application', value: 'Pressure housing (top section)' },
+        { label: 'Quality Check', value: 'Steel verified for grade, thickness, and hardness before entering the press line' }
+      ],
+      accent: 'amber'
+    },
+    {
+      badge: 'Sealing Material',
+      title: 'High-Strength Neoprene Rubber Diaphragms',
+      description: 'BRC brake chamber diaphragms are molded from high-strength neoprene rubber compounds reinforced with nylon fabric. They remain flexible at -40°F and resist thermal degradation up to 200°F, delivering consistent stroke response across extreme operating environments.',
+      icon: <Droplet className="w-8 h-8 text-navy-500" />,
+      specs: [
+        { label: 'Material Type', value: 'Neoprene rubber with nylon fabric reinforcement' },
+        { label: 'Property Focus', value: 'Flexibility, thermal resistance, sealing' },
+        { label: 'Application', value: 'Internal diaphragm' },
+        { label: 'Quality Check', value: 'Every diaphragm batch is tensile-tested and flex-tested before assembly' }
+      ],
+      accent: 'navy'
+    },
+    {
+      badge: 'Corrosion Protection',
+      title: 'Dual-Layer Corrosion Defense',
+      description: 'Every internal return spring and housing interior passes through a multi-stage cathodic electrodeposition (e-coat) process, followed by a heavy epoxy topcoat. This dual-layer defense prevents the internal rust flaking that is the leading cause of center seal failure in aftermarket brake chambers.',
+      icon: <Shield className="w-8 h-8 text-amber-500" />,
+      specs: [
+        { label: 'Process', value: 'Cathodic e-coat + epoxy topcoat' },
+        { label: 'Property Focus', value: 'Corrosion resistance, anti-flaking' },
+        { label: 'Application', value: 'Internal return springs, housing interiors' },
+        { label: 'Quality Check', value: 'Coating thickness is measured and logged for every production batch' }
+      ],
+      accent: 'amber'
+    },
+    {
+      badge: 'Internal Mechanism',
+      title: 'CNC-Machined Push-Rods',
+      description: 'BRC push-rods are CNC-machined from high-tensile steel to maintain straight-line tolerance across the full stroke. This prevents the binding and uneven wear that damages center seals and shortens brake chamber service life.',
+      icon: <Zap className="w-8 h-8 text-navy-500" />,
+      specs: [
+        { label: 'Material Type', value: 'High-tensile steel' },
+        { label: 'Process', value: 'CNC machining to precise tolerance' },
+        { label: 'Property Focus', value: 'Linear travel, anti-binding' },
+        { label: 'Application', value: 'Push-rod (connects chamber to slack adjuster)' },
+        { label: 'Quality Check', value: 'Every push-rod is measured against tolerance before assembly' }
+      ],
+      accent: 'navy'
+    },
+    {
+      badge: 'Non-Pressure Housings',
+      title: 'ADC12 Aluminum Die-Cast Ingots',
+      description: 'BRC sources ADC12-grade aluminum alloy ingots specifically formulated for high-pressure die casting. This ensures non-pressure housings are free of structural porosity and micro-cracks, delivering consistent strength without the weight of steel.',
+      icon: <Box className="w-8 h-8 text-amber-500" />,
+      specs: [
+        { label: 'Material Grade', value: 'ADC12 aluminum alloy' },
+        { label: 'Process', value: 'High-pressure die casting' },
+        { label: 'Property Focus', value: 'Lightweight strength, porosity-free' },
+        { label: 'Application', value: 'Non-pressure housings (bottom section)' },
+        { label: 'Quality Check', value: 'Every aluminum batch is spectro-analyzed for alloy composition before casting' }
+      ],
+      accent: 'amber'
+    }
+  ];
+
   return (
-    <CompanyPageLayout
-      badge="Supply Chain & Materials"
-      title="Brake Chamber Material Sourcing: Steel, Rubber & Aluminum"
-      description="Brake chamber lifespan starts with material quality. BRC sources 8-gauge steel, high-strength neoprene rubber compounds, and ADC12 aluminum ingots, and qualifies every batch before it enters production."
-    >
-      <div className="space-y-12">
-        <div className="w-full">
+    <article className="min-h-screen bg-slate-50 font-sans pb-0 overflow-x-clip">
+      {/* SECTION 1 - HERO */}
+      <PageHeader
+        badge="Supply Chain & Materials"
+        badgeIcon={Factory}
+        title="Brake Chamber Material Sourcing: Steel, Rubber & Aluminum"
+        description="Brake chamber lifespan starts with material quality. BRC sources 8-gauge steel, high-strength neoprene rubber compounds, and ADC12 aluminum ingots, and qualifies every batch before it enters production."
+        imageSrc="/images/engineering_blueprint.png"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Manufacturing', href: '/manufacturing' },
+          { label: 'Material Sourcing', href: '/manufacturing/material-sourcing' }
+        ]}
+      />
+
+      {/* SECTION 2 - MATERIALS OVERVIEW */}
+      <section className="py-12 md:py-16 bg-white relative overflow-hidden border-b border-slate-100">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
           <SectionHeader
             badge="Material Superiority"
             title={<>How We Source Brake Chamber <span className="text-amber-500">Materials</span></>}
             description="Brake chamber lifespan is determined by the quality of its raw materials. Every BRC chamber is built with heavy-gauge steel, high-strength rubber compounds, and pressure-cast aluminum, verified for grade, thickness, and hardness before production begins."
+            align="center"
+            className="max-w-4xl mx-auto"
           />
+          <div className="mt-10 flex justify-center">
+            <Link href="/manufacturing/process" className="inline-flex items-center text-amber-600 font-extrabold hover:text-amber-700 uppercase tracking-widest text-sm bg-amber-50 px-8 py-4 rounded-xl transition-all hover:bg-amber-100 hover:-translate-y-1">
+              See how we manufacture with these materials <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
-              <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-amber-50/80 border border-amber-100/50 flex items-center justify-center mb-4 md:mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                <Layers className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />
-              </div>
-              <h3 className="relative z-10 text-xl md:text-2xl font-bold text-navy-900 mb-3 md:mb-4 group-hover:text-amber-600 transition-colors">8-Gauge Steel Housings</h3>
-              <p className="relative z-10 text-[15px] md:text-base text-slate-600 leading-relaxed">
-                BRC pressure housings are stamped from verified 8-gauge steel, thicker than the 9-gauge and 11-gauge housings used by many aftermarket suppliers. The heavier gauge delivers superior burst strength, improved fatigue resistance, and greater tolerance to road debris impact.
-              </p>
-              <div className="relative z-10 mt-4 pt-4 md:mt-6 md:pt-6 border-t border-slate-100 flex items-start gap-3">
-                <div className="shrink-0 p-1.5 bg-amber-50 rounded-md">
-                  <Info className="w-3.5 h-3.5 text-amber-600" />
+      {/* MAIN CONTENT - MATERIAL CARDS */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pb-12 md:pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {materials.map((mat, idx) => {
+            const isAmber = mat.accent === 'amber';
+            const isLast = idx === materials.length - 1;
+            return (
+              <div 
+                key={idx} 
+                className={`bg-white rounded-[2rem] p-8 md:p-10 border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col ${isLast ? 'lg:col-span-2 lg:w-3/4 lg:mx-auto' : ''}`}
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-[100px] -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-125 z-0"></div>
+                
+                <div className="relative z-10 flex items-center gap-4 mb-6 md:mb-8">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-amber-50 border border-amber-100/50 flex items-center justify-center shrink-0">
+                    {mat.icon}
+                  </div>
+                  <div>
+                    <span className="block text-[10px] font-black uppercase tracking-widest mb-1 text-amber-600">
+                      {mat.badge}
+                    </span>
+                    <h3 className="text-xl md:text-2xl font-black text-navy-900 leading-tight">
+                      {mat.title}
+                    </h3>
+                  </div>
                 </div>
-                <div>
-                  <span className="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Quality Control</span>
-                  <p className="text-sm text-slate-700 font-medium leading-snug">
-                    Incoming steel is tested for grade, thickness, and hardness before it enters the press line.
-                  </p>
+
+                <p className="relative z-10 text-slate-600 leading-relaxed font-medium mb-8">
+                  {mat.description}
+                </p>
+
+                <div className="relative z-10 mt-auto bg-slate-50/80 rounded-2xl p-5 md:p-6 border border-slate-100 space-y-3">
+                  {mat.specs.map((spec, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="mt-0.5">
+                        <CheckCircle2 className={`w-4 h-4 ${isAmber ? 'text-amber-500' : 'text-navy-500'}`} />
+                      </div>
+                      <div className="text-sm">
+                        <span className="font-bold text-navy-900">{spec.label}: </span>
+                        <span className="text-slate-600">{spec.value}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
+            );
+          })}
+        </div>
+        {/* SECTION 8 - SOURCING PHILOSOPHY */}
+        <div className="mt-20 md:mt-32 bg-navy-950 rounded-3xl md:rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden border border-navy-800 shadow-2xl">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5"></div>
+          <AnimatedGridBackground opacity={0.08} />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
+          
+          <div className="relative z-10 flex flex-col lg:flex-row gap-12 items-center justify-center max-w-5xl mx-auto">
+            <div className="w-24 h-24 bg-navy-900 rounded-3xl border border-navy-800 flex items-center justify-center shrink-0 shadow-2xl shadow-navy-900/50">
+              <Scale className="w-12 h-12 text-amber-500" />
             </div>
-            <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-navy-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
-              <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-navy-50/80 border border-navy-100/50 flex items-center justify-center mb-4 md:mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                <Droplet className="w-6 h-6 md:w-8 md:h-8 text-navy-500" />
-              </div>
-              <h3 className="relative z-10 text-xl md:text-2xl font-bold text-navy-900 mb-3 md:mb-4 group-hover:text-navy-600 transition-colors">High-Strength Neoprene Rubber Diaphragms</h3>
-              <p className="relative z-10 text-[15px] md:text-base text-slate-600 leading-relaxed">
-                BRC brake chamber diaphragms are molded from high-strength neoprene rubber compounds reinforced with nylon fabric. They remain flexible at -40°F and resist thermal degradation up to 200°F, delivering consistent stroke response across extreme operating environments.
-              </p>
-              <div className="relative z-10 mt-4 pt-4 md:mt-6 md:pt-6 border-t border-slate-100 flex items-start gap-3">
-                <div className="shrink-0 p-1.5 bg-navy-50 rounded-md">
-                  <Info className="w-3.5 h-3.5 text-navy-600" />
-                </div>
-                <div>
-                  <span className="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Quality Control</span>
-                  <p className="text-sm text-slate-700 font-medium leading-snug">
-                    Every diaphragm batch is tensile-tested and flex-tested before assembly.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
-              <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-amber-50/80 border border-amber-100/50 flex items-center justify-center mb-4 md:mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                <Shield className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />
-              </div>
-              <h3 className="relative z-10 text-xl md:text-2xl font-bold text-navy-900 mb-3 md:mb-4 group-hover:text-amber-600 transition-colors">Dual-Layer Corrosion Defense</h3>
-              <p className="relative z-10 text-[15px] md:text-base text-slate-600 leading-relaxed">
-                Every internal return spring and housing interior passes through a multi-stage cathodic electrodeposition (E-coat) process, followed by a heavy epoxy topcoat. This dual-layer defense prevents the internal rust flaking that is the leading cause of center seal failure in aftermarket brake chambers.
-              </p>
-              <div className="relative z-10 mt-4 pt-4 md:mt-6 md:pt-6 border-t border-slate-100 flex items-start gap-3">
-                <div className="shrink-0 p-1.5 bg-amber-50 rounded-md">
-                  <Info className="w-3.5 h-3.5 text-amber-600" />
-                </div>
-                <div>
-                  <span className="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Quality Control</span>
-                  <p className="text-sm text-slate-700 font-medium leading-snug">
-                    Coating thickness is measured and logged for every production batch.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-navy-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
-              <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-navy-50/80 border border-navy-100/50 flex items-center justify-center mb-4 md:mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                <Zap className="w-6 h-6 md:w-8 md:h-8 text-navy-500" />
-              </div>
-              <h3 className="relative z-10 text-xl md:text-2xl font-bold text-navy-900 mb-3 md:mb-4 group-hover:text-navy-600 transition-colors">CNC-Machined Push-Rods</h3>
-              <p className="relative z-10 text-[15px] md:text-base text-slate-600 leading-relaxed">
-                BRC push-rods are CNC-machined from high-tensile steel to maintain straight-line tolerance across the full stroke. This prevents the binding and uneven wear that damages center seals and shortens brake chamber service life.
-              </p>
-              <div className="relative z-10 mt-4 pt-4 md:mt-6 md:pt-6 border-t border-slate-100 flex items-start gap-3">
-                <div className="shrink-0 p-1.5 bg-navy-50 rounded-md">
-                  <Info className="w-3.5 h-3.5 text-navy-600" />
-                </div>
-                <div>
-                  <span className="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Quality Control</span>
-                  <p className="text-sm text-slate-700 font-medium leading-snug">
-                    Every push-rod is measured against tolerance before assembly.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group md:col-span-2 md:w-[calc(50%-1rem)] md:mx-auto relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
-              <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-amber-50/80 border border-amber-100/50 flex items-center justify-center mb-4 md:mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                <Box className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />
-              </div>
-              <h3 className="relative z-10 text-xl md:text-2xl font-bold text-navy-900 mb-3 md:mb-4 group-hover:text-amber-600 transition-colors">ADC12 Aluminum Die-Cast Ingots</h3>
-              <p className="relative z-10 text-[15px] md:text-base text-slate-600 leading-relaxed">
-                BRC sources ADC12-grade aluminum alloy ingots specifically formulated for high-pressure die casting. This ensures non-pressure housings are free of structural porosity and micro-cracks, delivering consistent strength without the weight of steel.
-              </p>
-              <div className="relative z-10 mt-4 pt-4 md:mt-6 md:pt-6 border-t border-slate-100 flex items-start gap-3">
-                <div className="shrink-0 p-1.5 bg-amber-50 rounded-md">
-                  <Info className="w-3.5 h-3.5 text-amber-600" />
-                </div>
-                <div>
-                  <span className="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Quality Control</span>
-                  <p className="text-sm text-slate-700 font-medium leading-snug">
-                    Every aluminum batch is spectro-analyzed for alloy composition before casting.
-                  </p>
-                </div>
+            <div className="flex-1 text-center lg:text-left">
+              <span className="inline-block px-3 py-1 rounded-full border border-amber-500/30 text-[11px] font-bold uppercase tracking-widest text-amber-500 bg-amber-500/10 mb-4">
+                Our Approach
+              </span>
+              <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-6">Why Material Sourcing Matters for Brake Chambers</h2>
+              <div className="space-y-4 text-navy-200 leading-relaxed text-lg font-light">
+                <p>
+                  A brake chamber is only as strong as its weakest material. Underbuilt steel, low-grade rubber, or contaminated aluminum will fail earlier than any design mistake.
+                </p>
+                <p>
+                  BRC builds every chamber from materials qualified by grade, thickness, and composition, not by price alone. This means you get aftermarket chambers that last as long as the OEM parts they replace.
+                </p>
               </div>
             </div>
           </div>
         </div>
-
-        <div className="w-full mt-24">
+        {/* SECTION 9 - BOTTOM CTA */}
+        <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200 mt-12 md:mt-16">
           <SectionHeader
-            badge="Quality Intake"
-            title="Brake Chamber Material Qualification"
-            description="No raw material enters BRC production without passing intake inspection at our Zhejiang lab. Steel is tested for grade, thickness, and hardness. Rubber is tensile-tested and flex-tested. Aluminum is spectro-analyzed for alloy composition. Every batch is logged and traceable to its source."
-          />
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200 mt-24">
-          <SectionHeader 
             badge="Engineering Collaboration"
-            title="Need Custom Brake Chamber Materials?" 
+            title="Need Custom Brake Chamber Materials?"
             description="BRC can source and qualify alternative steel grades, rubber compounds, or aluminum alloys for custom brake chamber applications. Send us your material specifications, and our engineering team will respond within 24 hours."
             className="!mb-8"
             plainText={true}
           />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto">
+            <Link href="/contact" className="inline-flex items-center justify-center bg-white border border-slate-200 text-navy-900 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:border-amber-400 hover:text-amber-600 transition-all duration-300 shadow-sm uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto">
               Contact Engineering <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
-            <Link href="/manufacturing/research-development" className="inline-flex items-center justify-center bg-white border border-slate-200 text-navy-900 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:border-amber-400 hover:text-amber-600 transition-all duration-300 shadow-sm uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto">
+            <Link href="/manufacturing/research-development" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto">
               Explore Brake Chamber R&D <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </div>
         </div>
+
       </div>
-    </CompanyPageLayout>
+    </article>
   );
 }
 

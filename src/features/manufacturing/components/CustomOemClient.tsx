@@ -40,14 +40,14 @@ export default function CustomOemClient() {
     },
     {
       phase: '03',
-      title: 'Tooling, Production & Delivery',
-      description: 'Once prototypes are approved, BRC develops custom aluminum die-casting molds and stamping dies in-house. Our automated production lines scale from pilot runs of 500 units to full production runs of 100,000+ units per program, with 100% end-of-line testing on every chamber.',
+      title: 'Tooling Development & Production Launch',
+      description: 'Once prototypes are approved, BRC develops custom aluminum die-casting molds and stamping dies in-house. Your dedicated engineering team coordinates tooling approval, first-article inspection, and production ramp-up with defined sign-off points before each stage.',
       icon: <Factory />,
       features: [
-        'Custom Aluminum Die-Casting Molds: In-house mold development for custom housing geometry.', 
-        'Automated Robotic Welding & Assembly: Consistent weld penetration and assembly tolerance across every unit.', 
-        'Scalable Production: Pilot runs from 500 units, scaling to full container-load production.', 
-        '100% End-of-Line Quality Testing: Same pneumatic and dimensional testing standards as our catalog chambers.'
+        'Custom Aluminum Die-Casting Molds: In-house mold development for your specific housing geometry.', 
+        'First-Article Inspection: Initial production units measured against your specification before full ramp-up.', 
+        'Defined Sign-Off Points: You approve each stage before we advance to the next.', 
+        'Scale-Up Coordination: Production scaling from pilot runs to full program volumes coordinated by your dedicated account manager.'
       ],
       image: '/images/manufacturing_floor.png',
       linkText: 'View High-Volume Orders →',
@@ -56,10 +56,10 @@ export default function CustomOemClient() {
   ];
 
   const stats = [
-    { value: '1M+', label: 'Produced Annually', icon: Factory },
-    { value: '14', label: 'Days to First Prototype', icon: Cog },
+    { value: '50+', label: 'Custom OEM Programs', icon: Handshake },
+    { value: '14 Days', label: 'To First Prototype', icon: Cog },
     { value: '100%', label: 'IP Protection', icon: Lock },
-    { value: '50+', label: 'OEM Programs Delivered', icon: Handshake },
+    { value: 'In-House', label: 'Tooling & Dies', icon: Factory },
   ];
 
   return (
@@ -77,7 +77,7 @@ export default function CustomOemClient() {
       />
 
       {/* Light Value Proposition (Section Blue) */}
-      <section className="py-16 md:py-24 bg-blue-50 relative overflow-hidden border-b border-blue-100/50">
+      <section className="py-12 md:py-16 bg-blue-50 relative overflow-hidden border-b border-blue-100/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center">
           <SectionHeader
             title={<>Your Design. <span className="text-amber-500">Our Factory.</span></>}
@@ -104,31 +104,22 @@ export default function CustomOemClient() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 md:py-20 bg-blue-50/40 border-y border-blue-100/50">
+      <section className="py-12 md:py-16 bg-blue-50 border-y border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {stats.map((stat, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className="bg-white rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col items-center justify-center h-full relative overflow-hidden"
-              >
-                {/* Top Right Circle Decoration */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none"></div>
-
-                <div className="relative z-10 flex flex-col items-center justify-center w-full">
-                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4 md:mb-6 shadow-sm border border-amber-100 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-md">
+              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1, duration: 0.6 }}
+                className="bg-slate-800 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-slate-700 shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+                
+                {/* The Top Right Circle Decoration */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-slate-700/30 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
+                
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-slate-700/50 text-amber-400 flex items-center justify-center mb-4 md:mb-6 shadow-sm border border-slate-600/50 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-400 transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-md">
                     <stat.icon className="w-6 h-6 md:w-8 md:h-8" aria-hidden="true" />
                   </div>
-                  <div className="text-2xl sm:text-3xl md:text-5xl font-black text-navy-900 mb-2 tracking-tight group-hover:text-amber-600 transition-colors">
-                    {stat.value}
-                  </div>
-                  <div className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
-                    {stat.label}
-                  </div>
+                  <div className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-2 tracking-tight group-hover:text-amber-400 transition-colors">{stat.value}</div>
+                  <div className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-400 uppercase tracking-wider">{stat.label}</div>
                 </div>
               </motion.div>
             ))}
@@ -137,16 +128,22 @@ export default function CustomOemClient() {
       </section>
 
       {/* 3-Phase Development Process — Alternating Layout */}
-      <section className="py-16 md:py-24 bg-[#F1EFE8]">
+      <section className="py-12 md:py-16 bg-[#F1EFE8]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
-          <SectionHeader
-            badge="Development Process"
-            title="Our Custom OEM Development Process"
-            description="Every custom brake chamber program follows a controlled development process: design review, rapid prototyping, tooling, and volume production. Each phase has defined deliverables and sign-off points."
-            accentColor="amber"
-          />
+          <div className="flex flex-col items-center mb-16">
+            <SectionHeader
+              badge="Development Process"
+              title="Our Custom OEM Development Process"
+              description="Every custom brake chamber program follows a controlled development process: design review, rapid prototyping, tooling, and volume production. Each phase has defined deliverables and sign-off points."
+              accentColor="amber"
+              className="!mb-6"
+            />
+            <Link href="/manufacturing/quality-assurance" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 transition-colors">
+              See how we test custom prototypes <ArrowRight className="w-4 h-4 ml-2" />
+            </Link>
+          </div>
 
-          <div className="space-y-20 md:space-y-28">
+          <div className="space-y-16 md:space-y-12">
             {phases.map((phase, idx) => {
               const isEven = idx % 2 === 0;
               return (
@@ -209,7 +206,7 @@ export default function CustomOemClient() {
       </section>
 
       {/* IP Protection Section */}
-      <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
+      <section className="py-12 md:py-16 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
             <div className="w-full lg:w-1/2">
@@ -250,7 +247,7 @@ export default function CustomOemClient() {
       </section>
 
       {/* Bottom CTA */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-16 md:pb-24 mt-16 md:mt-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-12 md:pb-16 mt-12 md:mt-16">
         <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
           <SectionHeader 
             badge="Start Your OEM Project"
@@ -262,8 +259,8 @@ export default function CustomOemClient() {
             <Link href="/contact" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto">
               Request OEM Consultation <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
-            <Link href="/manufacturing/research-development" className="inline-flex items-center justify-center bg-white border border-slate-200 text-navy-900 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:border-amber-400 hover:text-amber-600 transition-all duration-300 shadow-sm uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto">
-              View Engineering Capabilities
+            <Link href="/contact" className="inline-flex items-center justify-center bg-white border border-slate-200 text-navy-900 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:border-amber-400 hover:text-amber-600 transition-all duration-300 shadow-sm uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto">
+              Contact Engineering
             </Link>
           </div>
         </div>

@@ -3,13 +3,20 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Paintbrush, Tag, Package, Printer, CheckCircle2, Palette, Stamp, Box, Layers, ShieldCheck, Users, BarChart3, Truck, MessageSquare, Settings } from 'lucide-react';
+import { ArrowRight, Paintbrush, Tag, Package, Printer, CheckCircle2, Palette, Stamp, Box, Layers, ShieldCheck, Users, BarChart3, Truck, MessageSquare, Settings, Globe2, Clock, Boxes, Container } from 'lucide-react';
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 
 export default function PrivateLabelClient() {
+
+  const stats = [
+    { value: '50+', label: 'Private Label Programs Delivered', icon: Globe2 },
+    { value: '500-Unit', label: 'Minimum Order', icon: Boxes },
+    { value: '6', label: 'Customization Categories', icon: Settings },
+    { value: '30-Day', label: 'Standard Production', icon: Clock },
+  ];
 
   const customizations = [
     {
@@ -55,8 +62,8 @@ export default function PrivateLabelClient() {
     <article className="min-h-screen bg-white font-sans overflow-x-clip">
       <PageHeader
         badge="Brand Building"
-        title="Private Label & White Label Brake Chambers"
-        description="Launch your own aftermarket brake chamber brand without building a factory. BRC manufactures, brands, packages, and ships, you sell under your name with full factory-direct margins."
+        title="Private Label & White Label Brake Chambers From China"
+        description="Launch your own aftermarket brake chamber brand without building a factory. BRC manufactures, brands, packages, and ships from Zhejiang, China, you sell under your name with full factory-direct margins."
         imageSrc="/images/commercial_trailer.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -66,16 +73,17 @@ export default function PrivateLabelClient() {
       />
 
       {/* Intro */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center">
             <SectionHeader 
-              title={<>Your <span className="text-amber-500">Brand</span>. Our Manufacturing <span className="text-amber-500">Muscle</span>.</>}
+              badge="Your Brand. Our Manufacturing Muscle."
+              title={<>Your <span className="text-amber-500">Brand</span> on Factory-Direct Brake Chambers</>}
             />
             <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-6">
               Building a brake chamber brand from scratch requires millions in factory investment, 
               years of R&D, and deep manufacturing expertise. Our private label brake chamber program lets you skip 
-              all of that, we provide the engineering, production, and quality; you provide the brand.
+              all of that. BRC provides the engineering, production, and quality assurance in China, you provide the brand.
             </p>
             <p className="text-slate-500 text-base md:text-lg font-light leading-relaxed max-w-3xl mx-auto">
               Whether you're an established distributor launching a house brand, or a new entrant 
@@ -86,11 +94,35 @@ export default function PrivateLabelClient() {
         </div>
       </section>
 
+      {/* Stats */}
+      <section className="py-12 md:py-16 bg-blue-50 border-y border-slate-200">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            {stats.map((stat, idx) => (
+              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1, duration: 0.6 }}
+                className="bg-slate-800 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-slate-700 shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+                
+                {/* The Top Right Circle Decoration */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-slate-700/30 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
+                
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-slate-700/50 text-amber-400 flex items-center justify-center mb-4 md:mb-6 shadow-sm border border-slate-600/50 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-400 transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-md">
+                    <stat.icon className="w-6 h-6 md:w-8 md:h-8" aria-hidden="true" />
+                  </div>
+                  <div className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-2 tracking-tight group-hover:text-amber-400 transition-colors">{stat.value}</div>
+                  <div className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-400 uppercase tracking-wider">{stat.label}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Private Label vs White Label Comparison */}
-      <section className="py-16 md:py-20 bg-blue-50 border-y border-slate-200">
+      <section className="py-12 md:py-16 bg-blue-50 border-y border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <SectionHeader
-            badge="Understanding the Difference"
+            badge="Private Label vs White Label"
             title="Private Label vs White Label Brake Chambers"
             description="Two ways to sell BRC brake chambers under your own brand, each suited to a different stage of brand development."
             accentColor="amber"
@@ -127,7 +159,7 @@ export default function PrivateLabelClient() {
               className="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-navy-500/5 rounded-full blur-[50px] -mr-10 -mt-10"></div>
               <div className="relative z-10">
-                <div className="inline-block px-3 py-1 mb-4 rounded-full bg-slate-50 border border-slate-200 text-slate-600 text-[11px] font-bold uppercase tracking-widest">
+                <div className="inline-block px-3 py-1 mb-4 rounded-full bg-amber-50 border border-amber-200 text-amber-600 text-[11px] font-bold uppercase tracking-widest">
                   Quick Start
                 </div>
                 <h3 className="text-2xl font-black text-navy-900 mb-4">White Label</h3>
@@ -151,7 +183,7 @@ export default function PrivateLabelClient() {
       </section>
 
       {/* What We Customize — Grid */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
           <SectionHeader
             badge="Customization Options"
@@ -234,7 +266,7 @@ export default function PrivateLabelClient() {
       </section>
 
       {/* Bottom CTA */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-16 md:pb-24 mt-16 md:mt-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-12 md:pb-16 mt-12 md:mt-16">
         <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
           <SectionHeader 
             badge="Launch Your Private Label"

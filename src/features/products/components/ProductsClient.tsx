@@ -18,7 +18,7 @@ export default function ProductsClient() {
       tag: 'Parking & Emergency Chambers',
       desc: 'Heavy-duty combination spring brake chambers for trucks and trailers. Double diaphragm design manages both service and parking brake functions. Available in standard long-stroke and welded clevis configurations. Direct replacement for Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO.',
       icon: <Settings className="w-10 h-10 text-white" />,
-      image: '/images/home/spring-brakes-bg.jpg',
+      image: '/images/products/brc-heavy-duty-spring-brake-chambers.jpg',
       accent: 'amber',
       links: [
         { id: '/spring-brake-chambers/30-30-air-brake-chambers', title: 'Type 30/30 Spring Brake', desc: 'Standard & Long Stroke' },
@@ -33,7 +33,7 @@ export default function ProductsClient() {
       tag: 'Steer & Drive Axles',
       desc: 'Single-diaphragm service brake chambers engineered for immediate pneumatic response, extended service life, and consistent braking performance. Available for steer axle, drive axle, and trailer applications. Direct replacement for Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO.',
       icon: <Wrench className="w-10 h-10 text-white" />,
-      image: '/images/home/service-brakes-bg.jpg',
+      image: '/images/products/brc-commercial-truck-service-brake-chambers.jpg',
       accent: 'navy',
       links: [
         { id: '/service-brake-chambers/type-20-steer-axle-brake-chambers', title: 'Type 20 Steer Axle', desc: 'Precision Control' },
@@ -48,7 +48,7 @@ export default function ProductsClient() {
       tag: 'High Output Technology (HOT)',
       desc: 'Next-generation air disc brake actuators for modern commercial fleets. HOT Technology delivers superior clamping force, reduced brake fade, and consistent performance under extreme heat and heavy loads. Direct replacement for Bendix, Haldex, Meritor, and WABCO.',
       icon: <Disc className="w-10 h-10 text-white" />,
-      image: '/images/home/air-disc-brakes-bg.jpg',
+      image: '/images/products/brc-commercial-air-disc-brake-actuators.jpg',
       accent: 'amber',
       links: [
         { id: '/air-disc-brake-actuators/type-16-18-adb-actuators', title: 'Type 16 & 18 ADB', desc: 'Linear Output' },
@@ -63,7 +63,7 @@ export default function ProductsClient() {
       tag: 'Rebuild Kits · Diaphragms · Hardware',
       desc: 'OEM-spec replacement components for field servicing and maintenance of commercial brake chambers. Includes rebuild kits, rubber diaphragms, caging bolts, clevis pins, and mounting hardware. In-stock and ready to ship worldwide.',
       icon: <Package className="w-10 h-10 text-white" />,
-      image: '/images/home/piggybacks-bg.jpg',
+      image: '/images/products/brc-brake-chamber-replacement-parts-kits.jpg',
       accent: 'navy',
       links: [
         { id: '/parts-and-kits/air-brake-chamber-rebuild-kits', title: 'Chamber Rebuild Kits', desc: 'All-in-One Overhaul' },
@@ -335,10 +335,10 @@ export default function ProductsClient() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
-              { title: 'Heavy-Duty Trucks', rec: 'Spring Brakes (Type 30/30, 24/30)', img: '/images/home/spring-brakes-bg.jpg', link: '/applications/long-haul-semi-trucks' },
-              { title: 'Commercial Trailers', rec: 'Service Chambers (Type 20, 30)', img: '/images/home/service-brakes-bg.jpg', link: '/applications/heavy-duty-trailer' },
-              { title: 'Transit Buses', rec: 'Air Disc Actuators (Type 16/18)', img: '/images/home/air-disc-brakes-bg.jpg', link: '/applications/transit-buses' },
-              { title: 'Off-Highway & Mining', rec: 'Severe-Duty ADB (Type 24/24)', img: 'https://images.unsplash.com/photo-1579417865672-88126b8821eb?auto=format&fit=crop&w=800&q=80', link: '/applications/mining-construction' }
+              { title: 'Heavy-Duty Trucks', rec: 'Spring Brakes (Type 30/30, 24/30)', img: '/images/applications/brc-heavy-duty-truck.jpg', link: '/applications/long-haul-semi-trucks' },
+              { title: 'Commercial Trailers', rec: 'Service Chambers (Type 20, 30)', img: '/images/applications/brc-commercial-trailer.jpg', link: '/applications/heavy-duty-trailer' },
+              { title: 'Transit Buses', rec: 'Air Disc Actuators (Type 16/18)', img: '/images/applications/brc-transist-bus.jpg', link: '/applications/transit-buses' },
+              { title: 'Off-Highway & Mining', rec: 'Severe-Duty ADB (Type 24/24)', img: '/images/applications/brc-mining-equipment.jpg', link: '/applications/mining-construction' }
             ].map((app, idx) => (
               <Link key={idx} href={app.link} className="group relative h-64 md:h-80 rounded-2xl md:rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
                 <Image
@@ -421,7 +421,7 @@ export default function ProductsClient() {
 
 
       {/* WHOLESALE CTA */}
-      <div className="py-12 md:py-20 bg-slate-50 relative overflow-hidden border-t border-slate-200">
+      <div className="py-12 md:py-20 bg-[#F1EFE8] relative overflow-hidden border-t border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] p-8 sm:p-10 md:p-12 lg:p-16 text-white shadow-2xl shadow-navy-900/20 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-10">
             {/* Internal Card Glow */}

@@ -7,19 +7,20 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import CompanyPageLayout from '@/features/company/components/CompanyPageLayout';
 import IconBox from '@/components/ui/IconBox';
+import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 
 export default function TestingLaboratoryClient() {
   const stats = [
-    { value: '1M+', label: 'Cycle Tests Per Unit' },
-    { value: '500h', label: 'Salt Spray Testing' },
-    { value: '-40°F', label: 'to 200°F Validation' },
-    { value: '100%', label: 'End-of-Line Tested' },
+    { value: '1M+', label: 'Cycle Tests Per Sampled Unit', icon: Activity },
+    { value: '500-Hour', label: 'Salt Spray Testing', icon: ShieldAlert },
+    { value: '-40°F to 200°F', label: 'Thermal Validation', icon: Thermometer },
+    { value: '100%', label: 'End-of-Line Pneumatic Testing', icon: Gauge },
   ];
 
   const tests = [
     {
       title: '1 Million+ Cycle Testing',
-      description: 'Every BRC brake chamber is subject to 1,000,000 continuous actuate/release cycles under maximum operating pressure. Chambers that show any loss of stroke response, air leakage, or return-spring degradation before the full cycle count are rejected.',
+      description: 'Sampled BRC brake chambers are subject to 1,000,000 continuous actuate/release cycles under maximum operating pressure. Chambers that show any loss of stroke response, air leakage, or return-spring degradation before the full cycle count are rejected from the batch.',
       icon: <Activity />,
       badge: 'Fatigue & Durability',
     },
@@ -43,7 +44,7 @@ export default function TestingLaboratoryClient() {
     },
     {
       title: 'Burst Pressure Validation',
-      description: 'Every housing design undergoes destructive burst pressure testing at 4× its rated operating pressure. This validates structural integrity under catastrophic failure scenarios, the foundation of our FMVSS-121 compliance.',
+      description: 'Every housing design undergoes destructive burst pressure testing at 4× its rated operating pressure. This validates structural integrity under catastrophic failure scenarios, the foundation of our FMVSS-121 compliance claim.',
       icon: <Gauge />,
       badge: 'Structural Safety',
     },
@@ -68,28 +69,32 @@ export default function TestingLaboratoryClient() {
     <CompanyPageLayout
       badge="Quality Assurance"
       title="Brake Chamber Quality Assurance: Inside Our Testing Lab"
-      description="Every BRC brake chamber is pressure-tested, cycle-tested, and corrosion-tested before it ships. Our in-house lab validates each unit to IATF 16949 standards, because a brake chamber that fails on the road is not an option."
+      description="Every BRC brake chamber is pressure-tested, cycle-tested, and corrosion-tested before it ships. Our in-house lab validates each unit under our IATF 16949-aligned quality system, because a brake chamber that fails on the road is not an option."
     >
       <div className="space-y-12">
-        <div className="w-full">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="text-center"
-              >
-                <div className="text-3xl md:text-4xl font-black text-navy-900 mb-1">{stat.value}</div>
-                <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">{stat.label}</div>
-              </motion.div>
-            ))}
+        {/* Stats */}
+        <section className="py-12 md:py-16 bg-blue-50 border-y border-slate-200 w-[100vw] relative left-1/2 -translate-x-1/2">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+              {stats.map((stat, idx) => (
+                <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1, duration: 0.6 }}
+                  className="bg-slate-800 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-slate-700 shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+                  
+                  {/* The Top Right Circle Decoration */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-slate-700/30 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
+                  
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-slate-700/50 text-amber-400 flex items-center justify-center mb-4 md:mb-6 shadow-sm border border-slate-600/50 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-400 transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-md">
+                      <stat.icon className="w-6 h-6 md:w-8 md:h-8" aria-hidden="true" />
+                    </div>
+                    <div className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-2 tracking-tight group-hover:text-amber-400 transition-colors">{stat.value}</div>
+                    <div className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-400 uppercase tracking-wider">{stat.label}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-
-      {/* Test Protocols Section */}
+        </section>      {/* Test Protocols Section */}
       <div className="px-4 sm:px-8 md:px-12 py-10 md:py-12 bg-blue-50/50 border border-blue-100/50 rounded-3xl md:rounded-[2.5rem] my-8 md:my-12">
         <div className="w-full">
           <SectionHeader
@@ -163,40 +168,47 @@ export default function TestingLaboratoryClient() {
         </div>
 
         {/* ISO Callout Banner */}
-        <div className="bg-navy-950 rounded-3xl md:rounded-[2.5rem] p-6 sm:p-8 md:p-12 text-white relative overflow-hidden flex flex-col md:flex-row items-center gap-8 md:gap-10">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none" />
-          <div className="absolute top-0 right-0 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-          
-          <div className="relative z-10 flex-1">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-14 h-14 bg-amber-400/10 rounded-2xl flex items-center justify-center border border-amber-400/20">
-                <Cpu className="w-7 h-7 text-amber-400" />
+        <div className="mt-20 bg-navy-950 rounded-3xl md:rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden border border-navy-800 shadow-2xl">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5"></div>
+          <AnimatedGridBackground opacity={0.08} />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
+
+          <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center justify-center max-w-5xl mx-auto">
+            <div className="flex-1 text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
+                <div className="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center border border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+                  <Cpu className="w-7 h-7 text-amber-500" />
+                </div>
+                <div className="inline-block px-3 py-1 rounded-full border border-amber-500/30 text-[11px] font-bold uppercase tracking-widest text-amber-500 bg-amber-500/10">
+                  Quality Management System
+                </div>
               </div>
-              <div className="inline-block px-3 py-1 rounded-full border border-amber-400/30 text-[11px] font-bold uppercase tracking-widest text-amber-400 bg-amber-400/10">
-                Quality Management System
-              </div>
+              <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-6 font-heading tracking-tight">IATF 16949-Aligned Quality Management System</h2>
+              <p className="text-navy-200 text-base md:text-lg leading-relaxed font-light">
+                Every brake chamber test result is logged in our quality management system, which operates to IATF 16949-aligned standards. This provides full traceability from raw material intake to finished chamber packaging, for every batch we produce.
+              </p>
             </div>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4 font-heading tracking-tight">IATF 16949 Quality Management System</h2>
-            <p className="text-navy-200 text-sm md:text-base leading-relaxed">
-              Every brake chamber test result is logged in our quality management system, which operates to IATF 16949 standards. This provides full traceability from raw material intake to finished chamber packaging for every batch we produce.
-            </p>
-          </div>
-          
-          <div className="relative z-10 shrink-0 w-full md:w-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4">
-              <div className="bg-navy-800/60 rounded-2xl p-5 md:p-6 border border-navy-700 text-center md:text-left min-w-0 md:min-w-[200px]">
-                <div className="text-3xl font-black text-white mb-1 md:mb-2">100%</div>
-                <div className="text-xs font-bold text-navy-400 uppercase tracking-widest">Traceability</div>
-              </div>
-              <div className="bg-navy-800/60 rounded-2xl p-5 md:p-6 border border-navy-700 text-center md:text-left min-w-0 md:min-w-[200px]">
-                <div className="text-3xl font-black text-white mb-1 md:mb-2">Strict</div>
-                <div className="text-xs font-bold text-navy-400 uppercase tracking-widest">Internal Quality Audits</div>
+            
+            <div className="shrink-0 w-full md:w-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4">
+                <div className="bg-gradient-to-b from-navy-800 to-navy-900 rounded-2xl p-6 border border-navy-700 text-center md:text-left min-w-0 md:min-w-[240px] shadow-xl relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="text-4xl font-black text-white mb-2 tracking-tight group-hover:text-amber-400 transition-colors">100%</div>
+                  <div className="text-xs font-bold text-navy-300 uppercase tracking-widest">Traceability</div>
+                </div>
+                <div className="bg-gradient-to-b from-navy-800 to-navy-900 rounded-2xl p-6 border border-navy-700 text-center md:text-left min-w-0 md:min-w-[240px] shadow-xl relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="text-4xl font-black text-white mb-2 tracking-tight group-hover:text-amber-400 transition-colors">Strict</div>
+                  <div className="text-xs font-bold text-navy-300 uppercase tracking-widest">Internal Quality Audits</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        </div>
       </div>
 
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pb-12 md:pb-16 mt-16">
         {/* Bottom CTA */}
         <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200 mt-16">
           <SectionHeader 

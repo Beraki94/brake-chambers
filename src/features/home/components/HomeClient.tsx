@@ -22,7 +22,7 @@ const HERO_SLIDES = [
     description: "Source direct from our 50,000 sqm operating to IATF 16949 standards facility in Zhejiang, China. Eliminate middleman markups on premium aftermarket brake chambers for trucks, trailers, and commercial fleets worldwide.",
     cta1: { text: "Get Factory Pricing", link: "/quote" },
     cta2: { text: "Request Free Samples", link: "/contact" },
-    image: "/images/home/hero-factory.png",
+    image: "/images/home/hero_truck_image_1.png",
     gradient: "from-navy-950 via-navy-950/90 to-transparent",
     glow: "bg-amber-500"
   },
@@ -34,7 +34,7 @@ const HERO_SLIDES = [
     description: "Engineered to eliminate air leaks and deliver perfectly balanced braking under extreme road pressure. Direct fit, form, and function match for Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO tolerances.",
     cta1: { text: "View Product Catalog", link: "/products" },
     cta2: { text: "Request Test Samples", link: "/contact" },
-    image: "/images/home/hero-truck-v2.png",
+    image: "/images/home/hero_truck_image_2.jpg",
     gradient: "from-navy-950 via-navy-950/80 to-transparent",
     glow: "bg-amber-500"
   },
@@ -46,7 +46,7 @@ const HERO_SLIDES = [
     description: "Streamlined global B2B procurement with predictable lead times and hassle-free port logistics. Direct container shipping, FCL, and LCL handled for distributors, fleets, and importers worldwide.",
     cta1: { text: "Start Wholesale Inquiry", link: "/contact" },
     cta2: { text: "View Export Capabilities", link: "/shipping" },
-    image: "/images/home/hero-port.png",
+    image: "/images/home/hero_truck_image_3.jpg",
     gradient: "from-navy-950 via-navy-950/90 to-transparent",
     glow: "bg-amber-500"
   }
@@ -187,7 +187,7 @@ export default function HomeClient() {
 
         {/* Premium Fixed Parallax Background */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute inset-0 w-full h-full bg-[url('/images/brc-truck-background.jpg')] bg-fixed bg-right bg-no-repeat bg-cover opacity-40 mix-blend-multiply"></div>
+          <div className="absolute inset-0 w-full h-full bg-[url('/images/brc-truck-background.jpg?v=3')] bg-fixed bg-right bg-no-repeat bg-cover opacity-40 mix-blend-multiply"></div>
           {/* Gradient Overlay: Solid on the left for text readability, fading to transparent on the right for image visibility */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-blue-50/90 to-transparent"></div>
         </div>
@@ -214,7 +214,7 @@ export default function HomeClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Spring Brakes */}
             <Link href="/spring-brake-chambers" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
-              <div className="absolute inset-0 bg-[url('/images/home/spring-brakes-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700   z-0 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('/images/products/brc-heavy-duty-spring-brake-chambers.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700   z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
               <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
@@ -241,7 +241,7 @@ export default function HomeClient() {
 
             {/* Service Brakes */}
             <Link href="/service-brake-chambers" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
-              <div className="absolute inset-0 bg-[url('/images/home/service-brakes-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700   z-0 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('/images/products/brc-commercial-truck-service-brake-chambers.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700   z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
               <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
@@ -268,7 +268,7 @@ export default function HomeClient() {
 
             {/* Air Disc Brakes */}
             <Link href="/air-disc-brake-actuators" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
-              <div className="absolute inset-0 bg-[url('/images/home/air-disc-brakes-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700   z-0 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('/images/products/brc-commercial-air-disc-brake-actuators.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700   z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
               <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
@@ -295,7 +295,7 @@ export default function HomeClient() {
 
             {/* Piggybacks & Accessories */}
             <Link href="/parts-and-kits" className="block group relative bg-white rounded-2xl overflow-hidden hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.3)] transition-all duration-500 border border-slate-100 hover:border-amber-300 transform hover:-translate-y-1">
-              <div className="absolute inset-0 bg-[url('/images/home/piggybacks-bg.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700   z-0 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('/images/products/brc-brake-chamber-replacement-parts-kits.jpg')] bg-cover bg-center opacity-0 group-hover:opacity-10 transition-all duration-700   z-0 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-navy-50/90 z-0"></div>
 
               <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row gap-6 items-center">
@@ -339,7 +339,7 @@ export default function HomeClient() {
                 <img src="/images/brc5.jpg" alt="Brake Chamber Assembly Line" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
               </motion.div>
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
-                <img src="/images/brc4.jpg" alt="Quality Control Testing" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
+                <img src="/images/brc4.jpg?v=2" alt="Quality Control Testing" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
               </motion.div>
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
                 <img src="/images/brc10.jpg" alt="CNC Machining Center" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
@@ -445,7 +445,7 @@ export default function HomeClient() {
       {/* 5. R&D and Innovation Highlight */}
       <section className="relative overflow-hidden bg-navy-950 py-16 md:py-24 flex items-center border-t border-navy-800 group">
         <div className="absolute inset-0 overflow-hidden">
-          <img src="/images/brc-truck-background.jpg" alt="Commercial Truck" className="w-full h-full object-cover opacity-30   group-hover:scale-105 transition-transform duration-[10s]" />
+          <img src="/images/brc-truck-background.jpg?v=3" alt="Commercial Truck" className="w-full h-full object-cover opacity-30   group-hover:scale-105 transition-transform duration-[10s]" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/95 to-transparent"></div>
           {/* Accent gradient bar */}
           <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-emerald-400 to-emerald-600 shadow-[0_0_30px_rgba(16,185,129,0.6)]"></div>

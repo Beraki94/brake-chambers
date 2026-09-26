@@ -14,12 +14,12 @@ export default function ApplicationsClient() {
   const accentMap = {
     amber: {
       gradient: 'from-amber-50/50',
-      iconBorder: 'border-amber-200',
-      iconBg: 'bg-amber-100',
+      iconBorder: 'border-amber-100',
+      iconBg: 'bg-amber-50',
       iconText: 'text-amber-600',
       linkHoverBorder: 'hover:border-amber-300',
       linkHoverShadow: 'hover:shadow-md',
-      linkHoverIconBg: 'group-hover/link:bg-amber-200',
+      linkHoverIconBg: 'group-hover/link:bg-amber-100',
       linkHoverIconText: 'group-hover/link:text-amber-700',
       linkHoverText: 'group-hover/link:text-amber-700',
       imgGlow: 'bg-amber-900/20 group-hover:bg-amber-900/10',
@@ -60,7 +60,7 @@ export default function ApplicationsClient() {
       badge: 'Commercial & Freight',
       desc: 'Long-haul semi trucks, heavy-duty trailer axles, and medium-duty box trucks. These applications demand high-cycle spring brake chambers and service chambers rated for extreme mileage and consistent pneumatic response.',
       icon: <Truck className="w-8 h-8" />,
-      image: '/images/heavy_duty_truck.png',
+      image: '/images/applications/brc-heavy-duty-truck.jpg',
       accent: 'amber',
       links: [
         { id: '/applications/long-haul-semi-trucks', title: 'Long-Haul Semi Trucks' },
@@ -76,7 +76,7 @@ export default function ApplicationsClient() {
       badge: 'Severe-Duty & Off-Highway',
       desc: 'Off-highway equipment operates under sustained load, extreme heat, and heavy contamination. These applications require severe-duty ADB actuators and heavy-gauge spring brake chambers engineered for high-cycle endurance.',
       icon: <ShieldAlert className="w-8 h-8" />,
-      image: '/images/specialty_vehicle.png',
+      image: '/images/applications/brc-mining-equipment.jpg',
       accent: 'amber',
       links: [
         { id: '/applications/mining-construction', title: 'Mining & Construction Equipment' },
@@ -92,7 +92,7 @@ export default function ApplicationsClient() {
       badge: 'Transit & Passenger',
       desc: 'City buses, intercity coaches, school buses, and shuttle fleets demand low-noise, high-cycle brake chambers. BRC supplies air disc brake actuators and service chambers engineered for stop-and-go duty cycles and passenger comfort.',
       icon: <Bus className="w-8 h-8" />,
-      image: '/images/transit_bus.png',
+      image: '/images/applications/brc-transist-bus.jpg',
       accent: 'amber',
       links: [
         { id: '/applications/transit-buses', title: 'City & Intercity Transit Buses' },
@@ -239,7 +239,7 @@ export default function ApplicationsClient() {
                 className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 relative overflow-hidden group flex flex-col"
               >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-navy-50 rounded-bl-[100px] -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-125 z-0"></div>
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-amber-100 border border-amber-200 group-hover:bg-amber-200 flex items-center justify-center mb-4 sm:mb-6 relative z-10 transition-colors duration-300 shadow-sm">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-amber-50 border border-amber-100 group-hover:bg-amber-100 flex items-center justify-center mb-4 sm:mb-6 relative z-10 transition-colors duration-300 shadow-sm">
                   <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <h3 className="text-xl font-bold text-navy-900 mb-3 relative z-10">{market.region}</h3>
@@ -329,7 +329,7 @@ export default function ApplicationsClient() {
                 className="bg-white border border-slate-200 rounded-[2rem] p-6 sm:p-8 text-center shadow-lg shadow-slate-200/50 group flex flex-col relative overflow-hidden transform hover:-translate-y-2 transition-all duration-500 hover:border-amber-300"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
-                <div className="relative z-10 w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-amber-100 border border-amber-200 shadow-sm rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transition-colors group-hover:bg-amber-200 text-amber-600">
+                <div className="relative z-10 w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-amber-50 border border-amber-100 shadow-sm rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transition-colors group-hover:bg-amber-100 text-amber-600">
                   <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
                 </div>
                 <div className="relative z-10 text-3xl sm:text-4xl lg:text-5xl font-black text-navy-900 mb-2 tracking-tight transition-colors group-hover:text-amber-600">
