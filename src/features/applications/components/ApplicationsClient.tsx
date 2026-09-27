@@ -111,7 +111,7 @@ export default function ApplicationsClient() {
         badgeIcon={Truck}
         title="Brake Chambers by Application: Trucks, Trailers, Transit & Off-Highway"
         description="Find the right BRC brake chamber for your operating environment. Heavy-duty trucks, commercial trailers, transit buses, refuse vehicles, and off-highway equipment. Each application page recommends the exact spring, service, or air disc brake chamber for the job."
-        imageSrc="/products/scattered_chambers_footer.png"
+        imageSrc="/images/pageheaders/brc_application.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Applications' }

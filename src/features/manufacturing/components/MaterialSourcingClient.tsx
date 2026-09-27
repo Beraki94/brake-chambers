@@ -107,9 +107,10 @@ export default function MaterialSourcingClient() {
             align="center"
             className="max-w-4xl mx-auto"
           />
-          <div className="mt-10 flex justify-center">
-            <Link href="/manufacturing/process" className="inline-flex items-center text-amber-600 font-extrabold hover:text-amber-700 uppercase tracking-widest text-sm bg-amber-50 px-8 py-4 rounded-xl transition-all hover:bg-amber-100 hover:-translate-y-1">
-              See how we manufacture with these materials <ArrowRight className="w-5 h-5 ml-2" />
+          <div className="mt-10 flex justify-center w-full px-4 sm:px-0">
+            <Link href="/manufacturing/process" className="inline-flex items-center justify-center gap-2 sm:gap-3 text-amber-600 font-extrabold hover:text-amber-700 uppercase tracking-widest text-[11px] sm:text-[13px] bg-amber-50 px-6 sm:px-8 py-4 rounded-xl transition-all hover:bg-amber-100 hover:-translate-y-1 w-full sm:w-auto text-center shadow-sm">
+              <span>View Manufacturing Process</span>
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
             </Link>
           </div>
         </div>
@@ -162,16 +163,16 @@ export default function MaterialSourcingClient() {
           })}
         </div>
         {/* SECTION 8 - SOURCING PHILOSOPHY */}
-        <div className="mt-20 md:mt-32 bg-navy-950 rounded-3xl md:rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden border border-navy-800 shadow-2xl">
+        <div className="mt-20 md:mt-32 bg-navy-950 -mx-4 sm:mx-0 rounded-none sm:rounded-[2.5rem] px-6 py-12 sm:p-8 md:p-16 relative overflow-hidden border-y sm:border border-navy-800 shadow-2xl">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5"></div>
           <AnimatedGridBackground opacity={0.08} />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
           
-          <div className="relative z-10 flex flex-col lg:flex-row gap-12 items-center justify-center max-w-5xl mx-auto">
-            <div className="w-24 h-24 bg-navy-900 rounded-3xl border border-navy-800 flex items-center justify-center shrink-0 shadow-2xl shadow-navy-900/50">
-              <Scale className="w-12 h-12 text-amber-500" />
+          <div className="relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start justify-center max-w-5xl mx-auto">
+            <div className="w-16 h-16 md:w-20 md:h-20 bg-navy-900 rounded-2xl border border-navy-800 flex items-center justify-center shrink-0 shadow-2xl shadow-navy-900/50">
+              <Scale className="w-8 h-8 md:w-10 md:h-10 text-amber-500" />
             </div>
-            <div className="flex-1 text-center lg:text-left">
+            <div className="flex-1 text-left">
               <SectionHeader
                 badge="Our Approach"
                 title="Why Material Sourcing Matters for Brake Chambers"
@@ -181,7 +182,7 @@ export default function MaterialSourcingClient() {
                 plainText={true}
                 className="!mb-4"
               />
-              <div className="space-y-4 text-[14px] md:text-[15px] leading-[1.6] text-navy-200 font-normal">
+              <div className="space-y-4 text-[14px] md:text-[15px] leading-[1.6] text-navy-200 font-normal px-2 sm:px-0">
                 <p>
                   A brake chamber is only as strong as its weakest material. Underbuilt steel, low-grade rubber, or contaminated aluminum will fail earlier than any design mistake.
                 </p>

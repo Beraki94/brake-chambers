@@ -17,7 +17,7 @@ export default function CompanyClient() {
         badgeIcon={Building2}
         title="Chinese Manufacturer of OEM-Quality Brake Chambers"
         description="BRC Brake Chambers is a Zhejiang-based manufacturer of OEM-quality aftermarket brake chambers. Founded on deep engineering, vertically integrated production, and a single mission: give fleets in North America, Australia, Europe, and the Middle East a factory-direct alternative to overpriced OEM parts."
-        imageSrc="/images/engineering_blueprint.png"
+        imageSrc="/images/pageheaders/brc_about.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Our Story' }

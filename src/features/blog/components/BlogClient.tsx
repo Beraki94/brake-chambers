@@ -35,6 +35,7 @@ export default function BlogClient() {
         badgeIcon={Newspaper}
       title="Brake Chamber Blog: Technical Guides, Industry News & Updates"
       description="Technical bulletins, installation guides, cross-reference updates, and industry news from BRC Brake Chambers. Written for fleet managers, technicians, and distributors who spec, install, and sell commercial brake chambers."
+      imageSrc="/images/pageheaders/brc_blog.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Blog' }

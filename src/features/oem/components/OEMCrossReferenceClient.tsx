@@ -20,6 +20,7 @@ export default function OEMCrossReferenceClient() {
         badgeIcon={ArrowRightLeft}
         title="OEM Brake Chamber Cross-Reference: Find Direct Replacements"
         description="Search by Bendix, Haldex, Meritor, Knorr-Bremse, WABCO, SORL, or MGM part number and get the exact BRC equivalent in seconds. Every match is verified for fit, form, and function."
+        imageSrc="/images/pageheaders/brc_crossreference.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'OEM Cross-Reference' }

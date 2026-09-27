@@ -86,7 +86,7 @@ export default function ManufacturingClient() {
         badgeIcon={Factory}
         title="Brake Chamber Manufacturing in China: Inside Our Zhejiang Factory"
         description="BRC operates a 50,000 sqm brake chamber factory in Zhejiang, China. Every chamber is manufactured under our IATF 16949-aligned quality system and stress-tested before shipment to distributors in 30+ countries."
-        imageSrc="/images/manufacturing_floor.png"
+        imageSrc="/images/pageheaders/brc_manufacturing.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Manufacturing' }

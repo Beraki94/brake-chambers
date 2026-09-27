@@ -17,6 +17,7 @@ export default function WarrantyClient() {
         badge={<><ShieldCheck className="w-4 h-4 inline-block mr-1" /> Warranty & Claims</>}
         title="Brake Chamber Warranty - 1-Year Factory Guarantee"
         description="Every BRC brake chamber carries a 1-year limited factory warranty against manufacturing defects in materials and workmanship. Claims are processed within 24 hours through our online portal."
+        imageSrc="/images/pageheaders/brc_warranty.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Warranty' }

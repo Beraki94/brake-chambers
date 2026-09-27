@@ -123,6 +123,7 @@ export default function ProductsClient() {
         badgeIcon={Package}
         title="Commercial Brake Chamber Catalog: Spring, Service & ADB"
         description="Browse BRC's full range of OEM-grade brake chambers and replacement parts for trucks, trailers, and commercial fleets. Spring brakes, service chambers, air disc actuators, piggyback kits, and hardware. Every product includes technical specs and direct OEM cross-reference."
+        imageSrc="/images/pageheaders/brc_products.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Products' }

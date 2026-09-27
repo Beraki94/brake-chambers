@@ -79,7 +79,7 @@ export default function TechnicalResourcesClient() {
         badgeIcon={BookOpen}
         title="Brake Chamber Technical Resources: Guides, Specs & Data Sheets"
         description="Access BRC's technical library: installation procedures, sizing specifications, caging guides, torque specs, and chamber selection tools. Everything engineers, technicians, and fleet managers need to spec and install BRC brake chambers correctly."
-        imageSrc="/products/brake_chambers_diagram.png"
+        imageSrc="/images/pageheaders/brc_technicalspec.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Technical Resources' }

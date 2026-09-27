@@ -18,7 +18,7 @@ export default function ShippingClient() {
         badge={<><Ship className="w-4 h-4 inline-block mr-1" /> China Export & Global Logistics</>}
         title="Brake Chamber Shipping From China — FCL, LCL & Door-to-Door Export"
         description="BRC exports brake chambers from our 50,000 sqm factory in Zhejiang, China to distributors in 30+ countries. We ship from Ningbo and Shanghai ports with EXW, FOB, CIF, DDP, and DAP terms — full-container, less-than-container, and door-to-door logistics managed by our in-house export team."
-        imageSrc="/images/shipping_cargo.png" 
+        imageSrc="/images/pageheaders/brc_shipping.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Shipping & Logistics' }

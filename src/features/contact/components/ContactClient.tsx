@@ -94,6 +94,7 @@ export default function ContactClient() {
         badgeIcon={PhoneCall}
         title="Contact BRC: Brake Chamber Sales & Technical Support"
         description="Connect with our OEM and wholesale team in Zhejiang, China. We respond to technical specifications, cross-reference requests, sample orders, and bulk pricing inquiries within 24 hours."
+        imageSrc="/images/pageheaders/brc_contact.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Contact Us' }

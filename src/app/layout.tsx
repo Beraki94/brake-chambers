@@ -54,17 +54,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://translate.googleapis.com" crossOrigin="anonymous" />
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            try {
-              if (sessionStorage.getItem('hasSeenSplash')) {
-                document.documentElement.classList.add('hide-splash');
-              }
-            } catch (e) {}
-          `
-        }} />
       </head>
       <body suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable} font-sans bg-[#F8FAFC] text-navy-900 flex flex-col min-h-screen overflow-x-clip`}>
+        <Script src="/splash-check.js" strategy="beforeInteractive" />
         <NextTopLoader
           color="#FFB000"
           initialPosition={0.08}
@@ -79,13 +71,13 @@ export default function RootLayout({
         />
         {/* Hidden Google Translate Element */}
         <div id="google_translate_element" style={{ display: 'none' }}></div>
-        <Script id="google-translate-init" strategy="afterInteractive">
-          {`
-            function googleTranslateElementInit() {
+        <Script id="google-translate-init" strategy="afterInteractive" dangerouslySetInnerHTML={{
+          __html: `
+            window.googleTranslateElementInit = function() {
               new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element');
-            }
-          `}
-        </Script>
+            };
+          `
+        }} />
         <Script src="https://translate.googleapis.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
         
         <SplashScreen />
