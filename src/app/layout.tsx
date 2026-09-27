@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.brcbrakechambers.com'),
   title: 'BRC Brake Chambers | Professional Factory Sales',
   description: 'Premium quality commercial brake chambers, spring brakes, service brakes, and parts. OEM Cross-Reference available.',
+  robots: {
+    index: false,
+    follow: false,
+  },
   openGraph: {
     title: 'BRC Brake Chambers | Professional Factory Sales',
     description: 'Premium quality commercial brake chambers, spring brakes, service brakes, and parts. OEM Cross-Reference available.',

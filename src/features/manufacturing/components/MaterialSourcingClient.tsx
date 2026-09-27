@@ -117,14 +117,14 @@ export default function MaterialSourcingClient() {
 
       {/* MAIN CONTENT - MATERIAL CARDS */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pb-12 md:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
           {materials.map((mat, idx) => {
             const isAmber = mat.accent === 'amber';
             const isLast = idx === materials.length - 1;
             return (
               <div 
                 key={idx} 
-                className={`bg-white rounded-[2rem] p-8 md:p-10 border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col ${isLast ? 'lg:col-span-2 lg:w-3/4 lg:mx-auto' : ''}`}
+                className={`bg-white rounded-3xl sm:rounded-[2rem] p-5 sm:p-8 md:p-10 border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col ${isLast ? 'lg:col-span-2 lg:w-3/4 lg:mx-auto' : ''}`}
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-[100px] -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-125 z-0"></div>
                 
@@ -146,16 +146,14 @@ export default function MaterialSourcingClient() {
                   {mat.description}
                 </p>
 
-                <div className="relative z-10 mt-auto bg-slate-50/80 rounded-2xl p-5 md:p-6 border border-slate-100 space-y-3">
+                <div className="relative z-10 mt-auto w-full bg-slate-50/80 rounded-2xl p-4 sm:p-5 md:p-6 border border-slate-100 space-y-3">
                   {mat.specs.map((spec, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="mt-0.5">
-                        <CheckCircle2 className={`w-4 h-4 ${isAmber ? 'text-amber-500' : 'text-navy-500'}`} />
-                      </div>
-                      <div className="text-[14px] md:text-[15px] leading-[1.6]">
-                        <span className="font-bold text-navy-900">{spec.label}: </span>
-                        <span className="text-slate-600 font-normal">{spec.value}</span>
-                      </div>
+                      <CheckCircle2 className={`w-5 h-5 flex-shrink-0 mt-0.5 ${isAmber ? 'text-amber-500' : 'text-navy-500'}`} />
+                      <span className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6]">
+                        <strong className="text-navy-900 font-bold">{spec.label}: </strong>
+                        {spec.value}
+                      </span>
                     </div>
                   ))}
                 </div>

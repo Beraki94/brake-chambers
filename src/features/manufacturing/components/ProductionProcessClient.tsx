@@ -84,8 +84,8 @@ export default function ProductionProcessClient() {
             className="max-w-4xl mx-auto"
           />
           <div className="mt-10 flex justify-center">
-            <Link href="/manufacturing/material-sourcing" className="inline-flex items-center text-amber-600 font-extrabold hover:text-amber-700 uppercase tracking-widest text-sm bg-amber-50 px-8 py-4 rounded-xl transition-all hover:bg-amber-100 hover:-translate-y-1">
-              See the raw materials we start with <ArrowRight className="w-5 h-5 ml-2" />
+            <Link href="/manufacturing/material-sourcing" className="inline-flex items-center text-amber-600 font-extrabold hover:text-amber-700 uppercase tracking-wider sm:tracking-widest text-[11px] sm:text-sm bg-amber-50 px-4 sm:px-8 py-4 rounded-xl transition-all hover:bg-amber-100 hover:-translate-y-1 whitespace-nowrap">
+              See the raw materials we start with <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 shrink-0" />
             </Link>
           </div>
         </div>
@@ -137,14 +137,15 @@ export default function ProductionProcessClient() {
             </div>
           ))}
         </div>
+      </div>
 
       {/* SECTION 7 - PRODUCTION CAPACITY */}
-      <div className="mt-20 bg-navy-950 rounded-3xl md:rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden border border-navy-800 shadow-2xl">
+      <section className="bg-navy-950 py-16 md:py-24 relative overflow-hidden border-y border-navy-800 shadow-2xl">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5"></div>
         <AnimatedGridBackground opacity={0.08} />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <SectionHeader
             badge="Production Capacity"
             title="Brake Chamber Production at Scale"
@@ -191,10 +192,11 @@ export default function ProductionProcessClient() {
             </Link>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Bottom CTA */}
-      <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200 mt-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 md:py-16">
+        <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
           <SectionHeader
             badge="See the Next Stage"
             title="Where Does Your Brake Chamber Go After Production?"

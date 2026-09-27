@@ -94,12 +94,12 @@ export default function ManufacturingClient() {
       />
 
       {/* SECTION 3 & STATS BAR - COMBINED FOR SEAMLESS OVERLAP */}
-      <section className="pb-16 md:pb-32 relative z-10 bg-navy-900 border-t border-transparent">
+      <section className="pb-0 sm:pb-12 md:pb-32 relative z-10 bg-navy-900 border-t border-transparent">
         <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          className="hidden md:block absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url("/images/brc4.jpg")' }}
         />
-        <div className="absolute inset-0 z-0 bg-navy-950/60" />
+        <div className="hidden md:block absolute inset-0 z-0 bg-navy-950/60" />
         
         {/* White overlay ONLY at the top to separate from the PageHeader */}
         <div className="absolute top-0 inset-x-0 h-[300px] bg-gradient-to-b from-white/60 to-transparent z-0 pointer-events-none" />
@@ -130,9 +130,9 @@ export default function ManufacturingClient() {
         </div>
 
         {/* MANUFACTURING OVERVIEW CONTENT */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10">
+        <div className="container mx-auto px-0 sm:px-6 lg:px-8 max-w-5xl relative z-10">
           <motion.div
-            className="bg-white rounded-[2rem] shadow-2xl p-8 sm:p-12 lg:p-16 relative overflow-hidden"
+            className="bg-white rounded-none sm:rounded-2xl md:rounded-[2rem] shadow-none sm:shadow-2xl py-12 px-5 sm:p-12 md:p-8 lg:p-16 relative overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -181,7 +181,7 @@ export default function ManufacturingClient() {
               <Link
                 href={page.link}
                 key={idx}
-                className={`bg-slate-800 rounded-2xl p-6 md:p-8 border border-slate-700 shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:border-amber-500/50 transition-all duration-300 flex flex-col sm:flex-row gap-6 group items-start relative overflow-hidden ${idx === 6 ? 'lg:col-span-2 lg:max-w-3xl lg:mx-auto w-full' : ''}`}
+                className={`bg-slate-800 rounded-2xl md:rounded-[2rem] p-6 md:p-8 border border-slate-700 shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:border-amber-500/50 transition-all duration-300 flex flex-col sm:flex-row gap-6 group items-start relative overflow-hidden ${idx === 6 ? 'lg:col-span-2 lg:max-w-3xl lg:mx-auto w-full' : ''}`}
               >
                 {/* Icon Left - NO HOVER EFFECTS */}
                 <div className="relative z-10 w-16 h-16 rounded-2xl bg-slate-700/50 border border-slate-600/50 flex items-center justify-center shrink-0">
@@ -218,7 +218,7 @@ export default function ManufacturingClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="w-full lg:w-1/2">
-              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl h-[400px] lg:h-[600px] border border-slate-100">
+              <div className="relative rounded-2xl md:rounded-[2rem] overflow-hidden shadow-2xl h-[400px] lg:h-[600px] border border-slate-100">
                 <Image 
                   src="/images/manufacturing_floor.png" 
                   alt="BRC Brake Chamber Factory Floor in Zhejiang, China" 
@@ -255,7 +255,7 @@ export default function ManufacturingClient() {
       {/* SECTION 6 - BOTTOM CTA */}
       <section className="py-12 md:py-16 bg-[#F1EFE8] relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-10 md:p-16 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 group">
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-2xl md:rounded-[2.5rem] p-8 sm:p-10 md:p-16 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 group">
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0 pointer-events-none"></div>
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] z-0 pointer-events-none"></div>
 
@@ -275,15 +275,15 @@ export default function ManufacturingClient() {
             <div className="relative z-10 flex flex-col w-full md:w-auto gap-4 min-w-[240px] shrink-0 mt-8 md:mt-0">
               <Link 
                 href="/quote" 
-                className="bg-amber-500 text-navy-950 font-black py-4 px-8 rounded-xl hover:bg-amber-400 transition-all shadow-xl shadow-amber-500/20 text-center uppercase tracking-widest text-[13px] transform hover:-translate-y-1 flex items-center justify-center"
+                className="bg-amber-500 text-navy-950 font-black py-4 px-4 sm:px-8 rounded-xl hover:bg-amber-400 transition-all shadow-xl shadow-amber-500/20 text-center uppercase tracking-wider sm:tracking-widest text-[12px] sm:text-[13px] transform hover:-translate-y-1 flex items-center justify-center whitespace-nowrap"
               >
-                Request Factory Quote <ArrowRight className="ml-2 w-4 h-4" />
+                Request Factory Quote <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
               </Link>
               <Link 
                 href="/contact" 
-                className="bg-navy-800 text-white border border-navy-600 font-black py-4 px-8 rounded-xl hover:bg-navy-700 hover:border-navy-500 transition-all text-center uppercase tracking-widest text-[13px] transform hover:-translate-y-1 flex items-center justify-center"
+                className="bg-navy-800 text-white border border-navy-600 font-black py-4 px-4 sm:px-8 rounded-xl hover:bg-navy-700 hover:border-navy-500 transition-all text-center uppercase tracking-wider sm:tracking-widest text-[12px] sm:text-[13px] transform hover:-translate-y-1 flex items-center justify-center whitespace-nowrap"
               >
-                Contact Engineering <ArrowRight className="ml-2 w-4 h-4" />
+                Contact Engineering <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
               </Link>
             </div>
           </div>
