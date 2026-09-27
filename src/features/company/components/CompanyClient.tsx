@@ -46,7 +46,7 @@ export default function CompanyClient() {
                   accentColor="amber"
                   className="!mb-6"
                 />
-                <div className="space-y-6 text-slate-600 text-lg leading-relaxed font-light">
+                <div className="space-y-6 text-slate-600 text-[15px] md:text-base leading-[1.6] font-normal">
                   <p>
                     Zhejiang GAP Auto Parts Co., Ltd. (operating globally as BRC Brake Chambers) was founded to solve one problem: international fleets were paying OEM prices for aftermarket brake chambers, or buying cheap aftermarket parts that failed early.
                   </p>
@@ -131,7 +131,7 @@ export default function CompanyClient() {
             {/* Leadership Header */}
             <div className="text-center max-w-3xl mx-auto pt-10 border-t border-slate-200">
               <h3 className="text-3xl font-black text-navy-900 mb-4 tracking-tight">Leadership Team</h3>
-              <p className="text-slate-600 text-lg leading-relaxed font-light">Driven by experts in commercial vehicle braking systems, metallurgy, and lean manufacturing.</p>
+              <p className="text-slate-600 text-[15px] md:text-base leading-[1.6] font-normal">Driven by experts in commercial vehicle braking systems, metallurgy, and lean manufacturing.</p>
             </div>
 
             {/* Leadership Cards */}
@@ -170,7 +170,7 @@ export default function CompanyClient() {
                   <h3 className="text-xl font-bold text-navy-900 mb-1">{leader.name}</h3>
                   <p className="text-amber-600 text-xs font-bold uppercase tracking-widest mb-4">{leader.role}</p>
                   <div className="w-12 h-1 bg-slate-100 mx-auto mb-5"></div>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-0 flex-grow font-light">
+                  <p className="text-slate-500 text-[14px] leading-[1.6] mb-0 flex-grow font-normal">
                     {leader.bio}
                   </p>
                 </motion.div>
@@ -191,7 +191,7 @@ export default function CompanyClient() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-900/40 to-transparent flex flex-col justify-end p-8 md:p-12">
                 <h3 className="text-white text-3xl md:text-4xl font-black mb-3 tracking-tight">United by Precision</h3>
-                <p className="text-navy-100 max-w-2xl text-lg font-light leading-relaxed">
+                <p className="text-navy-100 max-w-2xl text-[15px] md:text-base leading-[1.6] font-normal">
                   Our diverse executive board combines decades of tier-1 automotive manufacturing experience with forward-thinking engineering to redefine commercial vehicle safety.
                 </p>
               </div>
@@ -248,8 +248,8 @@ export default function CompanyClient() {
                       <value.icon className="w-6 h-6 text-amber-600 transition-colors" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-xl text-navy-900 mb-1">{value.title}</h4>
-                      <p className="text-slate-600 text-sm leading-relaxed">{value.desc}</p>
+                      <h4 className="font-bold text-[15px] md:text-base text-navy-900 tracking-tight mb-1">{value.title}</h4>
+                      <p className="text-slate-600 text-[14px] leading-[1.6]">{value.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -291,8 +291,8 @@ export default function CompanyClient() {
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-amber-100 border border-amber-200 group-hover:bg-amber-200 flex items-center justify-center mb-4 sm:mb-6 relative z-10 transition-colors duration-300 shadow-sm">
                   <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-navy-900 mb-3 relative z-10">{market.region}</h3>
-                <p className="text-slate-600 text-sm font-light leading-relaxed relative z-10">{market.desc}</p>
+                <h3 className="text-xl md:text-2xl font-bold tracking-tight text-navy-900 mb-3 relative z-10">{market.region}</h3>
+                <p className="text-slate-600 text-[14px] font-normal leading-[1.6] relative z-10">{market.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -327,7 +327,7 @@ export default function CompanyClient() {
               ].map((badge, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <CheckCircle2 className="w-6 h-6 text-amber-400 flex-shrink-0" />
-                  <span className="text-white font-semibold text-sm sm:text-base whitespace-nowrap">{badge}</span>
+                  <span className="text-white font-semibold text-[15px] sm:text-base whitespace-nowrap">{badge}</span>
                 </div>
               ))}
             </div>

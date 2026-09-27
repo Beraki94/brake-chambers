@@ -125,7 +125,7 @@ export default function ContactClient() {
                     <card.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <h3 className="font-heading text-lg sm:text-xl font-bold text-navy-900 mb-1">{card.title}</h3>
-                  <p className="text-navy-500 text-sm sm:text-base leading-relaxed mb-2 sm:mb-3 text-left">{card.description}</p>
+                  <p className="text-navy-500 text-[14px] md:text-[15px] leading-[1.6] font-normal mb-2 sm:mb-3 text-left">{card.description}</p>
                   
                   {card.subtext && <p className="text-slate-500 text-xs mb-2 italic">{card.subtext}</p>}
 
@@ -169,7 +169,7 @@ export default function ContactClient() {
                   <CheckCircle className="w-10 h-10 text-emerald-500" />
                 </div>
                 <h3 className="text-2xl font-extrabold text-navy-900 mb-3">Inquiry Submitted!</h3>
-                <p className="text-slate-600 max-w-md mx-auto">Our sales team will review your request and respond within 24 business hours with a detailed quote.</p>
+                <p className="text-[15px] leading-[1.6] font-normal text-slate-600 max-w-md mx-auto">Our sales team will review your request and respond within 24 business hours with a detailed quote.</p>
               </motion.div>
             ) : (
               <form className="space-y-4 sm:space-y-5" onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
@@ -325,7 +325,7 @@ export default function ContactClient() {
                   </div>
                   <div className="flex flex-col justify-center">
                     <h3 className="font-heading font-extrabold text-navy-900 text-base sm:text-lg mb-0.5 sm:mb-1 tracking-tight">BRC Manufacturing Headquarters</h3>
-                    <p className="text-xs sm:text-sm font-medium text-slate-500 leading-relaxed">
+                    <p className="text-[13px] md:text-[14px] font-normal text-slate-500 leading-[1.6]">
                       Block 3, No 55 Tianyang Rd, Fengqiao,<br className="hidden sm:block" />
                       Zhuji, Zhejiang, China
                     </p>

@@ -76,7 +76,7 @@ export default function WarrantyClient() {
                     ].map((item, idx) => (
                       <div key={idx} className="flex items-start gap-3 text-slate-700 font-medium">
                         <span className="text-emerald-500 mt-0.5">✓</span>
-                        <span className="leading-relaxed">{item}</span>
+                        <span className="leading-[1.6] text-[15px] font-normal">{item}</span>
                       </div>
                     ))}
                   </div>
@@ -100,7 +100,7 @@ export default function WarrantyClient() {
                     ].map((item, idx) => (
                       <div key={idx} className="flex items-start gap-3 text-slate-700 font-medium">
                         <span className="text-amber-500 font-bold mt-0.5">-</span>
-                        <span className="leading-relaxed">{item}</span>
+                        <span className="leading-[1.6] text-[15px] font-normal">{item}</span>
                       </div>
                     ))}
                   </div>
@@ -136,7 +136,7 @@ export default function WarrantyClient() {
                     <test.icon className="w-8 h-8" />
                   </div>
                   <h3 className="text-xl font-extrabold text-navy-900 mb-3">{test.title}</h3>
-                  <p className="text-slate-600 leading-relaxed text-sm">{test.desc}</p>
+                  <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal">{test.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -190,14 +190,14 @@ export default function WarrantyClient() {
                     <step.icon className="w-10 h-10 text-amber-500 group-hover:scale-110 transition-transform" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                  <p className="text-navy-300 text-sm leading-relaxed">{step.desc}</p>
+                  <p className="text-[14px] md:text-[15px] leading-[1.6] text-navy-300 font-normal">{step.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
 
             <div className="relative z-10 mt-12 bg-navy-900/50 border border-navy-800 rounded-xl p-6 text-left max-w-3xl mx-auto">
               <h4 className="font-bold text-white mb-3 flex items-center gap-2"><FileText className="w-5 h-5 text-amber-500" /> Claim Conditions</h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-navy-200">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-[14px] md:text-[15px] leading-[1.6] font-normal text-navy-200">
                 {[
                   "Claims must be submitted within 30 days of discovering the failure.",
                   "Physical return of failed parts may be requested for QA analysis before credit is issued.",

@@ -40,7 +40,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
             {post.title}
           </h1>
 
-          <p className="text-xl text-slate-600 leading-relaxed max-w-3xl font-light">
+          <p className="text-[16px] md:text-[18px] leading-[1.6] text-slate-600 font-light max-w-3xl">
             {post.excerpt}
           </p>
         </motion.header>
@@ -61,10 +61,10 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
           {/* Main Content */}
           <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="lg:col-span-8">
             <style dangerouslySetInnerHTML={{__html: `
-              .blog-content p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; font-size: 1.125rem; }
+              .blog-content p { margin-bottom: 1.5rem; line-height: 1.6; color: #475569; font-size: 1rem; }
               .blog-content h2 { font-size: 1.875rem; font-weight: 800; color: #0f172a; margin-top: 2.5rem; margin-bottom: 1rem; }
-              .blog-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #475569; font-size: 1.125rem; }
-              .blog-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #475569; font-size: 1.125rem; }
+              .blog-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #475569; font-size: 1rem; line-height: 1.6; }
+              .blog-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #475569; font-size: 1rem; line-height: 1.6; }
               .blog-content li { margin-bottom: 0.5rem; }
               .blog-content strong { color: #0f172a; font-weight: 700; }
             `}} />
@@ -90,7 +90,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
               <h3 className="text-sm font-extrabold text-navy-900 uppercase tracking-widest mb-6 pb-4 border-b border-slate-100">
                 Contact Us
               </h3>
-              <p className="text-slate-600 text-sm leading-relaxed mb-4">
+              <p className="text-[14px] leading-[1.6] text-slate-600 font-normal mb-4">
                 For sales inquiries, bulk orders, or technical support, please contact our team.
               </p>
               <a href="mailto:sales@brakechambers.com" className="text-amber-600 font-bold hover:underline">

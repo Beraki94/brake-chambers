@@ -112,8 +112,8 @@ export default function ProductionProcessClient() {
                     <span className="text-amber-600 font-extrabold uppercase tracking-widest text-xs">Step {step.step}</span>
                   </div>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-black text-navy-900 mb-4 tracking-tight">{step.title}</h3>
-                <p className="text-slate-600 leading-relaxed text-lg font-light">{step.description}</p>
+                <h3 className="text-2xl md:text-3xl font-black text-navy-900 mb-4 tracking-tight leading-tight">{step.title}</h3>
+                <p className="text-slate-600 leading-[1.6] text-[15px] md:text-base font-normal">{step.description}</p>
                 {step.subNote && (
                   <div className="mt-8 flex items-start gap-3 bg-white p-5 rounded-2xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden group">
                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-amber-500 group-hover:bg-amber-400 transition-colors"></div>
@@ -122,7 +122,7 @@ export default function ProductionProcessClient() {
                     </div>
                     <div>
                       <span className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Quality Control</span>
-                      <p className="text-sm text-slate-700 font-medium leading-relaxed">{step.subNote}</p>
+                      <p className="text-[14px] text-slate-700 font-medium leading-[1.6]">{step.subNote}</p>
                     </div>
                   </div>
                 )}
@@ -175,8 +175,8 @@ export default function ProductionProcessClient() {
                   <div className="w-14 h-14 bg-navy-950 rounded-2xl flex items-center justify-center mb-6 border border-navy-800 shadow-[0_0_10px_rgba(245,158,11,0.2)] group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] group-hover:scale-110 transition-all duration-300 group-hover:border-amber-500/50 text-amber-500">
                     {stat.icon}
                   </div>
-                  <h3 className="text-xl font-extrabold text-white mb-4 group-hover:text-amber-400 transition-colors">{stat.title}</h3>
-                  <p className="text-navy-300 text-sm leading-relaxed font-light flex-grow">{stat.desc}</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors">{stat.title}</h3>
+                  <p className="text-navy-200 text-[15px] leading-[1.6] font-normal flex-grow">{stat.desc}</p>
                 </div>
               </motion.div>
             ))}

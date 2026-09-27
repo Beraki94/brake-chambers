@@ -168,7 +168,7 @@ export default function ApplicationsClient() {
                             {group.title}
                           </h2>
                         </div>
-                        <p className="text-slate-600 mb-8 leading-relaxed font-light text-base md:text-lg">
+                        <p className="text-[15px] md:text-base leading-[1.6] text-slate-600 mb-8 font-normal">
                           {group.desc}
                         </p>
                         <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-12">
@@ -243,7 +243,7 @@ export default function ApplicationsClient() {
                   <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <h3 className="text-xl font-bold text-navy-900 mb-3 relative z-10">{market.region}</h3>
-                <p className="text-slate-600 text-sm font-light leading-relaxed relative z-10 flex-grow mb-6">{market.desc}</p>
+                <p className="text-[14px] md:text-[15px] leading-[1.6] font-normal text-slate-600 relative z-10 flex-grow mb-6">{market.desc}</p>
                 
                 <Link href={market.link} className="inline-flex items-center text-amber-600 font-extrabold text-xs uppercase tracking-widest hover:text-amber-700 transition-colors relative z-10 mt-auto group/link">
                   View {market.region.split(' ')[0]} Applications <ArrowRight className="w-4 h-4 ml-1 group-hover/link:translate-x-1 transition-transform" />
@@ -293,7 +293,7 @@ export default function ApplicationsClient() {
                   <stat.icon className="w-7 h-7 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <h3 className="relative z-10 text-xl font-extrabold text-white mb-3 group-hover:text-amber-400 transition-colors">{stat.title}</h3>
-                <p className="relative z-10 text-navy-300 text-sm md:text-base leading-relaxed font-light">{stat.desc}</p>
+                <p className="relative z-10 text-[14px] md:text-[15px] leading-[1.6] font-normal text-navy-300">{stat.desc}</p>
               </motion.div>
             ))}
           </motion.div>

@@ -53,10 +53,10 @@ export default function DistributorsClient() {
               />
            </div>
            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-              <button onClick={() => setActiveModal('login')} className="bg-navy-50 text-navy-900 hover:bg-navy-100 border border-navy-100 font-extrabold px-6 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md w-full md:w-auto text-base sm:text-lg whitespace-nowrap">
+              <button onClick={() => setActiveModal('login')} className="bg-navy-50 text-navy-900 hover:bg-navy-100 border border-navy-100 font-extrabold px-6 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md w-full md:w-auto text-[13px] uppercase tracking-widest whitespace-nowrap">
                  <Lock className="w-5 h-5 shrink-0"/> Partner Login
               </button>
-              <button onClick={() => setActiveModal('register')} className="bg-amber-500 text-navy-950 hover:bg-amber-400 font-extrabold px-6 py-4 rounded-xl shadow-lg shadow-amber-500/25 transition-all flex items-center justify-center gap-2 w-full md:w-auto text-base sm:text-lg hover:-translate-y-0.5 whitespace-nowrap">
+              <button onClick={() => setActiveModal('register')} className="bg-amber-500 text-navy-950 hover:bg-amber-400 font-extrabold px-6 py-4 rounded-xl shadow-lg shadow-amber-500/25 transition-all flex items-center justify-center gap-2 w-full md:w-auto text-[13px] uppercase tracking-widest hover:-translate-y-0.5 whitespace-nowrap">
                  <FileSignature className="w-5 h-5 shrink-0"/> Become a Partner
               </button>
            </div>
@@ -94,7 +94,7 @@ export default function DistributorsClient() {
                     <ShieldCheck className="w-5 h-5 text-amber-500" />
                   </div>
                   <h3 className="font-bold text-navy-900 mb-2">Verified Partners</h3>
-                  <p className="text-sm text-slate-600">All listed distributors are fully authorized to sell genuine BRC OEM replacement parts and honor factory warranties.</p>
+                  <p className="text-[14px] leading-[1.6] text-slate-600 font-normal">All listed distributors are fully authorized to sell genuine BRC OEM replacement parts and honor factory warranties.</p>
                 </div>
               </div>
             </div>
@@ -138,22 +138,22 @@ export default function DistributorsClient() {
                           </span>
                         </div>
                         
-                        <h3 className="text-xl font-extrabold text-navy-900 mb-2">{dist.name}</h3>
+                        <h3 className="text-xl font-bold tracking-tight text-navy-900 mb-2">{dist.name}</h3>
                         
                         <div className="flex items-start gap-3 text-slate-500 mb-6">
                           <div className="mt-0.5 w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></div>
-                          <div className="font-medium leading-relaxed text-sm sm:text-base">
+                          <div className="font-normal leading-[1.6] text-[15px]">
                             {dist.address}<br />
                             {dist.city}, {dist.country}
                           </div>
                         </div>
                         
                         <div className="mt-auto pt-6 border-t border-slate-100 space-y-3 mb-8">
-                          <a href={`tel:${dist.phone}`} className="flex items-center gap-3 text-sm sm:text-base text-navy-700 hover:text-amber-600 font-bold transition-colors">
+                          <a href={`tel:${dist.phone}`} className="flex items-center gap-3 text-[14px] md:text-[15px] text-navy-700 hover:text-amber-600 font-bold transition-colors">
                             <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center"><PhoneCall className="w-4 h-4 text-slate-400" /></div>
                             {dist.phone}
                           </a>
-                          <a href={`mailto:${dist.email}`} className="flex items-center gap-3 text-sm sm:text-base text-navy-700 hover:text-amber-600 font-bold transition-colors">
+                          <a href={`mailto:${dist.email}`} className="flex items-center gap-3 text-[14px] md:text-[15px] text-navy-700 hover:text-amber-600 font-bold transition-colors">
                             <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center"><Mail className="w-4 h-4 text-slate-400" /></div>
                             {dist.email}
                           </a>
@@ -180,7 +180,7 @@ export default function DistributorsClient() {
                     <Globe className="w-8 h-8 text-slate-300" />
                   </div>
                   <h3 className="text-xl font-bold text-navy-900 mb-2">No distributors in this region</h3>
-                  <p className="text-slate-500 font-medium mb-6 max-w-md mx-auto">We are actively looking for qualified partners to exclusively represent BRC in this territory.</p>
+                  <p className="text-slate-500 text-[15px] leading-[1.6] font-normal mb-6 max-w-md mx-auto">We are actively looking for qualified partners to exclusively represent BRC in this territory.</p>
                   <button 
                     onClick={() => setActiveModal('register')} 
                     className="inline-flex items-center gap-2 bg-amber-500 text-navy-950 font-bold px-6 py-3 rounded-xl hover:bg-amber-400 transition-colors shadow-md shadow-amber-500/20 whitespace-nowrap"
@@ -337,7 +337,7 @@ export default function DistributorsClient() {
                     </div>
                     <div className="md:col-span-2 mt-6 flex items-start gap-4 p-5 bg-slate-50 rounded-xl border border-slate-100">
                       <input type="checkbox" id="terms" className="mt-1 w-5 h-5 text-navy-900 rounded border-slate-300 focus:ring-navy-900" />
-                      <label htmlFor="terms" className="text-sm text-slate-600 leading-relaxed font-medium">
+                      <label htmlFor="terms" className="text-[14px] text-slate-600 leading-[1.6] font-normal">
                         I verify that I am an authorized representative of this company and agree to the BRC Distributor Terms & Conditions. I understand that submitting this application does not guarantee partnership approval.
                       </label>
                     </div>

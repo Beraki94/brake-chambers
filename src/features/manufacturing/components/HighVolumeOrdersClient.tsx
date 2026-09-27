@@ -105,12 +105,12 @@ export default function HighVolumeOrdersClient() {
               badge="Factory-Direct Pricing"
               title={<>Factory-Direct Brake Chamber <span className="text-amber-500">Pricing</span> at Scale</>}
             />
-            <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-6">
+            <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal max-w-3xl mx-auto mb-6">
               When you buy directly from our factory in China, you eliminate every middleman markup between the 
               production line and your warehouse. Our tiered pricing program rewards volume with progressively 
               better per-unit costs, passing our manufacturing efficiency directly to your bottom line.
             </p>
-            <p className="text-slate-500 text-base md:text-lg font-light leading-relaxed max-w-3xl mx-auto">
+            <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-500 font-normal max-w-3xl mx-auto">
               Whether you're a regional distributor placing your first container order, or a multinational 
               aftermarket group running multi-container programs, we have the brake chamber production capacity, logistics 
               infrastructure, and pricing flexibility to support your growth.
@@ -177,7 +177,7 @@ export default function HighVolumeOrdersClient() {
                 <div className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">{tier.discount}</div>
                 <ul className="space-y-3">
                   {tier.features.map((f, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-2.5 text-sm text-navy-900">
+                    <li key={fIdx} className="flex items-start gap-2.5 text-[14px] md:text-[15px] leading-[1.6] text-navy-900 font-normal">
                       <CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                       <span className="font-medium">{f}</span>
                     </li>
@@ -215,8 +215,8 @@ export default function HighVolumeOrdersClient() {
                   {adv.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-extrabold text-white mb-3 tracking-tight">{adv.title}</h3>
-                  <p className="text-slate-400 text-base leading-relaxed font-light">{adv.description}</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight">{adv.title}</h3>
+                  <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-400 font-normal">{adv.description}</p>
                 </div>
               </motion.div>
             ))}

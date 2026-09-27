@@ -136,13 +136,13 @@ export default function MaterialSourcingClient() {
                     <span className="block text-[10px] font-black uppercase tracking-widest mb-1 text-amber-600">
                       {mat.badge}
                     </span>
-                    <h3 className="text-xl md:text-2xl font-black text-navy-900 leading-tight">
+                    <h3 className="text-xl md:text-2xl font-bold text-navy-900 tracking-tight leading-tight">
                       {mat.title}
                     </h3>
                   </div>
                 </div>
 
-                <p className="relative z-10 text-slate-600 leading-relaxed font-medium mb-8">
+                <p className="relative z-10 text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-8">
                   {mat.description}
                 </p>
 
@@ -152,9 +152,9 @@ export default function MaterialSourcingClient() {
                       <div className="mt-0.5">
                         <CheckCircle2 className={`w-4 h-4 ${isAmber ? 'text-amber-500' : 'text-navy-500'}`} />
                       </div>
-                      <div className="text-sm">
+                      <div className="text-[14px] md:text-[15px] leading-[1.6]">
                         <span className="font-bold text-navy-900">{spec.label}: </span>
-                        <span className="text-slate-600">{spec.value}</span>
+                        <span className="text-slate-600 font-normal">{spec.value}</span>
                       </div>
                     </div>
                   ))}
@@ -174,11 +174,16 @@ export default function MaterialSourcingClient() {
               <Scale className="w-12 h-12 text-amber-500" />
             </div>
             <div className="flex-1 text-center lg:text-left">
-              <span className="inline-block px-3 py-1 rounded-full border border-amber-500/30 text-[11px] font-bold uppercase tracking-widest text-amber-500 bg-amber-500/10 mb-4">
-                Our Approach
-              </span>
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-6">Why Material Sourcing Matters for Brake Chambers</h2>
-              <div className="space-y-4 text-navy-200 leading-relaxed text-lg font-light">
+              <SectionHeader
+                badge="Our Approach"
+                title="Why Material Sourcing Matters for Brake Chambers"
+                align="left"
+                theme="dark"
+                accentColor="amber"
+                plainText={true}
+                className="!mb-4"
+              />
+              <div className="space-y-4 text-[14px] md:text-[15px] leading-[1.6] text-navy-200 font-normal">
                 <p>
                   A brake chamber is only as strong as its weakest material. Underbuilt steel, low-grade rubber, or contaminated aluminum will fail earlier than any design mistake.
                 </p>

@@ -163,8 +163,8 @@ export default function CustomOemClient() {
                         {phase.phase}
                       </span>
                     </div>
-                    <h3 className={`text-2xl md:text-3xl font-black text-navy-900 mb-4 tracking-tight transition-colors ${isEven ? 'group-hover:text-amber-600' : 'group-hover:text-navy-600'}`}>{phase.title}</h3>
-                    <p className="text-slate-600 text-base md:text-lg leading-relaxed font-light mb-8">{phase.description}</p>
+                    <h3 className={`text-xl md:text-2xl lg:text-3xl font-black text-navy-900 mb-4 tracking-tight leading-tight transition-colors ${isEven ? 'group-hover:text-amber-600' : 'group-hover:text-navy-600'}`}>{phase.title}</h3>
+                    <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-8">{phase.description}</p>
                     <div className="space-y-3 mb-8">
                       {phase.features.map((f, fIdx) => {
                         const [title, desc] = f.split(': ');
@@ -172,8 +172,8 @@ export default function CustomOemClient() {
                           <div key={fIdx} className="flex gap-3">
                             <CheckCircle2 className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
                             <div>
-                              <span className="text-navy-900 font-bold text-sm md:text-base">{title}: </span>
-                              <span className="text-slate-600 text-sm md:text-base">{desc}</span>
+                              <span className="text-navy-900 font-bold text-[14px] md:text-[15px]">{title}: </span>
+                              <span className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal">{desc}</span>
                             </div>
                           </div>
                         );
@@ -235,8 +235,8 @@ export default function CustomOemClient() {
                   <div key={idx} className="flex gap-3 items-start">
                     <CheckCircle2 className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
                     <div>
-                      <h3 className="font-bold text-lg text-navy-900 mb-1">{item.title}</h3>
-                      <p className="text-slate-600 text-sm md:text-base leading-relaxed">{item.desc}</p>
+                      <h3 className="font-bold text-[15px] md:text-base tracking-tight text-navy-900 mb-1">{item.title}</h3>
+                      <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal">{item.desc}</p>
                     </div>
                   </div>
                 ))}

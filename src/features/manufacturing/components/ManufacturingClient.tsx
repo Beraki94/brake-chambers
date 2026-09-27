@@ -145,7 +145,7 @@ export default function ManufacturingClient() {
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-navy-900 mb-8">How We Manufacture Brake Chambers</h2>
             
-            <div className="prose prose-lg prose-slate text-slate-600 mb-10 max-w-none">
+            <div className="prose prose-slate text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-10 max-w-none">
               <p className="mb-6">
                 Every BRC brake chamber passes through four controlled production stages: R&D, precision assembly, quality assurance, and export packaging. Each stage is documented and audited under our IATF 16949-aligned quality system.
               </p>
@@ -155,7 +155,7 @@ export default function ManufacturingClient() {
             </div>
             
             <div className="text-right">
-              <Link href="/manufacturing/process" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 uppercase tracking-widest text-sm group">
+              <Link href="/manufacturing/process" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 uppercase tracking-widest text-[13px] group">
                 Explore Our Brake Chamber Production Process <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -194,7 +194,7 @@ export default function ManufacturingClient() {
                 <div className="relative z-10 flex flex-col flex-1">
                   <div className="flex items-start justify-between mb-2">
                     {/* Title - NO HOVER EFFECTS */}
-                    <h3 className="text-xl md:text-2xl font-black text-white tracking-tight pr-4 leading-tight">
+                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white pr-4 leading-tight">
                       {page.title}
                     </h3>
                     
@@ -203,7 +203,7 @@ export default function ManufacturingClient() {
                       <ArrowRight className="w-4 h-4 text-slate-900 md:text-slate-400 group-hover:text-slate-900 group-hover:translate-x-0.5 transition-all" />
                     </div>
                   </div>
-                  <p className="text-slate-300 leading-relaxed text-sm md:text-base font-light">
+                  <p className="text-[14px] md:text-[15px] text-slate-300 leading-[1.6] font-normal">
                     {page.desc}
                   </p>
                 </div>
@@ -233,7 +233,7 @@ export default function ManufacturingClient() {
                 Our Factory
               </span>
               <h2 className="text-3xl md:text-4xl font-black text-navy-900 mb-6">Inside Our 50,000 Sqm Brake Chamber Factory in Zhejiang, China</h2>
-              <p className="text-slate-600 text-lg leading-relaxed mb-10">
+              <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-10">
                 Our vertically integrated factory in Zhejiang, China is built for one purpose: manufacturing brake chambers at scale without sacrificing precision.
               </p>
               
@@ -242,7 +242,7 @@ export default function ManufacturingClient() {
                   <div key={idx} className="flex gap-4">
                     <CheckCircle2 className="w-6 h-6 text-amber-500 shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-navy-900">{fact.label}:</span> <span className="text-slate-600">{fact.value}</span>
+                      <span className="font-bold text-navy-900 text-[15px]">{fact.label}:</span> <span className="text-[15px] leading-[1.6] text-slate-600 font-normal">{fact.value}</span>
                     </div>
                   </div>
                 ))}

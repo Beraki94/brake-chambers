@@ -57,24 +57,24 @@ export default function SectionHeader({
         </div>
       )}
 
-      {/* Main Title - Matches Home Page design exactly */}
+      {/* Main Title - Matches organized design system */}
       {asH1 ? (
-        <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 md:mb-4 tracking-tight pb-1 md:pb-2
+        <h1 className={`text-4xl md:text-5xl lg:text-[54px] font-black mb-4 tracking-tight leading-[1.1]
           ${isDark ? 'text-white' : plainText ? 'text-navy-900' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
         >
           {title}
         </h1>
       ) : (
-        <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 md:mb-4 tracking-tight pb-1 md:pb-2
+        <h2 className={`text-3xl md:text-4xl lg:text-[40px] font-extrabold mb-4 tracking-tight leading-[1.15]
           ${isDark ? 'text-white' : plainText ? 'text-navy-900' : 'text-transparent bg-clip-text bg-gradient-to-r from-navy-900 to-navy-700'}`}
         >
           {title}
         </h2>
       )}
 
-      {/* Subtitle / Description - Scaled properly for all devices */}
+      {/* Subtitle / Description - Clean, readable scale */}
       {description && (
-        <div className={`text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-light
+        <div className={`text-[15px] md:text-base lg:text-lg leading-[1.6] font-normal
           ${isCenter && 'mx-auto max-w-2xl'} 
           ${isDark ? 'text-navy-200' : 'text-slate-600'}`}
         >

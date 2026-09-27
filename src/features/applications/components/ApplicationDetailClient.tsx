@@ -59,7 +59,7 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
             <motion.h1 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.15] mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
               {data.title}
             </motion.h1>
-            <motion.p variants={fadeInUp} className="text-base md:text-xl mb-8 md:mb-10 leading-relaxed max-w-2xl font-light text-navy-100">
+            <motion.p variants={fadeInUp} className="text-[15px] md:text-[16px] leading-[1.6] mb-8 md:mb-10 max-w-2xl font-normal text-navy-100">
               {data.desc}
             </motion.p>
           </motion.div>
@@ -148,7 +148,7 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
                   <h3 className="text-xl md:text-2xl font-bold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors">
                     {tech.name}
                   </h3>
-                  <p className="text-slate-600 text-base leading-relaxed font-medium">
+                  <p className="text-[15px] leading-[1.6] text-slate-600 font-normal">
                     {tech.desc}
                   </p>
                 </Card>
@@ -214,7 +214,7 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
                         <Icon className="w-8 h-8 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                       </div>
                       <h3 className="text-2xl lg:text-3xl font-extrabold text-white mb-4 group-hover:text-amber-400 transition-colors tracking-tight">{pkg.name}</h3>
-                      <p className="text-slate-400 text-base lg:text-lg mb-8 leading-relaxed font-light">{pkg.desc}</p>
+                      <p className="text-[15px] leading-[1.6] text-slate-400 mb-8 font-normal">{pkg.desc}</p>
                     </div>
                     {/* Consistent Outline Button */}
                     <div className="relative z-10 flex items-center justify-between text-white font-bold uppercase tracking-widest text-[13px] bg-navy-900/50 w-full sm:w-max px-8 py-4 rounded-xl border border-navy-700 group-hover:border-amber-500/50 group-hover:bg-navy-800 transition-all shadow-lg">
@@ -268,11 +268,11 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
               accentColor="amber"
             />
             <motion.div variants={fadeInUp} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href={data.cta?.link || "/quote"} className="inline-flex items-center justify-center bg-navy-900 hover:bg-navy-800 text-white font-black px-8 py-4 rounded-xl transition-all duration-300 text-[14px] uppercase tracking-widest shadow-[0_10px_30px_rgba(15,23,42,0.2)] hover:shadow-[0_15px_40px_rgba(15,23,42,0.3)] transform hover:-translate-y-1 w-full sm:w-auto">
+              <Link href={data.cta?.link || "/quote"} className="inline-flex items-center justify-center bg-navy-900 hover:bg-navy-800 text-white font-black px-8 py-4 rounded-xl transition-all duration-300 text-[13px] uppercase tracking-widest shadow-[0_10px_30px_rgba(15,23,42,0.2)] hover:shadow-[0_15px_40px_rgba(15,23,42,0.3)] transform hover:-translate-y-1 w-full sm:w-auto">
                 {data.cta?.buttonText || "Request a Quote"} <ArrowRight className="w-5 h-5 ml-3" />
               </Link>
               {data.cta?.secondaryButton && (
-                <Link href={data.cta.secondaryButton.link} className="inline-flex items-center justify-center bg-transparent border-2 border-navy-900 text-navy-900 hover:bg-navy-50 font-black px-8 py-4 rounded-xl transition-all duration-300 text-[14px] uppercase tracking-widest transform hover:-translate-y-1 w-full sm:w-auto">
+                <Link href={data.cta.secondaryButton.link} className="inline-flex items-center justify-center bg-transparent border-2 border-navy-900 text-navy-900 hover:bg-navy-50 font-black px-8 py-4 rounded-xl transition-all duration-300 text-[13px] uppercase tracking-widest transform hover:-translate-y-1 w-full sm:w-auto">
                   {data.cta.secondaryButton.text} <ArrowRight className="w-5 h-5 ml-3" />
                 </Link>
               )}

@@ -36,7 +36,7 @@ export default function QuoteClient() {
               <Package className="w-6 h-6 sm:w-10 sm:h-10 text-slate-300" />
             </div>
             <h3 className="text-base sm:text-xl font-bold text-navy-900 mb-2">No Products Selected</h3>
-            <p className="text-slate-500 text-sm sm:text-base max-w-sm mx-auto mb-5 sm:mb-6">
+            <p className="text-slate-500 text-[14px] md:text-[15px] leading-[1.6] max-w-sm mx-auto mb-5 sm:mb-6 font-normal">
               Browse our catalog and add items to your quote request to get factory-direct pricing.
             </p>
             <Link href="/products" className="bg-navy-900 hover:bg-navy-800 text-white font-extrabold px-5 sm:px-8 py-3 sm:py-4 rounded-xl shadow-lg shadow-navy-900/20 transition-all flex items-center justify-center gap-2 group text-sm sm:text-base">
@@ -56,7 +56,7 @@ export default function QuoteClient() {
                   <div className="flex-1 pr-10 sm:pr-12">
                     <p className="text-[10px] sm:text-xs font-bold text-amber-500 mb-1 uppercase tracking-wider">{item.product.brandSlug === 'brc' ? 'BRC' : item.product.brandSlug}</p>
                     <h3 className="font-bold text-navy-900 text-base sm:text-lg leading-snug mb-1 sm:mb-0">{item.product.name}</h3>
-                    <p className="text-xs sm:text-sm text-slate-500 mb-3">SKU: {item.product.slug.toUpperCase()}</p>
+                    <p className="text-[13px] leading-[1.6] text-slate-500 mb-3 font-normal">SKU: {item.product.slug.toUpperCase()}</p>
                     
                     <div className="flex items-center gap-3">
                       <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Qty:</label>
@@ -190,7 +190,7 @@ export default function QuoteClient() {
              </div>
              
              <h3 className="text-lg sm:text-xl font-extrabold mb-3 relative z-10 group-hover:text-amber-400 transition-colors">Private Labeling</h3>
-             <p className="text-navy-300 text-sm sm:text-base font-light leading-relaxed relative z-10">
+             <p className="text-navy-300 text-[14px] md:text-[15px] leading-[1.6] font-normal relative z-10">
                Build your own brand. We offer custom stamping, branded boxes, and custom paint colors for full container orders.
              </p>
            </div>
@@ -207,10 +207,10 @@ export default function QuoteClient() {
              </div>
              
              <h3 className="text-lg sm:text-xl font-extrabold text-navy-900 mb-3 relative z-10 group-hover:text-emerald-600 transition-colors">Global Logistics</h3>
-             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 relative z-10">
+             <p className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] mb-6 relative z-10 font-normal">
                Our export team handles everything from EXW factory floor to CIF at your destination port.
              </p>
-             <ul className="text-sm sm:text-base text-slate-500 space-y-3 relative z-10">
+             <ul className="text-[14px] md:text-[15px] leading-[1.6] text-slate-500 space-y-3 relative z-10 font-normal">
                <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" /> Manufactured to IATF 16949 standards</li>
                <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" /> Multi-Language Support</li>
                <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" /> Fast Turnaround</li>

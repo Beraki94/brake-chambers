@@ -60,19 +60,19 @@ export default function OEMCrossReferenceClient() {
             <div className="relative z-10 flex flex-col items-center text-center group">
               <div className="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-amber-100 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-2">1</div>
               <h3 className="text-xl font-bold text-navy-900 mb-3">Enter OEM Part Number</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Type in your Bendix, Haldex, Meritor, WABCO, Knorr-Bremse, SORL, TSE, or MGM part number.</p>
+              <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal">Type in your Bendix, Haldex, Meritor, WABCO, Knorr-Bremse, SORL, TSE, or MGM part number.</p>
             </div>
 
             <div className="relative z-10 flex flex-col items-center text-center group">
               <div className="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-amber-100 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-2">2</div>
               <h3 className="text-xl font-bold text-navy-900 mb-3">Get Verified Equivalent</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Our database returns the matching BRC brake chamber, confirmed for fit, form, and function.</p>
+              <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal">Our database returns the matching BRC brake chamber, confirmed for fit, form, and function.</p>
             </div>
 
             <div className="relative z-10 flex flex-col items-center text-center group">
               <div className="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-amber-100 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-2">3</div>
               <h3 className="text-xl font-bold text-navy-900 mb-3">Order Direct</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Request pricing or place a container order — shipped direct from our IATF 16949 compliant factory.</p>
+              <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal">Request pricing or place a container order — shipped direct from our IATF 16949 compliant factory.</p>
             </div>
           </div>
         </div>
@@ -195,7 +195,7 @@ export default function OEMCrossReferenceClient() {
                   <Camera className="w-7 h-7 text-amber-600" />
                 </div>
                 <h3 className="relative z-10 text-2xl font-extrabold text-navy-900 mb-4 group-hover:text-amber-600 transition-colors">Visual ID Guide</h3>
-                <p className="relative z-10 text-slate-600 text-base leading-relaxed mb-8 flex-grow">Identify your current brake chamber by physical appearance, mounting type, and stroke dimensions. Our visual guide covers all common commercial configurations.</p>
+                <p className="relative z-10 text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-8 flex-grow">Identify your current brake chamber by physical appearance, mounting type, and stroke dimensions. Our visual guide covers all common commercial configurations.</p>
                 <span className="relative z-10 text-amber-600 font-extrabold text-[13px] uppercase tracking-widest flex items-center mt-auto">
                   View Visual Guide <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -210,7 +210,7 @@ export default function OEMCrossReferenceClient() {
                   <Download className="w-6 h-6 text-emerald-400 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <h3 className="relative z-10 text-2xl font-extrabold text-white mb-4 group-hover:text-emerald-400 transition-colors">Download Cross-Reference Database</h3>
-                <p className="relative z-10 text-navy-300 text-base leading-relaxed mb-8 flex-grow font-light">Download the full BRC brake chamber cross-reference database in PDF and CSV formats. Includes all major OEM part numbers.</p>
+                <p className="relative z-10 text-[14px] md:text-[15px] leading-[1.6] text-navy-300 font-normal mb-8 flex-grow">Download the full BRC brake chamber cross-reference database in PDF and CSV formats. Includes all major OEM part numbers.</p>
                 <span className="relative z-10 text-emerald-400 font-extrabold text-[13px] uppercase tracking-widest flex items-center mt-auto group-hover:text-emerald-300 transition-colors">
                   Download Database <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform flex-shrink-0" />
                 </span>
@@ -223,7 +223,7 @@ export default function OEMCrossReferenceClient() {
                   <Mail className="w-7 h-7 text-navy-600" />
                 </div>
                 <h3 className="relative z-10 text-2xl font-extrabold text-navy-900 mb-4 group-hover:text-navy-600 transition-colors">Request a Custom Cross-Match</h3>
-                <p className="relative z-10 text-slate-600 text-base leading-relaxed mb-8 flex-grow">Have a specialized or legacy part number not listed in our database? Our engineers will reverse-engineer the match within 24 hours.</p>
+                <p className="relative z-10 text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-8 flex-grow">Have a specialized or legacy part number not listed in our database? Our engineers will reverse-engineer the match within 24 hours.</p>
                 <span className="relative z-10 text-navy-600 font-extrabold text-[13px] uppercase tracking-widest flex items-center mt-auto">
                   Request Cross-Match <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform flex-shrink-0" />
                 </span>

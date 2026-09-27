@@ -131,8 +131,8 @@ export default function TechnicalResourcesClient() {
                             {item.icon}
                           </div>
                           <div className="min-w-0">
-                            <span className="font-bold text-navy-900 text-xs md:text-sm truncate block">{item.title}</span>
-                            <span className="text-slate-400 text-[11px] md:text-xs truncate block">{item.desc}</span>
+                            <span className="font-bold text-navy-900 text-[13px] md:text-[14px] block mb-1">{item.title}</span>
+                            <span className="text-[12px] leading-[1.6] text-slate-400 block font-normal">{item.desc}</span>
                           </div>
                         </div>
                         <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-navy-900 transition-colors flex-shrink-0" aria-hidden="true" />
@@ -224,7 +224,7 @@ export default function TechnicalResourcesClient() {
                           </div>
                           <div>
                             <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy-900 font-heading tracking-tight mb-2">{category.title}</h3>
-                            <p className="text-slate-600 font-light text-base md:text-lg leading-relaxed">{category.desc}</p>
+                            <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal">{category.desc}</p>
                           </div>
                         </div>
 
@@ -248,7 +248,7 @@ export default function TechnicalResourcesClient() {
                               </div>
                               <div className="min-w-0 flex-1">
                                 <span className="font-bold text-navy-900 text-sm md:text-[15px] group-hover:text-navy-700 transition-colors block mb-1">{item.title}</span>
-                                <span className="text-slate-500 text-xs md:text-sm leading-relaxed block">{item.subtitle}</span>
+                                <span className="text-[13px] md:text-[14px] leading-[1.6] text-slate-500 block font-normal">{item.subtitle}</span>
                               </div>
                               <ArrowRight className={`w-5 h-5 flex-shrink-0 mt-1 transition-all duration-300 group-hover:translate-x-1
                                 ${category.accent === 'amber' ? 'text-slate-300 group-hover:text-amber-500' : 'text-slate-300 group-hover:text-navy-500'}
@@ -283,7 +283,7 @@ export default function TechnicalResourcesClient() {
                   </div>
 
                   <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto shrink-0">
-                    <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap">
+                    <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap">
                       Contact BRC Engineering
                     </Link>
                   </div>

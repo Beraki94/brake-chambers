@@ -171,7 +171,7 @@ export default function ShippingClient() {
                   </div>
                   <div>
                     <strong className="text-navy-900 block text-lg mb-2">FCL — Full Container Load</strong>
-                    <span className="text-slate-600 font-light leading-relaxed block">Best value for bulk orders. Available in 20ft and 40ft HQ containers loaded at our factory or at Ningbo/Shanghai port. We use specialized loading software to calculate the maximum number of brake chambers per container without risking crush damage.</span>
+                    <span className="text-slate-600 font-normal text-[15px] leading-[1.6] block">Best value for bulk orders. Available in 20ft and 40ft HQ containers loaded at our factory or at Ningbo/Shanghai port. We use specialized loading software to calculate the maximum number of brake chambers per container without risking crush damage.</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 p-5 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-colors shadow-sm">
@@ -180,7 +180,7 @@ export default function ShippingClient() {
                   </div>
                   <div>
                     <strong className="text-navy-900 block text-lg mb-2">LCL — Less Than Container Load</strong>
-                    <span className="text-slate-600 font-light leading-relaxed block">Consolidated pallet shipments for smaller distributors restocking high-velocity brake chamber SKUs. Shared container space, lower minimum order, and fixed sailing schedules from Ningbo and Shanghai.</span>
+                    <span className="text-slate-600 font-normal text-[15px] leading-[1.6] block">Consolidated pallet shipments for smaller distributors restocking high-velocity brake chamber SKUs. Shared container space, lower minimum order, and fixed sailing schedules from Ningbo and Shanghai.</span>
                   </div>
                 </li>
               </ul>
@@ -214,7 +214,7 @@ export default function ShippingClient() {
                        <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                        <span>{item.title}</span>
                     </div>
-                    <span className="text-sm text-slate-500 pl-6">{item.desc}</span>
+                    <span className="text-[14px] leading-[1.6] text-slate-500 pl-6 font-normal">{item.desc}</span>
                   </div>
                 ))}
               </div>
@@ -257,7 +257,7 @@ export default function ShippingClient() {
                 ].map((inc, idx) => (
                   <div key={idx} className="flex items-center justify-between border-b border-slate-100 pb-5 last:pb-0 last:border-0 hover:bg-slate-50/50 p-2 -mx-2 rounded-lg transition-colors">
                     <span className="font-black text-navy-900 tracking-wide text-lg px-2">{inc.term}</span>
-                    <span className="text-slate-600 font-medium text-sm sm:text-base text-right px-2">{inc.desc}</span>
+                    <span className="text-slate-600 font-normal text-[14px] md:text-[15px] leading-[1.6] text-right px-2">{inc.desc}</span>
                   </div>
                 ))}
               </Card>
@@ -321,10 +321,10 @@ export default function ShippingClient() {
             plainText={true}
           />
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-amber-500 hover:bg-amber-400 text-navy-950 font-extrabold px-8 py-4 rounded-xl transition-all shadow-xl shadow-amber-500/20 uppercase tracking-widest text-sm hover:-translate-y-1">
+            <Link href="/contact" className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-amber-500 hover:bg-amber-400 text-navy-950 font-extrabold px-8 py-4 rounded-xl transition-all shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[13px] hover:-translate-y-1">
               Request China Export Quote <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link href="/manufacturing/high-volume-orders" className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-navy-900 hover:bg-navy-800 text-white font-extrabold px-8 py-4 rounded-xl transition-all shadow-xl shadow-navy-900/20 uppercase tracking-widest text-sm hover:-translate-y-1">
+            <Link href="/manufacturing/high-volume-orders" className="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-navy-900 hover:bg-navy-800 text-white font-extrabold px-8 py-4 rounded-xl transition-all shadow-xl shadow-navy-900/20 uppercase tracking-widest text-[13px] hover:-translate-y-1">
               View High-Volume Orders <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

@@ -128,8 +128,8 @@ export default function TestingLaboratoryClient() {
                     {test.badge}
                   </div>
                 </div>
-                <h3 className="relative z-10 text-xl font-bold text-navy-900 mb-3 group-hover:text-amber-600 transition-colors">{test.title}</h3>
-                <p className="relative z-10 text-slate-600 leading-relaxed text-sm">
+                <h3 className="relative z-10 text-xl md:text-2xl font-bold text-navy-900 mb-3 tracking-tight group-hover:text-amber-600 transition-colors">{test.title}</h3>
+                <p className="relative z-10 text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal">
                   {test.description}
                 </p>
               </motion.div>
@@ -159,8 +159,8 @@ export default function TestingLaboratoryClient() {
                   <CheckCircle2 className="w-5 h-5 text-amber-500" />
                 </div>
                 <div>
-                  <div className="font-bold text-navy-900 text-base mb-1">{item.name}</div>
-                  <div className="text-slate-500 text-sm leading-relaxed">{item.detail}</div>
+                  <div className="font-bold text-navy-900 text-[15px] md:text-base mb-1 tracking-tight">{item.name}</div>
+                  <div className="text-[14px] md:text-[15px] leading-[1.6] text-slate-500 font-normal">{item.detail}</div>
                 </div>
               </div>
             ))}
@@ -183,8 +183,8 @@ export default function TestingLaboratoryClient() {
                   Quality Management System
                 </div>
               </div>
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-6 font-heading tracking-tight">IATF 16949-Aligned Quality Management System</h2>
-              <p className="text-navy-200 text-base md:text-lg leading-relaxed font-light">
+              <h2 className="text-2xl md:text-3xl font-black text-white mb-4 tracking-tight leading-tight">IATF 16949-Aligned Quality Management System</h2>
+              <p className="text-[14px] md:text-[15px] leading-[1.6] text-navy-200 font-normal">
                 Every brake chamber test result is logged in our quality management system, which operates to IATF 16949-aligned standards. This provides full traceability from raw material intake to finished chamber packaging, for every batch we produce.
               </p>
             </div>

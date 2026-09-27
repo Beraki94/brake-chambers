@@ -121,7 +121,7 @@ export default function HomeClient() {
                   <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 md:mb-6 tracking-tight drop-shadow-2xl">
                     {slide.title}
                   </h1>
-                  <p className="text-base md:text-xl mb-8 md:mb-10 leading-relaxed max-w-2xl font-light text-navy-100">
+                  <p className="text-[15px] md:text-[16px] leading-[1.6] mb-8 md:mb-10 max-w-2xl font-normal text-navy-100">
                     {slide.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto">
@@ -221,11 +221,11 @@ export default function HomeClient() {
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Combination Spring Brakes (Drum)</h3>
+                      <h3 className="text-xl md:text-2xl font-bold tracking-tight text-navy-900 mb-2">Combination Spring Brakes (Drum)</h3>
                       <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">Double Diaphragm · S-Cam Setup</p>
                     </div>
                   </div>
-                  <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-4">Heavy-duty combination spring brake chambers managing both service and parking brake functions. Precision-machined internal bore delivers consistent mechanical advantage across millions of cycles. Available in Type 20/24, 24/24, 30/30, and 24/30.</div>
+                  <div className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] font-normal max-w-md mb-4">Heavy-duty combination spring brake chambers managing both service and parking brake functions. Precision-machined internal bore delivers consistent mechanical advantage across millions of cycles.</div>
                   <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">Type 20/24 · Type 24/24 · Type 30/30 · Type 24/30</div>
                   <div className="flex items-center text-amber-600 font-extrabold text-[12px] uppercase tracking-widest group-hover:text-amber-500 transition-colors">
                     View Spring Brake Specs <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
@@ -248,11 +248,11 @@ export default function HomeClient() {
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Service Brake Chambers (Drum)</h3>
+                      <h3 className="text-xl md:text-2xl font-bold tracking-tight text-navy-900 mb-2">Service Brake Chambers (Drum)</h3>
                       <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">Single Diaphragm · Steer & Drive Axles</p>
                     </div>
                   </div>
-                  <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-4">Factory-direct service brake chambers engineered for precise pneumatic response on drum brake systems. Available for steer axle, drive axle, and trailer applications. Manufactured to IATF 16949 standards and pressure-tested before shipment.</div>
+                  <div className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] font-normal max-w-md mb-4">Factory-direct service brake chambers engineered for precise pneumatic response on drum brake systems. Available for steer axle, drive axle, and trailer applications. Manufactured to IATF 16949 standards and pressure-tested before shipment.</div>
                   <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">Size 9 · Size 12 · Size 16 · Size 20 · Size 24 · Size 30</div>
                   <div className="flex items-center text-amber-600 font-extrabold text-[12px] uppercase tracking-widest group-hover:text-amber-500 transition-colors">
                     View Service Specs <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
@@ -275,11 +275,11 @@ export default function HomeClient() {
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Air Disc Brake (ADB) Actuators</h3>
+                      <h3 className="text-xl md:text-2xl font-bold tracking-tight text-navy-900 mb-2">Air Disc Brake (ADB) Actuators</h3>
                       <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">High-Output Technology · Severe-Duty Rated</p>
                     </div>
                   </div>
-                  <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-4">Next-generation air disc brake actuators delivering superior clamping force, reduced brake fade, and longer pad life. Built with our proprietary HOT Technology for high-mileage, high-temperature, and severe-duty applications.</div>
+                  <div className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] font-normal max-w-md mb-4">Next-generation air disc brake actuators delivering superior clamping force, reduced brake fade, and longer pad life. Built with our proprietary HOT Technology for high-mileage, high-temperature, and severe-duty applications.</div>
                   <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">HOT Technology · Severe-Duty Rated</div>
                   <div className="flex items-center text-amber-600 font-extrabold text-[12px] uppercase tracking-widest group-hover:text-amber-500 transition-colors">
                     View ADB Specs <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
@@ -302,11 +302,11 @@ export default function HomeClient() {
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-1 group-hover:text-amber-600 transition-colors">Brake Chamber Parts & Kits</h3>
+                      <h3 className="text-xl md:text-2xl font-bold tracking-tight text-navy-900 mb-2">Brake Chamber Parts & Kits</h3>
                       <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">Repair Kits · Diaphragms · Hardware</p>
                     </div>
                   </div>
-                  <div className="text-slate-500 text-sm max-w-md leading-relaxed mb-4">OEM-spec brake chamber repair components to extend the service life of your existing chambers. Includes piggyback kits, rubber diaphragms, caging bolts, clevis pins, and mounting hardware. In-stock and ready to ship worldwide.</div>
+                  <div className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] font-normal max-w-md mb-4">OEM-spec brake chamber repair components to extend the service life of your existing chambers. Includes piggyback kits, rubber diaphragms, caging bolts, clevis pins, and mounting hardware. In-stock and ready to ship worldwide.</div>
                   <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">OEM-Spec · In-Stock · Ready to Ship</div>
                   <div className="flex items-center text-amber-600 font-extrabold text-[12px] uppercase tracking-widest group-hover:text-amber-500 transition-colors">
                     Explore Brake Chamber Parts <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
@@ -361,23 +361,23 @@ export default function HomeClient() {
               <ul className="space-y-4 mb-8 text-left">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">50,000 Sqm Factory:</strong> State-of-the-art production infrastructure for high-volume brake chamber output and consistent supply.</span>
+                  <span className="text-slate-600 text-[15px] leading-[1.6]"><strong className="text-navy-900">50,000 Sqm Factory:</strong> State-of-the-art production infrastructure for high-volume brake chamber output and consistent supply.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">IATF 16949 Standards:</strong> Tier-1 automotive quality systems audited to global standards.</span>
+                  <span className="text-slate-600 text-[15px] leading-[1.6]"><strong className="text-navy-900">IATF 16949 Standards:</strong> Tier-1 automotive quality systems audited to global standards.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">1M+ Units / Year:</strong> Fully automated assembly lines scaling to meet container-level demand.</span>
+                  <span className="text-slate-600 text-[15px] leading-[1.6]"><strong className="text-navy-900">1M+ Units / Year:</strong> Fully automated assembly lines scaling to meet container-level demand.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">100% Tested:</strong> Every chamber is pressure-tested at end-of-line, and designs are lab-verified for 1,000,000+ continuous cycles.</span>
+                  <span className="text-slate-600 text-[15px] leading-[1.6]"><strong className="text-navy-900">100% Tested:</strong> Every chamber is pressure-tested at end-of-line, and designs are lab-verified for 1,000,000+ continuous cycles.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-sm md:text-base leading-relaxed"><strong className="text-navy-900">Export Logistics:</strong> Turnkey ocean freight, from rapid 7-day LCL dispatches to full 40ft container staging.</span>
+                  <span className="text-slate-600 text-[15px] leading-[1.6]"><strong className="text-navy-900">Export Logistics:</strong> Turnkey ocean freight, from rapid 7-day LCL dispatches to full 40ft container staging.</span>
                 </li>
               </ul>
               <Link href="/contact" className="inline-flex w-full sm:w-auto justify-center items-center bg-navy-900 text-white font-bold px-6 sm:px-8 py-4 rounded-xl hover:bg-amber-500 hover:text-navy-950 transition-all duration-300 shadow-xl uppercase tracking-widest text-[11px] sm:text-[12px] transform hover:-translate-y-1 text-center whitespace-normal">
@@ -479,8 +479,8 @@ export default function HomeClient() {
                     <Zap className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div>
-                    <h3 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Consistent Clamping Force</h3>
-                    <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Overcomes friction loss to maintain peak stopping power across the actuator's full service life.</p>
+                    <h3 className="text-amber-400 font-bold mb-1.5 text-[15px] md:text-base tracking-tight">Consistent Clamping Force</h3>
+                    <p className="text-[14px] leading-[1.6] font-normal text-navy-200">Overcomes friction loss to maintain peak stopping power across the actuator's full service life.</p>
                   </div>
                 </div>
 
@@ -489,8 +489,8 @@ export default function HomeClient() {
                     <ShieldCheck className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div>
-                    <h3 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Reduced Brake Fade</h3>
-                    <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Mechanical design maintains reliable performance even under sustained heavy loads and high heat.</p>
+                    <h3 className="text-amber-400 font-bold mb-1.5 text-[15px] md:text-base tracking-tight">Reduced Brake Fade</h3>
+                    <p className="text-[14px] leading-[1.6] font-normal text-navy-200">Mechanical design maintains reliable performance even under sustained heavy loads and high heat.</p>
                   </div>
                 </div>
 
@@ -499,8 +499,8 @@ export default function HomeClient() {
                     <Settings className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div>
-                    <h3 className="text-amber-400 font-bold mb-1.5 text-sm md:text-base">Patented Internal Design</h3>
-                    <p className="text-navy-200 text-xs md:text-sm leading-relaxed">Exclusive BRC internal mechanics you won't find in standard aftermarket generic actuators.</p>
+                    <h3 className="text-amber-400 font-bold mb-1.5 text-[15px] md:text-base tracking-tight">Patented Internal Design</h3>
+                    <p className="text-[14px] leading-[1.6] font-normal text-navy-200">Exclusive BRC internal mechanics you won't find in standard aftermarket generic actuators.</p>
                   </div>
                 </div>
               </div>
@@ -536,8 +536,8 @@ export default function HomeClient() {
                   <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
                     <Search className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <h3 className="text-xl font-extrabold text-white mb-3">Instant OEM Part Lookup</h3>
-                  <p className="text-navy-300 text-sm md:text-base mb-8 leading-relaxed font-light text-left">Enter a Bendix, Knorr-Bremse, ZF/WABCO, Haldex, SORL, or MGM part number and get the matching BRC brake chamber in seconds. No account required.</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight">Instant OEM Part Lookup</h3>
+                  <p className="text-navy-200 text-[15px] mb-8 leading-[1.6] font-normal text-left">Enter a Bendix, Knorr-Bremse, ZF/WABCO, Haldex, SORL, or MGM part number and get the matching BRC brake chamber in seconds. No account required.</p>
                   <div className="text-amber-400 text-[11px] font-extrabold uppercase tracking-widest flex items-center group-hover:text-amber-300">
                     Launch Part Lookup Tool <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
@@ -551,8 +551,8 @@ export default function HomeClient() {
                   <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-emerald-500/50 transition-colors">
                     <PlayCircle className="w-6 h-6 text-emerald-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <h3 className="text-xl font-extrabold text-white mb-3">On-Demand Technician Training Modules</h3>
-                  <p className="text-navy-300 text-sm md:text-base mb-8 leading-relaxed font-light text-left">Short, practical video courses covering installation, torque specifications, and common failure diagnostics. Built for shop-floor training—so your team gets it right the first time.</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight">On-Demand Technician Training Modules</h3>
+                  <p className="text-navy-200 text-[15px] mb-8 leading-[1.6] font-normal text-left">Short, practical video courses covering installation, torque specifications, and common failure diagnostics. Built for shop-floor training—so your team gets it right the first time.</p>
                   <div className="text-emerald-400 text-[11px] font-extrabold uppercase tracking-widest flex items-center group-hover:text-emerald-300">
                     View Training Courses <ArrowRight className="w-4 h-4 ml-1.5 transform group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
@@ -571,7 +571,7 @@ export default function HomeClient() {
                     </div>
                     <div>
                       <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-2 drop-shadow-md">Industry-Leading 3-Year Warranty</h3>
-                      <p className="text-white/90 text-sm md:text-base max-w-xl font-medium leading-relaxed text-left drop-shadow-sm">Enjoy complete peace of mind. Every BRC chamber is backed by a comprehensive defect warranty with a streamlined, no-hassle online claims process.</p>
+                      <p className="text-white/90 text-[15px] md:text-base max-w-xl font-normal leading-[1.6] text-left drop-shadow-sm">Enjoy complete peace of mind. Every BRC chamber is backed by a comprehensive defect warranty with a streamlined, no-hassle online claims process.</p>
                     </div>
                   </div>
                   <Link href="/warranty" className="w-full md:w-auto flex items-center justify-center text-center bg-navy-950 text-white px-6 sm:px-8 py-4 rounded-xl font-extrabold text-[12px] uppercase tracking-widest hover:bg-navy-900 flex-shrink-0 whitespace-normal sm:whitespace-nowrap shadow-xl transform transition-transform hover:-translate-y-1">
@@ -612,8 +612,8 @@ export default function HomeClient() {
               <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6">
                 <FileText className="w-6 h-6 text-amber-500" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-4">Get Your Custom Wholesale Quote</h3>
-              <p className="text-slate-600 text-sm md:text-base leading-relaxed">Tell us your brake chamber requirements. We send a full wholesale catalog with factory-direct pricing, so you know exactly what you&apos;re buying and at what cost.</p>
+              <h3 className="text-xl md:text-2xl font-bold text-navy-900 mb-4 tracking-tight">Get Your Custom Wholesale Quote</h3>
+              <p className="text-[15px] md:text-base leading-[1.6] text-slate-600 font-normal">Tell us your brake chamber requirements. We send a full wholesale catalog with factory-direct pricing, so you know exactly what you&apos;re buying and at what cost.</p>
             </div>
 
             {/* Step 2 */}
@@ -622,8 +622,8 @@ export default function HomeClient() {
               <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6">
                 <CheckCircle className="w-6 h-6 text-amber-500" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-4">Order Evaluation Samples</h3>
-              <p className="text-slate-600 text-sm md:text-base leading-relaxed">Order brake chamber samples directly from our factory for your engineering team to approve. Zero technical risk before committing to volume.</p>
+              <h3 className="text-xl md:text-2xl font-bold text-navy-900 mb-4 tracking-tight">Order Evaluation Samples</h3>
+              <p className="text-[15px] md:text-base leading-[1.6] text-slate-600 font-normal">Order brake chamber samples directly from our factory for your engineering team to approve. Zero technical risk before committing to volume.</p>
             </div>
 
             {/* Step 3 */}
@@ -632,8 +632,8 @@ export default function HomeClient() {
               <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6">
                 <Globe2 className="w-6 h-6 text-amber-500" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-4">Scale to Container Orders</h3>
-              <p className="text-slate-600 text-sm md:text-base leading-relaxed">Once approved, we produce and stage your order for container shipping. We handle Incoterms, FCL/LCL, and direct delivery to your port or 3PL warehouse.</p>
+              <h3 className="text-xl md:text-2xl font-bold text-navy-900 mb-4 tracking-tight">Scale to Container Orders</h3>
+              <p className="text-[15px] md:text-base leading-[1.6] text-slate-600 font-normal">Once approved, we produce and stage your order for container shipping. We handle Incoterms, FCL/LCL, and direct delivery to your port or 3PL warehouse.</p>
             </div>
           </div>
         </div>
@@ -671,7 +671,7 @@ export default function HomeClient() {
             </div>
 
             <div className="relative z-10 w-full md:w-auto shrink-0 mt-8 md:mt-0">
-              <Link href="/quote" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
+              <Link href="/quote" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
                 Request Factory Quote
               </Link>
             </div>

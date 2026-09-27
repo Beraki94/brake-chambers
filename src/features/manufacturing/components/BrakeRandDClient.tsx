@@ -111,7 +111,7 @@ export default function BrakeRandDClient() {
             align="center"
             className="max-w-4xl mx-auto"
           />
-          <p className="mt-6 text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-4xl mx-auto">
+          <p className="mt-6 text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal max-w-4xl mx-auto">
             Our engineering team works across mechanical design, materials science, and manufacturing technology. From lightweight high-strength steel housings to proprietary rubber compounds rated for extreme temperatures, we control the design variables that determine how a brake chamber performs in the field.
           </p>
         </div>
@@ -169,8 +169,8 @@ export default function BrakeRandDClient() {
                       </span>
                     </div>
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-black text-navy-900 mb-6 tracking-tight">{cap.title}</h3>
-                  <p className="text-slate-600 leading-relaxed text-lg font-medium mb-8">
+                  <h3 className="text-2xl md:text-3xl font-black text-navy-900 mb-4 tracking-tight leading-tight">{cap.title}</h3>
+                  <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-8">
                     {cap.description}
                   </p>
 
@@ -187,9 +187,9 @@ export default function BrakeRandDClient() {
                         <div className="mt-0.5">
                           <CheckCircle2 className={`w-5 h-5 ${cap.accent === 'amber' ? 'text-amber-500' : 'text-navy-500'}`} />
                         </div>
-                        <div className="text-sm">
+                        <div className="text-[14px] md:text-[15px]">
                           <span className="font-bold text-navy-900">{bullet.title}: </span>
-                          <span className="text-slate-600 leading-relaxed">{bullet.text}</span>
+                          <span className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal">{bullet.text}</span>
                         </div>
                       </div>
                     ))}

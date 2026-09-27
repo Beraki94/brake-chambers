@@ -79,10 +79,10 @@ export default function PageHeader({ badge, badgeIcon: BadgeIcon, title, descrip
               <span>{badge}</span>
             </div>
           )}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 md:mb-5 tracking-tight drop-shadow-2xl">
+          <h1 className="text-4xl md:text-5xl lg:text-[54px] font-black text-white mb-4 tracking-tight leading-[1.1] drop-shadow-2xl">
             {title}
           </h1>
-          <p className="text-sm md:text-lg mb-6 md:mb-8 leading-relaxed max-w-2xl font-light text-navy-100">
+          <p className="text-[15px] md:text-base lg:text-lg mb-6 md:mb-8 leading-[1.6] max-w-2xl font-normal text-navy-100">
             {description}
           </p>
 

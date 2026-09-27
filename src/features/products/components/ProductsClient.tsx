@@ -80,40 +80,37 @@ export default function ProductsClient() {
       bg: 'bg-amber-500/20 border-amber-400/30',
       glow: 'bg-amber-500',
       overlay: 'bg-amber-900/20',
-      cardText: 'group-hover/card:text-amber-600',
       gradient: 'from-amber-400/10',
       borderBar: 'bg-amber-400',
       circleBg: 'bg-amber-50',
       iconBox: 'bg-amber-50 border-amber-100 text-amber-600',
       hoverBorder: 'hover:border-amber-200',
       btnHover: 'group-hover/card:border-amber-200 group-hover/card:bg-amber-50 text-amber-600',
-      iconHover: 'group-hover/card:text-amber-600 group-hover/card:bg-amber-100',
+      iconHover: 'from-amber-500 to-amber-500 text-navy-950 lg:from-navy-50 lg:to-navy-100 lg:text-navy-900 group-hover/card:from-amber-500 group-hover/card:to-amber-500 group-hover/card:text-navy-950',
     },
     navy: {
       bg: 'bg-navy-500/20 border-navy-400/30',
       glow: 'bg-navy-500',
       overlay: 'bg-navy-900/20',
-      cardText: 'group-hover/card:text-navy-600',
       gradient: 'from-navy-400/10',
       borderBar: 'bg-navy-400',
       circleBg: 'bg-navy-50',
       iconBox: 'bg-navy-50 border-navy-100 text-navy-600',
       hoverBorder: 'hover:border-navy-200',
       btnHover: 'group-hover/card:border-navy-200 group-hover/card:bg-navy-50 text-navy-600',
-      iconHover: 'group-hover/card:text-navy-600 group-hover/card:bg-navy-100',
+      iconHover: 'from-navy-600 to-navy-600 text-white lg:from-navy-50 lg:to-navy-100 lg:text-navy-900 group-hover/card:from-navy-600 group-hover/card:to-navy-600 group-hover/card:text-white',
     },
     emerald: {
       bg: 'bg-emerald-500/20 border-emerald-400/30',
       glow: 'bg-emerald-500',
       overlay: 'bg-emerald-900/20',
-      cardText: 'group-hover/card:text-emerald-600',
       gradient: 'from-emerald-400/10',
       borderBar: 'bg-emerald-400',
       circleBg: 'bg-emerald-50',
       iconBox: 'bg-emerald-50 border-emerald-100 text-emerald-600',
       hoverBorder: 'hover:border-emerald-200',
       btnHover: 'group-hover/card:border-emerald-200 group-hover/card:bg-emerald-50 text-emerald-600',
-      iconHover: 'group-hover/card:text-emerald-600 group-hover/card:bg-emerald-100',
+      iconHover: 'from-emerald-500 to-emerald-500 text-white lg:from-navy-50 lg:to-navy-100 lg:text-navy-900 group-hover/card:from-emerald-500 group-hover/card:to-emerald-500 group-hover/card:text-white',
     },
   };
 
@@ -184,7 +181,7 @@ export default function ProductsClient() {
                       <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-3 drop-shadow-lg group-hover:translate-x-2 transition-transform duration-300">
                         {group.title}
                       </h2>
-                      <p className="text-navy-100 text-sm md:text-base leading-relaxed font-light mb-6 max-w-sm text-justify">
+                      <p className="text-[14px] md:text-[15px] leading-[1.6] text-navy-100 font-normal mb-6 max-w-sm text-justify">
                         {group.desc}
                       </p>
                       <Link
@@ -207,32 +204,32 @@ export default function ProductsClient() {
                     <Link
                       key={linkIdx}
                       href={link.id}
-                      className="group/card relative bg-white rounded-2xl overflow-hidden p-6 lg:p-8 xl:p-10 shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-200 hover:border-slate-300 transform hover:-translate-y-1 flex flex-col justify-between"
+                      className="group/card relative bg-white rounded-2xl overflow-hidden p-6 lg:p-8 xl:p-10 shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-200 hover:border-slate-300 transform hover:-translate-y-1 active:scale-[0.98] flex flex-col justify-between cursor-pointer"
                     >
                       {/* Gradient wash on hover */}
-                      <div className={`absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br ${a.gradient} to-transparent`} />
+                      <div className={`absolute inset-0 opacity-100 lg:opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br ${a.gradient} to-transparent`} />
 
                       {/* Top right circle accent */}
-                      <div className={`absolute top-0 right-0 w-24 h-24 lg:w-32 lg:h-32 ${a.circleBg} rounded-bl-full -mr-2 -mt-2 transition-transform duration-500 group-hover/card:scale-110 z-0`}></div>
+                      <div className={`absolute top-0 right-0 w-24 h-24 lg:w-32 lg:h-32 ${a.circleBg} rounded-bl-full -mr-2 -mt-2 transition-transform duration-500 scale-110 lg:scale-100 group-hover/card:scale-110 z-0`}></div>
 
                       {/* Left accent bar */}
-                      <div className={`absolute left-0 top-6 bottom-6 w-[3px] rounded-full opacity-0 group-hover/card:opacity-100 transition-all duration-300 ${a.borderBar}`} />
+                      <div className={`absolute left-0 top-6 bottom-6 w-[3px] rounded-full opacity-100 lg:opacity-0 group-hover/card:opacity-100 transition-all duration-300 ${a.borderBar}`} />
 
                       <div className="relative z-10">
                         {/* Colored top dash — grows on hover */}
-                        <div className={`w-8 h-1 rounded-full mb-5 transition-all duration-300 group-hover/card:w-14 ${a.borderBar}`} />
+                        <div className={`w-14 h-1 lg:w-8 rounded-full mb-5 transition-all duration-300 group-hover/card:w-14 ${a.borderBar}`} />
                         <div className="mb-3 lg:mb-4">
-                          <h3 className={`text-lg sm:text-xl lg:text-2xl font-extrabold text-navy-900 transition-colors ${a.cardText} leading-tight`}>
+                          <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-navy-900 leading-tight">
                             {link.title}
                           </h3>
                         </div>
-                        <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed text-justify">
+                        <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-500 font-normal text-justify">
                           {link.desc}
                         </p>
                       </div>
 
                       <div className="relative z-10 mt-8 flex justify-end">
-                        <div className={`w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-navy-50 to-navy-100 flex items-center justify-center transition-all duration-300 text-navy-900 shadow-sm group-hover/card:shadow-md ${a.iconHover} transform group-hover/card:rotate-45`}>
+                        <div className={`w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br flex items-center justify-center transition-all duration-300 shadow-md lg:shadow-sm group-hover/card:shadow-md ${a.iconHover} transform rotate-0 group-hover/card:-rotate-45 group-active/card:scale-95`}>
                           <ArrowRight className="w-5 h-5 transition-transform duration-300" aria-hidden="true" />
                         </div>
                       </div>
@@ -356,7 +353,7 @@ export default function ProductsClient() {
                   <h3 className="text-xl lg:text-2xl font-extrabold text-white mb-1 group-hover:text-amber-400 transition-colors">
                     {app.title}
                   </h3>
-                  <p className="text-navy-200 text-sm font-medium mb-4">{app.rec}</p>
+                  <p className="text-[14px] leading-[1.6] text-navy-200 font-normal mb-4">{app.rec}</p>
                   <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center transform group-hover:translate-x-2 transition-transform duration-300">
                     <ArrowRight className="w-4 h-4 text-white" />
                   </div>
@@ -440,7 +437,7 @@ export default function ProductsClient() {
             </div>
 
             <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto shrink-0">
-              <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] sm:text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
+              <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-6 sm:px-10 py-5 rounded-xl uppercase tracking-widest text-[13px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-normal sm:whitespace-nowrap leading-tight sm:leading-normal">
                 Request Factory Quote
               </Link>
             </div>

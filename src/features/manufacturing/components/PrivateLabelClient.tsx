@@ -80,12 +80,12 @@ export default function PrivateLabelClient() {
               badge="Your Brand. Our Manufacturing Muscle."
               title={<>Your <span className="text-amber-500">Brand</span> on Factory-Direct Brake Chambers</>}
             />
-            <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-6">
+            <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal max-w-3xl mx-auto mb-6">
               Building a brake chamber brand from scratch requires millions in factory investment, 
               years of R&D, and deep manufacturing expertise. Our private label brake chamber program lets you skip 
               all of that. BRC provides the engineering, production, and quality assurance in China, you provide the brand.
             </p>
-            <p className="text-slate-500 text-base md:text-lg font-light leading-relaxed max-w-3xl mx-auto">
+            <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-500 font-normal max-w-3xl mx-auto">
               Whether you're an established distributor launching a house brand, or a new entrant 
               competing with premium aftermarket names, we provide the full manufacturing backbone. 
               Same factory. Same quality. Your name on the box.
@@ -138,14 +138,14 @@ export default function PrivateLabelClient() {
                 <div className="inline-block px-3 py-1 mb-4 rounded-full bg-amber-50 border border-amber-200 text-amber-600 text-[11px] font-bold uppercase tracking-widest">
                   Most Popular
                 </div>
-                <h3 className="text-2xl font-black text-navy-900 mb-4">Private Label</h3>
-                <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6">
+                <h3 className="text-xl md:text-2xl font-bold text-navy-900 mb-4 tracking-tight leading-tight">Private Label</h3>
+                <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-6">
                   Full custom branding on BRC-manufactured brake chambers. Your logo, your colors, your 
                   packaging, your part numbers. The product is exclusively yours.
                 </p>
                 <ul className="space-y-3">
                   {['Custom paint colors & finishes', 'Laser-engraved logos & part numbers', 'Fully branded packaging & labels', 'Custom documentation & warranty cards', 'Exclusive distribution rights available'].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-sm text-navy-900">
+                    <li key={idx} className="flex items-center gap-3 text-[14px] md:text-[15px] leading-[1.6] text-navy-900 font-normal">
                       <CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0" />
                       <span className="font-medium">{item}</span>
                     </li>
@@ -162,14 +162,14 @@ export default function PrivateLabelClient() {
                 <div className="inline-block px-3 py-1 mb-4 rounded-full bg-amber-50 border border-amber-200 text-amber-600 text-[11px] font-bold uppercase tracking-widest">
                   Quick Start
                 </div>
-                <h3 className="text-2xl font-black text-navy-900 mb-4">White Label</h3>
-                <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6">
+                <h3 className="text-xl md:text-2xl font-bold text-navy-900 mb-4 tracking-tight leading-tight">White Label</h3>
+                <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-6">
                   Ready-made BRC brake chambers in unbranded or neutral packaging. You apply your own labels 
                   and branding at your facility. Fastest path to market.
                 </p>
                 <ul className="space-y-3">
                   {['Standard BRC products, no branding', 'Plain or neutral packaging', 'You apply your own labels', 'Lower MOQs to get started', 'Ideal for testing new markets'].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-sm text-navy-900">
+                    <li key={idx} className="flex items-center gap-3 text-[14px] md:text-[15px] leading-[1.6] text-navy-900 font-normal">
                       <CheckCircle2 className="w-4 h-4 text-navy-500 flex-shrink-0" />
                       <span className="font-medium">{item}</span>
                     </li>
@@ -210,8 +210,8 @@ export default function PrivateLabelClient() {
                   <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     {item.icon}
                   </div>
-                  <h3 className="text-lg md:text-xl font-black text-navy-900 mb-3 tracking-tight">{item.title}</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
+                  <h3 className="text-lg md:text-xl font-bold text-navy-900 mb-3 tracking-tight leading-tight">{item.title}</h3>
+                  <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal">{item.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -256,8 +256,8 @@ export default function PrivateLabelClient() {
                   <div className="w-14 h-14 bg-navy-950 rounded-2xl flex items-center justify-center mb-6 border border-navy-800 shadow-[0_0_10px_rgba(245,158,11,0.2)] group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] group-hover:scale-110 transition-all duration-300 group-hover:border-amber-500/50 text-amber-500">
                     {step.icon}
                   </div>
-                  <h3 className="text-xl font-extrabold text-white mb-4 group-hover:text-amber-400 transition-colors">{step.title}</h3>
-                  <p className="text-navy-300 text-sm leading-relaxed font-light flex-grow">{step.desc}</p>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors">{step.title}</h3>
+                  <p className="text-navy-200 text-[15px] leading-[1.6] font-normal flex-grow">{step.desc}</p>
                 </div>
               </motion.div>
             ))}
