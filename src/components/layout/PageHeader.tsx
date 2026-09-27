@@ -15,19 +15,21 @@ interface PageHeaderProps {
   fullColorBackground?: boolean;
 }
 
-export default function PageHeader({ badge, badgeIcon: BadgeIcon, title, description, children, imageSrc = '/images/engineering_blueprint.png', breadcrumbs, fullColorBackground = false }: PageHeaderProps) {
+export default function PageHeader({ badge, badgeIcon: BadgeIcon, title, description, children, imageSrc, breadcrumbs, fullColorBackground = false }: PageHeaderProps) {
   return (
     <header className="relative pt-8 md:pt-10 lg:pt-12 pb-24 md:pb-32 lg:pb-40 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8 bg-navy-950">
-      {/* Background Image */}
+      {/* Background Image (Only renders if an imageSrc is provided) */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={imageSrc}
-          alt="Header Background"
-          fill
-          unoptimized={imageSrc.startsWith('http')}
-          className={`object-cover opacity-40 ${fullColorBackground ? '' : ' '}`}
-          priority
-        />
+        {imageSrc && (
+          <Image
+            src={imageSrc}
+            alt="Header Background"
+            fill
+            unoptimized={imageSrc.startsWith('http')}
+            className={`object-cover opacity-40 ${fullColorBackground ? '' : ' '}`}
+            priority
+          />
+        )}
         {/* Dark Gradient Overlay to ensure text readability */}
         <div className={`absolute inset-0 ${fullColorBackground ? 'bg-gradient-to-b from-navy-950/80 via-navy-950/60 to-navy-950' : 'bg-gradient-to-b md:bg-gradient-to-r from-navy-950 via-navy-900/90 to-navy-900/40 opacity-90'}`}></div>
       </div>

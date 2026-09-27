@@ -30,6 +30,7 @@ export default function DistributorsClient() {
         badgeIcon={Globe}
         title="Become a BRC Brake Chamber Distributor: Global Partner Network"
         description="Join BRC's global network of authorized brake chamber distributors. Access wholesale pricing, private-label programs, marketing support, and priority factory logistics. Apply to become a distributor or log in to the partner portal."
+        imageSrc="/images/pageheaders/brc_whosale_distributor.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Distributors' }

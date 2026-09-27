@@ -17,6 +17,7 @@ export default function QuotePage() {
         badgeIcon={Calculator}
       title="Request a Brake Chamber Quote: Factory-Direct Wholesale Pricing"
       description="Get factory-direct pricing on BRC brake chambers for your fleet or distribution business. Container pricing, sample orders, and private-label options available. Response within 24 hours."
+      imageSrc="/images/pageheaders/brc_quote.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Quote' }
