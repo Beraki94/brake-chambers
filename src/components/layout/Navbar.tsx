@@ -231,10 +231,10 @@ export default function Navbar() {
           <nav className={`flex items-center gap-6 lg:gap-8 h-12 text-sm font-semibold transition-colors duration-300 ${isScrolled ? 'text-navy-100' : 'text-navy-700'}`}>
 
             {/* Mega Menus - Ordered by Buyer Journey UX */}
-            <DesktopMegaMenu config={PRODUCTS_MENU} isActive={pathname.startsWith('/products') || pathname.startsWith('/spring-brake-chambers') || pathname.startsWith('/service-brake-chambers') || pathname.startsWith('/air-disc-brake-actuators') || pathname.startsWith('/parts-and-kits')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
-            <DesktopMegaMenu config={OEM_MENU} isActive={pathname.startsWith('/oem-cross-reference')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
-            <DesktopMegaMenu config={MANUFACTURING_MENU} isActive={pathname.startsWith('/manufacturing')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
-            <DesktopMegaMenu config={APPLICATIONS_MENU} isActive={pathname.startsWith('/applications')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
+            <DesktopMegaMenu config={PRODUCTS_MENU} isActive={pathname?.startsWith('/products') || pathname?.startsWith('/spring-brake-chambers') || pathname?.startsWith('/service-brake-chambers') || pathname?.startsWith('/air-disc-brake-actuators') || pathname?.startsWith('/parts-and-kits')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
+            <DesktopMegaMenu config={OEM_MENU} isActive={pathname?.startsWith('/oem-cross-reference')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
+            <DesktopMegaMenu config={MANUFACTURING_MENU} isActive={pathname?.startsWith('/manufacturing')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
+            <DesktopMegaMenu config={APPLICATIONS_MENU} isActive={pathname?.startsWith('/applications')} isScrolled={isScrolled} getLinkClass={getLinkClass} />
 
             {/* Technical Resources (Left Side) */}
             <div className="group h-full flex items-center">

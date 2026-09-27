@@ -64,7 +64,17 @@ export default function MarketSelector() {
   }, []);
 
   if (!mounted) {
-    return <div className="h-10 w-32 bg-navy-50 animate-pulse rounded-full"></div>;
+    return (
+      <div className="relative">
+        <button className="flex items-center gap-1.5 bg-navy-800/50 px-2.5 py-1 rounded-md border border-navy-700 text-navy-100 font-medium text-xs h-7 opacity-70 pointer-events-none">
+          <FlagIcon code="en" size={18} />
+          <span className="hidden sm:block">
+            {MARKETS[0]?.countryName || 'English'}
+          </span>
+          <ChevronDown className="w-3 h-3 text-navy-400" />
+        </button>
+      </div>
+    );
   }
 
   const handleMarketChange = (newMarketCode: string) => {
