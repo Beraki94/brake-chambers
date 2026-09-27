@@ -54,6 +54,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://translate.googleapis.com" crossOrigin="anonymous" />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            try {
+              if (sessionStorage.getItem('hasSeenSplash')) {
+                document.documentElement.classList.add('hide-splash');
+              }
+            } catch (e) {}
+          `
+        }} />
       </head>
       <body suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable} font-sans bg-[#F8FAFC] text-navy-900 flex flex-col min-h-screen overflow-x-clip`}>
         <NextTopLoader
