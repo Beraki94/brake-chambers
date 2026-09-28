@@ -95,23 +95,23 @@ export default function ManufacturingClient() {
 
       {/* SECTION 3 & STATS BAR - COMBINED FOR SEAMLESS OVERLAP */}
       <section className="pb-0 sm:pb-12 md:pb-32 relative z-10 bg-navy-900 border-t border-transparent">
-        <div 
+        <div
           className="hidden md:block absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url("/images/brc4.jpg")' }}
         />
         <div className="hidden md:block absolute inset-0 z-0 bg-navy-950/60" />
-        
+
         {/* White overlay ONLY at the top to separate from the PageHeader */}
         <div className="absolute top-0 inset-x-0 h-[300px] bg-gradient-to-b from-white/60 to-transparent z-0 pointer-events-none" />
         <div className="absolute top-0 inset-x-0 h-px bg-white/40 z-0 pointer-events-none" />
-        
+
         {/* OVERLAPPING STATS BAR (Half on PageHeader, Half on Image) */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-20 -mt-12 md:-mt-24 mb-10 md:mb-24">
-          <div className="bg-white rounded-2xl md:rounded-[2rem] shadow-2xl shadow-navy-900/5 border border-slate-200 overflow-hidden">
+          <div className="bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl shadow-navy-900/5 border border-slate-200 overflow-hidden">
             <div className="grid grid-cols-2 md:grid-cols-4 p-2 md:p-4 lg:p-6">
               {stats.map((stat, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className={`flex flex-col items-center justify-center text-center px-2 py-5 md:p-6 hover:-translate-y-1 transition-transform duration-300
                     ${idx % 2 === 0 ? 'border-r border-slate-100' : ''} 
                     ${idx < 2 ? 'border-b border-slate-100 md:border-b-0' : ''} 
@@ -139,12 +139,12 @@ export default function ManufacturingClient() {
             transition={{ duration: 0.6 }}
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-            
+
             <span className="inline-block py-1.5 px-4 rounded-full bg-amber-50 text-amber-600 border border-amber-100 font-bold uppercase tracking-widest text-xs mb-6 shadow-sm">
               Production Overview
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-navy-900 mb-8">How We Manufacture Brake Chambers</h2>
-            
+
             <div className="prose prose-slate text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-10 max-w-none">
               <p className="mb-6">
                 Every BRC brake chamber passes through four controlled production stages: R&D, precision assembly, quality assurance, and export packaging. Each stage is documented and audited under our IATF 16949-aligned quality system.
@@ -153,7 +153,7 @@ export default function ManufacturingClient() {
                 From raw steel intake to final container loading, our vertically integrated factory controls every step of brake chamber manufacturing. This lets us deliver consistent OEM-grade quality at factory-direct pricing, without middlemen or trading companies.
               </p>
             </div>
-            
+
             <div className="text-right">
               <Link href="/manufacturing/process" className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 uppercase tracking-widest text-[13px] group">
                 Explore Our Brake Chamber Production Process <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
@@ -189,7 +189,7 @@ export default function ManufacturingClient() {
                     {page.icon}
                   </div>
                 </div>
-                
+
                 {/* Text Content Right */}
                 <div className="relative z-10 flex flex-col flex-1">
                   <div className="flex items-start justify-between mb-2">
@@ -197,7 +197,7 @@ export default function ManufacturingClient() {
                     <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white pr-4 leading-tight">
                       {page.title}
                     </h3>
-                    
+
                     {/* Button - HOVER EFFECTS ONLY HERE (Always active on mobile) */}
                     <div className="w-8 h-8 rounded-full bg-amber-500 border-amber-400 md:bg-slate-700/50 border md:border-slate-600/50 flex items-center justify-center shrink-0 group-hover:bg-amber-500 group-hover:border-amber-400 transition-colors duration-300">
                       <ArrowRight className="w-4 h-4 text-slate-900 md:text-slate-400 group-hover:text-slate-900 group-hover:translate-x-0.5 transition-all" />
@@ -219,15 +219,15 @@ export default function ManufacturingClient() {
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="w-full lg:w-1/2">
               <div className="relative rounded-2xl md:rounded-[2rem] overflow-hidden shadow-2xl h-[400px] lg:h-[600px] border border-slate-100">
-                <Image 
-                  src="/images/manufacturing_floor.png" 
-                  alt="BRC Brake Chamber Factory Floor in Zhejiang, China" 
-                  fill 
+                <Image
+                  src="/images/manufacturing/brc_inside_manufacturing.jpg"
+                  alt="BRC Brake Chamber Factory Floor in Zhejiang, China"
+                  fill
                   className="object-cover"
                 />
               </div>
             </div>
-            
+
             <div className="w-full lg:w-1/2">
               <span className="inline-block py-1.5 px-4 rounded-full bg-amber-50 text-amber-600 border border-amber-100 font-bold uppercase tracking-widest text-xs mb-6 shadow-sm">
                 Our Factory
@@ -236,7 +236,7 @@ export default function ManufacturingClient() {
               <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-10">
                 Our vertically integrated factory in Zhejiang, China is built for one purpose: manufacturing brake chambers at scale without sacrificing precision.
               </p>
-              
+
               <div className="space-y-6">
                 {facts.map((fact, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -273,14 +273,14 @@ export default function ManufacturingClient() {
             </div>
 
             <div className="relative z-10 flex flex-col w-full md:w-auto gap-4 min-w-[240px] shrink-0 mt-8 md:mt-0">
-              <Link 
-                href="/quote" 
+              <Link
+                href="/quote"
                 className="bg-amber-500 text-navy-950 font-black py-4 px-4 sm:px-8 rounded-xl hover:bg-amber-400 transition-all shadow-xl shadow-amber-500/20 text-center uppercase tracking-wider sm:tracking-widest text-[12px] sm:text-[13px] transform hover:-translate-y-1 flex items-center justify-center whitespace-nowrap"
               >
                 Request Factory Quote <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
               </Link>
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="bg-navy-800 text-white border border-navy-600 font-black py-4 px-4 sm:px-8 rounded-xl hover:bg-navy-700 hover:border-navy-500 transition-all text-center uppercase tracking-wider sm:tracking-widest text-[12px] sm:text-[13px] transform hover:-translate-y-1 flex items-center justify-center whitespace-nowrap"
               >
                 Contact Engineering <ArrowRight className="ml-2 w-4 h-4 shrink-0" />

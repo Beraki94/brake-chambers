@@ -38,11 +38,11 @@ export default function SectionHeader({
 
   // Badge BG Maps (matching home page)
   const badgeBgClasses = {
-    amber: isDark ? 'bg-navy-900 border-navy-700 shadow-navy-950/50' : 'bg-amber-50 border-amber-100 shadow-sm',
-    red: isDark ? 'bg-navy-900 border-navy-700 shadow-navy-950/50' : 'bg-red-50 border-red-100 shadow-sm',
-    navy: isDark ? 'bg-navy-900 border-navy-700 shadow-navy-950/50' : 'bg-navy-50 border-navy-100 shadow-sm',
-    slate: isDark ? 'bg-navy-900 border-navy-700 shadow-navy-950/50' : 'bg-slate-100 border-slate-200 shadow-sm',
-    emerald: isDark ? 'bg-navy-900 border-navy-700 shadow-navy-950/50' : 'bg-emerald-50 border-emerald-100 shadow-sm',
+    amber: isDark ? 'bg-gradient-to-r from-navy-800 to-navy-900 border-navy-700 shadow-xl shadow-navy-950' : 'bg-amber-50 border-amber-100 shadow-sm',
+    red: isDark ? 'bg-gradient-to-r from-navy-800 to-navy-900 border-navy-700 shadow-xl shadow-navy-950' : 'bg-red-50 border-red-100 shadow-sm',
+    navy: isDark ? 'bg-gradient-to-r from-navy-800 to-navy-900 border-navy-700 shadow-xl shadow-navy-950' : 'bg-navy-50 border-navy-100 shadow-sm',
+    slate: isDark ? 'bg-gradient-to-r from-navy-800 to-navy-900 border-navy-700 shadow-xl shadow-navy-950' : 'bg-slate-100 border-slate-200 shadow-sm',
+    emerald: isDark ? 'bg-gradient-to-r from-navy-800 to-navy-900 border-navy-700 shadow-xl shadow-navy-950' : 'bg-emerald-50 border-emerald-100 shadow-sm',
   };
 
   return (

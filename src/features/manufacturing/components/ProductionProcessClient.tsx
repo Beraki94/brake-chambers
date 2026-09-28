@@ -16,7 +16,7 @@ export default function ProductionProcessClient() {
       title: "Brake Chamber Stamping & Forming",
       description: "Every 8-gauge steel brake chamber housing begins in heavy-tonnage hydraulic presses. Automated stamping ensures exact tolerances and forms the rigid foundation required to withstand torsional forces, pressure cycling, and road impact stress.",
       icon: <Settings className="w-8 h-8 text-amber-500" />,
-      image: "/images/manufacturing_floor.png",
+      image: "/images/manufacturing/brc_chamber_forming.jpg",
       subNote: "Incoming steel is verified for grade, thickness, and hardness before entering the press line.",
       linkUrl: "/manufacturing/material-sourcing",
       linkText: "See how we source raw materials"
@@ -26,7 +26,7 @@ export default function ProductionProcessClient() {
       title: "Robotic Welding of Brake Chamber Housings",
       description: "Critical structural welds on every BRC brake chamber are performed by 6-axis robotic welding arms. Continuous, deep-penetration seams run around the housing to ensure structural integrity and burst resistance across millions of pressure cycles.",
       icon: <Cpu className="w-8 h-8 text-navy-500" />,
-      image: "/products/scattered_chambers_footer.png",
+      image: "/images/manufacturing/brc_robotic_welding.jpg",
       subNote: "Every weld is visually inspected and pressure-tested before moving to the next stage.",
       linkUrl: null,
       linkText: null
@@ -36,7 +36,7 @@ export default function ProductionProcessClient() {
       title: "Brake Chamber E-Coating & Epoxy Finishing",
       description: "Every steel component, including internal return springs, passes through a multi-stage cathodic electrodeposition (e-coat) process, followed by a heavy epoxy finish. This dual-layer corrosion defense prevents the internal rust flaking that damages center seals and shortens chamber life.",
       icon: <ShieldAlert className="w-8 h-8 text-amber-500" />,
-      image: "/images/engineering_blueprint.png",
+      image: "/images/manufacturing/brc_chamber_coating.jpg",
       subNote: "Coating thickness is measured and logged for every production batch.",
       linkUrl: null,
       linkText: null
@@ -46,7 +46,7 @@ export default function ProductionProcessClient() {
       title: "Brake Chamber Automated Assembly",
       description: "Every brake chamber is assembled in a clean-room environment using torque-controlled fastening systems. Neoprene diaphragms and machined push-rods are aligned to deliver consistent linear force across the full stroke, without binding, hesitation, or air loss.",
       icon: <CheckCircle2 className="w-8 h-8 text-navy-500" />,
-      image: "/images/commercial_trailer.png",
+      image: "/images/manufacturing/brc_automatic_assembly.jpg",
       subNote: "Every assembled chamber is 100% pneumatic leak-tested before packaging.",
       linkUrl: "/manufacturing/quality-assurance",
       linkText: "See quality assurance testing"
@@ -62,7 +62,7 @@ export default function ProductionProcessClient() {
         badgeIcon={Factory}
         title="Brake Chamber Manufacturing Process: From Raw Steel to Export-Ready"
         description="Inside our Zhejiang, China factory, every BRC brake chamber moves through a controlled four-stage production flow: stamping, welding, e-coating, and automated assembly."
-        imageSrc="/images/manufacturing_floor.png"
+        imageSrc="/images/hero-factory.png"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Manufacturing', href: '/manufacturing' },
@@ -187,16 +187,12 @@ export default function ProductionProcessClient() {
             <Link href="/manufacturing/high-volume-orders" className="inline-flex items-center justify-center bg-navy-800 border border-navy-700 text-white font-extrabold px-6 py-4 rounded-xl hover:border-amber-500/50 hover:text-amber-400 transition-all duration-300 uppercase tracking-widest text-[11px] sm:text-xs whitespace-nowrap text-center">
               View High-Volume Orders <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
-            <Link href="/quote" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-6 py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[11px] sm:text-xs whitespace-nowrap text-center">
-              Request Factory Quote <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
+            
           </div>
         </div>
       </section>
-
       {/* Bottom CTA */}
-      {/* Bottom CTA */}
-      <section className="bg-[#F1EFE8] py-16 md:py-24 border-y border-slate-200 mt-12 md:mt-20">
+      <section className="bg-[#F1EFE8] py-16 md:py-24 border-y border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
           <SectionHeader
             badge="See the Next Stage"

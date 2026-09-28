@@ -23,7 +23,7 @@ export default function CustomOemClient() {
         'DFM (Design for Manufacturing) Audits: Design reviewed against our production capability before tooling is cut.', 
         'Cost Engineering & Value Analysis: Cost-reduction opportunities identified without compromising performance.'
       ],
-      image: '/images/engineering_blueprint.png',
+      image: '/images/manufacturing/brc-cad-modeling-engineering.jpg',
     },
     {
       phase: '02',
@@ -36,7 +36,7 @@ export default function CustomOemClient() {
         'Iterative Design Refinement: Every test result feeds back into the CAD model.', 
         'Customer Sign-Off Before Tooling: No volume tooling is committed until you approve the prototype.'
       ],
-      image: '/images/commercial_trailer.png',
+      image: '/images/manufacturing/brc-oem-custom-engineering.jpg',
     },
     {
       phase: '03',
@@ -49,7 +49,7 @@ export default function CustomOemClient() {
         'Defined Sign-Off Points: You approve each stage before we advance to the next.', 
         'Scale-Up Coordination: Production scaling from pilot runs to full program volumes coordinated by your dedicated account manager.'
       ],
-      image: '/images/manufacturing_floor.png',
+      image: '/images/manufacturing/brc-rapid-cnc-prototyping.jpg',
       linkText: 'View High-Volume Orders →',
       linkHref: '/manufacturing/high-volume-orders'
     },
@@ -68,7 +68,7 @@ export default function CustomOemClient() {
         badge="Custom Engineering"
         title="Custom OEM Brake Chamber Manufacturing"
         description="BRC develops and manufactures custom brake chambers to buyer specifications, from initial CAD design to prototype validation and volume production. Bring your drawings, part numbers, or physical samples, and our engineering team will reverse-engineer or improve them at scale."
-        imageSrc="/images/manufacturing_floor.png"
+        imageSrc="/images/manufacturing/brc-oem-custom-engineering.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Manufacturing', href: '/manufacturing' },
@@ -211,7 +211,7 @@ export default function CustomOemClient() {
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
             <div className="w-full lg:w-1/2">
               <div className="relative h-[300px] md:h-[400px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 group">
-                <Image src="/images/engineering_blueprint.png" alt="OEM IP Protection" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-[8s] " />
+                <Image src="/images/manufacturing/brc-fea-stress-testing.jpg" alt="OEM IP Protection" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-[8s] " />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900/50 to-transparent"></div>
               </div>
             </div>

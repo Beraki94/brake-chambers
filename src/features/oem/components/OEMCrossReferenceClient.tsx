@@ -5,7 +5,7 @@ import { ArrowRightLeft, ArrowRight, ShieldCheck, Zap, Wrench, Camera, Download,
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import OEMSearchForm from '@/features/oem/components/OEMSearchForm';
-import CrossReferenceMarquee from '@/components/ui/CrossReferenceMarquee';
+
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
@@ -261,22 +261,7 @@ export default function OEMCrossReferenceClient() {
         </div>
       </section>
 
-      {/* SECTION 8 — RECENTLY CROSS-REFERENCED */}
-      <section className="pt-16 md:pt-24 pb-8 md:pb-12 bg-white border-y border-slate-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <SectionHeader
-            badge="Recently Cross-Referenced"
-            title="Latest Brake Chamber Matches"
-            description="New OEM part numbers added to the BRC cross-reference database this week."
-            align="center"
-          />
-        </div>
-        
-        {/* Marquee Container Full Width */}
-        <div className="mt-8 relative w-full overflow-hidden">
-          <CrossReferenceMarquee />
-        </div>
-      </section>
+
 
             {/* SECTION 9 — CUSTOM CROSS-REFERENCE CTA */}
       <div className="py-16 md:py-24 bg-[#F1EFE8] relative overflow-hidden border-b border-slate-200">

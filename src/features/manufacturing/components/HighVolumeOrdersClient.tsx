@@ -84,7 +84,7 @@ export default function HighVolumeOrdersClient() {
   ];
 
   return (
-    <article className="min-h-screen bg-white font-sans overflow-x-clip">
+    <article className="min-h-screen bg-navy-950 font-sans overflow-x-clip">
       <PageHeader
         badge="Volume Pricing & Scale"
         title="High-Volume Brake Chamber Orders From China: Factory-Direct Pricing"
@@ -226,7 +226,7 @@ export default function HighVolumeOrdersClient() {
 
       {/* Bottom CTA */}
       {/* Bottom CTA */}
-      <section className="bg-[#F1EFE8] py-16 md:py-24 border-y border-slate-200 mt-12 md:mt-20">
+      <section className="bg-[#F1EFE8] py-16 md:py-24 border-y border-slate-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
           <SectionHeader 
             badge="Request Volume Pricing"

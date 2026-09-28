@@ -55,9 +55,9 @@ export default function OEMSearchForm() {
   };
 
   return (
-    <div className="bg-[#F1EFE8] p-6 sm:p-8 md:p-12 rounded-[2rem] shadow-xl border border-slate-100 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-amber-50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-navy-50 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
+    <div className="bg-white p-6 sm:p-8 md:p-12 rounded-[2rem] shadow-xl border border-slate-100 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-slate-50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-slate-50 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
 
       <div className="relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
         <div className="flex-1 w-full lg:w-1/2">
