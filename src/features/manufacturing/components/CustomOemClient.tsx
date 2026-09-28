@@ -247,8 +247,9 @@ export default function CustomOemClient() {
       </section>
 
       {/* Bottom CTA */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] pb-12 md:pb-16 mt-12 md:mt-16">
-        <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200">
+      {/* Bottom CTA */}
+      <section className="bg-[#F1EFE8] py-16 md:py-24 border-y border-slate-200 mt-12 md:mt-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
           <SectionHeader 
             badge="Start Your OEM Project"
             title="Ready to Start Your Custom OEM Brake Chamber Project?" 
@@ -264,7 +265,7 @@ export default function CustomOemClient() {
             </Link>
           </div>
         </div>
-      </div>
+      </section>
     </article>
   );
 }

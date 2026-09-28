@@ -420,8 +420,8 @@ export default function ProductsClient() {
 
       {/* WHOLESALE CTA */}
       <div className="py-12 md:py-20 bg-[#F1EFE8] relative overflow-hidden border-t border-slate-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] p-8 sm:p-10 md:p-12 lg:p-16 text-white shadow-2xl shadow-navy-900/20 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-10">
+        <div className="container mx-auto px-0 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-none sm:rounded-[2rem] p-8 sm:p-10 md:p-12 lg:p-16 text-white shadow-2xl shadow-navy-900/20 border-y sm:border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-10">
             {/* Internal Card Glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
 

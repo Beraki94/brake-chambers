@@ -208,9 +208,9 @@ export default function TestingLaboratoryClient() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pb-12 md:pb-16 mt-16">
-        {/* Bottom CTA */}
-        <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200 mt-16">
+      {/* Bottom CTA */}
+      <section className="bg-[#F1EFE8] py-16 md:py-24 border-y border-slate-200 mt-12 md:mt-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
           <SectionHeader 
             badge="Quality You Can Verify"
             title="Need a Sample to Verify Our Quality?" 
@@ -227,7 +227,7 @@ export default function TestingLaboratoryClient() {
             </Link>
           </div>
         </div>
-      </div>
+      </section>
     </CompanyPageLayout>
   );
 }

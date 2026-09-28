@@ -264,9 +264,9 @@ export default function TechnicalResourcesClient() {
             </section>
 
             {/* Engineering Support CTA */}
-            <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
-                <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] p-8 lg:p-12 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
+            <section className="py-16 md:py-24 bg-[#F1EFE8] relative overflow-hidden">
+              <div className="container mx-auto px-0 sm:px-6 lg:px-8 max-w-[1920px]">
+                <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-none sm:rounded-[2rem] p-8 lg:p-12 text-white shadow-2xl shadow-navy-900/30 border-y sm:border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
                   {/* Internal Card Glow */}
                   <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
 

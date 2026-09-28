@@ -222,9 +222,11 @@ export default function BrakeRandDClient() {
             ))}
           </div>
         </div>
+      </div>
 
-        {/* SECTION 9 - BOTTOM CTA */}
-        <div className="bg-[#F1EFE8] rounded-3xl p-8 md:p-12 text-center shadow-sm border border-slate-200 mt-12 md:mt-16">
+      {/* SECTION 9 - BOTTOM CTA */}
+      <section className="bg-[#F1EFE8] py-16 md:py-24 border-y border-slate-200 mt-12 md:mt-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
           <SectionHeader 
             badge="Engineering Collaboration"
             title="Have a Brake Chamber Engineering Question?" 
@@ -241,8 +243,7 @@ export default function BrakeRandDClient() {
             </Link>
           </div>
         </div>
-
-      </div>
+      </section>
     </article>
   );
 }
