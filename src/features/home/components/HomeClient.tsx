@@ -225,7 +225,7 @@ export default function HomeClient() {
                       <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">Double Diaphragm · S-Cam Setup</p>
                     </div>
                   </div>
-                  <div className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] font-normal max-w-md mb-4">Heavy-duty combination spring brake chambers managing both service and parking brake functions. Precision-machined internal bore delivers consistent mechanical advantage across millions of cycles.</div>
+                  <div className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] font-normal max-w-md mb-4 hidden sm:block">Heavy-duty combination spring brake chambers managing both service and parking brake functions. Precision-machined internal bore delivers consistent mechanical advantage across millions of cycles.</div>
                   <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">Type 20/24 · Type 24/24 · Type 30/30 · Type 24/30</div>
                   <div className="flex items-center text-amber-600 font-extrabold text-[12px] uppercase tracking-widest group-hover:text-amber-500 transition-colors">
                     View Spring Brake Specs <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
@@ -252,7 +252,7 @@ export default function HomeClient() {
                       <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">Single Diaphragm · Steer & Drive Axles</p>
                     </div>
                   </div>
-                  <div className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] font-normal max-w-md mb-4">Factory-direct service brake chambers engineered for precise pneumatic response on drum brake systems. Available for steer axle, drive axle, and trailer applications. Manufactured to IATF 16949 standards and pressure-tested before shipment.</div>
+                  <div className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] font-normal max-w-md mb-4 hidden sm:block">Factory-direct service brake chambers engineered for precise pneumatic response on drum brake systems. Available for steer axle, drive axle, and trailer applications. Manufactured to IATF 16949 standards and pressure-tested before shipment.</div>
                   <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">Size 9 · Size 12 · Size 16 · Size 20 · Size 24 · Size 30</div>
                   <div className="flex items-center text-amber-600 font-extrabold text-[12px] uppercase tracking-widest group-hover:text-amber-500 transition-colors">
                     View Service Specs <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
@@ -279,7 +279,7 @@ export default function HomeClient() {
                       <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">High-Output Technology · Severe-Duty Rated</p>
                     </div>
                   </div>
-                  <div className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] font-normal max-w-md mb-4">Next-generation air disc brake actuators delivering superior clamping force, reduced brake fade, and longer pad life. Built with our proprietary HOT Technology for high-mileage, high-temperature, and severe-duty applications.</div>
+                  <div className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] font-normal max-w-md mb-4 hidden sm:block">Next-generation air disc brake actuators delivering superior clamping force, reduced brake fade, and longer pad life. Built with our proprietary HOT Technology for high-mileage, high-temperature, and severe-duty applications.</div>
                   <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">HOT Technology · Severe-Duty Rated</div>
                   <div className="flex items-center text-amber-600 font-extrabold text-[12px] uppercase tracking-widest group-hover:text-amber-500 transition-colors">
                     View ADB Specs <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
@@ -306,7 +306,7 @@ export default function HomeClient() {
                       <p className="text-amber-600 font-bold text-[11px] tracking-widest uppercase bg-amber-50 px-2.5 py-1 inline-block rounded-md mt-1 border border-amber-100">Repair Kits · Diaphragms · Hardware</p>
                     </div>
                   </div>
-                  <div className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] font-normal max-w-md mb-4">OEM-spec brake chamber repair components to extend the service life of your existing chambers. Includes piggyback kits, rubber diaphragms, caging bolts, clevis pins, and mounting hardware. In-stock and ready to ship worldwide.</div>
+                  <div className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] font-normal max-w-md mb-4 hidden sm:block">OEM-spec brake chamber repair components to extend the service life of your existing chambers. Includes piggyback kits, rubber diaphragms, caging bolts, clevis pins, and mounting hardware. In-stock and ready to ship worldwide.</div>
                   <div className="text-navy-900 font-bold text-[11px] uppercase tracking-widest mb-6">OEM-Spec · In-Stock · Ready to Ship</div>
                   <div className="flex items-center text-amber-600 font-extrabold text-[12px] uppercase tracking-widest group-hover:text-amber-500 transition-colors">
                     Explore Brake Chamber Parts <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
