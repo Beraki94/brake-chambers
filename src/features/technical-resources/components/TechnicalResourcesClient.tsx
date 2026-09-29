@@ -217,9 +217,7 @@ export default function TechnicalResourcesClient() {
                       <div className="relative z-10">
                         {/* Category Header */}
                         <div className="flex flex-col sm:flex-row sm:items-center gap-4 md:gap-6 mb-8 md:mb-10">
-                          <div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center border flex-shrink-0 shadow-sm
-                            ${category.accent === 'amber' ? 'bg-amber-50 border-amber-100' : 'bg-navy-50 border-navy-100'}
-                          `}>
+                          <div className="w-14 h-14 md:w-16 md:h-16 rounded-[1rem] md:rounded-[1.25rem] bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0">
                             {category.icon}
                           </div>
                           <div>
@@ -235,13 +233,13 @@ export default function TechnicalResourcesClient() {
                               key={idx}
                               href={`/technical-resources/${item.slug}`}
                               className={`flex items-start gap-4 p-5 md:p-6 bg-slate-50/80 rounded-xl border border-slate-100 transition-all duration-300 group hover:shadow-lg hover:bg-white hover:-translate-y-0.5 cursor-pointer
-                                ${category.accent === 'amber' ? 'hover:border-amber-300' : 'hover:border-navy-300'}
+                                ${idx % 2 === 0 ? 'hover:border-amber-300' : 'hover:border-slate-300'}
                               `}
                             >
                               <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm transition-all duration-300
-                                ${category.accent === 'amber'
+                                ${idx % 2 === 0
                                   ? 'bg-white text-amber-500 group-hover:bg-amber-500 group-hover:text-white group-hover:shadow-amber-500/20'
-                                  : 'bg-white text-navy-500 group-hover:bg-navy-500 group-hover:text-white group-hover:shadow-navy-500/20'
+                                  : 'bg-white text-slate-500 group-hover:bg-slate-600 group-hover:text-white group-hover:shadow-slate-500/20'
                                 }
                               `}>
                                 {item.icon}
@@ -251,7 +249,7 @@ export default function TechnicalResourcesClient() {
                                 <span className="text-[13px] md:text-[14px] leading-[1.6] text-slate-500 block font-normal">{item.subtitle}</span>
                               </div>
                               <ArrowRight className={`w-5 h-5 flex-shrink-0 mt-1 transition-all duration-300 group-hover:translate-x-1
-                                ${category.accent === 'amber' ? 'text-slate-300 group-hover:text-amber-500' : 'text-slate-300 group-hover:text-navy-500'}
+                                ${idx % 2 === 0 ? 'text-slate-300 group-hover:text-amber-500' : 'text-slate-300 group-hover:text-slate-600'}
                               `} aria-hidden="true" />
                             </Link>
                           ))}
