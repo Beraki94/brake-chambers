@@ -336,7 +336,7 @@ export default function HomeClient() {
             {/* Image Grid / Factory Floor */}
             <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="col-span-2 rounded-2xl overflow-hidden h-64 md:h-80 shadow-lg">
-                <img src="/images/brc5.jpg" alt="Brake Chamber Assembly Line" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
+                <img src="/images/brc7.jpg" alt="Brake Chamber Assembly Line" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
               </motion.div>
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
                 <img src="/images/brc4.jpg?v=2" alt="Quality Control Testing" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
