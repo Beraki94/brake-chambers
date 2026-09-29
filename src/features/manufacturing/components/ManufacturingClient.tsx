@@ -97,7 +97,7 @@ export default function ManufacturingClient() {
       <section className="pb-0 sm:pb-12 md:pb-32 relative z-10 bg-navy-900 border-t border-transparent">
         <div
           className="hidden md:block absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url("/images/brc4.jpg")' }}
+          style={{ backgroundImage: 'url("/images/brc8.jpg")' }}
         />
         <div className="hidden md:block absolute inset-0 z-0 bg-navy-950/60" />
 

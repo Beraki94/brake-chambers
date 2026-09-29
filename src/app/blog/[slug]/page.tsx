@@ -33,11 +33,15 @@ export function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const postIndex = blogPosts.findIndex((p) => p.slug === slug);
 
-  if (!post) {
+  if (postIndex === -1) {
     notFound();
   }
 
-  return <BlogPostClient post={post} />;
+  const post = blogPosts[postIndex];
+  const prevPost = postIndex > 0 ? blogPosts[postIndex - 1] : null;
+  const nextPost = postIndex < blogPosts.length - 1 ? blogPosts[postIndex + 1] : null;
+
+  return <BlogPostClient post={post} prevPost={prevPost} nextPost={nextPost} />;
 }

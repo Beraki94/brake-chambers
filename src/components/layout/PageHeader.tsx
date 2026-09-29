@@ -18,6 +18,17 @@ interface PageHeaderProps {
 export default function PageHeader({ badge, badgeIcon: BadgeIcon, title, description, children, imageSrc, breadcrumbs, fullColorBackground = false }: PageHeaderProps) {
   return (
     <header className="relative pt-8 md:pt-10 lg:pt-12 pb-24 md:pb-32 lg:pb-40 border-b border-navy-800 overflow-hidden px-4 sm:px-6 lg:px-8 bg-navy-950">
+      
+      {/* Universal Brake Chamber Watermark on the Right */}
+      <div className="absolute top-0 right-0 w-[400px] md:w-[600px] lg:w-[800px] h-full opacity-[0.20] mix-blend-luminosity pointer-events-none z-0">
+        <Image 
+          src="/images/brc-brakechamber-background.png" 
+          alt="Brake Chamber Background"
+          fill
+          className="object-contain object-right-top transform translate-x-12"
+          priority
+        />
+      </div>
       {/* Background Image (Only renders if an imageSrc is provided) */}
       <div className="absolute inset-0 z-0">
         {imageSrc && (

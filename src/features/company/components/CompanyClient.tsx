@@ -198,7 +198,7 @@ export default function CompanyClient() {
               className="w-full rounded-[2.5rem] overflow-hidden shadow-2xl relative group border border-slate-200"
             >
               <img
-                src="/images/brc4.jpg"
+                src="/images/brc8.jpg"
                 alt="BRC Leadership Team on the manufacturing floor"
                 className="w-full h-[300px] md:h-[500px] object-cover transition-transform duration-[10s] group-hover:scale-110 ease-out"
               />

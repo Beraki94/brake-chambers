@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { PhoneCall, Mail, Phone, MapPin, Clock, Send, Globe, Truck, MessageCircle, ArrowRight, CheckCircle, User, Building, HelpCircle } from 'lucide-react';
@@ -60,6 +60,14 @@ const contactCards = [
 
 export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsMapLoaded(true);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
   const faqs = [
     {
       q: "What is your Minimum Order Quantity (MOQ)?",
@@ -307,15 +315,22 @@ export default function ContactClient() {
             {/* Amber Duotone Overlay - covers the entire map seamlessly */}
             <div className="absolute inset-0 bg-amber-500/15 mix-blend-color z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-1000 ease-out"></div>
             
-            {/* The Google Map */}
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110190.57398188172!2d121.4633716503816!3d29.87834529999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x344d634db8bebaeb%3A0xeab5c8148b301764!2sNingbo%2C%20Zhejiang%2C%20China!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-              className="absolute inset-0 w-full h-full filter -[0.8] contrast-[1.1] opacity-90 group-hover:-0 group-hover:opacity-100 transition-all duration-1000 ease-out z-0"
-              style={{ border: 0 }} 
-              allowFullScreen={false} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            {/* The Google Map - Deferred Loading */}
+            {isMapLoaded ? (
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110190.57398188172!2d121.4633716503816!3d29.87834529999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x344d634db8bebaeb%3A0xeab5c8148b301764!2sNingbo%2C%20Zhejiang%2C%20China!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                className="absolute inset-0 w-full h-full filter -[0.8] contrast-[1.1] opacity-90 group-hover:-0 group-hover:opacity-100 transition-all duration-1000 ease-out z-0"
+                style={{ border: 0 }} 
+                allowFullScreen={false} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            ) : (
+              <div className="absolute inset-0 w-full h-full bg-slate-200 flex flex-col items-center justify-center text-slate-400 z-0 animate-pulse">
+                <MapPin className="w-8 h-8 mb-2 opacity-50" />
+                <span className="text-sm font-medium">Loading Map...</span>
+              </div>
+            )}
             
             {/* Floating Info Card - Positioned at bottom left, fully responsive */}
             <div className="absolute bottom-0 left-0 w-full sm:w-auto p-4 sm:p-6 z-20 pointer-events-none flex justify-center sm:justify-start">

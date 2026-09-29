@@ -68,7 +68,7 @@ export default function TrendingModelsMarquee() {
                 <Link
                   key={`${chamber.slug}-${i}`}
                   href={`/${urlCategory}/${chamber.slug}`}
-                  className="w-72 bg-white border border-slate-200 rounded-3xl p-5 flex flex-col hover:border-amber-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group/card relative shrink-0"
+                  className="w-72 bg-white border border-slate-200 rounded-3xl p-5 flex flex-col shadow-sm hover:border-amber-400 hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.4)] hover:-translate-y-1.5 transition-all duration-300 group/card relative shrink-0"
                 >
                   <div className="w-full h-48 sm:h-52 bg-slate-50 rounded-2xl relative mb-5 overflow-hidden flex items-center justify-center border border-slate-100">
                     {chamber.galleryUrls?.[0] ? (
@@ -76,7 +76,7 @@ export default function TrendingModelsMarquee() {
                         src={chamber.galleryUrls[0]}
                         alt={chamber.name}
                         fill
-                        className="object-contain p-2 transition-transform duration-700 group-hover/card:scale-110"
+                        className="object-contain transition-transform duration-700 group-hover/card:scale-110"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-slate-400 text-sm font-medium">
@@ -112,7 +112,7 @@ export default function TrendingModelsMarquee() {
                 <Link
                   key={`dup-${chamber.slug}-${i}`}
                   href={`/${urlCategory}/${chamber.slug}`}
-                  className="w-72 bg-white border border-slate-200 rounded-3xl p-5 flex flex-col hover:border-amber-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group/card relative shrink-0"
+                  className="w-72 bg-white border border-slate-200 rounded-3xl p-5 flex flex-col shadow-sm hover:border-amber-400 hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.4)] hover:-translate-y-1.5 transition-all duration-300 group/card relative shrink-0"
                 >
                   <div className="w-full h-48 sm:h-52 bg-slate-50 rounded-2xl relative mb-5 overflow-hidden flex items-center justify-center border border-slate-100">
                     {chamber.galleryUrls?.[0] ? (
@@ -120,7 +120,7 @@ export default function TrendingModelsMarquee() {
                         src={chamber.galleryUrls[0]}
                         alt={chamber.name}
                         fill
-                        className="object-contain p-2 transition-transform duration-700 group-hover/card:scale-110"
+                        className="object-contain transition-transform duration-700 group-hover/card:scale-110"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-slate-400 text-sm font-medium">

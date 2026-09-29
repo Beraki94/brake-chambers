@@ -62,7 +62,7 @@ export default function ProductionProcessClient() {
         badgeIcon={Factory}
         title="Brake Chamber Manufacturing Process: From Raw Steel to Export-Ready"
         description="Inside our Zhejiang, China factory, every BRC brake chamber moves through a controlled four-stage production flow: stamping, welding, e-coating, and automated assembly."
-        imageSrc="/images/hero-factory.png"
+        imageSrc="/images/brc5.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Manufacturing', href: '/manufacturing' },

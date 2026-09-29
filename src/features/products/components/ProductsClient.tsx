@@ -8,6 +8,7 @@ import { fadeInUp, staggerContainer } from '@/lib/animations';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
+import TrustMarquee from '@/components/ui/TrustMarquee';
 
 
 export default function ProductsClient() {

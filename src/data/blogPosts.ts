@@ -218,7 +218,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Everything fleet managers and distributors need to know about sourcing quality air brake actuators — OEM vs. aftermarket, sizing, and where to get the best wholesale pricing.',
     content: buyingGuideContent,
     category: 'Buying Guide',
-    date: 'August 10, 2026',
+    date: 'September 25, 2026',
     imageUrl: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80',
     readTime: '7 min read'
   },
@@ -229,7 +229,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'A step-by-step field guide to identifying, isolating, and repairing the most common air leak failures that cause DOT out-of-service violations.',
     content: howToContent,
     category: 'How-To',
-    date: 'July 28, 2026',
+    date: 'September 18, 2026',
     imageUrl: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80',
     readTime: '6 min read'
   },
@@ -240,8 +240,8 @@ export const blogPosts: BlogPost[] = [
     excerpt: "The trucking industry is rapidly adopting air disc brakes. Here's how the transition impacts brake chamber design, fleet maintenance, and aftermarket supply chains.",
     content: innovationContent,
     category: 'Innovation',
-    date: 'July 15, 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+    date: 'September 10, 2026',
+    imageUrl: '/images/brc6.jpg',
     readTime: '5 min read'
   },
   {
@@ -251,7 +251,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Proper brake chamber sizing is critical for safe stopping performance. This technical guide covers size designations, stroke limits, and OEM cross-referencing.',
     content: technicalContent,
     category: 'Technical Guide',
-    date: 'June 22, 2026',
+    date: 'August 28, 2026',
     imageUrl: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80',
     readTime: '8 min read'
   },
@@ -262,7 +262,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'A breakdown of FMVSS 121 requirements, Buy America provisions, and why aftermarket chambers from manufacturers producing to IATF 16949 standards are fully legal on U.S. highways.',
     content: industryContent,
     category: 'Industry News',
-    date: 'June 05, 2026',
+    date: 'August 15, 2026',
     imageUrl: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80',
     readTime: '6 min read'
   },
@@ -273,7 +273,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'A data-driven look at preventive maintenance intervals, stocking strategies, and the total cost of ownership advantage of buying brake chambers direct from the manufacturer.',
     content: fleetContent,
     category: 'Fleet Management',
-    date: 'May 18, 2026',
+    date: 'August 02, 2026',
     imageUrl: 'https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=800&q=80',
     readTime: '7 min read'
   },
@@ -284,7 +284,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'How an 80-truck mining fleet in the Canadian Arctic stopped frozen diaphragms and reduced maintenance costs by 25% using BRC Sub-Zero rated chambers.',
     content: arcticMiningContent,
     category: 'Fleet Management',
-    date: 'August 19, 2026',
+    date: 'September 28, 2026',
     imageUrl: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80',
     readTime: '4 min read'
   }

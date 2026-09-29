@@ -2,6 +2,7 @@ import React from 'react';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import PageHeader from '@/components/layout/PageHeader';
 import QuoteClient from '@/features/quote/components/QuoteClient';
+import TrustMarquee from '@/components/ui/TrustMarquee';
 import { Calculator } from 'lucide-react';
 
 export const metadata = {
@@ -25,6 +26,10 @@ export default function QuotePage() {
       />
       
       <QuoteClient />
+      
+      <div className="mt-16">
+        <TrustMarquee />
+      </div>
 
       <BreadcrumbSchema items={[{ name: 'Quote' }]} />
     </div>
