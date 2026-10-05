@@ -17,10 +17,10 @@ const contactCards = [
     value: "+86 13395856758",
     subtext: "Same number - WhatsApp available",
     href: "tel:+8613395856758",
-    color: "emerald",
-    bgColor: "bg-emerald-50",
-    textColor: "text-emerald-600",
-    borderHover: "hover:border-emerald-300",
+    color: "navy",
+    bgColor: "bg-navy-50",
+    textColor: "text-navy-600",
+    borderHover: "hover:border-navy-300",
   },
   {
     icon: Mail,
@@ -51,15 +51,38 @@ const contactCards = [
     description: "Monday - Saturday: 08:00 - 18:00 CST (GMT+8). Closed Sundays and Chinese public holidays.",
     value: "US: Prev day 19:00 - 05:00 EST | EU: 02:00 - 12:00 CET",
     href: undefined,
-    color: "slate",
-    bgColor: "bg-slate-50",
-    textColor: "text-slate-600",
-    borderHover: "hover:border-slate-300",
+    color: "amber",
+    bgColor: "bg-amber-50",
+    textColor: "text-amber-600",
+    borderHover: "hover:border-amber-300",
   },
 ];
 
 export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ source: 'Contact Form', ...data })
+      });
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Submission failed', error);
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   const [isMapLoaded, setIsMapLoaded] = useState(false);
 
   useEffect(() => {
@@ -181,7 +204,7 @@ export default function ContactClient() {
                 <p className="text-[15px] leading-[1.6] font-normal text-slate-600 max-w-md mx-auto">Our sales team will review your request and respond within 24 business hours with a detailed quote.</p>
               </motion.div>
             ) : (
-              <form className="space-y-4 sm:space-y-5" onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
+              <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
                   <div>
                     <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Full Name <span className="text-red-500">*</span></label>
@@ -189,8 +212,10 @@ export default function ContactClient() {
                       <User className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
                       <input 
                         type="text" 
+                        name="fullName"
                         required
-                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        disabled={isSubmitting}
+                        className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50" 
                         placeholder="John Doe" 
                       />
                     </div>
@@ -201,8 +226,10 @@ export default function ContactClient() {
                       <Mail className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
                       <input 
                         type="email" 
+                        name="email"
                         required
-                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        disabled={isSubmitting}
+                        className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50" 
                         placeholder="john@company.com" 
                       />
                     </div>
@@ -213,8 +240,10 @@ export default function ContactClient() {
                       <Building className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
                       <input 
                         type="text" 
+                        name="company"
                         required
-                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        disabled={isSubmitting}
+                        className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50" 
                         placeholder="Global Trucking Logistics" 
                       />
                     </div>
@@ -225,8 +254,10 @@ export default function ContactClient() {
                       <Globe className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
                       <input 
                         type="text" 
+                        name="country"
                         required
-                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        disabled={isSubmitting}
+                        className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50" 
                         placeholder="United States" 
                       />
                     </div>
@@ -237,7 +268,9 @@ export default function ContactClient() {
                       <Phone className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
                       <input 
                         type="text" 
-                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400" 
+                        name="phone"
+                        disabled={isSubmitting}
+                        className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50" 
                         placeholder="+1 234 567 8900" 
                       />
                     </div>
@@ -249,7 +282,7 @@ export default function ContactClient() {
                       <select 
                         required
                         defaultValue=""
-                        className="w-full pl-11 sm:pl-12 bg-slate-50 border border-slate-200 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all text-navy-900 appearance-none"
+                        className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all text-navy-900 appearance-none"
                       >
                         <option value="" disabled>Select an option...</option>
                         <option value="technical">Technical Support</option>
@@ -266,7 +299,7 @@ export default function ContactClient() {
                   <textarea 
                     rows={4} 
                     required
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 resize-none pt-3" 
+                    className="w-full bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 resize-none pt-3" 
                     placeholder="Please include part numbers, estimated quantities, or destination country for shipping quotes..."
                   ></textarea>
                 </div>

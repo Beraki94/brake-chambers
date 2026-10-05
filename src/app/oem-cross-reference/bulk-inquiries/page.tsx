@@ -1,5 +1,6 @@
 import React from 'react';
 import { Truck, Factory, ShieldCheck, FileCheck } from 'lucide-react';
+import BulkInquiriesForm from './BulkInquiriesForm';
 
 export const metadata = {
   title: 'Bulk Sourcing & OEM/ODM | BRC Brake Chambers',
@@ -49,37 +50,7 @@ export default function BulkInquiriesPage() {
 
           <div className="lg:col-span-2 bg-white rounded-2xl shadow-xl border border-navy-50 p-8 md:p-12">
             <h2 className="font-heading text-2xl font-bold text-navy-900 mb-6">Submit an OEM/ODM Inquiry</h2>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-bold text-navy-900 mb-2">Company Name</label>
-                  <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="e.g. Global Truck Parts LLC" />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-navy-900 mb-2">Contact Name</label>
-                  <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="John Doe" />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-navy-900 mb-2">Email Address</label>
-                  <input type="email" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="john@company.com" />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-navy-900 mb-2">Annual Volume (Units)</label>
-                  <select className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-500 text-navy-700">
-                    <option>1,000 - 5,000</option>
-                    <option>5,000 - 20,000</option>
-                    <option>20,000+</option>
-                  </select>
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-bold text-navy-900 mb-2">Engineering / Customization Requirements</label>
-                <textarea rows={5} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="Please describe the specifications required, including any OEM part numbers for reference..."></textarea>
-              </div>
-              <button type="button" className="w-full bg-amber-500 text-navy-900 font-extrabold text-lg py-4 rounded-xl hover:bg-amber-400 shadow-lg shadow-amber-500/30 transition-all active:scale-[0.98]">
-                Send Request to Engineering
-              </button>
-            </form>
+            <BulkInquiriesForm />
           </div>
         </div>
       </section>

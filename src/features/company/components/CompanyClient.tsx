@@ -146,25 +146,25 @@ export default function CompanyClient() {
                   name: 'Mr. Lee',
                   role: 'Chief Engineer',
                   bio: '30+ years of engineering leadership. He ensures every brake chamber meets uncompromising global safety standards.',
-                  img: '51'
+                  img: '/images/company/brc-mr-lee-chief-engineer.jpg'
                 },
                 {
                   name: 'Mr. Gan',
                   role: 'General Manager',
                   bio: 'Directs BRC’s facility operations, driving lean manufacturing processes and strategic global supply chain expansion.',
-                  img: '11'
+                  img: '/images/company/brc-mr-gan-general-manager.jpg'
                 },
                 {
                   name: 'Mr. Xu',
                   role: 'Aluminum Die Casting Master',
                   bio: '28 years of specialized mastery, guaranteeing flawless structural integrity and absolute precision in every component.',
-                  img: '33'
+                  img: '/images/company/brc-mr-xu-aluminum-die-casting-master.jpg'
                 },
                 {
                   name: 'Junlin',
                   role: 'IT Engineer',
                   bio: 'Leads digital infrastructure and facility automation, keeping BRC at the cutting edge of modern industrial tech.',
-                  img: '14'
+                  img: '/images/company/brc--junlin-it-engineer.jpg'
                 }
               ].map((leader, idx) => (
                 <motion.div
@@ -175,8 +175,8 @@ export default function CompanyClient() {
                   key={idx}
                   className="bg-white rounded-[1.5rem] p-3 sm:p-4 border border-slate-100 shadow-sm hover:shadow-xl transition-all hover:border-amber-500 hover:-translate-y-1 text-center flex flex-col items-center group h-full justify-start"
                 >
-                  <div className="w-full aspect-video sm:aspect-[3/2] mx-auto bg-slate-200 rounded-xl mb-4 sm:mb-5 overflow-hidden relative shadow-inner shrink-0">
-                    <img src={`https://i.pravatar.cc/500?img=${leader.img}`} alt={leader.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div className="w-full aspect-square mx-auto bg-slate-200 rounded-xl mb-4 sm:mb-5 overflow-hidden relative shadow-inner shrink-0">
+                    <img src={leader.img} alt={leader.name} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="px-2 pb-2">
                     <h3 className="text-lg font-bold text-navy-900 mb-1">{leader.name}</h3>

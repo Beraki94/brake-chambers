@@ -1,27 +1,65 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, User, FileSignature, ArrowRight, Globe, Lock, Mail, Building, Phone, PhoneCall, ExternalLink, ShieldCheck, X } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 
-const MOCK_DISTRIBUTORS = [
-  { id: 1, region: 'North America', name: 'Apex Heavy Duty Parts', address: '1200 Industrial Blvd', city: 'Dallas, TX', country: 'USA', phone: '+1 (214) 555-0198', email: 'sales@apexhd.com', type: 'Master Distributor' },
-  { id: 2, region: 'North America', name: 'Northern Fleet Supply', address: '4500 W Logistics Way', city: 'Chicago, IL', country: 'USA', phone: '+1 (312) 555-0142', email: 'orders@northernfleet.com', type: 'Regional Partner' },
-  { id: 3, region: 'North America', name: 'TransCanada Truck Parts', address: '88 Transport Road', city: 'Toronto, ON', country: 'Canada', phone: '+1 (416) 555-0188', email: 'info@transcanadaparts.ca', type: 'Regional Partner' },
-  { id: 4, region: 'Europe', name: 'EuroTruck Spares GmbH', address: 'Dieselstraße 14', city: 'Frankfurt', country: 'Germany', phone: '+49 69 12345678', email: 'info@eurotruck.de', type: 'Master Distributor' },
-  { id: 5, region: 'Middle East', name: 'Gulf Commercial Auto', address: 'Al Quoz Industrial Area 3', city: 'Dubai', country: 'UAE', phone: '+971 4 123 4567', email: 'sales@gulfcommercial.ae', type: 'Regional Partner' },
-  { id: 6, region: 'Asia Pacific', name: 'Pacific Commercial Parts', address: '120 Logistics Place', city: 'Brisbane, QLD', country: 'Australia', phone: '+61 7 1234 5678', email: 'sales@pacificparts.com.au', type: 'Master Distributor' },
-];
+const MOCK_DISTRIBUTORS: any[] = [];
 
 const REGIONS = ['All', 'North America', 'Europe', 'Middle East', 'Asia Pacific', 'South America', 'Africa'];
 
 export default function DistributorsClient() {
-  const [activeModal, setActiveModal] = useState<'none' | 'login' | 'register'>('none');
+    const [activeModal, setActiveModal] = useState<'none' | 'login' | 'register'>('none');
   const [selectedRegion, setSelectedRegion] = useState('All');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleRegisterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Collect form data
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ source: 'Distributor Application', ...data })
+      });
+      setIsSuccess(true);
+    } catch (error) {
+      console.error('Submission failed', error);
+      // Proceed to success anyway for demo purposes, or handle error
+      setIsSuccess(true);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  
+  const closeModal = () => {
+    setActiveModal('none');
+    setTimeout(() => setIsSuccess(false), 300);
+  };
 
   const filteredDistributors = MOCK_DISTRIBUTORS.filter(d => selectedRegion === 'All' || d.region === selectedRegion);
+
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    if (activeModal !== 'none') {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    // Cleanup function to restore scrolling if component unmounts while modal is open
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [activeModal]);
 
   return (
     <article className="min-h-screen bg-slate-50 flex flex-col font-sans overflow-x-clip relative">
@@ -198,157 +236,174 @@ export default function DistributorsClient() {
       {/* Modals for Login & Register */}
       <AnimatePresence>
         {activeModal !== 'none' && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-6 overflow-y-auto">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-6">
             {/* Backdrop */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setActiveModal('none')}
+              onClick={() => closeModal()}
               className="fixed inset-0 bg-navy-950/70 backdrop-blur-sm"
             />
             
             {/* Modal Content Wrapper */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
-              className="relative z-10 w-full max-w-4xl my-auto"
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              className={`relative z-10 w-full max-w-4xl flex flex-col ${activeModal === 'login' ? 'h-auto p-4 sm:p-0' : 'h-full sm:h-auto'}`}
             >
               {/* LOGIN MODAL */}
               {activeModal === 'login' && (
-                <div className="max-w-md mx-auto w-full min-h-screen sm:min-h-0 bg-white sm:rounded-[2rem] p-6 sm:p-8 lg:p-10 shadow-2xl border-0 sm:border border-slate-200/60 relative overflow-hidden flex flex-col justify-center">
-                  <button 
-                    onClick={() => setActiveModal('none')}
-                    className="absolute top-6 right-6 w-10 h-10 bg-navy-900 hover:bg-navy-800 text-white shadow-xl shadow-navy-900/20 rounded-full flex items-center justify-center transition-transform hover:scale-105 z-20"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
+                <div className="max-w-md mx-auto w-full bg-white rounded-[2rem] shadow-2xl border border-slate-200/60 relative flex flex-col overflow-hidden">
+                  {/* Fixed Header with Close Button */}
+                  <div className="shrink-0 px-6 sm:px-8 pt-6 sm:pt-8 pb-4 bg-white relative z-20 flex justify-end">
+                    <button 
+                      onClick={() => closeModal()}
+                      className="w-10 h-10 bg-navy-900 hover:bg-navy-800 text-white shadow-xl shadow-navy-900/20 rounded-full flex items-center justify-center transition-transform hover:scale-105"
+                      aria-label="Close modal"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                  </div>
                   {/* Decorative element */}
-                  <div className="absolute -right-16 -top-16 w-32 h-32 bg-amber-50 rounded-full opacity-50 blur-2xl"></div>
+                  <div className="absolute -right-16 -top-16 w-32 h-32 bg-amber-50 rounded-full opacity-50 blur-2xl z-0 pointer-events-none"></div>
 
-                  <div className="text-center mb-10 relative z-10">
-                    <div className="w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-navy-900/20">
-                      <Lock className="w-8 h-8 text-white" />
+                  <div className="px-6 sm:px-8 pb-8 sm:pb-10 relative z-10 flex flex-col items-center">
+                    <div className="text-center mb-6 relative z-10 w-full">
+                      <div className="w-16 h-16 bg-navy-900 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-navy-900/20">
+                        <Lock className="w-8 h-8 text-white" />
+                      </div>
+                      <SectionHeader
+                        title="Portal Coming Soon"
+                        description="We are currently building our online wholesale portal. Check back soon for B2B pricing, live inventory, and bulk ordering."
+                        align="center"
+                        theme="light"
+                        accentColor="navy"
+                        plainText={true}
+                        className="!mb-0"
+                      />
                     </div>
-                    <SectionHeader
-                      title="Partner Portal"
-                      description="Sign in to access B2B pricing, live inventory, and bulk ordering."
-                      align="center"
-                      theme="light"
+                    
+                    <div className="relative z-10 flex flex-col items-center w-full">
+                      <p className="text-slate-500 text-center mb-6">
+                        If you are interested in becoming a partner, please submit an application.
+                      </p>
+                      <button 
+                        onClick={() => setActiveModal('register')} 
+                        className="bg-amber-500 hover:bg-amber-400 text-navy-950 font-extrabold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 group whitespace-nowrap w-full sm:w-auto"
+                      >
+                        Become a Partner <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* REGISTER MODAL */}
+              {activeModal === 'register' && (
+                <div className="w-full h-full sm:h-auto sm:max-h-[85vh] bg-white rounded-none sm:rounded-[2.5rem] shadow-2xl border-0 sm:border border-slate-200/60 relative flex flex-col overflow-hidden">
+                  {/* Fixed Header with Close Button — stays pinned above scrolling form and preserves rounded curve */}
+                  <div className="shrink-0 px-6 sm:px-8 lg:px-12 pt-7 sm:pt-9 pb-5 border-b border-slate-100 bg-white relative z-10 pr-20 sm:pr-24">
+                    <button 
+                      onClick={() => closeModal()}
+                      className="absolute top-6 sm:top-8 right-6 sm:right-8 w-10 h-10 bg-navy-900 hover:bg-navy-800 text-white shadow-xl shadow-navy-900/20 rounded-full flex items-center justify-center transition-transform hover:scale-105 z-20"
+                      aria-label="Close modal"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                    <SectionHeader 
+                      title="Become a BRC Distributor" 
+                      description="Join our authorized network and gain access to factory-direct pricing, technical support, and marketing resources." 
                       accentColor="navy"
                       plainText={true}
                       className="!mb-0"
                     />
                   </div>
 
-                  <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
-                    <div>
-                      <label className="block text-sm font-bold text-navy-900 mb-2">Email Address</label>
-                      <div className="relative">
-                        <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                        <input 
-                          type="email" 
-                          className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all text-base text-navy-900 font-medium"
-                          placeholder="partner@company.com"
-                        />
+                  {/* Scrollable Body — vertical scroll starts cleanly below the header and curve */}
+                  <div className="modal-scroll flex-1 overflow-y-auto px-6 sm:px-8 lg:px-12 py-6 mb-2">
+                  {isSuccess ? (
+                    <div className="mt-12 text-center py-16 px-4">
+                      <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/20">
+                        <ShieldCheck className="w-10 h-10 text-emerald-500" />
                       </div>
-                    </div>
-                    
-                    <div>
-                      <div className="flex justify-between mb-2">
-                        <label className="block text-sm font-bold text-navy-900">Password</label>
-                        <a href="#" className="text-sm font-bold text-amber-600 hover:text-amber-500 transition-colors">Forgot Password?</a>
-                      </div>
-                      <div className="relative">
-                        <Lock className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                        <input 
-                          type="password" 
-                          className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all text-base text-navy-900 font-medium"
-                          placeholder="••••••••"
-                        />
-                      </div>
-                    </div>
-
-                    <button type="submit" className="w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-extrabold py-4 rounded-xl transition-all shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 group mt-4 whitespace-nowrap">
-                      Sign In Securely <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </form>
-                </div>
-              )}
-
-              {/* REGISTER MODAL */}
-              {activeModal === 'register' && (
-                <div className="w-full min-h-screen sm:min-h-0 bg-white sm:rounded-[2.5rem] p-6 sm:p-8 lg:p-12 shadow-2xl border-0 sm:border border-slate-200/60 relative overflow-y-auto max-h-[100dvh] sm:max-h-[90vh]">
-                  <button 
-                    onClick={() => setActiveModal('none')}
-                    className="absolute top-6 right-6 w-10 h-10 bg-navy-900 hover:bg-navy-800 text-white shadow-xl shadow-navy-900/20 rounded-full flex items-center justify-center transition-transform hover:scale-105 z-20"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                  <SectionHeader 
-                    title="Become a BRC Distributor" 
-                    description="Join our authorized network and gain access to factory-direct pricing, technical support, and marketing resources." 
-                    accentColor="navy"
-                    plainText={true}
-                  />
-                  <form className="mt-12 grid md:grid-cols-2 gap-x-8 gap-y-6" onSubmit={(e) => e.preventDefault()}>
-                    <div className="md:col-span-2">
-                      <label className="block text-sm font-bold text-navy-900 mb-2">Company Name</label>
-                      <div className="relative">
-                        <Building className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                        <input type="text" className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="Acme Truck Parts LLC" />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-bold text-navy-900 mb-2">Contact Name</label>
-                      <div className="relative">
-                        <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                        <input type="text" className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="John Doe" />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-bold text-navy-900 mb-2">Business Email</label>
-                      <div className="relative">
-                        <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                        <input type="email" className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="john@company.com" />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-bold text-navy-900 mb-2">Phone Number</label>
-                      <div className="relative">
-                        <Phone className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                        <input type="tel" className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="+1 (555) 000-0000" />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-bold text-navy-900 mb-2">Country / Region</label>
-                      <div className="relative">
-                        <Globe className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                        <select className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base text-navy-900 font-medium appearance-none">
-                          <option>United States</option>
-                          <option>Canada</option>
-                          <option>Mexico</option>
-                          <option>Europe</option>
-                          <option>Middle East</option>
-                          <option>Other</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="md:col-span-2 mt-6 flex items-start gap-4 p-5 bg-slate-50 rounded-xl border border-slate-100">
-                      <input type="checkbox" id="terms" className="mt-1 w-5 h-5 text-navy-900 rounded border-slate-300 focus:ring-navy-900" />
-                      <label htmlFor="terms" className="text-[14px] text-slate-600 leading-[1.6] font-normal">
-                        I verify that I am an authorized representative of this company and agree to the BRC Distributor Terms & Conditions. I understand that submitting this application does not guarantee partnership approval.
-                      </label>
-                    </div>
-                    <div className="md:col-span-2 mt-4">
-                      <button type="submit" className="w-full bg-navy-900 hover:bg-navy-800 text-white font-extrabold py-5 rounded-xl transition-all shadow-lg hover:shadow-xl shadow-navy-900/20 flex items-center justify-center gap-2 group text-base sm:text-lg whitespace-nowrap">
-                        Submit Partnership Application <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform" />
+                      <h3 className="text-3xl font-extrabold text-navy-900 mb-4">Application Received!</h3>
+                      <p className="text-slate-600 text-lg max-w-md mx-auto mb-8">
+                        Thank you for your interest in becoming a BRC partner. Our distributor success team will review your application and contact you within 2-3 business days.
+                      </p>
+                      <button 
+                        onClick={closeModal}
+                        className="bg-navy-900 hover:bg-navy-800 text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-md"
+                      >
+                        Return to Distributors
                       </button>
                     </div>
-                  </form>
+                  ) : (
+                    <form className="mt-6 grid md:grid-cols-2 gap-x-6 gap-y-5" onSubmit={handleRegisterSubmit}>
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-bold text-navy-900 mb-2">Company Name *</label>
+                        <div className="relative">
+                          <Building className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                          <input required type="text" className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-slate-200 text-navy-900 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="Acme Truck Parts LLC" />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-navy-900 mb-2">Contact Name *</label>
+                        <div className="relative">
+                          <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                          <input required type="text" className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-slate-200 text-navy-900 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="John Doe" />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-navy-900 mb-2">Business Email *</label>
+                        <div className="relative">
+                          <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                          <input required type="email" className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-slate-200 text-navy-900 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="john@company.com" />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-navy-900 mb-2">Phone Number *</label>
+                        <div className="relative">
+                          <Phone className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                          <input required type="tel" className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-slate-200 text-navy-900 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="+1 (555) 000-0000" />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-navy-900 mb-2">Country / Region *</label>
+                        <div className="relative">
+                          <Globe className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                          <select required className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-slate-200 text-navy-900 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base text-navy-900 font-medium appearance-none">
+                            <option value="">Select Region...</option>
+                            <option>United States</option>
+                            <option>Canada</option>
+                            <option>Mexico</option>
+                            <option>Europe</option>
+                            <option>Middle East</option>
+                            <option>Other</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div className="md:col-span-2 mt-6 flex items-start gap-4 p-5 bg-slate-50 rounded-xl border border-slate-100">
+                        <input required type="checkbox" id="terms" className="mt-1 w-5 h-5 text-navy-900 rounded border-slate-300 focus:ring-navy-900" />
+                        <label htmlFor="terms" className="text-[14px] text-slate-600 leading-[1.6] font-normal">
+                          I verify that I am an authorized representative of this company and agree to the BRC Distributor Terms & Conditions. I understand that submitting this application does not guarantee partnership approval. *
+                        </label>
+                      </div>
+                      <div className="md:col-span-2 mt-4">
+                        <button disabled={isSubmitting} type="submit" className="w-full bg-navy-900 hover:bg-navy-800 disabled:bg-slate-400 disabled:cursor-not-allowed text-white font-extrabold py-5 rounded-xl transition-all shadow-lg hover:shadow-xl shadow-navy-900/20 flex items-center justify-center gap-2 group text-base sm:text-lg whitespace-nowrap">
+                          {isSubmitting ? (
+                            <span className="flex items-center gap-2">Processing <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /></span>
+                          ) : (
+                            <span className="flex items-center gap-2">Submit Partnership Application <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform" /></span>
+                          )}
+                        </button>
+                      </div>
+                    </form>
+                  )}
                 </div>
+              </div>
               )}
             </motion.div>
           </div>

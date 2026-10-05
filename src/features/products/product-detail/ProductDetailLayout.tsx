@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShieldCheck, Truck, Download, ChevronRight, Check } from 'lucide-react';
+import { ShieldCheck, Truck, Download, ChevronRight, Check, ShoppingCart } from 'lucide-react';
+import { useCartStore } from '@/store/cart';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import CategoryPromoBanner from '@/features/products/components/CategoryPromoBanner';
 import ProductSeoBlock from '@/features/products/components/ProductSeoBlock';
@@ -23,7 +24,20 @@ export default function ProductDetailLayout({
   categoryPath: string;
 }) {
   const [activeImage, setActiveImage] = useState(0);
+  const [isAdding, setIsAdding] = useState(false);
+  const [added, setAdded] = useState(false);
+  const addItem = useCartStore((state) => state.addItem);
   const isChamber = 'type' in product;
+
+  const handleAddToCart = () => {
+    setIsAdding(true);
+    addItem(product, categoryPath as any, 1);
+    setTimeout(() => {
+      setIsAdding(false);
+      setAdded(true);
+      setTimeout(() => setAdded(false), 2000);
+    }, 400);
+  };
 
   return (
     <>
@@ -271,11 +285,25 @@ export default function ProductDetailLayout({
             )}
 
 
-            {/* Static CTA Buttons */}
+            {/* CTA Buttons */}
             <div className="mt-4 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 pt-5 sm:pt-6 border-t border-slate-100">
-              <Link href="/quote" className="flex-1 bg-amber-500 hover:bg-amber-400 text-navy-950 text-center font-black py-4 rounded-xl transition-all shadow-xl shadow-amber-500/20 uppercase tracking-widest text-sm flex items-center justify-center">
-                Submit Bulk RFQ
-              </Link>
+              <button 
+                onClick={handleAddToCart}
+                disabled={isAdding || added}
+                className={`flex-1 text-center font-black py-4 rounded-xl transition-all shadow-xl uppercase tracking-widest text-sm flex items-center justify-center ${
+                  added 
+                    ? 'bg-emerald-500 text-white shadow-emerald-500/20' 
+                    : 'bg-amber-500 hover:bg-amber-400 text-navy-950 shadow-amber-500/20'
+                }`}
+              >
+                {isAdding ? (
+                  <span className="flex items-center"><div className="w-4 h-4 border-2 border-navy-900 border-t-transparent rounded-full animate-spin mr-2"></div> Adding...</span>
+                ) : added ? (
+                  <span className="flex items-center"><Check size={18} className="mr-2" /> Added to Quote</span>
+                ) : (
+                  <span className="flex items-center"><ShoppingCart size={18} className="mr-2" /> Add to Quote List</span>
+                )}
+              </button>
               <Link href="/distributor/login" className="flex-1 bg-navy-900 text-white text-center font-bold py-4 rounded-xl hover:bg-navy-800 transition-all uppercase tracking-widest text-sm border border-navy-700 flex items-center justify-center">
                 Distributor Login
               </Link>

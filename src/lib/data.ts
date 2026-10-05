@@ -1184,12 +1184,4 @@ const createAccessory = (id: string, name: string, category: AccessoryCategory, 
   };
 };
 
-export const BRAKE_ACCESSORIES: BrakeAccessory[] = [
-  createAccessory('a1', 'Type 30 Rubber Diaphragm', 'Diaphragm', 2.50, ['High temp resistance', 'OEM Spec', 'Heavy Duty']),
-  createAccessory('a2', 'Type 24 Rubber Diaphragm', 'Diaphragm', 2.20, ['High temp resistance', 'OEM Spec', 'Heavy Duty']),
-  createAccessory('a3', 'Standard Caging Bolt', 'Caging Bolt', 1.50, ['Hardened Steel', 'Corrosion Resistant']),
-  createAccessory('a4', 'Type 30 Clamp Band', 'Clamp Band', 3.00, ['Stainless Steel Options', 'Secure Fit']),
-  createAccessory('a5', 'Automatic Slack Adjuster (5.5" / 1.5" - 28 Spline)', 'Slack Adjuster', 25.00, ['Self-adjusting', 'Durable']),
-  createAccessory('a6', 'Manual Slack Adjuster', 'Slack Adjuster', 12.00, ['Forged Steel', 'Grease Fitting Included']),
-  ...Array.from({ length: 24 }).map((_, i) => createAccessory(`a${i+7}`, `Accessory Variant ${i+7}`, 'Diaphragm', 2.50, ['Heavy Duty'])),
-];
+export const BRAKE_ACCESSORIES: BrakeAccessory[] = [];

@@ -184,15 +184,15 @@ export default function Navbar() {
             {/* Right side controls */}
             <div className="flex items-center gap-2.5 md:gap-4 flex-shrink-0">
 
-              {/* Cart Button (Hidden on Mobile) */}
+              {/* Cart Button */}
               <Link
                 href={`/quote`}
-                className="hidden lg:flex relative items-center justify-center md:px-5 md:py-2.5 w-10 h-10 md:w-auto md:h-auto bg-navy-900 hover:bg-navy-800 text-white rounded-full font-black transition-all shadow-lg group md:gap-2.5"
+                className={`${mounted && cartCount > 0 ? 'flex' : 'hidden'} lg:flex relative items-center justify-center md:px-5 md:py-2.5 w-10 h-10 md:w-auto md:h-auto md:bg-navy-900 md:hover:bg-navy-800 text-navy-950 md:text-white rounded-full font-black transition-all md:shadow-lg group md:gap-2.5`}
               >
-                <ShoppingBag className="h-4 w-4 md:h-5 md:w-5 text-white" />
+                <ShoppingBag className="h-6 w-6 md:h-5 md:w-5" />
                 <span className="hidden md:inline text-[12px] uppercase tracking-widest">Request Quote</span>
                 {mounted && cartCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-white text-navy-950 text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center shadow-sm border-2 border-navy-950">
+                  <span className="absolute -top-1 -right-1 md:-top-1.5 md:-right-1.5 bg-navy-950 md:bg-white text-white md:text-navy-950 text-[10px] font-extrabold w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center shadow-sm md:border-2 md:border-navy-950">
                     {cartCount}
                   </span>
                 )}
