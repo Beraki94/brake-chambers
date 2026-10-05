@@ -98,7 +98,7 @@ export default function ContactClient() {
     },
     {
       q: "What are your standard manufacturing lead times?",
-      a: "Standard catalog orders ship 30 days from order confirmation. Custom OEM or private label orders require 45-60 days depending on tooling and packaging requirements. Sample orders ship within 5-7 business days."
+      a: "Standard catalog orders ship 30-45 days from order confirmation. Custom OEM or private label orders require 45-60 days depending on tooling and packaging requirements. Sample orders ship within 5-7 business days."
     },
     {
       q: "Do you offer private labeling or custom OEM branding?",
@@ -114,7 +114,7 @@ export default function ContactClient() {
     },
     {
       q: "What is your warranty policy?",
-      a: "BRC brake chambers are covered by a 3-year limited warranty against manufacturing defects. Warranty claims are submitted through our online portal with photo documentation. Response within 24 hours. See our warranty page for full terms."
+      a: "BRC brake chambers are covered by a 1-year limited warranty against manufacturing defects. Warranty claims are submitted through our online portal with photo documentation. Response within 24 hours. See our warranty page for full terms."
     }
   ];
 

@@ -202,7 +202,7 @@ export default function WarrantyClient() {
                 {[
                   "Claims must be submitted within 30 days of discovering the failure.",
                   "Physical return of failed parts may be requested for QA analysis before credit is issued.",
-                  "Replacement units ship FOB factory (standard Incoterms apply).",
+                  "Replacement units ship EXW factory (standard Incoterms apply).",
                   "Labour costs are not covered under this warranty."
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-2">

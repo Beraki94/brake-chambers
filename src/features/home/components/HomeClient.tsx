@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, scaleIn } from '@/lib/animations';
-import { blogPosts } from '@/data/blogPosts';
+import { BlogPost } from '@/types';
 import BlogCard from '@/components/ui/BlogCard';
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 import TrendingModelsMarquee from '@/components/ui/TrendingModelsMarquee';
@@ -20,7 +20,7 @@ const HERO_SLIDES = [
     badge: "Direct Factory",
     badgeIcon: <Settings className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />,
     title: <>OEM Brake Chamber <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-navy-400">Manufacturer <br className="block md:hidden" />in China.</span></>,
-    description: "Source direct from our 50,000 sqm operating to IATF 16949 standards facility in Zhejiang, China. Eliminate middleman markups on premium aftermarket brake chambers for trucks, trailers, and commercial fleets worldwide.",
+    description: "Source direct from our large-scale IATF 16949-aligned facility in Zhejiang, China. Eliminate middleman markups on premium aftermarket brake chambers for trucks, trailers, and commercial fleets worldwide.",
     cta1: { text: "Get Factory Pricing", link: "/quote" },
     cta2: { text: "Request Free Samples", link: "/contact" },
     image: "/images/home/hero_truck_image_1.png",
@@ -53,7 +53,11 @@ const HERO_SLIDES = [
   }
 ];
 
-export default function HomeClient() {
+interface HomeClientProps {
+  blogPosts: BlogPost[];
+}
+
+export default function HomeClient({ blogPosts }: HomeClientProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [mounted, setMounted] = useState(false);
 
@@ -175,7 +179,7 @@ export default function HomeClient() {
               <SectionHeader
                 badge="Product Lines"
                 title="Explore Our Brake Chamber Range: Spring, Service, ADB & Parts"
-                description="Explore BRC's complete range of aftermarket brake chambers for trucks, trailers, and commercial fleets. Every category is manufactured to IATF 16949 standards and cross-referenced against Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO part numbers."
+                description="Browse BRC's complete range of aftermarket brake chambers for trucks, trailers, and commercial fleets. Every category is manufactured to IATF 16949 standards and cross-referenced against Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO part numbers."
                 align="left"
                 theme="light"
                 accentColor="amber"
@@ -327,7 +331,7 @@ export default function HomeClient() {
             <div className="w-full lg:w-1/2">
               <SectionHeader
                 badge="FACTORY-DIRECT SUPPLY"
-                title={<>Inside Our <span className="text-amber-500">50,000 sqm</span> Brake Chamber Factory</>}
+                title={<>Inside Our <span className="text-amber-500">High-Capacity</span> Brake Chamber Factory</>}
                 description="BRC operates a vertically integrated brake chamber factory in Zhejiang, China, operating to IATF 16949 standards. By sourcing direct, you eliminate middleman markups and manage the full production lifecycle, from raw material to export-ready container."
                 align="left"
                 theme="light"
@@ -338,7 +342,7 @@ export default function HomeClient() {
               <ul className="space-y-5 mb-8 text-left">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-[15px] leading-[1.75]"><strong className="text-navy-900">50,000 Sqm Factory:</strong> State-of-the-art production infrastructure for high-volume brake chamber output and consistent supply.</span>
+                  <span className="text-slate-600 text-[15px] leading-[1.75]"><strong className="text-navy-900">Large-Scale Facility:</strong> State-of-the-art production infrastructure for high-volume brake chamber output and consistent supply.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
@@ -350,7 +354,7 @@ export default function HomeClient() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-600 text-[15px] leading-[1.75]"><strong className="text-navy-900">100% Tested:</strong> Every chamber is pressure-tested at end-of-line, and designs are lab-verified for 1,000,000+ continuous cycles.</span>
+                  <span className="text-slate-600 text-[15px] leading-[1.75]"><strong className="text-navy-900">100% Tested:</strong> Every chamber is pressure-tested at end-of-line, and designs are lab-verified for up to 1,000,000 continuous cycles.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
@@ -547,7 +551,7 @@ export default function HomeClient() {
                       <ShieldCheck className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-2 drop-shadow-md">Industry-Leading 3-Year Warranty</h3>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-2 drop-shadow-md">Industry-Leading 1-Year Warranty</h3>
                       <p className="text-white/90 text-[15px] md:text-base max-w-xl font-normal leading-[1.6] text-left drop-shadow-sm">Enjoy complete peace of mind. Every BRC chamber is backed by a comprehensive defect warranty with a streamlined, no-hassle online claims process.</p>
                     </div>
                   </div>

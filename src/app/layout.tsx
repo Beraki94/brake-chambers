@@ -45,16 +45,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+import { getProducts } from '@/sanity/queries';
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const products = await getProducts();
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://translate.googleapis.com" crossOrigin="anonymous" />
-        <script dangerouslySetInnerHTML={{ __html: `
+        <Script id="splash-check" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: `
           try {
             if (sessionStorage.getItem('hasSeenSplash')) {
               document.documentElement.classList.add('hide-splash');
@@ -97,7 +100,7 @@ export default function RootLayout({
         <main className="flex-grow">
           {children}
         </main>
-        <GlobalSearchModal />
+        <GlobalSearchModal products={products} />
         <WhatsAppWidget />
         <CookieConsent />
         <Footer />

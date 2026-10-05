@@ -8,8 +8,11 @@ export const metadata: Metadata = {
   description: 'The world leader in aftermarket commercial brake chambers. Delivering direct OEM-grade replacements for Bendix, Haldex, Meritor, and Wabco to global fleets.',
   keywords: 'Brake Chambers, Commercial Air Brakes, Bendix Replacement, Meritor Replacement, Wabco Replacement, Haldex Replacement, Heavy Duty Truck Parts, Spring Brakes, Service Brakes, Air Disc Brakes',
 };
+import { getBlogPosts } from '@/sanity/queries';
 
-export default function Home() {
+export default async function Home() {
+  const blogPosts = await getBlogPosts();
+
   // Structured Data (JSON-LD) for SEO
   const jsonLd = {
     "@context": "https://schema.org",
@@ -50,7 +53,7 @@ export default function Home() {
       </h1>
 
       {/* Render the interactive client component */}
-      <HomeClient />
+      <HomeClient blogPosts={blogPosts} />
     </>
   );
 }

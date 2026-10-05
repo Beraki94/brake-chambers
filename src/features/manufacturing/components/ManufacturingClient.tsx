@@ -12,7 +12,7 @@ export default function ManufacturingClient() {
   const stats = [
     { icon: Trophy, value: "IATF 16949", label: "Aligned Facility" },
     { icon: Cog, value: "1M+", label: "Brake Chambers Produced Annually" },
-    { icon: Users, value: "250+", label: "Manufacturing Specialists" },
+    { icon: Users, value: "104", label: "Total Employees" },
     { icon: LineChart, value: "100%", label: "Pneumatic Testing Before Shipment" },
   ];
 
@@ -40,7 +40,7 @@ export default function ManufacturingClient() {
     },
     {
       title: "Brake Chamber Quality Assurance",
-      desc: "1M+ cycle testing, salt spray chambers, burst pressure validation, and 100% leak testing.",
+      desc: "Lifecycle testing (200K/1M), salt spray chambers, burst pressure validation, and 100% leak testing.",
       icon: <ShieldCheck className="w-8 h-8 text-amber-500 transition-colors" />,
       link: "/manufacturing/quality-assurance",
       linkText: "Explore Quality Assurance"
@@ -70,9 +70,9 @@ export default function ManufacturingClient() {
 
   const facts = [
     { label: "Location", value: "Fengqiao Industrial Zone, Zhuji, Zhejiang Province, China 311811" },
-    { label: "Factory Size", value: "50,000 sqm vertically integrated production facility" },
+    { label: "Factory Size", value: "Large-scale vertically integrated production facility" },
     { label: "Annual Capacity", value: "1M+ brake chambers produced annually" },
-    { label: "Manufacturing Staff", value: "250+ production and quality specialists on the factory floor" },
+    { label: "Total Staff", value: "104 production, quality, and engineering staff on site" },
     { label: "Export Ports", value: "Ningbo-Zhoushan Port and Port of Shanghai" },
     { label: "Quality System", value: "IATF 16949-aligned" },
     { label: "Buyers Welcome", value: "Factory visits and third-party audits available on request" }
@@ -85,7 +85,7 @@ export default function ManufacturingClient() {
         badge="Inside the Factory"
         badgeIcon={Factory}
         title="Brake Chamber Manufacturing in China: Inside Our Zhejiang Factory"
-        description="BRC operates a 50,000 sqm brake chamber factory in Zhejiang, China. Every chamber is manufactured under our IATF 16949-aligned quality system and stress-tested before shipment to distributors in 30+ countries."
+        description="BRC operates a high-capacity brake chamber factory in Zhejiang, China. Every chamber is manufactured under our IATF 16949-aligned quality system and stress-tested before shipment to distributors in 30+ countries."
         imageSrc="/images/pageheaders/brc_manufacturing.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -232,7 +232,7 @@ export default function ManufacturingClient() {
               <span className="inline-block py-1.5 px-4 rounded-full bg-amber-50 text-amber-600 border border-amber-100 font-bold uppercase tracking-widest text-xs mb-6 shadow-sm">
                 Our Factory
               </span>
-              <h2 className="text-3xl md:text-4xl font-black text-navy-900 mb-6">Inside Our 50,000 Sqm Brake Chamber Factory in Zhejiang, China</h2>
+              <h2 className="text-3xl md:text-4xl font-black text-navy-900 mb-6">Inside Our High-Capacity Brake Chamber Factory in Zhejiang, China</h2>
               <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-10">
                 Our vertically integrated factory in Zhejiang, China is built for one purpose: manufacturing brake chambers at scale without sacrificing precision.
               </p>

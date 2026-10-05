@@ -188,7 +188,7 @@ export default function ApplicationDetailClient({ appSlug }: { appSlug: string }
                   className="mb-6 md:mb-8"
                 />
                 <motion.div variants={fadeInUp} className="inline-flex items-center px-4 py-2 rounded-full bg-navy-900/80 border border-navy-700/50 text-slate-300 text-xs font-bold tracking-wide uppercase shadow-lg backdrop-blur-sm">
-                  <CheckCircle2 className="w-4 h-4 mr-2 text-amber-500" /> All recommended packages are manufactured to IATF 16949 standards and 1M-cycle lab tested
+                  <CheckCircle2 className="w-4 h-4 mr-2 text-amber-500" /> All recommended packages are manufactured to IATF 16949 standards and up to 1M-cycle lab tested
                 </motion.div>
               </div>
             </div>

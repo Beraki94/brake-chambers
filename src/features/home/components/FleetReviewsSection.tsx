@@ -128,76 +128,74 @@ export default function FleetReviewsSection({ categoryName }: { categoryName: st
       </div>
 
       {/* Scrolling Carousel (Full Bleed Width) */}
-      <div className="w-full relative">
+      <div className="w-full relative mt-8">
         {/* Fading Edges for smooth entry/exit */}
-        <div className="hidden md:block absolute top-0 left-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-        <div className="hidden md:block absolute top-0 right-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 left-0 bottom-0 w-8 sm:w-16 md:w-32 bg-gradient-to-r from-blue-50 to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 bottom-0 w-8 sm:w-16 md:w-32 bg-gradient-to-l from-blue-50 to-transparent z-10 pointer-events-none"></div>
         
         {/* Inline styles for scroll hiding and the infinite CSS marquee animation */}
         <style dangerouslySetInnerHTML={{__html: `
           @keyframes infinite-scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-50% - 0.5rem)); }
+            100% { transform: translateX(-100%); }
           }
-          @media (min-width: 768px) {
-            .animate-desktop-scroll {
-              animation: infinite-scroll 40s linear infinite;
-            }
-            .animate-desktop-scroll:hover {
-              animation-play-state: paused;
-            }
+          .animate-marquee-scroll {
+            animation: infinite-scroll 40s linear infinite;
           }
-          .scrollbar-hide::-webkit-scrollbar {
-              display: none;
+          .group:hover .animate-marquee-scroll, .group:active .animate-marquee-scroll {
+            animation-play-state: paused;
           }
         `}} />
         
-        {/* 
-          Mobile: Native touch scrolling with snap (better UX)
-          Desktop: Overflow hidden with CSS marquee auto-scroll 
-        */}
-        <div className="md:overflow-hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6 pt-2 px-4 md:px-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-          {/* Inner scrolling track */}
-          <div className="flex items-stretch w-max gap-4 md:gap-6 md:px-6 animate-desktop-scroll">
-            {duplicatedReviews.map((review, index) => (
-              <div 
-                key={`${review.id}-${index}`} 
-                className="flex flex-col snap-center sm:snap-align-none flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 relative group hover:border-amber-200 md:hover:-translate-y-1 transition-all duration-300 shadow-sm md:hover:shadow-md cursor-pointer overflow-hidden"
-              >
-                {/* Decorative Top Right Circle */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-bl-full transition-transform duration-500 group-hover:scale-110 z-0"></div>
-                
-                <Quote className="absolute top-4 right-4 w-10 h-10 text-slate-200 md:group-hover:text-amber-300 transition-colors z-10" />
-                
-                <div className="flex items-center mb-4 relative z-10">
-                  {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className={`w-4 h-4 mr-0.5 ${
-                        i < review.rating 
-                          ? 'fill-amber-500 text-amber-500' 
-                          : 'fill-slate-200 text-slate-200'
-                      }`} 
-                    />
-                  ))}
+        {/* Unified auto-scrolling marquee for both mobile and desktop */}
+        <div className="overflow-hidden pb-6 pt-2 flex group">
+          {/* We use two identical inner tracks for seamless looping */}
+          {[1, 2].map((trackIndex) => (
+            <div 
+              key={trackIndex} 
+              className="flex items-stretch w-max gap-4 sm:gap-6 px-2 sm:px-3 animate-marquee-scroll"
+              aria-hidden={trackIndex === 2 ? "true" : "false"}
+            >
+              {originalReviews.map((review, index) => (
+                <div 
+                  key={`${review.id}-${index}`} 
+                  className="flex flex-col flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 relative hover:border-amber-200 md:hover:-translate-y-1 transition-all duration-300 shadow-sm md:hover:shadow-md cursor-pointer overflow-hidden group/card"
+                >
+                  {/* Decorative Top Right Circle */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-bl-full transition-transform duration-500 group-hover/card:scale-110 z-0"></div>
+                  
+                  <Quote className="absolute top-4 right-4 w-10 h-10 text-slate-200 md:group-hover/card:text-amber-300 transition-colors z-10" />
+                  
+                  <div className="flex items-center mb-4 relative z-10">
+                    {[...Array(5)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        className={`w-4 h-4 mr-0.5 ${
+                          i < review.rating 
+                            ? 'fill-amber-500 text-amber-500' 
+                            : 'fill-slate-200 text-slate-200'
+                        }`} 
+                      />
+                    ))}
+                  </div>
+                  
+                  <p className="text-slate-700 text-sm md:text-base mb-6 italic leading-relaxed relative z-10 min-h-[100px]">
+                    "{review.text}"
+                  </p>
+                  
+                  <div className="relative z-10 mt-auto flex items-center gap-3">
+                     <div className="w-10 h-10 rounded-full bg-navy-100 flex items-center justify-center text-navy-900 font-bold border border-navy-200">
+                        {review.author.charAt(0)}
+                     </div>
+                     <div>
+                        <p className="font-bold text-navy-900 text-sm">{review.author}</p>
+                        <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider">{review.role}</p>
+                     </div>
+                  </div>
                 </div>
-                
-                <p className="text-slate-700 text-sm md:text-base mb-6 italic leading-relaxed relative z-10 min-h-[100px]">
-                  "{review.text}"
-                </p>
-                
-                <div className="relative z-10 mt-auto flex items-center gap-3">
-                   <div className="w-10 h-10 rounded-full bg-navy-100 flex items-center justify-center text-navy-900 font-bold border border-navy-200">
-                      {review.author.charAt(0)}
-                   </div>
-                   <div>
-                      <p className="font-bold text-navy-900 text-sm">{review.author}</p>
-                      <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider">{review.role}</p>
-                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
 

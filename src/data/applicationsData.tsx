@@ -10,7 +10,7 @@ export const APPLICATION_DATA: Record<string, any> = {
     keywords: ['commercial linehaul air brakes', 'linehaul truck brake chambers', 'class 8 truck brakes', 'highway truck air brakes', 'long haul fleet brakes'],
     faqs: [
       { q: 'Will these brake chambers fit a mixed fleet of Freightliner and Peterbilt trucks?', a: 'Yes. BRC brake chambers use standard Class 8 stud spacing and push-rod lengths that fit Freightliner, Kenworth, Peterbilt, Volvo, Mack, and International trucks. Check our OEM cross-reference tool for a direct part-number match.' },
-      { q: 'How do you ensure these won\'t fail on long mountain descents?', a: 'Every BRC power spring is epoxy-coated to prevent pitting, and every diaphragm is molded from high-temperature neoprene rated for continuous highway braking. All chambers are 1M+ cycle lab-tested before shipment.' },
+      { q: 'How do you ensure these won\'t fail on long mountain descents?', a: 'Every BRC power spring is epoxy-coated to prevent pitting, and every diaphragm is molded from high-temperature neoprene rated for continuous highway braking. All chambers are up to 1M cycle lab-tested before shipment.' },
       { q: 'What is the typical service life of a BRC brake chamber in linehaul duty?', a: 'Under normal linehaul conditions, BRC brake chambers are engineered to deliver 500,000 to 800,000 miles of service before requiring rebuild. Actual lifespan depends on terrain, load weight, and maintenance intervals.' },
       { q: 'Can I order evaluation samples before committing to a fleet order?', a: 'Yes. We ship evaluation samples directly from our factory. Most sample orders are dispatched within 5–7 business days, with express shipping available for urgent fleet evaluations.' },
       { q: 'Do these chambers meet US DOT requirements?', a: 'Yes. BRC brake chambers are tested to FMVSS-121 standards, which is the US federal safety standard for air brake systems on commercial vehicles.' },
@@ -35,7 +35,7 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Direct OEM Fitment', desc: 'Standard stud spacing, exact push-rod lengths, and universal air port threads guarantee drop-in fitment across Freightliner, Kenworth, Peterbilt, Volvo, Mack, and International trucks.', icon: <Wrench className="w-8 h-8" /> }
     ],
     recommendedTitle: 'Recommended Brake Chambers for Long-Haul Semi Trucks',
-    recommendedDesc: 'The ideal brake chamber combination for Class 8 linehaul duty, validated to IATF 16949 standards and 1M+ cycle lab tested.',
+    recommendedDesc: 'The ideal brake chamber combination for Class 8 linehaul duty, validated to IATF 16949 standards and up to 1M cycle lab tested.',
     recommendedPackage: [
       { name: 'Type 30/30 Standard Spring Brakes', desc: 'The trusted backbone of Class 8 linehaul parking and emergency braking. Double-diaphragm design delivers reliable mechanical lockup and consistent highway service braking.', link: '/products' },
       { name: 'Air Disc Brake Actuators', desc: 'Optimized for modern Class 8 fleets transitioning to air disc brake systems. HOT Technology delivers consistent clamping force for shorter, fade-resistant stopping distances.', link: '/products' }
@@ -80,7 +80,7 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Sealed Push-Rod Bearing', desc: 'Contamination-sealed push-rod bearings prevent road salt, mud, and debris from entering the chamber, extending service life in over-the-road conditions.', icon: <CheckCircle2 className="w-8 h-8" /> }
     ],
     recommendedTitle: 'Recommended Brake Chambers for Trailer Axles',
-    recommendedDesc: 'The ideal brake chamber combination for over-the-road trailer duty, validated to IATF 16949 standards and 1M+ cycle lab tested.',
+    recommendedDesc: 'The ideal brake chamber combination for over-the-road trailer duty, validated to IATF 16949 standards and up to 1M cycle lab tested.',
     recommendedPackage: [
       { name: 'Type 30/30 Long Stroke Spring Brakes', desc: 'Delivers the extended push-rod travel required to maintain braking efficiency as brake shoes wear down over long hauls. Ideal for trailer parking and emergency brake circuits.', link: '/products' },
       { name: 'Type 30 Service Chambers', desc: 'High-volume single-diaphragm service chambers engineered for immediate brake response on multi-axle trailer configurations. Direct fit for standard S-cam setups.', link: '/products' }
@@ -171,7 +171,7 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Direct Refuse OEM Fitment', desc: 'Standard stud spacing and push-rod lengths fit Mack, Autocar, Peterbilt, Freightliner, and other refuse fleet platforms directly, providing drop-in replacement across your entire mixed fleet.', icon: <Wrench className="w-8 h-8" /> }
     ],
     recommendedTitle: 'Recommended Brake Chambers for Refuse Trucks',
-    recommendedDesc: 'The ideal brake chamber combination for waste collection duty, validated to IATF 16949 standards and 1M+ cycle lab tested.',
+    recommendedDesc: 'The ideal brake chamber combination for waste collection duty, validated to IATF 16949 standards and up to 1M cycle lab tested.',
     recommendedPackage: [
       { name: 'Type 30/30 Severe-Duty Sealed Brakes', desc: 'The ultimate defense against landfill environments. Sealed housing and high-temperature diaphragms protect internal components from leachate and radiant heat.', link: '/products' },
       { name: 'Heavy-Duty Piggyback Kits', desc: 'Factory-direct replacement spring sections that allow mechanics to swap the power spring without dismounting the entire housing, reducing service downtime and getting trucks back on route.', link: '/products' }
@@ -217,7 +217,7 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Direct Heavy Equipment Fitment', desc: 'BRC chambers match standard OEM mounting dimensions for Caterpillar, Komatsu, Volvo CE, Hitachi, and other heavy equipment platforms, enabling fast field replacement without modification.', icon: <Wrench className="w-8 h-8" /> }
     ],
     recommendedTitle: 'Recommended Brake Chambers for Mining & Construction Equipment',
-    recommendedDesc: 'The ideal brake chamber combination for off-highway duty, validated to IATF 16949 standards and 1M+ cycle lab tested.',
+    recommendedDesc: 'The ideal brake chamber combination for off-highway duty, validated to IATF 16949 standards and up to 1M cycle lab tested.',
     recommendedPackage: [
       { name: 'Type 36/36 Heavy-Duty Spring Brakes', desc: 'Massive clamping force designed for ultra-heavy payloads on steep quarry grades. Double-diaphragm design delivers reliable parking and emergency braking under sustained off-highway load.', link: '/products' },
       { name: 'Type 36 Service Chambers', desc: 'Oversized service chambers delivering maximum pneumatic response for extreme off-highway applications. Direct fit for standard mining and construction S-cam setups.', link: '/products' }
@@ -309,7 +309,7 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Direct Transit OEM Fitment', desc: 'Standard transit bus stud spacing and push-rod lengths fit New Flyer, Gillig, Nova Bus, BYD, and other major municipal platforms - direct drop-in fitment for your maintenance bays.', icon: <CheckCircle2 className="w-8 h-8" /> }
     ],
     recommendedTitle: 'Recommended Brake Chambers for Transit Buses',
-    recommendedDesc: 'The ideal brake chamber combination for urban transit duty - validated to IATF 16949 standards and 1M+ cycle lab tested.',
+    recommendedDesc: 'The ideal brake chamber combination for urban transit duty - validated to IATF 16949 standards and up to 1M cycle lab tested.',
     recommendedPackage: [
       { name: 'Air Disc Brake Actuators', desc: 'The preferred choice for modern transit buses. HOT Technology delivers smooth modulation and shorter stopping distances in stop-and-go city traffic.', link: '/products' },
       { name: 'Type 24 Service Chambers', desc: 'Compact, high-response service chambers perfect for the rapid actuation demands of urban transit. Direct fit for standard transit S-cam setups.', link: '/products' }
@@ -355,7 +355,7 @@ export const APPLICATION_DATA: Record<string, any> = {
       { name: 'Direct School Bus OEM Fitment', desc: 'Standard school bus stud spacing and push-rod lengths fit Blue Bird, Thomas Built, IC Bus, Collins, and other major school bus chassis as direct drop-in replacements.', icon: <ShieldCheck className="w-8 h-8" /> }
     ],
     recommendedTitle: 'Recommended Brake Chambers for School Buses',
-    recommendedDesc: 'The ideal brake chamber combination for school bus fleet duty - validated to IATF 16949 standards and 1M+ cycle lab tested.',
+    recommendedDesc: 'The ideal brake chamber combination for school bus fleet duty - validated to IATF 16949 standards and up to 1M cycle lab tested.',
     recommendedPackage: [
       { name: 'Type 30/30 Standard Spring Brakes', desc: 'The dependable standard for full-size school bus rear axles. Double-diaphragm design provides fail-safe mechanical parking capability for daily route duty.', link: '/products' },
       { name: 'Type 20 Service Chambers', desc: 'Precision steer-axle chambers designed for fast, controllable stopping power in suburban environments and school zones.', link: '/products' }

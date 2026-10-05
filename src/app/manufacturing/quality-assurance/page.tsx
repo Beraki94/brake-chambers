@@ -5,7 +5,7 @@ import TestingLaboratoryClient from '@/features/manufacturing/components/Testing
 
 export const metadata: Metadata = {
   title: 'Brake Chamber Quality Assurance: Inside Our Testing Lab | BRC',
-  description: 'Every BRC brake chamber passes 1M+ cycle tests, 500-hour salt spray, and 100% pneumatic leak testing. IATF 16949 quality system. Full traceability.',
+  description: 'Every BRC brake chamber passes up to 1M cycle tests, 500-hour salt spray, and 100% pneumatic leak testing. IATF 16949 quality system. Full traceability.',
 };
 
 export default function TestingLaboratoryPage() {

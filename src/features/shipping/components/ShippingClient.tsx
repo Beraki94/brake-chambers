@@ -17,7 +17,7 @@ export default function ShippingClient() {
       <PageHeader
         badge={<><Ship className="w-4 h-4 inline-block mr-1" /> China Export & Global Logistics</>}
         title="Brake Chamber Shipping From China — FCL, LCL & Door-to-Door Export"
-        description="BRC exports brake chambers from our 50,000 sqm factory in Zhejiang, China to distributors in 30+ countries. We ship from Ningbo and Shanghai ports with EXW, FOB, CIF, DDP, and DAP terms — full-container, less-than-container, and door-to-door logistics managed by our in-house export team."
+        description="BRC exports brake chambers from our high-capacity factory in Zhejiang, China to distributors in 30+ countries. We ship from Ningbo and Shanghai ports with EXW, FOB, CIF, DDP, and DAP terms — full-container, less-than-container, and door-to-door logistics managed by our in-house export team."
         imageSrc="/images/pageheaders/brc_shipping.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -55,7 +55,7 @@ export default function ShippingClient() {
           <SectionHeader
             badge="China Factory Origin"
             title="Brake Chamber Shipping From Zhejiang, China"
-            description="Every BRC brake chamber ships from our 50,000 sqm manufacturing facility in Zhejiang Province, China. Our factory is located in the Fengqiao Industrial Zone, Zhuji — approximately 2 hours from Ningbo-Zhoushan Port, one of the largest container ports in the world."
+            description="Every BRC brake chamber ships from our expansive manufacturing facility in Zhejiang Province, China. Our factory is located in the Fengqiao Industrial Zone, Zhuji — approximately 2 hours from Ningbo-Zhoushan Port, one of the largest container ports in the world."
             align="center"
             accentColor="amber"
             plainText={true}
@@ -269,7 +269,7 @@ export default function ShippingClient() {
             <SectionHeader
               badge="Shipping Schedule"
               title="Transit Times From China"
-              description="Production lead time is 30 days. Estimated ocean transit times from Ningbo/Shanghai Port to your destination region:"
+              description="Production lead time is 30 - 45 days. Estimated ocean transit times from Ningbo/Shanghai Port to your destination region:"
               align="center"
               theme="light"
               accentColor="amber"
@@ -286,7 +286,7 @@ export default function ShippingClient() {
                   </thead>
                   <tbody>
                     {[
-                      { region: "North America", time: "20-30 days" },
+                      { region: "North America", time: "20-45 days" },
                       { region: "South America", time: "30-45 days" },
                       { region: "Europe", time: "25-35 days" },
                       { region: "Australia & New Zealand", time: "15-25 days" },

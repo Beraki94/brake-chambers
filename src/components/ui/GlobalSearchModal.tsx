@@ -5,9 +5,14 @@ import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, Package, ShieldCheck } from 'lucide-react';
 import { useSearchModalStore } from '@/store/search';
-import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
+import { BRAKE_ACCESSORIES } from '@/lib/data';
+import type { BrakeChamber } from '@/types';
 
-export default function GlobalSearchModal() {
+interface GlobalSearchModalProps {
+  products: BrakeChamber[];
+}
+
+export default function GlobalSearchModal({ products }: GlobalSearchModalProps) {
   const router = useRouter();
   const { isOpen, closeSearch } = useSearchModalStore();
   const [query, setQuery] = useState('');
@@ -54,7 +59,7 @@ export default function GlobalSearchModal() {
     let catalog: Array<{ type: string; item: any }> = [];
     let oem: Array<{ type: string; item: any; matchedOem: { brand: string; partNumber: string } }> = [];
 
-    BRAKE_CHAMBERS.forEach(p => {
+    products.forEach(p => {
       // Catalog matching
       const isCatalogMatch = tokens.every(token =>
         p.name.toLowerCase().includes(token) ||

@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
+import { BRAKE_ACCESSORIES } from '@/lib/data';
+import { getProducts } from '@/sanity/queries';
 import { BrakeChamber, BrakeAccessory } from '@/types';
 import { TrendingUp, ArrowUpRight } from 'lucide-react';
 
@@ -11,7 +12,9 @@ interface RelatedProductsProps {
   isAccessory?: boolean;
 }
 
-export default function RelatedProducts({ currentSlug, category, isAccessory = false }: RelatedProductsProps) {
+export default async function RelatedProducts({ currentSlug, category, isAccessory = false }: RelatedProductsProps) {
+  const BRAKE_CHAMBERS = await getProducts();
+  const BRAKE_CHAMBERS = await getProducts();
   // Find related products
   let related: (BrakeChamber | BrakeAccessory)[] = [];
   

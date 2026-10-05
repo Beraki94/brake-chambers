@@ -1,12 +1,13 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { BRAKE_CHAMBERS } from '@/lib/data';
+import { getProducts } from '@/sanity/queries';
 import { SERVICE_CHAMBERS_META } from '@/lib/categoryMeta';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import ProductDetailLayout from '@/features/products/product-detail/ProductDetailLayout';
 
 export async function generateStaticParams() {
+  const BRAKE_CHAMBERS = await getProducts();
   const categories = Object.keys(SERVICE_CHAMBERS_META).map((slug) => ({ slug }));
   const products = BRAKE_CHAMBERS.filter(p => p.category === 'Service Brake').map(p => ({ slug: p.slug }));
   return [...categories, ...products];
@@ -15,6 +16,7 @@ export async function generateStaticParams() {
 export async function generateMetadata(
   props: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
+  const BRAKE_CHAMBERS = await getProducts();
   const params = await props.params;
   const { slug } = params;
   
@@ -47,6 +49,7 @@ export default async function ServiceBrakesSlugPage(
     searchParams?: Promise<{ [key: string]: string | string[] | undefined }>
   }
 ) {
+  const BRAKE_CHAMBERS = await getProducts();
   const params = await props.params;
   const searchParams = props.searchParams ? await props.searchParams : undefined;
   const { slug } = params;

@@ -31,7 +31,7 @@ export default function CustomOemClient() {
       description: 'Before committing to production tooling, BRC creates functional prototypes using rapid 3D printing and low-volume CNC machining. Prototypes undergo pneumatic testing, dimensional verification, and performance benchmarking against your specifications.',
       icon: <Microscope />,
       features: [
-        'Functional Metal Prototypes in 14 Days: In-house CNC machining center produces working samples for bench validation.', 
+        'Functional Metal Prototypes in 7 Days: In-house CNC machining center produces working samples for bench validation.', 
         'Pneumatic & Burst Pressure Testing: Prototypes tested to the same standards as our catalog chambers.', 
         'Iterative Design Refinement: Every test result feeds back into the CAD model.', 
         'Customer Sign-Off Before Tooling: No volume tooling is committed until you approve the prototype.'
@@ -57,7 +57,7 @@ export default function CustomOemClient() {
 
   const stats = [
     { value: '50+', label: 'Custom OEM Programs', icon: Handshake },
-    { value: '14 Days', label: 'To First Prototype', icon: Cog },
+    { value: '7 Days', label: 'To First Prototype', icon: Cog },
     { value: '100%', label: 'IP Protection', icon: Lock },
     { value: 'In-House', label: 'Tooling & Dies', icon: Factory },
   ];

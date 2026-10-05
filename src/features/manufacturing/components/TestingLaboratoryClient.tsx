@@ -21,7 +21,7 @@ import AnimatedGridBackground from "@/components/ui/AnimatedGridBackground";
 
 export default function TestingLaboratoryClient() {
   const stats = [
-    { value: "1M+", label: "Cycle Tests Per Sampled Unit", icon: Activity },
+    { value: "200K / 1M", label: "Cycle Tests (Service/Parking)", icon: Activity },
     { value: "500-Hour", label: "Salt Spray Testing", icon: ShieldAlert },
     { value: "-40°F to 200°F", label: "Thermal Validation", icon: Thermometer },
     { value: "100%", label: "End-of-Line Pneumatic Testing", icon: Gauge },
@@ -29,9 +29,9 @@ export default function TestingLaboratoryClient() {
 
   const tests = [
     {
-      title: "1 Million+ Cycle Testing",
+      title: "Lifecycle Endurance Testing",
       description:
-        "Sampled BRC brake chambers are subject to 1,000,000 continuous actuate/release cycles under maximum operating pressure. Chambers that show any loss of stroke response, air leakage, or return-spring degradation before the full cycle count are rejected from the batch.",
+        "Sampled BRC brake chambers are subjected to continuous actuate/release cycles under maximum operating pressure: 200,000 cycles for service chambers and 1,000,000 cycles for parking chambers. Any units that show loss of stroke response or air leakage before the full cycle count are rejected.",
       icon: <Activity />,
       badge: "Fatigue & Durability",
     },

@@ -3,11 +3,15 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useMarketStore } from '@/store/market';
-import { BRAKE_CHAMBERS } from '@/lib/data';
+import type { BrakeChamber } from '@/types';
 import { Search, AlertCircle, ArrowRight } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
 
-export default function OEMSearchForm() {
+interface OEMSearchFormProps {
+  products: BrakeChamber[];
+}
+
+export default function OEMSearchForm({ products }: OEMSearchFormProps) {
   const router = useRouter();
   const selectedMarket = useMarketStore(state => state.selectedMarket);
   const [query, setQuery] = useState('');
@@ -26,7 +30,7 @@ export default function OEMSearchForm() {
       let foundOem: { brand: string, partNumber: string, matchType: string } | null = null;
       let brcProduct = null;
 
-      for (const c of BRAKE_CHAMBERS) {
+      for (const c of products) {
         if (!c.oemPartNumbers) continue;
         const oemMatch = c.oemPartNumbers.find(oem => oem.partNumber.toUpperCase() === cleanQuery);
         if (oemMatch) {

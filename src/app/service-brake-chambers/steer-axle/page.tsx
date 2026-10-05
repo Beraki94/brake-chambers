@@ -2,7 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import BulkOemCard from '@/components/ui/BulkOemCard';
 import type { Metadata } from 'next';
-import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
+import { BRAKE_ACCESSORIES } from '@/lib/data';
+import { getProducts } from '@/sanity/queries';
 import ProductListCard from '@/features/products/components/ProductListCard';
 import FacetedSidebar from '@/features/products/components/FacetedSidebar';
 import { Truck, CheckCircle2 } from 'lucide-react';
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default async function SubCategoryPage(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
+  const BRAKE_CHAMBERS = await getProducts();
   // Fix Turbopack await bug by falling back if undefined
   const searchParams = props.searchParams ? await props.searchParams : undefined;
   

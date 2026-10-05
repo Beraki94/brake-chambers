@@ -2,13 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { BRAKE_CHAMBERS } from '@/lib/data';
+import { getProducts } from '@/sanity/queries';
 import ProductListCard from '@/features/products/components/ProductListCard';
 import PageHeader from '@/components/layout/PageHeader';
 import CrossReferenceMarquee from '@/components/ui/CrossReferenceMarquee';
 import { Truck, CheckCircle2, ShieldCheck, ArrowRight, Cog, Settings2, Replace, BadgeCheck, Check } from 'lucide-react';
 
 export async function generateStaticParams() {
+  const BRAKE_CHAMBERS = await getProducts();
   const params: { brandSlug: string, partNumber: string }[] = [];
   
   BRAKE_CHAMBERS.forEach(chamber => {
@@ -27,6 +28,7 @@ export async function generateStaticParams() {
 export async function generateMetadata(
   props: { params: Promise<{ brandSlug: string, partNumber: string }> }
 ): Promise<Metadata> {
+  const BRAKE_CHAMBERS = await getProducts();
   const params = await props.params;
   const normalizedBrand = params.brandSlug.replace(/-/g, ' ');
   const partNumber = params.partNumber.toUpperCase();
@@ -41,6 +43,7 @@ export async function generateMetadata(
 export default async function OEMPartNumberPage(
   props: { params: Promise<{ brandSlug: string, partNumber: string }> }
 ) {
+  const BRAKE_CHAMBERS = await getProducts();
   const params = await props.params;
   
   // Find the matching BRC chamber based on brandSlug and partNumber

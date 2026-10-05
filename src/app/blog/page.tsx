@@ -6,6 +6,9 @@ export const metadata = {
   description: 'Stay updated with the latest in heavy-duty commercial vehicle braking, ISO compliance, engineering updates, and BRC company news.',
 };
 
-export default function BlogPage() {
-  return <BlogClient />;
+import { getBlogPosts } from '@/sanity/queries';
+
+export default async function BlogPage() {
+  const blogPosts = await getBlogPosts();
+  return <BlogClient blogPosts={blogPosts} />;
 }

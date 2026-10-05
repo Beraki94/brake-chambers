@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
+import { BRAKE_ACCESSORIES } from '@/lib/data';
+import { getProducts } from '@/sanity/queries';
 import ProductListCard from '@/features/products/components/ProductListCard';
 import AccessoryListCard from '@/features/products/product-detail/AccessoryListCard';
 import OEMCrossReferenceCard from '@/features/oem/components/OEMCrossReferenceCard';
@@ -61,6 +62,7 @@ const OEM_BRANDS: Record<string, { name: string, type: string, desc: string }> =
 export async function generateMetadata(
   props: { params: Promise<{ brandSlug: string }> }
 ): Promise<Metadata> {
+  const BRAKE_CHAMBERS = await getProducts();
   const params = await props.params;
   const originalSlug = params.brandSlug;
   let brandSlug = originalSlug;
@@ -101,6 +103,7 @@ export default async function OEMBrandPage(
     searchParams?: Promise<{ [key: string]: string | string[] | undefined }>
   }
 ) {
+  const BRAKE_CHAMBERS = await getProducts();
   const params = await props.params;
   const searchParams = props.searchParams ? await props.searchParams : undefined;
   const originalSlug = params.brandSlug;

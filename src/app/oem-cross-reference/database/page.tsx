@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import { Download, Table, FileSpreadsheet } from 'lucide-react';
-import { BRAKE_CHAMBERS } from '@/lib/data';
+import { getProducts } from '@/sanity/queries';
 
 export const metadata: Metadata = {
   title: 'Full Interchange Database | BRC Brake Chambers',
@@ -12,8 +12,9 @@ export const metadata: Metadata = {
   keywords: ['Brake Chamber Database', 'Download Cross Reference', 'Air Brake Interchange PDF', 'Fleet Maintenance Data'],
 };
 
-export default function DatabasePage() {
+export default async function DatabasePage() {
   
+  const BRAKE_CHAMBERS = await getProducts();
   // Extract all OEM part mappings for the table
   const allMappings: Array<{
     oemBrand: string;

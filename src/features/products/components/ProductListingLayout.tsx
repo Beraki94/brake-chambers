@@ -89,7 +89,7 @@ export default function ProductListingLayout({
       />
       <div className={`container mx-auto px-4 lg:px-8 pt-6 lg:pt-8 max-w-[1920px] ${isSubCategory ? 'pb-16 lg:pb-24' : 'pb-6 lg:pb-8'}`}>
 
-      {!isSubCategory && <TrustBanner />}
+      {!isSubCategory && <TrustBanner category={baseCategory} />}
 
       <div id="product-listing" className="flex flex-col lg:flex-row gap-6 relative">
         <div className="w-full lg:w-64 flex-shrink-0 flex flex-col gap-4">
@@ -146,11 +146,11 @@ export default function ProductListingLayout({
       </div>
 
       {!isSubCategory && visualizerType && <CategoryVisualizer type={visualizerType} />}
-      {!isSubCategory && <ApplicationScopeSection />}
+      {!isSubCategory && <ApplicationScopeSection category={baseCategory} />}
       
       {!isSubCategory && (
         <>
-          <ManufacturingQualityGrid />
+          <ManufacturingQualityGrid category={baseCategory} />
           <OEMQuickLinks categoryName={title} />
         </>
       )}

@@ -14,29 +14,29 @@ export default function HighVolumeOrdersClient() {
   const tiers = [
     {
       tier: 'LCL Pilot Order',
-      range: '500 - 1,999 units',
+      range: 'MOQ: 100+ units (LCL)',
       discount: 'Base Pricing',
       color: 'slate',
-      features: ['Standard catalog products', 'LCL ocean freight support', 'Standard 30-day lead time', 'Email-based account support'],
+      features: ['Standard catalog products', 'LCL ocean freight support', 'Standard 30-45 day lead time', 'Email-based account support'],
     },
     {
       tier: 'Standard FCL',
-      range: '2,000 - 4,999 units',
+      range: "20' Container",
       discount: 'Volume Discount',
       color: 'amber',
       popular: true,
-      features: ['Full catalog + custom specs', 'Optimized LCL/FCL shipping', 'Priority 30-day lead time', 'Dedicated account manager'],
+      features: ['Full catalog + custom specs', 'Optimized LCL/FCL shipping', 'Priority 30-45 day lead time', 'Dedicated account manager'],
     },
     {
-      tier: 'Multi-Container',
-      range: '5,000 - 19,999 units',
+      tier: 'Large FCL',
+      range: "40' Container",
       discount: 'Tier 2 Pricing',
       color: 'navy',
       features: ['Custom OEM engineering available', 'Full container (FCL) optimization', 'Priority allocation scheduling', 'Quarterly business reviews'],
     },
     {
       tier: 'Annual Contract',
-      range: '20,000+ units',
+      range: 'Multi-Container Programs',
       discount: 'Best Factory-Direct Rate',
       color: 'emerald',
       features: ['Dedicated production line access', 'Multi-container programs', 'JIT inventory holding available', 'Executive partnership program'],
@@ -79,7 +79,7 @@ export default function HighVolumeOrdersClient() {
   const stats = [
     { value: '1M+', label: 'Brake Chambers Produced Annually', icon: Boxes },
     { value: '30+', label: 'Countries Shipped To', icon: Globe2 },
-    { value: '30-Day', label: 'Standard Lead Time', icon: Clock },
+    { value: '30-45 Day', label: 'Standard Lead Time', icon: Clock },
     { value: '40ft', label: 'FCL Container Programs', icon: Container },
   ];
 

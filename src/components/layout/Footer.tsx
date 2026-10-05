@@ -59,7 +59,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-navy-300 text-sm mb-5 leading-relaxed pr-4 text-justify">
-              Chinese manufacturer of aftermarket brake chambers for heavy-duty commercial vehicles. 50,000 sqm factory in Zhejiang, China. Serving distributors in 30+ countries. IATF 16949-aligned quality system.
+              Chinese manufacturer of aftermarket brake chambers for heavy-duty commercial vehicles. Large-scale factory in Zhejiang, China. Serving distributors in 30+ countries. IATF 16949-aligned quality system.
             </p>
 
             <div className="flex flex-col gap-4">

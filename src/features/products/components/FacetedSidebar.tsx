@@ -4,10 +4,11 @@ import React, { useCallback } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import FilterAccordion from '@/features/products/components/FilterAccordion';
 import Link from 'next/link';
-import { BRAKE_CHAMBERS } from '@/lib/data';
+import type { BrakeChamber } from '@/types';
 
 interface FacetedSidebarProps {
   baseCategory?: 'spring-brake-chambers' | 'service-brake-chambers' | 'parts-and-kits' | 'air-disc-brake-actuators' | 'all';
+  products?: BrakeChamber[];
 }
 
 const BRANDS = [
@@ -16,19 +17,27 @@ const BRANDS = [
   "Reyco Granning", "Ridewell", "SAF-Holland", "TSE Brakes", "WABCO"
 ];
 
-const STROKE_INCHES = Array.from(new Set(BRAKE_CHAMBERS.map(c => c.strokeInch))).filter((a): a is string => Boolean(a)).sort();
-const PUSH_ROD_LENGTHS = Array.from(new Set(BRAKE_CHAMBERS.map(c => c.pushRodLengthInch))).filter((a): a is string => Boolean(a)).sort();
-const APPLICATIONS = Array.from(new Set(BRAKE_CHAMBERS.map(c => c.application))).filter((a): a is string => Boolean(a)).sort();
-
-const SPRING_MODELS = Array.from(new Set(BRAKE_CHAMBERS.filter(c => c.category === 'Spring Brake').map(c => c.type))).sort();
-const SERVICE_MODELS = Array.from(new Set(BRAKE_CHAMBERS.filter(c => c.category === 'Service Brake').map(c => c.type))).sort();
-const ADB_MODELS = Array.from(new Set(BRAKE_CHAMBERS.filter(c => c.category === 'Air Disc Actuator').map(c => c.type))).sort();
-
-export default function FacetedSidebar({ baseCategory }: FacetedSidebarProps) {
+export default function FacetedSidebar({ baseCategory, products = [] }: FacetedSidebarProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [openSection, setOpenSection] = React.useState<string | null>(null);
+
+  const {
+    STROKE_INCHES,
+    PUSH_ROD_LENGTHS,
+    APPLICATIONS,
+    SPRING_MODELS,
+    SERVICE_MODELS,
+    ADB_MODELS
+  } = React.useMemo(() => ({
+    STROKE_INCHES: Array.from(new Set(products.map(c => c.strokeInch))).filter((a): a is string => Boolean(a)).sort(),
+    PUSH_ROD_LENGTHS: Array.from(new Set(products.map(c => c.pushRodLengthInch))).filter((a): a is string => Boolean(a)).sort(),
+    APPLICATIONS: Array.from(new Set(products.map(c => c.application))).filter((a): a is string => Boolean(a)).sort(),
+    SPRING_MODELS: Array.from(new Set(products.filter(c => c.category === 'Spring Brake').map(c => c.type))).sort(),
+    SERVICE_MODELS: Array.from(new Set(products.filter(c => c.category === 'Service Brake').map(c => c.type))).sort(),
+    ADB_MODELS: Array.from(new Set(products.filter(c => c.category === 'Air Disc Actuator').map(c => c.type))).sort()
+  }), [products]);
 
   // Determine if we are on a specific sub-category page (e.g., /spring-brake-chambers/type-30-30)
   // If we are, we should hide the generic 'Model' filter to prevent conflicting filters.

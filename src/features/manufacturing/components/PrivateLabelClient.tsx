@@ -15,7 +15,7 @@ export default function PrivateLabelClient() {
     { value: '50+', label: 'Private Label Programs Delivered', icon: Globe2 },
     { value: '500-Unit', label: 'Minimum Order', icon: Boxes },
     { value: '6', label: 'Customization Categories', icon: Settings },
-    { value: '30-Day', label: 'Standard Production', icon: Clock },
+    { value: '30-45 Day', label: 'Standard Production', icon: Clock },
   ];
 
   const customizations = [

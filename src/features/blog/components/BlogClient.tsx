@@ -6,10 +6,12 @@ import Link from 'next/link';
 import SectionHeader from '@/components/ui/SectionHeader';
 import PageHeader from '@/components/layout/PageHeader';
 import BlogCard from '@/components/ui/BlogCard';
-import { blogPosts, BlogPostCategory } from '@/data/blogPosts';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import TrendingModelsMarquee from '@/components/ui/TrendingModelsMarquee';
 import { Newspaper } from 'lucide-react';
+import type { BlogPost } from '@/types';
+
+type BlogPostCategory = 'Buying Guide' | 'How-To' | 'Innovation' | 'Technical Guide' | 'Industry News' | 'Fleet Management';
 
 const categories: (BlogPostCategory | 'All')[] = [
   'All',
@@ -21,7 +23,11 @@ const categories: (BlogPostCategory | 'All')[] = [
   'Fleet Management'
 ];
 
-export default function BlogClient() {
+interface BlogClientProps {
+  blogPosts: BlogPost[];
+}
+
+export default function BlogClient({ blogPosts }: BlogClientProps) {
   const [activeCategory, setActiveCategory] = useState<BlogPostCategory | 'All'>('All');
 
   const filteredPosts = blogPosts.filter(post => 

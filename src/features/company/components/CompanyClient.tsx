@@ -93,7 +93,7 @@ export default function CompanyClient() {
           <SectionHeader
             badge="Our Team"
             title="The People Behind BRC Brake Chambers"
-            description="BRC employs over 250 manufacturing specialists, quality engineers, and export professionals across our Zhejiang facility. The team combines decades of automotive manufacturing experience with a shared focus: producing brake chambers that perform as well as the OEM parts they replace."
+            description="BRC employs exactly 104 manufacturing specialists, quality engineers, and export professionals across our Zhejiang facility. The team combines decades of automotive manufacturing experience with a shared focus: producing brake chambers that perform as well as the OEM parts they replace."
             align="center"
             plainText={true}
             theme="light"
@@ -110,8 +110,8 @@ export default function CompanyClient() {
             >
               <div className="grid grid-cols-2 md:grid-cols-4 p-2 sm:p-4">
                 {[
-                  { icon: Users, stat: "250+", text: "Manufacturing Specialists" },
-                  { icon: Cog, stat: "50+", text: "Engineering & R&D Staff" },
+                  { icon: Users, stat: "104", text: "Total Employees" },
+                  { icon: Cog, stat: "Dedicated", text: "Engineering & R&D Staff" },
                   { icon: Globe2, stat: "Dedicated", text: "Export & Logistics Team" },
                   { icon: Factory, stat: "In-House", text: "Quality Assurance Lab" }
                 ].map((item, idx) => (
