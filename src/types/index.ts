@@ -96,4 +96,6 @@ export interface BlogPost {
   content: string;
   featuredImageUrl: string;
   publishDate: string;
+  category: string;
+  readTime: string;
 }

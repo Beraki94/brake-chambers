@@ -638,7 +638,7 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {blogPosts.slice(0, 3).map((post, index) => (
-              <motion.div key={post.id} variants={fadeInUp} custom={index}>
+              <motion.div key={post.slug} variants={fadeInUp} custom={index}>
                 <BlogCard post={post} />
               </motion.div>
             ))}

@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Calendar, ChevronRight } from 'lucide-react';
-import type { BlogPost } from '@/data/blogPosts';
+import type { BlogPost } from '@/types';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -20,7 +20,7 @@ export default function BlogCard({ post, variants }: BlogCardProps) {
         <div className="h-56 rounded-2xl mb-6 overflow-hidden relative shadow-md flex-shrink-0">
           <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <img 
-            src={post.imageUrl} 
+            src={post.featuredImageUrl} 
             alt={post.title} 
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700  " 
           />
@@ -51,7 +51,7 @@ export default function BlogCard({ post, variants }: BlogCardProps) {
         
         {/* Date is now slate grey uniformly, fixing the previous green text issue */}
         <span className="text-slate-400 text-[11px] font-bold uppercase tracking-widest flex items-center mt-auto">
-          <Calendar className="w-3 h-3 mr-1.5" /> {post.date}
+          <Calendar className="w-3 h-3 mr-1.5" /> {new Date(post.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
         </span>
       </Link>
     </motion.div>
