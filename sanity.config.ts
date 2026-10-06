@@ -1,5 +1,6 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
+import { presentationTool } from 'sanity/presentation'
 import { schema } from './src/sanity/schemaTypes'
 import { projectId, dataset } from './src/sanity/env'
 
@@ -10,5 +11,8 @@ export default defineConfig({
   schema,
   plugins: [
     structureTool(),
+    presentationTool({
+      previewUrl: typeof process !== 'undefined' ? (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') : 'http://localhost:3000',
+    }),
   ],
 })

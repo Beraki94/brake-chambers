@@ -7,63 +7,76 @@ import { ShieldCheck, Ruler, FileText, Download, AlertTriangle, CheckCircle2, Se
 import PageHeader from '@/components/layout/PageHeader';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
-
-// SEO-specific data for each resource page
-import { SEO_DATA, TECHNICAL_RESOURCES_DATA } from '@/lib/technicalResourcesData';
 import Card from '@/components/ui/Card';
 import SectionHeader from '@/components/ui/SectionHeader';
+
+import { client } from '@/sanity/lib/client';
 
 export async function generateMetadata(props: { params: Promise<{ resourceSlug: string }> }): Promise<Metadata> {
   const params = await props.params;
   const { resourceSlug } = params;
-  const data = TECHNICAL_RESOURCES_DATA[resourceSlug];
-  const seo = SEO_DATA[resourceSlug];
+  
+  const data = await client.fetch(
+    `*[_type == "technicalResource" && slug.current == $slug][0]`,
+    { slug: resourceSlug }
+  );
 
   if (!data) return { title: 'Resource Not Found' };
 
   return {
-    title: seo?.metaTitle || `${data.title} | Technical Resources | BRC`,
-    description: seo?.metaDescription || data.description,
-    keywords: seo?.keywords,
+    title: data.seo?.metaTitle || `${data.title} | Technical Resources | BRC`,
+    description: data.seo?.metaDescription || data.description,
+    keywords: data.seo?.keywords,
     alternates: {
       canonical: `https://brcengineering.com/technical-resources/${resourceSlug}`,
     },
     openGraph: {
-      title: seo?.metaTitle || `${data.title} | BRC Engineering`,
-      description: seo?.metaDescription || data.description,
+      title: data.seo?.metaTitle || `${data.title} | BRC Engineering`,
+      description: data.seo?.metaDescription || data.description,
       url: `https://brcengineering.com/technical-resources/${resourceSlug}`,
       type: 'article',
     },
   };
 }
 
-// Pre-render all resource pages at build time for SEO
 export async function generateStaticParams() {
-  return Object.keys(TECHNICAL_RESOURCES_DATA).map((slug) => ({
+  const slugs = await client.fetch(`*[_type == "technicalResource"].slug.current`);
+  return slugs.map((slug: string) => ({
     resourceSlug: slug,
   }));
 }
 
 export default async function TechnicalResourcePage(props: { params: Promise<{ resourceSlug: string }> }) {
-
   const params = await props.params;
   const { resourceSlug } = params;
-  const seo = SEO_DATA[resourceSlug];
-  const data = TECHNICAL_RESOURCES_DATA[resourceSlug];
+  
+  const data = await client.fetch(
+    `*[_type == "technicalResource" && slug.current == $slug][0]`,
+    { slug: resourceSlug },
+    { next: { revalidate: 60 } }
+  );
 
   if (!data) {
     notFound();
   }
 
+  // Fetch all for sidebar
+  const allResources = await client.fetch(
+    `*[_type == "technicalResource"] | order(category asc, title asc) { title, category, "slug": slug.current }`,
+    {},
+    { next: { revalidate: 60 } }
+  );
+
   // Group all technical resources by category for the sidebar navigation
-  const groupedResources = Object.entries(TECHNICAL_RESOURCES_DATA).reduce((acc, [slug, item]) => {
+  const groupedResources = allResources.reduce((acc: any, item: any) => {
     if (!acc[item.category]) {
       acc[item.category] = [];
     }
-    acc[item.category].push({ slug, ...item });
+    acc[item.category].push(item);
     return acc;
   }, {} as Record<string, any[]>);
 
+  const seo = data.seo;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -160,7 +173,7 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
 
                 {/* Dynamic Sections */}
                 <div className="space-y-12">
-                  {data.sections.map((section: any, sIdx: number) => (
+                  {data.sections?.map((section: any, sIdx: number) => (
                     <div key={sIdx}>
                       <SectionHeader
                         title={section.title}
@@ -211,15 +224,15 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
                             <table className="w-full min-w-[700px] text-left border-collapse">
                               <thead>
                                 <tr className="bg-navy-900 text-white">
-                                  {section.table.headers.map((header: string, hIdx: number) => (
+                                  {section.table.headers?.map((header: string, hIdx: number) => (
                                     <th key={hIdx} className="p-4 font-bold text-sm tracking-wide">{header}</th>
                                   ))}
                                 </tr>
                               </thead>
                               <tbody className="divide-y divide-slate-100">
-                                {section.table.rows.map((row: string[], rIdx: number) => (
+                                {section.table.rows?.map((row: any, rIdx: number) => (
                                   <tr key={rIdx} className="hover:bg-slate-50 transition-colors">
-                                    {row.map((cell: string, cIdx: number) => (
+                                    {row.cells?.map((cell: string, cIdx: number) => (
                                       <td key={cIdx} className={`p-4 text-sm ${cIdx === 0 ? 'font-bold text-navy-900' : 'text-slate-600'}`}>
                                         {cell}
                                       </td>
@@ -292,7 +305,7 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
               </div>
               
               <div className="space-y-6">
-                {Object.entries(groupedResources).map(([category, items]) => {
+                {Object.entries(groupedResources).map(([category, items]: [string, any]) => {
                   const isActiveCategory = category === data.category;
                   
                   return (
@@ -303,7 +316,7 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
                       
                       <div className="space-y-1">
                         {isActiveCategory ? (
-                          items.map((item) => {
+                          items.map((item: any) => {
                             const isActive = item.slug === resourceSlug;
                             return (
                               <Link 

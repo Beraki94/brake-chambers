@@ -35,6 +35,7 @@ const nextConfig = {
       { source: '/type-16-standard-10', destination: '/service-chambers/type-16-2-12in', permanent: true },
       
       // Consolidation Redirects
+      { source: '/oem-cross-reference/visual-guide', destination: '/technical-resources/identification', permanent: true },
       { source: '/oem-cross-reference/interchange', destination: '/oem-cross-reference/part-search', permanent: true },
       { source: '/quality-assurance', destination: '/capabilities', permanent: true },
       

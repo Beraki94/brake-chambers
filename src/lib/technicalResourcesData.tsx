@@ -251,6 +251,22 @@ export const TECHNICAL_RESOURCES_DATA: Record<string, any> = {
         ]
       },
       {
+        title: "Measure the Pushrod Length",
+        content: "The pushrod length is measured from the base of the chamber body (where it mounts to the bracket) to the very center of the clevis pin hole.",
+        bullets: [
+          "Ensure the chamber is fully released (caged or no air pressure).",
+          "Do not measure just the exposed rod; measure from the mounting face."
+        ]
+      },
+      {
+        title: "Determine Port Angles",
+        content: "Air ports are clocked relative to the mounting studs. Looking directly at the rear of the chamber with the mounting studs at 3 o'clock and 9 o'clock, determine the degree angle of the ports.",
+        bullets: [
+          "Standard port configurations are typically 0°, 45°, 90°, or 180°.",
+          "Match this angle to ensure your air hoses can reach without kinking."
+        ]
+      },
+      {
         title: "Brake Chamber Identification FAQs",
         content: "Common questions from technicians identifying unmarked brake chambers in the field.",
         faqs: [

@@ -190,7 +190,6 @@ export const OEM_MENU: MegaMenuConfig = {
       title: 'Interchange Tools',
       icon: <Search className="w-5 h-5 text-amber-500" />,
       links: [
-        { label: 'Visual Identification Guide', href: '/oem-cross-reference/visual-guide' },
         { label: 'Full Interchange Database', href: '/oem-cross-reference/database' },
       ],
       ctaLink: { label: 'Request a Cross-Match', href: '/oem-cross-reference/request', icon: <CheckCircle className="w-4 h-4" /> }

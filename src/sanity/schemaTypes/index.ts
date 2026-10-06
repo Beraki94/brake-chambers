@@ -4,7 +4,8 @@ import { product } from './product'
 import { post } from './post'
 import { page } from './page'
 import { seo } from './seo'
+import { technicalResource } from './technicalResource'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [product, post, page, seo],
+  types: [product, post, page, seo, technicalResource],
 }
