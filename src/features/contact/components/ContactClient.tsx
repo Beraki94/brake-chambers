@@ -376,7 +376,7 @@ export default function ContactClient() {
                     <h3 className="font-heading font-extrabold text-navy-900 text-base sm:text-lg mb-0.5 sm:mb-1 tracking-tight">BRC Manufacturing Headquarters</h3>
                     <p className="text-[13px] md:text-[14px] font-normal text-slate-500 leading-[1.6]">
                       Block 3, No 55 Tianyang Rd, Fengqiao,<br className="hidden sm:block" />
-                      Zhuji, Zhejiang, China
+                      Zhuji, Zhejiang. China 311811
                     </p>
                   </div>
                 </div>

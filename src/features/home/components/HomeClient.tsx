@@ -426,8 +426,8 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
       {/* 5. R&D and Innovation Highlight */}
       <section className="relative overflow-hidden bg-navy-950 py-16 md:py-24 flex items-center border-t border-navy-800 group">
         <div className="absolute inset-0 overflow-hidden">
-          <img src="/images/brc-truck-background.jpg?v=3" alt="Commercial Truck" className="w-full h-full object-cover opacity-30   group-hover:scale-105 transition-transform duration-[10s]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/95 to-transparent"></div>
+          <img src="/images/brc-truck-background.jpg?v=3" alt="Commercial Truck" className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-[10s]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/75 to-transparent"></div>
           {/* Accent gradient bar */}
           <div className="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-amber-400 to-amber-600 shadow-[0_0_30px_rgba(245,158,11,0.6)]"></div>
         </div>
@@ -588,7 +588,7 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
             {/* Step 1 */}
-            <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-8 border border-white shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all relative">
+            <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative">
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-navy-900 text-white rounded-full flex items-center justify-center font-black text-xl shadow-lg border-4 border-slate-50 z-10">1</div>
               <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6">
                 <FileText className="w-6 h-6 text-amber-500" />
@@ -598,7 +598,7 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
             </div>
 
             {/* Step 2 */}
-            <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-8 border border-white shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all relative">
+            <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative">
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-navy-900 text-white rounded-full flex items-center justify-center font-black text-xl shadow-lg border-4 border-slate-50 z-10">2</div>
               <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6">
                 <CheckCircle className="w-6 h-6 text-amber-500" />
@@ -608,7 +608,7 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
             </div>
 
             {/* Step 3 */}
-            <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-8 border border-white shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all relative">
+            <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative">
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-amber-500 text-navy-950 rounded-full flex items-center justify-center font-black text-xl shadow-lg border-4 border-slate-50 z-10">3</div>
               <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6">
                 <Globe2 className="w-6 h-6 text-amber-500" />

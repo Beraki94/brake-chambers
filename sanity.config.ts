@@ -12,7 +12,9 @@ export default defineConfig({
   plugins: [
     structureTool(),
     presentationTool({
-      previewUrl: typeof process !== 'undefined' ? (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') : 'http://localhost:3000',
+      previewUrl: typeof location !== 'undefined' 
+        ? location.origin 
+        : typeof process !== 'undefined' ? (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') : 'http://localhost:3000',
     }),
   ],
 })
