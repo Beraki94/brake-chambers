@@ -35,13 +35,16 @@ export default function Footer() {
 
   return (
     <footer className="bg-navy-900 text-white pt-12 md:pt-20 pb-10 border-t border-navy-800 mt-auto relative overflow-hidden">
-      {/* Decorative Scattered Chambers */}
-      <div className="absolute bottom-0 right-0 w-72 h-72 md:w-96 md:h-96 pointer-events-none opacity-25 mix-blend-screen z-0">
+      {/* Decorative Manufacturing Sparks */}
+      <div className="absolute bottom-0 right-0 w-full md:max-w-[700px] h-[350px] md:h-full pointer-events-none z-0 overflow-hidden opacity-10 md:opacity-15 mix-blend-lighten">
+        {/* Gradients to fade harsh edges. On mobile it fades the top edge. On desktop it fades the left edge. */}
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-navy-900 via-navy-900/60 to-transparent z-10"></div>
         <Image 
-          src="/products/scattered_chambers_footer.png"
-          alt="Brake Chambers"
+          src="/images/footer-sparks.jpg?v=3"
+          alt="Manufacturing Brake Chambers"
           fill
-          className="object-contain object-bottom"
+          unoptimized={true}
+          className="object-cover object-center md:object-[75%_center]"
         />
       </div>
 

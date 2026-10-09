@@ -10,6 +10,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
+import RotatingWatermark from '@/components/ui/RotatingWatermark';
 
 export default function OEMCrossReferenceClient() {
   return (
@@ -44,9 +45,9 @@ export default function OEMCrossReferenceClient() {
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent opacity-50"></div>
         
         {/* Prominent Rotating Brake Chamber Background (Watermark) */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] lg:w-[700px] lg:h-[700px] opacity-[0.15] pointer-events-none animate-[spin_120s_linear_infinite] z-0">
-          <img src="/products/spring-brake.jpg" alt="Brake Chamber Background" className="w-full h-full object-contain mix-blend-multiply drop-shadow-2xl" />
-        </div>
+        <RotatingWatermark 
+          sizeClass="w-[400px] h-[400px] lg:w-[700px] lg:h-[700px]" 
+        />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <SectionHeader

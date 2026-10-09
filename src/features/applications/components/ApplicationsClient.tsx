@@ -9,6 +9,7 @@ import { fadeInUp, staggerContainer } from '@/lib/animations';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
+import RotatingWatermark from '@/components/ui/RotatingWatermark';
 
 export default function ApplicationsClient() {
   const accentMap = {
@@ -302,6 +303,7 @@ export default function ApplicationsClient() {
 
       {/* Trusted by Fleets (REPLACES FLEET SUCCESS SNAPSHOT) */}
       <section className="py-16 md:py-24 bg-white relative overflow-hidden border-t border-slate-200">
+        <RotatingWatermark />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <SectionHeader
             badge="Trusted by Fleets Worldwide"

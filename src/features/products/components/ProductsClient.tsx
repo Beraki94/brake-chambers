@@ -9,6 +9,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 import TrustMarquee from '@/components/ui/TrustMarquee';
+import RotatingWatermark from '@/components/ui/RotatingWatermark';
 
 
 export default function ProductsClient() {
@@ -287,13 +288,13 @@ export default function ProductsClient() {
             <div className="w-full lg:w-1/2">
               <div className="grid grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-4">
                 <img
-                  src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80"
-                  alt="Fleet trucks"
-                  className="rounded-2xl lg:rounded-3xl shadow-xl shadow-navy-950/50 w-full h-48 sm:h-56 lg:h-64 object-cover object-center transition-all duration-500 hover:opacity-90"
+                  src="/images/products/brc-heavy-duty-desert-truck.jpg"
+                  alt="BRC heavy duty fleet truck operating in harsh desert mining environment"
+                  className="rounded-2xl lg:rounded-3xl shadow-xl shadow-navy-950/50 w-full h-48 sm:h-56 lg:h-64 object-cover object-[25%_center] transition-all duration-500 hover:opacity-90"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80"
-                  alt="Global logistics"
+                  src="/images/products/brc-engineer-tighting-a-bolt.jpg"
+                  alt="BRC engineer tightening a bolt on a brake chamber"
                   className="rounded-2xl lg:rounded-3xl shadow-xl shadow-navy-950/50 w-full h-60 sm:h-72 lg:h-80 object-cover object-center mt-6 sm:mt-8 lg:mt-12 transition-all duration-500 hover:opacity-90"
                 />
               </div>
@@ -308,9 +309,9 @@ export default function ProductsClient() {
         <div className="absolute top-0 right-0 w-1/3 h-full bg-white/60 -skew-x-12 translate-x-1/4 pointer-events-none z-0" />
 
         {/* Rotating Brake Chamber Watermark */}
-        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] lg:w-[800px] lg:h-[800px] opacity-[0.06] pointer-events-none animate-[spin_120s_linear_infinite] z-0">
-          <img src="/products/spring-brake.jpg" alt="Brake Chamber Background" className="w-full h-full object-contain mix-blend-multiply grayscale drop-shadow-2xl" />
-        </div>
+        <RotatingWatermark 
+          sizeClass="w-[500px] h-[500px] lg:w-[800px] lg:h-[800px]" 
+        />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
 

@@ -13,6 +13,7 @@ import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 import TrendingModelsMarquee from '@/components/ui/TrendingModelsMarquee';
 import TrustMarquee from '@/components/ui/TrustMarquee';
 import SectionHeader from '@/components/ui/SectionHeader';
+import RotatingWatermark from '@/components/ui/RotatingWatermark';
 
 const HERO_SLIDES = [
   {
@@ -320,10 +321,10 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
                 <img src="/images/brc7.jpg" alt="Brake Chamber Assembly Line" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
               </motion.div>
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
-                <img src="/images/brc8.jpg" alt="Quality Control Testing" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
+                <img src="/images/home/brc_quality_control_factory_worker.jpg?v=2" alt="Quality Control Testing" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
               </motion.div>
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl overflow-hidden h-40 md:h-48 shadow-lg">
-                <img src="/images/brc10.jpg" alt="CNC Machining Center" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
+                <img src="/images/home/brc_quality_factory_worker.jpg?v=1" alt="Factory Machining Center" className="w-full h-full object-cover  hover:scale-105 transition-transform duration-700" />
               </motion.div>
             </div>
 
@@ -568,9 +569,9 @@ export default function HomeClient({ blogPosts }: HomeClientProps) {
       {/* 7. 3 Steps to Partner */}
       <section className="pt-12 pb-10 md:pt-16 md:pb-16 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
         {/* Prominent Rotating Brake Chamber Background (Watermark) */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] lg:w-[700px] lg:h-[700px] opacity-[0.15] pointer-events-none animate-[spin_120s_linear_infinite] z-0">
-          <img src="/products/spring-brake.jpg" alt="Brake Chamber Background" className="w-full h-full object-contain mix-blend-multiply  drop-shadow-2xl" />
-        </div>
+        <RotatingWatermark 
+          sizeClass="w-[400px] h-[400px] lg:w-[700px] lg:h-[700px]" 
+        />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="text-center mb-12">

@@ -12,6 +12,7 @@ import { fadeInUp, staggerContainer } from '@/lib/animations';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
+import RotatingWatermark from '@/components/ui/RotatingWatermark';
 import { TECHNICAL_RESOURCES_DATA } from '@/lib/technicalResourcesData';
 
 export default function TechnicalResourcesClient() {
@@ -184,8 +185,9 @@ export default function TechnicalResourcesClient() {
 
             {/* SECTION 2: LIBRARY CATEGORIES */}
 
-            <section className="py-16 md:py-24 relative bg-blue-50 border-t border-blue-100">
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px]">
+            <section className="py-16 md:py-24 relative bg-blue-50 border-t border-blue-100 overflow-hidden">
+              <RotatingWatermark />
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] relative z-10">
                 <div className="mb-10 lg:mb-16">
                   <SectionHeader
                     badge="Technical Library"

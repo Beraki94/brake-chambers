@@ -8,6 +8,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import BlogCard from '@/components/ui/BlogCard';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import TrendingModelsMarquee from '@/components/ui/TrendingModelsMarquee';
+import RotatingWatermark from '@/components/ui/RotatingWatermark';
 import { Newspaper } from 'lucide-react';
 import type { BlogPost } from '@/types';
 
@@ -49,7 +50,7 @@ export default function BlogClient({ blogPosts }: BlogClientProps) {
       />
 
       <div className="relative z-20 -mt-8 md:-mt-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pb-16 relative z-10">
           {/* Category Filter Toolbar */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

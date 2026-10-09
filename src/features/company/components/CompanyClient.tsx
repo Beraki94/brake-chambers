@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
+import RotatingWatermark from '@/components/ui/RotatingWatermark';
 
 export default function CompanyClient() {
   return (
@@ -88,8 +89,9 @@ export default function CompanyClient() {
       </section>
 
       {/* SECTION 3: OUR TEAM */}
-      <section className="py-16 md:py-24 bg-blue-50 relative border-b border-slate-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <section className="py-16 md:py-24 bg-blue-50 relative overflow-hidden border-b border-slate-200">
+        <RotatingWatermark />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <SectionHeader
             badge="Our Team"
             title="The People Behind BRC Brake Chambers"

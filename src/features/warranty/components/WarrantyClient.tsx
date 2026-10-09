@@ -8,6 +8,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
+import RotatingWatermark from '@/components/ui/RotatingWatermark';
 import { fadeInUp, staggerContainer, scaleIn } from '@/lib/animations';
 
 export default function WarrantyClient() {
@@ -111,8 +112,10 @@ export default function WarrantyClient() {
           </section>
 
           {/* Section 2: Quality Control Grid */}
-          <section className="py-12">
-            <SectionHeader
+          <section className="py-16 md:py-24 relative overflow-hidden bg-slate-50 border-y border-slate-200 mt-12 mb-12 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
+            <RotatingWatermark />
+            <div className="relative z-10">
+              <SectionHeader
               badge="Quality Verification"
               title="How BRC Verifies Every Brake Chamber Before Shipment"
               description="Every BRC brake chamber is verified before shipment under our IATF 16949-aligned quality system. These tests confirm warranty coverage applies to products built to specification."
@@ -145,6 +148,7 @@ export default function WarrantyClient() {
               <Link href="/manufacturing/quality-assurance" className="inline-flex items-center gap-2 text-navy-600 font-bold hover:text-emerald-500 transition-colors">
                 View Full Quality Assurance Process <ArrowRight className="w-4 h-4" />
               </Link>
+            </div>
             </div>
           </section>
         </div>

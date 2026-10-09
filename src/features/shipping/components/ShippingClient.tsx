@@ -8,6 +8,7 @@ import Card from '@/components/ui/Card';
 import SectionHeader from '@/components/ui/SectionHeader';
 import PageHeader from '@/components/layout/PageHeader';
 import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
+import RotatingWatermark from '@/components/ui/RotatingWatermark';
 import { fadeInUp, staggerContainer, scaleIn } from '@/lib/animations';
 
 export default function ShippingClient() {
@@ -51,7 +52,9 @@ export default function ShippingClient() {
         </motion.section>
 
         {/* SECTION 3: SHIPPING ORIGIN */}
-        <section className="mt-20">
+        <section className="mt-20 relative">
+          <RotatingWatermark />
+          <div className="relative z-10">
           <SectionHeader
             badge="China Factory Origin"
             title="Brake Chamber Shipping From Zhejiang, China"
@@ -95,6 +98,7 @@ export default function ShippingClient() {
                 <span className="font-bold text-navy-900 tracking-wide uppercase text-sm text-center">BRC Factory — Zhejiang, China → Ningbo / Shanghai Port</span>
              </div>
           </motion.div>
+          </div>
         </section>
       </div>
 

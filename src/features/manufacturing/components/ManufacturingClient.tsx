@@ -7,6 +7,7 @@ import { ArrowRight, Microscope, Factory, ShieldCheck, Trophy, Users, Cog, LineC
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
+import RotatingWatermark from '@/components/ui/RotatingWatermark';
 
 export default function ManufacturingClient() {
   const stats = [
@@ -165,6 +166,7 @@ export default function ManufacturingClient() {
 
       {/* SECTION 4 - SUB-PAGE NAVIGATION GRID */}
       <section className="py-12 md:py-16 bg-blue-50 border-y border-blue-100 relative overflow-hidden">
+        <RotatingWatermark />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <SectionHeader
