@@ -36,7 +36,7 @@ export default function Footer() {
   return (
     <footer className="bg-navy-900 text-white pt-12 md:pt-20 pb-10 border-t border-navy-800 mt-auto relative overflow-hidden">
       {/* Decorative Manufacturing Sparks */}
-      <div className="absolute bottom-0 right-0 w-full md:max-w-[700px] h-[350px] md:h-full pointer-events-none z-0 overflow-hidden opacity-10 md:opacity-15 mix-blend-lighten">
+      <div className="absolute bottom-0 right-0 w-full md:max-w-[700px] h-[650px] md:h-full pointer-events-none z-0 overflow-hidden opacity-10 md:opacity-15 mix-blend-lighten">
         {/* Gradients to fade harsh edges. On mobile it fades the top edge. On desktop it fades the left edge. */}
         <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-navy-900 via-navy-900/60 to-transparent z-10"></div>
         <Image 
