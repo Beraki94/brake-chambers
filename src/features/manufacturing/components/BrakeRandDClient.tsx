@@ -90,7 +90,7 @@ export default function BrakeRandDClient() {
         badgeIcon={PenTool}
         title="Brake Chamber R&D: Engineering the Next Generation of Air Brake Chambers"
         description="BRC's in-house R&D team combines advanced CAD modeling, FEA simulation, rapid prototyping, and metallurgical science to engineer heavy-duty brake chambers. Every design is validated before it reaches the production line."
-        imageSrc="/images/engineering_blueprint.png"
+        imageSrc="/images/brc_aftermarket.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Manufacturing', href: '/manufacturing' },

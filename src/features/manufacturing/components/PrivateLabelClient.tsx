@@ -64,7 +64,7 @@ export default function PrivateLabelClient() {
         badge="Brand Building"
         title="Private Label & White Label Brake Chambers From China"
         description="Launch your own aftermarket brake chamber brand without building a factory. BRC manufactures, brands, packages, and ships from Zhejiang, China, you sell under your name with full factory-direct margins."
-        imageSrc="/images/commercial_trailer.png"
+        imageSrc="/images/brc_aftermarket.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Manufacturing', href: '/manufacturing' },

@@ -152,7 +152,7 @@ export default function ShippingClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             {/* Image */}
             <div className="order-2 lg:order-1 relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl shadow-navy-900/10 border border-slate-200 group">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('/images/brc_aftermarket.jpg')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-navy-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
             </div>
             
@@ -226,7 +226,7 @@ export default function ShippingClient() {
 
             {/* Image */}
             <div className="order-2 lg:order-2 relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl shadow-navy-900/10 border border-slate-200 group">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('/images/brc_aftermarket.jpg')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-navy-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
             </div>
           </div>
@@ -235,7 +235,7 @@ export default function ShippingClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
              {/* Image */}
              <div className="order-2 lg:order-1 relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl shadow-navy-900/10 border border-slate-200 group">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1494412519320-ce68f51152d0?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"></div>
+              <div className="absolute inset-0 bg-[url('/images/brc_aftermarket.jpg')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"></div>
               <div className="absolute inset-0 bg-navy-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
             </div>
 

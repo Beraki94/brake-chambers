@@ -89,7 +89,7 @@ export default function HighVolumeOrdersClient() {
         badge="Volume Pricing & Scale"
         title="High-Volume Brake Chamber Orders From China: Factory-Direct Pricing"
         description="From 500-unit pilot orders to multi-container annual programs, BRC offers tiered factory-direct pricing, priority production scheduling, and dedicated account management for distributors and fleets ordering from China."
-        imageSrc="/images/manufacturing_floor.png"
+        imageSrc="/images/brc_aftermarket.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Manufacturing', href: '/manufacturing' },

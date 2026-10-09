@@ -24,7 +24,7 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
         {/* Subtle Background Image Watermark */}
         <div className="absolute top-0 right-0 w-[400px] md:w-[600px] lg:w-[800px] h-full opacity-[0.15] mix-blend-multiply pointer-events-none z-0">
           <Image 
-            src="/images/brc-brakechamber-background.png" 
+            src="/images/brc-chamber-watermark.jpg.png" 
             alt="Brake Chamber Background"
             fill
             className="object-contain object-right-top transform translate-x-12"
@@ -313,7 +313,7 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
 
                 {/* Banner CTA */}
                 <Link href="/oem-cross-reference" className="block relative h-48 rounded-3xl overflow-hidden group shadow-xl">
-                  <img src="/images/brc10.jpg" alt="OEM Cross Reference" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src="/images/brc_aftermarket.jpg" alt="OEM Cross Reference" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-navy-950/80 group-hover:bg-navy-950/70 transition-colors"></div>
                   <div className="absolute inset-0 p-8 flex flex-col justify-end">
                     <span className="text-amber-500 text-[10px] font-black uppercase tracking-widest mb-1">Database</span>

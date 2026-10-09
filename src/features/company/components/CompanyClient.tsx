@@ -200,7 +200,7 @@ export default function CompanyClient() {
               className="w-full rounded-[2.5rem] overflow-hidden shadow-2xl relative group border border-slate-200"
             >
               <img
-                src="/images/brc8.jpg"
+                src="/images/brc_aftermarket.jpg"
                 alt="BRC Leadership Team on the manufacturing floor"
                 className="w-full h-[300px] md:h-[500px] object-cover transition-transform duration-[10s] group-hover:scale-110 ease-out"
               />
@@ -226,7 +226,7 @@ export default function CompanyClient() {
               className="w-full lg:w-1/2 relative order-2 lg:order-1"
             >
               <div className="relative h-[400px] md:h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100">
-                <Image src="/images/brc6.jpg" alt="BRC Mission" fill className="object-cover" />
+                <Image src="/images/brc_aftermarket.jpg" alt="BRC Mission" fill className="object-cover" />
                 <div className="absolute inset-0 bg-navy-900/40 mix-blend-multiply"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Target className="w-24 h-24 text-white/80" strokeWidth={1} />
