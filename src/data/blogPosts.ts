@@ -241,7 +241,7 @@ export const blogPosts: BlogPost[] = [
     content: innovationContent,
     category: 'Innovation',
     date: 'September 10, 2026',
-    imageUrl: '/images/brc6.jpg',
+    imageUrl: '/images/products/brc-commercial-air-disc-brake-actuators.jpg',
     readTime: '5 min read'
   },
   {

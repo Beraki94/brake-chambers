@@ -165,13 +165,13 @@ export default function ProductDetailLayout({
                     <tbody className="divide-y divide-slate-50 text-sm">
                       {product.brakingMethod && (
                         <tr className="hover:bg-slate-50 transition-colors">
-                          <td className="px-4 py-3 sm:px-5 sm:py-4 font-semibold text-navy-900">Braking Method (制动形式)</td>
+                          <td className="px-4 py-3 sm:px-5 sm:py-4 font-semibold text-navy-900">Braking Method</td>
                           <td className="px-4 py-3 sm:px-5 sm:py-4 text-navy-700">{product.brakingMethod}</td>
                         </tr>
                       )}
                       {product.specifications.strokeMetric && (
                         <tr className="hover:bg-slate-50 transition-colors">
-                          <td className="px-4 py-3 sm:px-5 sm:py-4 font-semibold text-navy-900">Stroke (行程)</td>
+                          <td className="px-4 py-3 sm:px-5 sm:py-4 font-semibold text-navy-900">Stroke</td>
                           <td className="px-4 py-3 sm:px-5 sm:py-4 text-navy-700">{product.specifications.strokeMetric}</td>
                         </tr>
                       )}

@@ -58,9 +58,31 @@ export const allPagesQuery = groq`*[_type == "page"] {
   }
 }`;
 
+function sanitizeChinese<T>(data: T): T {
+  if (typeof data === 'string') {
+    return (data as string)
+      .replace(/[\u4e00-\u9fa5]/g, '')
+      .replace(/\s*\(\s*\)/g, '')
+      .replace(/\s*（\s*）/g, '')
+      .trim() as unknown as T;
+  }
+  if (Array.isArray(data)) {
+    return data.map(item => sanitizeChinese(item)) as unknown as T;
+  }
+  if (data !== null && typeof data === 'object') {
+    const cleaned: any = {};
+    for (const [key, value] of Object.entries(data)) {
+      cleaned[key] = sanitizeChinese(value);
+    }
+    return cleaned as T;
+  }
+  return data;
+}
+
 export async function getProducts(): Promise<BrakeChamber[]> {
   const products = await client.fetch(allProductsQuery);
-  return products.map((p: any) => ({
+  const sanitized = sanitizeChinese(products);
+  return sanitized.map((p: any) => ({
     ...p,
     // If they upload images via Studio, we add them to the start of the gallery
     galleryUrls: p.uploadedImages ? [...p.uploadedImages, ...(p.galleryUrls || [])] : (p.galleryUrls || [])

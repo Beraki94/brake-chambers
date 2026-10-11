@@ -237,13 +237,13 @@ export default function ApplicationsClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 relative overflow-hidden group flex flex-col"
+                className="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] border border-slate-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group flex flex-col"
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-navy-50 rounded-bl-[100px] -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-125 z-0"></div>
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-amber-50 border border-amber-100 group-hover:bg-amber-100 flex items-center justify-center mb-4 sm:mb-6 relative z-10 transition-colors duration-300 shadow-sm">
-                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 group-hover:scale-110 transition-transform duration-300" />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-navy-50 rounded-bl-[100px] -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-125 z-0 pointer-events-none"></div>
+                <div className="relative z-10 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-amber-50 border border-amber-100 shadow-sm flex items-center justify-center mb-4 sm:mb-5 text-amber-600 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-400 transition-all duration-300 transform group-hover:-translate-y-1">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-navy-900 mb-3 relative z-10">{market.region}</h3>
+                <h3 className="text-xl md:text-2xl font-bold tracking-tight text-navy-900 mb-3 relative z-10">{market.region}</h3>
                 <p className="text-[14px] md:text-[15px] leading-[1.6] font-normal text-slate-600 relative z-10 flex-grow mb-6">{market.desc}</p>
                 
                 <Link href={market.link} className="inline-flex items-center text-amber-600 font-extrabold text-xs uppercase tracking-widest hover:text-amber-700 transition-colors relative z-10 mt-auto group/link">
@@ -328,16 +328,15 @@ export default function ApplicationsClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className="bg-white border border-slate-200 rounded-[2rem] p-6 sm:p-8 text-center shadow-lg shadow-slate-200/50 group flex flex-col relative overflow-hidden transform hover:-translate-y-2 transition-all duration-500 hover:border-amber-300"
+                className="bg-white border border-slate-100 rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 text-center shadow-xl hover:shadow-2xl group flex flex-col relative overflow-hidden transform hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
-                <div className="relative z-10 w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-amber-50 border border-amber-100 shadow-sm rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transition-colors group-hover:bg-amber-100 text-amber-600">
-                  <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
+                <div className="relative z-10 w-12 h-12 sm:w-14 sm:h-14 mx-auto bg-amber-50 border border-amber-100 shadow-sm rounded-xl flex items-center justify-center mb-4 sm:mb-5 text-amber-600 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-400 transition-all duration-300 transform group-hover:-translate-y-1">
+                  <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
                 </div>
-                <div className="relative z-10 text-3xl sm:text-4xl lg:text-5xl font-black text-navy-900 mb-2 tracking-tight transition-colors group-hover:text-amber-600">
+                <div className="relative z-10 text-3xl sm:text-4xl lg:text-5xl font-black text-navy-900 mb-2 tracking-tight">
                   {stat.value}
                 </div>
-                <div className="relative z-10 text-[10px] sm:text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider group-hover:text-amber-600 transition-colors">
+                <div className="relative z-10 text-[10px] sm:text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
                   {stat.label}
                 </div>
               </motion.div>

@@ -234,14 +234,14 @@ export default function TechnicalResourcesClient() {
                             <Link
                               key={idx}
                               href={`/technical-resources/${item.slug}`}
-                              className={`flex items-start gap-4 p-5 md:p-6 bg-slate-50/80 rounded-xl border border-slate-100 transition-all duration-300 group hover:shadow-lg hover:bg-white hover:-translate-y-0.5 cursor-pointer
+                              className={`flex items-start gap-4 p-5 md:p-6 bg-white rounded-2xl border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer
                                 ${idx % 2 === 0 ? 'hover:border-amber-300' : 'hover:border-slate-300'}
                               `}
                             >
-                              <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm transition-all duration-300
+                              <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 border transition-all duration-300
                                 ${idx % 2 === 0
-                                  ? 'bg-white text-amber-500 group-hover:bg-amber-500 group-hover:text-white group-hover:shadow-amber-500/20'
-                                  : 'bg-white text-slate-500 group-hover:bg-slate-600 group-hover:text-white group-hover:shadow-slate-500/20'
+                                  ? 'bg-amber-50 text-amber-600 border-amber-100 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-400 group-hover:shadow-amber-500/20'
+                                  : 'bg-slate-50 text-slate-600 border-slate-100 group-hover:bg-navy-900 group-hover:text-white group-hover:border-navy-800 group-hover:shadow-navy-900/20'
                                 }
                               `}>
                                 {item.icon}

@@ -65,10 +65,10 @@ export default function ContactClient() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
-    
+
     try {
       await fetch('/api/contact', {
         method: 'POST',
@@ -134,11 +134,11 @@ export default function ContactClient() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] -mt-6 sm:-mt-16 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-6 sm:gap-8">
-          
+
           {/* Left Sidebar - Contact Info Cards */}
-          <motion.div 
-            variants={staggerContainer} 
-            initial="hidden" 
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             className="lg:col-span-1 order-2 lg:order-1 grid grid-cols-1 gap-4"
@@ -158,7 +158,7 @@ export default function ContactClient() {
                   </div>
                   <h3 className="font-heading text-lg sm:text-xl font-bold text-navy-900 mb-1">{card.title}</h3>
                   <p className="text-navy-500 text-[14px] md:text-[15px] leading-[1.6] font-normal mb-2 sm:mb-3 text-left">{card.description}</p>
-                  
+
                   {card.subtext && <p className="text-slate-500 text-xs mb-2 italic">{card.subtext}</p>}
 
                   {card.href ? (
@@ -176,145 +176,145 @@ export default function ContactClient() {
           {/* Right Side - Form & FAQ */}
           <div className="lg:col-span-2 order-1 lg:order-2 flex flex-col gap-6 sm:gap-8">
             {/* The Form */}
-            <motion.div 
+            <motion.div
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-6 sm:p-8 lg:p-10 -mx-4 sm:mx-0"
             >
-            <SectionHeader
-              badge="Wholesale Inquiries"
-              title="Request a Wholesale Quote"
-              align="left"
-              accentColor="amber"
-              className="!mb-6 sm:!mb-8"
-            />
+              <SectionHeader
+                badge="Wholesale Inquiries"
+                title="Request a Wholesale Quote"
+                align="left"
+                accentColor="amber"
+                className="!mb-6 sm:!mb-8"
+              />
 
-            {submitted ? (
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-16"
-              >
-                <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle className="w-10 h-10 text-emerald-500" />
-                </div>
-                <h3 className="text-2xl font-extrabold text-navy-900 mb-3">Inquiry Submitted!</h3>
-                <p className="text-[15px] leading-[1.6] font-normal text-slate-600 max-w-md mx-auto">Our sales team will review your request and respond within 24 business hours with a detailed quote.</p>
-              </motion.div>
-            ) : (
-              <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
-                  <div>
-                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Full Name <span className="text-red-500">*</span></label>
-                    <div className="relative">
-                      <User className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                      <input 
-                        type="text" 
-                        name="fullName"
-                        required
-                        disabled={isSubmitting}
-                        className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50" 
-                        placeholder="John Doe" 
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Email Address <span className="text-red-500">*</span></label>
-                    <div className="relative">
-                      <Mail className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                      <input 
-                        type="email" 
-                        name="email"
-                        required
-                        disabled={isSubmitting}
-                        className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50" 
-                        placeholder="john@company.com" 
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Company / Fleet Name <span className="text-red-500">*</span></label>
-                    <div className="relative">
-                      <Building className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                      <input 
-                        type="text" 
-                        name="company"
-                        required
-                        disabled={isSubmitting}
-                        className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50" 
-                        placeholder="Global Trucking Logistics" 
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Country <span className="text-red-500">*</span></label>
-                    <div className="relative">
-                      <Globe className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                      <input 
-                        type="text" 
-                        name="country"
-                        required
-                        disabled={isSubmitting}
-                        className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50" 
-                        placeholder="United States" 
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Phone / WhatsApp <span className="text-slate-400 font-normal">(Optional)</span></label>
-                    <div className="relative">
-                      <Phone className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                      <input 
-                        type="text" 
-                        name="phone"
-                        disabled={isSubmitting}
-                        className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50" 
-                        placeholder="+1 234 567 8900" 
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Inquiry Type <span className="text-red-500">*</span></label>
-                    <div className="relative">
-                      <HelpCircle className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                      <select 
-                        required
-                        defaultValue=""
-                        className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all text-navy-900 appearance-none"
-                      >
-                        <option value="" disabled>Select an option...</option>
-                        <option value="technical">Technical Support</option>
-                        <option value="sample">Sample Request</option>
-                        <option value="partnership">Partnership</option>
-                        <option value="general">General Inquiry</option>
-                        <option value="press">Press</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Message & Requirements <span className="text-red-500">*</span></label>
-                  <textarea 
-                    rows={4} 
-                    required
-                    className="w-full bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 resize-none pt-3" 
-                    placeholder="Please include part numbers, estimated quantities, or destination country for shipping quotes..."
-                  ></textarea>
-                </div>
-                <button 
-                  type="submit" 
-                  className="w-full bg-navy-900 hover:bg-navy-800 text-white font-extrabold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl shadow-navy-900/20 flex items-center justify-center gap-2 group text-lg mt-6"
+              {submitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-16"
                 >
-                  Submit Inquiry <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                  <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle className="w-10 h-10 text-emerald-500" />
+                  </div>
+                  <h3 className="text-2xl font-extrabold text-navy-900 mb-3">Inquiry Submitted!</h3>
+                  <p className="text-[15px] leading-[1.6] font-normal text-slate-600 max-w-md mx-auto">Our sales team will review your request and respond within 24 business hours with a detailed quote.</p>
+                </motion.div>
+              ) : (
+                <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Full Name <span className="text-red-500">*</span></label>
+                      <div className="relative">
+                        <User className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
+                        <input
+                          type="text"
+                          name="fullName"
+                          required
+                          disabled={isSubmitting}
+                          className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50"
+                          placeholder="John Doe"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Email Address <span className="text-red-500">*</span></label>
+                      <div className="relative">
+                        <Mail className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          disabled={isSubmitting}
+                          className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50"
+                          placeholder="john@company.com"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Company / Fleet Name <span className="text-red-500">*</span></label>
+                      <div className="relative">
+                        <Building className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
+                        <input
+                          type="text"
+                          name="company"
+                          required
+                          disabled={isSubmitting}
+                          className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50"
+                          placeholder="Global Trucking Logistics"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Country <span className="text-red-500">*</span></label>
+                      <div className="relative">
+                        <Globe className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
+                        <input
+                          type="text"
+                          name="country"
+                          required
+                          disabled={isSubmitting}
+                          className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50"
+                          placeholder="United States"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Phone / WhatsApp <span className="text-slate-400 font-normal">(Optional)</span></label>
+                      <div className="relative">
+                        <Phone className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
+                        <input
+                          type="text"
+                          name="phone"
+                          disabled={isSubmitting}
+                          className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50"
+                          placeholder="+1 234 567 8900"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Inquiry Type <span className="text-red-500">*</span></label>
+                      <div className="relative">
+                        <HelpCircle className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
+                        <select
+                          required
+                          defaultValue=""
+                          className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all text-navy-900 appearance-none"
+                        >
+                          <option value="" disabled>Select an option...</option>
+                          <option value="technical">Technical Support</option>
+                          <option value="sample">Sample Request</option>
+                          <option value="partnership">Partnership</option>
+                          <option value="general">General Inquiry</option>
+                          <option value="press">Press</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Message & Requirements <span className="text-red-500">*</span></label>
+                    <textarea
+                      rows={4}
+                      required
+                      className="w-full bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 resize-none pt-3"
+                      placeholder="Please include part numbers, estimated quantities, or destination country for shipping quotes..."
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-navy-900 hover:bg-navy-800 text-white font-extrabold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl shadow-navy-900/20 flex items-center justify-center gap-2 group text-lg mt-6"
+                  >
+                    Submit Inquiry <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
                 </form>
               )}
             </motion.div>
 
             {/* The FAQ Accordion */}
-            <motion.div 
+            <motion.div
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
@@ -330,67 +330,67 @@ export default function ContactClient() {
                 className="!mb-6"
               />
               <GlobalFAQAccordion faqs={faqs} />
-              </motion.div>
-            </div>
+            </motion.div>
           </div>
         </div>
-          
-        {/* Factory Location Map - Full Width */}
-        <motion.div 
-          variants={fadeInUp} 
-          initial="hidden" 
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="mt-16 sm:mt-20 lg:mt-24 bg-white border-y border-slate-200 overflow-hidden relative w-full"
-        >
-          {/* Main Map Container */}
-          <div id="map-section" className="relative w-full h-[350px] sm:h-[450px] lg:h-[550px] group bg-slate-100">
-            {/* Amber Duotone Overlay - covers the entire map seamlessly */}
-            <div className="absolute inset-0 bg-amber-500/15 mix-blend-color z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-1000 ease-out"></div>
-            
-            {/* The Google Map - Deferred Loading */}
-            {isMapLoaded ? (
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110190.57398188172!2d121.4633716503816!3d29.87834529999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x344d634db8bebaeb%3A0xeab5c8148b301764!2sNingbo%2C%20Zhejiang%2C%20China!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-                className="absolute inset-0 w-full h-full filter -[0.8] contrast-[1.1] opacity-90 group-hover:-0 group-hover:opacity-100 transition-all duration-1000 ease-out z-0"
-                style={{ border: 0 }} 
-                allowFullScreen={false} 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            ) : (
-              <div className="absolute inset-0 w-full h-full bg-slate-200 flex flex-col items-center justify-center text-slate-400 z-0 animate-pulse">
-                <MapPin className="w-8 h-8 mb-2 opacity-50" />
-                <span className="text-sm font-medium">Loading Map...</span>
-              </div>
-            )}
-            
-            {/* Floating Info Card - Positioned at bottom left, fully responsive */}
-            <div className="absolute bottom-0 left-0 w-full sm:w-auto p-4 sm:p-6 z-20 pointer-events-none flex justify-center sm:justify-start">
-              <div className="bg-white/95 backdrop-blur-md px-5 sm:px-6 py-4 sm:py-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/50 transform group-hover:-translate-y-1 sm:group-hover:-translate-y-2 transition-transform duration-500 w-full sm:w-auto max-w-[400px]">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-amber-50 rounded-xl flex items-center justify-center shrink-0 shadow-inner">
-                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500" />
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <h3 className="font-heading font-extrabold text-navy-900 text-base sm:text-lg mb-0.5 sm:mb-1 tracking-tight">BRC Manufacturing Headquarters</h3>
-                    <p className="text-[13px] md:text-[14px] font-normal text-slate-500 leading-[1.6]">
-                      Block 3, No 55 Tianyang Rd, Fengqiao,<br className="hidden sm:block" />
-                      Zhuji, Zhejiang. China 311811
-                    </p>
-                  </div>
+      </div>
+
+      {/* Factory Location Map - Full Width */}
+      <motion.div
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="mt-16 sm:mt-20 lg:mt-24 bg-white border-y border-slate-200 overflow-hidden relative w-full"
+      >
+        {/* Main Map Container */}
+        <div id="map-section" className="relative w-full h-[350px] sm:h-[450px] lg:h-[550px] group bg-slate-100">
+          {/* Amber Duotone Overlay - covers the entire map seamlessly */}
+          <div className="absolute inset-0 bg-amber-500/15 mix-blend-color z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-1000 ease-out"></div>
+
+          {/* The Google Map - Deferred Loading */}
+          {isMapLoaded ? (
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110190.57398188172!2d121.4633716503816!3d29.87834529999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x344d634db8bebaeb%3A0xeab5c8148b301764!2sNingbo%2C%20Zhejiang%2C%20China!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              className="absolute inset-0 w-full h-full filter -[0.8] contrast-[1.1] opacity-90 group-hover:-0 group-hover:opacity-100 transition-all duration-1000 ease-out z-0"
+              style={{ border: 0 }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          ) : (
+            <div className="absolute inset-0 w-full h-full bg-slate-200 flex flex-col items-center justify-center text-slate-400 z-0 animate-pulse">
+              <MapPin className="w-8 h-8 mb-2 opacity-50" />
+              <span className="text-sm font-medium">Loading Map...</span>
+            </div>
+          )}
+
+          {/* Floating Info Card - Positioned at bottom left, fully responsive */}
+          <div className="absolute bottom-0 left-0 w-full sm:w-auto p-4 sm:p-6 z-20 pointer-events-none flex justify-center sm:justify-start">
+            <div className="bg-white/95 backdrop-blur-md px-5 sm:px-6 py-4 sm:py-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/50 transform group-hover:-translate-y-1 sm:group-hover:-translate-y-2 transition-transform duration-500 w-full sm:w-auto max-w-[400px]">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-amber-50 rounded-xl flex items-center justify-center shrink-0 shadow-inner">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500" />
+                </div>
+                <div className="flex flex-col justify-center">
+                  <h3 className="font-heading font-extrabold text-navy-900 text-base sm:text-lg mb-0.5 sm:mb-1 tracking-tight">BRC Manufacturing Headquarters</h3>
+                  <p className="text-[13px] md:text-[14px] font-normal text-slate-500 leading-[1.6]">
+                    Block 3, No 55 Tianyang Rd, Fengqiao,<br className="hidden sm:block" />
+                    Zhuji, Zhejiang. China 311811
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
+      </motion.div>
 
-        {/* Re-open container for the next section */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] mb-20">
-          {/* Additional Section: Global Reach */}
-          <motion.section 
-            variants={staggerContainer} 
-          initial="hidden" 
+      {/* Re-open container for the next section */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] mb-20">
+        {/* Additional Section: Global Reach */}
+        <motion.section
+          variants={staggerContainer}
+          initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           className="mt-12 sm:mt-16 md:mt-24"
@@ -428,7 +428,7 @@ export default function ContactClient() {
           </div>
         </motion.section>
       </div>
-      
+
       {/* SECTION 7: BOTTOM CTA */}
       <section className="py-16 md:py-24 bg-[#F1EFE8] relative overflow-hidden mt-10">
         <div className="container mx-auto px-0 sm:px-6 lg:px-8 max-w-7xl relative z-10">
@@ -451,14 +451,14 @@ export default function ContactClient() {
             </div>
 
             <div className="relative z-10 flex flex-col w-full md:w-auto gap-4 min-w-[240px] shrink-0 mt-8 md:mt-0">
-              <Link 
-                href="/quote" 
+              <Link
+                href="/quote"
                 className="bg-amber-500 text-navy-950 font-black py-4 px-8 rounded-xl hover:bg-amber-400 transition-all shadow-xl shadow-amber-500/20 text-center uppercase tracking-widest text-[13px] transform hover:-translate-y-1"
               >
                 Request a Quote <ArrowRight className="inline-block w-4 h-4 ml-2 -mt-1" />
               </Link>
-              <Link 
-                href="/contact?subject=Sample+Request" 
+              <Link
+                href="/contact?subject=Sample+Request"
                 className="bg-navy-800 text-white border border-navy-600 font-black py-4 px-8 rounded-xl hover:bg-navy-700 hover:border-navy-500 transition-all text-center uppercase tracking-widest text-[13px] transform hover:-translate-y-1"
               >
                 Order Evaluation Samples

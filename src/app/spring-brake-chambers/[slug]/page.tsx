@@ -6,6 +6,7 @@ import { SPRING_BRAKES_META } from '@/lib/categoryMeta';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import ProductDetailLayout from '@/features/products/product-detail/ProductDetailLayout';
 
+
 export async function generateStaticParams() {
   const BRAKE_CHAMBERS = await getProducts();
   const categories = Object.keys(SPRING_BRAKES_META).map((slug) => ({ slug }));

@@ -146,6 +146,12 @@ export const SERVICE_CHAMBERS_META: Record<string, CategoryMetaItem> = {
   }
 };
 
+// Aliases for common user searches/slugs
+SERVICE_CHAMBERS_META['type-20-service-brake-chambers'] = SERVICE_CHAMBERS_META['type-20-steer-axle-brake-chambers'];
+SERVICE_CHAMBERS_META['type-30-service-brake-chambers'] = SERVICE_CHAMBERS_META['type-30-service-chambers'];
+SERVICE_CHAMBERS_META['type-36-service-brake-chambers'] = SERVICE_CHAMBERS_META['type-36-service-chambers'];
+
+
 export const CHAMBER_PARTS_KITS_META: Record<string, CategoryMetaItem> = {
   'air-brake-chamber-rebuild-kits': {
     title: 'Air Brake Chamber Rebuild Kits | Wholesale | BRC',

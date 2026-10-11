@@ -65,7 +65,7 @@ export default function CompanyClient() {
               className="w-full lg:w-1/2 relative"
             >
               <div className="relative h-[400px] sm:h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100">
-                <Image src="/images/brc3.jpg" alt="BRC Manufacturing Floor" fill className="object-cover transition-all duration-700 hover:scale-105" />
+                <Image src="/images/manufacturing/brc3.jpg" alt="BRC Manufacturing Floor" fill className="object-cover transition-all duration-700 hover:scale-105" />
                 <div className="absolute inset-0 bg-navy-900/10 mix-blend-overlay"></div>
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy-950/80 to-transparent h-48"></div>
 
@@ -102,38 +102,34 @@ export default function CompanyClient() {
             accentColor="amber"
           />
           <div className="space-y-20 mt-16">
-            {/* Stats Grid - Unified Block for Consistency */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-6xl mx-auto bg-white rounded-[2rem] shadow-xl shadow-navy-900/5 border border-slate-200 overflow-hidden"
-            >
-              <div className="grid grid-cols-2 md:grid-cols-4 p-2 sm:p-4">
-                {[
-                  { icon: Users, stat: "104", text: "Total Employees" },
-                  { icon: Cog, stat: "Dedicated", text: "Engineering & R&D Staff" },
-                  { icon: Globe2, stat: "Dedicated", text: "Export & Logistics Team" },
-                  { icon: Factory, stat: "In-House", text: "Quality Assurance Lab" }
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className={`flex flex-col items-center justify-center text-center px-2 py-6 sm:p-8 group
-                      ${idx % 2 === 0 ? 'border-r border-slate-100' : ''} 
-                      ${idx < 2 ? 'border-b border-slate-100 md:border-b-0' : ''} 
-                      ${idx !== 3 ? 'md:border-r border-slate-100' : ''}
-                    `}
-                  >
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-white border border-slate-100/60 rounded-2xl sm:rounded-3xl flex items-center justify-center mb-4 text-amber-500 group-hover:scale-110 group-hover:border-amber-200 transition-all duration-300 shadow-[0_8px_24px_rgba(15,23,42,0.04)]">
-                      <item.icon className="w-6 h-6 sm:w-8 sm:h-8" />
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-black text-navy-900 mb-1 sm:mb-2">{item.stat}</h3>
-                    <p className="text-slate-500 font-bold uppercase tracking-wider text-[10px] sm:text-xs leading-tight">{item.text}</p>
+            {/* Stats Grid - Individual Elevated Cards */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
+              {[
+                { icon: Users, stat: "104", text: "Total Employees" },
+                { icon: Cog, stat: "Dedicated", text: "Engineering & R&D Staff" },
+                { icon: Globe2, stat: "Dedicated", text: "Export & Logistics Team" },
+                { icon: Factory, stat: "In-House", text: "Quality Assurance Lab" }
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1, duration: 0.6 }}
+                  className="bg-white border border-slate-100 rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 text-center shadow-xl hover:shadow-2xl group flex flex-col relative overflow-hidden transform hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="relative z-10 w-12 h-12 sm:w-14 sm:h-14 mx-auto bg-amber-50 border border-amber-100 shadow-sm rounded-xl flex items-center justify-center mb-4 sm:mb-5 text-amber-600 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-400 transition-all duration-300 transform group-hover:-translate-y-1">
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
                   </div>
-                ))}
-              </div>
-            </motion.div>
+                  <div className="relative z-10 text-2xl sm:text-3xl lg:text-4xl font-black text-navy-900 mb-1 sm:mb-2 tracking-tight">
+                    {item.stat}
+                  </div>
+                  <div className="relative z-10 text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider leading-tight">
+                    {item.text}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
             {/* Leadership Header */}
             <div className="text-center max-w-3xl mx-auto pt-10 border-t border-slate-200">
@@ -300,14 +296,14 @@ export default function CompanyClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-amber-500 hover:-translate-y-2 transition-all duration-500 relative overflow-hidden group"
+                className="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] border border-slate-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group flex flex-col"
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-navy-50 rounded-bl-[100px] -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-125 z-0"></div>
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-amber-100 border border-amber-200 group-hover:bg-amber-200 flex items-center justify-center mb-4 sm:mb-6 relative z-10 transition-colors duration-300 shadow-sm">
-                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 group-hover:scale-110 transition-transform duration-300" />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-navy-50 rounded-bl-[100px] -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-125 z-0 pointer-events-none"></div>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-amber-50 border border-amber-100 shadow-sm flex items-center justify-center mb-4 sm:mb-5 relative z-10 text-amber-600 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-400 transition-all duration-300 transform group-hover:-translate-y-1">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold tracking-tight text-navy-900 mb-3 relative z-10">{market.region}</h3>
-                <p className="text-slate-600 text-[14px] font-normal leading-[1.6] relative z-10">{market.desc}</p>
+                <p className="text-slate-600 text-[14px] font-normal leading-[1.6] relative z-10 flex-grow">{market.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -349,8 +345,8 @@ export default function CompanyClient() {
           </div>
 
           <div className="text-center">
-            <Link href="/manufacturing/quality-assurance" className="inline-flex items-center justify-center bg-transparent border border-navy-600 text-white font-extrabold hover:text-amber-400 hover:border-amber-500 px-8 py-4 rounded-xl uppercase tracking-widest text-[13px] transition-all duration-300 shadow-md group">
-              View Quality Assurance Lab <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            <Link href="/manufacturing/quality-assurance" className="inline-flex items-center justify-center bg-amber-500 text-navy-950 font-extrabold px-4 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-xl shadow-amber-500/20 uppercase tracking-widest text-[11px] sm:text-[12px] md:text-[13px] whitespace-nowrap transform hover:-translate-y-1 w-full sm:w-auto group">
+              View Quality Assurance Lab <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>

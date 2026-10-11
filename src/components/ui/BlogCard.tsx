@@ -15,9 +15,9 @@ export default function BlogCard({ post, variants }: BlogCardProps) {
   const isGreen = post.category === 'Technical Guide' || post.category === 'Industry News';
 
   return (
-    <motion.div variants={variants} className="group cursor-pointer flex flex-col h-full">
-      <Link href={`/blog/${post.slug}`} className="block h-full flex flex-col">
-        <div className="h-56 rounded-2xl mb-6 overflow-hidden relative shadow-md flex-shrink-0">
+    <motion.div variants={variants} className="group cursor-pointer flex flex-col h-full bg-white border border-slate-100 rounded-2xl shadow-[0_4px_20px_-6px_rgba(15,23,42,0.10)] hover:shadow-[0_14px_32px_-10px_rgba(15,23,42,0.18)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+      <Link href={`/blog/${post.slug}`} className="block h-full flex flex-col p-3 sm:p-4">
+        <div className="h-48 sm:h-52 lg:h-56 rounded-xl mb-4 sm:mb-5 overflow-hidden relative flex-shrink-0 bg-slate-100">
           <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <img 
             src={post.featuredImageUrl} 
@@ -41,7 +41,7 @@ export default function BlogCard({ post, variants }: BlogCardProps) {
           {post.category}
         </div>
         
-        <h3 className="text-xl font-extrabold text-navy-900 mb-3 group-hover:text-navy-700 transition-colors leading-tight flex-shrink-0">
+        <h3 className="text-xl font-extrabold text-navy-900 mb-3 leading-tight flex-shrink-0">
           {post.title}
         </h3>
         
