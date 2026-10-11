@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BRAKE_ACCESSORIES } from '@/lib/data';
 import { getProducts } from '@/sanity/queries';
 import { BrakeChamber, BrakeAccessory } from '@/types';
 import { TrendingUp, ArrowUpRight } from 'lucide-react';
@@ -18,7 +17,7 @@ export default async function RelatedProducts({ currentSlug, category, isAccesso
   let related: (BrakeChamber | BrakeAccessory)[] = [];
   
   if (isAccessory) {
-    related = BRAKE_ACCESSORIES.filter(a => a.category === category && a.slug !== currentSlug);
+    related = BRAKE_CHAMBERS.filter(a => a.category === category && a.slug !== currentSlug);
   } else {
     related = BRAKE_CHAMBERS.filter(c => c.category === category && c.slug !== currentSlug);
   }

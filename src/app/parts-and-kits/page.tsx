@@ -1,11 +1,11 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { BRAKE_ACCESSORIES } from '@/lib/data';
+import { getProducts } from '@/sanity/queries';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import SectionHeader from '@/components/ui/SectionHeader';
-import { Wrench, ArrowRight, Shield, Settings, Lock, SlidersHorizontal, CircleDot, Layers, RotateCcw } from 'lucide-react';
+import { Wrench, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -15,87 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default async function ChamberPartsKitsPage(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
+  const allProducts = await getProducts();
   const searchParams = props.searchParams ? await props.searchParams : undefined;
   
-  // Base Filter for Accessories
-  let products = BRAKE_ACCESSORIES;
+  // Base Filter for Parts & Kits
+  let products = allProducts.filter(c => c.category === 'Parts & Kits');
 
-  // Legacy basic filters for main page
+  // Basic filters for main page
   if (searchParams?.filter) {
-    const filter = searchParams.filter as string;
-    if (filter === 'Diaphragm') {
-      products = products.filter(c => c.category === 'Diaphragm');
-    } else if (filter === 'Slack Adjuster') {
-      products = products.filter(c => c.category === 'Slack Adjuster');
-    }
+    const filter = (searchParams.filter as string).toLowerCase();
+    products = products.filter(c => 
+      c.name.toLowerCase().includes(filter) || 
+      c.type?.toLowerCase().includes(filter) ||
+      c.brakingMethod?.toLowerCase().includes(filter)
+    );
   }
 
-  const manufacturingCards = [
-    {
-      title: 'Air Brake Chamber Repair Kits',
-      desc: 'Complete rebuild kits for field servicing. Includes high-integrity diaphragms, precision seals, caging bolts, and all required hardware.',
-      badge: 'Field Overhaul',
-      icon: Wrench,
-      spec: 'Bendix & Haldex Fit',
-      href: '/parts-and-kits/repair-kits'
-    },
-    {
-      title: 'Brake Chamber Diaphragms',
-      desc: 'High-tensile neoprene rubber with nylon reinforcement. Rated for extreme -40°C to +80°C operating environments.',
-      badge: 'Rubber Sealing',
-      icon: Shield,
-      spec: 'Type 20 to Type 36',
-      href: '/parts-and-kits/replacement-rubber'
-    },
-    {
-      title: 'Clevis Pins & Hardware',
-      desc: 'Corrosion-resistant zinc-plated steel clevis pins, hardened cotter pins, and mounting studs engineered for severe-duty vibration.',
-      badge: 'Hardware & Pins',
-      icon: Settings,
-      spec: 'Grade 8 Steel',
-      href: '/parts-and-kits/mounting-hardware'
-    },
-    {
-      title: 'Caging Bolts & Tools',
-      desc: 'Manual and automatic caging bolts and tool assemblies for safe, controlled mechanical release of power spring chambers during maintenance.',
-      badge: 'Safety Servicing',
-      icon: Lock,
-      spec: 'Drop-Forged Steel',
-      href: '/parts-and-kits'
-    },
-    {
-      title: 'Automatic Slack Adjusters',
-      desc: 'Heavy-duty automatic and manual clearance adjusters for S-cam drum brake systems. Direct OEM spline fitment and sealed lubrication.',
-      badge: 'S-Cam Control',
-      icon: SlidersHorizontal,
-      spec: 'OEM Spline Fit',
-      href: '/parts-and-kits'
-    },
-    {
-      title: 'Clamp Bands & Rings',
-      desc: 'Heavy-gauge two-piece clamp bands with heavy-duty Grade 8 fasteners for airtight sealing between chamber service housings.',
-      badge: 'Housing Fastener',
-      icon: CircleDot,
-      spec: '360° Air Seal',
-      href: '/parts-and-kits/mounting-hardware'
-    },
-    {
-      title: 'Pre-Caged Piggyback Kits',
-      desc: 'Factory pre-compressed spring sections designed for rapid, safe field servicing without dismounting the entire chamber.',
-      badge: 'Modular Swap',
-      icon: Layers,
-      spec: 'Rapid Installation',
-      href: '/spring-brake-chambers'
-    },
-    {
-      title: 'Epoxy-Coated Return Springs',
-      desc: 'High-cycle epoxy powder-coated internal return springs engineered to prevent rust flaking and center seal contamination.',
-      badge: 'Internal Actuation',
-      icon: RotateCcw,
-      spec: 'High-Cycle Fatigue',
-      href: '/parts-and-kits'
-    }
-  ];
 
   const seoContent = (
     <>
@@ -107,75 +42,75 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
           accentColor="amber"
           className="!mb-8"
         />
-        <div className="text-slate-700 leading-relaxed text-sm md:text-base max-w-4xl">
-          <p className="mb-4">
+        <div className="text-slate-700 leading-relaxed text-sm md:text-base space-y-6 max-w-5xl">
+          <p className="text-base md:text-lg font-medium text-navy-950 leading-relaxed">
             A brake chamber is a sealed assembly, but it can be rebuilt. When the diaphragm fails, when the caging bolt is lost, or when the return spring weakens, replacement parts bring the chamber back to full function.
           </p>
-          <p className="mb-6">
+          <p>
             Using low-quality aftermarket parts causes premature failure, air leaks, and unsafe braking. Every BRC replacement part is manufactured to OEM specifications to restore the chamber to its original performance.
           </p>
-          <Link href="/technical-resources" className="text-amber-600 font-bold hover:underline inline-flex items-center">
-            See our brake chamber installation guide <ArrowRight className="w-4 h-4 ml-1" />
-          </Link>
-        </div>
-      </section>
 
-      <section className="mb-16 bg-slate-50 p-6 sm:p-8 md:p-10 rounded-3xl border border-slate-200/80 shadow-sm">
-        <SectionHeader
-          badge="Product Range"
-          title="Brake Chamber Parts & Kits We Manufacture"
-          align="center"
-          accentColor="amber"
-          className="!mb-4"
-        />
-        <div className="text-slate-600 leading-relaxed text-sm md:text-base max-w-3xl mx-auto text-center mb-8 sm:mb-10">
-          <p>
-            BRC manufactures the full range of commercial brake chamber replacement parts. Every part is a direct OEM replacement for Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO components.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-7xl mx-auto">
-          {manufacturingCards.map((card, idx) => {
-            const CardIcon = card.icon;
-            return (
-              <div 
-                key={idx} 
-                className="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:border-amber-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 shadow-sm">
-                      <CardIcon className="w-5 h-5" />
-                    </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-100 group-hover:bg-amber-50 group-hover:text-amber-700 px-2.5 py-1 rounded-md transition-colors">
-                      {card.badge}
-                    </span>
-                  </div>
-                  <h3 className="font-extrabold text-navy-950 text-base md:text-[17px] mb-2 leading-snug tracking-tight group-hover:text-amber-600 transition-colors">
-                    {card.title}
-                  </h3>
-                  <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed font-normal mb-4">
-                    {card.desc}
-                  </p>
-                </div>
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-400">
-                  <span className="truncate pr-2 font-mono text-[10px] uppercase text-slate-400">{card.spec}</span>
-                  <Link 
-                    href={card.href} 
-                    className="text-amber-600 font-bold group-hover:text-amber-700 flex items-center gap-1 flex-shrink-0 hover:underline"
-                  >
-                    Details <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+          <div className="pt-4 border-t border-slate-200/80 space-y-8">
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                1. Comprehensive Air Brake Chamber Rebuild Kits
+              </h3>
+              <p className="text-slate-600">
+                Instead of replacing entire assemblies during preventative maintenance, our complete <Link href="/parts-and-kits/air-brake-chamber-rebuild-kits" className="text-amber-600 font-bold hover:underline">Chamber Rebuild Kits</Link>{' '}provide fleets with every wear component needed for rapid overhaul in the bay. Each kit includes high-integrity diaphragms, precision oil-resistant center seals, dust boots, mounting hardware, and caging tools—eliminating the need to source individual small fasteners and ensuring uniform seal pressure.
+              </p>
+            </div>
 
-        <div className="pt-8 text-center">
-          <Link href="/products" className="text-amber-600 font-bold hover:underline inline-flex items-center text-sm md:text-base">
-            View all parts & kit specs <ArrowRight className="w-4 h-4 ml-1" />
-          </Link>
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                2. Heavy-Duty Rubber Diaphragms (Type 20 to Type 36)
+              </h3>
+              <p className="text-slate-600">
+                The diaphragm is the primary air-actuated pressure boundary. BRC <Link href="/parts-and-kits/brake-chamber-diaphragms" className="text-amber-600 font-bold hover:underline">Rubber Diaphragms</Link>{' '}are molded from proprietary nylon fabric-reinforced neoprene engineered to endure over one million stroke cycles from -40°C to +80°C (-40°F to +176°F). Resistant to oil vapors and continuous pressure spikes, they prevent internal blow-by and micro-cracking across all standard North American chamber diameters.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                3. Precision Clevis Pins & Slack Adjuster Linkage Hardware
+              </h3>
+              <p className="text-slate-600">
+                The mechanical linkage between the chamber pushrod and slack adjuster must maintain zero slop. Lost motion from worn or corroded clevis pins degrades brake timing and extends stopping distance. BRC supplies drop-forged, zinc-plated 5/8"-18 threaded clevis assemblies, hardened steel clevis pins, and heavy-duty cotter pins on our <Link href="/parts-and-kits/clevis-pins-slack-adjuster-hardware" className="text-amber-600 font-bold hover:underline">Clevis Pins & Hardware</Link>{' '}line, ensuring a tight connection that passes DOT roadside inspections.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                4. Forged Caging Bolts & Release Tools
+              </h3>
+              <p className="text-slate-600">
+                Safety is paramount when working with high-energy mechanical parking springs. Our manual and automatic release <Link href="/parts-and-kits/brake-chamber-caging-bolts-tools" className="text-amber-600 font-bold hover:underline">Caging Bolts & Release Tools</Link>{' '}are drop-forged from high-tensile alloy steel with a zinc-dichromate anti-seize finish, ensuring safe, controlled mechanical compression of the power spring during roadside towing or shop servicing.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                5. Heavy-Gauge Clamp Bands & Airtight Fasteners
+              </h3>
+              <p className="text-slate-600">
+                The two halves of a brake chamber depend on uniform 360° perimeter clamping to prevent catastrophic air leaks. BRC <Link href="/parts-and-kits/brake-chamber-clamp-bands" className="text-amber-600 font-bold hover:underline">Brake Chamber Clamp Bands</Link>{' '}utilize heavy-gauge formed steel with Grade 8 fasteners, providing a durable, vibration-proof seal for Type 30, Type 24, and Type 20 housings.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                6. Automatic & Manual Slack Adjusters (ASA)
+              </h3>
+              <p className="text-slate-600">
+                Maintaining pushrod stroke within legal FMVSS-121 tolerances requires reliable clearance adjustment. Our <Link href="/parts-and-kits/automatic-manual-slack-adjusters" className="text-amber-600 font-bold hover:underline">Automatic & Manual Slack Adjusters</Link>{' '}feature precision-machined splines and grease-purge check valves to continuously compensate for foundation brake lining wear, keeping your fleet safe and compliant.
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-6 border-t border-slate-200/80">
+            <Link href="/technical-resources" className="text-amber-600 font-bold hover:underline inline-flex items-center text-sm md:text-base">
+              See our brake chamber installation and maintenance guide <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
+          </div>
         </div>
       </section>
 

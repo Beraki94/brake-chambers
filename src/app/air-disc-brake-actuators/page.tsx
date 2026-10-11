@@ -34,39 +34,61 @@ export default async function AirDiscActuatorsPage(props: { searchParams?: Promi
       <section className="mb-16">
         <SectionHeader
           badge="Technical Overview"
+          badgeIcon={Disc}
           title="What Is an Air Disc Brake Actuator?"
           align="left"
           accentColor="amber"
           className="!mb-8"
         />
-        <div className="text-slate-700 leading-relaxed text-sm md:text-base max-w-4xl">
-          <p className="mb-4">
+        <div className="text-slate-700 leading-relaxed text-sm md:text-base space-y-6 max-w-5xl">
+          <p className="text-base md:text-lg font-medium text-navy-950 leading-relaxed">
             An air disc brake actuator (sometimes called an ADB chamber or air disc chamber) is a pneumatic device that converts air pressure into linear mechanical force to activate disc brake calipers. Unlike traditional S-cam drum brake chambers, which use a rotating S-cam to push brake shoes outward, an ADB actuator pushes a piston or lever directly against the brake caliper.
           </p>
-          <p className="mb-6">
-            This direct-force design delivers faster response, more consistent pad pressure, and shorter stopping distances than drum brakes. Air disc brakes are now standard equipment on most new heavy-duty trucks and transit buses.
-          </p>
-          <Link href="/technical-resources" className="text-amber-600 font-bold hover:underline inline-flex items-center">
-            See our brake chamber technical resources <ArrowRight className="w-4 h-4 ml-1" />
-          </Link>
-        </div>
-      </section>
-
-      <section className="mb-16 bg-slate-50 p-8 rounded-3xl border border-slate-100">
-        <SectionHeader
-          badge="Product Range"
-          title="Air Disc Brake Actuator Types We Manufacture"
-          align="center"
-          accentColor="amber"
-          className="!mb-6"
-        />
-        <div className="text-slate-600 leading-relaxed text-sm md:text-base max-w-4xl mx-auto space-y-4 text-center">
           <p>
-            BRC manufactures a full range of commercial air disc brake actuators. Every model is a direct OEM replacement for Bendix, Haldex, Meritor, and WABCO part numbers.
+            This direct-force design delivers faster response, more consistent pad pressure, and shorter stopping distances than drum brakes. Air disc brakes are now standard equipment on most new heavy-duty trucks and transit buses. BRC manufactures a full range of commercial air disc brake actuators, serving as direct OEM replacements for Bendix, Haldex, Meritor, and WABCO part numbers.
           </p>
-          <div className="pt-4">
-            <Link href="/products" className="text-amber-600 font-bold hover:underline inline-flex items-center">
-              View all ADB actuator specs <ArrowRight className="w-4 h-4 ml-1" />
+
+          <div className="pt-4 border-t border-slate-200/80 space-y-8">
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                1. Type 16 & Type 18/24 Air Disc Brake Actuators
+              </h3>
+              <p className="text-slate-600">
+                Built specifically for front steer axles and lightweight commercial applications. Our <Link href="/air-disc-brake-actuators/type-16-18-adb-actuators" className="text-amber-600 font-bold hover:underline">Type 16 & 18 ADB Actuators</Link>{' '}integrate seamlessly with industry-standard calipers (including Bendix ADB22X, WABCO PAN/MAX, and Knorr-Bremse), delivering zero brake fade, instant application speeds, and high thermal resistance.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                2. Type 20/24 High-Output ADB Combination Actuators
+              </h3>
+              <p className="text-slate-600">
+                The most prevalent air disc brake spring chamber specified on modern Class 8 tractors and trailers. BRC <Link href="/air-disc-brake-actuators/type-20-24-air-disc-brake-actuator" className="text-amber-600 font-bold hover:underline">Type 20/24 ADB Actuators</Link>{' '}incorporate our proprietary HOT (High Output Technology) design and synthetic high-temp grease pack to withstand extreme caliper heat while maintaining full FMVSS-121 clamping force.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                3. Heavy-Duty Type 24/24 ADB Chambers
+              </h3>
+              <p className="text-slate-600">
+                Engineered for severe-duty and high-capacity hauling operations. Our <Link href="/air-disc-brake-actuators/type-24-24-adb-chambers" className="text-amber-600 font-bold hover:underline">Type 24/24 ADB Chambers</Link>{' '}provide equal 24 sq. in. service and parking outputs, validated under rigorous 1-million cycle life tests to ensure flawless fail-safe parking spring deployment under maximum gross vehicle weight ratings.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                4. Maximum-Torque Type 24/30 ADB Actuators
+              </h3>
+              <p className="text-slate-600">
+                The ultimate solution for extreme rear-axle holding power on steep grade parking. BRC <Link href="/air-disc-brake-actuators/type-24-30-air-disc-brake-actuators" className="text-amber-600 font-bold hover:underline">Type 24/30 ADB Actuators</Link>{' '}combine a 24 sq. in. service diaphragm with an oversized 30 sq. in. parking spring section, preventing rollaways on heavy logging, refuse, and oversized equipment trailers.
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-6 border-t border-slate-200/80">
+            <Link href="/technical-resources" className="text-amber-600 font-bold hover:underline inline-flex items-center text-sm md:text-base">
+              See our brake chamber technical resources <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
           </div>
         </div>

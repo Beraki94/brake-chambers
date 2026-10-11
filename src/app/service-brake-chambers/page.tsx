@@ -36,39 +36,61 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
       <section className="mb-16">
         <SectionHeader
           badge="Technical Overview"
+          badgeIcon={ShieldCheck}
           title="What Is a Service Brake Chamber?"
           align="left"
           accentColor="amber"
           className="!mb-8"
         />
-        <div className="text-slate-700 leading-relaxed text-sm md:text-base max-w-4xl">
-          <p className="mb-4">
-            A service brake chamber is a single-diaphragm air brake component that converts compressed air pressure into mechanical force for primary braking. It contains one diaphragm, one push-rod, and one pressure housing, no parking spring section.
+        <div className="text-slate-700 leading-relaxed text-sm md:text-base space-y-6 max-w-5xl">
+          <p className="text-base md:text-lg font-medium text-navy-950 leading-relaxed">
+            A service brake chamber is a single-diaphragm air brake component that converts compressed air pressure into mechanical force for primary braking. It contains one diaphragm, one push-rod, and one pressure housing, with no parking spring section.
           </p>
-          <p className="mb-6">
-            When the driver presses the brake pedal, air enters the chamber and pushes the diaphragm against the push-rod. The push-rod transmits force to the slack adjuster and S-cam, applying the brakes. When the pedal is released, an internal return spring retracts the push-rod and releases the brakes.
-          </p>
-          <Link href="/technical-resources" className="text-amber-600 font-bold hover:underline inline-flex items-center">
-            See our service brake chamber selection guide <ArrowRight className="w-4 h-4 ml-1" />
-          </Link>
-        </div>
-      </section>
-
-      <section className="mb-16 bg-slate-50 p-8 rounded-3xl border border-slate-100">
-        <SectionHeader
-          badge="Product Range"
-          title="Service Brake Chamber Types We Manufacture"
-          align="center"
-          accentColor="amber"
-          className="!mb-6"
-        />
-        <div className="text-slate-600 leading-relaxed text-sm md:text-base max-w-4xl mx-auto space-y-4 text-center">
           <p>
-            BRC manufactures the full range of commercial service brake chambers. Every model is a direct OEM replacement for Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO part numbers.
+            When the driver presses the brake pedal, air enters the chamber and pushes the diaphragm against the push-rod. The push-rod transmits force to the slack adjuster and S-cam, applying the brakes. When the pedal is released, an internal return spring retracts the push-rod and releases the brakes. BRC manufactures the full range of commercial service brake chambers, engineered as direct OEM replacements for Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO part numbers.
           </p>
-          <div className="pt-4">
-            <Link href="/products" className="text-amber-600 font-bold hover:underline inline-flex items-center">
-              View all service brake chamber specs <ArrowRight className="w-4 h-4 ml-1" />
+
+          <div className="pt-4 border-t border-slate-200/80 space-y-8">
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                1. Dedicated Type 20 Steer Axle Brake Chambers
+              </h3>
+              <p className="text-slate-600">
+                The preferred OE specification for Class 7 and Class 8 front steering axles. Our <Link href="/service-brake-chambers/type-20-steer-axle-brake-chambers" className="text-amber-600 font-bold hover:underline">Type 20 Steer Axle Chambers</Link>{' '}provide precisely calibrated 20 sq. in. diaphragm output to prevent steer wheel lockup under hard braking while maintaining full FMVSS-121 compliance and clearance around steering geometry.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                2. Heavy-Duty Type 30 Drive & Trailer Service Chambers
+              </h3>
+              <p className="text-slate-600">
+                The high-output standard for non-parking brake positions on heavy-duty drive axles and vocational trailers. BRC <Link href="/service-brake-chambers/type-30-service-chambers" className="text-amber-600 font-bold hover:underline">Type 30 Service Chambers</Link>{' '}generate maximum mechanical push-rod force through heavy-gauge steel shells and oil-resistant nylon diaphragms, available in standard 2.5&quot; and long-stroke 3.0&quot; models.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                3. Compact Type 12, Type 16 & Type 24 Service Chambers
+              </h3>
+              <p className="text-slate-600">
+                Tailored for medium-duty trucks, delivery step-vans, low-bed equipment haulers, and specialized transit vehicles. Our <Link href="/service-brake-chambers/type-12-16-24-service-chambers" className="text-amber-600 font-bold hover:underline">Type 12, 16 & 24 Chambers</Link>{' '}deliver compact dimensions and balanced linear actuation where mounting clearances are limited.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                4. Robotic-Welded Clevis Brake Chambers
+              </h3>
+              <p className="text-slate-600">
+                Eliminate manual push-rod cutting and jam-nut torquing during assembly. BRC <Link href="/service-brake-chambers/welded-clevis-brake-chambers" className="text-amber-600 font-bold hover:underline">Welded Clevis Brake Chambers</Link>{' '}feature factory-welded yoke assemblies aligned precisely to OEM suspension specs, completely preventing thread stripping or push-rod slip under continuous cycling.
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-6 border-t border-slate-200/80">
+            <Link href="/technical-resources" className="text-amber-600 font-bold hover:underline inline-flex items-center text-sm md:text-base">
+              See our service brake chamber selection guide <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
           </div>
         </div>

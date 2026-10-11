@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, Package, ShieldCheck } from 'lucide-react';
 import { useSearchModalStore } from '@/store/search';
-import { BRAKE_ACCESSORIES } from '@/lib/data';
 import type { BrakeChamber } from '@/types';
 
 interface GlobalSearchModalProps {
@@ -67,7 +66,11 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
         p.slug.toLowerCase().includes(token)
       );
 
-      const type = p.category === 'Spring Brake' ? 'spring-brake-chambers' : (p.category === 'Air Disc Actuator' ? 'air-disc-brake-actuators' : 'service-brake-chambers');
+      const type = p.category === 'Spring Brake' 
+        ? 'spring-brake-chambers' 
+        : (p.category === 'Air Disc Actuator' 
+            ? 'air-disc-brake-actuators' 
+            : (p.category === 'Parts & Kits' ? 'parts-and-kits' : 'service-brake-chambers'));
 
       if (isCatalogMatch) {
         catalog.push({ type, item: p });
@@ -84,17 +87,6 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
             oem.push({ type, item: p, matchedOem: o });
           }
         });
-      }
-    });
-
-    BRAKE_ACCESSORIES.forEach(a => {
-      const isMatch = tokens.every(token =>
-        a.name.toLowerCase().includes(token) ||
-        a.brandSlug.toLowerCase().includes(token) ||
-        a.slug.toLowerCase().includes(token)
-      );
-      if (isMatch) {
-        catalog.push({ type: 'parts-and-kits', item: a });
       }
     });
 

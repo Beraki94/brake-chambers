@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { BRAKE_ACCESSORIES } from '@/lib/data';
 import { getProducts } from '@/sanity/queries';
 import ProductListCard from '@/features/products/components/ProductListCard';
 import AccessoryListCard from '@/features/products/product-detail/AccessoryListCard';
@@ -154,11 +153,11 @@ export default async function OEMBrandPage(
     matchingChambers = matchingChambers.filter(c => c.category === categoryFilter);
   }
 
-  const matchingAccessories = categoryFilter ? [] : BRAKE_ACCESSORIES.filter(c =>
+  const matchingAccessories = categoryFilter ? [] : BRAKE_CHAMBERS.filter(c => c.category === 'Parts & Kits' && (
     c.brandSlug === brandSlug ||
     c.name.toLowerCase().includes(normalizedBrandName) ||
     c.description?.toLowerCase().includes(normalizedBrandName)
-  );
+  ));
 
   // Extract unique dedicated OEM part numbers for this brand to link to their SEO pages
   const uniqueOEMParts = new Map<string, { partNumber: string, categoryPath: string }>();

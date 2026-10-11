@@ -1,7 +1,6 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { BRAKE_ACCESSORIES } from '@/lib/data';
 import { getProducts } from '@/sanity/queries';
 import ProductDetailLayout from '@/features/products/product-detail/ProductDetailLayout';
 
@@ -9,9 +8,7 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const BRAKE_CHAMBERS = await getProducts();
-  const chambers = BRAKE_CHAMBERS.map((p) => ({ slug: p.slug }));
-  const accessories = BRAKE_ACCESSORIES.map((p) => ({ slug: p.slug }));
-  return [...chambers, ...accessories];
+  return BRAKE_CHAMBERS.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata(
@@ -21,9 +18,7 @@ export async function generateMetadata(
   const params = await props.params;
   const { slug } = params;
   
-  const chamber = BRAKE_CHAMBERS.find(p => p.slug === slug);
-  const accessory = BRAKE_ACCESSORIES.find(p => p.slug === slug);
-  const product = chamber || accessory;
+  const product = BRAKE_CHAMBERS.find(p => p.slug === slug);
 
   if (product) {
     const keywords = [
@@ -56,9 +51,7 @@ export default async function ProductRootPage(
   const params = await props.params;
   const { slug } = params;
 
-  const chamber = BRAKE_CHAMBERS.find(p => p.slug === slug);
-  const accessory = BRAKE_ACCESSORIES.find(p => p.slug === slug);
-  const product = chamber || accessory;
+  const product = BRAKE_CHAMBERS.find(p => p.slug === slug);
 
   if (product) {
     // Determine categoryName and categoryPath

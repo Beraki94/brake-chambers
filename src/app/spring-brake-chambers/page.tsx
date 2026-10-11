@@ -5,7 +5,8 @@ import { getProducts } from '@/sanity/queries';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import SectionHeader from '@/components/ui/SectionHeader';
-import { Settings } from 'lucide-react';
+import { Settings, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Spring Brake Chambers: OEM Replacements for Trucks & Trailers | BRC',
@@ -36,7 +37,7 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
 
   const seoContent = (
     <>
-      <section className="mb-12">
+      <section className="mb-16">
         <SectionHeader
           badge="Technical Overview"
           badgeIcon={Settings}
@@ -45,16 +46,57 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
           accentColor="amber"
           className="!mb-8"
         />
-        <div className="text-slate-700 leading-relaxed text-sm md:text-base max-w-4xl">
-          <p className="mb-4">
+        <div className="text-slate-700 leading-relaxed text-sm md:text-base space-y-6 max-w-5xl">
+          <p className="text-base md:text-lg font-medium text-navy-950 leading-relaxed">
             A spring brake chamber is a dual-function air brake component that handles both service braking and emergency/parking braking. It combines a standard service chamber (single diaphragm) with a spring-actuated parking brake section (power spring).
           </p>
-          <p className="mb-6">
-            When air pressure is applied, the service diaphragm activates the brakes during normal driving. When air pressure is released — for parking or in the event of air loss — the power spring automatically applies the brakes, delivering fail-safe stopping power.
+          <p>
+            When air pressure is applied, the service diaphragm activates the brakes during normal driving. When air pressure is released — for parking or in the event of air loss — the power spring automatically applies the brakes, delivering fail-safe stopping power across drive and trailer axles.
           </p>
-          <a href="/technical-resources" className="text-amber-600 font-bold hover:underline inline-flex items-center">
-            Learn more in our spring brake chamber installation guide <span className="ml-1">→</span>
-          </a>
+
+          <div className="pt-4 border-t border-slate-200/80 space-y-8">
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                1. Industry-Standard Type 30/30 Spring Brake Chambers
+              </h3>
+              <p className="text-slate-600">
+                The standard workhorse for North American heavy-duty Class 8 trucks, tractors, and tandem-axle trailers. Our <Link href="/spring-brake-chambers/30-30-air-brake-chambers" className="text-amber-600 font-bold hover:underline">Type 30/30 Spring Brake Chambers</Link>{' '}feature 30 sq. in. effective area on both service and parking sections, delivering FMVSS-121 compliant stopping torque and parking hold. Available in both Standard Stroke (2.5&quot;) and Long Stroke (3.0&quot;) configurations for enhanced push-rod reserve travel.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                2. Type 24/30 & Type 24/24 Combination Chambers
+              </h3>
+              <p className="text-slate-600">
+                Engineered for specialized vocational trucks, heavy utility trailers, and clearance-constrained axle suspensions. BRC <Link href="/spring-brake-chambers/24-30-24-24-spring-brakes" className="text-amber-600 font-bold hover:underline">Type 24/30 & 24/24 Chambers</Link>{' '}pair a compact 24 sq. in. service chamber with high-output parking springs, providing optimal brake balance without chassis interference.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                3. Compact Type 20/24 Spring Brake Chambers
+              </h3>
+              <p className="text-slate-600">
+                Designed for medium-duty commercial vehicles, bus chassis, and specialty low-profile trailer axles where full Type 30 housings cannot fit. Our <Link href="/spring-brake-chambers/20-24-spring-brake-chambers" className="text-amber-600 font-bold hover:underline">Type 20/24 Spring Brake Chambers</Link>{' '}deliver calibrated proportional force to prevent wheel hop while guaranteeing emergency mechanical lockup during pressure failure.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-navy-950">
+                4. Pre-Caged Type 30/30 Piggyback Replacement Kits
+              </h3>
+              <p className="text-slate-600">
+                Cut service bay downtime in half during spring section overhauls. BRC <Link href="/spring-brake-chambers/type-30-30-piggyback-kits" className="text-amber-600 font-bold hover:underline">Type 30/30 Piggyback Kits</Link>{' '}arrive factory pre-caged with safety release tools pre-installed. Fleets can replace failed emergency springs and diaphragms without unbolting the foundation mounting bracket or disconnecting the push-rod linkage.
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-6 border-t border-slate-200/80">
+            <Link href="/technical-resources" className="text-amber-600 font-bold hover:underline inline-flex items-center text-sm md:text-base">
+              Learn more in our spring brake chamber installation guide <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
+          </div>
         </div>
       </section>
 
