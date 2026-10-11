@@ -5,6 +5,7 @@ import { ArrowRightLeft, ArrowRight, ShieldCheck, Zap, Wrench, Camera, Download,
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import OEMSearchForm from '@/features/oem/components/OEMSearchForm';
+import { BRAKE_CHAMBERS } from '@/lib/data';
 
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -36,7 +37,7 @@ export default function OEMCrossReferenceClient() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="w-full"
         >
-          <OEMSearchForm />
+          <OEMSearchForm products={BRAKE_CHAMBERS} />
         </motion.div>
       </section>
 
@@ -114,7 +115,7 @@ export default function OEMCrossReferenceClient() {
               <motion.div key={brand.name} variants={fadeInUp}>
                 <Link 
                   href={`/oem-cross-reference/${brand.path}`} 
-                  className={`bg-white rounded-[1.25rem] sm:rounded-[1.5rem] lg:rounded-[2rem] p-4 sm:p-6 lg:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-${brand.color}-200 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1 lg:hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden h-full`}
+                  className={`bg-white rounded-[1.25rem] sm:rounded-[1.5rem] lg:rounded-[2rem] p-4 sm:p-6 lg:p-8 border border-slate-100 shadow-xl hover:shadow-2xl hover:border-${brand.color}-200 hover:-translate-y-1 lg:hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden h-full`}
                 >
                   <div className={`absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-${brand.color}-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0`}></div>
                   <div className={`relative z-10 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-${brand.color}-100 rounded-lg lg:rounded-xl flex items-center justify-center mb-3 sm:mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300`}>
@@ -136,7 +137,7 @@ export default function OEMCrossReferenceClient() {
 
       {/* SECTION 5 — WHY FLEET MANAGERS USE BRC */}
       <section className="py-16 md:py-24 bg-navy-950 border-y border-navy-900 overflow-hidden relative">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5"></div>
+        <div className="absolute inset-0 bg-[url('/images/brc_equipment_background.jpg')] bg-cover bg-center opacity-5"></div>
         <AnimatedGridBackground opacity={0.08} />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none"></div>
 
@@ -191,7 +192,7 @@ export default function OEMCrossReferenceClient() {
           <div className="mt-16 lg:mt-24 relative z-20">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
               {/* Tool 1 */}
-              <Link href="/technical-resources" className="bg-white rounded-[2rem] p-6 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 hover:border-amber-200 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden">
+              <Link href="/technical-resources" className="bg-white rounded-[2rem] p-6 lg:p-10 border border-slate-100 shadow-xl hover:shadow-2xl hover:border-amber-200 hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
                 <div className="relative z-10 w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                   <Camera className="w-7 h-7 text-amber-600" />
@@ -219,7 +220,7 @@ export default function OEMCrossReferenceClient() {
               </Link>
 
               {/* Tool 3 */}
-              <Link href="/contact" className="bg-white rounded-[2rem] p-6 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 hover:border-navy-200 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden">
+              <Link href="/contact" className="bg-white rounded-[2rem] p-6 lg:p-10 border border-slate-100 shadow-xl hover:shadow-2xl hover:border-navy-200 hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-navy-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
                 <div className="relative z-10 w-14 h-14 bg-navy-100 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                   <Mail className="w-7 h-7 text-navy-600" />
@@ -312,7 +313,7 @@ export default function OEMCrossReferenceClient() {
               { title: "Brake Chamber Installation Guide", icon: BookOpen },
               { title: "Brake Chamber Torque Specs", icon: Wrench }
             ].map((res, i) => (
-              <Link key={i} href="/technical-resources" className="bg-white border border-slate-200 shadow-sm rounded-2xl p-8 flex flex-col items-start hover:border-amber-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
+              <Link key={i} href="/technical-resources" className="bg-white border border-slate-100 shadow-xl rounded-2xl p-8 flex flex-col items-start hover:border-amber-400 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
                 {/* Subtle gradient hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 
@@ -321,7 +322,7 @@ export default function OEMCrossReferenceClient() {
                     <res.icon className="w-6 h-6 text-amber-600 group-hover:text-white transition-colors duration-300" />
                   </div>
                   
-                  <h3 className="font-extrabold text-navy-900 text-lg md:text-xl group-hover:text-amber-600 transition-colors leading-snug mb-6 flex-1">
+                  <h3 className="font-extrabold text-navy-900 text-lg md:text-xl leading-snug mb-6 flex-1">
                     {res.title}
                   </h3>
                   

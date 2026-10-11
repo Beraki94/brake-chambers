@@ -243,7 +243,7 @@ export default function MaterialSourcingClient() {
 
       {/* SECTION 8 - SOURCING PHILOSOPHY */}
       <section className="bg-navy-950 relative overflow-hidden border-t border-navy-800 shadow-2xl">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5"></div>
+        <div className="absolute inset-0 bg-[url('/images/brc_equipment_background.jpg')] bg-cover bg-center opacity-5"></div>
         <AnimatedGridBackground opacity={0.08} />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
         <div className="px-6 py-16 sm:px-12 sm:py-20 md:px-16 md:py-24">

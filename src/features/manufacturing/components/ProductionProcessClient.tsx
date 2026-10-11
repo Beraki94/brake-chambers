@@ -141,7 +141,7 @@ export default function ProductionProcessClient() {
 
       {/* SECTION 7 - PRODUCTION CAPACITY */}
       <section className="bg-navy-950 py-16 md:py-24 relative overflow-hidden border-y border-navy-800 shadow-2xl">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5"></div>
+        <div className="absolute inset-0 bg-[url('/images/brc_equipment_background.jpg')] bg-cover bg-center opacity-5"></div>
         <AnimatedGridBackground opacity={0.08} />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 
@@ -168,15 +168,15 @@ export default function ProductionProcessClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.12, duration: 0.6 }}
-                className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 rounded-[2rem] p-8 hover:border-amber-500/50 transition-all duration-500 shadow-xl group transform hover:-translate-y-1 relative overflow-hidden flex flex-col h-full"
+                className="bg-navy-900 border border-navy-800 rounded-[2rem] p-8 hover:bg-navy-800 transition-all duration-500 shadow-xl shadow-navy-900/10 group transform hover:-translate-y-1 relative overflow-hidden flex flex-col h-full"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <span className="text-7xl font-black text-navy-800/50 absolute top-4 right-4 group-hover:text-amber-500/10 transition-colors pointer-events-none z-0">0{idx + 1}</span>
                 <div className="relative z-10 flex flex-col h-full">
-                  <div className="w-14 h-14 bg-navy-950 rounded-2xl flex items-center justify-center mb-6 border border-navy-800 shadow-[0_0_10px_rgba(245,158,11,0.2)] group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] group-hover:scale-110 transition-all duration-300 group-hover:border-amber-500/50 text-amber-500">
+                  <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors text-amber-400 [&>svg]:group-hover:scale-110 [&>svg]:transition-transform [&>svg]:duration-300">
                     {stat.icon}
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors">{stat.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight">{stat.title}</h3>
                   <p className="text-navy-200 text-[15px] leading-[1.6] font-normal flex-grow">{stat.desc}</p>
                 </div>
               </motion.div>

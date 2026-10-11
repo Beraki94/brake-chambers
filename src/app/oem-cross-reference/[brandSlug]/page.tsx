@@ -195,7 +195,7 @@ export default async function OEMBrandPage(
       {/* OEM Search Tool Prominent Placement */}
       <section className="scroll-mt-32 lg:scroll-mt-40 relative z-20 -mt-12 lg:-mt-24 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-16 lg:mb-24">
         <div className="w-full">
-          <OEMSearchForm />
+          <OEMSearchForm products={BRAKE_CHAMBERS} />
         </div>
       </section>
 

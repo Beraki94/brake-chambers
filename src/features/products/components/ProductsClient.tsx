@@ -249,7 +249,7 @@ export default function ProductsClient() {
       {/* TRUSTED BY GLOBAL FLEETS - DARK THEME */}
       <section className="py-16 md:py-24 bg-navy-950 border-b border-navy-800 relative overflow-hidden">
         {/* Background Image Layer */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-luminosity"></div>
+        <div className="absolute inset-0 bg-[url('/images/brc_equipment_background.jpg')] bg-cover bg-center opacity-5 mix-blend-luminosity"></div>
 
         {/* Animated Grid Layer */}
         <AnimatedGridBackground opacity={0.08} />

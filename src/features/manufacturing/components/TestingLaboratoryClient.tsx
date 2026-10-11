@@ -123,19 +123,20 @@ export default function TestingLaboratoryClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.6 }}
-                  className="bg-slate-800 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-slate-700 shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden"
+                  className="bg-navy-900 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-navy-800 shadow-xl shadow-navy-900/10 hover:shadow-2xl hover:bg-navy-800 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden"
                 >
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"></div>
                   {/* The Top Right Circle Decoration */}
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-slate-700/30 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-navy-800/30 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
 
                   <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-slate-700/50 text-amber-400 flex items-center justify-center mb-4 md:mb-6 shadow-sm border border-slate-600/50 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-400 transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-md">
+                    <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-gradient-to-br from-navy-800 to-navy-900 text-amber-400 flex items-center justify-center mb-4 md:mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors duration-300">
                       <stat.icon
-                        className="w-6 h-6 md:w-8 md:h-8"
+                        className="w-6 h-6 md:w-8 md:h-8 group-hover:scale-110 transition-transform duration-300"
                         aria-hidden="true"
                       />
                     </div>
-                    <div className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-2 tracking-tight group-hover:text-amber-400 transition-colors">
+                    <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-2 tracking-tight">
                       {stat.value}
                     </div>
                     <div className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-400 uppercase tracking-wider">
@@ -175,7 +176,7 @@ export default function TestingLaboratoryClient() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: idx * 0.08, duration: 0.5 }}
-                      className="bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden"
+                      className={`bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden ${isPrimary ? "hover:border-amber-400" : "hover:border-navy-400"}`}
                     >
                       {/* Top Right Circle Decoration */}
                       <div
@@ -183,8 +184,8 @@ export default function TestingLaboratoryClient() {
                       ></div>
 
                       <div className="relative z-10 flex items-center justify-between mb-6">
-                        <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center shrink-0 ${isPrimary ? 'text-amber-500 group-hover:shadow-amber-500/20' : 'text-slate-500 group-hover:shadow-slate-500/20'} transition-all duration-300`}>
-                          <div className="w-7 h-7 md:w-8 md:h-8 [&>svg]:w-full [&>svg]:h-full">
+                        <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center shrink-0 ${isPrimary ? 'text-amber-500 group-hover:bg-amber-50 group-hover:border-amber-200' : 'text-slate-500 group-hover:bg-slate-50 group-hover:border-slate-200'} transition-all duration-300`}>
+                          <div className="w-7 h-7 md:w-8 md:h-8 [&>svg]:w-full [&>svg]:h-full group-hover:scale-110 transition-transform duration-300">
                             {test.icon}
                           </div>
                         </div>
@@ -230,7 +231,7 @@ export default function TestingLaboratoryClient() {
                 return (
                   <div
                     key={idx}
-                    className={`flex flex-col sm:flex-row items-start gap-4 p-5 rounded-2xl border border-slate-100 transition-all group shadow-sm hover:shadow-md ${isPrimary ? "hover:border-amber-100 hover:bg-amber-50/30" : "hover:border-navy-100 hover:bg-navy-50/30"}`}
+                    className={`bg-white flex flex-col sm:flex-row items-start gap-4 p-5 rounded-2xl border border-slate-100 transition-all duration-300 group shadow-xl hover:shadow-2xl hover:-translate-y-1 ${isPrimary ? "hover:border-amber-400 hover:bg-amber-50/10" : "hover:border-navy-400 hover:bg-navy-50/10"}`}
                   >
                     <div
                       className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform ${isPrimary ? "bg-amber-50 border-amber-100" : "bg-navy-50 border-navy-100"}`}
@@ -253,7 +254,7 @@ export default function TestingLaboratoryClient() {
             </div>
             {/* ISO Callout Banner */}
             <div className="mt-20 -mx-4 sm:mx-0 bg-navy-950 rounded-none sm:rounded-3xl md:rounded-[2.5rem] px-6 py-16 sm:px-12 sm:py-20 md:px-16 md:py-24 relative overflow-hidden border-y sm:border border-navy-800 shadow-2xl">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5"></div>
+              <div className="absolute inset-0 bg-[url('/images/brc_equipment_background.jpg')] bg-cover bg-center opacity-5"></div>
               <AnimatedGridBackground opacity={0.08} />
               <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 

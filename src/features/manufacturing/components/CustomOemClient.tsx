@@ -109,16 +109,17 @@ export default function CustomOemClient() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {stats.map((stat, idx) => (
               <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className="bg-slate-800 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-slate-700 shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+                className="bg-navy-900 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-navy-800 shadow-xl shadow-navy-900/10 hover:shadow-2xl hover:bg-navy-800 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"></div>
                 
                 {/* The Top Right Circle Decoration */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-slate-700/30 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
+                <div className="absolute top-0 right-0 w-24 h-24 bg-navy-800/30 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
                 
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-slate-700/50 text-amber-400 flex items-center justify-center mb-4 md:mb-6 shadow-sm border border-slate-600/50 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-400 transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-md">
-                    <stat.icon className="w-6 h-6 md:w-8 md:h-8" aria-hidden="true" />
+                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-gradient-to-br from-navy-800 to-navy-900 text-amber-400 flex items-center justify-center mb-4 md:mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors duration-300">
+                    <stat.icon className="w-6 h-6 md:w-8 md:h-8 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
                   </div>
-                  <div className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-2 tracking-tight group-hover:text-amber-400 transition-colors">{stat.value}</div>
+                  <div className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-2 tracking-tight">{stat.value}</div>
                   <div className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-400 uppercase tracking-wider">{stat.label}</div>
                 </div>
               </motion.div>

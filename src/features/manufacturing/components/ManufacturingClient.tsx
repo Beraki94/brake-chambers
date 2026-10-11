@@ -21,49 +21,49 @@ export default function ManufacturingClient() {
     {
       title: "Brake Chamber Production Process",
       desc: "Four controlled stages: stamping, robotic welding, e-coating, and automated assembly.",
-      icon: <Settings className="w-8 h-8 text-amber-500 transition-colors" />,
+      icon: Settings,
       link: "/manufacturing/process",
       linkText: "Explore the Production Process"
     },
     {
       title: "Brake Chamber Material Sourcing",
       desc: "8-gauge steel, high-strength neoprene rubber, and ADC12 aluminum. Verified before production.",
-      icon: <Layers className="w-8 h-8 text-amber-500 transition-colors" />,
+      icon: Layers,
       link: "/manufacturing/material-sourcing",
       linkText: "Explore Material Sourcing"
     },
     {
       title: "Brake Chamber R&D",
       desc: "3D CAD modeling, FEA simulation, and rapid prototyping. How we design the next generation.",
-      icon: <Microscope className="w-8 h-8 text-amber-500 transition-colors" />,
+      icon: Microscope,
       link: "/manufacturing/research-development",
       linkText: "Explore Brake Chamber R&D"
     },
     {
       title: "Brake Chamber Quality Assurance",
       desc: "Lifecycle testing (200K/1M), salt spray chambers, burst pressure validation, and 100% leak testing.",
-      icon: <ShieldCheck className="w-8 h-8 text-amber-500 transition-colors" />,
+      icon: ShieldCheck,
       link: "/manufacturing/quality-assurance",
       linkText: "Explore Quality Assurance"
     },
     {
       title: "Custom OEM Manufacturing",
       desc: "Bring your proprietary brake chamber design and we will engineer, prototype, and mass-produce it.",
-      icon: <PenTool className="w-8 h-8 text-amber-500 transition-colors" />,
+      icon: PenTool,
       link: "/manufacturing/custom-oem",
       linkText: "Explore Custom OEM Manufacturing"
     },
     {
       title: "Private Label Brake Chambers",
       desc: "Launch your own brake chamber brand with custom paint, laser engraving, and branded packaging.",
-      icon: <Tag className="w-8 h-8 text-amber-500 transition-colors" />,
+      icon: Tag,
       link: "/manufacturing/private-label",
       linkText: "Explore Private Label"
     },
     {
       title: "High-Volume Brake Chamber Orders",
       desc: "Tiered factory-direct pricing from 500-unit pilot orders to annual container programs.",
-      icon: <Package className="w-8 h-8 text-amber-500 transition-colors" />,
+      icon: Package,
       link: "/manufacturing/high-volume-orders",
       linkText: "Explore High-Volume Orders"
     }
@@ -183,13 +183,13 @@ export default function ManufacturingClient() {
               <Link
                 href={page.link}
                 key={idx}
-                className={`bg-slate-800 rounded-2xl md:rounded-[2rem] p-6 md:p-8 border border-slate-700 shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:border-amber-500/50 transition-all duration-300 flex flex-col sm:flex-row gap-6 group items-start relative overflow-hidden ${idx === 6 ? 'lg:col-span-2 lg:max-w-3xl lg:mx-auto w-full' : ''}`}
+                className={`bg-navy-900 rounded-2xl md:rounded-[2rem] p-6 md:p-8 border border-navy-800 shadow-xl shadow-navy-900/10 hover:bg-navy-800 hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 flex flex-col sm:flex-row gap-6 group items-start relative overflow-hidden ${idx === 6 ? 'lg:col-span-2 lg:max-w-3xl lg:mx-auto w-full' : ''}`}
               >
-                {/* Icon Left - NO HOVER EFFECTS */}
-                <div className="relative z-10 w-16 h-16 rounded-2xl bg-slate-700/50 border border-slate-600/50 flex items-center justify-center shrink-0">
-                  <div className="[&>svg]:w-8 [&>svg]:h-8 [&>svg]:text-amber-400">
-                    {page.icon}
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                
+                {/* Icon Left */}
+                <div className="relative z-10 w-16 h-16 rounded-2xl bg-gradient-to-br from-navy-800 to-navy-900 border border-navy-700 shadow-inner flex items-center justify-center shrink-0 group-hover:border-amber-500/50 transition-colors duration-300">
+                  <page.icon className="w-7 h-7 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                 </div>
 
                 {/* Text Content Right */}

@@ -232,7 +232,7 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
       baseCategory="parts-and-kits"
       products={products}
       searchParams={searchParams}
-      visualizerType="accessories"
+      visualizerType="parts"
       seoText={seoContent}
       breadcrumbs={[{ label: 'Chamber Parts & Kits' }]}
     />

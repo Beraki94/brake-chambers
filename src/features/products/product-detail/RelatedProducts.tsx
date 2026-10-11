@@ -14,7 +14,6 @@ interface RelatedProductsProps {
 
 export default async function RelatedProducts({ currentSlug, category, isAccessory = false }: RelatedProductsProps) {
   const BRAKE_CHAMBERS = await getProducts();
-  const BRAKE_CHAMBERS = await getProducts();
   // Find related products
   let related: (BrakeChamber | BrakeAccessory)[] = [];
   

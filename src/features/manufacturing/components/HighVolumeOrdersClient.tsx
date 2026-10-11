@@ -125,16 +125,17 @@ export default function HighVolumeOrdersClient() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {stats.map((stat, idx) => (
               <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className="bg-slate-800 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-slate-700 shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+                className="bg-navy-900 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-navy-800 shadow-xl shadow-navy-900/10 hover:shadow-2xl hover:bg-navy-800 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"></div>
                 
                 {/* The Top Right Circle Decoration */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-slate-700/30 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
+                <div className="absolute top-0 right-0 w-24 h-24 bg-navy-800/30 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
                 
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-slate-700/50 text-amber-400 flex items-center justify-center mb-4 md:mb-6 shadow-sm border border-slate-600/50 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-400 transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-md">
-                    <stat.icon className="w-6 h-6 md:w-8 md:h-8" aria-hidden="true" />
+                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-gradient-to-br from-navy-800 to-navy-900 text-amber-400 flex items-center justify-center mb-4 md:mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors duration-300">
+                    <stat.icon className="w-6 h-6 md:w-8 md:h-8 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
                   </div>
-                  <div className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-2 tracking-tight group-hover:text-amber-400 transition-colors">{stat.value}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-2 tracking-tight">{stat.value}</div>
                   <div className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-400 uppercase tracking-wider">{stat.label}</div>
                 </div>
               </motion.div>
@@ -161,10 +162,10 @@ export default function HighVolumeOrdersClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className={`rounded-3xl p-8 border-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden ${
+                className={`rounded-3xl p-8 border transition-all duration-300 hover:-translate-y-1 shadow-xl hover:shadow-2xl relative overflow-hidden ${
                   tier.popular
-                    ? 'bg-amber-50 border-amber-300 shadow-lg'
-                    : 'bg-slate-50 border-slate-200 shadow-sm'
+                    ? 'bg-amber-50/50 border-amber-300 hover:border-amber-400'
+                    : 'bg-white border-slate-100 hover:border-navy-400'
                 }`}
               >
                 {tier.popular && (
@@ -191,7 +192,7 @@ export default function HighVolumeOrdersClient() {
 
       {/* Advantages — 2-Column Grid */}
       <section className="py-20 lg:py-32 bg-navy-950 relative overflow-hidden border-y border-navy-800">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5  "></div>
+        <div className="absolute inset-0 bg-[url('/images/brc_equipment_background.jpg')] bg-cover bg-center opacity-5  "></div>
         
         <AnimatedGridBackground opacity={0.08} />
         
@@ -210,8 +211,9 @@ export default function HighVolumeOrdersClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {advantages.map((adv, idx) => (
               <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.08, duration: 0.6 }}
-                className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 rounded-[2rem] p-8 lg:p-10 hover:border-slate-600 hover:from-navy-700 hover:to-navy-800 transition-all duration-300 transform hover:-translate-y-1 shadow-2xl group flex flex-col md:flex-row items-start gap-6">
-                <div className="w-16 h-16 bg-navy-950/80 border border-navy-700 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:border-slate-600 transition-all duration-300 shadow-inner">
+                className="bg-navy-900 border border-navy-800 rounded-[2rem] p-8 lg:p-10 hover:bg-navy-800 transition-all duration-500 shadow-xl shadow-navy-900/10 group transform hover:-translate-y-1 relative overflow-hidden flex flex-col md:flex-row items-start gap-6">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="relative z-10 w-16 h-16 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center shrink-0 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors [&>svg]:text-amber-400 [&>svg]:group-hover:scale-110 [&>svg]:transition-transform [&>svg]:duration-300">
                   {adv.icon}
                 </div>
                 <div>

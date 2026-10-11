@@ -257,7 +257,7 @@ export default function ApplicationsClient() {
 
       {/* Extreme Environments */}
       <section className="py-16 md:py-24 bg-navy-950 border-y border-navy-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 z-0"></div>
+        <div className="absolute inset-0 bg-[url('/images/brc_equipment_background.jpg')] bg-cover bg-center opacity-5 z-0"></div>
         <AnimatedGridBackground opacity={0.08} />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 
@@ -287,13 +287,13 @@ export default function ApplicationsClient() {
               <motion.div
                 key={idx}
                 variants={fadeInUp}
-                className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 rounded-2xl lg:rounded-[2rem] p-6 sm:p-8 shadow-xl shadow-navy-900/10 group flex flex-col relative overflow-hidden transform hover:-translate-y-2 transition-all duration-500 hover:border-amber-500/50"
+                className="bg-navy-900 border border-navy-800 rounded-2xl lg:rounded-[2rem] p-6 sm:p-8 shadow-xl shadow-navy-900/10 hover:shadow-2xl hover:bg-navy-800 group flex flex-col relative overflow-hidden transform hover:-translate-y-2 transition-all duration-500"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none"></div>
                 <div className="relative z-10 w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
                   <stat.icon className="w-7 h-7 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h3 className="relative z-10 text-xl font-extrabold text-white mb-3 group-hover:text-amber-400 transition-colors">{stat.title}</h3>
+                <h3 className="relative z-10 text-xl font-extrabold text-white mb-3">{stat.title}</h3>
                 <p className="relative z-10 text-[14px] md:text-[15px] leading-[1.6] font-normal text-navy-300">{stat.desc}</p>
               </motion.div>
             ))}

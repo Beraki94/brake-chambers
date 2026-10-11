@@ -100,16 +100,17 @@ export default function PrivateLabelClient() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {stats.map((stat, idx) => (
               <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className="bg-slate-800 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-slate-700 shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+                className="bg-navy-900 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 text-center border border-navy-800 shadow-xl shadow-navy-900/10 hover:shadow-2xl hover:bg-navy-800 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"></div>
                 
                 {/* The Top Right Circle Decoration */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-slate-700/30 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
+                <div className="absolute top-0 right-0 w-24 h-24 bg-navy-800/30 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
                 
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-slate-700/50 text-amber-400 flex items-center justify-center mb-4 md:mb-6 shadow-sm border border-slate-600/50 group-hover:bg-amber-500 group-hover:text-white group-hover:border-amber-400 transition-all duration-300 transform group-hover:-translate-y-2 group-hover:shadow-md">
-                    <stat.icon className="w-6 h-6 md:w-8 md:h-8" aria-hidden="true" />
+                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-gradient-to-br from-navy-800 to-navy-900 text-amber-400 flex items-center justify-center mb-4 md:mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors duration-300">
+                    <stat.icon className="w-6 h-6 md:w-8 md:h-8 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
                   </div>
-                  <div className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-2 tracking-tight group-hover:text-amber-400 transition-colors">{stat.value}</div>
+                  <div className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-2 tracking-tight">{stat.value}</div>
                   <div className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-400 uppercase tracking-wider">{stat.label}</div>
                 </div>
               </motion.div>
@@ -132,7 +133,7 @@ export default function PrivateLabelClient() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {/* Private Label */}
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="bg-white rounded-3xl p-8 md:p-10 border border-amber-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
+              className="bg-white rounded-3xl p-8 md:p-10 border border-amber-200 shadow-xl hover:shadow-2xl hover:border-amber-400 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-[50px] -mr-10 -mt-10"></div>
               <div className="relative z-10">
                 <div className="inline-block px-3 py-1 mb-4 rounded-full bg-amber-50 border border-amber-200 text-amber-600 text-[11px] font-bold uppercase tracking-widest">
@@ -156,7 +157,7 @@ export default function PrivateLabelClient() {
 
             {/* White Label */}
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
+              className="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-xl hover:shadow-2xl hover:border-navy-400 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-navy-500/5 rounded-full blur-[50px] -mr-10 -mt-10"></div>
               <div className="relative z-10">
                 <div className="inline-block px-3 py-1 mb-4 rounded-full bg-amber-50 border border-amber-200 text-amber-600 text-[11px] font-bold uppercase tracking-widest">
@@ -201,14 +202,16 @@ export default function PrivateLabelClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08, duration: 0.6 }}
-                className="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
+                className={`bg-white rounded-3xl p-8 border border-slate-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden ${idx % 2 === 0 ? "hover:border-amber-400" : "hover:border-navy-400"}`}
               >
                 {/* Top Right Circle Decoration */}
-                <div className={`absolute top-0 right-0 w-24 h-24 ${idx % 2 === 0 ? 'bg-amber-100/50' : 'bg-blue-50'} rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none`}></div>
+                <div className={`absolute top-0 right-0 w-24 h-24 ${idx % 2 === 0 ? 'bg-amber-50/60' : 'bg-slate-50/60'} rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none`}></div>
 
                 <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <div className={`w-14 h-14 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center mb-6 transition-all duration-300 ${idx % 2 === 0 ? "text-amber-500 group-hover:bg-amber-50 group-hover:border-amber-200" : "text-navy-500 group-hover:bg-slate-50 group-hover:border-slate-200"}`}>
+                    <div className="w-6 h-6 [&>svg]:w-full [&>svg]:h-full group-hover:scale-110 transition-transform duration-300">
                     {item.icon}
+                    </div>
                   </div>
                   <h3 className="text-lg md:text-xl font-bold text-navy-900 mb-3 tracking-tight leading-tight">{item.title}</h3>
                   <p className="text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal">{item.description}</p>
@@ -221,7 +224,7 @@ export default function PrivateLabelClient() {
 
       {/* How It Works — Horizontal Timeline */}
       <section className="py-20 lg:py-32 bg-navy-950 relative overflow-hidden border-y border-navy-800">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5  "></div>
+        <div className="absolute inset-0 bg-[url('/images/brc_equipment_background.jpg')] bg-cover bg-center opacity-5  "></div>
         
         <AnimatedGridBackground opacity={0.08} />
         
@@ -246,17 +249,17 @@ export default function PrivateLabelClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.12, duration: 0.6 }}
-                className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 rounded-[2rem] p-8 hover:border-amber-500/50 transition-all duration-500 shadow-xl group transform hover:-translate-y-1 relative overflow-hidden flex flex-col h-full"
+                className="bg-navy-900 border border-navy-800 rounded-[2rem] p-8 hover:bg-navy-800 transition-all duration-500 shadow-xl shadow-navy-900/10 group transform hover:-translate-y-1 relative overflow-hidden flex flex-col h-full"
               >
                 {/* Glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <span className="text-7xl font-black text-navy-800/50 absolute top-4 right-4 group-hover:text-amber-500/10 transition-colors pointer-events-none z-0">{step.step}</span>
                 <div className="relative z-10 flex flex-col h-full">
-                  <div className="w-14 h-14 bg-navy-950 rounded-2xl flex items-center justify-center mb-6 border border-navy-800 shadow-[0_0_10px_rgba(245,158,11,0.2)] group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] group-hover:scale-110 transition-all duration-300 group-hover:border-amber-500/50 text-amber-500">
+                  <div className="w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors text-amber-400 [&>svg]:group-hover:scale-110 [&>svg]:transition-transform [&>svg]:duration-300">
                     {step.icon}
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-amber-400 transition-colors">{step.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight">{step.title}</h3>
                   <p className="text-navy-200 text-[15px] leading-[1.6] font-normal flex-grow">{step.desc}</p>
                 </div>
               </motion.div>
