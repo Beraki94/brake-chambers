@@ -3,6 +3,7 @@
 import React from 'react';
 import { ShieldEllipsis, Wrench, Disc } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
+import AnimatedGridBackground from '@/components/ui/AnimatedGridBackground';
 
 export default function CategoryVisualizer({ type }: { type: 'spring' | 'service' | 'parts' | 'adp' }) {
   const content = {
@@ -16,8 +17,8 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
       highlight1Desc: "Ideal for standard highway operations and fleets with strict preventative maintenance schedules. Reliable, consistent daily performance.",
       highlight2Title: "Enhanced Safety Margin",
       highlight2Desc: "Provides up to 3 inches of extra stroke. Critical for severe duty cycles, steep grades, and maximizing lining wear life.",
-      img: "/products/service_brake_pushrod.png",
-      imgClass: "mix-blend-screen drop-shadow-[0_0_40px_rgba(34,211,238,0.2)] max-w-full max-h-[450px] object-contain",
+      img: "/images/products/brc-service-brake-chamber-parts-diagram.jpg",
+      alt: "Labeled cutaway diagram showing the internal components of a single service brake chamber.",
       icon: ShieldEllipsis,
     },
     spring: {
@@ -30,8 +31,8 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
       highlight1Desc: "Air pressure pushes the diaphragm to apply service brakes during normal driving. Completely independent from the parking spring.",
       highlight2Title: "Mechanical Spring Applied",
       highlight2Desc: "When air is released (or lost), the powerful steel spring expands to mechanically lock the brakes. A vital fail-safe mechanism.",
-      img: "/products/spring_brake_schematic.png",
-      imgClass: "mix-blend-screen drop-shadow-[0_0_40px_rgba(251,191,36,0.2)] max-w-full max-h-[450px] object-contain",
+      img: "/images/products/brc-spring-brake-chamber-cutaway-diagram.jpg",
+      alt: "Technical 2D cross-section diagram of a commercial truck spring brake chamber with component labels.",
       icon: ShieldEllipsis,
     },
     parts: {
@@ -44,8 +45,8 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
       highlight1Desc: "Replacing the entire chamber ensures all components are new. This is the ideal solution for severely corroded or damaged units.",
       highlight2Title: "Smart Maintenance",
       highlight2Desc: "Replace only the failed parking section. Reuses the existing service housing and pushrod, cutting costs by up to 40%.",
-      img: "/products/piggyback.jpg",
-      imgClass: "mix-blend-screen drop-shadow-[0_0_40px_rgba(34,211,238,0.2)] max-w-full max-h-[450px] object-contain",
+      img: "/images/products/brc-brake-chamber-parts-kit-components.jpg",
+      alt: "Knolling diagram layout of commercial brake chamber replacement hardware parts and diaphragm kit.",
       icon: Wrench,
     },
     adp: {
@@ -58,8 +59,8 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
       highlight1Desc: "Traditional drum brakes use the pushrod to rotate an S-cam, which pushes brake shoes outward against the drum.",
       highlight2Title: "Direct Caliper Force",
       highlight2Desc: "Disc actuators push directly into the caliper mechanism, resulting in faster response times and perfectly even pad wear.",
-      img: "/products/air-disc-brake.jpg",
-      imgClass: "mix-blend-screen drop-shadow-[0_0_40px_rgba(251,191,36,0.2)] max-w-full max-h-[450px] object-contain",
+      img: "/images/products/brc-air-disc-brake-actuator-adb-diagram.jpg",
+      alt: "Air disc brake actuator (ADB) technical illustration with parts labeling.",
       icon: Disc,
     }
   };
@@ -70,22 +71,20 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
   return (
     <div className="-mx-4 sm:mx-0 w-[calc(100%+2rem)] sm:w-full mt-10 md:mt-16 mb-8 rounded-none sm:rounded-[2rem] lg:rounded-[2.5rem] bg-navy-950 border-y border-navy-800 sm:border sm:border-navy-800 shadow-2xl relative overflow-hidden flex flex-col items-center">
       
-      {/* Background glow */}
-      <div className="absolute top-0 left-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] rounded-full blur-[80px] md:blur-[120px] transition-colors duration-1000 z-0 pointer-events-none bg-cyan-500/5"></div>
-      <div className="absolute bottom-0 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] rounded-full blur-[80px] md:blur-[120px] transition-colors duration-1000 z-0 pointer-events-none bg-amber-500/5"></div>
-      
-      {/* Subtle Engineering Grid Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
+      {/* Background image & Animated Grid Pattern (Consistent with other dark sections) */}
+      <div className="absolute inset-0 bg-[url('/images/brc_equipment_background.jpg')] bg-cover bg-center opacity-5 z-0 pointer-events-none"></div>
+      <AnimatedGridBackground opacity={0.08} />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950 pointer-events-none z-0"></div>
 
       {/* Header (Top Center) */}
       <div className="relative z-10 w-full max-w-4xl px-6 md:px-8 pt-10 md:pt-16 pb-6 md:pb-8 flex flex-col items-center text-center">
         <SectionHeader
-          badge={<><Icon className="w-3 h-3 mr-2 inline-block text-amber-500 relative -top-[1px]" /> {data.badge}</>}
+          badge={<><Icon className="w-3.5 h-3.5 mr-2 inline-block text-amber-500 relative -top-[1px]" /> {data.badge}</>}
           title={data.title}
           description={data.desc}
           align="center"
           theme="dark"
-          accentColor="slate"
+          accentColor="amber"
           className="!mb-0"
         />
       </div>
@@ -95,66 +94,49 @@ export default function CategoryVisualizer({ type }: { type: 'spring' | 'service
         
         {/* Card 1 (Left Flank) */}
         <div className="w-full lg:w-1/3 flex justify-center lg:justify-end order-2 lg:order-1">
-          <div className="w-full md:max-w-sm bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 shadow-xl shadow-navy-900/10 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/50 group relative overflow-hidden flex flex-col h-full">
-             {/* Glow effect on hover */}
-             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
-             
-             {/* Corner Element */}
-             <div className="absolute top-0 right-0 w-32 h-32 bg-navy-700/40 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none"></div>
+          <div className="w-full md:max-w-sm bg-navy-900 border border-navy-800 rounded-2xl md:rounded-[2rem] p-6 md:p-8 shadow-xl shadow-navy-900/10 hover:shadow-2xl hover:bg-navy-800 group flex flex-col relative overflow-hidden transform hover:-translate-y-1 transition-all duration-500">
+             {/* Subtle amber ambient glow on hover */}
+             <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none"></div>
 
-             <div className="relative z-10 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl py-1.5 px-3 mb-4 self-start flex items-center group-hover:border-cyan-500/50 transition-colors">
-               <span className="flex items-center gap-2 text-cyan-400 uppercase tracking-widest text-[10px] font-black group-hover:text-cyan-300 transition-colors">
-                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)] group-hover:scale-125 transition-transform"></span>
+             <div className="relative z-10 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl py-1.5 px-3 mb-4 self-start flex items-center">
+               <span className="flex items-center gap-2 text-amber-400 uppercase tracking-widest text-[11px] sm:text-xs font-black">
+                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]"></span>
                  {data.tab1}
                </span>
              </div>
-             <h3 className="relative z-10 text-white text-xl md:text-2xl font-extrabold mb-3 md:mb-4 group-hover:text-cyan-400 transition-colors">{data.highlight1Title}</h3>
-             <p className="relative z-10 text-navy-300 font-light text-xs md:text-sm leading-relaxed">{data.highlight1Desc}</p>
+             <h3 className="relative z-10 text-white text-xl md:text-2xl font-extrabold mb-3 md:mb-4 leading-snug">{data.highlight1Title}</h3>
+             <p className="relative z-10 text-slate-200 text-sm md:text-base leading-relaxed font-normal">{data.highlight1Desc}</p>
           </div>
         </div>
 
         {/* Center Diagram (Appears First on Mobile) */}
         <div className="w-full lg:w-1/3 flex justify-center items-center py-4 lg:py-0 relative order-1 lg:order-2 mb-4 lg:mb-0">
-           <img 
-             src={data.img} 
-             alt={data.title}
-             className={`relative z-10 w-full transition-transform duration-1000 hover:scale-105 ${data.imgClass}`}
-           />
-           
-           {/* Animated Pushrod Extension Graphic (Only for Service Brakes) */}
-           {type === 'service' && (
-             <div className="absolute right-0 md:right-[-10%] top-1/2 -translate-y-1/2 z-20 flex items-center">
-                <div className="w-8 md:w-12 h-1 bg-white/20 relative">
-                  <div className="absolute -left-1 -top-1 w-2 md:w-3 h-2 md:h-3 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]"></div>
-                  <div className="absolute -right-1 -top-1 w-2 md:w-3 h-2 md:h-3 rounded-full bg-white/50"></div>
-                </div>
-                <div className="h-1 bg-amber-500 relative flex items-center w-8 md:w-12 opacity-100">
-                   <div className="absolute -right-1 w-3 md:w-4 h-3 md:h-4 rounded-full bg-amber-400 shadow-[0_0_20px_rgba(251,191,36,1)]"></div>
-                   <div className="absolute left-1/2 -translate-x-1/2 -top-8 md:-top-10 bg-amber-500/20 text-amber-400 border border-amber-500/50 px-2 md:px-3 py-1 rounded-md text-[9px] md:text-[11px] font-bold whitespace-nowrap backdrop-blur-sm">
-                     + Extra Stroke
-                   </div>
-                </div>
-             </div>
-           )}
+          <div className="w-full max-w-sm sm:max-w-md bg-white rounded-2xl md:rounded-[2rem] p-3 sm:p-4 shadow-2xl border border-slate-200/20 ring-1 ring-white/10 overflow-hidden flex items-center justify-center">
+            <img 
+              src={data.img} 
+              alt={data.alt}
+              className="w-full h-auto max-h-[320px] md:max-h-[360px] object-contain transition-transform duration-700 hover:scale-105"
+              loading="lazy"
+            />
+          </div>
         </div>
 
         {/* Card 2 (Right Flank) */}
         <div className="w-full lg:w-1/3 flex justify-center lg:justify-start order-3 lg:order-3">
-          <div className="w-full md:max-w-sm bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 shadow-xl shadow-navy-900/10 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] transition-all duration-500 hover:-translate-y-1 hover:border-amber-500/50 group relative overflow-hidden flex flex-col h-full">
+          <div className="w-full md:max-w-sm bg-navy-900 border border-navy-800 rounded-2xl md:rounded-[2rem] p-6 md:p-8 shadow-xl shadow-navy-900/10 hover:shadow-2xl hover:bg-navy-800 group flex flex-col relative overflow-hidden transform hover:-translate-y-1 transition-all duration-500">
              {/* Glow effect on hover */}
-             <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+             <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none"></div>
              
-             {/* Corner Element */}
-             <div className="absolute top-0 right-0 w-32 h-32 bg-navy-700/40 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none"></div>
 
-             <div className="relative z-10 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl py-1.5 px-3 mb-4 self-start flex items-center group-hover:border-amber-500/50 transition-colors">
-               <span className="flex items-center gap-2 text-amber-400 uppercase tracking-widest text-[10px] font-black group-hover:text-amber-300 transition-colors">
-                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)] group-hover:scale-125 transition-transform"></span>
+
+             <div className="relative z-10 bg-gradient-to-br from-navy-800 to-navy-900 shadow-inner border border-navy-700 rounded-xl py-1.5 px-3 mb-4 self-start flex items-center">
+               <span className="flex items-center gap-2 text-amber-400 uppercase tracking-widest text-[11px] sm:text-xs font-black">
+                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]"></span>
                  {data.tab2}
                </span>
              </div>
-             <h3 className="relative z-10 text-white text-xl md:text-2xl font-extrabold mb-3 md:mb-4 group-hover:text-amber-400 transition-colors">{data.highlight2Title}</h3>
-             <p className="relative z-10 text-navy-300 font-light text-xs md:text-sm leading-relaxed">{data.highlight2Desc}</p>
+             <h3 className="relative z-10 text-white text-xl md:text-2xl font-extrabold mb-3 md:mb-4 leading-snug">{data.highlight2Title}</h3>
+             <p className="relative z-10 text-slate-200 text-sm md:text-base leading-relaxed font-normal">{data.highlight2Desc}</p>
           </div>
         </div>
 

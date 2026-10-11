@@ -5,7 +5,7 @@ import { BRAKE_ACCESSORIES } from '@/lib/data';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import SectionHeader from '@/components/ui/SectionHeader';
-import { Wrench, ArrowRight } from 'lucide-react';
+import { Wrench, ArrowRight, Shield, Settings, Lock, SlidersHorizontal, CircleDot, Layers, RotateCcw } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -31,14 +31,70 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
   }
 
   const manufacturingCards = [
-    { title: 'Air Brake Chamber Repair Kits', desc: 'Complete rebuild kits for field servicing. Includes diaphragm, seals, caging bolt, and all necessary hardware for a full overhaul.' },
-    { title: 'Brake Chamber Diaphragms', desc: 'High-tensile neoprene rubber diaphragms with nylon reinforcement. Rated for -40°C to +80°C operating range.' },
-    { title: 'Clevis Pins & Hardware', desc: 'Zinc-plated steel clevis pins, cotter pins, and mounting hardware for commercial brake chambers.' },
-    { title: 'Caging Bolts & Tools', desc: 'Manual and automatic caging bolts for spring brake chambers. Includes caging tools for safe spring brake release during maintenance.' },
-    { title: 'Slack Adjusters', desc: 'Automatic and manual slack adjusters for S-cam drum brake systems. Direct OEM fitment.' },
-    { title: 'Clamp Bands', desc: 'Heavy-duty clamp bands for securing brake chamber housing sections. Zinc-plated for corrosion resistance.' },
-    { title: 'Pre-Caged Piggyback Kits', desc: 'Complete pre-caged piggyback sections for rapid spring brake replacement without dismounting the entire chamber.' },
-    { title: 'Return Springs', desc: 'Epoxy-coated internal return springs for service and spring brake chambers. Prevents rust flaking and center seal failure.' }
+    {
+      title: 'Air Brake Chamber Repair Kits',
+      desc: 'Complete rebuild kits for field servicing. Includes high-integrity diaphragms, precision seals, caging bolts, and all required hardware.',
+      badge: 'Field Overhaul',
+      icon: Wrench,
+      spec: 'Bendix & Haldex Fit',
+      href: '/parts-and-kits/repair-kits'
+    },
+    {
+      title: 'Brake Chamber Diaphragms',
+      desc: 'High-tensile neoprene rubber with nylon reinforcement. Rated for extreme -40°C to +80°C operating environments.',
+      badge: 'Rubber Sealing',
+      icon: Shield,
+      spec: 'Type 20 to Type 36',
+      href: '/parts-and-kits/replacement-rubber'
+    },
+    {
+      title: 'Clevis Pins & Hardware',
+      desc: 'Corrosion-resistant zinc-plated steel clevis pins, hardened cotter pins, and mounting studs engineered for severe-duty vibration.',
+      badge: 'Hardware & Pins',
+      icon: Settings,
+      spec: 'Grade 8 Steel',
+      href: '/parts-and-kits/mounting-hardware'
+    },
+    {
+      title: 'Caging Bolts & Tools',
+      desc: 'Manual and automatic caging bolts and tool assemblies for safe, controlled mechanical release of power spring chambers during maintenance.',
+      badge: 'Safety Servicing',
+      icon: Lock,
+      spec: 'Drop-Forged Steel',
+      href: '/parts-and-kits'
+    },
+    {
+      title: 'Automatic Slack Adjusters',
+      desc: 'Heavy-duty automatic and manual clearance adjusters for S-cam drum brake systems. Direct OEM spline fitment and sealed lubrication.',
+      badge: 'S-Cam Control',
+      icon: SlidersHorizontal,
+      spec: 'OEM Spline Fit',
+      href: '/parts-and-kits'
+    },
+    {
+      title: 'Clamp Bands & Rings',
+      desc: 'Heavy-gauge two-piece clamp bands with heavy-duty Grade 8 fasteners for airtight sealing between chamber service housings.',
+      badge: 'Housing Fastener',
+      icon: CircleDot,
+      spec: '360° Air Seal',
+      href: '/parts-and-kits/mounting-hardware'
+    },
+    {
+      title: 'Pre-Caged Piggyback Kits',
+      desc: 'Factory pre-compressed spring sections designed for rapid, safe field servicing without dismounting the entire chamber.',
+      badge: 'Modular Swap',
+      icon: Layers,
+      spec: 'Rapid Installation',
+      href: '/spring-brake-chambers'
+    },
+    {
+      title: 'Epoxy-Coated Return Springs',
+      desc: 'High-cycle epoxy powder-coated internal return springs engineered to prevent rust flaking and center seal contamination.',
+      badge: 'Internal Actuation',
+      icon: RotateCcw,
+      spec: 'High-Cycle Fatigue',
+      href: '/parts-and-kits'
+    }
   ];
 
   const seoContent = (
@@ -64,31 +120,60 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
         </div>
       </section>
 
-      <section className="mb-16 bg-slate-50 p-8 rounded-3xl border border-slate-100">
+      <section className="mb-16 bg-slate-50 p-6 sm:p-8 md:p-10 rounded-3xl border border-slate-200/80 shadow-sm">
         <SectionHeader
           badge="Product Range"
           title="Brake Chamber Parts & Kits We Manufacture"
           align="center"
           accentColor="amber"
-          className="!mb-6"
+          className="!mb-4"
         />
-        <div className="text-slate-600 leading-relaxed text-sm md:text-base max-w-4xl mx-auto space-y-4 text-center mb-8">
+        <div className="text-slate-600 leading-relaxed text-sm md:text-base max-w-3xl mx-auto text-center mb-8 sm:mb-10">
           <p>
             BRC manufactures the full range of commercial brake chamber replacement parts. Every part is a direct OEM replacement for Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO components.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-          {manufacturingCards.map((card, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:-translate-y-1 hover:shadow-md transition-all">
-              <h3 className="font-bold text-navy-900 mb-2">{card.title}</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">{card.desc}</p>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-7xl mx-auto">
+          {manufacturingCards.map((card, idx) => {
+            const CardIcon = card.icon;
+            return (
+              <div 
+                key={idx} 
+                className="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:border-amber-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 shadow-sm">
+                      <CardIcon className="w-5 h-5" />
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-100 group-hover:bg-amber-50 group-hover:text-amber-700 px-2.5 py-1 rounded-md transition-colors">
+                      {card.badge}
+                    </span>
+                  </div>
+                  <h3 className="font-extrabold text-navy-950 text-base md:text-[17px] mb-2 leading-snug tracking-tight group-hover:text-amber-600 transition-colors">
+                    {card.title}
+                  </h3>
+                  <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed font-normal mb-4">
+                    {card.desc}
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-400">
+                  <span className="truncate pr-2 font-mono text-[10px] uppercase text-slate-400">{card.spec}</span>
+                  <Link 
+                    href={card.href} 
+                    className="text-amber-600 font-bold group-hover:text-amber-700 flex items-center gap-1 flex-shrink-0 hover:underline"
+                  >
+                    Details <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         <div className="pt-8 text-center">
-          <Link href="/products" className="text-amber-600 font-bold hover:underline inline-flex items-center">
+          <Link href="/products" className="text-amber-600 font-bold hover:underline inline-flex items-center text-sm md:text-base">
             View all parts & kit specs <ArrowRight className="w-4 h-4 ml-1" />
           </Link>
         </div>

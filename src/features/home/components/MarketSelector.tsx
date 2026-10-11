@@ -11,20 +11,8 @@ const FLAGS: Record<string, React.ReactNode> = {
   'en': ( // USA
     <svg viewBox="0 0 60 30" className="w-full h-full"><rect fill="#B22234" width="60" height="30"/><rect fill="#fff" y="2.31" width="60" height="2.31"/><rect fill="#fff" y="6.92" width="60" height="2.31"/><rect fill="#fff" y="11.54" width="60" height="2.31"/><rect fill="#fff" y="16.15" width="60" height="2.31"/><rect fill="#fff" y="20.77" width="60" height="2.31"/><rect fill="#fff" y="25.38" width="60" height="2.31"/><rect fill="#3C3B6E" width="24" height="16.15"/></svg>
   ),
-  'es': ( // Spain
-    <svg viewBox="0 0 60 40" className="w-full h-full"><rect fill="#AA151B" width="60" height="40"/><rect fill="#F1BF00" y="10" width="60" height="20"/></svg>
-  ),
-  'ar': ( // UAE
-    <svg viewBox="0 0 60 30" className="w-full h-full"><rect fill="#00732F" width="60" height="10"/><rect fill="#fff" y="10" width="60" height="10"/><rect fill="#000" y="20" width="60" height="10"/><rect fill="#FF0000" width="15" height="30"/></svg>
-  ),
   'zh-CN': ( // China
     <svg viewBox="0 0 60 40" className="w-full h-full"><rect fill="#DE2910" width="60" height="40"/><polygon fill="#FFDE00" points="12,5 13.8,10.5 19.6,10.5 14.9,14 16.7,19.5 12,16 7.3,19.5 9.1,14 4.4,10.5 10.2,10.5"/></svg>
-  ),
-  'fr': ( // France
-    <svg viewBox="0 0 60 40" className="w-full h-full"><rect fill="#002395" width="20" height="40"/><rect fill="#fff" x="20" width="20" height="40"/><rect fill="#ED2939" x="40" width="20" height="40"/></svg>
-  ),
-  'de': ( // Germany
-    <svg viewBox="0 0 60 36" className="w-full h-full"><rect fill="#000" width="60" height="12"/><rect fill="#DD0000" y="12" width="60" height="12"/><rect fill="#FFCE00" y="24" width="60" height="12"/></svg>
   ),
 };
 
@@ -45,12 +33,21 @@ export default function MarketSelector() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   
-  const currentMarket = useMarketStore(state => state.selectedMarket) || MARKETS[0];
+  const rawMarket = useMarketStore(state => state.selectedMarket);
+  // Ensure we always have a valid market from the current MARKETS list
+  const currentMarket = MARKETS.find(m => m.code === rawMarket?.code) || MARKETS[0];
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-  }, []);
+
+    // If an obsolete market was stored in localStorage from previous visits, reset to English
+    if (rawMarket && !MARKETS.some(m => m.code === rawMarket.code)) {
+      setMarket(MARKETS[0]);
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
+    }
+  }, [rawMarket, setMarket]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -131,6 +128,7 @@ export default function MarketSelector() {
       <button 
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-1.5 bg-navy-800/50 hover:bg-navy-700 transition-all px-2.5 py-1 rounded-md border border-navy-700 text-navy-100 font-medium text-xs group h-7"
+        aria-label="Select Language"
       >
         <FlagIcon code={currentMarket.code} size={18} />
         <span className="group-hover:text-amber-400 transition-colors hidden sm:block">
@@ -142,25 +140,28 @@ export default function MarketSelector() {
       {isOpen && (
         <div className="absolute top-full right-0 mt-2 w-56 bg-white border border-slate-200 shadow-2xl rounded-2xl overflow-hidden z-50">
           <div className="bg-slate-50/80 backdrop-blur-md px-4 py-3 border-b border-slate-100 flex items-center justify-between">
-            <span className="text-[10px] font-extrabold text-navy-400 uppercase tracking-widest">Select Region</span>
+            <span className="text-[10px] font-extrabold text-navy-400 uppercase tracking-widest">Select Language</span>
             <Globe className="w-3.5 h-3.5 text-slate-400" />
           </div>
-          <div className="p-2 max-h-[300px] overflow-y-auto">
-            {MARKETS.map(market => (
-              <button
-                key={market.code}
-                onClick={() => handleMarketChange(market.code)}
-                className={`w-full text-left px-3 py-2.5 rounded-xl text-sm flex items-center gap-3 transition-all ${market.code === currentMarket.code ? 'bg-slate-100 border border-slate-200' : 'hover:bg-slate-50 border border-transparent'}`}
-              >
-                 <FlagIcon code={market.code} size={22} />
-                 <span className={`font-bold flex-grow ${market.code === currentMarket.code ? 'text-navy-900' : 'text-slate-600'}`}>
-                   {market.countryName}
-                 </span>
-                 {market.code === currentMarket.code && (
-                   <div className="w-1.5 h-1.5 rounded-full bg-navy-400"></div>
-                 )}
-              </button>
-            ))}
+          <div className="p-2">
+            {MARKETS.map(market => {
+              const displayName = market.code === 'zh-CN' ? '中文 (Chinese)' : market.countryName;
+              return (
+                <button
+                  key={market.code}
+                  onClick={() => handleMarketChange(market.code)}
+                  className={`w-full text-left px-3 py-2.5 rounded-xl text-sm flex items-center gap-3 transition-all ${market.code === currentMarket.code ? 'bg-slate-100 border border-slate-200' : 'hover:bg-slate-50 border border-transparent'}`}
+                >
+                  <FlagIcon code={market.code} size={22} />
+                  <span className={`font-bold flex-grow ${market.code === currentMarket.code ? 'text-navy-900' : 'text-slate-600'}`}>
+                    {displayName}
+                  </span>
+                  {market.code === currentMarket.code && (
+                    <div className="w-1.5 h-1.5 rounded-full bg-navy-400"></div>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
       )}

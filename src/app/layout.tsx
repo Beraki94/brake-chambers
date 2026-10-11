@@ -89,7 +89,11 @@ export default async function RootLayout({
         <Script id="google-translate-init" strategy="afterInteractive" dangerouslySetInnerHTML={{
           __html: `
             window.googleTranslateElementInit = function() {
-              new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element');
+              new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,zh-CN',
+                autoDisplay: false
+              }, 'google_translate_element');
             };
           `
         }} />

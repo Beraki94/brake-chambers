@@ -81,7 +81,7 @@ export default function MobileMenu({
               </div>
 
               <div className="p-4 sm:p-6 md:p-8 rounded-[1.25rem] mb-8 flex justify-between items-center bg-slate-50 border border-slate-200 shadow-sm relative z-50">
-                <span className="text-[13px] font-extrabold text-navy-500 uppercase tracking-widest">Region / Language</span>
+                <span className="text-[13px] font-extrabold text-navy-500 uppercase tracking-widest">Language / 语言</span>
                 <Suspense fallback={<div className="w-24 h-8 bg-slate-200 rounded-full animate-pulse" />}>
                   <MarketSelector />
                 </Suspense>

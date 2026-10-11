@@ -33,7 +33,7 @@ export default function SubCategoryWholesaleCTA({ categoryName }: SubCategoryWho
           Request Bulk Quote
         </Link>
         <Link 
-          href="/distributor/login" 
+          href="/distributors" 
           className="bg-navy-900/50 backdrop-blur-sm text-white border border-navy-700 font-bold py-4 px-8 rounded-xl hover:bg-navy-800 transition-all text-center uppercase tracking-widest text-[13px] hover:border-amber-500/50 group-hover:shadow-lg"
         >
           View Pallet Pricing

@@ -248,7 +248,7 @@ export default function QuoteClient() {
              </p>
              <ul className="text-[14px] md:text-[15px] leading-[1.6] text-slate-500 space-y-3 relative z-10 font-normal">
                <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0" /> Manufactured to IATF 16949 standards</li>
-               <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0" /> Multi-Language Support</li>
+               <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0" /> Bilingual Support (English & Chinese)</li>
                <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0" /> Fast Turnaround</li>
              </ul>
            </div>

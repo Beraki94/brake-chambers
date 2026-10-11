@@ -304,8 +304,8 @@ export default function ProductDetailLayout({
                   <span className="flex items-center"><ShoppingCart size={18} className="mr-2" /> Add to Quote List</span>
                 )}
               </button>
-              <Link href="/distributor/login" className="flex-1 bg-navy-900 text-white text-center font-bold py-4 rounded-xl hover:bg-navy-800 transition-all uppercase tracking-widest text-sm border border-navy-700 flex items-center justify-center">
-                Distributor Login
+              <Link href="/distributors" className="flex-1 bg-navy-900 text-white text-center font-bold py-4 rounded-xl hover:bg-navy-800 transition-all uppercase tracking-widest text-sm border border-navy-700 flex items-center justify-center">
+                Distributor Portal
               </Link>
             </div>
           </div>
@@ -318,12 +318,13 @@ export default function ProductDetailLayout({
         <section className="mt-16 mb-20 bg-slate-50 border-y sm:border border-slate-200 rounded-none sm:rounded-2xl p-5 sm:p-8 -mx-4 sm:mx-0 w-[calc(100%+2rem)] sm:w-auto">
           <div className="max-w-4xl mx-auto">
             <SectionHeader
-              title={<>Frequently Asked Questions about {product.name}</>}
-              description="Find technical details, warranty information, and OEM compatibility for this model."
+              badge="Product FAQs"
+              title="Frequently Asked Questions"
+              description={`Technical details, warranty coverage, and OEM compatibility for the ${product.name}.`}
               align="center"
               theme="light"
-              accentColor="slate"
-              className="!mb-10"
+              accentColor="amber"
+              className="!mb-8 md:!mb-10"
             />
             <GlobalFAQAccordion faqs={[
               {
@@ -341,7 +342,7 @@ export default function ProductDetailLayout({
 
       <div className="bg-[#F1EFE8] py-16 md:py-20 border-t border-slate-200">
         <div className="container mx-auto px-4 lg:px-8 max-w-[1920px]">
-          <TechnicalDownloads productName={product.name} />
+          <TechnicalDownloads product={product} />
         </div>
       </div>
 
