@@ -14,7 +14,7 @@ export default defineConfig({
     presentationTool({
       previewUrl: typeof location !== 'undefined' 
         ? location.origin 
-        : typeof process !== 'undefined' ? (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') : 'http://localhost:3000',
+        : typeof process !== 'undefined' ? (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.brakechambers.com') : 'https://www.brakechambers.com',
     }),
   ],
 })
