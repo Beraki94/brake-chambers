@@ -2,12 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import BulkOemCard from '@/components/ui/BulkOemCard';
 import { Truck } from 'lucide-react';
-import ProductListCard from '@/features/products/components/ProductListCard';
-import AccessoryListCard from '@/features/products/product-detail/AccessoryListCard';
+import ProductListGrid from '@/features/products/components/ProductListGrid';
 import FacetedSidebar from '@/features/products/components/FacetedSidebar';
 import MobileSidebarWrapper from '@/features/products/components/MobileSidebarWrapper';
 import CategoryVisualizer from '@/features/products/components/CategoryVisualizer';
-import Pagination from '@/features/products/components/Pagination';
 import TrustBanner from '@/components/ui/TrustBanner';
 import FleetReviewsSection from '@/features/home/components/FleetReviewsSection';
 import OEMQuickLinks from '@/features/oem/components/OEMQuickLinks';
@@ -71,12 +69,7 @@ export default function ProductListingLayout({
     }
   }
 
-  // Pagination
-  const currentPage = Number(searchParams?.page) || 1;
-  const PAGE_SIZE = 20;
-  const totalPages = Math.ceil(products.length / PAGE_SIZE) || 1;
-  const startIndex = (currentPage - 1) * PAGE_SIZE;
-  const paginatedProducts = products.slice(startIndex, startIndex + PAGE_SIZE);
+
 
   return (
     <>
@@ -91,7 +84,9 @@ export default function ProductListingLayout({
 
       {!isSubCategory && <TrustBanner category={baseCategory} />}
 
-      <div id="product-listing" className="flex flex-col lg:flex-row gap-6 relative">
+      {/* Scroll Anchor positioned cleanly just before the product listing & sidebar */}
+      <div id="product-listing-start" className="relative -top-4 scroll-mt-48 lg:scroll-mt-60" />
+      <div id="product-listing" className="flex flex-col lg:flex-row gap-6 relative scroll-mt-48 lg:scroll-mt-60">
         <div className="w-full lg:w-64 flex-shrink-0 flex flex-col gap-4">
            <MobileSidebarWrapper>
              <FacetedSidebar baseCategory={baseCategory} />
@@ -101,32 +96,13 @@ export default function ProductListingLayout({
         </div>
 
         <div className="flex-grow min-w-0">
-          <div className="bg-navy-900 p-3 rounded-xl shadow-md flex justify-start items-center mb-5 text-sm">
-            <div className="text-white font-bold tracking-wide px-2">Showing {products.length} products</div>
-          </div>
-
-          {products.length > 0 ? (
-            <>
-              <h2 className="sr-only">Available Products</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">
-              {paginatedProducts.map(product => (
-                cardType === 'product' ? (
-                  <ProductListCard key={product.slug} product={product} categoryPath={baseCategory} />
-                ) : (
-                  <AccessoryListCard key={product.slug} product={product} categoryPath={baseCategory} />
-                )
-              ))}
-            </div>
-            </>
-          ) : (
-            <div className="bg-slate-50 rounded-2xl p-8 sm:p-12 border border-slate-200 text-center">
-              <h3 className="text-lg font-bold text-navy-900 mb-2">No Products Found</h3>
-              <p className="text-slate-600 mb-4">We couldn't find any products matching your criteria.</p>
-              <Link href={`/${baseCategory}`} className="text-amber-600 font-bold hover:underline">View All {title}</Link>
-            </div>
-          )}
-
-          {totalPages > 1 && <Pagination totalPages={totalPages} />}
+          <ProductListGrid
+            products={products}
+            baseCategory={baseCategory}
+            title={title}
+            cardType={cardType}
+            initialPage={Number(searchParams?.page) || 1}
+          />
           
           {seoText && (
             <div className="mt-6 sm:mt-10 md:mt-16 bg-slate-50 border-y sm:border border-slate-200 rounded-none sm:rounded-2xl p-5 sm:p-8 text-slate-600 prose prose-slate max-w-none -mx-4 sm:mx-0 w-[calc(100%+2rem)] sm:w-auto">
@@ -134,10 +110,9 @@ export default function ProductListingLayout({
             </div>
           )}
           
-          
           {isSubCategory && (
             <div className="flex flex-col gap-12 sm:gap-16 mt-10 sm:mt-16">
-              <SubCategoryComparisonTable products={paginatedProducts} categoryName={title} />
+              <SubCategoryComparisonTable products={products.slice(0, 6)} categoryName={title} />
               <SubCategoryWholesaleCTA categoryName={title} />
               <SubCategoryFAQ categoryName={title} />
             </div>

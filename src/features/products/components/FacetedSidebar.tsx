@@ -47,6 +47,7 @@ export default function FacetedSidebar({ baseCategory, products = [] }: FacetedS
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
+      params.delete('page');
 
       const currentValues = params.getAll(name);
       if (currentValues.includes(value)) {

@@ -1,13 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BrakeAccessory } from '@/types';
+import { BrakeAccessory, BrakeChamber } from '@/types';
 import { ShieldCheck, Truck, Star, ChevronRight } from 'lucide-react';
 
-export default function AccessoryListCard({ product, categoryPath }: { product: BrakeAccessory, categoryPath: string }) {
+export default function AccessoryListCard({ product, categoryPath }: { product: BrakeAccessory | BrakeChamber | any, categoryPath: string }) {
 
   // Generate a pseudo-random high rating (4.8 to 5.0) and review count based on slug
-  const hash = product.slug.split('').reduce((a, b) => { a = ((a << 5) - a) + b.charCodeAt(0); return a & a }, 0);
+  const hash = product.slug.split('').reduce((a: number, b: string) => { a = ((a << 5) - a) + b.charCodeAt(0); return a & a }, 0);
   const rating = (4.8 + (Math.abs(hash) % 3) * 0.1).toFixed(1);
   const reviews = 50 + (Math.abs(hash) % 150);
 
@@ -64,7 +64,7 @@ export default function AccessoryListCard({ product, categoryPath }: { product: 
 
           {/* Features */}
           <ul className="flex flex-col gap-1 text-xs text-slate-600 mt-0.5">
-            {product.features.slice(0, 2).map((feat, i) => (
+            {((product as any).features || (product as any).includedItems || []).slice(0, 2).map((feat: string, i: number) => (
               <li key={i} className="flex items-start gap-1.5">
                 <span className="text-amber-500 font-bold mt-0.5 text-[10px]">•</span>
                 <span className="leading-tight">{feat}</span>

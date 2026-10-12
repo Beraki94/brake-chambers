@@ -20,6 +20,14 @@ const nextConfig = {
     ],
     dangerouslyAllowSVG: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: '/blogImg/:path*',
+        destination: '/blogImage/:path*',
+      },
+    ];
+  },
   async redirects() {
     return [
       // Explicit manual mappings for the first 10 items
@@ -43,6 +51,14 @@ const nextConfig = {
       // { source: '/applications/fleet-inquiries', destination: '/capabilities/fleet-inquiries', permanent: true },
       // { source: '/applications/contract-manufacturing', destination: '/capabilities/contract-manufacturing', permanent: true },
       // { source: '/applications/custom-engineering', destination: '/capabilities/custom-engineering', permanent: true },
+      
+      // Blog Post 301 Permanent Redirects
+      { source: '/blog/arctic-mining-success', destination: '/blog/cold-weather-brake-chambers', permanent: true },
+      { source: '/blog/how-to-diagnose-air-leaks-spring-brake-chambers', destination: '/blog/diagnose-air-leaks-spring-brake-chambers', permanent: true },
+      { source: '/blog/air-disc-brakes-vs-drum-brakes-future-of-trucking', destination: '/blog/air-disc-vs-drum-brakes', permanent: true },
+      { source: '/blog/brake-chamber-sizing-guide-type-30-24-16', destination: '/blog/brake-chamber-sizing-guide', permanent: true },
+      { source: '/blog/usa-brake-chamber-regulations-fmvss-121-compliance', destination: '/blog/fmvss-121-compliance-importers', permanent: true },
+      { source: '/blog/fleet-brake-maintenance-reduce-downtime-save-money', destination: '/blog/fleet-brake-maintenance-guide', permanent: true },
       
       // Accessories
       { source: '/diaphragm-type-30-rubber-diaphragm-a1', destination: '/chamber-parts-kits/diaphragm-type-30-rubber-diaphragm', permanent: true },

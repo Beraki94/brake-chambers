@@ -1,6 +1,7 @@
 import { groq } from 'next-sanity';
 import { client } from './lib/client';
 import { BrakeChamber, BrakeAccessory, BlogPost } from '@/types';
+import { blogPosts } from '@/data/blogPosts';
 
 // We project the data to match the existing TypeScript interfaces 
 // so the rest of the application doesn't need to change.
@@ -40,12 +41,32 @@ export const allBlogPostsQuery = groq`*[_type == "post"] | order(publishedAt des
   "slug": slug.current,
   title,
   category,
-  publishedAt,
+  "publishDate": publishedAt,
   readTime,
   excerpt,
-  "imageUrl": imageUrl,
-  "uploadedImage": image.asset->url,
-  "content": contentHtml
+  "imageUrl": coalesce(mainImage.asset->url, imageUrl, "/images/pageheaders/brc_blog.jpg"),
+  "featuredImageUrl": coalesce(mainImage.asset->url, imageUrl, "/images/pageheaders/brc_blog.jpg"),
+  body,
+  "content": contentHtml,
+  "metaTitle": seo.metaTitle,
+  "metaDescription": seo.metaDescription,
+  "tags": coalesce(seo.keywords, [])
+}`;
+
+export const singleBlogPostQuery = groq`*[_type == "post" && (slug.current == $slug || slug.current == $canonicalSlug)][0] {
+  "slug": slug.current,
+  title,
+  category,
+  "publishDate": publishedAt,
+  readTime,
+  excerpt,
+  "imageUrl": coalesce(mainImage.asset->url, imageUrl, "/images/pageheaders/brc_blog.jpg"),
+  "featuredImageUrl": coalesce(mainImage.asset->url, imageUrl, "/images/pageheaders/brc_blog.jpg"),
+  body,
+  "content": contentHtml,
+  "metaTitle": seo.metaTitle,
+  "metaDescription": seo.metaDescription,
+  "tags": coalesce(seo.keywords, [])
 }`;
 
 export const allPagesQuery = groq`*[_type == "page"] {
@@ -89,18 +110,112 @@ export async function getProducts(): Promise<BrakeChamber[]> {
   }));
 }
 
+export function resolveBlogCategory(category?: string, slug?: string): string {
+  // Direct post-level assignment requested
+  if (slug === 'how-to-buy-brake-chambers-trucks-trailers') return 'Buying & Sourcing';
+  if (slug === 'how-to-diagnose-air-leaks-spring-brake-chambers' || slug === 'diagnose-air-leaks-spring-brake-chambers') return 'How-To & Repair';
+  if (slug === 'air-disc-brakes-vs-drum-brakes-future-of-trucking' || slug === 'air-disc-vs-drum-brakes') return 'Industry & Compliance';
+  if (slug === 'brake-chamber-sizing-guide-type-30-24-16' || slug === 'brake-chamber-sizing-guide') return 'Technical Guides';
+  if (slug === 'usa-brake-chamber-regulations-fmvss-121-compliance' || slug === 'fmvss-121-compliance-importers') return 'Industry & Compliance';
+  if (slug === 'fleet-brake-maintenance-reduce-downtime-save-money' || slug === 'fleet-brake-maintenance-guide') return 'Fleet Management';
+  if (slug === 'arctic-mining-success' || slug === 'cold-weather-brake-chambers') return 'Technical Guides';
+
+  // General legacy category fallback mapping
+  if (category === 'Buying Guide') return 'Buying & Sourcing';
+  if (category === 'How-To') return 'How-To & Repair';
+  if (category === 'Technical Guide') return 'Technical Guides';
+  if (category === 'Innovation' || category === 'Industry News') return 'Industry & Compliance';
+  
+  return category || 'Technical Guides';
+}
+
 export async function getBlogPosts(): Promise<BlogPost[]> {
-  const posts = await client.fetch(allBlogPostsQuery);
-  return posts.map((p: any) => ({
+  try {
+    const sanityPosts = await client.fetch(allBlogPostsQuery);
+    if (sanityPosts && sanityPosts.length > 0) {
+      return sanityPosts.map((p: any) => ({
+        slug: p.slug,
+        title: p.title,
+        excerpt: p.excerpt || '',
+        body: p.body || null,
+        content: p.content || '',
+        featuredImageUrl: p.featuredImageUrl || p.imageUrl || '/images/pageheaders/brc_blog.jpg',
+        imageUrl: p.imageUrl || p.featuredImageUrl || '/images/pageheaders/brc_blog.jpg',
+        publishDate: p.publishDate || p.publishedAt || '',
+        date: p.publishDate || p.publishedAt || '',
+        category: resolveBlogCategory(p.category, p.slug),
+        readTime: p.readTime || '5 min read',
+        metaTitle: p.metaTitle,
+        metaDescription: p.metaDescription,
+        tags: p.tags || [],
+      }));
+    }
+  } catch (err) {
+    console.error('Failed to fetch blog posts from Sanity, using fallback:', err);
+  }
+
+  // Graceful fallback to local data
+  return blogPosts.map((p) => ({
     slug: p.slug,
     title: p.title,
     excerpt: p.excerpt,
     content: p.content,
-    featuredImageUrl: p.uploadedImage || p.imageUrl,
-    publishDate: p.publishedAt,
-    category: p.category,
-    readTime: p.readTime
+    featuredImageUrl: p.imageUrl,
+    imageUrl: p.imageUrl,
+    publishDate: p.date,
+    date: p.date,
+    category: resolveBlogCategory(p.category, p.slug),
+    readTime: p.readTime,
+    metaTitle: p.metaTitle,
+    metaDescription: p.metaDescription,
+    tags: p.tags || [],
   }));
+}
+
+export async function getBlogPostBySlug(slug: string, canonicalSlug?: string): Promise<BlogPost | null> {
+  const cSlug = canonicalSlug || slug;
+  try {
+    const post = await client.fetch(singleBlogPostQuery, { slug, canonicalSlug: cSlug });
+    if (post) {
+      return {
+        slug: post.slug,
+        title: post.title,
+        excerpt: post.excerpt || '',
+        body: post.body || null,
+        content: post.content || '',
+        featuredImageUrl: post.featuredImageUrl || post.imageUrl || '/images/pageheaders/brc_blog.jpg',
+        imageUrl: post.imageUrl || post.featuredImageUrl || '/images/pageheaders/brc_blog.jpg',
+        publishDate: post.publishDate || post.publishedAt || '',
+        date: post.publishDate || post.publishedAt || '',
+        category: resolveBlogCategory(post.category, post.slug),
+        readTime: post.readTime || '5 min read',
+        metaTitle: post.metaTitle,
+        metaDescription: post.metaDescription,
+        tags: post.tags || [],
+      };
+    }
+  } catch (err) {
+    console.error('Failed to fetch post from Sanity, using fallback:', err);
+  }
+
+  // Fallback to local blogPosts
+  const local = blogPosts.find((p) => p.slug === cSlug || p.slug === slug);
+  if (!local) return null;
+  return {
+    slug: local.slug,
+    title: local.title,
+    excerpt: local.excerpt,
+    content: local.content,
+    featuredImageUrl: local.imageUrl,
+    imageUrl: local.imageUrl,
+    publishDate: local.date,
+    date: local.date,
+    category: resolveBlogCategory(local.category, local.slug),
+    readTime: local.readTime,
+    metaTitle: local.metaTitle,
+    metaDescription: local.metaDescription,
+    tags: local.tags || [],
+  };
 }
 
 export async function getPages() {

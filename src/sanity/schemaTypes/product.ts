@@ -67,11 +67,11 @@ export const product = defineType({
     defineField({ name: 'brandSlug', title: 'Brand', type: 'string', group: 'basic', initialValue: 'brc', hidden: true }),
     defineField({
       name: 'description',
-      title: 'Description (HTML)',
+      title: 'Product Description',
       type: 'text',
-      rows: 5,
+      rows: 4,
       group: 'basic',
-      description: 'Shown on the product page. Basic HTML such as <p> and <strong> is allowed.',
+      description: 'Shown on the product page. Enter product details or overview.',
     }),
     defineField({
       name: 'includedItems',

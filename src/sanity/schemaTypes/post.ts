@@ -5,7 +5,13 @@ const postGroups = [
   { name: 'seo', title: 'SEO' },
 ];
 
-const postCategories = ['Buying Guide', 'How-To', 'Innovation', 'Technical Guide', 'Industry News', 'Fleet Management'];
+const postCategories = [
+  'Technical Guides',
+  'How-To & Repair',
+  'Buying & Sourcing',
+  'Fleet Management',
+  'Industry & Compliance',
+];
 
 const postOrderings = [
   { title: 'Newest first', name: 'dateDesc', by: [{ field: 'publishedAt', direction: 'desc' }] as any },
@@ -64,12 +70,20 @@ export const post = defineType({
       fields: [{ name: 'alt', title: 'Alt text', type: 'string' }],
     }),
     defineField({
-      name: 'contentHtml',
-      title: 'Article Body (HTML)',
-      type: 'text',
-      rows: 25,
+      name: 'body',
+      title: 'Article Body (Visual Editor)',
+      type: 'blockContent',
       group: 'content',
-      description: 'The full article in HTML (<h2>, <p>, <ul>, <strong>…).',
+      description: 'Visual rich text editor. Write, format, and add images directly without code.',
+    }),
+    defineField({
+      name: 'contentHtml',
+      title: 'Legacy HTML (Fallback)',
+      type: 'text',
+      rows: 10,
+      group: 'content',
+      description: 'Legacy raw HTML content. Used automatically as a fallback if visual Article Body is empty.',
+      hidden: true,
     }),
     defineField({ name: 'seo', title: 'SEO Settings', type: 'seo', group: 'seo' }),
   ],

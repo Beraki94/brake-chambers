@@ -5,9 +5,39 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ChevronLeft, ChevronRight, Share2, ArrowRight, Phone, Mail } from 'lucide-react';
-import type { BlogPost } from '@/data/blogPosts';
+import type { BlogPost } from '@/types';
+import { PortableText } from '@portabletext/react';
 import { fadeInUp } from '@/lib/animations';
 import SectionHeader from '@/components/ui/SectionHeader';
+
+const portableTextComponents = {
+  marks: {
+    link: ({ value, children }: any) => {
+      const target = (value?.href || '').startsWith('http') ? '_blank' : undefined;
+      return (
+        <a 
+          href={value?.href} 
+          target={target} 
+          rel={target ? 'noopener noreferrer' : undefined} 
+          className="text-amber-600 hover:text-amber-700 underline font-semibold transition-colors"
+        >
+          {children}
+        </a>
+      );
+    },
+  },
+  types: {
+    image: ({ value }: any) => {
+      if (!value?.asset?.url && !value?.asset?._ref) return null;
+      return (
+        <figure className="my-8">
+          <img src={value.asset.url || ''} alt={value.alt || ''} className="rounded-2xl w-full shadow-lg object-cover" />
+          {value.caption && <figcaption className="text-center text-sm text-slate-500 mt-2 font-medium">{value.caption}</figcaption>}
+        </figure>
+      );
+    },
+  },
+};
 
 interface BlogPostClientProps {
   post: BlogPost;
@@ -49,7 +79,7 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
                 {post.category}
               </span>
               <span className="text-slate-500 text-[12px] font-bold uppercase tracking-widest flex items-center">
-                <Calendar className="w-3.5 h-3.5 mr-1.5 text-amber-500" /> {post.date}
+                <Calendar className="w-3.5 h-3.5 mr-1.5 text-amber-500" /> {post.date || post.publishDate}
               </span>
               <span className="text-slate-500 text-[12px] font-bold uppercase tracking-widest items-center hidden sm:flex">
                 <Clock className="w-3.5 h-3.5 mr-1.5 text-amber-500" /> {post.readTime} Read
@@ -69,7 +99,7 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
           <motion.div variants={fadeInUp} initial="hidden" animate="visible">
             <div className="w-full h-[350px] md:h-[500px] lg:h-[600px] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl relative">
               <img 
-                src={post.imageUrl} 
+                src={post.imageUrl || post.featuredImageUrl} 
                 alt={post.title} 
                 className="w-full h-full object-cover"
               />
@@ -197,15 +227,18 @@ export default function BlogPostClient({ post, prevPost, nextPost }: BlogPostCli
                 }
               `}} />
               
-              <div 
-                className="blog-content"
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              />
+              <div className="blog-content">
+                {Array.isArray(post.body) && post.body.length > 0 ? (
+                  <PortableText value={post.body} components={portableTextComponents} />
+                ) : (
+                  <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                )}
+              </div>
 
               {/* Article Footer Tags */}
               <div className="mt-16 pt-8 border-t border-slate-100 flex flex-wrap items-center gap-3">
                 <span className="text-sm font-bold text-slate-400 uppercase tracking-widest mr-2">Topics:</span>
-                {['Brake Chambers', post.category, 'Commercial Vehicles', 'Safety'].map((tag, i) => (
+                {(post.tags && post.tags.length > 0 ? post.tags : ['Brake Chambers', post.category, 'Commercial Vehicles', 'Safety']).map((tag, i) => (
                   <span key={i} className="px-4 py-2 bg-slate-50 border border-slate-200 text-slate-600 text-[11px] font-bold uppercase tracking-widest rounded-lg hover:bg-slate-100 cursor-pointer transition-colors shadow-sm">
                     {tag}
                   </span>

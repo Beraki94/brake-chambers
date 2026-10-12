@@ -2,8 +2,8 @@ import React from 'react';
 import BlogClient from '@/features/blog/components/BlogClient';
 
 export const metadata = {
-  title: 'Industry Insights & News | BRC Brake Chambers',
-  description: 'Stay updated with the latest in heavy-duty commercial vehicle braking, ISO compliance, engineering updates, and BRC company news.',
+  title: 'Brake Chamber Blog: Technical Guides, How-To & Industry Insights | BRC',
+  description: 'Technical bulletins, installation guides, cross-reference updates, and regulatory compliance insights from BRC Brake Chambers.',
 };
 
 import { getBlogPosts } from '@/sanity/queries';

@@ -12,7 +12,7 @@ export interface Market {
   flag?: string;
 }
 
-export type ChamberCategory = 'Spring Brake' | 'Service Brake' | 'Air Disc Actuator';
+export type ChamberCategory = 'Spring Brake' | 'Service Brake' | 'Air Disc Actuator' | 'Parts & Kits';
 
 export interface BrakeChamber {
   slug: string;
@@ -90,12 +90,19 @@ export interface BrakeAccessory {
 }
 
 export interface BlogPost {
+  id?: string;
   slug: string;
   title: string;
+  metaTitle?: string;
+  metaDescription?: string;
   excerpt: string;
   content: string;
+  body?: any[];
   featuredImageUrl: string;
+  imageUrl?: string;
   publishDate: string;
+  date?: string;
   category: string;
   readTime: string;
+  tags?: string[];
 }

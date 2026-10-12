@@ -1,48 +1,169 @@
 "use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import SectionHeader from '@/components/ui/SectionHeader';
 import PageHeader from '@/components/layout/PageHeader';
 import BlogCard from '@/components/ui/BlogCard';
+import BlogTabs, { BlogCategory, BLOG_CATEGORIES } from '@/components/ui/BlogTabs';
+import BlogPagination from '@/components/ui/BlogPagination';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import TrendingModelsMarquee from '@/components/ui/TrendingModelsMarquee';
-import RotatingWatermark from '@/components/ui/RotatingWatermark';
 import { Newspaper } from 'lucide-react';
 import type { BlogPost } from '@/types';
-
-type BlogPostCategory = 'Buying Guide' | 'How-To' | 'Innovation' | 'Technical Guide' | 'Industry News' | 'Fleet Management';
-
-const categories: (BlogPostCategory | 'All')[] = [
-  'All',
-  'Buying Guide',
-  'How-To',
-  'Innovation',
-  'Technical Guide',
-  'Industry News',
-  'Fleet Management'
-];
 
 interface BlogClientProps {
   blogPosts: BlogPost[];
 }
 
 export default function BlogClient({ blogPosts }: BlogClientProps) {
-  const [activeCategory, setActiveCategory] = useState<BlogPostCategory | 'All'>('All');
+  const [activeCategory, setActiveCategory] = useState<BlogCategory>('All');
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [postsPerPage, setPostsPerPage] = useState<number>(12); // Default to 12 for desktop SSR
 
-  const filteredPosts = blogPosts.filter(post => 
-    activeCategory === 'All' ? true : post.category === activeCategory
-  );
+  // Set responsive posts per page: 12 on desktop (>= 768px), 6 on mobile (< 768px)
+  useEffect(() => {
+    const handleResize = () => {
+      setPostsPerPage(window.innerWidth < 768 ? 6 : 12);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Sync tab state with ?tab= query parameter on mount and when changed
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const tabParam = params.get('tab');
+    if (tabParam) {
+      const matched = BLOG_CATEGORIES.find(c => c.slug === tabParam);
+      if (matched) {
+        setActiveCategory(matched.id);
+      }
+    }
+    const pageParam = Number(params.get('page'));
+    if (pageParam && pageParam > 1) {
+      setCurrentPage(pageParam);
+    }
+  }, []);
+
+  const scrollToBlogStart = () => {
+    if (typeof window === 'undefined') return;
+    requestAnimationFrame(() => {
+      const target = document.getElementById('blog-grid') || document.getElementById('blog-cards-start');
+      if (target) {
+        // Measure real header height from DOM (top bar + main header + secondary navbar = ~176-180px on desktop, ~80px on mobile)
+        const headerEl = document.querySelector('header');
+        const headerHeight = headerEl ? headerEl.offsetHeight : (window.innerWidth >= 1024 ? 180 : 90);
+        const isDesktop = window.innerWidth >= 1024;
+        // Generous breathing space (44px desktop, 28px mobile) so cards sit cleanly before the header
+        const extraBuffer = isDesktop ? 44 : 28;
+        const totalOffset = headerHeight + extraBuffer;
+
+        const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+        const targetScrollY = Math.max(0, Math.round(elementPosition - totalOffset));
+
+        window.scrollTo({
+          top: targetScrollY,
+          behavior: 'smooth'
+        });
+      }
+    });
+  };
+
+  const handleSelectCategory = (category: BlogCategory) => {
+    setActiveCategory(category);
+    setCurrentPage(1); // Reset to page 1 on category change
+    if (typeof window !== 'undefined') {
+      const match = BLOG_CATEGORIES.find(c => c.id === category);
+      if (match && match.slug !== 'all') {
+        const url = `${window.location.pathname}?tab=${match.slug}`;
+        window.history.replaceState({ ...window.history.state, as: url, url }, '', url);
+      } else {
+        window.history.replaceState({ ...window.history.state, as: window.location.pathname, url: window.location.pathname }, '', window.location.pathname);
+      }
+
+      // If user has scrolled down past the start of the cards, scroll smoothly to just before the card top
+      requestAnimationFrame(() => {
+        const target = document.getElementById('blog-grid') || document.getElementById('blog-cards-start');
+        if (target) {
+          const headerEl = document.querySelector('header');
+          const headerHeight = headerEl ? headerEl.offsetHeight : (window.innerWidth >= 1024 ? 180 : 90);
+          const isDesktop = window.innerWidth >= 1024;
+          const extraBuffer = isDesktop ? 44 : 28;
+          const totalOffset = headerHeight + extraBuffer;
+
+          const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+          const targetScrollY = Math.max(0, Math.round(elementPosition - totalOffset));
+
+          if (window.pageYOffset > targetScrollY) {
+            window.scrollTo({
+              top: targetScrollY,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    }
+  };
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+    scrollToBlogStart();
+  };
+
+  // Compute counts per category for tab badges
+  const postCounts = useMemo(() => {
+    const counts: Record<string, number> = {
+      All: blogPosts.length,
+      'Technical Guides': 0,
+      'How-To & Repair': 0,
+      'Buying & Sourcing': 0,
+      'Fleet Management': 0,
+      'Industry & Compliance': 0,
+    };
+
+    blogPosts.forEach(post => {
+      if (counts[post.category] !== undefined) {
+        counts[post.category]++;
+      }
+    });
+
+    return counts;
+  }, [blogPosts]);
+
+  // Filter posts client-side
+  const filteredPosts = useMemo(() => {
+    if (activeCategory === 'All') return blogPosts;
+    return blogPosts.filter(post => post.category === activeCategory);
+  }, [blogPosts, activeCategory]);
+
+  // Paginate posts: 12 on desktop (>= 768px), 6 on mobile (< 768px)
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
+  // Keep currentPage safe within totalPages
+  useEffect(() => {
+    if (currentPage > totalPages && totalPages > 0) {
+      setCurrentPage(1);
+    }
+  }, [totalPages, currentPage]);
+
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const paginatedPosts = useMemo(() => {
+    return filteredPosts.slice(startIndex, startIndex + postsPerPage);
+  }, [filteredPosts, startIndex, postsPerPage]);
 
   return (
     <article className="min-h-screen bg-slate-50 font-sans overflow-x-clip pb-0">
       <PageHeader
-      badge="Brake Chamber Insights"
+        badge="Brake Chamber Insights"
         badgeIcon={Newspaper}
-      title="Brake Chamber Blog: Technical Guides, Industry News & Updates"
-      description="Technical bulletins, installation guides, cross-reference updates, and industry news from BRC Brake Chambers. Written for fleet managers, technicians, and distributors who spec, install, and sell commercial brake chambers."
-      imageSrc="/images/pageheaders/brc_blog.jpg"
+        title="Brake Chamber Blog: Technical Guides, Industry News & Updates"
+        description="Technical bulletins, installation guides, cross-reference updates, and industry insights from BRC Brake Chambers. Written for fleet managers, technicians, and distributors who spec, install, and purchase commercial brake chambers."
+        imageSrc="/images/pageheaders/brc_blog.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Blog' }
@@ -51,45 +172,71 @@ export default function BlogClient({ blogPosts }: BlogClientProps) {
 
       <div className="relative z-20 -mt-8 md:-mt-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl pb-16 relative z-10">
-          {/* Category Filter Toolbar */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 p-4 md:p-6 mb-12"
-          >
-            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
-              {categories.map((category) => (
+          
+          {/* Category Tabs Section Container */}
+          <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 p-3.5 sm:p-5 md:p-6 lg:p-7 mb-10 sm:mb-14 w-full mx-auto">
+            <BlogTabs
+              activeCategory={activeCategory}
+              onSelectCategory={handleSelectCategory}
+              postCounts={postCounts}
+            />
+            
+            {/* Filter status description */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-4 text-xs sm:text-sm text-slate-500 pt-3 mt-2.5 border-t border-slate-100 px-1 sm:px-2">
+              <span className="truncate">
+                Showing <strong className="text-navy-900 font-bold">{filteredPosts.length > 0 ? `${startIndex + 1} to ${Math.min(startIndex + postsPerPage, filteredPosts.length)}` : 0}</strong> of <strong className="text-navy-900 font-bold">{filteredPosts.length}</strong> {filteredPosts.length === 1 ? 'article' : 'articles'} 
+                {activeCategory !== 'All' ? <span> in <strong className="text-navy-900 font-bold">{activeCategory}</strong></span> : ' across all categories'}
+              </span>
+              {activeCategory !== 'All' && (
                 <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className={`px-5 py-2.5 rounded-full text-[13px] font-bold tracking-wide transition-all duration-300 ${
-                    activeCategory === category 
-                      ? 'bg-amber-500 text-navy-950 shadow-md transform -translate-y-0.5' 
-                      : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-navy-900'
-                  }`}
+                  type="button"
+                  onClick={() => handleSelectCategory('All')}
+                  className="text-amber-600 hover:text-amber-700 font-bold hover:underline self-start sm:self-auto shrink-0 cursor-pointer text-xs sm:text-sm"
                 >
-                  {category}
+                  Show All
                 </button>
-              ))}
+              )}
             </div>
-          </motion.div>
+          </div>
 
-          {/* Blog Grid */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            key={activeCategory} // Force re-render animation when category changes
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {filteredPosts.map((post) => (
-              <BlogCard key={post.slug} post={post} variants={fadeInUp} />
-            ))}
-          </motion.div>
+          {/* Start of Blog Cards Anchor */}
+          <div id="blog-cards-start" className="relative -top-4 scroll-mt-48 lg:scroll-mt-60" />
+
+          {/* Equal-Height Blog Grid with align-items: stretch */}
+          <div id="blog-grid" className="scroll-mt-48 lg:scroll-mt-60">
+            <AnimatePresence mode="wait">
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
+                key={`${activeCategory}-${currentPage}`}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch"
+              >
+                {paginatedPosts.map((post) => (
+                  <BlogCard key={post.slug} post={post} variants={fadeInUp} />
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Pagination Controls */}
+          <BlogPagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
 
           {filteredPosts.length === 0 && (
-            <div className="text-center py-24 text-slate-500">
-              No articles found for this category.
+            <div className="bg-white rounded-2xl p-12 text-center border border-slate-200 my-8 shadow-sm">
+              <p className="text-navy-900 font-bold text-lg mb-2">No articles found in {activeCategory}</p>
+              <p className="text-slate-500 text-sm mb-6">Explore our full library of technical guides, fleet maintenance, and regulatory insights.</p>
+              <button
+                type="button"
+                onClick={() => handleSelectCategory('All')}
+                className="px-6 py-2.5 bg-amber-500 hover:bg-amber-400 text-navy-950 font-bold rounded-xl text-sm transition-colors shadow-sm"
+              >
+                View All Articles
+              </button>
             </div>
           )}
         </div>
@@ -100,7 +247,7 @@ export default function BlogClient({ blogPosts }: BlogClientProps) {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 rounded-[2rem] p-8 lg:p-12 text-white shadow-2xl shadow-navy-900/30 border border-navy-700 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
             {/* Internal Card Glow */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] -mr-20 -mt-20 z-0" />
 
             <div className="max-w-xl relative z-10 w-full">
               <SectionHeader
@@ -115,7 +262,10 @@ export default function BlogClient({ blogPosts }: BlogClientProps) {
             </div>
 
             <div className="relative z-10 flex flex-col gap-4 w-full md:w-auto shrink-0">
-              <Link href="/contact" className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap">
+              <Link 
+                href="/contact" 
+                className="inline-block w-full bg-amber-500 hover:bg-amber-400 text-navy-950 font-black text-center px-10 py-5 rounded-xl uppercase tracking-widest text-[14px] transition-all duration-300 shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 whitespace-nowrap"
+              >
                 Talk to an Expert
               </Link>
             </div>
