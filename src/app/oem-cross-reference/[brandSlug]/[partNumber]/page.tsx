@@ -6,7 +6,7 @@ import { getProducts } from '@/sanity/queries';
 import ProductListCard from '@/features/products/components/ProductListCard';
 import PageHeader from '@/components/layout/PageHeader';
 import CrossReferenceMarquee from '@/components/ui/CrossReferenceMarquee';
-import { Truck, CheckCircle2, ShieldCheck, ArrowRight, Cog, Settings2, Replace, BadgeCheck, Check } from 'lucide-react';
+import { CheckCircle2, CheckCircle, ShieldCheck, ArrowRight, Settings2, Replace, BadgeCheck } from 'lucide-react';
 
 export async function generateStaticParams() {
   const BRAKE_CHAMBERS = await getProducts();
@@ -30,12 +30,12 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const BRAKE_CHAMBERS = await getProducts();
   const params = await props.params;
-  const normalizedBrand = params.brandSlug.replace(/-/g, ' ');
+  const normalizedBrand = params.brandSlug.toUpperCase();
   const partNumber = params.partNumber.toUpperCase();
 
   return {
-    title: `${partNumber} ${normalizedBrand} Aftermarket Equivalent | BRC Brake Chambers`,
-    description: `Direct replacement for ${normalizedBrand} ${partNumber}. View specifications, stroke size, and duty spec for this exact match aftermarket air brake chamber.`,
+    title: `${normalizedBrand} ${partNumber} Equivalent | BRC Brake Chambers`,
+    description: `Direct 1:1 replacement for ${normalizedBrand} ${partNumber}. Verified fit, form, and function for heavy-duty commercial vehicle air brake systems.`,
     keywords: [`${partNumber} replacement`, `${normalizedBrand} ${partNumber}`, 'Cross Reference', 'Direct Replacement', 'Aftermarket'],
   };
 }
@@ -94,16 +94,16 @@ export default async function OEMPartNumberPage(
         {/* Success Banner */}
         <div className="bg-emerald-50 border border-emerald-200 rounded-2xl px-6 py-5 mb-8 shadow-sm animate-in fade-in slide-in-from-top-4 duration-700 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <div className="bg-emerald-500 text-white p-2 rounded-full flex-shrink-0 shadow-sm">
+            <div className="bg-emerald-500 text-white p-2.5 rounded-full flex-shrink-0 shadow-sm">
               <CheckCircle2 className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-emerald-800 font-bold text-lg sm:text-xl tracking-tight">100% Compatibility Match Verified</h2>
-              <p className="text-emerald-700/80 text-sm font-medium">We found the exact BRC equivalent for your {oemOriginalBrand} part.</p>
+              <h2 className="text-emerald-950 font-bold text-lg sm:text-xl tracking-tight !mb-0.5">100% Compatibility Match Verified</h2>
+              <p className="text-emerald-800 text-sm font-medium">We found the exact BRC factory-direct equivalent for your {oemOriginalBrand} part.</p>
             </div>
           </div>
-          <div className="flex items-center text-sm font-bold text-emerald-800 border border-emerald-200 bg-emerald-50 px-4 py-2.5 rounded-xl shrink-0 shadow-sm">
-            <span className="text-emerald-600/70 mr-2 uppercase tracking-wider text-xs">OEM SKU:</span> <span className="font-mono text-emerald-700">{oemOriginalPart}</span>
+          <div className="flex items-center text-sm font-bold text-emerald-900 border border-emerald-200 bg-white/90 px-4 py-2.5 rounded-xl shrink-0 shadow-sm">
+            <span className="text-emerald-700 mr-2 uppercase tracking-wider text-xs">OEM SKU:</span> <span className="font-mono text-emerald-950 font-bold">{oemOriginalPart}</span>
           </div>
         </div>
 
@@ -116,27 +116,27 @@ export default async function OEMPartNumberPage(
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150 fill-mode-both">
               <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6 mb-6">
                 {/* OEM Side */}
-                <div className="flex-1 w-full bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center relative overflow-hidden shadow-sm">
-                  <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-300"></div>
-                  <div className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1.5">Original Part</div>
+                <div className="flex-1 w-full bg-white rounded-2xl p-6 border border-slate-200 text-center relative overflow-hidden shadow-sm">
+                  <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-400"></div>
+                  <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1.5">Original Part</div>
                   <div className="font-black text-xl sm:text-2xl text-navy-900 mb-1">{oemOriginalBrand}</div>
-                  <div className="font-mono text-slate-600">{oemOriginalPart}</div>
+                  <div className="font-mono text-slate-700 font-bold bg-slate-100 py-1 px-3 rounded-lg inline-block text-sm border border-slate-200/80">{oemOriginalPart}</div>
                 </div>
 
                 {/* Arrow */}
-                <div className="flex-shrink-0 bg-slate-100 text-slate-400 p-3 rounded-full hidden md:block">
+                <div className="flex-shrink-0 bg-white text-amber-500 p-3.5 rounded-full hidden md:block border border-slate-200 shadow-sm">
                   <Replace className="w-5 h-5" />
                 </div>
-                <div className="flex-shrink-0 bg-slate-100 text-slate-400 p-3 rounded-full md:hidden rotate-90">
+                <div className="flex-shrink-0 bg-white text-amber-500 p-3.5 rounded-full md:hidden rotate-90 border border-slate-200 shadow-sm">
                   <Replace className="w-5 h-5" />
                 </div>
 
                 {/* BRC Side */}
-                <div className="flex-1 w-full bg-amber-50 rounded-2xl p-6 border border-amber-200 text-center relative overflow-hidden shadow-sm">
+                <div className="flex-1 w-full bg-amber-50/70 rounded-2xl p-6 border border-amber-300 text-center relative overflow-hidden shadow-sm">
                   <div className="absolute top-0 left-0 w-full h-1.5 bg-amber-500"></div>
                   <div className="text-xs font-bold text-amber-700 uppercase tracking-widest mb-1.5">BRC Equivalent</div>
-                  <div className="font-black text-xl sm:text-2xl text-navy-900 mb-1">BRC</div>
-                  <div className="font-mono font-bold text-amber-600">{matchedChamber.slug.toUpperCase()}</div>
+                  <div className="font-black text-xl sm:text-2xl text-navy-900 mb-1">BRC {matchedChamber.type}</div>
+                  <div className="font-mono font-bold text-amber-900 bg-amber-100 py-1 px-3 rounded-lg inline-block text-sm border border-amber-300">{matchedChamber.name.split('(')[0].trim()}</div>
                 </div>
               </div>
 
@@ -155,42 +155,56 @@ export default async function OEMPartNumberPage(
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mb-8">
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 bg-emerald-100 p-1 rounded-full text-emerald-600 shrink-0"><Check className="w-4 h-4" /></div>
+                  <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                   <div>
                     <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-0.5">Chamber Type</div>
                     <div className="font-bold text-navy-900">{matchedChamber.type}</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 bg-emerald-100 p-1 rounded-full text-emerald-600 shrink-0"><Check className="w-4 h-4" /></div>
+                  <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                   <div>
                     <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-0.5">Stroke Profile</div>
-                    <div className="font-bold text-navy-900">{matchedChamber.strokeSize} <span className="text-slate-400 font-normal">({matchedChamber.strokeInch})</span></div>
+                    <div className="font-bold text-navy-900">{matchedChamber.strokeSize} <span className="text-slate-400 font-normal">({matchedChamber.strokeInch || matchedChamber.specifications.strokeMetric})</span></div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 bg-emerald-100 p-1 rounded-full text-emerald-600 shrink-0"><Check className="w-4 h-4" /></div>
+                  <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-0.5">Duty Specification</div>
-                    <div className="font-bold text-navy-900 capitalize">{matchedChamber.dutySpec || 'Standard Duty'}</div>
+                    <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-0.5">Mounting Bolt Spacing</div>
+                    <div className="font-bold text-navy-900">{matchedChamber.specifications.mountingBoltSpacing || '120.7 mm (4.75")'}</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 bg-emerald-100 p-1 rounded-full text-emerald-600 shrink-0"><Check className="w-4 h-4" /></div>
+                  <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-0.5">Application</div>
-                    <div className="font-bold text-navy-900">{matchedChamber.application}</div>
+                    <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-0.5">Pushrod Length</div>
+                    <div className="font-bold text-navy-900">{matchedChamber.specifications.pushRodLength || matchedChamber.pushRodLengthInch || 'Standard Cut-to-Length'}</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <div>
+                    <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-0.5">Inlet Port Spec</div>
+                    <div className="font-bold text-navy-900">{matchedChamber.specifications.inletPortThreadSize || matchedChamber.specifications.portSize || '3/8" NPT'}</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <div>
+                    <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-0.5">Target Application</div>
+                    <div className="font-bold text-navy-900">{matchedChamber.application || 'Heavy-Duty Commercial Axles'}</div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100">
+              <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200">
                 <div className="flex items-center gap-2 mb-2">
-                  <BadgeCheck className="w-5 h-5 text-amber-500" />
-                  <h4 className="font-bold text-navy-900">Form & Fit Guarantee</h4>
+                  <BadgeCheck className="w-5 h-5 text-emerald-600" />
+                  <h4 className="font-bold text-navy-900 !mb-0">Form, Fit & Function Guaranteed</h4>
                 </div>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  This BRC chamber provides an exact physical and functional replacement for the <strong className="text-navy-900">{oemOriginalBrand} {oemOriginalPart}</strong>, ensuring identical mounting stud alignment, pushrod length, and port configurations. No bracket modifications or hose rerouting required.
+                  This BRC chamber provides a precision 1:1 mechanical and pneumatic replacement for the <strong className="text-navy-900">{oemOriginalBrand} {oemOriginalPart}</strong>, guaranteeing factory pushrod alignment, mounting stud centerlines, and calibrated release timing. 100% direct fit with zero bracket modifications required.
                 </p>
               </div>
 
@@ -212,25 +226,25 @@ export default async function OEMPartNumberPage(
                <div className="absolute top-0 right-0 w-40 h-40 bg-amber-500/10 rounded-full blur-[50px] -mr-10 -mt-10 z-0 pointer-events-none"></div>
                
                <div className="relative z-10">
-                 <h3 className="font-bold text-xl mb-6 flex items-center border-b border-white/10 pb-4">
-                   <ShieldCheck className="w-5 h-5 mr-3 text-amber-500" />
+                 <h3 className="font-bold text-xl mb-6 flex items-center border-b border-white/10 pb-4 !text-white">
+                   <ShieldCheck className="w-5 h-5 mr-3 text-amber-400" />
                    Why switch to BRC?
                  </h3>
                  <ul className="space-y-5 mb-8">
                    <li className="flex gap-4">
-                     <div className="w-2 h-2 rounded-full bg-amber-500 mt-2 shrink-0 shadow-[0_0_8px_rgba(245,158,11,0.6)]"></div>
-                     <p className="text-sm text-navy-200 leading-relaxed"><strong className="text-white block mb-0.5">Wholesale Pricing</strong> Buy direct from the factory and cut out the middleman distributor margins.</p>
+                     <div className="w-2 h-2 rounded-full bg-amber-400 mt-2 shrink-0 shadow-[0_0_8px_rgba(251,191,36,0.8)]"></div>
+                     <p className="text-sm text-slate-300 leading-relaxed"><strong className="!text-white block mb-0.5">Wholesale Pricing</strong> Buy direct from the factory and cut out the middleman distributor margins.</p>
                    </li>
                    <li className="flex gap-4">
-                     <div className="w-2 h-2 rounded-full bg-amber-500 mt-2 shrink-0 shadow-[0_0_8px_rgba(245,158,11,0.6)]"></div>
-                     <p className="text-sm text-navy-200 leading-relaxed"><strong className="text-white block mb-0.5">Tested Quality</strong> Rated for over 1 million duty cycles in extreme operating environments.</p>
+                     <div className="w-2 h-2 rounded-full bg-amber-400 mt-2 shrink-0 shadow-[0_0_8px_rgba(251,191,36,0.8)]"></div>
+                     <p className="text-sm text-slate-300 leading-relaxed"><strong className="!text-white block mb-0.5">Tested Quality</strong> Rated for over 1 million duty cycles in extreme operating environments.</p>
                    </li>
                    <li className="flex gap-4">
-                     <div className="w-2 h-2 rounded-full bg-amber-500 mt-2 shrink-0 shadow-[0_0_8px_rgba(245,158,11,0.6)]"></div>
-                     <p className="text-sm text-navy-200 leading-relaxed"><strong className="text-white block mb-0.5">Global Logistics</strong> We handle everything from EXW to CIF. Most parts ship same-day globally.</p>
+                     <div className="w-2 h-2 rounded-full bg-amber-400 mt-2 shrink-0 shadow-[0_0_8px_rgba(251,191,36,0.8)]"></div>
+                     <p className="text-sm text-slate-300 leading-relaxed"><strong className="!text-white block mb-0.5">Global Logistics</strong> We handle everything from EXW to CIF. Most parts ship same-day globally.</p>
                    </li>
                  </ul>
-                 <Link href="/contact" className="block w-full py-3 bg-amber-500 hover:bg-amber-400 text-navy-950 text-center rounded-xl text-sm font-black uppercase tracking-widest transition-all shadow-lg shadow-amber-500/20">
+                 <Link href={`/quote?part=${encodeURIComponent(oemOriginalPart)}&brand=${encodeURIComponent(oemOriginalBrand)}`} className="block w-full py-3.5 bg-amber-500 hover:bg-amber-400 text-navy-950 text-center rounded-xl text-sm font-black uppercase tracking-widest transition-all shadow-lg shadow-amber-500/20">
                    Request Bulk Pricing
                  </Link>
                </div>
@@ -241,6 +255,17 @@ export default async function OEMPartNumberPage(
       </div>
 
       {/* Suggested Cross References */}
+      <div className="container mx-auto px-4 lg:px-8 max-w-6xl mt-16 mb-2">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-200 pb-4 gap-2">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-1">Catalog Interchange</div>
+            <h3 className="text-2xl font-bold text-navy-900 !mb-0">More {oemOriginalBrand} Cross-References</h3>
+          </div>
+          <Link href={`/oem-cross-reference/${params.brandSlug}`} className="text-amber-600 hover:text-amber-700 font-bold text-sm inline-flex items-center gap-1 group">
+            Browse All {oemOriginalBrand} Parts <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+      </div>
       <CrossReferenceMarquee filterBrand={oemOriginalBrand} maxItems={15} />
     </div>
   );

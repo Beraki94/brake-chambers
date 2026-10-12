@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useMarketStore } from '@/store/market';
 import type { BrakeChamber } from '@/types';
 import { Search, AlertCircle, ArrowRight } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -13,10 +12,9 @@ interface OEMSearchFormProps {
 
 export default function OEMSearchForm({ products }: OEMSearchFormProps) {
   const router = useRouter();
-  const selectedMarket = useMarketStore(state => state.selectedMarket);
   const [query, setQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
-  const [result, setResult] = useState<{ found: boolean; data?: any; error?: string } | null>(null);
+  const [result, setResult] = useState<{ found: boolean } | null>(null);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -69,7 +67,7 @@ export default function OEMSearchForm({ products }: OEMSearchFormProps) {
             badge={<><Search className="w-3.5 h-3.5 inline-block mr-1.5 relative -top-[1px]" /> Live Database</>}
             title="Brake Chamber Interchange Search"
             description={
-              <>Enter any OEM part number to instantly find the BRC equivalent. Try searching for parts like <code className="bg-slate-100 border border-slate-200 px-2 py-0.5 rounded text-navy-900 font-mono text-sm font-semibold shadow-sm">NT3030STD-1C</code> or <code className="bg-slate-100 border border-slate-200 px-2 py-0.5 rounded text-navy-900 font-mono text-sm font-semibold shadow-sm">1C3030</code>.</>
+              <>Enter any OEM part number to instantly find the BRC equivalent. Try searching for parts like <button type="button" onClick={() => setQuery('3430051')} className="bg-slate-100 hover:bg-amber-50 hover:border-amber-300 border border-slate-200 px-2 py-0.5 rounded text-navy-900 hover:text-amber-700 font-mono text-sm font-semibold shadow-sm transition-colors cursor-pointer" title="Click to fill 3430051">3430051</button> or <button type="button" onClick={() => setQuery('423.107.900.0')} className="bg-slate-100 hover:bg-amber-50 hover:border-amber-300 border border-slate-200 px-2 py-0.5 rounded text-navy-900 hover:text-amber-700 font-mono text-sm font-semibold shadow-sm transition-colors cursor-pointer" title="Click to fill 423.107.900.0">423.107.900.0</button>.</>
             }
             align="left"
             theme="light"
@@ -107,7 +105,7 @@ export default function OEMSearchForm({ products }: OEMSearchFormProps) {
           </form>
           
           <div className="mt-4">
-            <Link href="/contact" className="text-amber-600 hover:text-amber-500 font-bold text-sm flex items-center w-fit transition-colors">
+            <Link href="/oem-cross-reference/request" className="text-amber-600 hover:text-amber-500 font-bold text-sm flex items-center w-fit transition-colors">
               Need help? Request a custom cross-match <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
           </div>
@@ -121,14 +119,20 @@ export default function OEMSearchForm({ products }: OEMSearchFormProps) {
               <div className="bg-amber-100 p-2 rounded-full text-amber-600 flex-shrink-0">
                 <AlertCircle className="w-6 h-6" />
               </div>
-              <div>
+              <div className="flex-1">
                 <h3 className="font-bold text-amber-900 text-lg mb-1">No direct cross-reference found</h3>
-                <p className="text-amber-800 text-sm mb-4">
-                  We could not find an automatic match for "<span className="font-mono font-bold uppercase">{query}</span>" in our database.
+                <p className="text-amber-800 text-sm mb-3">
+                  We could not find an automatic match for "<span className="font-mono font-bold uppercase">{query}</span>" in our instant index.
                 </p>
-                <p className="text-amber-900 text-sm font-medium bg-amber-100/50 p-3 rounded-lg border border-amber-200/50">
-                  <strong>Don't worry!</strong> Our engineers can cross-reference this manually. Please contact our factory with this part number and we will provide the exact BRC equivalent.
+                <p className="text-amber-900 text-sm font-medium bg-amber-100/50 p-3 rounded-lg border border-amber-200/50 mb-4">
+                  <strong>Need this part?</strong> Our engineering team can cross-reference it manually against manufacturer technical drawings.
                 </p>
+                <Link
+                  href={`/oem-cross-reference/request?part=${encodeURIComponent(query)}`}
+                  className="inline-flex items-center gap-2 bg-navy-900 text-white text-sm font-semibold px-4 py-2.5 rounded-xl hover:bg-navy-800 transition-colors shadow-sm"
+                >
+                  Request Custom Cross-Match for "{query}" <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </div>
