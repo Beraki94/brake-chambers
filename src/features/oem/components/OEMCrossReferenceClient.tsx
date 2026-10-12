@@ -240,7 +240,7 @@ export default function OEMCrossReferenceClient() {
       <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
         {/* Premium Fixed Parallax Background */}
         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-          <div className="w-full h-full bg-[url('/products/spring-brake.jpg')] bg-fixed bg-center bg-no-repeat bg-[length:800px_800px] mix-blend-multiply "></div>
+          <div className="w-full h-full bg-[url('/productsImage/brc-t3030-mgm-spring-brake-7-v2.jpg')] bg-fixed bg-center bg-no-repeat bg-[length:800px_800px] mix-blend-multiply "></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">

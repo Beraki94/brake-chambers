@@ -34,7 +34,12 @@ export const allProductsQuery = groq`*[_type == "product"] {
   publishedAt,
   moq,
   palletQuantity,
-  "uploadedImages": images[].asset->url
+  "uploadedImages": images[].asset->url,
+  "seo": seo {
+    metaTitle,
+    metaDescription,
+    keywords
+  }
 }`;
 
 export const allBlogPostsQuery = groq`*[_type == "post"] | order(publishedAt desc) {
@@ -101,13 +106,29 @@ function sanitizeChinese<T>(data: T): T {
 }
 
 export async function getProducts(): Promise<BrakeChamber[]> {
-  const products = await client.fetch(allProductsQuery);
+  const products = await client.fetch(allProductsQuery, {}, { next: { revalidate: 60 } });
   const sanitized = sanitizeChinese(products);
-  return sanitized.map((p: any) => ({
-    ...p,
-    // If they upload images via Studio, we add them to the start of the gallery
-    galleryUrls: p.uploadedImages ? [...p.uploadedImages, ...(p.galleryUrls || [])] : (p.galleryUrls || [])
-  }));
+  return sanitized.map((p: any) => {
+    // Map legacy /products/ to new /productsImage/ folder
+    const rawGallery = p.galleryUrls || [];
+    const normalizedGallery = rawGallery.map((url: string) => {
+      if (typeof url === 'string') {
+        return url.replace(/^\/products\//, '/productsImage/');
+      }
+      return url;
+    });
+
+    // If images are uploaded in Sanity Studio, put them first
+    const galleryUrls = p.uploadedImages && p.uploadedImages.length > 0
+      ? [...p.uploadedImages, ...normalizedGallery]
+      : (normalizedGallery.length > 0 ? normalizedGallery : ['/productsImage/brc-t16-single-brake-1.jpg']);
+
+    return {
+      ...p,
+      galleryUrls,
+      imageUrl: galleryUrls[0] || '/productsImage/brc-t16-single-brake-1.jpg',
+    };
+  });
 }
 
 export function resolveBlogCategory(category?: string, slug?: string): string {
@@ -131,7 +152,7 @@ export function resolveBlogCategory(category?: string, slug?: string): string {
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
   try {
-    const sanityPosts = await client.fetch(allBlogPostsQuery);
+    const sanityPosts = await client.fetch(allBlogPostsQuery, {}, { next: { revalidate: 60 } });
     if (sanityPosts && sanityPosts.length > 0) {
       return sanityPosts.map((p: any) => ({
         slug: p.slug,
@@ -175,7 +196,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
 export async function getBlogPostBySlug(slug: string, canonicalSlug?: string): Promise<BlogPost | null> {
   const cSlug = canonicalSlug || slug;
   try {
-    const post = await client.fetch(singleBlogPostQuery, { slug, canonicalSlug: cSlug });
+    const post = await client.fetch(singleBlogPostQuery, { slug, canonicalSlug: cSlug }, { next: { revalidate: 60 } });
     if (post) {
       return {
         slug: post.slug,
@@ -219,5 +240,49 @@ export async function getBlogPostBySlug(slug: string, canonicalSlug?: string): P
 }
 
 export async function getPages() {
-  return await client.fetch(allPagesQuery);
+  return await client.fetch(allPagesQuery, {}, { next: { revalidate: 60 } });
 }
+
+export interface PageSeoResult {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  canonical?: string;
+}
+
+export async function getPageSeo(path: string): Promise<PageSeoResult | null> {
+  try {
+    const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+    const altPath = normalizedPath.endsWith('/') && normalizedPath.length > 1
+      ? normalizedPath.slice(0, -1)
+      : `${normalizedPath}/`;
+
+    const page = await client.fetch(
+      groq`*[_type == "page" && (path == $path || path == $altPath)][0] {
+        title,
+        path,
+        seo {
+          metaTitle,
+          metaDescription,
+          keywords
+        }
+      }`,
+      { path: normalizedPath, altPath },
+      { next: { revalidate: 60 } }
+    );
+
+    if (page?.seo?.metaTitle || page?.seo?.metaDescription) {
+      return {
+        title: page.seo.metaTitle || page.title,
+        description: page.seo.metaDescription || undefined,
+        keywords: page.seo.keywords || [],
+        canonical: `https://www.brakechambers.com${normalizedPath === '/' ? '' : normalizedPath}`,
+      };
+    }
+    return null;
+  } catch (err) {
+    console.error(`Failed to fetch SEO for path ${path}:`, err);
+    return null;
+  }
+}
+

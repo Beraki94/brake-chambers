@@ -1,12 +1,18 @@
 import { MetadataRoute } from 'next';
-import { BRAKE_CHAMBERS, BRAKE_ACCESSORIES } from '@/lib/data';
+import { getProducts, getBlogPosts } from '@/sanity/queries';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.brcbrakechambers.com';
+export const revalidate = 3600; // revalidate sitemap every hour
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = 'https://www.brakechambers.com';
+
+  const products = await getProducts();
+  const blogPosts = await getBlogPosts();
 
   // Base routes
-  const routes = [
+  const baseRoutes = [
     '',
+    '/products',
     '/contact',
     '/quote',
     '/our-story',
@@ -18,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog',
     '/applications',
     '/technical-resources',
-    
+
     // Manufacturing Hub
     '/manufacturing',
     '/manufacturing/process',
@@ -28,13 +34,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/manufacturing/custom-oem',
     '/manufacturing/private-label',
     '/manufacturing/high-volume-orders',
-    
+
     // Top-level categories
     '/spring-brake-chambers',
     '/service-brake-chambers',
     '/air-disc-brake-actuators',
     '/parts-and-kits',
-    
+
     // OEM Hub
     '/oem-cross-reference',
     '/oem-cross-reference/bulk-inquiries',
@@ -45,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
+    priority: route === '' ? 1.0 : 0.8,
   }));
 
   // Spring Brakes Categories
@@ -53,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'commercial-trailer',
     'heavy-duty-truck',
     'oem-replacement',
-    'severe-duty'
+    'severe-duty',
   ].map((slug) => ({
     url: `${baseUrl}/spring-brake-chambers/${slug}`,
     lastModified: new Date(),
@@ -66,19 +72,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'drive-axle',
     'steer-axle',
     'trailer-axle',
-    'transit-bus'
+    'transit-bus',
   ].map((slug) => ({
     url: `${baseUrl}/service-brake-chambers/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.9,
   }));
-  
+
   // ADB Categories
   const adbCategories = [
     'high-temp-adb',
     'trailer-adb',
-    'truck-adb'
+    'truck-adb',
   ].map((slug) => ({
     url: `${baseUrl}/air-disc-brake-actuators/${slug}`,
     lastModified: new Date(),
@@ -90,7 +96,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const partCategories = [
     'mounting-hardware',
     'repair-kits',
-    'replacement-rubber'
+    'replacement-rubber',
   ].map((slug) => ({
     url: `${baseUrl}/parts-and-kits/${slug}`,
     lastModified: new Date(),
@@ -98,41 +104,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  // Products - Spring Brakes
-  const springBrakes = BRAKE_CHAMBERS.filter(c => c.category === 'Spring Brake').map((product) => ({
-    url: `${baseUrl}/spring-brake-chambers/${product.slug}`,
-    lastModified: new Date(product.publishedAt),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  // Products - Service Chambers
-  const serviceChambers = BRAKE_CHAMBERS.filter(c => c.category === 'Service Brake').map((product) => ({
-    url: `${baseUrl}/service-brake-chambers/${product.slug}`,
-    lastModified: new Date(product.publishedAt),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-  
-  // Products - Accessories
-  const accessories = BRAKE_ACCESSORIES.map((product) => ({
-    url: `${baseUrl}/parts-and-kits/${product.slug}`,
-    lastModified: new Date(product.publishedAt),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  // OEM Cross Reference Granular Hubs
+  // OEM Brands
   const oemBrands = ['bendix', 'meritor', 'haldex', 'wabco', 'zf-wabco', 'knorr-bremse', 'sorl', 'mgm', 'automann', 'dexter', 'tse', 'tse-brakes'];
   const oemCategories = [
-    '', // Main hub
+    '',
     '-spring-brake-chambers',
     '-service-brake-chambers',
-    '-air-disc-brake-actuators'
+    '-air-disc-brake-actuators',
   ];
-  
-  const oemCrossReferenceHubs = oemBrands.flatMap(brand => 
-    oemCategories.map(cat => ({
+  const oemCrossReferenceHubs = oemBrands.flatMap((brand) =>
+    oemCategories.map((cat) => ({
       url: `${baseUrl}/oem-cross-reference/${brand}${cat}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
@@ -140,7 +121,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  // Technical Resource Pages
+  // Technical Resources
   const technicalResources = [
     'installation',
     'caging',
@@ -155,16 +136,48 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Products from Sanity
+  const productRoutes = products.map((product) => {
+    let categoryPrefix = 'products';
+    if (product.category === 'Spring Brake') categoryPrefix = 'spring-brake-chambers';
+    else if (product.category === 'Service Brake') categoryPrefix = 'service-brake-chambers';
+    else if (product.category === 'Air Disc Actuator') categoryPrefix = 'air-disc-brake-actuators';
+    else if (product.category === 'Parts & Kits') categoryPrefix = 'parts-and-kits';
+
+    return {
+      url: `${baseUrl}/${categoryPrefix}/${product.slug}`,
+      lastModified: product.publishedAt ? new Date(product.publishedAt) : new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    };
+  });
+
+  // Direct product slug routes: also include canonical `/${product.slug}`
+  const directProductRoutes = products.map((product) => ({
+    url: `${baseUrl}/${product.slug}`,
+    lastModified: product.publishedAt ? new Date(product.publishedAt) : new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  // Blog Posts from Sanity
+  const blogRoutes = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.publishDate ? new Date(post.publishDate) : new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
   return [
-    ...routes,
+    ...baseRoutes,
     ...springBrakeCategories,
     ...serviceChamberCategories,
     ...adbCategories,
     ...partCategories,
-    ...springBrakes,
-    ...serviceChambers,
-    ...accessories,
     ...oemCrossReferenceHubs,
     ...technicalResources,
+    ...productRoutes,
+    ...directProductRoutes,
+    ...blogRoutes,
   ];
 }

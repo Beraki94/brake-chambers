@@ -3,19 +3,30 @@ import type { Metadata } from 'next';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import ApplicationsClient from '@/features/applications/components/ApplicationsClient';
 
-export const metadata: Metadata = {
-  title: 'Brake Chambers by Application | Trucks, Trailers, Transit & Off-Highway | BRC',
-  description: 'Find the right BRC brake chamber for your vehicle or industry. Trucks, trailers, transit buses, refuse, mining, and off-highway applications. IATF 16949 certified.',
-  alternates: {
-    canonical: '/applications',
-  },
-  openGraph: {
-    title: 'Brake Chambers by Application | Trucks, Trailers, Transit & Off-Highway | BRC',
-    description: 'Find the right BRC brake chamber for your vehicle or industry. Trucks, trailers, transit buses, refuse, mining, and off-highway applications. IATF 16949 certified.',
-    url: '/applications',
-    type: 'website',
-  }
-};
+import { getPageSeo } from '@/sanity/queries';
+
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageSeo('/applications');
+  const title = seo?.title || 'Brake Chambers by Application | Trucks, Trailers, Transit & Off-Highway | BRC';
+  const description = seo?.description || 'Find the right BRC brake chamber for your vehicle or industry. Trucks, trailers, transit buses, refuse, mining, and off-highway applications. IATF 16949 certified.';
+
+  return {
+    title,
+    description,
+    keywords: seo?.keywords,
+    alternates: {
+      canonical: 'https://www.brakechambers.com/applications',
+    },
+    openGraph: {
+      title,
+      description,
+      url: 'https://www.brakechambers.com/applications',
+      type: 'website',
+    },
+  };
+}
 
 export default function ApplicationsPage() {
   return (

@@ -1,18 +1,38 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { getProducts } from '@/sanity/queries';
+import { getProducts, getPageSeo } from '@/sanity/queries';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { Disc, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Air Disc Brake Actuators (ADB): High-Output Technology | BRC',
-  description: 'Next-generation air disc brake actuators with HOT Technology. Superior clamping force, reduced brake fade. Direct replacements for Bendix, Haldex, Meritor & WABCO. Factory-direct pricing.',
-  keywords: ['Air Disc Actuators', 'ADB Actuators', 'Type 20/24 ADB', 'Commercial Air Brakes', 'Bendix ADB22X Replacement'],
-};
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageSeo('/air-disc-brake-actuators');
+  const title = seo?.title || 'Air Disc Brake Actuators (ADB): High-Output Technology | BRC';
+  const description = seo?.description || 'Next-generation air disc brake actuators with HOT Technology. Superior clamping force, reduced brake fade. Direct replacements for Bendix, Haldex, Meritor & WABCO. Factory-direct pricing.';
+  const keywords = seo?.keywords?.length
+    ? seo.keywords
+    : ['Air Disc Actuators', 'ADB Actuators', 'Type 20/24 ADB', 'Commercial Air Brakes', 'Bendix ADB22X Replacement'];
+
+  return {
+    title,
+    description,
+    keywords,
+    alternates: {
+      canonical: 'https://www.brakechambers.com/air-disc-brake-actuators',
+    },
+    openGraph: {
+      title,
+      description,
+      url: 'https://www.brakechambers.com/air-disc-brake-actuators',
+      type: 'website',
+    },
+  };
+}
 
 export default async function AirDiscActuatorsPage(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
   const BRAKE_CHAMBERS = await getProducts();
@@ -141,7 +161,7 @@ export default async function AirDiscActuatorsPage(props: { searchParams?: Promi
           "@type": "CollectionPage",
           "name": "Air Disc Brake Actuators (ADB): High-Output Technology",
           "description": "Next-generation air disc brake actuators with HOT Technology. Superior clamping force, reduced brake fade. Direct replacements for Bendix, Haldex, Meritor & WABCO.",
-          "url": "https://www.brcbrakechambers.com/air-disc-brake-actuators",
+          "url": "https://www.brakechambers.com/air-disc-brake-actuators",
           "manufacturer": {
             "@type": "Organization",
             "name": "BRC Brake Chambers"
@@ -209,13 +229,13 @@ export default async function AirDiscActuatorsPage(props: { searchParams?: Promi
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://www.brcbrakechambers.com/"
+              "item": "https://www.brakechambers.com/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Air Disc Actuators",
-              "item": "https://www.brcbrakechambers.com/air-disc-brake-actuators"
+              "item": "https://www.brakechambers.com/air-disc-brake-actuators"
             }
           ]
         }

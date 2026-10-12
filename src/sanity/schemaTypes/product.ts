@@ -2,6 +2,97 @@ import { defineArrayMember, defineField, defineType } from 'sanity'
 
 const categoryList = ['Spring Brake', 'Service Brake', 'Air Disc Actuator', 'Parts & Kits'];
 
+const chamberTypeList = [
+  'Type 30/30',
+  'Type 30',
+  'Type 30/36',
+  'Type 30/24',
+  'Type 30/28',
+  'Type 36/36',
+  'Type 36',
+  'Type 24/30',
+  'Type 24/24',
+  'Type 24',
+  'Type 24/16',
+  'Type 20/30',
+  'Type 20/24',
+  'Type 20',
+  'Type 16/24',
+  'Type 16/16',
+  'Type 16',
+  'Type 14/24',
+  'Type 12/20',
+  'Type 12',
+  'Type 09/20',
+  'Type 9',
+  'RAM 24/30',
+  'RAM 24/25',
+  'RAM 20/30',
+  'RAM 20/25',
+  'RAM 16/20',
+  '10PC1 330 Rear',
+  '10PD1 340 Rear',
+  'CW520 Rear',
+  'FV310',
+  'Hino HE',
+  'Hino SH',
+  'UD340 Rear',
+];
+
+const strokeSizeList = ['Standard', 'Long Stroke', 'N/A'];
+
+const strokeInchList = [
+  { title: '2-1/2 in (Standard 2.5")', value: '2-1/2 in' },
+  { title: '3 in (Long Stroke 3.0")', value: '3 in' },
+  { title: '2-1/4 in (2.25")', value: '2-1/4 in' },
+  { title: '2-3/4 in (2.75")', value: '2-3/4 in' },
+  { title: '2 in (2.0")', value: '2 in' },
+  { title: 'N/A (Accessories & Kits)', value: 'N/A' },
+];
+
+const pushRodLengthList = [
+  { title: '8 in (Standard Heavy-Duty 8.0")', value: '8 in' },
+  { title: '5-5/8 in (5.625")', value: '5-5/8 in' },
+  { title: '2-1/4 in (2.25")', value: '2-1/4 in' },
+  { title: 'Universal / Cut-to-Length', value: 'Universal' },
+  { title: 'N/A (Accessories & Kits)', value: 'N/A' },
+];
+
+const applicationList = [
+  { title: 'S-Cam Drum Brake (Standard)', value: 'S-Cam Brake' },
+  { title: 'Air Disc Brake (ADB)', value: 'Air Disc Brake' },
+  { title: 'Universal (RH/LH)', value: 'Universal (RH/LH)' },
+  { title: 'Heavy Truck Rear Axle', value: 'Heavy Truck Rear' },
+  { title: 'Steer Axle', value: 'Steer Axle' },
+  { title: 'Trailer Axle', value: 'Trailer Axle' },
+  { title: 'Tipper / Dump Body Special', value: 'Tipper / Dump Body Special' },
+  { title: 'Mitsubishi Fuso & Hino', value: 'Mitsubishi Fuso & Hino' },
+];
+
+const brandList = [
+  { title: 'Bendix', value: 'Bendix' },
+  { title: 'Haldex', value: 'Haldex' },
+  { title: 'MGM', value: 'MGM' },
+  { title: 'Meritor', value: 'Meritor' },
+  { title: 'Wabco', value: 'Wabco' },
+  { title: 'Knorr-Bremse', value: 'Knorr-Bremse' },
+  { title: 'TSE', value: 'TSE' },
+  { title: 'Provia', value: 'Provia' },
+  { title: 'Automann', value: 'Automann' },
+  { title: 'FleetSpec', value: 'FleetSpec' },
+  { title: 'HD Plus', value: 'HD Plus' },
+  { title: 'SAF-Holland', value: 'SAF-Holland' },
+  { title: 'Hendrickson', value: 'Hendrickson' },
+  { title: 'Dexter', value: 'Dexter' },
+  { title: 'Euclid', value: 'Euclid' },
+  { title: 'KENNO', value: 'KENNO' },
+  { title: 'Isuzu', value: 'Isuzu' },
+  { title: 'Hino', value: 'Hino' },
+  { title: 'Nissan UD', value: 'Nissan UD' },
+  { title: 'Mitsubishi Fuso', value: 'Mitsubishi Fuso' },
+  { title: 'Generic/Unbranded', value: 'Generic/Unbranded' },
+];
+
 // Mirrors the BrakeChamber type in src/types/index.ts so products can be
 // moved from src/lib/data.ts into Sanity without losing any information.
 const productGroups = [
@@ -12,8 +103,6 @@ const productGroups = [
   { name: 'sales', title: 'Sales' },
   { name: 'seo', title: 'SEO' },
 ];
-
-const strokeSizeList = ['Standard', 'Long Stroke', 'N/A'];
 
 const productOrderings = [
   { title: 'Name A–Z', name: 'nameAsc', by: [{ field: 'name', direction: 'asc' }] as any },
@@ -48,9 +137,19 @@ export const product = defineType({
       },
       validation: (r) => r.required(),
     }),
-    defineField({ name: 'type', title: 'Chamber Type', type: 'string', group: 'basic', description: 'e.g. Type 30/30, Type 16' }),
-    defineField({ name: 'modelDesignation', title: 'Model Designation', type: 'string', group: 'basic', description: 'e.g. T16' }),
-    defineField({ name: 'brakingMethod', title: 'Braking Method', type: 'string', group: 'basic', description: 'e.g. Single Diaphragm' }),
+    defineField({
+      name: 'type',
+      title: 'Chamber Type / Model',
+      type: 'string',
+      group: 'basic',
+      description: 'Select standard chamber size or enter custom. Used for sidebar Model filtering.',
+      options: {
+        list: chamberTypeList,
+      },
+      validation: (r) => r.required(),
+    }),
+    defineField({ name: 'modelDesignation', title: 'Model Designation', type: 'string', group: 'basic', description: 'e.g. T16, T3030' }),
+    defineField({ name: 'brakingMethod', title: 'Braking Method', type: 'string', group: 'basic', description: 'e.g. Single Diaphragm, Double Diaphragm' }),
     defineField({
       name: 'strokeSize',
       title: 'Stroke Size',
@@ -58,11 +157,38 @@ export const product = defineType({
       group: 'basic',
       options: { list: strokeSizeList },
     }),
-    defineField({ name: 'strokeInch', title: 'Stroke (inches)', type: 'string', group: 'basic' }),
-    defineField({ name: 'pushRodLengthInch', title: 'Push Rod Length (inches)', type: 'string', group: 'basic' }),
-    defineField({ name: 'dutySpec', title: 'Duty Spec', type: 'string', group: 'basic', description: 'e.g. severe-duty' }),
-    defineField({ name: 'mountType', title: 'Mount Type', type: 'string', group: 'basic', description: 'e.g. MGM Style, clevis' }),
-    defineField({ name: 'application', title: 'Application', type: 'string', group: 'basic', description: 'e.g. S-Cam Brake, Disc' }),
+    defineField({
+      name: 'strokeInch',
+      title: 'Stroke (inches)',
+      type: 'string',
+      group: 'basic',
+      description: 'Used for sidebar Stroke filtering.',
+      options: {
+        list: strokeInchList,
+      },
+    }),
+    defineField({
+      name: 'pushRodLengthInch',
+      title: 'Push Rod Length (inches)',
+      type: 'string',
+      group: 'basic',
+      description: 'Used for sidebar Push Rod Length filtering.',
+      options: {
+        list: pushRodLengthList,
+      },
+    }),
+    defineField({ name: 'dutySpec', title: 'Duty Spec', type: 'string', group: 'basic', description: 'e.g. severe-duty, standard' }),
+    defineField({ name: 'mountType', title: 'Mount Type', type: 'string', group: 'basic', description: 'e.g. MGM Style, welded clevis, round port' }),
+    defineField({
+      name: 'application',
+      title: 'Application',
+      type: 'string',
+      group: 'basic',
+      description: 'Used for sidebar Application filtering.',
+      options: {
+        list: applicationList,
+      },
+    }),
     defineField({ name: 'material', title: 'Material', type: 'string', group: 'basic' }),
     defineField({ name: 'brandSlug', title: 'Brand', type: 'string', group: 'basic', initialValue: 'brc', hidden: true }),
     defineField({
@@ -139,8 +265,11 @@ export const product = defineType({
       title: 'Cross-Reference Brands',
       type: 'array',
       group: 'oem',
+      description: 'Select matching brands for OEM cross-referencing and sidebar filtering.',
       of: [defineArrayMember({ type: 'string' })],
-      options: { layout: 'tags' },
+      options: {
+        list: brandList,
+      },
     }),
     defineField({
       name: 'hiddenSearchTags',
@@ -158,7 +287,7 @@ export const product = defineType({
       title: 'Gallery Image Paths',
       type: 'array',
       group: 'media',
-      description: 'Existing images stored in the website /public folder, e.g. /products/spring-brake.png',
+      description: 'Existing images stored in the website /public/productsImage folder, e.g. /productsImage/brc-t16-single-brake-1.jpg',
       of: [defineArrayMember({ type: 'string' })],
     }),
     defineField({

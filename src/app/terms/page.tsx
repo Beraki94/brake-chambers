@@ -2,10 +2,31 @@ import React from 'react';
 import Link from 'next/link';
 import Card from '@/components/ui/Card';
 
-export const metadata = {
-  title: 'Terms of Service | BRC Brake Chambers',
-  description: 'Terms and conditions for wholesale BRC Brake Chambers orders.',
-};
+import { Metadata } from 'next';
+import { getPageSeo } from '@/sanity/queries';
+
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageSeo('/terms');
+  const title = seo?.title || 'Terms of Service | BRC Brake Chambers';
+  const description = seo?.description || 'Terms and conditions for wholesale BRC Brake Chambers orders.';
+
+  return {
+    title,
+    description,
+    keywords: seo?.keywords,
+    alternates: {
+      canonical: 'https://www.brakechambers.com/terms',
+    },
+    openGraph: {
+      title,
+      description,
+      url: 'https://www.brakechambers.com/terms',
+      type: 'website',
+    },
+  };
+}
 
 export default function TermsPage() {
   return (

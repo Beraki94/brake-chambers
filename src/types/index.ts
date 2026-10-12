@@ -66,12 +66,18 @@ export interface BrakeChamber {
   };
   
   galleryUrls: string[];
+  imageUrl?: string;
   factoryVideoUrl?: string;
   promoVideoUrl?: string;
   stock: number;
   publishedAt: string;
   moq?: number; // Minimum Order Quantity for wholesale
   palletQuantity?: number; // Units per pallet
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    keywords?: string[];
+  };
 }
 
 export type AccessoryCategory = 'Diaphragm' | 'Caging Bolt' | 'Clamp Band' | 'Slack Adjuster' | 'Other';

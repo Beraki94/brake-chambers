@@ -14,7 +14,7 @@ export default function BreadcrumbSchema({ items }: { items: BreadcrumbSchemaIte
     '@type': 'ListItem',
     position: index + 1,
     name: item.name,
-    ...(item.item ? { item: `https://brcengineering.com${item.item}` } : {}),
+    ...(item.item ? { item: `https://www.brakechambers.com${item.item}` } : {}),
   }));
 
   const jsonLd = {

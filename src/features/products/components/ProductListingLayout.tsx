@@ -55,17 +55,37 @@ export default function ProductListingLayout({
       products = products.filter(p => values.some(v => filterFn(p, v)));
     };
 
-    applyFilter('brand', searchParams.brand, (p, v) => p.crossReferenceBrands?.includes(v) || p.brandSlug === v.toLowerCase());
-    applyFilter('model', searchParams.model, (p, v) => p.type.includes(v));
+    applyFilter('brand', searchParams.brand, (p, v) => {
+      const vLower = v.toLowerCase();
+      const inCross = p.crossReferenceBrands?.some((b: string) => b.toLowerCase() === vLower);
+      const inOem = p.oemPartNumbers?.some((o: any) => o.brand?.toLowerCase() === vLower);
+      const inSlug = p.brandSlug?.toLowerCase() === vLower;
+      return Boolean(inCross || inOem || inSlug);
+    });
+
+    applyFilter('model', searchParams.model, (p, v) => {
+      if (!p.type) return false;
+      const tLower = p.type.toLowerCase();
+      const vLower = v.toLowerCase();
+      return tLower === vLower || tLower.includes(vLower);
+    });
+
     applyFilter('strokeInch', searchParams.strokeInch, (p, v) => p.strokeInch === v);
     applyFilter('pushRodLength', searchParams.pushRodLength, (p, v) => p.pushRodLengthInch === v);
     applyFilter('application', searchParams.application, (p, v) => p.application === v);
+    applyFilter('categoryFilter', searchParams.categoryFilter, (p, v) => p.category === v);
 
     const filter = searchParams.filter as string;
     if (filter === 'Standard') {
       products = products.filter(c => c.strokeSize === 'Standard');
     } else if (filter === 'Long Stroke') {
       products = products.filter(c => c.strokeSize === 'Long Stroke');
+    } else if (filter) {
+      const fLower = filter.toLowerCase();
+      products = products.filter(p =>
+        (p.name && p.name.toLowerCase().includes(fLower)) ||
+        (p.type && p.type.toLowerCase().includes(fLower))
+      );
     }
   }
 
@@ -89,7 +109,7 @@ export default function ProductListingLayout({
       <div id="product-listing" className="flex flex-col lg:flex-row gap-6 relative scroll-mt-48 lg:scroll-mt-60">
         <div className="w-full lg:w-64 flex-shrink-0 flex flex-col gap-4">
            <MobileSidebarWrapper>
-             <FacetedSidebar baseCategory={baseCategory} />
+             <FacetedSidebar baseCategory={baseCategory} products={initialProducts} />
            </MobileSidebarWrapper>
            
            <BulkOemCard />

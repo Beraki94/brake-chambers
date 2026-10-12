@@ -5,11 +5,30 @@ import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import OEMCrossReferenceClient from '@/features/oem/components/OEMCrossReferenceClient';
 
 
-export const metadata: Metadata = {
-  title: 'OEM Brake Chamber Cross-Reference — Find Direct Replacements | BRC',
-  description: 'Search Bendix, Haldex, Meritor, Knorr-Bremse, WABCO, SORL, TSE & MGM part numbers and find the exact BRC brake chamber equivalent. Verified fit, form & function.',
-  keywords: ['Brake Chamber Cross Reference', 'Bendix Interchange', 'Haldex Replacement', 'Meritor Cross Reference', 'Wabco Air Brakes', 'MGM Brakes'],
-};
+import { getPageSeo } from '@/sanity/queries';
+
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageSeo('/oem-cross-reference');
+  const title = seo?.title || 'OEM Brake Chamber Cross-Reference — Find Direct Replacements | BRC';
+  const description = seo?.description || 'Search Bendix, Haldex, Meritor, Knorr-Bremse, WABCO, SORL, TSE & MGM part numbers and find the exact BRC brake chamber equivalent. Verified fit, form & function.';
+
+  return {
+    title,
+    description,
+    keywords: seo?.keywords || ['Brake Chamber Cross Reference', 'Bendix Interchange', 'Haldex Replacement', 'Meritor Cross Reference', 'Wabco Air Brakes', 'MGM Brakes'],
+    alternates: {
+      canonical: 'https://www.brakechambers.com/oem-cross-reference',
+    },
+    openGraph: {
+      title,
+      description,
+      url: 'https://www.brakechambers.com/oem-cross-reference',
+      type: 'website',
+    },
+  };
+}
 
 export default function OEMCrossReference() {
   return (

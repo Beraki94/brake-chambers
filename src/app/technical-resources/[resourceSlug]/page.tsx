@@ -28,12 +28,12 @@ export async function generateMetadata(props: { params: Promise<{ resourceSlug: 
     description: data.seo?.metaDescription || data.description,
     keywords: data.seo?.keywords,
     alternates: {
-      canonical: `https://brcengineering.com/technical-resources/${resourceSlug}`,
+      canonical: `https://www.brakechambers.com/technical-resources/${resourceSlug}`,
     },
     openGraph: {
       title: data.seo?.metaTitle || `${data.title} | BRC Engineering`,
       description: data.seo?.metaDescription || data.description,
-      url: `https://brcengineering.com/technical-resources/${resourceSlug}`,
+      url: `https://www.brakechambers.com/technical-resources/${resourceSlug}`,
       type: 'article',
     },
   };
@@ -83,20 +83,20 @@ export default async function TechnicalResourcePage(props: { params: Promise<{ r
     "@type": "TechArticle",
     "headline": seo?.metaTitle || data.title,
     "description": seo?.metaDescription || data.description,
-    "url": `https://brcengineering.com/technical-resources/${resourceSlug}`,
+    "url": `https://www.brakechambers.com/technical-resources/${resourceSlug}`,
     "author": {
       "@type": "Organization",
       "name": "BRC Brake Chambers",
-      "url": "https://brcengineering.com"
+      "url": "https://www.brakechambers.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "BRC Brake Chambers",
-      "url": "https://brcengineering.com"
+      "url": "https://www.brakechambers.com"
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://brcengineering.com/technical-resources/${resourceSlug}`
+      "@id": `https://www.brakechambers.com/technical-resources/${resourceSlug}`
     },
     "about": {
       "@type": "Thing",

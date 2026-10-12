@@ -91,7 +91,7 @@ export async function generateMetadata(
     description: `Find exact aftermarket equivalents for ${brandInfo.name} ${categoryNameForSeo ? categoryNameForSeo.toLowerCase() : 'air brake chambers'}. View cross-reference data, interchange part numbers, and factory-direct pricing.`,
     keywords: [`${brandInfo.name} ${categoryNameForSeo || 'Brake Chambers'}`, `${brandInfo.name} Cross Reference`, `${brandInfo.name} Interchange`, 'Direct Replacement', 'Aftermarket Air Brakes', 'Wholesale'],
     alternates: {
-      canonical: `https://www.brcbrakechambers.com/oem-cross-reference/${originalSlug}`
+      canonical: `https://www.brakechambers.com/oem-cross-reference/${originalSlug}`
     }
   };
 }
@@ -386,7 +386,7 @@ export default async function OEMBrandPage(
               "@type": "CollectionPage",
               "name": `${brandInfo.name} ${categoryNameForSeo || 'Brake Chamber'} Replacements`,
               "description": brandInfo.desc,
-              "url": `https://www.brcbrakechambers.com/oem-cross-reference/${originalSlug}`,
+              "url": `https://www.brakechambers.com/oem-cross-reference/${originalSlug}`,
               "manufacturer": {
                 "@type": "Organization",
                 "name": "BRC Brake Chambers"

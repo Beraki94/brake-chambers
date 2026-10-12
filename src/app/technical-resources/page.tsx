@@ -3,20 +3,30 @@ import Script from 'next/script';
 import type { Metadata } from 'next';
 import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import TechnicalResourcesClient from '@/features/technical-resources/components/TechnicalResourcesClient';
+import { getPageSeo } from '@/sanity/queries';
 
-export const metadata: Metadata = {
-  title: 'Brake Chamber Technical Resources - Guides, Specs & Data Sheets | BRC',
-  description: 'Installation guides, size charts, torque specs, and selection guides for BRC brake chambers. Technical resources for engineers, technicians & fleet managers.',
-  alternates: {
-    canonical: 'https://brcengineering.com/technical-resources',
-  },
-  openGraph: {
-    title: 'Brake Chamber Technical Resources - Guides, Specs & Data Sheets | BRC',
-    description: 'Installation guides, size charts, torque specs, and selection guides for BRC brake chambers. Technical resources for engineers, technicians & fleet managers.',
-    url: 'https://brcengineering.com/technical-resources',
-    type: 'website',
-  },
-};
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageSeo('/technical-resources');
+  const title = seo?.title || 'Brake Chamber Technical Resources - Guides, Specs & Data Sheets | BRC';
+  const description = seo?.description || 'Installation guides, size charts, torque specs, and selection guides for BRC brake chambers. Technical resources for engineers, technicians & fleet managers.';
+
+  return {
+    title,
+    description,
+    keywords: seo?.keywords?.length ? seo.keywords : ['Brake Chamber Technical Guides', 'Installation Guide', 'Size Charts', 'Torque Specs'],
+    alternates: {
+      canonical: 'https://www.brakechambers.com/technical-resources',
+    },
+    openGraph: {
+      title,
+      description,
+      url: 'https://www.brakechambers.com/technical-resources',
+      type: 'website',
+    },
+  };
+}
 
 export default function TechnicalResourcesPage() {
   const jsonLd = {
@@ -24,11 +34,11 @@ export default function TechnicalResourcesPage() {
     "@type": "CollectionPage",
     "name": "Brake Chamber Technical Resources & Documentation",
     "description": "Comprehensive technical library for commercial brake chambers including installation guides, size charts, stroke length specifications, caging procedures, and selection guides.",
-    "url": "https://brcengineering.com/technical-resources",
+    "url": "https://www.brakechambers.com/technical-resources",
     "publisher": {
       "@type": "Organization",
       "name": "BRC Brake Chambers",
-      "url": "https://brcengineering.com"
+      "url": "https://www.brakechambers.com"
     },
     "mainEntity": {
       "@type": "ItemList",
@@ -37,37 +47,37 @@ export default function TechnicalResourcesPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Brake Chamber Installation Guides",
-          "url": "https://brcengineering.com/technical-resources/installation"
+          "url": "https://www.brakechambers.com/technical-resources/installation"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Safe Caging Procedures",
-          "url": "https://brcengineering.com/technical-resources/caging"
+          "url": "https://www.brakechambers.com/technical-resources/caging"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Size & Dimension Charts",
-          "url": "https://brcengineering.com/technical-resources/size-charts"
+          "url": "https://www.brakechambers.com/technical-resources/size-charts"
         },
         {
           "@type": "ListItem",
           "position": 4,
           "name": "Stroke Length Guide & CVSA Limits",
-          "url": "https://brcengineering.com/technical-resources/stroke-length"
+          "url": "https://www.brakechambers.com/technical-resources/stroke-length"
         },
         {
           "@type": "ListItem",
           "position": 5,
           "name": "Chamber Selection Guides",
-          "url": "https://brcengineering.com/technical-resources/selection-guides"
+          "url": "https://www.brakechambers.com/technical-resources/selection-guides"
         },
         {
           "@type": "ListItem",
           "position": 6,
           "name": "Visual Identification Guide",
-          "url": "https://brcengineering.com/technical-resources/identification"
+          "url": "https://www.brakechambers.com/technical-resources/identification"
         }
       ]
     }

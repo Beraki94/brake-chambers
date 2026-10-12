@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.brcbrakechambers.com'),
+  metadataBase: new URL('https://www.brakechambers.com'),
   title: 'BRC Brake Chambers | Professional Factory Sales',
   description: 'Premium quality commercial brake chambers, spring brakes, service brakes, and parts. OEM Cross-Reference available.',
   robots: {
@@ -24,11 +24,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'BRC Brake Chambers | Professional Factory Sales',
     description: 'Premium quality commercial brake chambers, spring brakes, service brakes, and parts. OEM Cross-Reference available.',
-    url: 'https://www.brcbrakechambers.com',
+    url: 'https://www.brakechambers.com',
     siteName: 'BRC Brake Chambers',
     images: [
       {
-        url: 'https://www.brcbrakechambers.com/og-image.jpg', // Placeholder for actual OG image
+        url: 'https://www.brakechambers.com/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'BRC Brake Chambers - Heavy Duty Truck Parts',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'BRC Brake Chambers | Professional Factory Sales',
     description: 'Premium quality commercial brake chambers, spring brakes, service brakes, and parts.',
-    images: ['https://www.brcbrakechambers.com/og-image.jpg'], // Placeholder for actual OG image
+    images: ['https://www.brakechambers.com/og-image.jpg'],
   },
 };
 

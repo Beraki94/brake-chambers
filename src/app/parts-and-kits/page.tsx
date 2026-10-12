@@ -1,18 +1,38 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { getProducts } from '@/sanity/queries';
+import { getProducts, getPageSeo } from '@/sanity/queries';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { Wrench, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Brake Chamber Parts & Kits: Diaphragms, Caging Bolts & Hardware | BRC',
-  description: 'Factory-direct brake chamber parts and kits. Diaphragms, caging bolts, clevis pins, and rebuild kits. Direct OEM fitment. In-stock and ready to ship worldwide.',
-  keywords: ['Brake Chamber Accessories', 'Replacement Diaphragms', 'Clevis Kits', 'Commercial Air Brakes', 'Bendix Replacement', 'Meritor Replacement'],
-};
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageSeo('/parts-and-kits');
+  const title = seo?.title || 'Brake Chamber Parts & Kits: Diaphragms, Caging Bolts & Hardware | BRC';
+  const description = seo?.description || 'Factory-direct brake chamber parts and kits. Diaphragms, caging bolts, clevis pins, and rebuild kits. Direct OEM fitment. In-stock and ready to ship worldwide.';
+  const keywords = seo?.keywords?.length
+    ? seo.keywords
+    : ['Brake Chamber Accessories', 'Replacement Diaphragms', 'Clevis Kits', 'Commercial Air Brakes', 'Bendix Replacement', 'Meritor Replacement'];
+
+  return {
+    title,
+    description,
+    keywords,
+    alternates: {
+      canonical: 'https://www.brakechambers.com/parts-and-kits',
+    },
+    openGraph: {
+      title,
+      description,
+      url: 'https://www.brakechambers.com/parts-and-kits',
+      type: 'website',
+    },
+  };
+}
 
 export default async function ChamberPartsKitsPage(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
   const allProducts = await getProducts();
@@ -161,7 +181,7 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
           "@type": "CollectionPage",
           "name": "Brake Chamber Parts & Kits: Diaphragms, Caging Bolts & Hardware",
           "description": "Factory-direct brake chamber parts and kits. Diaphragms, caging bolts, clevis pins, and rebuild kits. Direct OEM fitment.",
-          "url": "https://www.brcbrakechambers.com/parts-and-kits",
+          "url": "https://www.brakechambers.com/parts-and-kits",
           "manufacturer": {
             "@type": "Organization",
             "name": "BRC Brake Chambers"
@@ -229,13 +249,13 @@ export default async function ChamberPartsKitsPage(props: { searchParams?: Promi
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://www.brcbrakechambers.com/"
+              "item": "https://www.brakechambers.com/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Chamber Parts & Kits",
-              "item": "https://www.brcbrakechambers.com/parts-and-kits"
+              "item": "https://www.brakechambers.com/parts-and-kits"
             }
           ]
         }

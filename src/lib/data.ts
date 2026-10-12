@@ -65,7 +65,7 @@ const createChamber = (id: string, name: string, type: string, category: Chamber
       inletPortThreadSize: overrides?.inletPortThreadSize,
       centerBossThread: overrides?.centerBossThread,
     },
-    galleryUrls: overrides?.galleryUrls || (category === 'Spring Brake' ? ['/products/spring-brake.png'] : category === 'Service Brake' ? ['/products/service-brake.png'] : ['/products/air-disc-actuator.png']),
+    galleryUrls: overrides?.galleryUrls || (category === 'Spring Brake' ? ['/productsImage/spring-brake.png'] : category === 'Service Brake' ? ['/productsImage/service-brake.png'] : ['/productsImage/air-disc-actuator.png']),
     stock: Math.floor(Math.random() * 500) + 100,
     publishedAt: '2024-02-01T00:00:00Z',
     moq: overrides?.moq || 50,
@@ -87,7 +87,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     yokeClevisGapWidth: '14.5 mm',
     inletPortThreadSize: '2-M16×1.5',
     hiddenSearchTags: ['423.104.900.0', '4231049000', '423 104 900 0', 'T16BrakeChamber', 'Type 16 air chamber', 'Single diaphragm T16'],
-    galleryUrls: ['/products/brc-t16-single-brake-1.jpg', '/products/brc-t16-single-brake-1-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t16-single-brake-1.jpg', '/productsImage/brc-t16-single-brake-1-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '423.104.900.0', notes: 'Direct Match' }
     ]
@@ -105,7 +105,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     yokeClevisGapWidth: '14.5 mm',
     inletPortThreadSize: '2-M16×1.5',
     hiddenSearchTags: ['423.105.900.0', '4231059000', '423 105 900 0', 'T20BrakeChamber', 'Type 20 air chamber', 'Single diaphragm T20'],
-    galleryUrls: ['/products/brc-t16-single-brake-1.jpg', '/products/brc-t16-single-brake-1-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t16-single-brake-1.jpg', '/productsImage/brc-t16-single-brake-1-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '423.105.900.0', notes: 'Direct Match' }
     ]
@@ -123,7 +123,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     yokeClevisGapWidth: '14.5 mm',
     inletPortThreadSize: '2-M16×1.5',
     hiddenSearchTags: ['423.106.900.0', '4231069000', '423 106 900 0', 'T24BrakeChamber', 'Type 24 air chamber', 'Single diaphragm T24'],
-    galleryUrls: ['/products/brc-t16-single-brake-1.jpg', '/products/brc-t16-single-brake-1-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t16-single-brake-1.jpg', '/productsImage/brc-t16-single-brake-1-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '423.106.900.0', notes: 'Direct Match' }
     ]
@@ -141,7 +141,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     yokeClevisGapWidth: '14.5 mm',
     inletPortThreadSize: '2-M16×1.5',
     hiddenSearchTags: ['423.107.900.0', '4231079000', '423 107 900 0', 'T30BrakeChamber', 'Type 30 air chamber', 'Single diaphragm T30'],
-    galleryUrls: ['/products/brc-t16-single-brake-1.jpg', '/products/brc-t16-single-brake-1-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t16-single-brake-1.jpg', '/productsImage/brc-t16-single-brake-1-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '423.107.900.0', notes: 'Direct Match' }
     ]
@@ -160,7 +160,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     yokeClevisGapWidth: '14.5 mm',
     inletPortThreadSize: 'Z3/8" NPTF',
     hiddenSearchTags: ['1420001', 'T20MGMChamber', 'Type 20 MGM', 'American Standard Brake Chamber'],
-    galleryUrls: ['/products/brc-t20-mgm-single-brake-2.jpg', '/products/brc-t20-mgm-single-brake-2-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t20-mgm-single-brake-2.jpg', '/productsImage/brc-t20-mgm-single-brake-2-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'MGM', partNumber: '1420001', notes: 'Direct Match' }
     ]
@@ -179,7 +179,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     yokeClevisGapWidth: '14.5 mm',
     inletPortThreadSize: 'Z3/8" NPTF',
     hiddenSearchTags: ['1427001', 'T24MGMChamber', 'Type 24 MGM', 'American Standard Brake Chamber'],
-    galleryUrls: ['/products/brc-t20-mgm-single-brake-2.jpg', '/products/brc-t20-mgm-single-brake-2-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t20-mgm-single-brake-2.jpg', '/productsImage/brc-t20-mgm-single-brake-2-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'MGM', partNumber: '1427001', notes: 'Direct Match' }
     ]
@@ -198,7 +198,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     yokeClevisGapWidth: '14.5 mm',
     inletPortThreadSize: 'Z3/8" NPTF',
     hiddenSearchTags: ['1430001', 'T30MGMChamber', 'Type 30 MGM', 'American Standard Brake Chamber'],
-    galleryUrls: ['/products/brc-t20-mgm-single-brake-2.jpg', '/products/brc-t20-mgm-single-brake-2-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t20-mgm-single-brake-2.jpg', '/productsImage/brc-t20-mgm-single-brake-2-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'MGM', partNumber: '1430001', notes: 'Direct Match' }
     ]
@@ -217,7 +217,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     yokeClevisGapWidth: '14.5 mm',
     inletPortThreadSize: 'Z3/8" NPTF',
     hiddenSearchTags: ['1436001', 'T36MGMChamber', 'Type 36 MGM', 'American Standard Brake Chamber'],
-    galleryUrls: ['/products/brc-t20-mgm-single-brake-2.jpg', '/products/brc-t20-mgm-single-brake-2-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t20-mgm-single-brake-2.jpg', '/productsImage/brc-t20-mgm-single-brake-2-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'MGM', partNumber: '1436001', notes: 'Direct Match' }
     ]
@@ -235,7 +235,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     sphericalRadius: 'SR8',
     hiddenSearchTags: ['423.104.020.0', '4231040200', 'T16ShortStroke', 'Stub Pushrod Air Pot', 'Type 16 short'],
-    galleryUrls: ['/products/brc-t20-short-stroke-single-3.jpg', '/products/brc-t20-short-stroke-single-3-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t20-short-stroke-single-3.jpg', '/productsImage/brc-t20-short-stroke-single-3-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '423.104.020.0', notes: 'Direct Match' }
     ]
@@ -253,7 +253,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     sphericalRadius: 'SR8',
     hiddenSearchTags: ['423.505.000.0', '4235050000', 'T20ShortStroke', 'Stub Pushrod Air Pot', 'Type 20 short'],
-    galleryUrls: ['/products/brc-t20-short-stroke-single-3.jpg', '/products/brc-t20-short-stroke-single-3-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t20-short-stroke-single-3.jpg', '/productsImage/brc-t20-short-stroke-single-3-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '423.505.000.0', notes: 'Direct Match' }
     ]
@@ -271,7 +271,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     sphericalRadius: 'SR8',
     hiddenSearchTags: ['423.506.001.0', '4235060010', 'T24ShortStroke', 'Stub Pushrod Air Pot', 'Type 24 short'],
-    galleryUrls: ['/products/brc-t20-short-stroke-single-3.jpg', '/products/brc-t20-short-stroke-single-3-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t20-short-stroke-single-3.jpg', '/productsImage/brc-t20-short-stroke-single-3-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '423.506.001.0', notes: 'Direct Match' }
     ]
@@ -288,7 +288,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '1/4" NPT',
     pushrodLengthMetric: '215 mm',
     hiddenSearchTags: ['47830-3380', 'T24FlangeChamber', 'Hino Style Service Chamber', 'Type 24 flange'],
-    galleryUrls: ['/products/brc-t24-japanese-flange-brake-4.jpg', '/products/brc-t24-japanese-flange-brake-4-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t24-japanese-flange-brake-4.jpg', '/productsImage/brc-t24-japanese-flange-brake-4-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Hino/Isuzu', partNumber: '47830-3380', notes: 'Direct Match' }
     ]
@@ -305,7 +305,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '1/4" NPT',
     pushrodLengthMetric: '215 mm',
     hiddenSearchTags: ['47830-3170', '47830-3180', 'T30FlangeChamber', 'Hino Style Service Chamber', 'Type 30 flange'],
-    galleryUrls: ['/products/brc-t24-japanese-flange-brake-4.jpg', '/products/brc-t24-japanese-flange-brake-4-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t24-japanese-flange-brake-4.jpg', '/productsImage/brc-t24-japanese-flange-brake-4-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Hino/Isuzu', partNumber: '47830-3170/3180', notes: 'Direct Match' }
     ]
@@ -324,7 +324,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     hydraulicPortSize: 'G3/8"',
     hiddenSearchTags: ['RAM1620', 'Air Hydraulic Brake Actuator', 'RAM Brake Cylinder', 'Diaphragm Oil Cylinder'],
-    galleryUrls: ['/products/brc-ram2025-air-hydraulic-brake-5.jpg', '/products/brc-ram2025-air-hydraulic-brake-5-drawing.jpg']
+    galleryUrls: ['/productsImage/brc-ram2025-air-hydraulic-brake-5.jpg', '/productsImage/brc-ram2025-air-hydraulic-brake-5-drawing.jpg']
   }),
   createChamber('ram2025', 'RAM2025 Air-Hydraulic Combination Brake Actuator', 'RAM 20/25', 'Service Brake', 'Standard', 34.00, {
     modelDesignation: 'RAM2025',
@@ -340,7 +340,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     hydraulicPortSize: 'G3/8"',
     hiddenSearchTags: ['RAM2025', 'Air Hydraulic Brake Actuator', 'RAM Brake Cylinder', 'Diaphragm Oil Cylinder'],
-    galleryUrls: ['/products/brc-ram2025-air-hydraulic-brake-5.jpg', '/products/brc-ram2025-air-hydraulic-brake-5-drawing.jpg']
+    galleryUrls: ['/productsImage/brc-ram2025-air-hydraulic-brake-5.jpg', '/productsImage/brc-ram2025-air-hydraulic-brake-5-drawing.jpg']
   }),
   createChamber('ram2425', 'RAM2425 Air-Hydraulic Combination Brake Actuator', 'RAM 24/25', 'Service Brake', 'Standard', 36.00, {
     modelDesignation: 'RAM2425',
@@ -356,7 +356,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     hydraulicPortSize: 'G3/8"',
     hiddenSearchTags: ['RAM2425', 'Air Hydraulic Brake Actuator', 'RAM Brake Cylinder', 'Diaphragm Oil Cylinder'],
-    galleryUrls: ['/products/brc-ram2025-air-hydraulic-brake-5.jpg', '/products/brc-ram2025-air-hydraulic-brake-5-drawing.jpg']
+    galleryUrls: ['/productsImage/brc-ram2025-air-hydraulic-brake-5.jpg', '/productsImage/brc-ram2025-air-hydraulic-brake-5-drawing.jpg']
   }),
   createChamber('ram2030', 'RAM2030 Air-Hydraulic Combination Brake Actuator', 'RAM 20/30', 'Service Brake', 'Standard', 38.00, {
     modelDesignation: 'RAM2030',
@@ -372,7 +372,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     hydraulicPortSize: 'G3/8"',
     hiddenSearchTags: ['RAM2030', 'Air Hydraulic Brake Actuator', 'RAM Brake Cylinder', 'Diaphragm Oil Cylinder'],
-    galleryUrls: ['/products/brc-ram2025-air-hydraulic-brake-5.jpg', '/products/brc-ram2025-air-hydraulic-brake-5-drawing.jpg']
+    galleryUrls: ['/productsImage/brc-ram2025-air-hydraulic-brake-5.jpg', '/productsImage/brc-ram2025-air-hydraulic-brake-5-drawing.jpg']
   }),
   createChamber('ram2430', 'RAM2430 Air-Hydraulic Combination Brake Actuator', 'RAM 24/30', 'Service Brake', 'Standard', 42.00, {
     modelDesignation: 'RAM2430',
@@ -388,7 +388,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     hydraulicPortSize: 'G3/8"',
     hiddenSearchTags: ['RAM2430', 'Air Hydraulic Brake Actuator', 'RAM Brake Cylinder', 'Diaphragm Oil Cylinder'],
-    galleryUrls: ['/products/brc-ram2025-air-hydraulic-brake-5.jpg', '/products/brc-ram2025-air-hydraulic-brake-5-drawing.jpg']
+    galleryUrls: ['/productsImage/brc-ram2025-air-hydraulic-brake-5.jpg', '/productsImage/brc-ram2025-air-hydraulic-brake-5-drawing.jpg']
   }),
   createChamber('t2024-short', 'Type 20/24 Short-Rod Double Diaphragm Spring Brake Chamber', 'Type 20/24', 'Spring Brake', 'Standard', 45.00, {
     modelDesignation: 'T20/24',
@@ -404,7 +404,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '42 mm',
     hiddenSearchTags: ['S03055A', 'T2024HLM', '20/24 Brake Cylinder', 'Double Diaphragm Brake Chamber'],
-    galleryUrls: ['/products/brc-t2424-short-rod-spring-brake-6.jpg', '/products/brc-t2424-short-rod-spring-brake-6-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t2424-short-rod-spring-brake-6.jpg', '/productsImage/brc-t2424-short-rod-spring-brake-6-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: 'S03055A', notes: 'Original No Variant A' },
       { brand: 'Generic/Unbranded', partNumber: 'T2024HLM', notes: 'Original No Variant B' }
@@ -424,7 +424,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '42 mm',
     hiddenSearchTags: ['S03037F', 'T2424HLM', '24/24 Emergency Air Pot', 'Double Diaphragm Brake Chamber'],
-    galleryUrls: ['/products/brc-t2424-short-rod-spring-brake-6.jpg', '/products/brc-t2424-short-rod-spring-brake-6-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t2424-short-rod-spring-brake-6.jpg', '/productsImage/brc-t2424-short-rod-spring-brake-6-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: 'S03037F', notes: 'Original No Variant A' },
       { brand: 'Generic/Unbranded', partNumber: 'T2424HLM', notes: 'Original No Variant B' }
@@ -444,7 +444,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-3/8" NPT',
     pushrodLengthMetric: '200 mm',
     hiddenSearchTags: ['3427051', '2424MGMSpring', 'MGM Spring Brake Canister', '24/24 Long Stroke Air Pot'],
-    galleryUrls: ['/products/brc-t3030-mgm-spring-brake-7-v2.jpg', '/products/brc-t3030-mgm-spring-brake-7-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t3030-mgm-spring-brake-7-v2.jpg', '/productsImage/brc-t3030-mgm-spring-brake-7-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'MGM', partNumber: '3427051', notes: 'Direct Match' }
     ]
@@ -463,7 +463,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-3/8" NPT',
     pushrodLengthMetric: '200 mm',
     hiddenSearchTags: ['3429051', '2430MGMSpring', 'MGM Spring Brake Canister', 'Double Diaphragm Chamber'],
-    galleryUrls: ['/products/brc-t3030-mgm-spring-brake-7-v2.jpg', '/products/brc-t3030-mgm-spring-brake-7-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t3030-mgm-spring-brake-7-v2.jpg', '/productsImage/brc-t3030-mgm-spring-brake-7-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'MGM', partNumber: '3429051', notes: 'Direct Match' }
     ]
@@ -482,7 +482,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-3/8" NPT',
     pushrodLengthMetric: '200 mm',
     hiddenSearchTags: ['3430051', '3030MGMSpring', '30/30 Spring Brake Pot', 'MGM Spring Brake Canister'],
-    galleryUrls: ['/products/brc-t3030-mgm-spring-brake-7-v2.jpg', '/products/brc-t3030-mgm-spring-brake-7-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t3030-mgm-spring-brake-7-v2.jpg', '/productsImage/brc-t3030-mgm-spring-brake-7-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'MGM', partNumber: '3430051', notes: 'Direct Match' }
     ]
@@ -501,7 +501,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-3/8" NPT',
     pushrodLengthMetric: '200 mm',
     hiddenSearchTags: ['3433051', '3036MGMSpring', 'MGM Spring Brake Canister', 'Double Diaphragm Chamber'],
-    galleryUrls: ['/products/brc-t3030-mgm-spring-brake-7-v2.jpg', '/products/brc-t3030-mgm-spring-brake-7-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t3030-mgm-spring-brake-7-v2.jpg', '/productsImage/brc-t3030-mgm-spring-brake-7-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'MGM', partNumber: '3433051', notes: 'Direct Match' }
     ]
@@ -520,7 +520,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-3/8" NPT',
     pushrodLengthMetric: '200 mm',
     hiddenSearchTags: ['3437051', '3636MGMSpring', 'MGM Spring Brake Canister', 'Double Diaphragm Chamber'],
-    galleryUrls: ['/products/brc-t3030-mgm-spring-brake-7-v2.jpg', '/products/brc-t3030-mgm-spring-brake-7-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t3030-mgm-spring-brake-7-v2.jpg', '/productsImage/brc-t3030-mgm-spring-brake-7-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'MGM', partNumber: '3437051', notes: 'Direct Match' }
     ]
@@ -538,7 +538,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '15 mm',
     hiddenSearchTags: ['925.384.001.0', '9253840010', '1624ShortStrokeSpring', 'Short Stroke Spring Brake', 'Metric Stub Rod Maxibrake'],
-    galleryUrls: ['/products/brc-t1624-short-stroke-spring-brake-8-v2.jpg', '/products/brc-t1624-short-stroke-spring-brake-8-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t1624-short-stroke-spring-brake-8-v2.jpg', '/productsImage/brc-t1624-short-stroke-spring-brake-8-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '925.384.001.0', notes: 'Direct Match' }
     ]
@@ -556,7 +556,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '15 mm',
     hiddenSearchTags: ['925.380.002.0', '9253800020', '2024ShortStrokeSpring', 'Short Stroke Spring Brake', 'SR8 Spherical Double Diaphragm'],
-    galleryUrls: ['/products/brc-t1624-short-stroke-spring-brake-8-v2.jpg', '/products/brc-t1624-short-stroke-spring-brake-8-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t1624-short-stroke-spring-brake-8-v2.jpg', '/productsImage/brc-t1624-short-stroke-spring-brake-8-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '925.380.002.0', notes: 'Direct Match' }
     ]
@@ -575,7 +575,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: 'Z1/4"',
     bodyLength: '340 mm',
     hiddenSearchTags: ['47850-4081', '47850-4091', 'Hino Maxibrake Chamber', 'Japanese Flange Spring Brake'],
-    galleryUrls: ['/products/brc-t2430-flange-spring-brake-9.jpg', '/products/brc-t2430-flange-spring-brake-9-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t2430-flange-spring-brake-9.jpg', '/productsImage/brc-t2430-flange-spring-brake-9-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Hino/Isuzu', partNumber: '47850-4081', notes: 'Original No Variant A' },
       { brand: 'Hino/Isuzu', partNumber: '47850-4091', notes: 'Original No Variant B' }
@@ -595,7 +595,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: 'S Z3/8" - P Z1/4"',
     bodyLength: '340 mm',
     hiddenSearchTags: ['47850-4001', '47850-4011', '4 Bolt Flange Parking Brake Pot', '47850 Air Canister'],
-    galleryUrls: ['/products/brc-t2430-flange-spring-brake-9.jpg', '/products/brc-t2430-flange-spring-brake-9-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t2430-flange-spring-brake-9.jpg', '/productsImage/brc-t2430-flange-spring-brake-9-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Hino/Isuzu', partNumber: '47850-4001', notes: 'Original No Variant A' },
       { brand: 'Hino/Isuzu', partNumber: '47850-4011', notes: 'Original No Variant B' }
@@ -615,7 +615,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: 'Z3/8"',
     bodyLength: '380 mm',
     hiddenSearchTags: ['47850-3931', 'Hino Maxibrake Chamber', 'Japanese Flange Spring Brake', '47850 Air Canister'],
-    galleryUrls: ['/products/brc-t2430-flange-spring-brake-9.jpg', '/products/brc-t2430-flange-spring-brake-9-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t2430-flange-spring-brake-9.jpg', '/productsImage/brc-t2430-flange-spring-brake-9-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Hino/Isuzu', partNumber: '47850-3931', notes: 'Direct Match' }
     ]
@@ -634,7 +634,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '3-M16×1.5',
     bodyOffset: '50 mm',
     hiddenSearchTags: ['44320-90165', '44320-90166', 'Nissan UD Brake Chamber', '44320 Brake Pot'],
-    galleryUrls: ['/products/brc-ud340-nissan-rear-brake-10.jpg', '/products/brc-ud340-nissan-rear-brake-10-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-ud340-nissan-rear-brake-10.jpg', '/productsImage/brc-ud340-nissan-rear-brake-10-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Nissan UD', partNumber: '44320-90165', notes: 'Original No Variant A' },
       { brand: 'Nissan UD', partNumber: '44320-90166', notes: 'Original No Variant B' }
@@ -654,7 +654,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '3-1/4" NPT',
     bodyOffset: '240 mm',
     hiddenSearchTags: ['44320-90268', 'CW520 Rear Air Chamber', 'Piston Diaphragm Brake Cylinder'],
-    galleryUrls: ['/products/brc-ud340-nissan-rear-brake-10.jpg', '/products/brc-ud340-nissan-rear-brake-10-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-ud340-nissan-rear-brake-10.jpg', '/productsImage/brc-ud340-nissan-rear-brake-10-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Nissan UD', partNumber: '44320-90268', notes: 'Direct Match' }
     ]
@@ -669,7 +669,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     centerBossThread: '1 3/4"-12UN-2A',
     inletPortThreadSize: '2-M16×1.5',
     hiddenSearchTags: ['300.100.02', 'Boss Mount Brake Chamber', 'T9-A Brake Cylinder'],
-    galleryUrls: ['/products/brc-t12b-boss-mount-brake-11.jpg', '/products/brc-t12b-boss-mount-brake-11--drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t12b-boss-mount-brake-11.jpg', '/productsImage/brc-t12b-boss-mount-brake-11--drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '300.100.02', notes: 'Direct Match' }
     ]
@@ -684,7 +684,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     centerBossThread: '1 3/4"-12UN-2A',
     inletPortThreadSize: '2-M16×1.5',
     hiddenSearchTags: ['Boss Mount Brake Chamber'],
-    galleryUrls: ['/products/brc-t12b-boss-mount-brake-11.jpg', '/products/brc-t12b-boss-mount-brake-11--drawing.jpg']
+    galleryUrls: ['/productsImage/brc-t12b-boss-mount-brake-11.jpg', '/productsImage/brc-t12b-boss-mount-brake-11--drawing.jpg']
   }),
   createChamber('hino-sh', 'Hino SH Heavy Truck Rear Piston-Diaphragm Brake Actuator', 'Hino SH', 'Service Brake', 'Standard', 65.00, {
     modelDesignation: 'HINO-SH',
@@ -701,7 +701,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     bodyLength: '390 mm',
     application: 'Heavy Truck Rear',
     hiddenSearchTags: ['47850-1131', '47850-1091', 'Hino Truck Brake Chamber'],
-    galleryUrls: ['/products/brc-hino-he-rear-brake-12.jpg', '/products/brc-hino-he-rear-brake-12-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-hino-he-rear-brake-12.jpg', '/productsImage/brc-hino-he-rear-brake-12-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Hino', partNumber: '47850-1131', notes: 'Primary' },
       { brand: 'Hino', partNumber: '47850-1091', notes: 'Secondary' }
@@ -722,7 +722,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     bodyLength: '145 mm',
     application: 'Heavy Truck Rear',
     hiddenSearchTags: ['47850-1080', '47850-1180', 'Hino Truck Brake Chamber'],
-    galleryUrls: ['/products/brc-hino-he-rear-brake-12.jpg', '/products/brc-hino-he-rear-brake-12-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-hino-he-rear-brake-12.jpg', '/productsImage/brc-hino-he-rear-brake-12-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Hino', partNumber: '47850-1080', notes: 'Primary' },
       { brand: 'Hino', partNumber: '47850-1180', notes: 'Secondary' }
@@ -743,7 +743,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     bodyLength: '145 mm',
     application: 'Tipper / Dump Body Special',
     hiddenSearchTags: ['MC886520', 'Fuso FV310 Rear Air Cylinder', 'Dump Body Special Chamber'],
-    galleryUrls: ['/products/brc-hino-he-rear-brake-12.jpg', '/products/brc-hino-he-rear-brake-12-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-hino-he-rear-brake-12.jpg', '/productsImage/brc-hino-he-rear-brake-12-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Mitsubishi Fuso', partNumber: 'MC886520', notes: 'Direct Match' }
     ]
@@ -758,7 +758,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     centerBossThread: '1 3/4"-12UN-2A',
     inletPortThreadSize: '2-M16×1.5',
     hiddenSearchTags: ['KENNO:9/6200', 'Boss Mount Brake Chamber', 'Kenno Brake Actuator'],
-    galleryUrls: ['/products/brc-t0920-boss-mount-spring-brake-13.jpg', '/products/brc-t0920-boss-mount-spring-brake-13-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t0920-boss-mount-spring-brake-13.jpg', '/productsImage/brc-t0920-boss-mount-spring-brake-13-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'KENNO', partNumber: '9/6200', notes: 'Direct Match' }
     ]
@@ -773,7 +773,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     centerBossThread: '1 3/4"-12UN-2A',
     inletPortThreadSize: '2-M16×1.5',
     hiddenSearchTags: ['KENNO:12/6200', 'Boss Mount Brake Chamber', 'Kenno Brake Actuator'],
-    galleryUrls: ['/products/brc-t0920-boss-mount-spring-brake-13.jpg', '/products/brc-t0920-boss-mount-spring-brake-13-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t0920-boss-mount-spring-brake-13.jpg', '/productsImage/brc-t0920-boss-mount-spring-brake-13-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'KENNO', partNumber: '12/6200', notes: 'Direct Match' }
     ]
@@ -792,7 +792,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     bodyLength: '187 mm',
     hiddenSearchTags: ['925.324.100.0', 'WABCO Style Combination Chamber', 'Metric Truck Air Canister'],
-    galleryUrls: ['/products/brc-t1624-wabco-spring-brake-14.jpg', '/products/brc-t1624-wabco-spring-brake-14-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t1624-wabco-spring-brake-14.jpg', '/productsImage/brc-t1624-wabco-spring-brake-14-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '925.324.100.0', notes: 'Direct Match' }
     ]
@@ -811,7 +811,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     bodyLength: '187 mm',
     hiddenSearchTags: ['925.320.120.0', 'WABCO Style Combination Chamber'],
-    galleryUrls: ['/products/brc-t1624-wabco-spring-brake-14.jpg', '/products/brc-t1624-wabco-spring-brake-14-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t1624-wabco-spring-brake-14.jpg', '/productsImage/brc-t1624-wabco-spring-brake-14-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '925.320.120.0', notes: 'Direct Match' }
     ]
@@ -830,7 +830,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M22×1.5',
     bodyLength: '290 mm',
     hiddenSearchTags: ['925.321.202.0', 'WABCO Style Combination Chamber'],
-    galleryUrls: ['/products/brc-t1624-wabco-spring-brake-14.jpg', '/products/brc-t1624-wabco-spring-brake-14-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t1624-wabco-spring-brake-14.jpg', '/productsImage/brc-t1624-wabco-spring-brake-14-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '925.321.202.0', notes: 'Direct Match' }
     ]
@@ -849,7 +849,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     bodyLength: '250 mm',
     hiddenSearchTags: ['890.400.349.0', 'Heavy Duty Combination Chamber', 'Metric Maxibrake Pot'],
-    galleryUrls: ['/products/brc-t2430-metric-hd-spring-brake-15-v3.jpg', '/products/brc-t2430-metric-hd-spring-brake-15-drawing-v3.jpg'],
+    galleryUrls: ['/productsImage/brc-t2430-metric-hd-spring-brake-15-v3.jpg', '/productsImage/brc-t2430-metric-hd-spring-brake-15-drawing-v3.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '890.400.349.0', notes: 'Direct Match' }
     ]
@@ -868,7 +868,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     bodyLength: '250 mm',
     hiddenSearchTags: ['890.400.351.0', 'Heavy Duty Combination Chamber'],
-    galleryUrls: ['/products/brc-t2430-metric-hd-spring-brake-15-v3.jpg', '/products/brc-t2430-metric-hd-spring-brake-15-drawing-v3.jpg'],
+    galleryUrls: ['/productsImage/brc-t2430-metric-hd-spring-brake-15-v3.jpg', '/productsImage/brc-t2430-metric-hd-spring-brake-15-drawing-v3.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '890.400.351.0', notes: 'Direct Match' }
     ]
@@ -887,7 +887,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     bodyLength: '250 mm',
     hiddenSearchTags: ['890.400.353.0', 'Heavy Duty Combination Chamber', 'T30/30 Piston Diaphragm Cylinder'],
-    galleryUrls: ['/products/brc-t2430-metric-hd-spring-brake-15-v3.jpg', '/products/brc-t2430-metric-hd-spring-brake-15-drawing-v3.jpg'],
+    galleryUrls: ['/productsImage/brc-t2430-metric-hd-spring-brake-15-v3.jpg', '/productsImage/brc-t2430-metric-hd-spring-brake-15-drawing-v3.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '890.400.353.0', notes: 'Direct Match' }
     ]
@@ -906,7 +906,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-VOSS 22×1.5',
     bodyLength: '200 mm',
     hiddenSearchTags: ['925.490.925.0', 'VOSS 22x1.5 Brake Chamber', 'European Truck Spring Brake'],
-    galleryUrls: ['/products/brc-t2424-wabco-standard-port-16-v3.jpg', '/products/brc-t2424-wabco-standard-port-16-drawing-v3.jpg'],
+    galleryUrls: ['/productsImage/brc-t2424-wabco-standard-port-16-v3.jpg', '/productsImage/brc-t2424-wabco-standard-port-16-drawing-v3.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '925.490.925.0', notes: 'Direct Match' }
     ]
@@ -925,7 +925,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     bodyLength: '200 mm',
     hiddenSearchTags: ['925.491.110.0', 'WABCO Piston Diaphragm Cylinder'],
-    galleryUrls: ['/products/brc-t2424-wabco-standard-port-16-v3.jpg', '/products/brc-t2424-wabco-standard-port-16-drawing-v3.jpg'],
+    galleryUrls: ['/productsImage/brc-t2424-wabco-standard-port-16-v3.jpg', '/productsImage/brc-t2424-wabco-standard-port-16-drawing-v3.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '925.491.110.0', notes: 'Direct Match' }
     ]
@@ -944,7 +944,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-VOSS 22×1.5',
     bodyLength: '250 mm',
     hiddenSearchTags: ['925.492.102.0', 'VOSS 22x1.5 Brake Chamber', 'European Truck Spring Brake'],
-    galleryUrls: ['/products/brc-t2424-wabco-standard-port-16-v3.jpg', '/products/brc-t2424-wabco-standard-port-16-drawing-v3.jpg'],
+    galleryUrls: ['/productsImage/brc-t2424-wabco-standard-port-16-v3.jpg', '/productsImage/brc-t2424-wabco-standard-port-16-drawing-v3.jpg'],
     oemPartNumbers: [
       { brand: 'Wabco', partNumber: '925.492.102.0', notes: 'Direct Match' }
     ]
@@ -962,7 +962,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '15 mm',
     hiddenSearchTags: ['925.464.459.0', 'Short Stroke Piston Diaphragm Chamber', '15mm Stub Rod Actuator'],
-    galleryUrls: ['/products/brc-t2416-short-stroke-spring-17-v2.jpg', '/products/brc-t2416-short-stroke-spring-17-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t2416-short-stroke-spring-17-v2.jpg', '/productsImage/brc-t2416-short-stroke-spring-17-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '925.464.459.0', notes: 'Direct Match' }
     ]
@@ -980,7 +980,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '15 mm',
     hiddenSearchTags: ['925.461.299.0', 'Short Stroke Piston Diaphragm Chamber'],
-    galleryUrls: ['/products/brc-t2416-short-stroke-spring-17-v2.jpg', '/products/brc-t2416-short-stroke-spring-17-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t2416-short-stroke-spring-17-v2.jpg', '/productsImage/brc-t2416-short-stroke-spring-17-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '925.461.299.0', notes: 'Direct Match' }
     ]
@@ -998,7 +998,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '15 mm',
     hiddenSearchTags: ['925.468.010.0', 'Short Stroke Piston Diaphragm Chamber', '15mm Stub Rod Maxibrake'],
-    galleryUrls: ['/products/brc-t2424-short-stroke-combo-18.jpg', '/products/brc-t2424-short-stroke-combo-18-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t2424-short-stroke-combo-18.jpg', '/productsImage/brc-t2424-short-stroke-combo-18-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '925.468.010.0', notes: 'Direct Match' }
     ]
@@ -1016,7 +1016,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '15 mm',
     hiddenSearchTags: ['925.484.020.0', 'Short Stroke Piston Diaphragm Chamber'],
-    galleryUrls: ['/products/brc-t2424-short-stroke-combo-18.jpg', '/products/brc-t2424-short-stroke-combo-18-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t2424-short-stroke-combo-18.jpg', '/productsImage/brc-t2424-short-stroke-combo-18-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '925.484.020.0', notes: 'Direct Match' }
     ]
@@ -1034,7 +1034,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '15 mm',
     hiddenSearchTags: ['925.480.019.0', 'Short Stroke Piston Diaphragm Chamber'],
-    galleryUrls: ['/products/brc-t2424-short-stroke-combo-18.jpg', '/products/brc-t2424-short-stroke-combo-18-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t2424-short-stroke-combo-18.jpg', '/productsImage/brc-t2424-short-stroke-combo-18-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '925.480.019.0', notes: 'Direct Match' }
     ]
@@ -1052,7 +1052,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '15 mm',
     hiddenSearchTags: ['925.481.209.0', 'Short Stroke Piston Diaphragm Chamber', '925.481.209.0 Actuator'],
-    galleryUrls: ['/products/brc-t2424-short-stroke-combo-18.jpg', '/products/brc-t2424-short-stroke-combo-18-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t2424-short-stroke-combo-18.jpg', '/productsImage/brc-t2424-short-stroke-combo-18-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '925.481.209.0', notes: 'Direct Match' }
     ]
@@ -1070,7 +1070,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     inletPortThreadSize: '2-M16×1.5',
     pushrodLengthMetric: '15 mm',
     hiddenSearchTags: ['925.481.069.0', 'Short Stroke Piston Diaphragm Chamber', 'SR8 Spherical Brake Cylinder'],
-    galleryUrls: ['/products/brc-t2424-short-stroke-combo-18.jpg', '/products/brc-t2424-short-stroke-combo-18-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t2424-short-stroke-combo-18.jpg', '/productsImage/brc-t2424-short-stroke-combo-18-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Generic/Unbranded', partNumber: '925.481.069.0', notes: 'Direct Match' }
     ]
@@ -1090,7 +1090,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     bodyLength: '355 mm',
     application: 'Mitsubishi Fuso & Hino',
     hiddenSearchTags: ['MK448840A', 'FUSO-193 Brake Chamber', 'Japanese Air Pot'],
-    galleryUrls: ['/products/brc-t3024-hino-420-flange-19.jpg', '/products/brc-t3024-hino-420-flange-19-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t3024-hino-420-flange-19.jpg', '/productsImage/brc-t3024-hino-420-flange-19-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Mitsubishi Fuso', partNumber: 'MK448840A', notes: 'Direct Match' }
     ]
@@ -1110,7 +1110,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     bodyLength: '355 mm',
     application: 'Mitsubishi Fuso & Hino',
     hiddenSearchTags: ['47850-3921', 'HINO-420 Spring Brake', 'Japanese Air Pot'],
-    galleryUrls: ['/products/brc-t3024-hino-420-flange-19.jpg', '/products/brc-t3024-hino-420-flange-19-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-t3024-hino-420-flange-19.jpg', '/productsImage/brc-t3024-hino-420-flange-19-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Hino', partNumber: '47850-3921', notes: 'Direct Match' }
     ]
@@ -1130,7 +1130,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     bodyLength: '130 mm',
     application: 'Universal (RH/LH)',
     hiddenSearchTags: ['1-48250-174', 'Isuzu Truck Brake Chamber', 'Isuzu 330 Rear Spring Brake'],
-    galleryUrls: ['/products/brc-isuzu-10pc1-330-rear-20.jpg', '/products/brc-isuzu-10pc1-330-rear-20-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-isuzu-10pc1-330-rear-20.jpg', '/productsImage/brc-isuzu-10pc1-330-rear-20-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Isuzu', partNumber: '1-48250-174', notes: 'Direct Match' }
     ]
@@ -1150,7 +1150,7 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     bodyLength: '300 mm',
     application: 'Universal (RH/LH)',
     hiddenSearchTags: ['1-48250-248', 'Isuzu Truck Brake Chamber', '10PD1 340 Air Pot'],
-    galleryUrls: ['/products/brc-isuzu-10pc1-330-rear-20.jpg', '/products/brc-isuzu-10pc1-330-rear-20-drawing.jpg'],
+    galleryUrls: ['/productsImage/brc-isuzu-10pc1-330-rear-20.jpg', '/productsImage/brc-isuzu-10pc1-330-rear-20-drawing.jpg'],
     oemPartNumbers: [
       { brand: 'Isuzu', partNumber: '1-48250-248', notes: 'Direct Match' }
     ]
@@ -1174,7 +1174,7 @@ const createAccessory = (id: string, name: string, category: AccessoryCategory, 
     priceUSD: priceUSD,
     description: `<p>High quality ${category.toLowerCase()} perfect for wholesale bulk orders.</p>`,
     features: features,
-    galleryUrls: ['/products/chamber-parts-kit.png'],
+    galleryUrls: ['/productsImage/chamber-parts-kit.png'],
     stock: Math.floor(Math.random() * 1000) + 200,
     publishedAt: '2024-03-05T00:00:00Z',
   };

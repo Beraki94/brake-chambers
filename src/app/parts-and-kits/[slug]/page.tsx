@@ -1,10 +1,12 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getProducts } from '@/sanity/queries';
+import { getProducts, getPageSeo } from '@/sanity/queries';
 import { CHAMBER_PARTS_KITS_META } from '@/lib/categoryMeta';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import ProductDetailLayout from '@/features/products/product-detail/ProductDetailLayout';
+
+export const revalidate = 60;
 
 export async function generateStaticParams() {
   const allProducts = await getProducts();
@@ -20,23 +22,44 @@ export async function generateMetadata(
   const params = await props.params;
   const { slug } = params;
   
+  const pageSeo = await getPageSeo(`/parts-and-kits/${slug}`);
   const meta = CHAMBER_PARTS_KITS_META[slug];
-  if (meta) {
+  if (meta || pageSeo) {
+    const title = pageSeo?.title || meta?.title || `${slug} | BRC`;
+    const description = pageSeo?.description || meta?.desc;
     return {
-      title: meta.title,
-      description: meta.desc,
-      keywords: [meta.name, 'Commercial Air Brakes', 'Brake Chamber Parts'],
+      title,
+      description,
+      keywords: pageSeo?.keywords?.length ? pageSeo.keywords : [meta?.name || slug, 'Commercial Air Brakes', 'Brake Chamber Parts'],
+      alternates: {
+        canonical: `https://www.brakechambers.com/parts-and-kits/${slug}`,
+      },
+      openGraph: {
+        title,
+        description,
+        url: `https://www.brakechambers.com/parts-and-kits/${slug}`,
+        type: 'website',
+      },
     };
   }
 
   const product = allProducts.find(p => p.slug === slug && p.category === 'Parts & Kits');
   if (product) {
+    const title = product.seo?.metaTitle || `${product.name} | BRC Manufacturer`;
+    const description = product.seo?.metaDescription || (product.description ? product.description.replace(/<[^>]*>/g, '').slice(0, 160) : `Wholesale ${product.name}. Factory direct pricing.`);
     return {
-      title: `${product.name} | BRC Manufacturer`,
-      description: product.description ? product.description.replace(/<[^>]*>/g, '').slice(0, 160) : `Wholesale ${product.name}. Factory direct pricing.`,
+      title,
+      description,
+      keywords: product.seo?.keywords,
       alternates: {
-        canonical: `https://www.brcbrakechambers.com/parts-and-kits/${product.slug}`
-      }
+        canonical: `https://www.brakechambers.com/parts-and-kits/${product.slug}`,
+      },
+      openGraph: {
+        title,
+        description,
+        url: `https://www.brakechambers.com/parts-and-kits/${product.slug}`,
+        type: 'website',
+      },
     };
   }
 

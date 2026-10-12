@@ -1,18 +1,38 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { getProducts } from '@/sanity/queries';
+import { getProducts, getPageSeo } from '@/sanity/queries';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Service Brake Chambers: OEM Replacements for Steer & Drive Axles | BRC',
-  description: 'Factory-direct service brake chambers for steer axle, drive axle, and trailer applications. Type 9 through Type 30. Direct replacements for Bendix, Haldex, Meritor & WABCO.',
-  keywords: ['Service Brake Chambers', 'Type 20', 'Type 24', 'Type 30', 'Commercial Air Brakes', 'Heavy-Duty Brake Chambers', 'Bendix Replacement', 'Meritor Replacement'],
-};
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageSeo('/service-brake-chambers');
+  const title = seo?.title || 'Service Brake Chambers: OEM Replacements for Steer & Drive Axles | BRC';
+  const description = seo?.description || 'Factory-direct service brake chambers for steer axle, drive axle, and trailer applications. Type 9 through Type 30. Direct replacements for Bendix, Haldex, Meritor & WABCO.';
+  const keywords = seo?.keywords?.length
+    ? seo.keywords
+    : ['Service Brake Chambers', 'Type 20', 'Type 24', 'Type 30', 'Commercial Air Brakes', 'Heavy-Duty Brake Chambers', 'Bendix Replacement', 'Meritor Replacement'];
+
+  return {
+    title,
+    description,
+    keywords,
+    alternates: {
+      canonical: 'https://www.brakechambers.com/service-brake-chambers',
+    },
+    openGraph: {
+      title,
+      description,
+      url: 'https://www.brakechambers.com/service-brake-chambers',
+      type: 'website',
+    },
+  };
+}
 
 export default async function ServiceBrakesPage(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
   const BRAKE_CHAMBERS = await getProducts();
@@ -143,7 +163,7 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
           "@type": "CollectionPage",
           "name": "Service Brake Chambers: OEM Replacements for Steer & Drive Axles",
           "description": "Factory-direct service brake chambers for steer axle, drive axle, and trailer applications. Type 9 through Type 30. Direct replacements for Bendix, Haldex, Meritor & WABCO.",
-          "url": "https://www.brcbrakechambers.com/service-brake-chambers",
+          "url": "https://www.brakechambers.com/service-brake-chambers",
           "manufacturer": {
             "@type": "Organization",
             "name": "BRC Brake Chambers"
@@ -211,13 +231,13 @@ export default async function ServiceBrakesPage(props: { searchParams?: Promise<
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://www.brcbrakechambers.com/"
+              "item": "https://www.brakechambers.com/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Service Brakes",
-              "item": "https://www.brcbrakechambers.com/service-brake-chambers"
+              "item": "https://www.brakechambers.com/service-brake-chambers"
             }
           ]
         }

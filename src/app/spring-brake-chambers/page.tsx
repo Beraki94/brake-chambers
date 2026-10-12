@@ -1,18 +1,38 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { getProducts } from '@/sanity/queries';
+import { getProducts, getPageSeo } from '@/sanity/queries';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { Settings, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Spring Brake Chambers: OEM Replacements for Trucks & Trailers | BRC',
-  description: 'Factory-direct spring brake chambers for heavy-duty trucks, trailers, and transit buses. Type 20/24, 24/24, 30/30, and 24/30 available. Direct Bendix, Haldex, Meritor & WABCO replacements.',
-  keywords: ['Spring Brake Chambers', 'Type 30/30', 'Commercial Air Brakes', 'Heavy-Duty Brake Chambers', 'Bendix Replacement', 'Meritor Replacement'],
-};
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageSeo('/spring-brake-chambers');
+  const title = seo?.title || 'Spring Brake Chambers: OEM Replacements for Trucks & Trailers | BRC';
+  const description = seo?.description || 'Factory-direct spring brake chambers for heavy-duty trucks, trailers, and transit buses. Type 20/24, 24/24, 30/30, and 24/30 available. Direct Bendix, Haldex, Meritor & WABCO replacements.';
+  const keywords = seo?.keywords?.length
+    ? seo.keywords
+    : ['Spring Brake Chambers', 'Type 30/30', 'Commercial Air Brakes', 'Heavy-Duty Brake Chambers', 'Bendix Replacement', 'Meritor Replacement'];
+
+  return {
+    title,
+    description,
+    keywords,
+    alternates: {
+      canonical: 'https://www.brakechambers.com/spring-brake-chambers',
+    },
+    openGraph: {
+      title,
+      description,
+      url: 'https://www.brakechambers.com/spring-brake-chambers',
+      type: 'website',
+    },
+  };
+}
 
 export default async function SpringBrakesPage(props: { searchParams?: Promise<{ [key: string]: string | string[] | undefined }> }) {
   const BRAKE_CHAMBERS = await getProducts();
@@ -142,7 +162,7 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
           "@type": "CollectionPage",
           "name": "Heavy-Duty Commercial Spring Brake Chambers",
           "description": "Factory-direct heavy-duty spring brake chambers. Direct aftermarket replacements for Bendix, Knorr-Bremse, ZF/WABCO, Meritor, and Haldex.",
-          "url": "https://www.brcbrakechambers.com/spring-brake-chambers",
+          "url": "https://www.brakechambers.com/spring-brake-chambers",
           "manufacturer": {
             "@type": "Organization",
             "name": "BRC Brake Chambers"
@@ -156,13 +176,13 @@ export default async function SpringBrakesPage(props: { searchParams?: Promise<{
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://www.brcbrakechambers.com/"
+              "item": "https://www.brakechambers.com/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Spring Brakes",
-              "item": "https://www.brcbrakechambers.com/spring-brake-chambers"
+              "item": "https://www.brakechambers.com/spring-brake-chambers"
             }
           ]
         },

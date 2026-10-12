@@ -3,11 +3,30 @@ import BreadcrumbSchema from '@/components/layout/BreadcrumbSchema';
 import PageHeader from '@/components/layout/PageHeader';
 import QuoteClient from '@/features/quote/components/QuoteClient';
 import { Calculator } from 'lucide-react';
+import { getPageSeo } from '@/sanity/queries';
 
-export const metadata = {
-  title: 'Global Wholesale RFQ | BRC Brake Chambers',
-  description: 'Request a quote for bulk orders, full containers, or OEM partnerships for our heavy-duty commercial air brake chambers.',
-};
+export const revalidate = 60;
+
+export async function generateMetadata() {
+  const seo = await getPageSeo('/quote');
+  const title = seo?.title || 'Global Wholesale RFQ | BRC Brake Chambers';
+  const description = seo?.description || 'Request a quote for bulk orders, full containers, or OEM partnerships for our heavy-duty commercial air brake chambers.';
+
+  return {
+    title,
+    description,
+    keywords: seo?.keywords?.length ? seo.keywords : ['Brake Chamber Quote', 'Wholesale Air Brakes', 'Factory Direct Pricing'],
+    alternates: {
+      canonical: 'https://www.brakechambers.com/quote',
+    },
+    openGraph: {
+      title,
+      description,
+      url: 'https://www.brakechambers.com/quote',
+      type: 'website',
+    },
+  };
+}
 
 export default function QuotePage() {
   return (

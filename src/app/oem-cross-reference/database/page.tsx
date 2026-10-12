@@ -116,7 +116,7 @@ export default async function DatabasePage() {
       </div>
 
       <BreadcrumbSchema items={[
-        { name: 'OEM Cross-Reference', item: 'https://www.brcbrakechambers.com/oem-cross-reference' },
+        { name: 'OEM Cross-Reference', item: 'https://www.brakechambers.com/oem-cross-reference' },
         { name: 'Database' }
       ]} />
     </div>

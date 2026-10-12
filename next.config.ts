@@ -17,6 +17,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
     ],
     dangerouslyAllowSVG: true,
   },
@@ -25,6 +29,10 @@ const nextConfig = {
       {
         source: '/blogImg/:path*',
         destination: '/blogImage/:path*',
+      },
+      {
+        source: '/products/:file(.*\\.(?:jpg|jpeg|png|webp|svg|gif))',
+        destination: '/productsImage/:file',
       },
     ];
   },

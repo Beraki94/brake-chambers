@@ -1,10 +1,12 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getProducts } from '@/sanity/queries';
+import { getProducts, getPageSeo } from '@/sanity/queries';
 import { SERVICE_CHAMBERS_META } from '@/lib/categoryMeta';
 import ProductListingLayout from '@/features/products/components/ProductListingLayout';
 import ProductDetailLayout from '@/features/products/product-detail/ProductDetailLayout';
+
+export const revalidate = 60;
 
 export async function generateStaticParams() {
   const BRAKE_CHAMBERS = await getProducts();
@@ -20,23 +22,44 @@ export async function generateMetadata(
   const params = await props.params;
   const { slug } = params;
   
+  const pageSeo = await getPageSeo(`/service-brake-chambers/${slug}`);
   const meta = SERVICE_CHAMBERS_META[slug];
-  if (meta) {
+  if (meta || pageSeo) {
+    const title = pageSeo?.title || meta?.title || `${slug} | BRC`;
+    const description = pageSeo?.description || meta?.desc;
     return {
-      title: meta.title,
-      description: meta.desc,
-      keywords: [meta.name, 'Commercial Air Brakes', 'Service Brake Chambers'],
+      title,
+      description,
+      keywords: pageSeo?.keywords?.length ? pageSeo.keywords : [meta?.name || slug, 'Commercial Air Brakes', 'Service Brake Chambers'],
+      alternates: {
+        canonical: `https://www.brakechambers.com/service-brake-chambers/${slug}`,
+      },
+      openGraph: {
+        title,
+        description,
+        url: `https://www.brakechambers.com/service-brake-chambers/${slug}`,
+        type: 'website',
+      },
     };
   }
 
   const product = BRAKE_CHAMBERS.find(p => p.slug === slug && p.category === 'Service Brake');
   if (product) {
+    const title = product.seo?.metaTitle || `${product.name} | BRC Manufacturer`;
+    const description = product.seo?.metaDescription || `Wholesale ${product.name}. Factory direct pricing.`;
     return {
-      title: `${product.name} | BRC Manufacturer`,
-      description: `Wholesale ${product.name}. Factory direct pricing.`,
+      title,
+      description,
+      keywords: product.seo?.keywords,
       alternates: {
-        canonical: `https://www.brcbrakechambers.com/service-brake-chambers/${product.slug}`
-      }
+        canonical: `https://www.brakechambers.com/service-brake-chambers/${product.slug}`,
+      },
+      openGraph: {
+        title,
+        description,
+        url: `https://www.brakechambers.com/service-brake-chambers/${product.slug}`,
+        type: 'website',
+      },
     };
   }
 

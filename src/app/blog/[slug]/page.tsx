@@ -17,6 +17,8 @@ const slugAliases: Record<string, string> = {
   'fleet-brake-maintenance-reduce-downtime-save-money': 'fleet-brake-maintenance-guide',
 };
 
+export const revalidate = 60;
+
 function resolveSlug(slug: string): string {
   return slugAliases[slug] || slug;
 }
@@ -32,9 +34,23 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     };
   }
 
+  const title = post.metaTitle || `${post.title} | BRC Brake Chambers`;
+  const description = post.metaDescription || post.excerpt;
+
   return {
-    title: post.metaTitle || `${post.title} | BRC Brake Chambers`,
-    description: post.metaDescription || post.excerpt,
+    title,
+    description,
+    keywords: post.tags,
+    alternates: {
+      canonical: `https://www.brakechambers.com/blog/${canonicalSlug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://www.brakechambers.com/blog/${canonicalSlug}`,
+      images: post.imageUrl ? [{ url: post.imageUrl }] : undefined,
+      type: 'article',
+    },
   };
 }
 

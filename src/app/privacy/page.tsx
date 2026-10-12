@@ -2,10 +2,31 @@ import React from 'react';
 import Link from 'next/link';
 import Card from '@/components/ui/Card';
 
-export const metadata = {
-  title: 'Privacy Policy | BRC Brake Chambers',
-  description: 'How we handle your B2B data securely.',
-};
+import { Metadata } from 'next';
+import { getPageSeo } from '@/sanity/queries';
+
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageSeo('/privacy');
+  const title = seo?.title || 'Privacy Policy | BRC Brake Chambers';
+  const description = seo?.description || 'How we handle your B2B data securely.';
+
+  return {
+    title,
+    description,
+    keywords: seo?.keywords,
+    alternates: {
+      canonical: 'https://www.brakechambers.com/privacy',
+    },
+    openGraph: {
+      title,
+      description,
+      url: 'https://www.brakechambers.com/privacy',
+      type: 'website',
+    },
+  };
+}
 
 export default function PrivacyPage() {
   return (
