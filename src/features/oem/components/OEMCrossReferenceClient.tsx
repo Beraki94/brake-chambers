@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRightLeft, ArrowRight, ShieldCheck, Zap, Wrench, Camera, Download, Mail, BookOpen, FileText, CheckCircle2, MonitorCheck, FileDigit, Factory } from 'lucide-react';
+import { ArrowRightLeft, ArrowRight, ShieldCheck, Zap, Wrench, Ruler, Database, FileText, BookOpen, CheckCircle2, MonitorCheck, FileDigit, Factory } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import OEMSearchForm from '@/features/oem/components/OEMSearchForm';
@@ -153,11 +153,11 @@ export default function OEMCrossReferenceClient() {
                 className="relative z-10 grid grid-cols-2 gap-4"
               >
                 <div className="space-y-4">
-                  <img src="/images/home/spring-brakes-bg.jpg" alt="Testing" className="rounded-2xl shadow-lg w-full h-40 sm:h-48 object-cover transition-all duration-500" />
-                  <img src="/images/home/piggybacks-bg.jpg" alt="Manufacturing" className="rounded-2xl shadow-lg w-full h-48 sm:h-64 object-cover transition-all duration-500" />
+                  <img src="/images/home/service-brakes-bg.jpg" alt="Commercial Brake Chamber Axle Testing" className="rounded-2xl shadow-lg w-full h-40 sm:h-48 object-cover transition-all duration-500" />
+                  <img src="/images/home/brc_quality_factory_worker.jpg" alt="Factory Brake Chamber Assembly & Quality Control" className="rounded-2xl shadow-lg w-full h-48 sm:h-64 object-cover object-top transition-all duration-500" />
                 </div>
                 <div className="pt-8">
-                  <img src="/images/home/service-brakes-bg.jpg" alt="Spring Brake" className="rounded-2xl shadow-lg w-full h-64 sm:h-80 object-cover object-center bg-slate-100" />
+                  <img src="/images/brc7.jpg" alt="Commercial Truck Brake Chamber Production Line" className="rounded-2xl shadow-lg w-full h-64 sm:h-80 object-cover object-center bg-slate-100 transition-all duration-500" />
                 </div>
               </motion.div>
             </div>
@@ -165,24 +165,24 @@ export default function OEMCrossReferenceClient() {
             {/* Content */}
             <div className="w-full lg:w-1/2">
               <SectionHeader
-                badge="BRC Cross-Reference Database"
-                title={<>Why Fleet Managers Use the <span className="text-amber-500">BRC Brake Chamber Cross-Reference</span></>}
-                description="Stop guessing whether an aftermarket brake chamber will fit. Every BRC cross-reference is verified against manufacturer catalogs — if we say it fits, it fits."
+                badge="Interchange Engineering Protocol"
+                title={<>Axle-Matched Crossover <span className="text-amber-500">Pneumatic & Geometric Parity</span></>}
+                description="Cross-referencing commercial brake chambers is more than cross-referencing part numbers — it is preserving factory axle timing and CVSA road compliance. A mismatch of 0.2 seconds in release rate or 5 mm in stroke travel causes cross-axle brake pull and premature lining wear."
                 align="center"
                 theme="dark"
               />
               <ul className="space-y-6">
                 <motion.li initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex items-start gap-4">
                   <ShieldCheck className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-navy-200 text-sm md:text-base leading-relaxed"><strong className="text-white">Verified Match Guarantee:</strong> Every cross-reference is confirmed against the original manufacturer catalog. If we say it fits, it fits.</span>
+                  <span className="text-navy-200 text-sm md:text-base leading-relaxed"><strong className="text-white">Precision Metrology & Push-Rod Alignment:</strong> Every BRC crossover maintains exact 120.7 mm (4.75") stud centers, cold-rolled 5/8"-18 UNF threads, and ±0.05 mm clevis pin tolerances — seating directly into automatic slack adjusters at a true 90° angle with zero cutting or bracket bending.</span>
                 </motion.li>
                 <motion.li initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="flex items-start gap-4">
                   <Zap className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-navy-200 text-sm md:text-base leading-relaxed"><strong className="text-white">Live Database Updates:</strong> New OEM part numbers are added weekly. Your search is always current, never outdated.</span>
+                  <span className="text-navy-200 text-sm md:text-base leading-relaxed"><strong className="text-white">Robotic 360° Crimping & Hydrostatic Leak Verification:</strong> Dual-diaphragm chambers are sealed in automated robotic cells under calibrated hydraulic clamping force. Every batch passes 150 PSI hydrostatic burst tests and sub-zero pneumatic cycle audits, preventing chamber separation and air loss.</span>
                 </motion.li>
                 <motion.li initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="flex items-start gap-4">
                   <Wrench className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-navy-200 text-sm md:text-base leading-relaxed"><strong className="text-white">Engineering Validation:</strong> Every match is validated by air brake specialists, not software algorithms. 100% technical accuracy across thousands of part combinations.</span>
+                  <span className="text-navy-200 text-sm md:text-base leading-relaxed"><strong className="text-white">FMVSS 121 & SAE J1461 Dynamic Output Parity:</strong> High-tensile power springs and multi-ply natural rubber diaphragms deliver identical force-deflection curves under 90–120 PSI. Axles stroke and exhaust in unison, eliminating brake pull and guaranteeing full CVSA roadside inspection compliance.</span>
                 </motion.li>
               </ul>
             </div>
@@ -192,43 +192,43 @@ export default function OEMCrossReferenceClient() {
           <div className="mt-16 lg:mt-24 relative z-20">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
               {/* Tool 1 */}
-              <Link href="/technical-resources" className="bg-white rounded-[2rem] p-6 lg:p-10 border border-slate-100 shadow-xl hover:shadow-2xl hover:border-amber-200 hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden">
+              <Link href="/technical-resources/identification" className="bg-white rounded-[2rem] p-6 lg:p-10 border border-slate-100 shadow-xl hover:shadow-2xl hover:border-amber-200 hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
                 <div className="relative z-10 w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <Camera className="w-7 h-7 text-amber-600" />
+                  <Ruler className="w-7 h-7 text-amber-600" />
                 </div>
-                <h3 className="relative z-10 text-2xl font-extrabold text-navy-900 mb-4 group-hover:text-amber-600 transition-colors">Visual ID Guide</h3>
-                <p className="relative z-10 text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-8 flex-grow">Identify your current brake chamber by physical appearance, mounting type, and stroke dimensions. Our visual guide covers all common commercial configurations.</p>
+                <h3 className="relative z-10 text-2xl font-extrabold text-navy-900 mb-4 group-hover:text-amber-600 transition-colors">Visual Sizing & ID Guide</h3>
+                <p className="relative z-10 text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-8 flex-grow">Identify chamber size and stroke type without an OEM part number. Step-by-step procedures for measuring clamp band circumference, checking port bosses, and reading trapezoidal tags.</p>
                 <span className="relative z-10 text-amber-600 font-extrabold text-[13px] uppercase tracking-widest flex items-center mt-auto">
-                  View Visual Guide <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                  View Visual ID Guide <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
 
               {/* Tool 2 (Dark Theme) */}
-              <Link href="/oem-cross-reference" className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 p-6 lg:p-10 rounded-[2rem] hover:border-emerald-500/50 transition-all duration-500 shadow-xl shadow-navy-900/10 group flex flex-col relative overflow-hidden transform hover:-translate-y-2">
+              <Link href="/oem-cross-reference/database" className="bg-gradient-to-b from-navy-800 to-navy-900 border border-navy-700 p-6 lg:p-10 rounded-[2rem] hover:border-emerald-500/50 transition-all duration-500 shadow-xl shadow-navy-900/10 group flex flex-col relative overflow-hidden transform hover:-translate-y-2">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-navy-700/40 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
                 
                 <div className="relative z-10 w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-8 shadow-inner border border-navy-700 group-hover:border-emerald-500/50 transition-colors">
-                  <Download className="w-6 h-6 text-emerald-400 group-hover:scale-110 transition-transform duration-300" />
+                  <Database className="w-6 h-6 text-emerald-400 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h3 className="relative z-10 text-2xl font-extrabold text-white mb-4 group-hover:text-emerald-400 transition-colors">Download Cross-Reference Database</h3>
-                <p className="relative z-10 text-[14px] md:text-[15px] leading-[1.6] text-navy-300 font-normal mb-8 flex-grow">Download the full BRC brake chamber cross-reference database in PDF and CSV formats. Includes all major OEM part numbers.</p>
+                <h3 className="relative z-10 text-2xl font-extrabold text-white mb-4 group-hover:text-emerald-400 transition-colors">Master Interchange Database</h3>
+                <p className="relative z-10 text-[14px] md:text-[15px] leading-[1.6] text-navy-300 font-normal mb-8 flex-grow">Access our verified cross-reference table mapping major OEM part numbers (Bendix, Haldex, Meritor, Wabco) to direct BRC equivalents, with instant search and CSV export.</p>
                 <span className="relative z-10 text-emerald-400 font-extrabold text-[13px] uppercase tracking-widest flex items-center mt-auto group-hover:text-emerald-300 transition-colors">
-                  Download Database <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                  Open Master Database <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform flex-shrink-0" />
                 </span>
               </Link>
 
               {/* Tool 3 */}
-              <Link href="/contact" className="bg-white rounded-[2rem] p-6 lg:p-10 border border-slate-100 shadow-xl hover:shadow-2xl hover:border-navy-200 hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden">
+              <Link href="/oem-cross-reference/request" className="bg-white rounded-[2rem] p-6 lg:p-10 border border-slate-100 shadow-xl hover:shadow-2xl hover:border-navy-200 hover:-translate-y-2 transition-all duration-300 group flex flex-col relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-navy-50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0"></div>
                 <div className="relative z-10 w-14 h-14 bg-navy-100 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <Mail className="w-7 h-7 text-navy-600" />
+                  <FileText className="w-7 h-7 text-navy-600" />
                 </div>
-                <h3 className="relative z-10 text-2xl font-extrabold text-navy-900 mb-4 group-hover:text-navy-600 transition-colors">Request a Custom Cross-Match</h3>
-                <p className="relative z-10 text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-8 flex-grow">Have a specialized or legacy part number not listed in our database? Our engineers will reverse-engineer the match within 24 hours.</p>
+                <h3 className="relative z-10 text-2xl font-extrabold text-navy-900 mb-4 group-hover:text-navy-600 transition-colors">Request Custom Cross-Match</h3>
+                <p className="relative z-10 text-[14px] md:text-[15px] leading-[1.6] text-slate-600 font-normal mb-8 flex-grow">Have a worn tag, discontinued part, or specialized chamber? Submit your dimensions, photos, or vehicle specs to our engineering desk for 24-hour verification.</p>
                 <span className="relative z-10 text-navy-600 font-extrabold text-[13px] uppercase tracking-widest flex items-center mt-auto">
-                  Request Cross-Match <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                  Submit Match Request <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform flex-shrink-0" />
                 </span>
               </Link>
             </div>
@@ -255,7 +255,7 @@ export default function OEMCrossReferenceClient() {
               { q: "How accurate is the BRC cross-reference database?", a: "Every cross-reference in our database is validated against the original manufacturer catalog by our in-house engineering team. If our database says a BRC chamber matches a specific OEM part number, it will fit, form, and function identically. We update the database weekly with new OEM part numbers." },
               { q: "Do BRC brake chambers meet the same safety standards as OEM?", a: "Yes. BRC brake chambers are manufactured in an IATF 16949 compliant facility and tested to FMVSS-121 (North America) and ECE R13 (Europe) standards. Every chamber undergoes pressure testing and stroke testing before shipment. Our chambers are direct replacements for Bendix, Haldex, Meritor, Knorr-Bremse, and WABCO." },
               { q: "How do I identify my current brake chamber type?", a: "Check the chamber's ID tag or stamped markings. Most commercial brake chambers include a type number (e.g., Type 30/30, Type 20/24) and a manufacturer part number. If you can't find these, our Visual ID Guide walks you through measuring the chamber body, stroke, and mounting type to identify it." },
-              { q: "What if I order a cross-referenced part and it doesn't fit?", a: "This is extremely rare, but if it happens, contact our team immediately. We will either provide a corrected replacement at no cost or issue a full refund. Every BRC cross-reference is backed by our Verified Match Guarantee." },
+              { q: "How does BRC ensure an aftermarket chamber matches original axle dynamics?", a: "Every crossover entry is validated against manufacturer technical prints — matching exact 120.7 mm mounting stud spacing, 5/8\"-18 UNF push-rod thread pitch, and port clocking degrees. Furthermore, chambers are calibrated to SAE J1461 and FMVSS 121 standards to deliver identical stroke output curves and release timing, preventing cross-axle brake pull and premature lining wear." },
               { q: "Can I search by brand and part number at the same time?", a: "Yes. Our interchange search accepts either a raw OEM part number (e.g., 5009011) or a brand-prefixed format (e.g., Bendix 5009011). The database will return the matching BRC equivalent in seconds." },
               { q: "How quickly can I get a sample of a cross-referenced part?", a: "Sample orders ship directly from our factory in Zhejiang, China. Most cross-referenced samples are dispatched within 5–7 business days. Express shipping (DHL, FedEx, UPS) is available for urgent evaluation." }
             ]} />
@@ -276,7 +276,7 @@ export default function OEMCrossReferenceClient() {
               <SectionHeader
                 badge="Engineering Support"
                 title="Need a Custom Brake Chamber Cross-Reference?"
-                description={<>If you have a specialized, discontinued, or legacy OEM part number not found in our database, our engineering team will reverse-engineer the match and return a BRC equivalent within 24 hours. Every custom match is backed by our Verified Match Guarantee.</>}
+                description={<>If you have a specialized, discontinued, or legacy OEM part number not found in our database, our engineering team will reverse-engineer the match and return a certified BRC equivalent within 24 hours. Every crossover is backed by our factory dimensional verification protocol.</>}
                 align="left"
                 theme="dark"
                 accentColor="amber"
@@ -308,7 +308,7 @@ export default function OEMCrossReferenceClient() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-12">
             {[
-              { title: "Brake Chamber Visual ID Guide", icon: Camera },
+              { title: "Brake Chamber Visual ID Guide", icon: Ruler },
               { title: "Brake Chamber Size Chart", icon: FileDigit },
               { title: "Brake Chamber Installation Guide", icon: BookOpen },
               { title: "Brake Chamber Torque Specs", icon: Wrench }
