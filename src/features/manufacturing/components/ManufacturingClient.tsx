@@ -222,7 +222,7 @@ export default function ManufacturingClient() {
             <div className="w-full lg:w-1/2">
               <div className="relative rounded-2xl md:rounded-[2rem] overflow-hidden shadow-2xl h-[400px] lg:h-[600px] border border-slate-100">
                 <Image
-                  src="/images/manufacturing/brc_inside_manufacturing.jpg"
+                  src="/images/just/Weixin Image_20261008105227_281_1.jpg"
                   alt="BRC Brake Chamber Factory Floor in Zhejiang, China"
                   fill
                   className="object-cover"

@@ -23,7 +23,7 @@ export default function CustomOemClient() {
         'DFM (Design for Manufacturing) Audits: Design reviewed against our production capability before tooling is cut.', 
         'Cost Engineering & Value Analysis: Cost-reduction opportunities identified without compromising performance.'
       ],
-      image: '/images/manufacturing/brc-cad-modeling-engineering.jpg',
+      image: '/images/just/Weixin Image_20260930141018_143_3.jpg',
     },
     {
       phase: '02',
@@ -36,7 +36,7 @@ export default function CustomOemClient() {
         'Iterative Design Refinement: Every test result feeds back into the CAD model.', 
         'Customer Sign-Off Before Tooling: No volume tooling is committed until you approve the prototype.'
       ],
-      image: '/images/manufacturing/brc-oem-custom-engineering.jpg',
+      image: '/images/just/Weixin Image_20261008133817_323_1.jpg',
     },
     {
       phase: '03',
@@ -49,7 +49,7 @@ export default function CustomOemClient() {
         'Defined Sign-Off Points: You approve each stage before we advance to the next.', 
         'Scale-Up Coordination: Production scaling from pilot runs to full program volumes coordinated by your dedicated account manager.'
       ],
-      image: '/images/manufacturing/brc-rapid-cnc-prototyping.jpg',
+      image: '/images/just/Weixin Image_20261008133822_325_1.jpg',
       linkText: 'View High-Volume Orders →',
       linkHref: '/manufacturing/high-volume-orders'
     },
@@ -212,7 +212,7 @@ export default function CustomOemClient() {
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
             <div className="w-full lg:w-1/2">
               <div className="relative h-[300px] md:h-[400px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 group">
-                <Image src="/images/manufacturing/brc-fea-stress-testing.jpg" alt="OEM IP Protection" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-[8s] " />
+                <Image src="/images/just/Weixin Image_20261008105223_279_1.jpg" alt="OEM IP Protection" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-[8s] " />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900/50 to-transparent"></div>
               </div>
             </div>

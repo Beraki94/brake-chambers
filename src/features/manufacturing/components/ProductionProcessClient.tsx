@@ -16,7 +16,7 @@ export default function ProductionProcessClient() {
       title: "Brake Chamber Stamping & Forming",
       description: "Every 8-gauge steel brake chamber housing begins in heavy-tonnage hydraulic presses. Automated stamping ensures exact tolerances and forms the rigid foundation required to withstand torsional forces, pressure cycling, and road impact stress.",
       icon: <Settings className="w-8 h-8 text-amber-500" />,
-      image: "/images/manufacturing/brc_chamber_forming.jpg",
+      image: "/images/just/Weixin Image_20261008105250_291_1.jpg",
       subNote: "Incoming steel is verified for grade, thickness, and hardness before entering the press line.",
       linkUrl: "/manufacturing/material-sourcing",
       linkText: "See how we source raw materials"
@@ -26,7 +26,7 @@ export default function ProductionProcessClient() {
       title: "Robotic Welding of Brake Chamber Housings",
       description: "Critical structural welds on every BRC brake chamber are performed by 6-axis robotic welding arms. Continuous, deep-penetration seams run around the housing to ensure structural integrity and burst resistance across millions of pressure cycles.",
       icon: <Cpu className="w-8 h-8 text-navy-500" />,
-      image: "/images/manufacturing/brc_robotic_welding.jpg",
+      image: "/images/just/Weixin Image_20261008133836_331_1.jpg",
       subNote: "Every weld is visually inspected and pressure-tested before moving to the next stage.",
       linkUrl: null,
       linkText: null
@@ -36,7 +36,7 @@ export default function ProductionProcessClient() {
       title: "Brake Chamber E-Coating & Epoxy Finishing",
       description: "Every steel component, including internal return springs, passes through a multi-stage cathodic electrodeposition (e-coat) process, followed by a heavy epoxy finish. This dual-layer corrosion defense prevents the internal rust flaking that damages center seals and shortens chamber life.",
       icon: <ShieldAlert className="w-8 h-8 text-amber-500" />,
-      image: "/images/manufacturing/brc_chamber_coating.jpg",
+      image: "/images/just/Weixin Image_20261008133820_324_1.jpg",
       subNote: "Coating thickness is measured and logged for every production batch.",
       linkUrl: null,
       linkText: null
@@ -46,7 +46,7 @@ export default function ProductionProcessClient() {
       title: "Brake Chamber Automated Assembly",
       description: "Every brake chamber is assembled in a clean-room environment using torque-controlled fastening systems. Neoprene diaphragms and machined push-rods are aligned to deliver consistent linear force across the full stroke, without binding, hesitation, or air loss.",
       icon: <CheckCircle2 className="w-8 h-8 text-navy-500" />,
-      image: "/images/manufacturing/brc_automatic_assembly.jpg",
+      image: "/images/just/Weixin Image_20261008133815_322_1.jpg",
       subNote: "Every assembled chamber is 100% pneumatic leak-tested before packaging.",
       linkUrl: "/manufacturing/quality-assurance",
       linkText: "See quality assurance testing"
