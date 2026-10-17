@@ -105,30 +105,39 @@ function sanitizeChinese<T>(data: T): T {
   return data;
 }
 
+import { BRAKE_CHAMBERS } from '@/lib/data';
+
 export async function getProducts(): Promise<BrakeChamber[]> {
-  const products = await client.fetch(allProductsQuery, {}, { next: { revalidate: 60 } });
-  const sanitized = sanitizeChinese(products);
-  return sanitized.map((p: any) => {
-    // Map legacy /products/ to new /productsImage/ folder
-    const rawGallery = p.galleryUrls || [];
-    const normalizedGallery = rawGallery.map((url: string) => {
-      if (typeof url === 'string') {
-        return url.replace(/^\/products\//, '/productsImage/');
-      }
-      return url;
-    });
+  try {
+    const products = await client.fetch(allProductsQuery, {}, { next: { revalidate: 60 } });
+    if (products && Array.isArray(products) && products.length > 0) {
+      const sanitized = sanitizeChinese(products);
+      return sanitized.map((p: any) => {
+        // Map legacy /products/ to new /productsImage/ folder
+        const rawGallery = p.galleryUrls || [];
+        const normalizedGallery = rawGallery.map((url: string) => {
+          if (typeof url === 'string') {
+            return url.replace(/^\/products\//, '/productsImage/');
+          }
+          return url;
+        });
 
-    // If images are uploaded in Sanity Studio, put them first
-    const galleryUrls = p.uploadedImages && p.uploadedImages.length > 0
-      ? [...p.uploadedImages, ...normalizedGallery]
-      : (normalizedGallery.length > 0 ? normalizedGallery : ['/productsImage/brc-t16-single-brake-1.jpg']);
+        // If images are uploaded in Sanity Studio, put them first
+        const galleryUrls = p.uploadedImages && p.uploadedImages.length > 0
+          ? [...p.uploadedImages, ...normalizedGallery]
+          : (normalizedGallery.length > 0 ? normalizedGallery : ['/productsImage/brc-t16-single-brake-1.jpg']);
 
-    return {
-      ...p,
-      galleryUrls,
-      imageUrl: galleryUrls[0] || '/productsImage/brc-t16-single-brake-1.jpg',
-    };
-  });
+        return {
+          ...p,
+          galleryUrls,
+          imageUrl: galleryUrls[0] || '/productsImage/brc-t16-single-brake-1.jpg',
+        };
+      });
+    }
+  } catch (err) {
+    console.warn('Sanity getProducts fetch failed or timed out, using fallback:', err);
+  }
+  return BRAKE_CHAMBERS;
 }
 
 export function resolveBlogCategory(category?: string, slug?: string): string {

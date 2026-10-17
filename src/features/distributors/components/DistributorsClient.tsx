@@ -1,40 +1,99 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, User, FileSignature, ArrowRight, Globe, Lock, Mail, Building, Phone, PhoneCall, ExternalLink, ShieldCheck, X } from 'lucide-react';
+import { MapPin, User, FileSignature, ArrowRight, Globe, Lock, Mail, Building, Phone, PhoneCall, ExternalLink, ShieldCheck, CheckCircle, X, AlertCircle } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { validateEmail, validatePhone, validateRequired } from '@/lib/validation';
 
 const MOCK_DISTRIBUTORS: any[] = [];
 
 const REGIONS = ['All', 'North America', 'Europe', 'Middle East', 'Asia Pacific', 'South America', 'Africa'];
 
 export default function DistributorsClient() {
-    const [activeModal, setActiveModal] = useState<'none' | 'login' | 'register'>('none');
+  const [activeModal, setActiveModal] = useState<'none' | 'login' | 'register'>('none');
   const [selectedRegion, setSelectedRegion] = useState('All');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
+
+  const [formData, setFormData] = useState({
+    company: '',
+    contactName: '',
+    email: '',
+    phone: '',
+    country: '',
+    businessType: 'Aftermarket Parts Wholesaler',
+    notes: '',
+    agreeTerms: false
+  });
+
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  const errors = useMemo(() => ({
+    company: touched.company ? validateRequired(formData.company, 'Company name', 2) : null,
+    contactName: touched.contactName ? validateRequired(formData.contactName, 'Contact name', 2) : null,
+    email: touched.email ? validateEmail(formData.email) : null,
+    phone: touched.phone ? validatePhone(formData.phone, true) : null,
+    country: touched.country ? validateRequired(formData.country, 'Country / Region', 2) : null,
+    agreeTerms: touched.agreeTerms && !formData.agreeTerms ? 'You must agree to the distributor terms' : null,
+  }), [formData, touched]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    const val = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
+    setFormData(prev => ({ ...prev, [name]: val }));
+    setTouched(prev => ({ ...prev, [name]: true }));
+    setServerError(null);
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched(prev => ({ ...prev, [field]: true }));
+  };
 
   const handleRegisterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setServerError(null);
+
+    const allTouched = {
+      company: true,
+      contactName: true,
+      email: true,
+      phone: true,
+      country: true,
+      agreeTerms: true
+    };
+    setTouched(allTouched);
+
+    const hasErrors =
+      validateRequired(formData.company, 'Company name', 2) ||
+      validateRequired(formData.contactName, 'Contact name', 2) ||
+      validateEmail(formData.email) ||
+      validatePhone(formData.phone, true) ||
+      validateRequired(formData.country, 'Country / Region', 2) ||
+      (!formData.agreeTerms ? 'You must agree to terms' : null);
+
+    if (hasErrors) {
+      return;
+    }
+
     setIsSubmitting(true);
     
-    // Collect form data
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    
     try {
-      await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ source: 'Distributor Application', ...data })
+        body: JSON.stringify({ source: 'Distributor Application', ...formData })
       });
+      const resData = await res.json();
+      if (!res.ok) {
+        throw new Error(resData.error || 'Failed to submit application');
+      }
       setIsSuccess(true);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Submission failed', error);
-      // Proceed to success anyway for demo purposes, or handle error
-      setIsSuccess(true);
+      setServerError(error.message || 'Something went wrong. Please try again or email sales@brakechambers.com');
     } finally {
       setIsSubmitting(false);
     }
@@ -42,6 +101,7 @@ export default function DistributorsClient() {
   
   const closeModal = () => {
     setActiveModal('none');
+    setServerError(null);
     setTimeout(() => setIsSuccess(false), 300);
   };
 
@@ -303,107 +363,342 @@ export default function DistributorsClient() {
 
               {/* REGISTER MODAL */}
               {activeModal === 'register' && (
-                <div className="w-full h-full sm:h-auto sm:max-h-[85vh] bg-white rounded-none sm:rounded-[2.5rem] shadow-2xl border-0 sm:border border-slate-200/60 relative flex flex-col overflow-hidden">
-                  {/* Fixed Header with Close Button — stays pinned above scrolling form and preserves rounded curve */}
-                  <div className="shrink-0 px-6 sm:px-8 lg:px-12 pt-7 sm:pt-9 pb-5 border-b border-slate-100 bg-white relative z-10 pr-20 sm:pr-24">
+                <div className="w-full h-full sm:h-auto sm:max-h-[88vh] bg-white rounded-none sm:rounded-3xl shadow-2xl border-0 sm:border border-slate-200/90 relative flex flex-col overflow-hidden">
+                  {/* Signature top accent line */}
+                  <div className="h-1.5 w-full bg-gradient-to-r from-navy-900 via-amber-500 to-navy-900 shrink-0" />
+
+                  {/* Fixed Header Bar with Badges & Close Button */}
+                  <div className="shrink-0 px-6 sm:px-8 lg:px-10 pt-6 sm:pt-7 pb-5 bg-slate-50/70 border-b border-slate-200/80 relative z-10 pr-16 sm:pr-20">
                     <button 
                       onClick={() => closeModal()}
-                      className="absolute top-6 sm:top-8 right-6 sm:right-8 w-10 h-10 bg-navy-900 hover:bg-navy-800 text-white shadow-xl shadow-navy-900/20 rounded-full flex items-center justify-center transition-transform hover:scale-105 z-20"
+                      className="absolute top-5 sm:top-6 right-5 sm:right-6 w-9 h-9 bg-navy-900 hover:bg-navy-800 text-white shadow-md rounded-full flex items-center justify-center transition-transform hover:scale-105 z-20 cursor-pointer"
                       aria-label="Close modal"
                     >
-                      <X className="w-5 h-5" />
+                      <X className="w-4 h-4" />
                     </button>
-                    <SectionHeader 
-                      title="Become a BRC Distributor" 
-                      description="Join our authorized network and gain access to factory-direct pricing, technical support, and marketing resources." 
-                      accentColor="navy"
-                      plainText={true}
-                      className="!mb-0"
-                    />
+                    
+                    <div className="flex flex-wrap items-center gap-2.5 mb-2">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold bg-amber-500/10 text-amber-700 border border-amber-500/20">
+                        <Globe className="w-3.5 h-3.5 text-amber-600" />
+                        Distributor & Wholesaler Program
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">
+                        Authorized Partner Network
+                      </span>
+                    </div>
+
+                    <h2 className="text-xl sm:text-2xl font-extrabold text-navy-900 tracking-tight">
+                      Become an Authorized BRC Distributor
+                    </h2>
+                    <p className="text-slate-600 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
+                      Join our international distribution network. Gain direct factory pricing, territory protection, priority manufacturing, and dedicated engineering support.
+                    </p>
                   </div>
 
-                  {/* Scrollable Body — vertical scroll starts cleanly below the header and curve */}
-                  <div className="modal-scroll flex-1 overflow-y-auto px-6 sm:px-8 lg:px-12 py-6 mb-2">
-                  {isSuccess ? (
-                    <div className="mt-12 text-center py-16 px-4">
-                      <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/20">
-                        <ShieldCheck className="w-10 h-10 text-emerald-500" />
-                      </div>
-                      <h3 className="text-3xl font-extrabold text-navy-900 mb-4">Application Received!</h3>
-                      <p className="text-slate-600 text-lg max-w-md mx-auto mb-8">
-                        Thank you for your interest in becoming a BRC partner. Our distributor success team will review your application and contact you within 2-3 business days.
-                      </p>
-                      <button 
-                        onClick={closeModal}
-                        className="bg-navy-900 hover:bg-navy-800 text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-md"
-                      >
-                        Return to Distributors
-                      </button>
-                    </div>
-                  ) : (
-                    <form className="mt-6 grid md:grid-cols-2 gap-x-6 gap-y-5" onSubmit={handleRegisterSubmit}>
-                      <div className="md:col-span-2">
-                        <label className="block text-sm font-bold text-navy-900 mb-2">Company Name *</label>
-                        <div className="relative">
-                          <Building className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                          <input required type="text" className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-slate-200 text-navy-900 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="Acme Truck Parts LLC" />
+                  {/* Scrollable Body */}
+                  <div className="modal-scroll flex-1 overflow-y-auto px-6 sm:px-8 lg:px-10 py-6">
+                    {isSuccess ? (
+                      <div className="text-center py-12 px-4">
+                        <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-emerald-100">
+                          <CheckCircle className="w-10 h-10 text-emerald-500" />
                         </div>
-                      </div>
-                      <div>
-                        <label className="block text-sm font-bold text-navy-900 mb-2">Contact Name *</label>
-                        <div className="relative">
-                          <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                          <input required type="text" className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-slate-200 text-navy-900 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="John Doe" />
-                        </div>
-                      </div>
-                      <div>
-                        <label className="block text-sm font-bold text-navy-900 mb-2">Business Email *</label>
-                        <div className="relative">
-                          <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                          <input required type="email" className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-slate-200 text-navy-900 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="john@company.com" />
-                        </div>
-                      </div>
-                      <div>
-                        <label className="block text-sm font-bold text-navy-900 mb-2">Phone Number *</label>
-                        <div className="relative">
-                          <Phone className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                          <input required type="tel" className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-slate-200 text-navy-900 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base font-medium" placeholder="+1 (555) 000-0000" />
-                        </div>
-                      </div>
-                      <div>
-                        <label className="block text-sm font-bold text-navy-900 mb-2">Country / Region *</label>
-                        <div className="relative">
-                          <Globe className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                          <select required className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-slate-200 text-navy-900 rounded-xl focus:outline-none focus:ring-2 focus:ring-navy-900 focus:bg-white transition-all text-base text-navy-900 font-medium appearance-none">
-                            <option value="">Select Region...</option>
-                            <option>United States</option>
-                            <option>Canada</option>
-                            <option>Mexico</option>
-                            <option>Europe</option>
-                            <option>Middle East</option>
-                            <option>Other</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div className="md:col-span-2 mt-6 flex items-start gap-4 p-5 bg-slate-50 rounded-xl border border-slate-100">
-                        <input required type="checkbox" id="terms" className="mt-1 w-5 h-5 text-navy-900 rounded border-slate-300 focus:ring-navy-900" />
-                        <label htmlFor="terms" className="text-[14px] text-slate-600 leading-[1.6] font-normal">
-                          I verify that I am an authorized representative of this company and agree to the BRC Distributor Terms & Conditions. I understand that submitting this application does not guarantee partnership approval. *
-                        </label>
-                      </div>
-                      <div className="md:col-span-2 mt-4">
-                        <button disabled={isSubmitting} type="submit" className="w-full bg-navy-900 hover:bg-navy-800 disabled:bg-slate-400 disabled:cursor-not-allowed text-white font-extrabold py-5 rounded-xl transition-all shadow-lg hover:shadow-xl shadow-navy-900/20 flex items-center justify-center gap-2 group text-base sm:text-lg whitespace-nowrap">
-                          {isSubmitting ? (
-                            <span className="flex items-center gap-2">Processing <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /></span>
-                          ) : (
-                            <span className="flex items-center gap-2">Submit Partnership Application <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform" /></span>
-                          )}
+                        <h3 className="text-2xl sm:text-3xl font-extrabold text-navy-900 mb-3">Application Received!</h3>
+                        <p className="text-slate-600 text-sm sm:text-base max-w-md mx-auto mb-8 leading-relaxed">
+                          Thank you for your interest in becoming a BRC partner. Our distributor success team will review your application and contact you within 2-3 business days.
+                        </p>
+                        <button 
+                          onClick={closeModal}
+                          className="bg-navy-900 hover:bg-navy-800 text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg shadow-navy-900/15"
+                        >
+                          Return to Distributors
                         </button>
                       </div>
-                    </form>
-                  )}
+                    ) : (
+                      <form className="space-y-6 sm:space-y-7" onSubmit={handleRegisterSubmit} noValidate>
+                        {serverError && (
+                          <div className="p-3.5 bg-rose-50/70 border border-rose-200 text-rose-800 rounded-xl text-xs sm:text-sm flex items-start gap-2.5">
+                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                            <span>{serverError}</span>
+                          </div>
+                        )}
+
+                        {/* Section 01: Contact & Corporate Profile */}
+                        <div className="space-y-4">
+                          <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-100">
+                            <span className="w-6 h-6 rounded-md bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
+                              01
+                            </span>
+                            <h3 className="text-sm sm:text-base font-bold text-navy-900">
+                              Contact & Corporate Profile
+                            </h3>
+                          </div>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5">
+                            {/* Contact Name */}
+                            <div>
+                              <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                                Contact Name <span className="text-amber-500 font-bold">*</span>
+                              </label>
+                              <div className="relative">
+                                <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                                <input
+                                  type="text"
+                                  name="contactName"
+                                  value={formData.contactName}
+                                  onChange={handleChange}
+                                  onBlur={() => handleBlur('contactName')}
+                                  required
+                                  disabled={isSubmitting}
+                                  placeholder="John Doe"
+                                  className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                                    errors.contactName
+                                      ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                                      : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                                  }`}
+                                />
+                              </div>
+                              {errors.contactName && (
+                                <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                                  <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.contactName}
+                                </p>
+                              )}
+                            </div>
+
+                            {/* Business Email */}
+                            <div>
+                              <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                                Business Email <span className="text-amber-500 font-bold">*</span>
+                              </label>
+                              <div className="relative">
+                                <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                                <input
+                                  type="email"
+                                  name="email"
+                                  value={formData.email}
+                                  onChange={handleChange}
+                                  onBlur={() => handleBlur('email')}
+                                  required
+                                  disabled={isSubmitting}
+                                  placeholder="john@company.com"
+                                  className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                                    errors.email
+                                      ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                                      : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                                  }`}
+                                />
+                              </div>
+                              {errors.email && (
+                                <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                                  <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.email}
+                                </p>
+                              )}
+                            </div>
+
+                            {/* Company Name */}
+                            <div>
+                              <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                                Company Name <span className="text-amber-500 font-bold">*</span>
+                              </label>
+                              <div className="relative">
+                                <Building className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                                <input
+                                  type="text"
+                                  name="company"
+                                  value={formData.company}
+                                  onChange={handleChange}
+                                  onBlur={() => handleBlur('company')}
+                                  required
+                                  disabled={isSubmitting}
+                                  placeholder="Global Trucking Logistics"
+                                  className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                                    errors.company
+                                      ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                                      : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                                  }`}
+                                />
+                              </div>
+                              {errors.company && (
+                                <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                                  <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.company}
+                                </p>
+                              )}
+                            </div>
+
+                            {/* Country / Region */}
+                            <div>
+                              <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                                Country / Region <span className="text-amber-500 font-bold">*</span>
+                              </label>
+                              <div className="relative">
+                                <Globe className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                                <select
+                                  name="country"
+                                  value={formData.country}
+                                  onChange={handleChange}
+                                  onBlur={() => handleBlur('country')}
+                                  required
+                                  disabled={isSubmitting}
+                                  className={`w-full pl-10 pr-8 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium focus:outline-none transition-all appearance-none shadow-2xs bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer ${
+                                    errors.country ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400' : ''
+                                  }`}
+                                >
+                                  <option value="">Select Region...</option>
+                                  <option value="United States">United States</option>
+                                  <option value="Canada">Canada</option>
+                                  <option value="Mexico">Mexico</option>
+                                  <option value="Europe">Europe</option>
+                                  <option value="Middle East">Middle East</option>
+                                  <option value="Latin America">Latin America</option>
+                                  <option value="Asia Pacific">Asia Pacific</option>
+                                  <option value="Africa">Africa</option>
+                                </select>
+                              </div>
+                              {errors.country && (
+                                <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                                  <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.country}
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Section 02: Commercial & Channel Operations */}
+                        <div className="space-y-4">
+                          <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-100">
+                            <span className="w-6 h-6 rounded-md bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
+                              02
+                            </span>
+                            <h3 className="text-sm sm:text-base font-bold text-navy-900">
+                              Commercial & Channel Operations
+                            </h3>
+                          </div>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5">
+                            {/* Phone Number */}
+                            <div>
+                              <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                                Direct Phone / WhatsApp <span className="text-amber-500 font-bold">*</span>
+                              </label>
+                              <div className="relative">
+                                <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                                <input
+                                  type="tel"
+                                  name="phone"
+                                  value={formData.phone}
+                                  onChange={handleChange}
+                                  onBlur={() => handleBlur('phone')}
+                                  required
+                                  disabled={isSubmitting}
+                                  placeholder="+1 (555) 019-2834"
+                                  className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                                    errors.phone
+                                      ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                                      : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                                  }`}
+                                />
+                              </div>
+                              {errors.phone && (
+                                <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                                  <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.phone}
+                                </p>
+                              )}
+                            </div>
+
+                            {/* Business Type */}
+                            <div>
+                              <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                                Primary Business Activity
+                              </label>
+                              <select
+                                name="businessType"
+                                value={formData.businessType}
+                                onChange={handleChange}
+                                disabled={isSubmitting}
+                                className="w-full px-3.5 py-2.5 sm:py-3 bg-white border border-slate-200 rounded-xl text-navy-900 text-xs sm:text-sm font-medium focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 transition-all cursor-pointer shadow-2xs"
+                              >
+                                <option value="Aftermarket Heavy-Duty Parts Wholesaler">Aftermarket Heavy-Duty Parts Wholesaler</option>
+                                <option value="Commercial Truck & Trailer Dealership">Commercial Truck & Trailer Dealership</option>
+                                <option value="Fleet Maintenance / Repair Facility Chain">Fleet Maintenance / Repair Facility Chain</option>
+                                <option value="OEM / Trailer Axle Manufacturer">OEM / Trailer Axle Manufacturer</option>
+                                <option value="Import / Export Trading Company">Import / Export Trading Company</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Section 03: Verification & Terms */}
+                        <div className="space-y-4">
+                          <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-100">
+                            <span className="w-6 h-6 rounded-md bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
+                              03
+                            </span>
+                            <h3 className="text-sm sm:text-base font-bold text-navy-900">
+                              Verification & Terms
+                            </h3>
+                          </div>
+
+                          <div className={`flex items-start gap-3.5 p-4 rounded-xl border transition-all ${
+                            errors.agreeTerms ? 'bg-rose-50/60 border-rose-300' : 'bg-slate-50/70 border-slate-200'
+                          }`}>
+                            <input
+                              type="checkbox"
+                              id="terms"
+                              name="agreeTerms"
+                              checked={formData.agreeTerms}
+                              onChange={handleChange}
+                              disabled={isSubmitting}
+                              className="mt-0.5 w-4 h-4 text-amber-500 rounded border-slate-300 focus:ring-amber-500 cursor-pointer"
+                            />
+                            <label htmlFor="terms" className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal cursor-pointer">
+                              I verify that I am an authorized corporate representative and agree to the BRC Distributor Terms & Conditions. I understand that submitting this application initiates an eligibility review. <span className="text-amber-500 font-bold">*</span>
+                            </label>
+                          </div>
+                          {errors.agreeTerms && (
+                            <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                              <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.agreeTerms}
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Submit Button & Trust Markers */}
+                        <div className="pt-2">
+                          <button
+                            disabled={isSubmitting}
+                            type="submit"
+                            className="w-full bg-navy-900 hover:bg-navy-800 disabled:bg-slate-400 disabled:cursor-not-allowed text-white font-extrabold text-sm sm:text-base py-3.5 sm:py-4 rounded-xl shadow-md hover:shadow-lg shadow-navy-900/15 transition-all flex items-center justify-center gap-2 group cursor-pointer whitespace-nowrap"
+                          >
+                            {isSubmitting ? (
+                              <span className="flex items-center gap-2">
+                                Processing Application...
+                                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                              </span>
+                            ) : (
+                              <span className="flex items-center gap-2">
+                                Submit Partnership Application <ArrowRight className="w-4 h-4 shrink-0 text-amber-400 group-hover:translate-x-1 transition-transform" />
+                              </span>
+                            )}
+                          </button>
+
+                          {/* Trust Markers */}
+                          <div className="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-2 text-center sm:text-left border-t border-slate-100 mt-4">
+                            <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs text-slate-500">
+                              <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                              <span>Direct Factory Wholesale Pricing</span>
+                            </div>
+                            <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs text-slate-500">
+                              <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                              <span>Territory Protection Available</span>
+                            </div>
+                            <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs text-slate-500">
+                              <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                              <span>Authorized Partner Evaluation</span>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    )}
+                  </div>
                 </div>
-              </div>
               )}
             </motion.div>
           </div>

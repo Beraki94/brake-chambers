@@ -289,25 +289,42 @@ export default function ProductDetailLayout({
             <div className="mt-4 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 pt-5 sm:pt-6 border-t border-slate-100">
               <button 
                 onClick={handleAddToCart}
-                disabled={isAdding || added}
-                className={`flex-1 text-center font-black py-4 rounded-xl transition-all shadow-xl uppercase tracking-widest text-sm flex items-center justify-center ${
+                disabled={isAdding}
+                className={`flex-1 text-center font-black py-4 rounded-xl transition-all shadow-xl uppercase tracking-widest text-sm flex items-center justify-center cursor-pointer ${
                   added 
-                    ? 'bg-emerald-500 text-white shadow-emerald-500/20' 
+                    ? 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-600/20' 
                     : 'bg-amber-500 hover:bg-amber-400 text-navy-950 shadow-amber-500/20'
                 }`}
               >
                 {isAdding ? (
                   <span className="flex items-center"><div className="w-4 h-4 border-2 border-navy-900 border-t-transparent rounded-full animate-spin mr-2"></div> Adding...</span>
                 ) : added ? (
-                  <span className="flex items-center"><Check size={18} className="mr-2" /> Added to Quote</span>
+                  <span className="flex items-center"><Check size={18} className="mr-2" /> Added! Add Again</span>
                 ) : (
                   <span className="flex items-center"><ShoppingCart size={18} className="mr-2" /> Add to Quote List</span>
                 )}
               </button>
-              <Link href="/distributors" className="flex-1 bg-navy-900 text-white text-center font-bold py-4 rounded-xl hover:bg-navy-800 transition-all uppercase tracking-widest text-sm border border-navy-700 flex items-center justify-center">
-                Distributor Portal
+              
+              <Link 
+                href="/quote" 
+                className="flex-1 bg-navy-900 hover:bg-navy-800 text-white text-center font-bold py-4 rounded-xl transition-all uppercase tracking-widest text-sm border border-navy-700 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+              >
+                <span>Complete RFQ Form</span>
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
               </Link>
             </div>
+
+            {/* Instant notification when item added */}
+            {added && (
+              <div className="mt-3 p-3 bg-emerald-50 border border-emerald-300 rounded-xl flex flex-wrap items-center justify-between gap-2 text-xs text-emerald-900">
+                <span className="flex items-center gap-1.5 font-bold">
+                  <Check size={16} className="text-emerald-600" /> {product.name} attached! RFQ Form is now active.
+                </span>
+                <Link href="/quote" className="font-extrabold text-navy-900 underline hover:text-navy-950 flex items-center gap-1">
+                  Go to Active RFQ Form &rarr;
+                </Link>
+              </div>
+            )}
           </div>
         </div>
 

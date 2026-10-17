@@ -3,6 +3,7 @@
 import React from 'react';
 import { ArrowRight, PenTool, BarChart3, Microscope, MonitorPlay, CheckCircle2, Factory, Layers, Zap, Cpu, FlaskConical, TestTube2, ShieldCheck, FileSearch } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import SectionHeader from '@/components/ui/SectionHeader';
 import PageHeader from '@/components/layout/PageHeader';
@@ -151,10 +152,12 @@ export default function BrakeRandDClient() {
               <div key={idx} className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 lg:gap-16 items-stretch group`}>
                 <div className="w-full md:w-1/2 relative min-h-[350px] md:min-h-full">
                   <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 group-hover:shadow-3xl transition-all duration-500">
-                    <img
+                    <Image
                       src={cap.image}
                       alt={cap.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-navy-900/10 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-0"></div>
                   </div>

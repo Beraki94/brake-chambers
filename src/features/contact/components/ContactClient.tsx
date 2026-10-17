@@ -1,21 +1,22 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { PhoneCall, Mail, Phone, MapPin, Clock, Send, Globe, Truck, MessageCircle, ArrowRight, CheckCircle, User, Building, HelpCircle } from 'lucide-react';
+import { PhoneCall, Mail, Phone, MapPin, Clock, Send, Globe, Truck, MessageCircle, ArrowRight, CheckCircle, CheckCircle2, ShieldCheck, User, Building, HelpCircle, AlertCircle } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionHeader from '@/components/ui/SectionHeader';
 import GlobalFAQAccordion from '@/components/ui/GlobalFAQAccordion';
 import { fadeInUp, staggerContainer, scaleIn } from '@/lib/animations';
+import { validateEmail, validatePhone, validateRequired } from '@/lib/validation';
 
 const contactCards = [
   {
     icon: Phone,
     title: "Technical Sales Support",
-    description: "Direct line to our engineering team for OEM cross-referencing, part specifications, and inventory checks.",
+    description: "Direct line to our sales and technical team for OEM cross-referencing, part specifications, and product inquiries.",
     value: "+86 13395856758",
-    subtext: "Same number - WhatsApp available",
+    subtext: "Phone & WhatsApp available",
     href: "tel:+8613395856758",
     color: "navy",
     bgColor: "bg-navy-50",
@@ -27,7 +28,7 @@ const contactCards = [
     title: "Wholesale & RFQ",
     description: "For formal RFQs, container shipping logistics, distribution partnerships, and pricing tiers.",
     value: "sales@brakechambers.com",
-    subtext: "Typical response time: 2-4 hours",
+    subtext: "Official wholesale inquiries",
     href: "mailto:sales@brakechambers.com",
     color: "amber",
     bgColor: "bg-amber-50",
@@ -61,24 +62,85 @@ const contactCards = [
 export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
+
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    company: '',
+    country: '',
+    phone: '',
+    inquiryType: 'Technical Support',
+    message: ''
+  });
+
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  const errors = useMemo(() => ({
+    fullName: touched.fullName ? validateRequired(formData.fullName, 'Full name', 2) : null,
+    email: touched.email ? validateEmail(formData.email) : null,
+    company: touched.company ? validateRequired(formData.company, 'Company name', 2) : null,
+    country: touched.country ? validateRequired(formData.country, 'Country', 2) : null,
+    phone: touched.phone ? validatePhone(formData.phone, false) : null,
+    inquiryType: touched.inquiryType ? validateRequired(formData.inquiryType, 'Inquiry type', 1) : null,
+    message: touched.message ? validateRequired(formData.message, 'Message', 10) : null,
+  }), [formData, touched]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    setTouched(prev => ({ ...prev, [name]: true }));
+    setServerError(null);
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched(prev => ({ ...prev, [field]: true }));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setServerError(null);
+
+    // Mark all fields as touched
+    const allTouched = {
+      fullName: true,
+      email: true,
+      company: true,
+      country: true,
+      phone: true,
+      inquiryType: true,
+      message: true
+    };
+    setTouched(allTouched);
+
+    const hasErrors = 
+      validateRequired(formData.fullName, 'Full name', 2) ||
+      validateEmail(formData.email) ||
+      validateRequired(formData.company, 'Company name', 2) ||
+      validateRequired(formData.country, 'Country', 2) ||
+      validatePhone(formData.phone, false) ||
+      validateRequired(formData.message, 'Message', 10);
+
+    if (hasErrors) {
+      return;
+    }
+
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-
     try {
-      await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ source: 'Contact Form', ...data })
+        body: JSON.stringify({ source: 'Wholesale Contact Form', ...formData })
       });
+      const resData = await res.json();
+      if (!res.ok) {
+        throw new Error(resData.error || 'Failed to submit form');
+      }
       setSubmitted(true);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Submission failed', error);
-      setSubmitted(true);
+      setServerError(error.message || 'Something went wrong. Please try again or email sales@brakechambers.com');
     } finally {
       setIsSubmitting(false);
     }
@@ -132,207 +194,467 @@ export default function ContactClient() {
         ]}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1920px] -mt-6 sm:-mt-16 relative z-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-6 sm:gap-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl -mt-6 sm:-mt-16 relative z-20">
+        {/* 2-Column Responsive Workspace Grid matching Quote Page */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-start">
+          
+          {/* LEFT COLUMN: Master Commercial Contact Form */}
+          <div className="lg:col-span-7 xl:col-span-8 order-1">
+            <div className="-mx-4 sm:mx-0 bg-white rounded-none sm:rounded-3xl shadow-[0_12px_36px_rgba(10,25,41,0.06)] border-y sm:border border-slate-200/90 overflow-hidden relative">
+              
+              {/* Top Signature Brand Accent Line */}
+              <div className="h-1.5 w-full bg-gradient-to-r from-navy-900 via-amber-500 to-navy-900" />
 
-          {/* Left Sidebar - Contact Info Cards */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="lg:col-span-1 order-2 lg:order-1 grid grid-cols-1 gap-4"
-          >
-            {contactCards.map((card, i) => (
-              <motion.div
-                key={i}
-                variants={fadeInUp}
-                className={"bg-white rounded-2xl sm:rounded-[2rem] shadow-sm sm:shadow-md border border-slate-100 p-5 sm:p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group relative overflow-hidden " + card.borderHover}
-              >
-                {/* Top Right Circle Decoration */}
-                <div className={"absolute top-0 right-0 w-32 h-32 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none " + card.bgColor}></div>
-
-                <div className="relative z-10">
-                  <div className={"w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm " + card.bgColor + " " + card.textColor}>
-                    <card.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+              {/* Form Section Header Bar */}
+              <div className="p-4 sm:p-6 lg:p-8 bg-slate-50/70 border-b border-slate-200/80">
+                <div className="flex flex-wrap items-center justify-between gap-2.5 mb-2">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-bold uppercase tracking-wider">
+                    <PhoneCall className="w-3.5 h-3.5 text-amber-600" />
+                    Direct Factory Desk
                   </div>
-                  <h3 className="font-heading text-lg sm:text-xl font-bold text-navy-900 mb-1">{card.title}</h3>
-                  <p className="text-navy-500 text-[14px] md:text-[15px] leading-[1.6] font-normal mb-2 sm:mb-3 text-left">{card.description}</p>
 
-                  {card.subtext && <p className="text-slate-500 text-xs mb-2 italic">{card.subtext}</p>}
-
-                  {card.href ? (
-                    <a href={card.href} className={card.textColor + " text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1 break-all"}>
-                      {card.value} <ArrowRight className="w-3 h-3 shrink-0" />
-                    </a>
-                  ) : (
-                    <span className="text-slate-700 text-xs sm:text-sm font-bold">{card.value}</span>
-                  )}
+                  {/* Status Indicator Pill */}
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium">
+                    <Clock className="w-3.5 h-3.5 text-slate-500" />
+                    Factory Direct Desk
+                  </span>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
 
-          {/* Right Side - Form & FAQ */}
-          <div className="lg:col-span-2 order-1 lg:order-2 flex flex-col gap-6 sm:gap-8">
-            {/* The Form */}
-            <motion.div
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-6 sm:p-8 lg:p-10 -mx-4 sm:mx-0"
-            >
-              <SectionHeader
-                badge="Wholesale Inquiries"
-                title="Request a Wholesale Quote"
-                align="left"
-                accentColor="amber"
-                className="!mb-6 sm:!mb-8"
-              />
+                <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-navy-900 tracking-tight">
+                  Commercial Inquiries & Technical Support
+                </h2>
+                <p className="text-slate-600 text-xs sm:text-sm mt-1 font-normal leading-relaxed">
+                  Connect with our factory sales and engineering team in Zhejiang, China for product specifications, custom configurations, sample requests, and container wholesale quotations.
+                </p>
+              </div>
 
+              {/* Success State */}
               {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-16"
-                >
-                  <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-10 h-10 text-emerald-500" />
+                <div className="p-6 sm:p-12 text-center flex flex-col items-center justify-center">
+                  <div className="w-14 h-14 sm:w-18 sm:h-18 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-5 shadow-xs border border-emerald-100">
+                    <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
                   </div>
-                  <h3 className="text-2xl font-extrabold text-navy-900 mb-3">Inquiry Submitted!</h3>
-                  <p className="text-[15px] leading-[1.6] font-normal text-slate-600 max-w-md mx-auto">Our sales team will review your request and respond within 24 business hours with a detailed quote.</p>
-                </motion.div>
-              ) : (
-                <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
-                    <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Full Name <span className="text-red-500">*</span></label>
-                      <div className="relative">
-                        <User className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                        <input
-                          type="text"
-                          name="fullName"
-                          required
-                          disabled={isSubmitting}
-                          className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50"
-                          placeholder="John Doe"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Email Address <span className="text-red-500">*</span></label>
-                      <div className="relative">
-                        <Mail className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          disabled={isSubmitting}
-                          className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50"
-                          placeholder="john@company.com"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Company / Fleet Name <span className="text-red-500">*</span></label>
-                      <div className="relative">
-                        <Building className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                        <input
-                          type="text"
-                          name="company"
-                          required
-                          disabled={isSubmitting}
-                          className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50"
-                          placeholder="Global Trucking Logistics"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Country <span className="text-red-500">*</span></label>
-                      <div className="relative">
-                        <Globe className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                        <input
-                          type="text"
-                          name="country"
-                          required
-                          disabled={isSubmitting}
-                          className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50"
-                          placeholder="United States"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Phone / WhatsApp <span className="text-slate-400 font-normal">(Optional)</span></label>
-                      <div className="relative">
-                        <Phone className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                        <input
-                          type="text"
-                          name="phone"
-                          disabled={isSubmitting}
-                          className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50"
-                          placeholder="+1 234 567 8900"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Inquiry Type <span className="text-red-500">*</span></label>
-                      <div className="relative">
-                        <HelpCircle className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                        <select
-                          required
-                          defaultValue=""
-                          className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all text-navy-900 appearance-none"
-                        >
-                          <option value="" disabled>Select an option...</option>
-                          <option value="technical">Technical Support</option>
-                          <option value="sample">Sample Request</option>
-                          <option value="partnership">Partnership</option>
-                          <option value="general">General Inquiry</option>
-                          <option value="press">Press</option>
-                        </select>
-                      </div>
-                    </div>
+                  <span className="inline-block px-3 py-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold rounded-full uppercase tracking-wider mb-2.5">
+                    Inquiry Dispatched Successfully
+                  </span>
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy-900 mb-2">Thank You for Reaching Out</h3>
+                  <p className="text-slate-600 text-xs sm:text-sm max-w-lg mb-6 leading-relaxed font-normal">
+                    Our technical sales team will review your specifications, prepare any required part cross-matches, and email your formal reply within 24 business hours.
+                  </p>
+                  
+                  <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-4 sm:p-5 mb-6 max-w-md w-full text-left">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Need Immediate Engineering Assistance?</h4>
+                    <p className="text-xs text-slate-600 mb-3">For urgent cross-dock shipments or container bookings, message our export desk directly:</p>
+                    <a 
+                      href="https://wa.me/8613395856758" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100/70 border border-emerald-200 px-3 py-2 rounded-lg transition-colors"
+                    >
+                      <MessageCircle className="w-4 h-4 text-emerald-600" /> WhatsApp Engineering Desk: +86 13395856758
+                    </a>
                   </div>
-                  <div>
-                    <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1.5 sm:mb-2">Message & Requirements <span className="text-red-500">*</span></label>
-                    <textarea
-                      rows={4}
-                      required
-                      className="w-full bg-white border-2 border-slate-200 text-navy-900 rounded-xl px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 focus:bg-white transition-all placeholder:text-slate-400 resize-none pt-3"
-                      placeholder="Please include part numbers, estimated quantities, or destination country for shipping quotes..."
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-navy-900 hover:bg-navy-800 text-white font-extrabold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl shadow-navy-900/20 flex items-center justify-center gap-2 group text-lg mt-6"
+
+                  <button 
+                    onClick={() => setSubmitted(false)}
+                    className="px-5 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold text-xs sm:text-sm transition-colors cursor-pointer shadow-sm"
                   >
-                    Submit Inquiry <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    Submit Another Inquiry
                   </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} noValidate className="p-4 sm:p-6 lg:p-8 flex flex-col gap-6 sm:gap-7 relative">
+                  {serverError && (
+                    <div className="p-3.5 bg-rose-50/70 border border-rose-200 text-rose-800 rounded-xl text-xs sm:text-sm flex items-start gap-2.5">
+                      <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                      <span>{serverError}</span>
+                    </div>
+                  )}
+
+                  {/* SECTION 01: Buyer & Company Profile */}
+                  <div>
+                    <div className="flex items-center gap-2 pb-2.5 mb-3.5 border-b border-slate-100">
+                      <span className="w-6 h-6 rounded-md bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
+                        01
+                      </span>
+                      <div>
+                        <h3 className="text-sm sm:text-base font-bold text-navy-900">Buyer & Company Profile</h3>
+                        <p className="text-[11px] sm:text-xs text-slate-500 font-normal">Where should we deliver the official quotation or technical reply?</p>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5">
+                      {/* Full Name */}
+                      <div>
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                          Full Name <span className="text-amber-500 font-bold">*</span>
+                        </label>
+                        <div className="relative">
+                          <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                          <input
+                            type="text"
+                            name="fullName"
+                            value={formData.fullName}
+                            onChange={handleChange}
+                            onBlur={() => handleBlur('fullName')}
+                            required
+                            disabled={isSubmitting}
+                            placeholder="John Doe"
+                            className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                              errors.fullName
+                                ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                                : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                            }`}
+                          />
+                        </div>
+                        {errors.fullName && (
+                          <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                            <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.fullName}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Business Email */}
+                      <div>
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                          Business Email <span className="text-amber-500 font-bold">*</span>
+                        </label>
+                        <div className="relative">
+                          <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                          <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            onBlur={() => handleBlur('email')}
+                            required
+                            disabled={isSubmitting}
+                            placeholder="john@company.com"
+                            className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                              errors.email
+                                ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                                : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                            }`}
+                          />
+                        </div>
+                        {errors.email && (
+                          <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                            <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.email}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Company / Fleet Name */}
+                      <div>
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                          Company / Fleet Name <span className="text-amber-500 font-bold">*</span>
+                        </label>
+                        <div className="relative">
+                          <Building className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                          <input
+                            type="text"
+                            name="company"
+                            value={formData.company}
+                            onChange={handleChange}
+                            onBlur={() => handleBlur('company')}
+                            required
+                            disabled={isSubmitting}
+                            placeholder="Global Trucking Logistics"
+                            className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                              errors.company
+                                ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                                : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                            }`}
+                          />
+                        </div>
+                        {errors.company && (
+                          <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                            <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.company}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Country */}
+                      <div>
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                          Country <span className="text-amber-500 font-bold">*</span>
+                        </label>
+                        <div className="relative">
+                          <Globe className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                          <input
+                            type="text"
+                            name="country"
+                            value={formData.country}
+                            onChange={handleChange}
+                            onBlur={() => handleBlur('country')}
+                            required
+                            disabled={isSubmitting}
+                            placeholder="United States"
+                            className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                              errors.country
+                                ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                                : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                            }`}
+                          />
+                        </div>
+                        {errors.country && (
+                          <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                            <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.country}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Phone */}
+                      <div className="sm:col-span-2">
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                          Direct Phone / WhatsApp <span className="text-slate-400 text-xs font-normal">(Optional)</span>
+                        </label>
+                        <div className="relative">
+                          <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                          <input
+                            type="text"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            onBlur={() => handleBlur('phone')}
+                            disabled={isSubmitting}
+                            placeholder="+1 (555) 019-2834"
+                            className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                              errors.phone
+                                ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                                : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                            }`}
+                          />
+                        </div>
+                        {errors.phone && (
+                          <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                            <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.phone}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* SECTION 02: Inquiry Classification & Requirements */}
+                  <div>
+                    <div className="flex items-center gap-2 pb-2.5 mb-3.5 border-b border-slate-100">
+                      <span className="w-6 h-6 rounded-md bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
+                        02
+                      </span>
+                      <div>
+                        <h3 className="text-sm sm:text-base font-bold text-navy-900">Inquiry Scope & Requirements</h3>
+                        <p className="text-[11px] sm:text-xs text-slate-500 font-normal">Specify the inquiry purpose and detailed requirements</p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      {/* Inquiry Type */}
+                      <div>
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                          Inquiry Type <span className="text-amber-500 font-bold">*</span>
+                        </label>
+                        <div className="relative">
+                          <HelpCircle className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                          <select
+                            name="inquiryType"
+                            value={formData.inquiryType}
+                            onChange={handleChange}
+                            disabled={isSubmitting}
+                            required
+                            className="w-full pl-10 pr-8 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium focus:outline-none transition-all appearance-none shadow-2xs bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
+                          >
+                            <option value="Technical Support">Technical Support</option>
+                            <option value="Wholesale Quote">Wholesale & RFQ</option>
+                            <option value="Sample Request">Sample Request</option>
+                            <option value="Distribution Partnership">Distribution Partnership</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      {/* Message */}
+                      <div>
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                          Message & Specifications <span className="text-amber-500 font-bold">*</span>
+                        </label>
+                        <textarea
+                          name="message"
+                          rows={4}
+                          value={formData.message}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur('message')}
+                          required
+                          disabled={isSubmitting}
+                          placeholder="Please include part numbers, estimated quantities, or destination country for shipping quotes..."
+                          className={`w-full p-3.5 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none resize-none bg-white border border-slate-200 text-navy-900 placeholder:text-slate-400 placeholder:font-normal focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed ${
+                            errors.message
+                              ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                              : ''
+                          }`}
+                        ></textarea>
+                        {errors.message && (
+                          <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                            <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.message}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Submit Action & Guarantee */}
+                  <div className="pt-1">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-navy-900 hover:bg-navy-800 disabled:bg-slate-400 disabled:cursor-not-allowed text-white font-extrabold text-sm sm:text-base py-3.5 sm:py-4 rounded-xl shadow-md hover:shadow-lg shadow-navy-900/15 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+                    >
+                      {isSubmitting ? (
+                        <span className="flex items-center gap-2">
+                          Submitting Inquiry...
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        </span>
+                      ) : (
+                        <span className="flex items-center gap-2">
+                          Submit Official Inquiry 
+                          <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1 transition-transform" />
+                        </span>
+                      )}
+                    </button>
+
+                    {/* Trust markers under CTA */}
+                    <div className="mt-3.5 flex flex-wrap items-center justify-center gap-y-1.5 gap-x-5 text-[11px] sm:text-xs text-slate-500">
+                      <span className="flex items-center gap-1">
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                        Direct Manufacturer Pricing
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-amber-500" />
+                        IATF 16949 Certified
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-navy-600" />
+                        Direct Factory Support
+                      </span>
+                    </div>
+                  </div>
                 </form>
               )}
-            </motion.div>
+            </div>
+          </div>
 
-            {/* The FAQ Accordion */}
-            <motion.div
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              className="bg-white rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl border-y sm:border border-slate-100 p-6 sm:p-8 lg:p-10 -mx-4 sm:mx-0"
-            >
-              <SectionHeader
-                title="Frequently Asked Questions"
-                align="left"
-                theme="light"
-                accentColor="amber"
-                plainText={true}
-                className="!mb-6"
-              />
-              <GlobalFAQAccordion faqs={faqs} />
-            </motion.div>
+          {/* RIGHT COLUMN: Dedicated Support Desk & Manufacturing Assurance */}
+          <div className="lg:col-span-5 xl:col-span-4 order-2 space-y-5 lg:sticky lg:top-24">
+            
+            {/* Card 1: Official Factory Communication Channels */}
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(10,25,41,0.06)] border border-slate-200/90 relative overflow-hidden">
+              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-100">
+                <div className="flex items-center gap-2">
+                  <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" />
+                  <h3 className="font-extrabold text-navy-900 text-sm sm:text-base">Direct Factory Channels</h3>
+                </div>
+                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full text-slate-800 bg-slate-100 border border-slate-200">
+                  Zhuji, China
+                </span>
+              </div>
+
+              <div className="space-y-3.5 text-xs sm:text-sm">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-navy-50 flex items-center justify-center text-navy-800 shrink-0 mt-0.5">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-navy-900 text-xs">Production Facility & Export HQ</h4>
+                    <p className="text-slate-600 text-xs mt-0.5 leading-relaxed">
+                      Block 3, No 55 Tianyang Rd, Fengqiao, Zhuji, Zhejiang, China 311811
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 shrink-0 mt-0.5">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-navy-900 text-xs">Wholesale & RFQ Desk</h4>
+                    <a href="mailto:sales@brakechambers.com" className="text-amber-600 hover:underline text-xs font-semibold block mt-0.5">
+                      sales@brakechambers.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0 mt-0.5">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-navy-900 text-xs">Direct Phone & WhatsApp</h4>
+                    <a href="tel:+8613395856758" className="text-navy-900 hover:text-amber-600 text-xs font-semibold block mt-0.5">
+                      +86 13395856758
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600 shrink-0 mt-0.5">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-navy-900 text-xs">Factory Operating Hours</h4>
+                    <p className="text-slate-600 text-xs mt-0.5 leading-relaxed">
+                      Mon &ndash; Fri: 8:00 AM &ndash; 6:00 PM (GMT+8)<br />
+                      <span className="text-slate-400 text-[11px]">Online inquiry desk monitors requests 24/7</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Direct Manufacturer Advantages (Dark Card) */}
+            <div className="bg-gradient-to-b from-navy-800 to-navy-900 text-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-md border border-navy-700/80 relative overflow-hidden">
+              <div className="flex items-center gap-2 mb-2">
+                <Truck className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+                <h3 className="font-extrabold text-white text-sm sm:text-base">Direct Manufacturer Advantages</h3>
+              </div>
+              <p className="text-navy-200 text-xs leading-relaxed font-normal mb-3.5">
+                Direct factory pricing with zero intermediary commissions from our IATF 16949 certified facility in Zhuji, China.
+              </p>
+
+              <div className="space-y-2 pt-2.5 border-t border-navy-700/80 mb-4 text-xs">
+                <div className="flex items-start gap-2">
+                  <Truck className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                  <span className="text-navy-300">Custom laser stamping, bespoke packaging & private label.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Globe className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                  <span className="text-navy-300">EXW, FOB Ningbo/Shanghai, CIF, and DDP to warehouse.</span>
+                </div>
+              </div>
+
+              {/* Direct WhatsApp link */}
+              <a 
+                href="https://wa.me/8613395856758" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold py-2.5 px-3.5 rounded-xl transition-all shadow-sm"
+              >
+                <MessageCircle className="w-3.5 h-3.5" /> WhatsApp Desk: +86 13395856758
+              </a>
+            </div>
+
           </div>
         </div>
+
+        {/* Centered FAQ Section - Matches Other Pages */}
+        <section className="mt-16 sm:mt-24 max-w-4xl mx-auto w-full">
+          <SectionHeader
+            title="Frequently Asked Questions"
+            description="Everything you need to know about factory orders, sample testing, and delivery terms."
+            align="center"
+            accentColor="amber"
+            className="!mb-10 sm:!mb-12"
+          />
+          <GlobalFAQAccordion faqs={faqs} />
+        </section>
       </div>
 
       {/* Factory Location Map - Full Width */}

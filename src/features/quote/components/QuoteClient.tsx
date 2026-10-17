@@ -1,47 +1,172 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Globe, Package, Truck, ArrowRight, Trash2, Edit2, CheckCircle2, User, Building, Mail, Info } from 'lucide-react';
+import Image from 'next/image';
+import { 
+  Globe, 
+  Package, 
+  Truck, 
+  ArrowRight, 
+  Trash2, 
+  CheckCircle2, 
+  User, 
+  Building, 
+  Mail, 
+  Phone, 
+  AlertCircle, 
+  FileText, 
+  Plus, 
+  Minus, 
+  ShieldCheck, 
+  Clock, 
+  MessageCircle,
+  Sparkles,
+  Lock,
+  Unlock,
+  Check,
+  Search,
+  ShoppingCart,
+  ChevronRight
+} from 'lucide-react';
 import { useCartStore } from '@/store/cart';
+import { validateEmail, validatePhone, validateRequired } from '@/lib/validation';
 
 export default function QuoteClient() {
   const { items, removeItem, updateQuantity, clearCart } = useCartStore();
   const [mounted, setMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
+
+  const [formData, setFormData] = useState({
+    name: '',
+    companyName: '',
+    email: '',
+    phone: '',
+    volume: 'LCL (Less than Container Load - Pallet)',
+    incoterms: 'FOB (Free on Board - Ningbo / Shanghai)',
+    destination: '',
+    notes: ''
+  });
+
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  const totalUnits = useMemo(() => {
+    return items.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  }, [items]);
+
+  // CORE RULE: Without product selection the form cannot be active
+  const hasProducts = items.length > 0;
+  const isFormActive = hasProducts;
+
+  const errors = useMemo(() => ({
+    name: touched.name ? validateRequired(formData.name, 'Full name', 2) : null,
+    companyName: touched.companyName ? validateRequired(formData.companyName, 'Company name', 2) : null,
+    email: touched.email ? validateEmail(formData.email) : null,
+    phone: touched.phone ? validatePhone(formData.phone, false) : null,
+    destination: touched.destination ? validateRequired(formData.destination, 'Country', 2) : null,
+  }), [formData, touched]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    setTouched(prev => ({ ...prev, [name]: true }));
+    setServerError(null);
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched(prev => ({ ...prev, [field]: true }));
+  };
+
+  const handleQtyChange = (id: string, delta: number, currentQty: number) => {
+    const nextQty = Math.max(1, currentQty + delta);
+    updateQuantity(id, nextQty);
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setServerError(null);
+
+    // Guard: Form cannot be submitted without at least 1 product selected
+    if (!isFormActive || items.length === 0) {
+      setServerError('Please select at least one brake chamber from our catalog to activate and submit your quotation request.');
+      return;
+    }
+
+    const allTouched = {
+      name: true,
+      companyName: true,
+      email: true,
+      phone: true,
+      destination: true,
+      notes: true
+    };
+    setTouched(allTouched);
+
+    const hasErrors =
+      validateRequired(formData.name, 'Full name', 2) ||
+      validateRequired(formData.companyName, 'Company name', 2) ||
+      validateEmail(formData.email) ||
+      validatePhone(formData.phone, false) ||
+      validateRequired(formData.destination, 'Country', 2);
+
+    if (hasErrors) {
+      return;
+    }
+
     setIsSubmitting(true);
     
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    
-    const quoteItems = items.map(i => `${i.product.name} (Qty: ${i.quantity})`);
+    // Prepare rich products data including image URLs for email and lead tracking
+    const quoteProducts = items.map(i => {
+      const rawImg = (i.product as any).imageUrl || (i.product as any).galleryUrls?.[0] || '/productsImage/brc-t16-single-brake-1.jpg';
+      const fullImageUrl = rawImg.startsWith('http') 
+        ? rawImg 
+        : `https://www.brakechambers.com${rawImg.startsWith('/') ? '' : '/'}${rawImg}`;
+
+      return {
+        name: i.product.name,
+        sku: i.product.slug.toUpperCase(),
+        quantity: i.quantity,
+        category: i.product.category,
+        strokeSize: (i.product as any).strokeSize || '',
+        imageUrl: fullImageUrl,
+        productUrl: `https://www.brakechambers.com/products/${i.product.slug}`
+      };
+    });
+
+    const quoteItems = quoteProducts.map(p => 
+      `${p.name} (SKU: ${p.sku}, Qty: ${p.quantity}) - Image: ${p.imageUrl}`
+    );
     
     try {
-      await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          source: 'Quote Request', 
-          ...data,
-          items: quoteItems
+          source: 'Brake Chamber Wholesale RFQ', 
+          ...formData,
+          totalUnitsConfigured: totalUnits,
+          items: quoteItems,
+          products: quoteProducts,
+          productImages: quoteProducts.map(p => p.imageUrl)
         })
       });
+      const resData = await res.json();
+      if (!res.ok) {
+        throw new Error(resData.error || 'Failed to submit quote request');
+      }
       setIsSuccess(true);
       clearCart();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Submission failed', error);
-      setIsSuccess(true);
+      setServerError(error.message || 'Something went wrong. Please try again or email sales@brakechambers.com');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -49,213 +174,651 @@ export default function QuoteClient() {
     return null; // Avoid hydration mismatch
   }
 
-  const isEmpty = items.length === 0;
+  // Selected Chambers (Quote Cart) Component - Positioned at top on mobile, and in sticky sidebar on desktop
+  const selectedChambersContent = (
+    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-[0_12px_36px_rgba(10,25,41,0.06)] border border-slate-200/90 relative overflow-hidden">
+      <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-slate-100">
+        <div className="flex items-center gap-2">
+          <Package className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" />
+          <h3 className="font-extrabold text-navy-900 text-sm sm:text-base">Selected Chambers</h3>
+        </div>
+        <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${
+          hasProducts 
+            ? 'text-slate-800 bg-slate-100 border-slate-200' 
+            : 'text-amber-800 bg-amber-50 border-amber-200'
+        }`}>
+          {items.length} {items.length === 1 ? 'Model' : 'Models'} ({totalUnits} Pcs)
+        </span>
+      </div>
 
-  return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl -mt-8 sm:-mt-20 relative z-20">
-      
-      {/* Prominent Selected Items Section */}
-      <div className="bg-white border-y sm:border border-slate-200 rounded-none sm:rounded-[2rem] p-5 sm:p-8 lg:p-10 shadow-sm sm:shadow-xl shadow-slate-200/50 mb-8 -mx-4 sm:mx-0">
-        <h2 className="text-xl sm:text-2xl font-extrabold text-navy-900 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3 border-b border-slate-100 pb-4 px-4 sm:px-0">
-          <Package className="w-6 h-6 sm:w-8 sm:h-8 text-amber-500 shrink-0" /> 
-          Selected Items for Quote
-        </h2>
-
-        {isEmpty ? (
-          <div className="flex flex-col items-center justify-center py-6 sm:py-10 px-4 sm:px-8 text-center bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 mx-4 sm:mx-0">
-            <div className="w-12 h-12 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center mb-3 sm:mb-6 shadow-sm border border-slate-100">
-              <Package className="w-6 h-6 sm:w-10 sm:h-10 text-slate-300" />
-            </div>
-            <h3 className="text-base sm:text-xl font-bold text-navy-900 mb-2">No Products Selected</h3>
-            <p className="text-slate-500 text-[14px] md:text-[15px] leading-[1.6] max-w-sm mx-auto mb-5 sm:mb-6 font-normal">
-              Browse our catalog and add items to your quote request to get factory-direct pricing.
-            </p>
-            <Link href="/products" className="bg-navy-900 hover:bg-navy-800 text-white font-extrabold px-5 sm:px-8 py-3 sm:py-4 rounded-xl shadow-lg shadow-navy-900/20 transition-all flex items-center justify-center gap-2 group text-sm sm:text-base">
-              Browse Products <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            
-            <div className="mt-4 sm:hidden text-[11px] text-slate-400 font-bold flex items-center justify-center gap-1.5 uppercase tracking-wide">
-              <Info className="w-3.5 h-3.5" /> 
-              Quote form appears here after adding items
-            </div>
+      {!hasProducts ? (
+        <div className="bg-slate-50/80 border border-dashed border-slate-200 rounded-xl p-5 text-center">
+          <div className="w-10 h-10 bg-white rounded-xl shadow-2xs border border-slate-200/80 flex items-center justify-center mx-auto mb-2.5">
+            <Package className="w-5 h-5 text-slate-400" />
           </div>
-        ) : (
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {items.map((item) => (
-                <div key={item.id} className="flex flex-col sm:flex-row gap-4 p-5 sm:p-4 border border-slate-100 bg-slate-50 rounded-xl relative group">
-                  <div className="flex-1 pr-10 sm:pr-12">
-                    <p className="text-[10px] sm:text-xs font-bold text-amber-500 mb-1 uppercase tracking-wider">{item.product.brandSlug === 'brc' ? 'BRC' : item.product.brandSlug}</p>
-                    <h3 className="font-bold text-navy-900 text-base sm:text-lg leading-snug mb-1 sm:mb-0">{item.product.name}</h3>
-                    <p className="text-[13px] leading-[1.6] text-slate-500 mb-3 font-normal">SKU: {item.product.slug.toUpperCase()}</p>
-                    
-                    <div className="flex items-center gap-3">
-                      <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Qty:</label>
+          <h4 className="text-xs sm:text-sm font-bold text-navy-900 mb-0.5">No Chambers Selected Yet</h4>
+          <p className="text-[11px] text-slate-500 max-w-xs mx-auto mb-3.5 font-normal leading-relaxed">
+            Browse our catalog to select your required brake chambers. The quotation form activates immediately upon selecting a product.
+          </p>
+          <Link 
+            href="/products" 
+            className="inline-flex items-center gap-1.5 bg-navy-900 hover:bg-navy-800 text-white font-bold text-xs px-3.5 py-2 rounded-xl shadow-2xs transition-all group"
+          >
+            Browse Product Catalog <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+      ) : (
+        <div className="space-y-3">
+          <div className="space-y-2.5 max-h-[340px] overflow-y-auto pr-1">
+            {items.map((item) => {
+              const itemImg = (item.product as any).imageUrl || (item.product as any).galleryUrls?.[0] || '/productsImage/brc-t16-single-brake-1.jpg';
+
+              return (
+                <div 
+                  key={item.id} 
+                  className="p-3 bg-slate-50/80 hover:bg-slate-100/70 border border-slate-200/80 rounded-xl transition-colors relative"
+                >
+                  <div className="flex items-start gap-3">
+                    {/* Product Image Thumbnail */}
+                    <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 overflow-hidden relative shrink-0 p-0.5">
+                      <Image
+                        src={itemImg}
+                        alt={item.product.name}
+                        fill
+                        className="object-contain"
+                        sizes="48px"
+                      />
+                    </div>
+
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-1">
+                        <span className="text-[9px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200/60 uppercase tracking-wider">
+                          {item.product.brandSlug === 'brc' ? 'BRC Original' : item.product.brandSlug}
+                        </span>
+                        <button 
+                          type="button"
+                          onClick={() => removeItem(item.id)}
+                          className="text-slate-400 hover:text-rose-600 p-0.5 rounded transition-colors cursor-pointer"
+                          title="Remove item"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+
+                      <h4 className="font-bold text-navy-900 text-xs leading-snug line-clamp-1 mt-0.5">
+                        {item.product.name}
+                      </h4>
+
+                      <p className="text-[10px] text-slate-400 font-mono">
+                        SKU: {item.product.slug.toUpperCase()}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Quantity Counter */}
+                  <div className="flex items-center justify-between pt-2 mt-2 border-t border-slate-200/60">
+                    <span className="text-[11px] font-semibold text-slate-500">Order Quantity:</span>
+                    <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-lg p-0.5 shadow-2xs">
+                      <button
+                        type="button"
+                        onClick={() => handleQtyChange(item.id, -1, item.quantity)}
+                        className="w-6 h-6 flex items-center justify-center text-slate-500 hover:text-navy-900 hover:bg-slate-100 rounded transition-colors cursor-pointer"
+                        title="Decrease quantity"
+                      >
+                        <Minus className="w-3 h-3" />
+                      </button>
                       <input 
                         type="number" 
                         min="1"
                         value={item.quantity}
-                        onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
-                        className="w-16 sm:w-20 px-2 sm:px-3 py-1.5 border border-slate-200 rounded-lg text-sm font-bold text-navy-900 focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
+                        onChange={(e) => updateQuantity(item.id, Math.max(1, parseInt(e.target.value) || 1))}
+                        className="w-8 text-center font-bold text-navy-900 text-xs focus:outline-none"
                       />
+                      <button
+                        type="button"
+                        onClick={() => handleQtyChange(item.id, 1, item.quantity)}
+                        className="w-6 h-6 flex items-center justify-center text-slate-500 hover:text-navy-900 hover:bg-slate-100 rounded transition-colors cursor-pointer"
+                        title="Increase quantity"
+                      >
+                        <Plus className="w-3 h-3" />
+                      </button>
                     </div>
                   </div>
-                  <button 
-                    onClick={() => removeItem(item.id)}
-                    className="absolute top-3 sm:top-4 right-3 sm:right-4 p-2 sm:p-2.5 text-slate-400 bg-white border border-slate-200 shadow-sm hover:text-red-600 hover:bg-red-50 hover:border-red-200 rounded-xl transition-all"
-                    title="Remove item"
-                  >
-                    <Trash2 className="w-4 h-4 sm:w-4 sm:h-4" />
-                  </button>
                 </div>
-              ))}
-            </div>
-            <div className="mt-6 flex justify-end">
-               <Link href="/products" className="text-sm font-bold text-amber-500 hover:text-amber-600 transition-colors flex items-center gap-1">
-                 + Add more products
-               </Link>
-            </div>
+              );
+            })}
           </div>
-        )}
+
+          <div className="pt-2 flex justify-between items-center border-t border-slate-100">
+            <span className="text-xs text-slate-500">Total Units: <strong className="text-navy-900">{totalUnits} Pcs</strong></span>
+            <Link 
+              href="/products" 
+              className="text-xs font-bold text-amber-600 hover:text-amber-700 transition-colors inline-flex items-center gap-1"
+            >
+              <Plus className="w-3.5 h-3.5" /> Add more models
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Quick Process Roadmap */}
+      <div className="mt-3.5 pt-3 border-t border-slate-100 bg-slate-50/60 -mx-4 -mb-4 p-3.5 rounded-b-xl sm:rounded-b-2xl">
+        <div className="flex items-center gap-1 text-[11px] font-bold text-navy-900 mb-1">
+          <Sparkles className="w-3 h-3 text-amber-500" /> Fast Turnaround Guarantee
+        </div>
+        <ul className="text-[10px] sm:text-[11px] text-slate-500 space-y-0.5">
+          <li>• Technical fitment & cross-reference verification</li>
+          <li>• Itemized proforma with tiered container pricing</li>
+          <li>• Express samples via DHL/FedEx or ocean FCL booking</li>
+        </ul>
       </div>
+    </div>
+  );
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
-        {/* Left column: Form */}
-        <div className={`lg:col-span-2 ${isEmpty ? 'hidden lg:block' : 'block'}`}>
-          <form onSubmit={handleSubmit} className="bg-white p-5 sm:p-8 lg:p-10 rounded-none sm:rounded-[2rem] shadow-sm sm:shadow-xl shadow-slate-200/50 border-y sm:border border-slate-100 flex flex-col gap-5 sm:gap-6 h-fit relative -mx-4 sm:mx-0">
+  return (
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl -mt-4 sm:-mt-10 lg:-mt-16 relative z-20">
+      
+      {/* 2-Column Responsive RFQ Workspace (Mobile-compact & optimized) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-start">
+        
+        {/* LEFT COLUMN: Master Commercial RFQ Form (Desktop: 7-8 cols, Mobile: order-1) */}
+        <div className="lg:col-span-7 xl:col-span-8 order-1">
+          
+          {/* Mobile-Only: Selected Chambers Card appears FIRST before the Form */}
+          <div className="block lg:hidden mb-5">
+            {selectedChambersContent}
+          </div>
+
+          <div className="-mx-4 sm:mx-0 bg-white rounded-none sm:rounded-3xl shadow-[0_12px_36px_rgba(10,25,41,0.06)] border-y sm:border border-slate-200/90 overflow-hidden relative">
+            
+            {/* Top Signature Brand Accent Line (Clean Navy & Amber - No harsh green borders) */}
+            <div className="h-1.5 w-full bg-gradient-to-r from-navy-900 via-amber-500 to-navy-900" />
+
+            {/* Form Section Header Bar */}
+            <div className="p-4 sm:p-6 lg:p-8 bg-slate-50/70 border-b border-slate-200/80">
+              <div className="flex flex-wrap items-center justify-between gap-2.5 mb-2">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-bold uppercase tracking-wider">
+                  <FileText className="w-3.5 h-3.5 text-amber-600" />
+                  Official Factory RFQ
+                </div>
+
+                {/* Status Indicator Pill */}
+                <div className="flex items-center gap-2">
+                  {isFormActive ? (
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-semibold shadow-2xs">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                      Form Active ({items.length} Model{items.length > 1 ? 's' : ''})
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-medium">
+                      <Lock className="w-3.5 h-3.5 text-slate-500" /> Form Inactive
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-navy-900 tracking-tight">
+                Commercial Quotation & Shipping Details
+              </h2>
+              <p className="text-slate-600 text-xs sm:text-sm mt-1 font-normal leading-relaxed">
+                Provide your fleet credentials and destination port below. Our sales engineering team will prepare an itemized proforma invoice with tiered container pricing.
+              </p>
+            </div>
+
+            {/* Success Overlay */}
             {isSuccess && (
-              <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-20 rounded-none sm:rounded-[2rem] flex flex-col items-center justify-center text-center p-8">
-                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-6 shadow-sm">
-                  <CheckCircle2 className="w-8 h-8" />
+              <div className="p-6 sm:p-12 text-center flex flex-col items-center justify-center">
+                <div className="w-14 h-14 sm:w-18 sm:h-18 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-5 shadow-xs border border-emerald-100">
+                  <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
                 </div>
-                <h3 className="text-2xl font-bold text-navy-900 mb-2">Quote Requested!</h3>
-                <p className="text-slate-500 mb-6 max-w-sm">Our sales team will get back to you shortly with pricing and availability.</p>
-                <Link href="/products" onClick={() => setIsSuccess(false)} className="bg-navy-900 hover:bg-navy-800 text-white font-bold px-6 py-3 rounded-xl transition-colors">
-                  Continue Browsing
-                </Link>
+                <span className="inline-block px-3 py-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold rounded-full uppercase tracking-wider mb-2.5">
+                  RFQ Dispatched Successfully
+                </span>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy-900 mb-2">Quotation Request Received</h3>
+                <p className="text-slate-600 text-xs sm:text-sm max-w-lg mb-6 leading-relaxed font-normal">
+                  Thank you! Our technical sales and export logistics desk in Zhuji will review your specifications, verify inventory and production lead times, and email your formal proforma quote within 24 hours.
+                </p>
+                
+                <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-4 sm:p-5 mb-6 max-w-md w-full text-left">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Need Immediate Expedited Assistance?</h4>
+                  <p className="text-xs text-slate-600 mb-3">For urgent cross-dock shipments or container bookings, message our export desk directly:</p>
+                  <a 
+                    href="https://wa.me/8613395856758" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100/70 border border-emerald-200 px-3 py-2 rounded-lg transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4 text-emerald-600" /> WhatsApp Engineering Desk: +86 13395856758
+                  </a>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <button 
+                    onClick={() => setIsSuccess(false)}
+                    className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-900 font-bold text-xs sm:text-sm transition-colors cursor-pointer"
+                  >
+                    Submit Another Quote
+                  </button>
+                  <Link 
+                    href="/products" 
+                    className="px-5 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold text-xs sm:text-sm transition-colors shadow-sm"
+                  >
+                    Browse Product Catalog
+                  </Link>
+                </div>
               </div>
             )}
-            
-            {/* If cart is empty, optionally show a small warning on the form */}
-            {isEmpty && (
-              <div className="absolute inset-0 bg-white/80 backdrop-blur-[2px] z-10 rounded-[2rem] flex items-center justify-center">
-                <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 max-w-sm text-center">
-                  <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle2 className="w-6 h-6" />
+
+            {!isSuccess && (
+              <form onSubmit={handleSubmit} noValidate className="p-4 sm:p-6 lg:p-8 flex flex-col gap-6 sm:gap-7 relative">
+                
+                {/* CALL TO ACTION STATE: If no products selected, display prominent CTA guiding user to catalog */}
+                {!isFormActive ? (
+                  <div className="p-4 sm:p-6 bg-amber-50/70 border border-amber-200/90 rounded-xl sm:rounded-2xl text-navy-950 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div className="flex items-start gap-3.5">
+                      <div className="w-10 h-10 rounded-xl bg-amber-400 text-navy-950 flex items-center justify-center shrink-0 shadow-2xs">
+                        <ShoppingCart className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-800 mb-0.5">
+                          <Lock className="w-3 h-3" /> Product Selection Required
+                        </div>
+                        <h3 className="font-extrabold text-sm sm:text-base text-navy-900 leading-snug">
+                          Select a Brake Chamber from Our Catalog to Activate This Form
+                        </h3>
+                        <p className="text-xs text-slate-600 mt-1 max-w-xl font-normal leading-relaxed">
+                          Wholesale quotes are custom-tailored to specific chamber stroke sizes, port threads, and order volumes. Please choose your product from our catalog to unlock this RFQ form.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto shrink-0">
+                      <Link
+                        href="/products"
+                        className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-navy-900 hover:bg-navy-800 text-white font-extrabold rounded-xl text-xs sm:text-sm shadow-sm transition-all group"
+                      >
+                        <span>Browse Catalog</span>
+                        <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                      <Link
+                        href="/oem-cross-reference"
+                        className="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 bg-white hover:bg-slate-100 text-navy-900 font-bold border border-slate-200 rounded-xl text-xs sm:text-sm transition-colors"
+                      >
+                        <Search className="w-3.5 h-3.5 text-slate-500" />
+                        <span>OEM Cross-Ref</span>
+                      </Link>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-bold text-navy-900 mb-2">Select Products First</h3>
-                  <p className="text-sm text-slate-500 mb-4">Please add items to your quote list before submitting your request.</p>
+                ) : (
+                  /* Clean, understated active banner without harsh green borders */
+                  <div className="p-3.5 sm:p-4 bg-slate-50 border border-slate-200/90 rounded-xl sm:rounded-2xl flex items-center justify-between gap-3 text-navy-900">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0" />
+                      <div className="text-xs sm:text-sm truncate">
+                        <strong className="text-navy-900">RFQ Form Active:</strong>{' '}
+                        <span className="text-slate-600 font-normal">{items.length} chamber model{items.length > 1 ? 's' : ''} attached ({totalUnits} pcs total).</span>
+                      </div>
+                    </div>
+                    <span className="hidden sm:inline-flex text-[11px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200/60 shrink-0">
+                      Proforma Ready
+                    </span>
+                  </div>
+                )}
+
+                {/* Server Error Alert */}
+                {serverError && (
+                  <div className="p-3.5 bg-rose-50/70 border border-rose-200 text-rose-800 rounded-xl text-xs sm:text-sm flex items-start gap-2.5">
+                    <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                    <span>{serverError}</span>
+                  </div>
+                )}
+
+                {/* SECTION 01: Buyer & Fleet Information */}
+                <div>
+                  <div className="flex items-center gap-2 pb-2.5 mb-3.5 border-b border-slate-100">
+                    <span className="w-6 h-6 rounded-md bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
+                      01
+                    </span>
+                    <div>
+                      <h3 className="text-sm sm:text-base font-bold text-navy-900">Buyer & Company Profile</h3>
+                      <p className="text-[11px] sm:text-xs text-slate-500 font-normal">Where should we deliver the official quotation?</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5">
+                    {/* Full Name */}
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                        Full Name <span className="text-amber-500 font-bold">*</span>
+                      </label>
+                      <div className="relative">
+                        <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur('name')}
+                          placeholder="John Doe"
+                          required
+                          disabled={!isFormActive || isSubmitting}
+                          className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            errors.name
+                              ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                              : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                          }`}
+                        />
+                      </div>
+                      {errors.name && (
+                        <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.name}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Business Email */}
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                        Business Email <span className="text-amber-500 font-bold">*</span>
+                      </label>
+                      <div className="relative">
+                        <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur('email')}
+                          placeholder="john@company.com"
+                          required
+                          disabled={!isFormActive || isSubmitting}
+                          className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            errors.email
+                              ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                              : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                          }`}
+                        />
+                      </div>
+                      {errors.email && (
+                        <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.email}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Company Name */}
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                        Company / Fleet Name <span className="text-amber-500 font-bold">*</span>
+                      </label>
+                      <div className="relative">
+                        <Building className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <input
+                          type="text"
+                          name="companyName"
+                          value={formData.companyName}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur('companyName')}
+                          placeholder="Global Trucking Logistics"
+                          required
+                          disabled={!isFormActive || isSubmitting}
+                          className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            errors.companyName
+                              ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                              : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                          }`}
+                        />
+                      </div>
+                      {errors.companyName && (
+                        <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.companyName}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Country */}
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                        Country <span className="text-amber-500 font-bold">*</span>
+                      </label>
+                      <div className="relative">
+                        <Globe className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <input
+                          type="text"
+                          name="destination"
+                          value={formData.destination}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur('destination')}
+                          placeholder="United States"
+                          required
+                          disabled={!isFormActive || isSubmitting}
+                          className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            errors.destination
+                              ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                              : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                          }`}
+                        />
+                      </div>
+                      {errors.destination && (
+                        <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.destination}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Phone / WhatsApp */}
+                    <div className="sm:col-span-2">
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                        Direct Phone / WhatsApp <span className="text-slate-400 text-xs font-normal">(Recommended)</span>
+                      </label>
+                      <div className="relative">
+                        <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur('phone')}
+                          placeholder="+1 (555) 019-2834"
+                          disabled={!isFormActive || isSubmitting}
+                          className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            errors.phone
+                              ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                              : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                          }`}
+                        />
+                      </div>
+                      {errors.phone && (
+                        <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.phone}
+                        </p>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
+
+                {/* SECTION 02: Shipping & Commercial Logistics */}
+                <div>
+                  <div className="flex items-center gap-2 pb-2.5 mb-3.5 border-b border-slate-100">
+                    <span className="w-6 h-6 rounded-md bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
+                      02
+                    </span>
+                    <div>
+                      <h3 className="text-sm sm:text-base font-bold text-navy-900">Commercial & Delivery Terms</h3>
+                      <p className="text-[11px] sm:text-xs text-slate-500 font-normal">Specify shipment scale and trade terms</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5">
+                    {/* Volume */}
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">Estimated Order Volume</label>
+                      <div className="relative">
+                        <Package className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <select
+                          name="volume"
+                          value={formData.volume}
+                          onChange={handleChange}
+                          disabled={!isFormActive || isSubmitting}
+                          className="w-full pl-10 pr-8 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium focus:outline-none transition-all appearance-none shadow-2xs bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
+                        >
+                          <option value="LCL (Less than Container Load - Pallet)">LCL (Less than Container Load - Pallet)</option>
+                          <option value="20ft Container (FCL - Approx. 2,200 pcs)">20ft Container (FCL - Approx. 2,200 pcs)</option>
+                          <option value="40ft Container (FCL - Approx. 4,500 pcs)">40ft Container (FCL - Approx. 4,500 pcs)</option>
+                          <option value="Sample Order for Quality Testing">Sample Order for Testing & Verification</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Incoterms */}
+                    <div>
+                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">Preferred Incoterms / Trade Term</label>
+                      <div className="relative">
+                        <Truck className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <select
+                          name="incoterms"
+                          value={formData.incoterms}
+                          onChange={handleChange}
+                          disabled={!isFormActive || isSubmitting}
+                          className="w-full pl-10 pr-8 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium focus:outline-none transition-all appearance-none shadow-2xs bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
+                        >
+                          <option value="FOB (Free on Board - Ningbo / Shanghai)">FOB (Free on Board - Ningbo / Shanghai)</option>
+                          <option value="CIF (Cost, Insurance & Freight to Your Port)">CIF (Cost, Insurance & Freight to Your Port)</option>
+                          <option value="EXW (Ex Works Factory Floor - Zhuji)">EXW (Ex Works Factory Floor - Zhuji)</option>
+                          <option value="DDP (Delivered Duty Paid to Warehouse)">DDP (Delivered Duty Paid)</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* SECTION 03: Technical Specifications & Notes */}
+                <div>
+                  <div className="flex items-center gap-2 pb-2.5 mb-3.5 border-b border-slate-100">
+                    <span className="w-6 h-6 rounded-md bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
+                      03
+                    </span>
+                    <div>
+                      <h3 className="text-sm sm:text-base font-bold text-navy-900">
+                        Technical Specifications & Private Labeling <span className="text-slate-400 text-xs font-normal">(Optional)</span>
+                      </h3>
+                      <p className="text-[11px] sm:text-xs text-slate-500 font-normal">Pushrod lengths, port threads, branding, or custom requirements</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <textarea
+                      name="notes"
+                      rows={3}
+                      value={formData.notes}
+                      onChange={handleChange}
+                      placeholder="Custom pushrod lengths, port threads, laser stamping, or branding requirements..."
+                      disabled={!isFormActive || isSubmitting}
+                      className="w-full p-3.5 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none resize-none bg-white border border-slate-200 text-navy-900 placeholder:text-slate-400 placeholder:font-normal focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed"
+                    />
+                  </div>
+                </div>
+
+                {/* Submit Action & Guarantee */}
+                <div className="pt-1">
+                  <button
+                    type="submit"
+                    disabled={!isFormActive || isSubmitting}
+                    className={`w-full font-extrabold text-sm sm:text-base py-3.5 sm:py-4 rounded-xl transition-all flex items-center justify-center gap-2 group ${
+                      !isFormActive
+                        ? 'bg-slate-200 text-slate-500 cursor-not-allowed border border-slate-300 shadow-none'
+                        : isSubmitting
+                        ? 'bg-slate-400 text-white cursor-wait shadow-none'
+                        : 'bg-navy-900 hover:bg-navy-800 text-white shadow-md hover:shadow-lg shadow-navy-900/15 cursor-pointer'
+                    }`}
+                  >
+                    {!isFormActive ? (
+                      <span className="flex items-center gap-2 text-slate-600 font-bold">
+                        <Lock className="w-4 h-4 text-slate-500" />
+                        Select Product from Catalog to Activate RFQ Form
+                      </span>
+                    ) : isSubmitting ? (
+                      <span className="flex items-center gap-2">
+                        <span>Generating Official RFQ...</span>
+                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-2">
+                        Submit RFQ for Factory Direct Pricing 
+                        <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    )}
+                  </button>
+
+                  {/* Trust markers under CTA */}
+                  <div className="mt-3.5 flex flex-wrap items-center justify-center gap-y-1.5 gap-x-5 text-[11px] sm:text-xs text-slate-500">
+                    <span className="flex items-center gap-1">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                      Direct Manufacturer Pricing
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-amber-500" />
+                      IATF 16949 Certified
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5 text-navy-600" />
+                      Proforma Delivered &lt; 24h
+                    </span>
+                  </div>
+                </div>
+
+              </form>
             )}
 
-            <h2 className="text-lg sm:text-xl font-bold text-navy-900 border-b border-slate-100 pb-3">Contact Information</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Full Name *</label>
-                <div className="relative">
-                  <User className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                  <input type="text" name="name" className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 rounded-xl text-navy-900 px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all placeholder:text-slate-400" placeholder="John Doe" required disabled={isEmpty || isSubmitting} />
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Company Name *</label>
-                <div className="relative">
-                  <Building className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                  <input type="text" name="companyName" className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 rounded-xl text-navy-900 px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all placeholder:text-slate-400" placeholder="Acme Fleet Parts" required disabled={isEmpty || isSubmitting} />
-                </div>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 gap-4 sm:gap-6">
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Business Email *</label>
-                <div className="relative">
-                  <Mail className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                  <input type="email" name="email" className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 rounded-xl text-navy-900 px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all placeholder:text-slate-400" placeholder="purchasing@acmeparts.com" required disabled={isEmpty || isSubmitting} />
-                </div>
-              </div>
-            </div>
-
-            <h2 className="text-lg sm:text-xl font-bold text-navy-900 border-b border-slate-100 pb-3 mt-4">Order Requirements</h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Estimated Volume</label>
-                <div className="relative">
-                  <Package className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
-                  <select name="volume" className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 rounded-xl text-navy-900 px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all cursor-pointer placeholder:text-slate-400 appearance-none" disabled={isEmpty || isSubmitting}>
-                    <option>LCL (Less than Container Load)</option>
-                    <option>20ft Container (FCL)</option>
-                    <option>40ft Container (FCL)</option>
-                    <option>Pallet Quantities (LTL)</option>
-                  </select>
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Destination Country / Port</label>
-                <div className="relative">
-                  <Globe className="w-5 h-5 text-slate-400 absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2" />
-                  <input type="text" name="destination" className="w-full pl-11 sm:pl-12 bg-white border-2 border-slate-200 rounded-xl text-navy-900 px-3 sm:px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all placeholder:text-slate-400" placeholder="e.g. Los Angeles, USA" disabled={isEmpty || isSubmitting} />
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Product Specifications & Customization</label>
-              <textarea name="notes" rows={5} className="w-full bg-white border-2 border-slate-200 rounded-xl text-navy-900 px-4 py-3 sm:py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all placeholder:text-slate-400 resize-none" placeholder={isEmpty ? "" : `Additional notes for items in quote...`} required disabled={isEmpty || isSubmitting}></textarea>
-            </div>
-            
-            <button type="submit" className="w-full bg-navy-900 hover:bg-navy-800 text-white font-extrabold text-base sm:text-lg py-3.5 sm:py-4 rounded-xl shadow-lg hover:shadow-xl shadow-navy-900/20 transition-all flex items-center justify-center gap-2 group mt-2 disabled:opacity-50 disabled:cursor-not-allowed" disabled={isEmpty || isSubmitting}>
-              {isSubmitting ? 'Sending Request...' : 'Request Factory Pricing'} <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </form>
+          </div>
         </div>
 
-        {/* Right column: Value Props */}
-        <div className="flex flex-col gap-4 sm:gap-6">
-           <div className="bg-gradient-to-b from-navy-800 to-navy-900 text-white rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 shadow-sm sm:shadow-xl relative overflow-hidden border border-navy-700 shadow-navy-900/10 group flex flex-col transform hover:-translate-y-2 transition-all duration-500 hover:border-amber-500/50">
-             {/* Glow effect on hover */}
-             <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
-             
-             {/* Corner Element */}
-             <div className="absolute top-0 right-0 w-32 h-32 bg-navy-700/40 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none"></div>
+        {/* RIGHT COLUMN: Dedicated Quote Cart & Manufacturing Assurance (Desktop: 4-5 cols, Mobile: order-2) */}
+        <div className="lg:col-span-5 xl:col-span-4 order-2 space-y-5 lg:sticky lg:top-24">
+          
+          {/* Desktop-Only: Selected Chambers Card in sticky sidebar */}
+          <div className="hidden lg:block">
+            {selectedChambersContent}
+          </div>
 
-             <div className="relative z-10 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-inner border border-navy-700 group-hover:border-amber-500/50 transition-colors">
-               <Truck className="w-6 h-6 sm:w-7 sm:h-7 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
-             </div>
-             
-             <h3 className="text-lg sm:text-xl font-extrabold text-white mb-3 relative z-10 group-hover:text-amber-400 transition-colors">Private Labeling</h3>
-             <p className="text-navy-300 text-[14px] md:text-[15px] leading-[1.6] font-normal relative z-10">
-               Build your own brand. We offer custom stamping, branded boxes, and custom paint colors for full container orders.
-             </p>
-           </div>
+          {/* Card 2: Factory Credentials & WhatsApp Desk (Contained rounded card) */}
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg shadow-navy-950/15 relative overflow-hidden border border-navy-700">
+            <div className="absolute top-0 right-0 w-28 h-28 bg-amber-500/10 rounded-bl-full pointer-events-none" />
+            
+            <div className="flex items-center gap-2 mb-2">
+              <ShieldCheck className="w-4 h-4 text-amber-400" />
+              <h3 className="text-sm sm:text-base font-extrabold text-white">Direct Manufacturer Advantages</h3>
+            </div>
 
-           <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-[2rem] p-6 sm:p-8 shadow-sm hover:shadow-xl shadow-slate-200/50 group flex flex-col relative overflow-hidden transform hover:-translate-y-2 transition-all duration-500 hover:border-amber-500/30">
-             {/* Glow effect on hover */}
-             <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
-             
-             {/* Corner Element */}
-             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50/50 rounded-bl-full -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-110 z-0 pointer-events-none"></div>
+            <p className="text-navy-200 text-xs leading-relaxed font-normal mb-3">
+              Direct factory pricing with zero intermediary commissions from our IATF 16949 certified facility in Zhuji, China.
+            </p>
 
-             <div className="relative z-10 w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm border border-slate-100 group-hover:border-amber-200 group-hover:bg-amber-50/50 transition-colors">
-               <Globe className="w-6 h-6 sm:w-7 sm:h-7 text-amber-500 group-hover:scale-110 transition-transform duration-300" />
-             </div>
-             
-             <h3 className="text-lg sm:text-xl font-extrabold text-navy-900 mb-3 relative z-10 group-hover:text-amber-600 transition-colors">Global Logistics</h3>
-             <p className="text-slate-600 text-[14px] md:text-[15px] leading-[1.6] mb-6 relative z-10 font-normal">
-               Our export team handles everything from EXW factory floor to CIF at your destination port.
-             </p>
-             <ul className="text-[14px] md:text-[15px] leading-[1.6] text-slate-500 space-y-3 relative z-10 font-normal">
-               <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0" /> Manufactured to IATF 16949 standards</li>
-               <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0" /> Bilingual Support (English & Chinese)</li>
-               <li className="flex items-center gap-3"><CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0" /> Fast Turnaround</li>
-             </ul>
-           </div>
+            <div className="space-y-2 pt-2.5 border-t border-navy-700/80 mb-4 text-xs">
+              <div className="flex items-start gap-2">
+                <Truck className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                <span className="text-navy-300">Custom laser stamping, bespoke packaging & private label.</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Globe className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                <span className="text-navy-300">EXW, FOB Ningbo/Shanghai, CIF, and DDP to warehouse.</span>
+              </div>
+            </div>
+
+            {/* Direct WhatsApp link */}
+            <a 
+              href="https://wa.me/8613395856758" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold py-2.5 px-3.5 rounded-xl transition-all shadow-sm"
+            >
+              <MessageCircle className="w-3.5 h-3.5" /> WhatsApp Desk: +86 13395856758
+            </a>
+          </div>
+
         </div>
 
       </div>
     </div>
   );
 }
-

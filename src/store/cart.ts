@@ -2,16 +2,18 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { BrakeChamber, BrakeAccessory } from '../types';
 
+export type CartProductCategory = 'spring-brake-chambers' | 'service-brake-chambers' | 'air-disc-brake-actuators' | 'parts-and-kits' | string;
+
 export interface CartItem {
   id: string;
-  type: 'spring-brake-chambers' | 'service-brake-chambers' | 'parts-and-kits';
+  type: CartProductCategory;
   product: BrakeChamber | BrakeAccessory;
   quantity: number;
 }
 
 interface CartState {
   items: CartItem[];
-  addItem: (product: BrakeChamber | BrakeAccessory, type: 'spring-brake-chambers' | 'service-brake-chambers' | 'parts-and-kits', quantity?: number) => void;
+  addItem: (product: BrakeChamber | BrakeAccessory, type: CartProductCategory, quantity?: number) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;

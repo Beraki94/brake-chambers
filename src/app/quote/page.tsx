@@ -32,11 +32,11 @@ export default function QuotePage() {
   return (
     <div className="bg-[#F8FAFC] pb-16 md:pb-24 overflow-x-clip">
       <PageHeader
-      badge="Wholesale Pricing"
+        badge="Wholesale Pricing"
         badgeIcon={Calculator}
-      title="Request a Brake Chamber Quote: Factory-Direct Wholesale Pricing"
-      description="Get factory-direct pricing on BRC brake chambers for your fleet or distribution business. Container pricing, sample orders, and private-label options available. Response within 24 hours."
-      imageSrc="/images/pageheaders/brc_quote.jpg"
+        title="Request a Brake Chamber Quote: Factory-Direct Wholesale Pricing"
+        description="Get factory-direct pricing on BRC brake chambers for your fleet or distribution business. Container pricing, sample orders, and private-label options available. Response within 24 hours."
+        imageSrc="/images/pageheaders/brc_quote.jpg"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Quote' }
