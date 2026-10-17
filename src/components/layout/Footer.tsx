@@ -137,7 +137,7 @@ export default function Footer() {
                 <Link href={`/technical-resources`} className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">Technical Resources</Link>
                 <Link href={`/warranty`} className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">Warranty</Link>
                 <Link href={`/contact`} className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">Contact</Link>
-                <Link href={`/contact`} className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">Request a Quote</Link>
+                <Link href={`/quote`} className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">Request a Quote</Link>
                 <Link href={`/distributors`} className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">Distributors</Link>
               </li>
               <li className="flex items-start gap-3 mt-4">

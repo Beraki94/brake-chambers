@@ -276,7 +276,7 @@ export default function OEMCrossReferenceClient() {
               <SectionHeader
                 badge="Engineering Support"
                 title="Need a Custom Brake Chamber Cross-Reference?"
-                description={<>If you have a specialized, discontinued, or legacy OEM part number not found in our database, our engineering team will reverse-engineer the match and return a certified BRC equivalent within 24 hours. Every crossover is backed by our factory dimensional verification protocol.</>}
+                description={<>If you have a specialized, discontinued, or legacy OEM part number not found in our database, our engineering team will reverse-engineer the match and return a verified BRC equivalent within 24 hours. Every crossover is backed by our factory dimensional verification protocol.</>}
                 align="left"
                 theme="dark"
                 accentColor="amber"

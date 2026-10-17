@@ -39,7 +39,7 @@ export default function ShippingClient() {
             { icon: Globe2, value: "Zhejiang, China", label: "Manufactured In" },
             { icon: Anchor, value: "Ningbo & Shanghai", label: "Export Ports" },
             { icon: Ship, value: "30+ Countries", label: "Global Reach" },
-            { icon: ShieldCheck, value: "ISPM-15", label: "Certified Pallets" }
+            { icon: ShieldCheck, value: "ISPM-15", label: "Compliant Pallets" }
           ].map((stat, idx) => (
             <motion.div key={idx} variants={scaleIn}>
               <Card padding="md" className="bg-white border-slate-100 shadow-xl shadow-navy-900/5 text-center h-full group hover:border-amber-200 transition-colors">

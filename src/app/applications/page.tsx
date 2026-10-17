@@ -10,7 +10,7 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getPageSeo('/applications');
   const title = seo?.title || 'Brake Chambers by Application | Trucks, Trailers, Transit & Off-Highway | BRC';
-  const description = seo?.description || 'Find the right BRC brake chamber for your vehicle or industry. Trucks, trailers, transit buses, refuse, mining, and off-highway applications. IATF 16949 certified.';
+  const description = seo?.description || 'Find the right BRC brake chamber for your vehicle or industry. Trucks, trailers, transit buses, refuse, mining, and off-highway applications. Manufactured to IATF 16949 standards.';
 
   return {
     title,

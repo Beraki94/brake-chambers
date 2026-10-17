@@ -310,7 +310,7 @@ export default function CompanyClient() {
         </div>
       </section>
 
-      {/* SECTION 6: CERTIFICATIONS & COMPLIANCE */}
+      {/* SECTION 6: STANDARDS & COMPLIANCE */}
       <section className="py-16 md:py-24 bg-navy-950 relative overflow-hidden border-t border-navy-800">
         <div className="absolute inset-0 bg-[url('/images/brc_equipment_background.jpg')] bg-cover bg-center opacity-5 z-0"></div>
         <AnimatedGridBackground opacity={0.08} />
@@ -318,9 +318,9 @@ export default function CompanyClient() {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <SectionHeader
-            badge="Certifications & Compliance"
+            badge="Standards & Compliance"
             title="Manufacturing to Global Brake Chamber Standards"
-            description="BRC operates under certified quality management systems and produces brake chambers tested to FMVSS-121 (North America), ECE R13 (Europe), and ADR (Australia) standards."
+            description="BRC operates under IATF 16949-aligned quality management systems and produces brake chambers tested to FMVSS-121 (North America), ECE R13 (Europe), and ADR (Australia) standards."
             align="center"
             theme="dark"
             accentColor="amber"
@@ -330,7 +330,7 @@ export default function CompanyClient() {
           <div className="mt-12 mb-16">
             <div className="bg-navy-900/50 backdrop-blur-sm border border-navy-700/50 rounded-3xl p-6 sm:p-10 flex flex-wrap justify-center items-center gap-x-10 gap-y-6 shadow-xl">
               {[
-                "IATF 16949 Certified",
+                "Manufactured to IATF 16949 Standards",
                 "FMVSS-121 Compliant",
                 "ECE R13 Compliant",
                 "ADR Compliant",

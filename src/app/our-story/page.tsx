@@ -9,7 +9,7 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getPageSeo('/our-story');
   const title = seo?.title || 'About BRC Brake Chambers | Chinese OEM-Quality Brake Chamber Manufacturer';
-  const description = seo?.description || 'BRC Brake Chambers is a Zhejiang-based manufacturer of OEM-quality aftermarket brake chambers. Serving distributors in North America, Australia, Europe & the Middle East. IATF 16949 certified.';
+  const description = seo?.description || 'BRC Brake Chambers is a Zhejiang-based manufacturer of OEM-quality aftermarket brake chambers. Serving distributors in North America, Australia, Europe & the Middle East. Manufactured to IATF 16949 standards.';
 
   return {
     title,

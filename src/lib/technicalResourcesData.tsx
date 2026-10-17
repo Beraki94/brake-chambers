@@ -354,7 +354,7 @@ export const TECHNICAL_RESOURCES_DATA: Record<string, any> = {
           },
           {
             title: "Retrieve the Caging Tool",
-            desc: "Remove the caging bolt, nut, and washer from the carrying pocket on the side of the chamber housing. If the bolt is missing, use a certified replacement - never use a standard hardware store bolt."
+            desc: "Remove the caging bolt, nut, and washer from the carrying pocket on the side of the chamber housing. If the bolt is missing, use an OEM-grade replacement - never use a standard hardware store bolt."
           },
           {
             title: "Remove the Dust Plug",
@@ -376,7 +376,7 @@ export const TECHNICAL_RESOURCES_DATA: Record<string, any> = {
         bullets: [
           "Bolt Will Not Turn: If the bolt binds while tightening, the internal spring may be broken and wedged. Stop immediately. Do not force it.",
           "Impact Wrench Damage: Using an impact gun to tighten the caging nut frequently strips the internal aluminum pressure plate, rendering the chamber dangerous and useless. Always use hand tools.",
-          "Missing Caging Bolt: If the side-pocket bolt is missing, do not improvise with hardware store substitutes. Borrow a certified caging bolt from an adjacent chamber."
+          "Missing Caging Bolt: If the side-pocket bolt is missing, do not improvise with hardware store substitutes. Borrow an OEM-spec caging bolt from an adjacent chamber."
         ]
       },
       {

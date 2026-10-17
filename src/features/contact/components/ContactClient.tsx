@@ -240,12 +240,12 @@ export default function ContactClient() {
                     <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 mb-2">Need Immediate Engineering Assistance?</h4>
                     <p className="text-sm text-slate-600 mb-3.5">For urgent cross-dock shipments or container bookings, message our export desk directly:</p>
                     <a 
-                      href="https://wa.me/8613395856758" 
+                      href="https://wa.me/85253629718" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2.5 text-sm font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100/70 border border-emerald-200 px-4 py-2.5 rounded-xl transition-colors"
                     >
-                      <MessageCircle className="w-5 h-5 text-emerald-600" /> WhatsApp Engineering Desk: +86 13395856758
+                      <MessageCircle className="w-5 h-5 text-emerald-600" /> WhatsApp Engineering Desk: +852 53629718
                     </a>
                   </div>
 
@@ -496,9 +496,9 @@ export default function ContactClient() {
                     </button>
 
                     {/* Trust markers under CTA */}
-                    <div className="mt-3.5 flex items-center justify-center gap-1.5 text-xs sm:text-sm text-slate-500 font-medium text-center">
+                    <div className="mt-4 flex items-center justify-center gap-2 text-xs sm:text-sm text-slate-500 font-medium text-center">
                       <ShieldCheck className="w-4.5 h-4.5 text-emerald-600 shrink-0" />
-                      <span>Direct Factory Pricing • IATF 16949 Certified • 24h Response</span>
+                      <span>Direct Factory Pricing • Manufactured to IATF 16949 Standards • 24h Response</span>
                     </div>
                   </div>
                 </form>
@@ -513,7 +513,7 @@ export default function ContactClient() {
             <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 shadow-[0_12px_36px_rgba(10,25,41,0.06)] border border-slate-200/90 relative overflow-hidden">
               <div className="flex items-center gap-2.5 pb-4 mb-5 border-b border-slate-100">
                 <PhoneCall className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500" />
-                <h3 className="font-extrabold text-navy-900 text-base sm:text-lg">Direct Factory Channels</h3>
+                <h3 className="font-extrabold text-navy-900 text-lg sm:text-xl">Direct Factory Channels</h3>
               </div>
 
               <div className="space-y-4 text-sm sm:text-base">
@@ -524,7 +524,7 @@ export default function ContactClient() {
                   <div>
                     <h4 className="font-bold text-navy-900 text-sm sm:text-base">Production Facility & Export HQ</h4>
                     <p className="text-slate-600 text-xs sm:text-sm mt-0.5 leading-relaxed">
-                      Block 3, No 55 Tianyang Rd, Fengqiao, Zhuji, Zhejiang, China 311811
+                      Block 3, No 55 Tianyang Rd, Fengqiao, Zhuji, Zhejiang. China 311811
                     </p>
                   </div>
                 </div>
@@ -548,8 +548,11 @@ export default function ContactClient() {
                   <div>
                     <h4 className="font-bold text-navy-900 text-sm sm:text-base">Direct Phone & WhatsApp</h4>
                     <a href="tel:+8613395856758" className="text-navy-900 hover:text-amber-600 text-sm font-semibold block mt-0.5">
-                      +86 13395856758
+                      Factory direct line: +86 13395856758
                     </a>
+                    <span className="text-slate-500 text-xs sm:text-sm block mt-0.5">
+                      WhatsApp/Wechat: +852 53629718
+                    </span>
                   </div>
                 </div>
 
@@ -575,7 +578,7 @@ export default function ContactClient() {
                 <h3 className="font-extrabold text-white text-base sm:text-lg">Direct Manufacturer Advantages</h3>
               </div>
               <p className="text-navy-200 text-sm sm:text-base leading-relaxed font-normal mb-4">
-                Direct factory pricing with zero intermediary commissions from our IATF 16949 certified facility in Zhuji, China.
+                Direct factory pricing with zero intermediary commissions from our facility operating to IATF 16949 standards in Zhuji, China.
               </p>
 
               <div className="space-y-2.5 pt-3 border-t border-navy-700/80 mb-5 text-sm sm:text-base">
@@ -591,12 +594,12 @@ export default function ContactClient() {
 
               {/* Direct WhatsApp link */}
               <a 
-                href="https://wa.me/8613395856758" 
+                href="https://wa.me/85253629718" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm sm:text-base font-bold py-3.5 px-4 rounded-xl transition-all shadow-sm"
               >
-                <MessageCircle className="w-5 h-5" /> WhatsApp Desk: +86 13395856758
+                <MessageCircle className="w-5 h-5" /> WhatsApp Desk: +852 53629718
               </a>
             </div>
 

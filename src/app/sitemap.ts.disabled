@@ -43,10 +43,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // OEM Hub
     '/oem-cross-reference',
-    '/oem-cross-reference/bulk-inquiries',
     '/oem-cross-reference/database',
     '/oem-cross-reference/request',
-    '/oem-cross-reference/visual-guide',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -56,10 +54,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Spring Brakes Categories
   const springBrakeCategories = [
-    'commercial-trailer',
-    'heavy-duty-truck',
-    'oem-replacement',
-    'severe-duty',
+    '30-30-air-brake-chambers',
+    '24-30-24-24-spring-brakes',
+    '20-24-spring-brake-chambers',
+    'type-30-30-piggyback-kits',
+    '36-36-spring-brakes',
+    '30-28-spring-brakes',
   ].map((slug) => ({
     url: `${baseUrl}/spring-brake-chambers/${slug}`,
     lastModified: new Date(),
@@ -69,10 +69,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Service Chambers Categories
   const serviceChamberCategories = [
-    'drive-axle',
-    'steer-axle',
-    'trailer-axle',
-    'transit-bus',
+    'type-20-steer-axle-brake-chambers',
+    'type-30-service-chambers',
+    'type-12-16-24-service-chambers',
+    'welded-clevis-brake-chambers',
+    'type-36-service-chambers',
   ].map((slug) => ({
     url: `${baseUrl}/service-brake-chambers/${slug}`,
     lastModified: new Date(),
@@ -82,9 +83,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // ADB Categories
   const adbCategories = [
-    'high-temp-adb',
-    'trailer-adb',
-    'truck-adb',
+    'type-16-18-adb-actuators',
+    'type-20-24-air-disc-brake-actuator',
+    'type-24-24-adb-chambers',
+    'type-24-30-air-disc-brake-actuators',
   ].map((slug) => ({
     url: `${baseUrl}/air-disc-brake-actuators/${slug}`,
     lastModified: new Date(),
@@ -94,14 +96,35 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Chamber Parts Categories
   const partCategories = [
-    'mounting-hardware',
-    'repair-kits',
-    'replacement-rubber',
+    'air-brake-chamber-rebuild-kits',
+    'brake-chamber-diaphragms',
+    'clevis-pins-slack-adjuster-hardware',
+    'brake-chamber-caging-bolts-tools',
+    'brake-chamber-clamp-bands',
+    'automatic-manual-slack-adjusters',
   ].map((slug) => ({
     url: `${baseUrl}/parts-and-kits/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.9,
+  }));
+
+  // Applications
+  const applicationRoutes = [
+    'long-haul-semi-trucks',
+    'heavy-duty-trailer',
+    'medium-duty-trucks',
+    'garbage-refuse',
+    'mining-construction',
+    'ag-trailers',
+    'transit-buses',
+    'school-buses',
+    'shuttle-vans',
+  ].map((slug) => ({
+    url: `${baseUrl}/applications/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
   }));
 
   // OEM Brands
@@ -176,6 +199,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...partCategories,
     ...oemCrossReferenceHubs,
     ...technicalResources,
+    ...applicationRoutes,
     ...productRoutes,
     ...directProductRoutes,
     ...blogRoutes,

@@ -369,12 +369,12 @@ export default function QuoteClient() {
                   <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 mb-2">Need Immediate Expedited Assistance?</h4>
                   <p className="text-sm text-slate-600 mb-3.5">For urgent cross-dock shipments or container bookings, message our export desk directly:</p>
                   <a 
-                    href="https://wa.me/8613395856758" 
+                    href="https://wa.me/85253629718" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2.5 text-sm font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100/70 border border-emerald-200 px-4 py-2.5 rounded-xl transition-colors"
                   >
-                    <MessageCircle className="w-5 h-5 text-emerald-600" /> WhatsApp Engineering Desk: +86 13395856758
+                    <MessageCircle className="w-5 h-5 text-emerald-600" /> WhatsApp Engineering Desk: +852 53629718
                   </a>
                 </div>
 
@@ -711,9 +711,9 @@ export default function QuoteClient() {
                   </button>
 
                   {/* Trust markers under CTA */}
-                  <div className="mt-3.5 flex items-center justify-center gap-1.5 text-xs sm:text-sm text-slate-500 font-medium text-center">
+                  <div className="mt-4 flex items-center justify-center gap-2 text-xs sm:text-sm text-slate-500 font-medium text-center">
                     <ShieldCheck className="w-4.5 h-4.5 text-emerald-600 shrink-0" />
-                    <span>Direct Factory Pricing • IATF 16949 Certified • 24h Response</span>
+                    <span>Direct Factory Pricing • Manufactured to IATF 16949 Standards • 24h Response</span>
                   </div>
                 </div>
 
@@ -741,7 +741,7 @@ export default function QuoteClient() {
             </div>
 
             <p className="text-navy-200 text-sm sm:text-base leading-relaxed font-normal mb-4">
-              Direct factory pricing with zero intermediary commissions from our IATF 16949 certified facility in Zhuji, China.
+              Direct factory pricing with zero intermediary commissions from our facility operating to IATF 16949 standards in Zhuji, China.
             </p>
 
             <div className="space-y-2.5 pt-3 border-t border-navy-700/80 mb-5 text-sm sm:text-base">
@@ -757,12 +757,12 @@ export default function QuoteClient() {
 
             {/* Direct WhatsApp link */}
             <a 
-              href="https://wa.me/8613395856758" 
+              href="https://wa.me/85253629718" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm sm:text-base font-bold py-3.5 px-4 rounded-xl transition-all shadow-sm"
             >
-              <MessageCircle className="w-5 h-5" /> WhatsApp Desk: +86 13395856758
+              <MessageCircle className="w-5 h-5" /> WhatsApp Desk: +852 53629718
             </a>
           </div>
 

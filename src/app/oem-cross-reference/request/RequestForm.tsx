@@ -426,7 +426,7 @@ export default function RequestForm() {
           {/* Trust Markers */}
           <div className="mt-4 flex items-center justify-center gap-2 text-xs sm:text-sm text-slate-500 font-medium text-center">
             <ShieldCheck className="w-4.5 h-4.5 text-emerald-600 shrink-0" />
-            <span>Direct Factory Pricing • IATF 16949 Certified • 24h Response</span>
+            <span>Direct Factory Pricing • Manufactured to IATF 16949 Standards • 24h Response</span>
           </div>
         </div>
       </form>

@@ -35,7 +35,7 @@ export default function RequestMatchPage() {
           </div>
 
           {/* Sticky Sidebar Cards (Right) */}
-          <div className="lg:col-span-5 xl:col-span-4 order-2 space-y-5 lg:sticky lg:top-24">
+          <div className="lg:col-span-5 xl:col-span-4 order-2 space-y-6 lg:sticky lg:top-24">
             
             {/* Card 1: How Cross-Matching Works */}
             <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-[0_8px_24px_rgba(10,25,41,0.04)]">
@@ -93,7 +93,7 @@ export default function RequestMatchPage() {
                 </h3>
               </div>
               <p className="text-navy-200 text-sm sm:text-base leading-relaxed mb-4">
-                Work directly with Zhuji City's leading brake chamber manufacturing facility for dependable quality and reliability:
+                Work directly with Zhuji City's leading brake chamber manufacturing facility operating under IATF 16949 standards for dependable quality:
               </p>
               <ul className="space-y-3 text-sm sm:text-base text-slate-200 mb-6">
                 <li className="flex items-center gap-2.5">
@@ -106,7 +106,7 @@ export default function RequestMatchPage() {
                 </li>
                 <li className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
-                  <span>Manufactured to SAE J1469 Standards</span>
+                  <span>Manufactured to IATF 16949 & SAE J1469 Standards</span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
@@ -116,17 +116,14 @@ export default function RequestMatchPage() {
 
               <div className="pt-3 border-t border-navy-700/60">
                 <a
-                  href="https://wa.me/8613395856758"
+                  href="https://wa.me/85253629718"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2.5 w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3.5 sm:py-4 px-5 rounded-xl sm:rounded-2xl text-sm sm:text-base transition-colors shadow-lg shadow-emerald-900/30"
                 >
                   <MessageCircle className="w-5 h-5 shrink-0" />
-                  <span>Chat with an Engineer on WhatsApp</span>
+                  <span>Chat on WhatsApp (+852 53629718)</span>
                 </a>
-                <p className="text-xs text-navy-300 text-center mt-2.5">
-                  Direct factory sales & technical support.
-                </p>
               </div>
             </div>
 
