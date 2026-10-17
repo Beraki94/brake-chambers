@@ -377,17 +377,17 @@ export default function DistributorsClient() {
                       <X className="w-4 h-4" />
                     </button>
                     
-                    <div className="flex items-center gap-2 mb-2.5">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-800 text-xs font-bold uppercase tracking-wider">
-                        <Globe className="w-3.5 h-3.5 text-amber-600" />
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200/80 text-amber-800 text-xs sm:text-sm font-bold uppercase tracking-wider">
+                        <Globe className="w-4 h-4 text-amber-600" />
                         Distributor Program
                       </span>
                     </div>
 
-                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy-900 tracking-tight leading-tight">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy-900 tracking-tight leading-tight">
                       Become an Authorized BRC Distributor
                     </h2>
-                    <p className="text-slate-600 text-xs sm:text-sm mt-1.5 max-w-2xl font-normal leading-relaxed">
+                    <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl font-normal leading-relaxed">
                       Join our international distribution network. Gain direct factory pricing, territory protection, priority manufacturing, and dedicated engineering support.
                     </p>
                   </div>
@@ -421,19 +421,19 @@ export default function DistributorsClient() {
 
                         {/* Section 01: Contact & Corporate Profile */}
                         <div>
-                          <div className="flex items-center gap-3 pb-2.5 mb-4 border-b border-slate-100">
-                            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
+                          <div className="flex items-center gap-3 pb-3 mb-5 border-b border-slate-100">
+                            <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-bold text-sm sm:text-base flex items-center justify-center shrink-0">
                               01
                             </span>
-                            <h3 className="text-base sm:text-lg font-bold text-navy-900">
+                            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-navy-900">
                               Contact & Corporate Profile
                             </h3>
                           </div>
 
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                             {/* Contact Name */}
                             <div>
-                              <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                              <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                                 Contact Name <span className="text-amber-500 font-bold">*</span>
                               </label>
                               <input
@@ -445,22 +445,22 @@ export default function DistributorsClient() {
                                 required
                                 disabled={isSubmitting}
                                 placeholder="John Doe"
-                                className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                                className={`w-full px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                                   errors.contactName
                                     ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                                     : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
                                 }`}
                               />
                               {errors.contactName && (
-                                <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
-                                  <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.contactName}
+                                <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                                  <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.contactName}
                                 </p>
                               )}
                             </div>
 
                             {/* Business Email */}
                             <div>
-                              <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                              <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                                 Business Email <span className="text-amber-500 font-bold">*</span>
                               </label>
                               <input
@@ -472,22 +472,22 @@ export default function DistributorsClient() {
                                 required
                                 disabled={isSubmitting}
                                 placeholder="john@company.com"
-                                className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                                className={`w-full px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                                   errors.email
                                     ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                                     : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
                                 }`}
                               />
                               {errors.email && (
-                                <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
-                                  <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.email}
+                                <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                                  <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.email}
                                 </p>
                               )}
                             </div>
 
                             {/* Company Name */}
                             <div>
-                              <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                              <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                                 Company Name <span className="text-amber-500 font-bold">*</span>
                               </label>
                               <input
@@ -499,21 +499,22 @@ export default function DistributorsClient() {
                                 required
                                 disabled={isSubmitting}
                                 placeholder="Global Trucking Logistics"
-                                className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                                className={`w-full px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                                   errors.company
                                     ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                                     : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
                                 }`}
                               />
                               {errors.company && (
-                                <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
-                                  <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.company}
+                                <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                                  <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.company}
                                 </p>
                               )}
                             </div>
+
                             {/* Country / Region */}
                             <div>
-                              <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                              <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                                 Country / Region <span className="text-amber-500 font-bold">*</span>
                               </label>
                               <select
@@ -523,7 +524,7 @@ export default function DistributorsClient() {
                                 onBlur={() => handleBlur('country')}
                                 required
                                 disabled={isSubmitting}
-                                className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-medium focus:outline-none transition-all shadow-2xs bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer ${
+                                className={`w-full px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base font-medium focus:outline-none transition-all shadow-2xs bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer ${
                                   errors.country ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400' : ''
                                 }`}
                               >
@@ -538,8 +539,8 @@ export default function DistributorsClient() {
                                 <option value="Africa">Africa</option>
                               </select>
                               {errors.country && (
-                                <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
-                                  <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.country}
+                                <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                                  <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.country}
                                 </p>
                               )}
                             </div>
@@ -548,19 +549,19 @@ export default function DistributorsClient() {
 
                         {/* Section 02: Commercial & Channel Operations */}
                         <div>
-                          <div className="flex items-center gap-3 pb-2.5 mb-4 border-b border-slate-100">
-                            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
+                          <div className="flex items-center gap-3 pb-3 mb-5 border-b border-slate-100">
+                            <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-bold text-sm sm:text-base flex items-center justify-center shrink-0">
                               02
                             </span>
-                            <h3 className="text-base sm:text-lg font-bold text-navy-900">
+                            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-navy-900">
                               Commercial & Channel Operations
                             </h3>
                           </div>
 
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                             {/* Phone Number */}
                             <div>
-                              <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                              <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                                 Direct Phone / WhatsApp <span className="text-amber-500 font-bold">*</span>
                               </label>
                               <input
@@ -572,22 +573,22 @@ export default function DistributorsClient() {
                                 required
                                 disabled={isSubmitting}
                                 placeholder="+1 (555) 019-2834"
-                                className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                                className={`w-full px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                                   errors.phone
                                     ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                                     : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
                                 }`}
                               />
                               {errors.phone && (
-                                <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
-                                  <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.phone}
+                                <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                                  <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.phone}
                                 </p>
                               )}
                             </div>
 
                             {/* Business Type */}
                             <div>
-                              <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                              <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                                 Primary Business Activity
                               </label>
                               <select
@@ -595,7 +596,7 @@ export default function DistributorsClient() {
                                 value={formData.businessType}
                                 onChange={handleChange}
                                 disabled={isSubmitting}
-                                className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 bg-white border border-slate-200 rounded-xl text-navy-900 text-sm sm:text-base font-medium focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 transition-all cursor-pointer shadow-2xs"
+                                className="w-full px-4 py-3 sm:py-3.5 bg-white border border-slate-200 rounded-xl sm:rounded-2xl text-navy-900 text-base font-medium focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 transition-all cursor-pointer shadow-2xs"
                               >
                                 <option value="Aftermarket Heavy-Duty Parts Wholesaler">Aftermarket Heavy-Duty Parts Wholesaler</option>
                                 <option value="Commercial Truck & Trailer Dealership">Commercial Truck & Trailer Dealership</option>
@@ -609,16 +610,16 @@ export default function DistributorsClient() {
 
                         {/* Section 03: Verification & Terms */}
                         <div>
-                          <div className="flex items-center gap-3 pb-2.5 mb-4 border-b border-slate-100">
-                            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
+                          <div className="flex items-center gap-3 pb-3 mb-5 border-b border-slate-100">
+                            <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-bold text-sm sm:text-base flex items-center justify-center shrink-0">
                               03
                             </span>
-                            <h3 className="text-base sm:text-lg font-bold text-navy-900">
+                            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-navy-900">
                               Verification & Terms
                             </h3>
                           </div>
 
-                          <div className={`flex items-start gap-3 p-3.5 sm:p-4 rounded-xl border transition-all ${
+                          <div className={`flex items-start gap-3.5 p-4 sm:p-5 rounded-xl sm:rounded-2xl border transition-all ${
                             errors.agreeTerms ? 'bg-rose-50/60 border-rose-300' : 'bg-slate-50/70 border-slate-200'
                           }`}>
                             <input
@@ -628,15 +629,15 @@ export default function DistributorsClient() {
                               checked={formData.agreeTerms}
                               onChange={handleChange}
                               disabled={isSubmitting}
-                              className="mt-0.5 w-4 h-4 text-amber-500 rounded border-slate-300 focus:ring-amber-500 cursor-pointer shrink-0"
+                              className="mt-1 w-4.5 h-4.5 text-amber-500 rounded border-slate-300 focus:ring-amber-500 cursor-pointer shrink-0"
                             />
-                            <label htmlFor="terms" className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal cursor-pointer">
+                            <label htmlFor="terms" className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal cursor-pointer">
                               I verify that I am an authorized corporate representative and agree to the BRC Distributor Terms & Conditions. <span className="text-amber-500 font-bold">*</span>
                             </label>
                           </div>
                           {errors.agreeTerms && (
-                            <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
-                              <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.agreeTerms}
+                            <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                              <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.agreeTerms}
                             </p>
                           )}
                         </div>
@@ -646,24 +647,24 @@ export default function DistributorsClient() {
                           <button
                             disabled={isSubmitting}
                             type="submit"
-                            className="w-full bg-amber-500 hover:bg-amber-400 disabled:bg-amber-300 disabled:cursor-not-allowed text-navy-950 font-black text-xs sm:text-sm py-3.5 sm:py-4 px-6 rounded-xl shadow-xl shadow-amber-500/20 hover:shadow-amber-500/30 transition-all flex items-center justify-center gap-2 uppercase tracking-wider transform hover:-translate-y-0.5 cursor-pointer"
+                            className="w-full bg-amber-500 hover:bg-amber-400 disabled:bg-amber-300 disabled:cursor-not-allowed text-navy-950 font-black text-sm sm:text-base py-4 sm:py-4.5 px-6 rounded-2xl shadow-xl shadow-amber-500/25 hover:shadow-amber-500/35 transition-all flex items-center justify-center gap-2.5 uppercase tracking-wider transform hover:-translate-y-0.5 cursor-pointer"
                           >
                             {isSubmitting ? (
                               <span className="flex items-center gap-2">
                                 PROCESSING APPLICATION...
-                                <div className="w-4 h-4 border-2 border-navy-950/30 border-t-navy-950 rounded-full animate-spin" />
+                                <div className="w-5 h-5 border-2 border-navy-950/30 border-t-navy-950 rounded-full animate-spin" />
                               </span>
                             ) : (
                               <span className="flex items-center gap-2">
                                 SUBMIT APPLICATION
-                                <ArrowRight className="w-4 h-4 shrink-0" />
+                                <ArrowRight className="w-5 h-5 shrink-0" />
                               </span>
                             )}
                           </button>
 
                           {/* Trust Markers */}
-                          <div className="mt-3 flex items-center justify-center gap-1.5 text-xs text-slate-500 font-medium text-center">
-                            <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                          <div className="mt-4 flex items-center justify-center gap-2 text-xs sm:text-sm text-slate-500 font-medium text-center">
+                            <ShieldCheck className="w-4.5 h-4.5 text-emerald-600 shrink-0" />
                             <span>Direct Factory Pricing • Territory Protection • Evaluation &lt; 48h</span>
                           </div>
                         </div>

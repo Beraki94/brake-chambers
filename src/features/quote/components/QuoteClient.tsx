@@ -336,17 +336,17 @@ export default function QuoteClient() {
 
             {/* Form Section Header Bar */}
             <div className="p-4 sm:p-6 lg:p-7 bg-slate-50/70 border-b border-slate-200/80">
-              <div className="flex items-center gap-2 mb-2.5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-800 text-xs font-bold uppercase tracking-wider">
-                  <FileText className="w-3.5 h-3.5 text-amber-600" />
+              <div className="flex items-center gap-2 mb-3">
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200/80 text-amber-800 text-xs sm:text-sm font-bold uppercase tracking-wider">
+                  <FileText className="w-4 h-4 text-amber-600" />
                   Official Factory RFQ
                 </span>
               </div>
 
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy-900 tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy-900 tracking-tight leading-tight">
                 Commercial Quotation & Shipping Details
               </h2>
-              <p className="text-slate-600 text-xs sm:text-sm mt-1.5 font-normal leading-relaxed">
+              <p className="text-slate-600 text-sm sm:text-base mt-2 font-normal leading-relaxed">
                 Provide your fleet credentials and destination port below. Our sales engineering team will prepare an itemized proforma invoice with tiered container pricing.
               </p>
             </div>
@@ -461,19 +461,19 @@ export default function QuoteClient() {
 
                 {/* SECTION 01: Buyer & Fleet Information */}
                 <div>
-                  <div className="flex items-center gap-3 pb-2.5 mb-4 border-b border-slate-100">
-                    <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-3 pb-3 mb-5 border-b border-slate-100">
+                    <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-bold text-sm sm:text-base flex items-center justify-center shrink-0">
                       01
                     </span>
-                    <h3 className="text-base sm:text-lg font-bold text-navy-900">
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-navy-900">
                       Buyer & Company Profile
                     </h3>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     {/* Full Name */}
                     <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                         Full Name <span className="text-amber-500 font-bold">*</span>
                       </label>
                       <input
@@ -485,22 +485,22 @@ export default function QuoteClient() {
                         placeholder="John Doe"
                         required
                         disabled={!isFormActive || isSubmitting}
-                        className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                        className={`w-full px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                           errors.name
                             ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                             : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
                         }`}
                       />
                       {errors.name && (
-                        <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.name}
+                        <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                          <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.name}
                         </p>
                       )}
                     </div>
 
                     {/* Business Email */}
                     <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                         Business Email <span className="text-amber-500 font-bold">*</span>
                       </label>
                       <input
@@ -512,22 +512,22 @@ export default function QuoteClient() {
                         placeholder="john@company.com"
                         required
                         disabled={!isFormActive || isSubmitting}
-                        className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                        className={`w-full px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                           errors.email
                             ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                             : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
                         }`}
                       />
                       {errors.email && (
-                        <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.email}
+                        <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                          <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.email}
                         </p>
                       )}
                     </div>
 
                     {/* Company Name */}
                     <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                         Company / Fleet Name <span className="text-amber-500 font-bold">*</span>
                       </label>
                       <input
@@ -539,22 +539,22 @@ export default function QuoteClient() {
                         placeholder="Global Trucking Logistics"
                         required
                         disabled={!isFormActive || isSubmitting}
-                        className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                        className={`w-full px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                           errors.companyName
                             ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                             : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
                         }`}
                       />
                       {errors.companyName && (
-                        <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.companyName}
+                        <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                          <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.companyName}
                         </p>
                       )}
                     </div>
 
                     {/* Country */}
                     <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                         Country <span className="text-amber-500 font-bold">*</span>
                       </label>
                       <input
@@ -566,22 +566,22 @@ export default function QuoteClient() {
                         placeholder="United States"
                         required
                         disabled={!isFormActive || isSubmitting}
-                        className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                        className={`w-full px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                           errors.destination
                             ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                             : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
                         }`}
                       />
                       {errors.destination && (
-                        <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.destination}
+                        <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                          <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.destination}
                         </p>
                       )}
                     </div>
 
                     {/* Phone / WhatsApp */}
                     <div className="sm:col-span-2">
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                         Direct Phone / WhatsApp <span className="text-slate-400 font-normal">(Optional)</span>
                       </label>
                       <input
@@ -592,15 +592,15 @@ export default function QuoteClient() {
                         onBlur={() => handleBlur('phone')}
                         placeholder="+1 (555) 019-2834"
                         disabled={!isFormActive || isSubmitting}
-                        className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                        className={`w-full px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                           errors.phone
                             ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                             : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
                         }`}
                       />
                       {errors.phone && (
-                        <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.phone}
+                        <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                          <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.phone}
                         </p>
                       )}
                     </div>
@@ -609,25 +609,25 @@ export default function QuoteClient() {
 
                 {/* SECTION 02: Shipping & Commercial Logistics */}
                 <div>
-                  <div className="flex items-center gap-3 pb-2.5 mb-4 border-b border-slate-100">
-                    <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-3 pb-3 mb-5 border-b border-slate-100">
+                    <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-bold text-sm sm:text-base flex items-center justify-center shrink-0">
                       02
                     </span>
-                    <h3 className="text-base sm:text-lg font-bold text-navy-900">
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-navy-900">
                       Commercial & Delivery Terms
                     </h3>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     {/* Volume */}
                     <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">Estimated Order Volume</label>
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">Estimated Order Volume</label>
                       <select
                         name="volume"
                         value={formData.volume}
                         onChange={handleChange}
                         disabled={!isFormActive || isSubmitting}
-                        className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium focus:outline-none transition-all shadow-2xs bg-white border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
+                        className="w-full px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium focus:outline-none transition-all shadow-2xs bg-white border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
                       >
                         <option value="LCL (Less than Container Load - Pallet)">LCL (Less than Container Load - Pallet)</option>
                         <option value="20ft Container (FCL - Approx. 2,200 pcs)">20ft Container (FCL - Approx. 2,200 pcs)</option>
@@ -638,13 +638,13 @@ export default function QuoteClient() {
 
                     {/* Incoterms */}
                     <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">Preferred Incoterms / Trade Term</label>
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">Preferred Incoterms / Trade Term</label>
                       <select
                         name="incoterms"
                         value={formData.incoterms}
                         onChange={handleChange}
                         disabled={!isFormActive || isSubmitting}
-                        className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium focus:outline-none transition-all shadow-2xs bg-white border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
+                        className="w-full px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium focus:outline-none transition-all shadow-2xs bg-white border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
                       >
                         <option value="FOB (Free on Board - Ningbo / Shanghai)">FOB (Free on Board - Ningbo / Shanghai)</option>
                         <option value="CIF (Cost, Insurance & Freight to Your Port)">CIF (Cost, Insurance & Freight to Your Port)</option>
@@ -657,12 +657,12 @@ export default function QuoteClient() {
 
                 {/* SECTION 03: Technical Specifications & Notes */}
                 <div>
-                  <div className="flex items-center gap-3 pb-2.5 mb-4 border-b border-slate-100">
-                    <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-3 pb-3 mb-5 border-b border-slate-100">
+                    <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-bold text-sm sm:text-base flex items-center justify-center shrink-0">
                       03
                     </span>
-                    <h3 className="text-base sm:text-lg font-bold text-navy-900">
-                      Technical Specifications & Private Labeling <span className="text-slate-400 text-xs sm:text-sm font-normal">(Optional)</span>
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-navy-900">
+                      Technical Specifications & Private Labeling <span className="text-slate-400 text-sm sm:text-base font-normal">(Optional)</span>
                     </h3>
                   </div>
 
@@ -674,7 +674,7 @@ export default function QuoteClient() {
                       onChange={handleChange}
                       placeholder="Custom pushrod lengths, port threads, laser stamping, or branding requirements..."
                       disabled={!isFormActive || isSubmitting}
-                      className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none resize-none bg-white border border-slate-200 placeholder:text-slate-400 placeholder:font-normal focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed"
+                      className="w-full p-4 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none resize-none bg-white border border-slate-200 placeholder:text-slate-400 placeholder:font-normal focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed"
                     />
                   </div>
                 </div>
@@ -684,35 +684,35 @@ export default function QuoteClient() {
                   <button
                     type="submit"
                     disabled={!isFormActive || isSubmitting}
-                    className={`w-full font-black text-xs sm:text-sm py-3.5 sm:py-4 px-6 rounded-xl transition-all flex items-center justify-center gap-2 uppercase tracking-wider ${
+                    className={`w-full font-black text-sm sm:text-base py-4 sm:py-4.5 px-6 rounded-2xl transition-all flex items-center justify-center gap-2.5 uppercase tracking-wider ${
                       !isFormActive
                         ? 'bg-slate-200 text-slate-500 cursor-not-allowed border border-slate-300 shadow-none'
                         : isSubmitting
                         ? 'bg-amber-300 text-navy-950 cursor-wait shadow-none'
-                        : 'bg-amber-500 hover:bg-amber-400 text-navy-950 shadow-xl shadow-amber-500/20 hover:shadow-amber-500/30 transform hover:-translate-y-0.5 cursor-pointer'
+                        : 'bg-amber-500 hover:bg-amber-400 text-navy-950 shadow-xl shadow-amber-500/25 hover:shadow-amber-500/35 transform hover:-translate-y-0.5 cursor-pointer'
                     }`}
                   >
                     {!isFormActive ? (
                       <span className="flex items-center gap-2 text-slate-600 font-bold">
-                        <Lock className="w-4 h-4 text-slate-500 shrink-0" />
+                        <Lock className="w-5 h-5 text-slate-500 shrink-0" />
                         SELECT PRODUCT FROM CATALOG FIRST
                       </span>
                     ) : isSubmitting ? (
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-2.5">
                         GENERATING RFQ...
-                        <div className="w-4 h-4 border-2 border-navy-950/30 border-t-navy-950 rounded-full animate-spin" />
+                        <div className="w-5 h-5 border-2 border-navy-950/30 border-t-navy-950 rounded-full animate-spin" />
                       </span>
                     ) : (
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-2.5">
                         REQUEST QUOTATION
-                        <ArrowRight className="w-4 h-4 shrink-0" />
+                        <ArrowRight className="w-5 h-5 shrink-0" />
                       </span>
                     )}
                   </button>
 
                   {/* Trust markers under CTA */}
-                  <div className="mt-3 flex items-center justify-center gap-1.5 text-xs text-slate-500 font-medium text-center">
-                    <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <div className="mt-3.5 flex items-center justify-center gap-1.5 text-xs sm:text-sm text-slate-500 font-medium text-center">
+                    <ShieldCheck className="w-4.5 h-4.5 text-emerald-600 shrink-0" />
                     <span>Direct Factory Pricing • IATF 16949 Certified • 24h Response</span>
                   </div>
                 </div>
