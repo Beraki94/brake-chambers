@@ -206,24 +206,24 @@ export default function ContactClient() {
               <div className="h-1.5 w-full bg-gradient-to-r from-navy-900 via-amber-500 to-navy-900" />
 
               {/* Form Section Header Bar */}
-              <div className="p-4 sm:p-6 lg:p-8 bg-slate-50/70 border-b border-slate-200/80">
-                <div className="flex flex-wrap items-center justify-between gap-2.5 mb-2">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-bold uppercase tracking-wider">
-                    <PhoneCall className="w-3.5 h-3.5 text-amber-600" />
+              <div className="p-5 sm:p-7 lg:p-8 bg-slate-50/70 border-b border-slate-200/80">
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-2.5">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs sm:text-sm font-bold uppercase tracking-wider">
+                    <PhoneCall className="w-4 h-4 text-amber-600" />
                     Direct Factory Desk
                   </div>
 
                   {/* Status Indicator Pill */}
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium">
-                    <Clock className="w-3.5 h-3.5 text-slate-500" />
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs sm:text-sm font-medium">
+                    <Clock className="w-4 h-4 text-slate-500" />
                     Factory Direct Desk
                   </span>
                 </div>
 
-                <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-navy-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy-900 tracking-tight">
                   Commercial Inquiries & Technical Support
                 </h2>
-                <p className="text-slate-600 text-xs sm:text-sm mt-1 font-normal leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base mt-1.5 font-normal leading-relaxed">
                   Connect with our factory sales and engineering team in Zhejiang, China for product specifications, custom configurations, sample requests, and container wholesale quotations.
                 </p>
               </div>
@@ -231,66 +231,66 @@ export default function ContactClient() {
               {/* Success State */}
               {submitted ? (
                 <div className="p-6 sm:p-12 text-center flex flex-col items-center justify-center">
-                  <div className="w-14 h-14 sm:w-18 sm:h-18 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-5 shadow-xs border border-emerald-100">
-                    <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-5 shadow-xs border border-emerald-100">
+                    <CheckCircle2 className="w-9 h-9 sm:w-11 sm:h-11" />
                   </div>
-                  <span className="inline-block px-3 py-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold rounded-full uppercase tracking-wider mb-2.5">
+                  <span className="inline-block px-3.5 py-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs sm:text-sm font-bold rounded-full uppercase tracking-wider mb-2.5">
                     Inquiry Dispatched Successfully
                   </span>
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy-900 mb-2">Thank You for Reaching Out</h3>
-                  <p className="text-slate-600 text-xs sm:text-sm max-w-lg mb-6 leading-relaxed font-normal">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-navy-900 mb-2">Thank You for Reaching Out</h3>
+                  <p className="text-slate-600 text-sm sm:text-base max-w-lg mb-6 leading-relaxed font-normal">
                     Our technical sales team will review your specifications, prepare any required part cross-matches, and email your formal reply within 24 business hours.
                   </p>
                   
-                  <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-4 sm:p-5 mb-6 max-w-md w-full text-left">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Need Immediate Engineering Assistance?</h4>
-                    <p className="text-xs text-slate-600 mb-3">For urgent cross-dock shipments or container bookings, message our export desk directly:</p>
+                  <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 sm:p-6 mb-6 max-w-md w-full text-left">
+                    <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 mb-2">Need Immediate Engineering Assistance?</h4>
+                    <p className="text-sm text-slate-600 mb-3.5">For urgent cross-dock shipments or container bookings, message our export desk directly:</p>
                     <a 
                       href="https://wa.me/8613395856758" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100/70 border border-emerald-200 px-3 py-2 rounded-lg transition-colors"
+                      className="inline-flex items-center gap-2.5 text-sm font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100/70 border border-emerald-200 px-4 py-2.5 rounded-xl transition-colors"
                     >
-                      <MessageCircle className="w-4 h-4 text-emerald-600" /> WhatsApp Engineering Desk: +86 13395856758
+                      <MessageCircle className="w-5 h-5 text-emerald-600" /> WhatsApp Engineering Desk: +86 13395856758
                     </a>
                   </div>
 
                   <button 
                     onClick={() => setSubmitted(false)}
-                    className="px-5 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold text-xs sm:text-sm transition-colors cursor-pointer shadow-sm"
+                    className="px-6 py-3 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold text-sm sm:text-base transition-colors cursor-pointer shadow-sm"
                   >
                     Submit Another Inquiry
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} noValidate className="p-4 sm:p-6 lg:p-8 flex flex-col gap-6 sm:gap-7 relative">
+                <form onSubmit={handleSubmit} noValidate className="p-5 sm:p-7 lg:p-8 flex flex-col gap-6 sm:gap-7 relative">
                   {serverError && (
-                    <div className="p-3.5 bg-rose-50/70 border border-rose-200 text-rose-800 rounded-xl text-xs sm:text-sm flex items-start gap-2.5">
-                      <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                    <div className="p-4 bg-rose-50/70 border border-rose-200 text-rose-800 rounded-xl text-sm sm:text-base flex items-start gap-3">
+                      <AlertCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
                       <span>{serverError}</span>
                     </div>
                   )}
 
                   {/* SECTION 01: Buyer & Company Profile */}
                   <div>
-                    <div className="flex items-center gap-2 pb-2.5 mb-3.5 border-b border-slate-100">
-                      <span className="w-6 h-6 rounded-md bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
+                    <div className="flex items-center gap-3 pb-3 mb-4 border-b border-slate-100">
+                      <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
                         01
                       </span>
                       <div>
-                        <h3 className="text-sm sm:text-base font-bold text-navy-900">Buyer & Company Profile</h3>
-                        <p className="text-[11px] sm:text-xs text-slate-500 font-normal">Where should we deliver the official quotation or technical reply?</p>
+                        <h3 className="text-base sm:text-lg font-bold text-navy-900">Buyer & Company Profile</h3>
+                        <p className="text-xs sm:text-sm text-slate-500 font-normal">Where should we deliver the official quotation or technical reply?</p>
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                       {/* Full Name */}
                       <div>
-                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                           Full Name <span className="text-amber-500 font-bold">*</span>
                         </label>
                         <div className="relative">
-                          <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                          <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                           <input
                             type="text"
                             name="fullName"
@@ -300,7 +300,7 @@ export default function ContactClient() {
                             required
                             disabled={isSubmitting}
                             placeholder="John Doe"
-                            className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                               errors.fullName
                                 ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                                 : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
@@ -308,19 +308,19 @@ export default function ContactClient() {
                           />
                         </div>
                         {errors.fullName && (
-                          <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
-                            <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.fullName}
+                          <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.fullName}
                           </p>
                         )}
                       </div>
 
                       {/* Business Email */}
                       <div>
-                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                           Business Email <span className="text-amber-500 font-bold">*</span>
                         </label>
                         <div className="relative">
-                          <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                          <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                           <input
                             type="email"
                             name="email"
@@ -330,7 +330,7 @@ export default function ContactClient() {
                             required
                             disabled={isSubmitting}
                             placeholder="john@company.com"
-                            className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                               errors.email
                                 ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                                 : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
@@ -338,19 +338,19 @@ export default function ContactClient() {
                           />
                         </div>
                         {errors.email && (
-                          <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
-                            <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.email}
+                          <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.email}
                           </p>
                         )}
                       </div>
 
                       {/* Company / Fleet Name */}
                       <div>
-                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                           Company / Fleet Name <span className="text-amber-500 font-bold">*</span>
                         </label>
                         <div className="relative">
-                          <Building className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                          <Building className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                           <input
                             type="text"
                             name="company"
@@ -360,7 +360,7 @@ export default function ContactClient() {
                             required
                             disabled={isSubmitting}
                             placeholder="Global Trucking Logistics"
-                            className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                               errors.company
                                 ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                                 : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
@@ -368,19 +368,19 @@ export default function ContactClient() {
                           />
                         </div>
                         {errors.company && (
-                          <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
-                            <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.company}
+                          <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.company}
                           </p>
                         )}
                       </div>
 
                       {/* Country */}
                       <div>
-                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                           Country <span className="text-amber-500 font-bold">*</span>
                         </label>
                         <div className="relative">
-                          <Globe className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                          <Globe className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                           <input
                             type="text"
                             name="country"
@@ -390,7 +390,7 @@ export default function ContactClient() {
                             required
                             disabled={isSubmitting}
                             placeholder="United States"
-                            className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                               errors.country
                                 ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                                 : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
@@ -398,19 +398,19 @@ export default function ContactClient() {
                           />
                         </div>
                         {errors.country && (
-                          <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
-                            <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.country}
+                          <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.country}
                           </p>
                         )}
                       </div>
 
                       {/* Phone */}
                       <div className="sm:col-span-2">
-                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
-                          Direct Phone / WhatsApp <span className="text-slate-400 text-xs font-normal">(Optional)</span>
+                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
+                          Direct Phone / WhatsApp <span className="text-slate-400 text-xs sm:text-sm font-normal">(Optional)</span>
                         </label>
                         <div className="relative">
-                          <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                          <Phone className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                           <input
                             type="text"
                             name="phone"
@@ -419,7 +419,7 @@ export default function ContactClient() {
                             onBlur={() => handleBlur('phone')}
                             disabled={isSubmitting}
                             placeholder="+1 (555) 019-2834"
-                            className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                               errors.phone
                                 ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                                 : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
@@ -427,8 +427,8 @@ export default function ContactClient() {
                           />
                         </div>
                         {errors.phone && (
-                          <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
-                            <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.phone}
+                          <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.phone}
                           </p>
                         )}
                       </div>
@@ -437,31 +437,31 @@ export default function ContactClient() {
 
                   {/* SECTION 02: Inquiry Classification & Requirements */}
                   <div>
-                    <div className="flex items-center gap-2 pb-2.5 mb-3.5 border-b border-slate-100">
-                      <span className="w-6 h-6 rounded-md bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
+                    <div className="flex items-center gap-3 pb-3 mb-4 border-b border-slate-100">
+                      <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
                         02
                       </span>
                       <div>
-                        <h3 className="text-sm sm:text-base font-bold text-navy-900">Inquiry Scope & Requirements</h3>
-                        <p className="text-[11px] sm:text-xs text-slate-500 font-normal">Specify the inquiry purpose and detailed requirements</p>
+                        <h3 className="text-base sm:text-lg font-bold text-navy-900">Inquiry Scope & Requirements</h3>
+                        <p className="text-xs sm:text-sm text-slate-500 font-normal">Specify the inquiry purpose and detailed requirements</p>
                       </div>
                     </div>
 
                     <div className="space-y-4">
                       {/* Inquiry Type */}
                       <div>
-                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                           Inquiry Type <span className="text-amber-500 font-bold">*</span>
                         </label>
                         <div className="relative">
-                          <HelpCircle className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                          <HelpCircle className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                           <select
                             name="inquiryType"
                             value={formData.inquiryType}
                             onChange={handleChange}
                             disabled={isSubmitting}
                             required
-                            className="w-full pl-10 pr-8 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium focus:outline-none transition-all appearance-none shadow-2xs bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
+                            className="w-full pl-12 pr-10 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium focus:outline-none transition-all appearance-none shadow-2xs bg-white border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
                           >
                             <option value="Technical Support">Technical Support</option>
                             <option value="Wholesale Quote">Wholesale & RFQ</option>
@@ -474,7 +474,7 @@ export default function ContactClient() {
 
                       {/* Message */}
                       <div>
-                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                           Message & Specifications <span className="text-amber-500 font-bold">*</span>
                         </label>
                         <textarea
@@ -486,15 +486,15 @@ export default function ContactClient() {
                           required
                           disabled={isSubmitting}
                           placeholder="Please include part numbers, estimated quantities, or destination country for shipping quotes..."
-                          className={`w-full p-3.5 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none resize-none bg-white border border-slate-200 text-navy-900 placeholder:text-slate-400 placeholder:font-normal focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed ${
+                          className={`w-full p-4 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none resize-none bg-white border border-slate-200 placeholder:text-slate-400 placeholder:font-normal focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed ${
                             errors.message
                               ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                               : ''
                           }`}
                         ></textarea>
                         {errors.message && (
-                          <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
-                            <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.message}
+                          <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.message}
                           </p>
                         )}
                       </div>
@@ -502,37 +502,37 @@ export default function ContactClient() {
                   </div>
 
                   {/* Submit Action & Guarantee */}
-                  <div className="pt-1">
+                  <div className="pt-2">
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-navy-900 hover:bg-navy-800 disabled:bg-slate-400 disabled:cursor-not-allowed text-white font-extrabold text-sm sm:text-base py-3.5 sm:py-4 rounded-xl shadow-md hover:shadow-lg shadow-navy-900/15 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+                      className="w-full bg-navy-900 hover:bg-navy-800 disabled:bg-slate-400 disabled:cursor-not-allowed text-white font-extrabold text-base sm:text-lg py-4 sm:py-4.5 rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg shadow-navy-900/15 transition-all flex items-center justify-center gap-2.5 group cursor-pointer"
                     >
                       {isSubmitting ? (
-                        <span className="flex items-center gap-2">
+                        <span className="flex items-center gap-2.5">
                           Submitting Inquiry...
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                         </span>
                       ) : (
-                        <span className="flex items-center gap-2">
+                        <span className="flex items-center gap-2.5">
                           Submit Official Inquiry 
-                          <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1 transition-transform" />
+                          <ArrowRight className="w-5 h-5 text-amber-400 group-hover:translate-x-1 transition-transform" />
                         </span>
                       )}
                     </button>
 
                     {/* Trust markers under CTA */}
-                    <div className="mt-3.5 flex flex-wrap items-center justify-center gap-y-1.5 gap-x-5 text-[11px] sm:text-xs text-slate-500">
-                      <span className="flex items-center gap-1">
-                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                    <div className="mt-4 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs sm:text-sm text-slate-600 font-medium">
+                      <span className="flex items-center gap-1.5">
+                        <ShieldCheck className="w-4.5 h-4.5 text-emerald-600" />
                         Direct Manufacturer Pricing
                       </span>
-                      <span className="flex items-center gap-1">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-amber-500" />
+                      <span className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-4.5 h-4.5 text-amber-500" />
                         IATF 16949 Certified
                       </span>
-                      <span className="flex items-center gap-1">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-navy-600" />
+                      <span className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-4.5 h-4.5 text-navy-600" />
                         Direct Factory Support
                       </span>
                     </div>
@@ -543,66 +543,66 @@ export default function ContactClient() {
           </div>
 
           {/* RIGHT COLUMN: Dedicated Support Desk & Manufacturing Assurance */}
-          <div className="lg:col-span-5 xl:col-span-4 order-2 space-y-5 lg:sticky lg:top-24">
+          <div className="lg:col-span-5 xl:col-span-4 order-2 space-y-6 lg:sticky lg:top-24">
             
             {/* Card 1: Official Factory Communication Channels */}
-            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(10,25,41,0.06)] border border-slate-200/90 relative overflow-hidden">
-              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-100">
-                <div className="flex items-center gap-2">
-                  <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" />
-                  <h3 className="font-extrabold text-navy-900 text-sm sm:text-base">Direct Factory Channels</h3>
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 shadow-[0_12px_36px_rgba(10,25,41,0.06)] border border-slate-200/90 relative overflow-hidden">
+              <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+                <div className="flex items-center gap-2.5">
+                  <PhoneCall className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500" />
+                  <h3 className="font-extrabold text-navy-900 text-base sm:text-lg">Direct Factory Channels</h3>
                 </div>
-                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full text-slate-800 bg-slate-100 border border-slate-200">
+                <span className="text-xs font-bold px-3 py-1 rounded-full text-slate-800 bg-slate-100 border border-slate-200">
                   Zhuji, China
                 </span>
               </div>
 
-              <div className="space-y-3.5 text-xs sm:text-sm">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-navy-50 flex items-center justify-center text-navy-800 shrink-0 mt-0.5">
-                    <MapPin className="w-4 h-4" />
+              <div className="space-y-4 text-sm sm:text-base">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-navy-50 flex items-center justify-center text-navy-800 shrink-0 mt-0.5">
+                    <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-navy-900 text-xs">Production Facility & Export HQ</h4>
-                    <p className="text-slate-600 text-xs mt-0.5 leading-relaxed">
+                    <h4 className="font-bold text-navy-900 text-sm sm:text-base">Production Facility & Export HQ</h4>
+                    <p className="text-slate-600 text-xs sm:text-sm mt-0.5 leading-relaxed">
                       Block 3, No 55 Tianyang Rd, Fengqiao, Zhuji, Zhejiang, China 311811
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 shrink-0 mt-0.5">
-                    <Mail className="w-4 h-4" />
+                <div className="flex items-start gap-3.5">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600 shrink-0 mt-0.5">
+                    <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-navy-900 text-xs">Wholesale & RFQ Desk</h4>
-                    <a href="mailto:sales@brakechambers.com" className="text-amber-600 hover:underline text-xs font-semibold block mt-0.5">
+                    <h4 className="font-bold text-navy-900 text-sm sm:text-base">Wholesale & RFQ Desk</h4>
+                    <a href="mailto:sales@brakechambers.com" className="text-amber-600 hover:underline text-sm font-semibold block mt-0.5">
                       sales@brakechambers.com
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0 mt-0.5">
-                    <Phone className="w-4 h-4" />
+                <div className="flex items-start gap-3.5">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0 mt-0.5">
+                    <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-navy-900 text-xs">Direct Phone & WhatsApp</h4>
-                    <a href="tel:+8613395856758" className="text-navy-900 hover:text-amber-600 text-xs font-semibold block mt-0.5">
+                    <h4 className="font-bold text-navy-900 text-sm sm:text-base">Direct Phone & WhatsApp</h4>
+                    <a href="tel:+8613395856758" className="text-navy-900 hover:text-amber-600 text-sm font-semibold block mt-0.5">
                       +86 13395856758
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600 shrink-0 mt-0.5">
-                    <Clock className="w-4 h-4" />
+                <div className="flex items-start gap-3.5">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 shrink-0 mt-0.5">
+                    <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-navy-900 text-xs">Factory Operating Hours</h4>
-                    <p className="text-slate-600 text-xs mt-0.5 leading-relaxed">
+                    <h4 className="font-bold text-navy-900 text-sm sm:text-base">Factory Operating Hours</h4>
+                    <p className="text-slate-600 text-xs sm:text-sm mt-0.5 leading-relaxed">
                       Mon &ndash; Fri: 8:00 AM &ndash; 6:00 PM (GMT+8)<br />
-                      <span className="text-slate-400 text-[11px]">Online inquiry desk monitors requests 24/7</span>
+                      <span className="text-slate-400 text-xs">Online inquiry desk monitors requests 24/7</span>
                     </p>
                   </div>
                 </div>
@@ -610,23 +610,23 @@ export default function ContactClient() {
             </div>
 
             {/* Card 2: Direct Manufacturer Advantages (Dark Card) */}
-            <div className="bg-gradient-to-b from-navy-800 to-navy-900 text-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-md border border-navy-700/80 relative overflow-hidden">
-              <div className="flex items-center gap-2 mb-2">
-                <Truck className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
-                <h3 className="font-extrabold text-white text-sm sm:text-base">Direct Manufacturer Advantages</h3>
+            <div className="bg-gradient-to-b from-navy-800 to-navy-900 text-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 shadow-md border border-navy-700/80 relative overflow-hidden">
+              <div className="flex items-center gap-2.5 mb-2.5">
+                <Truck className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400" />
+                <h3 className="font-extrabold text-white text-base sm:text-lg">Direct Manufacturer Advantages</h3>
               </div>
-              <p className="text-navy-200 text-xs leading-relaxed font-normal mb-3.5">
+              <p className="text-navy-200 text-sm sm:text-base leading-relaxed font-normal mb-4">
                 Direct factory pricing with zero intermediary commissions from our IATF 16949 certified facility in Zhuji, China.
               </p>
 
-              <div className="space-y-2 pt-2.5 border-t border-navy-700/80 mb-4 text-xs">
-                <div className="flex items-start gap-2">
-                  <Truck className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                  <span className="text-navy-300">Custom laser stamping, bespoke packaging & private label.</span>
+              <div className="space-y-2.5 pt-3 border-t border-navy-700/80 mb-5 text-sm sm:text-base">
+                <div className="flex items-start gap-2.5">
+                  <Truck className="w-4.5 h-4.5 text-amber-400 shrink-0 mt-1" />
+                  <span className="text-navy-200">Custom laser stamping, bespoke packaging & private label.</span>
                 </div>
-                <div className="flex items-start gap-2">
-                  <Globe className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                  <span className="text-navy-300">EXW, FOB Ningbo/Shanghai, CIF, and DDP to warehouse.</span>
+                <div className="flex items-start gap-2.5">
+                  <Globe className="w-4.5 h-4.5 text-amber-400 shrink-0 mt-1" />
+                  <span className="text-navy-200">EXW, FOB Ningbo/Shanghai, CIF, and DDP to warehouse.</span>
                 </div>
               </div>
 
@@ -635,9 +635,9 @@ export default function ContactClient() {
                 href="https://wa.me/8613395856758" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold py-2.5 px-3.5 rounded-xl transition-all shadow-sm"
+                className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm sm:text-base font-bold py-3.5 px-4 rounded-xl transition-all shadow-sm"
               >
-                <MessageCircle className="w-3.5 h-3.5" /> WhatsApp Desk: +86 13395856758
+                <MessageCircle className="w-5 h-5" /> WhatsApp Desk: +86 13395856758
               </a>
             </div>
 

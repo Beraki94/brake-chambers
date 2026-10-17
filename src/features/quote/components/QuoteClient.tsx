@@ -176,13 +176,13 @@ export default function QuoteClient() {
 
   // Selected Chambers (Quote Cart) Component - Positioned at top on mobile, and in sticky sidebar on desktop
   const selectedChambersContent = (
-    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-[0_12px_36px_rgba(10,25,41,0.06)] border border-slate-200/90 relative overflow-hidden">
-      <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-slate-100">
-        <div className="flex items-center gap-2">
-          <Package className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" />
-          <h3 className="font-extrabold text-navy-900 text-sm sm:text-base">Selected Chambers</h3>
+    <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_12px_36px_rgba(10,25,41,0.06)] border border-slate-200/90 relative overflow-hidden">
+      <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
+        <div className="flex items-center gap-2.5">
+          <Package className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500" />
+          <h3 className="font-extrabold text-navy-900 text-base sm:text-lg">Selected Chambers</h3>
         </div>
-        <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${
+        <span className={`text-xs sm:text-sm font-bold px-3 py-1 rounded-full border ${
           hasProducts 
             ? 'text-slate-800 bg-slate-100 border-slate-200' 
             : 'text-amber-800 bg-amber-50 border-amber-200'
@@ -192,95 +192,95 @@ export default function QuoteClient() {
       </div>
 
       {!hasProducts ? (
-        <div className="bg-slate-50/80 border border-dashed border-slate-200 rounded-xl p-5 text-center">
-          <div className="w-10 h-10 bg-white rounded-xl shadow-2xs border border-slate-200/80 flex items-center justify-center mx-auto mb-2.5">
-            <Package className="w-5 h-5 text-slate-400" />
+        <div className="bg-slate-50/80 border border-dashed border-slate-200 rounded-2xl p-6 text-center">
+          <div className="w-12 h-12 bg-white rounded-xl shadow-2xs border border-slate-200/80 flex items-center justify-center mx-auto mb-3">
+            <Package className="w-6 h-6 text-slate-400" />
           </div>
-          <h4 className="text-xs sm:text-sm font-bold text-navy-900 mb-0.5">No Chambers Selected Yet</h4>
-          <p className="text-[11px] text-slate-500 max-w-xs mx-auto mb-3.5 font-normal leading-relaxed">
+          <h4 className="text-sm sm:text-base font-bold text-navy-900 mb-1">No Chambers Selected Yet</h4>
+          <p className="text-xs sm:text-sm text-slate-500 max-w-xs mx-auto mb-4 font-normal leading-relaxed">
             Browse our catalog to select your required brake chambers. The quotation form activates immediately upon selecting a product.
           </p>
           <Link 
             href="/products" 
-            className="inline-flex items-center gap-1.5 bg-navy-900 hover:bg-navy-800 text-white font-bold text-xs px-3.5 py-2 rounded-xl shadow-2xs transition-all group"
+            className="inline-flex items-center gap-2 bg-navy-900 hover:bg-navy-800 text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-2xs transition-all group"
           >
-            Browse Product Catalog <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            Browse Product Catalog <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       ) : (
-        <div className="space-y-3">
-          <div className="space-y-2.5 max-h-[340px] overflow-y-auto pr-1">
+        <div className="space-y-3.5">
+          <div className="space-y-3 max-h-[380px] overflow-y-auto pr-1">
             {items.map((item) => {
               const itemImg = (item.product as any).imageUrl || (item.product as any).galleryUrls?.[0] || '/productsImage/brc-t16-single-brake-1.jpg';
 
               return (
                 <div 
                   key={item.id} 
-                  className="p-3 bg-slate-50/80 hover:bg-slate-100/70 border border-slate-200/80 rounded-xl transition-colors relative"
+                  className="p-3.5 bg-slate-50/80 hover:bg-slate-100/70 border border-slate-200/80 rounded-xl sm:rounded-2xl transition-colors relative"
                 >
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3.5">
                     {/* Product Image Thumbnail */}
-                    <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 overflow-hidden relative shrink-0 p-0.5">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white border border-slate-200 overflow-hidden relative shrink-0 p-1">
                       <Image
                         src={itemImg}
                         alt={item.product.name}
                         fill
                         className="object-contain"
-                        sizes="48px"
+                        sizes="(max-width: 640px) 56px, 64px"
                       />
                     </div>
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-1">
-                        <span className="text-[9px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200/60 uppercase tracking-wider">
+                        <span className="text-[10px] sm:text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200/60 uppercase tracking-wider">
                           {item.product.brandSlug === 'brc' ? 'BRC Original' : item.product.brandSlug}
                         </span>
                         <button 
                           type="button"
                           onClick={() => removeItem(item.id)}
-                          className="text-slate-400 hover:text-rose-600 p-0.5 rounded transition-colors cursor-pointer"
+                          className="text-slate-400 hover:text-rose-600 p-1 rounded transition-colors cursor-pointer"
                           title="Remove item"
                         >
-                          <Trash2 className="w-3.5 h-3.5" />
+                          <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
 
-                      <h4 className="font-bold text-navy-900 text-xs leading-snug line-clamp-1 mt-0.5">
+                      <h4 className="font-bold text-navy-900 text-sm sm:text-base leading-snug line-clamp-1 mt-1">
                         {item.product.name}
                       </h4>
 
-                      <p className="text-[10px] text-slate-400 font-mono">
+                      <p className="text-xs text-slate-500 font-mono mt-0.5">
                         SKU: {item.product.slug.toUpperCase()}
                       </p>
                     </div>
                   </div>
 
                   {/* Quantity Counter */}
-                  <div className="flex items-center justify-between pt-2 mt-2 border-t border-slate-200/60">
-                    <span className="text-[11px] font-semibold text-slate-500">Order Quantity:</span>
-                    <div className="flex items-center gap-1 bg-white border border-slate-200 rounded-lg p-0.5 shadow-2xs">
+                  <div className="flex items-center justify-between pt-2.5 mt-2.5 border-t border-slate-200/60">
+                    <span className="text-xs sm:text-sm font-semibold text-slate-600">Order Quantity:</span>
+                    <div className="flex items-center gap-1.5 bg-white border border-slate-200 rounded-lg p-1 shadow-2xs">
                       <button
                         type="button"
                         onClick={() => handleQtyChange(item.id, -1, item.quantity)}
-                        className="w-6 h-6 flex items-center justify-center text-slate-500 hover:text-navy-900 hover:bg-slate-100 rounded transition-colors cursor-pointer"
+                        className="w-7 h-7 flex items-center justify-center text-slate-600 hover:text-navy-900 hover:bg-slate-100 rounded transition-colors cursor-pointer"
                         title="Decrease quantity"
                       >
-                        <Minus className="w-3 h-3" />
+                        <Minus className="w-3.5 h-3.5" />
                       </button>
                       <input 
                         type="number" 
                         min="1"
                         value={item.quantity}
                         onChange={(e) => updateQuantity(item.id, Math.max(1, parseInt(e.target.value) || 1))}
-                        className="w-8 text-center font-bold text-navy-900 text-xs focus:outline-none"
+                        className="w-10 text-center font-bold text-navy-900 text-sm focus:outline-none"
                       />
                       <button
                         type="button"
                         onClick={() => handleQtyChange(item.id, 1, item.quantity)}
-                        className="w-6 h-6 flex items-center justify-center text-slate-500 hover:text-navy-900 hover:bg-slate-100 rounded transition-colors cursor-pointer"
+                        className="w-7 h-7 flex items-center justify-center text-slate-600 hover:text-navy-900 hover:bg-slate-100 rounded transition-colors cursor-pointer"
                         title="Increase quantity"
                       >
-                        <Plus className="w-3 h-3" />
+                        <Plus className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   </div>
@@ -289,24 +289,24 @@ export default function QuoteClient() {
             })}
           </div>
 
-          <div className="pt-2 flex justify-between items-center border-t border-slate-100">
-            <span className="text-xs text-slate-500">Total Units: <strong className="text-navy-900">{totalUnits} Pcs</strong></span>
+          <div className="pt-2.5 flex justify-between items-center border-t border-slate-100 text-xs sm:text-sm">
+            <span className="text-slate-600">Total Units: <strong className="text-navy-900 font-bold">{totalUnits} Pcs</strong></span>
             <Link 
               href="/products" 
-              className="text-xs font-bold text-amber-600 hover:text-amber-700 transition-colors inline-flex items-center gap-1"
+              className="font-bold text-amber-600 hover:text-amber-700 transition-colors inline-flex items-center gap-1"
             >
-              <Plus className="w-3.5 h-3.5" /> Add more models
+              <Plus className="w-4 h-4" /> Add more models
             </Link>
           </div>
         </div>
       )}
 
       {/* Quick Process Roadmap */}
-      <div className="mt-3.5 pt-3 border-t border-slate-100 bg-slate-50/60 -mx-4 -mb-4 p-3.5 rounded-b-xl sm:rounded-b-2xl">
-        <div className="flex items-center gap-1 text-[11px] font-bold text-navy-900 mb-1">
-          <Sparkles className="w-3 h-3 text-amber-500" /> Fast Turnaround Guarantee
+      <div className="mt-4 pt-3.5 border-t border-slate-100 bg-slate-50/60 -mx-5 -mb-5 sm:-mx-6 sm:-mb-6 p-4 rounded-b-2xl sm:rounded-b-3xl">
+        <div className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-navy-900 mb-1.5">
+          <Sparkles className="w-4 h-4 text-amber-500" /> Fast Turnaround Guarantee
         </div>
-        <ul className="text-[10px] sm:text-[11px] text-slate-500 space-y-0.5">
+        <ul className="text-xs sm:text-sm text-slate-600 space-y-1">
           <li>• Technical fitment & cross-reference verification</li>
           <li>• Itemized proforma with tiered container pricing</li>
           <li>• Express samples via DHL/FedEx or ocean FCL booking</li>
@@ -335,32 +335,32 @@ export default function QuoteClient() {
             <div className="h-1.5 w-full bg-gradient-to-r from-navy-900 via-amber-500 to-navy-900" />
 
             {/* Form Section Header Bar */}
-            <div className="p-4 sm:p-6 lg:p-8 bg-slate-50/70 border-b border-slate-200/80">
-              <div className="flex flex-wrap items-center justify-between gap-2.5 mb-2">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-bold uppercase tracking-wider">
-                  <FileText className="w-3.5 h-3.5 text-amber-600" />
+            <div className="p-5 sm:p-7 lg:p-8 bg-slate-50/70 border-b border-slate-200/80">
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-2.5">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs sm:text-sm font-bold uppercase tracking-wider">
+                  <FileText className="w-4 h-4 text-amber-600" />
                   Official Factory RFQ
                 </div>
 
                 {/* Status Indicator Pill */}
                 <div className="flex items-center gap-2">
                   {isFormActive ? (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-semibold shadow-2xs">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs sm:text-sm font-semibold shadow-2xs">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                       Form Active ({items.length} Model{items.length > 1 ? 's' : ''})
                     </span>
                   ) : (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-medium">
-                      <Lock className="w-3.5 h-3.5 text-slate-500" /> Form Inactive
+                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs sm:text-sm font-medium">
+                      <Lock className="w-4 h-4 text-slate-500" /> Form Inactive
                     </span>
                   )}
                 </div>
               </div>
 
-              <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-navy-900 tracking-tight">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy-900 tracking-tight">
                 Commercial Quotation & Shipping Details
               </h2>
-              <p className="text-slate-600 text-xs sm:text-sm mt-1 font-normal leading-relaxed">
+              <p className="text-slate-600 text-sm sm:text-base mt-1.5 font-normal leading-relaxed">
                 Provide your fleet credentials and destination port below. Our sales engineering team will prepare an itemized proforma invoice with tiered container pricing.
               </p>
             </div>
@@ -368,40 +368,40 @@ export default function QuoteClient() {
             {/* Success Overlay */}
             {isSuccess && (
               <div className="p-6 sm:p-12 text-center flex flex-col items-center justify-center">
-                <div className="w-14 h-14 sm:w-18 sm:h-18 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-5 shadow-xs border border-emerald-100">
-                  <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-5 shadow-xs border border-emerald-100">
+                  <CheckCircle2 className="w-9 h-9 sm:w-11 sm:h-11" />
                 </div>
-                <span className="inline-block px-3 py-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold rounded-full uppercase tracking-wider mb-2.5">
+                <span className="inline-block px-3.5 py-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs sm:text-sm font-bold rounded-full uppercase tracking-wider mb-2.5">
                   RFQ Dispatched Successfully
                 </span>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy-900 mb-2">Quotation Request Received</h3>
-                <p className="text-slate-600 text-xs sm:text-sm max-w-lg mb-6 leading-relaxed font-normal">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-navy-900 mb-2">Quotation Request Received</h3>
+                <p className="text-slate-600 text-sm sm:text-base max-w-lg mb-6 leading-relaxed font-normal">
                   Thank you! Our technical sales and export logistics desk in Zhuji will review your specifications, verify inventory and production lead times, and email your formal proforma quote within 24 hours.
                 </p>
                 
-                <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-4 sm:p-5 mb-6 max-w-md w-full text-left">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Need Immediate Expedited Assistance?</h4>
-                  <p className="text-xs text-slate-600 mb-3">For urgent cross-dock shipments or container bookings, message our export desk directly:</p>
+                <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 sm:p-6 mb-6 max-w-md w-full text-left">
+                  <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 mb-2">Need Immediate Expedited Assistance?</h4>
+                  <p className="text-sm text-slate-600 mb-3.5">For urgent cross-dock shipments or container bookings, message our export desk directly:</p>
                   <a 
                     href="https://wa.me/8613395856758" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100/70 border border-emerald-200 px-3 py-2 rounded-lg transition-colors"
+                    className="inline-flex items-center gap-2.5 text-sm font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100/70 border border-emerald-200 px-4 py-2.5 rounded-xl transition-colors"
                   >
-                    <MessageCircle className="w-4 h-4 text-emerald-600" /> WhatsApp Engineering Desk: +86 13395856758
+                    <MessageCircle className="w-5 h-5 text-emerald-600" /> WhatsApp Engineering Desk: +86 13395856758
                   </a>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-center gap-3">
                   <button 
                     onClick={() => setIsSuccess(false)}
-                    className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-900 font-bold text-xs sm:text-sm transition-colors cursor-pointer"
+                    className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-900 font-bold text-sm sm:text-base transition-colors cursor-pointer"
                   >
                     Submit Another Quote
                   </button>
                   <Link 
                     href="/products" 
-                    className="px-5 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold text-xs sm:text-sm transition-colors shadow-sm"
+                    className="px-6 py-3 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold text-sm sm:text-base transition-colors shadow-sm"
                   >
                     Browse Product Catalog
                   </Link>
@@ -410,56 +410,56 @@ export default function QuoteClient() {
             )}
 
             {!isSuccess && (
-              <form onSubmit={handleSubmit} noValidate className="p-4 sm:p-6 lg:p-8 flex flex-col gap-6 sm:gap-7 relative">
+              <form onSubmit={handleSubmit} noValidate className="p-5 sm:p-7 lg:p-8 flex flex-col gap-6 sm:gap-7 relative">
                 
                 {/* CALL TO ACTION STATE: If no products selected, display prominent CTA guiding user to catalog */}
                 {!isFormActive ? (
-                  <div className="p-4 sm:p-6 bg-amber-50/70 border border-amber-200/90 rounded-xl sm:rounded-2xl text-navy-950 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <div className="flex items-start gap-3.5">
-                      <div className="w-10 h-10 rounded-xl bg-amber-400 text-navy-950 flex items-center justify-center shrink-0 shadow-2xs">
-                        <ShoppingCart className="w-5 h-5" />
+                  <div className="p-5 sm:p-6 bg-amber-50/70 border border-amber-200/90 rounded-2xl text-navy-950 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-amber-400 text-navy-950 flex items-center justify-center shrink-0 shadow-2xs">
+                        <ShoppingCart className="w-6 h-6" />
                       </div>
                       <div>
-                        <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-800 mb-0.5">
-                          <Lock className="w-3 h-3" /> Product Selection Required
+                        <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-800 mb-1">
+                          <Lock className="w-3.5 h-3.5" /> Product Selection Required
                         </div>
-                        <h3 className="font-extrabold text-sm sm:text-base text-navy-900 leading-snug">
+                        <h3 className="font-extrabold text-base sm:text-lg text-navy-900 leading-snug">
                           Select a Brake Chamber from Our Catalog to Activate This Form
                         </h3>
-                        <p className="text-xs text-slate-600 mt-1 max-w-xl font-normal leading-relaxed">
+                        <p className="text-sm text-slate-600 mt-1 max-w-xl font-normal leading-relaxed">
                           Wholesale quotes are custom-tailored to specific chamber stroke sizes, port threads, and order volumes. Please choose your product from our catalog to unlock this RFQ form.
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto shrink-0">
+                    <div className="flex flex-col sm:flex-row gap-2.5 w-full sm:w-auto shrink-0">
                       <Link
                         href="/products"
-                        className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-navy-900 hover:bg-navy-800 text-white font-extrabold rounded-xl text-xs sm:text-sm shadow-sm transition-all group"
+                        className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-navy-900 hover:bg-navy-800 text-white font-extrabold rounded-xl text-sm sm:text-base shadow-sm transition-all group"
                       >
                         <span>Browse Catalog</span>
                         <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1 transition-transform" />
                       </Link>
                       <Link
                         href="/oem-cross-reference"
-                        className="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 bg-white hover:bg-slate-100 text-navy-900 font-bold border border-slate-200 rounded-xl text-xs sm:text-sm transition-colors"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-white hover:bg-slate-100 text-navy-900 font-bold border border-slate-200 rounded-xl text-sm sm:text-base transition-colors"
                       >
-                        <Search className="w-3.5 h-3.5 text-slate-500" />
+                        <Search className="w-4 h-4 text-slate-500" />
                         <span>OEM Cross-Ref</span>
                       </Link>
                     </div>
                   </div>
                 ) : (
                   /* Clean, understated active banner without harsh green borders */
-                  <div className="p-3.5 sm:p-4 bg-slate-50 border border-slate-200/90 rounded-xl sm:rounded-2xl flex items-center justify-between gap-3 text-navy-900">
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0" />
-                      <div className="text-xs sm:text-sm truncate">
+                  <div className="p-4 sm:p-5 bg-slate-50 border border-slate-200/90 rounded-2xl flex items-center justify-between gap-3 text-navy-900">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className="w-3 h-3 rounded-full bg-emerald-500 shrink-0" />
+                      <div className="text-sm sm:text-base truncate">
                         <strong className="text-navy-900">RFQ Form Active:</strong>{' '}
                         <span className="text-slate-600 font-normal">{items.length} chamber model{items.length > 1 ? 's' : ''} attached ({totalUnits} pcs total).</span>
                       </div>
                     </div>
-                    <span className="hidden sm:inline-flex text-[11px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200/60 shrink-0">
+                    <span className="hidden sm:inline-flex text-xs font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-200/60 shrink-0">
                       Proforma Ready
                     </span>
                   </div>
@@ -467,32 +467,32 @@ export default function QuoteClient() {
 
                 {/* Server Error Alert */}
                 {serverError && (
-                  <div className="p-3.5 bg-rose-50/70 border border-rose-200 text-rose-800 rounded-xl text-xs sm:text-sm flex items-start gap-2.5">
-                    <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                  <div className="p-4 bg-rose-50/70 border border-rose-200 text-rose-800 rounded-xl text-sm sm:text-base flex items-start gap-3">
+                    <AlertCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
                     <span>{serverError}</span>
                   </div>
                 )}
 
                 {/* SECTION 01: Buyer & Fleet Information */}
                 <div>
-                  <div className="flex items-center gap-2 pb-2.5 mb-3.5 border-b border-slate-100">
-                    <span className="w-6 h-6 rounded-md bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-3 pb-3 mb-4 border-b border-slate-100">
+                    <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
                       01
                     </span>
                     <div>
-                      <h3 className="text-sm sm:text-base font-bold text-navy-900">Buyer & Company Profile</h3>
-                      <p className="text-[11px] sm:text-xs text-slate-500 font-normal">Where should we deliver the official quotation?</p>
+                      <h3 className="text-base sm:text-lg font-bold text-navy-900">Buyer & Company Profile</h3>
+                      <p className="text-xs sm:text-sm text-slate-500 font-normal">Where should we deliver the official quotation?</p>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     {/* Full Name */}
                     <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                         Full Name <span className="text-amber-500 font-bold">*</span>
                       </label>
                       <div className="relative">
-                        <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                         <input
                           type="text"
                           name="name"
@@ -502,7 +502,7 @@ export default function QuoteClient() {
                           placeholder="John Doe"
                           required
                           disabled={!isFormActive || isSubmitting}
-                          className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                          className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                             errors.name
                               ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                               : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
@@ -510,19 +510,19 @@ export default function QuoteClient() {
                         />
                       </div>
                       {errors.name && (
-                        <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.name}
+                        <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                          <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.name}
                         </p>
                       )}
                     </div>
 
                     {/* Business Email */}
                     <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                         Business Email <span className="text-amber-500 font-bold">*</span>
                       </label>
                       <div className="relative">
-                        <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                         <input
                           type="email"
                           name="email"
@@ -532,7 +532,7 @@ export default function QuoteClient() {
                           placeholder="john@company.com"
                           required
                           disabled={!isFormActive || isSubmitting}
-                          className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                          className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                             errors.email
                               ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                               : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
@@ -540,19 +540,19 @@ export default function QuoteClient() {
                         />
                       </div>
                       {errors.email && (
-                        <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.email}
+                        <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                          <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.email}
                         </p>
                       )}
                     </div>
 
                     {/* Company Name */}
                     <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                         Company / Fleet Name <span className="text-amber-500 font-bold">*</span>
                       </label>
                       <div className="relative">
-                        <Building className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <Building className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                         <input
                           type="text"
                           name="companyName"
@@ -562,7 +562,7 @@ export default function QuoteClient() {
                           placeholder="Global Trucking Logistics"
                           required
                           disabled={!isFormActive || isSubmitting}
-                          className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                          className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                             errors.companyName
                               ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                               : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
@@ -570,19 +570,19 @@ export default function QuoteClient() {
                         />
                       </div>
                       {errors.companyName && (
-                        <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.companyName}
+                        <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                          <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.companyName}
                         </p>
                       )}
                     </div>
 
                     {/* Country */}
                     <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
                         Country <span className="text-amber-500 font-bold">*</span>
                       </label>
                       <div className="relative">
-                        <Globe className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <Globe className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                         <input
                           type="text"
                           name="destination"
@@ -592,7 +592,7 @@ export default function QuoteClient() {
                           placeholder="United States"
                           required
                           disabled={!isFormActive || isSubmitting}
-                          className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                          className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                             errors.destination
                               ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                               : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
@@ -600,19 +600,19 @@ export default function QuoteClient() {
                         />
                       </div>
                       {errors.destination && (
-                        <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.destination}
+                        <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                          <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.destination}
                         </p>
                       )}
                     </div>
 
                     {/* Phone / WhatsApp */}
                     <div className="sm:col-span-2">
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
-                        Direct Phone / WhatsApp <span className="text-slate-400 text-xs font-normal">(Recommended)</span>
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
+                        Direct Phone / WhatsApp <span className="text-slate-400 text-xs sm:text-sm font-normal">(Recommended)</span>
                       </label>
                       <div className="relative">
-                        <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <Phone className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                         <input
                           type="tel"
                           name="phone"
@@ -621,7 +621,7 @@ export default function QuoteClient() {
                           onBlur={() => handleBlur('phone')}
                           placeholder="+1 (555) 019-2834"
                           disabled={!isFormActive || isSubmitting}
-                          className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                          className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
                             errors.phone
                               ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                               : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
@@ -629,8 +629,8 @@ export default function QuoteClient() {
                         />
                       </div>
                       {errors.phone && (
-                        <p className="mt-1 text-[11px] text-rose-600 font-medium flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" /> {errors.phone}
+                        <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
+                          <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.phone}
                         </p>
                       )}
                     </div>
@@ -639,28 +639,28 @@ export default function QuoteClient() {
 
                 {/* SECTION 02: Shipping & Commercial Logistics */}
                 <div>
-                  <div className="flex items-center gap-2 pb-2.5 mb-3.5 border-b border-slate-100">
-                    <span className="w-6 h-6 rounded-md bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-3 pb-3 mb-4 border-b border-slate-100">
+                    <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
                       02
                     </span>
                     <div>
-                      <h3 className="text-sm sm:text-base font-bold text-navy-900">Commercial & Delivery Terms</h3>
-                      <p className="text-[11px] sm:text-xs text-slate-500 font-normal">Specify shipment scale and trade terms</p>
+                      <h3 className="text-base sm:text-lg font-bold text-navy-900">Commercial & Delivery Terms</h3>
+                      <p className="text-xs sm:text-sm text-slate-500 font-normal">Specify shipment scale and trade terms</p>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     {/* Volume */}
                     <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">Estimated Order Volume</label>
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">Estimated Order Volume</label>
                       <div className="relative">
-                        <Package className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <Package className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                         <select
                           name="volume"
                           value={formData.volume}
                           onChange={handleChange}
                           disabled={!isFormActive || isSubmitting}
-                          className="w-full pl-10 pr-8 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium focus:outline-none transition-all appearance-none shadow-2xs bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
+                          className="w-full pl-12 pr-10 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium focus:outline-none transition-all appearance-none shadow-2xs bg-white border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
                         >
                           <option value="LCL (Less than Container Load - Pallet)">LCL (Less than Container Load - Pallet)</option>
                           <option value="20ft Container (FCL - Approx. 2,200 pcs)">20ft Container (FCL - Approx. 2,200 pcs)</option>
@@ -672,15 +672,15 @@ export default function QuoteClient() {
 
                     {/* Incoterms */}
                     <div>
-                      <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">Preferred Incoterms / Trade Term</label>
+                      <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">Preferred Incoterms / Trade Term</label>
                       <div className="relative">
-                        <Truck className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <Truck className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                         <select
                           name="incoterms"
                           value={formData.incoterms}
                           onChange={handleChange}
                           disabled={!isFormActive || isSubmitting}
-                          className="w-full pl-10 pr-8 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium focus:outline-none transition-all appearance-none shadow-2xs bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
+                          className="w-full pl-12 pr-10 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium focus:outline-none transition-all appearance-none shadow-2xs bg-white border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
                         >
                           <option value="FOB (Free on Board - Ningbo / Shanghai)">FOB (Free on Board - Ningbo / Shanghai)</option>
                           <option value="CIF (Cost, Insurance & Freight to Your Port)">CIF (Cost, Insurance & Freight to Your Port)</option>
@@ -694,15 +694,15 @@ export default function QuoteClient() {
 
                 {/* SECTION 03: Technical Specifications & Notes */}
                 <div>
-                  <div className="flex items-center gap-2 pb-2.5 mb-3.5 border-b border-slate-100">
-                    <span className="w-6 h-6 rounded-md bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-3 pb-3 mb-4 border-b border-slate-100">
+                    <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
                       03
                     </span>
                     <div>
-                      <h3 className="text-sm sm:text-base font-bold text-navy-900">
-                        Technical Specifications & Private Labeling <span className="text-slate-400 text-xs font-normal">(Optional)</span>
+                      <h3 className="text-base sm:text-lg font-bold text-navy-900">
+                        Technical Specifications & Private Labeling <span className="text-slate-400 text-xs sm:text-sm font-normal">(Optional)</span>
                       </h3>
-                      <p className="text-[11px] sm:text-xs text-slate-500 font-normal">Pushrod lengths, port threads, branding, or custom requirements</p>
+                      <p className="text-xs sm:text-sm text-slate-500 font-normal">Pushrod lengths, port threads, branding, or custom requirements</p>
                     </div>
                   </div>
 
@@ -714,17 +714,17 @@ export default function QuoteClient() {
                       onChange={handleChange}
                       placeholder="Custom pushrod lengths, port threads, laser stamping, or branding requirements..."
                       disabled={!isFormActive || isSubmitting}
-                      className="w-full p-3.5 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-2xs focus:outline-none resize-none bg-white border border-slate-200 text-navy-900 placeholder:text-slate-400 placeholder:font-normal focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed"
+                      className="w-full p-4 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none resize-none bg-white border border-slate-200 placeholder:text-slate-400 placeholder:font-normal focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed"
                     />
                   </div>
                 </div>
 
                 {/* Submit Action & Guarantee */}
-                <div className="pt-1">
+                <div className="pt-2">
                   <button
                     type="submit"
                     disabled={!isFormActive || isSubmitting}
-                    className={`w-full font-extrabold text-sm sm:text-base py-3.5 sm:py-4 rounded-xl transition-all flex items-center justify-center gap-2 group ${
+                    className={`w-full font-extrabold text-base sm:text-lg py-4 sm:py-4.5 rounded-xl sm:rounded-2xl transition-all flex items-center justify-center gap-2.5 group ${
                       !isFormActive
                         ? 'bg-slate-200 text-slate-500 cursor-not-allowed border border-slate-300 shadow-none'
                         : isSubmitting
@@ -733,35 +733,35 @@ export default function QuoteClient() {
                     }`}
                   >
                     {!isFormActive ? (
-                      <span className="flex items-center gap-2 text-slate-600 font-bold">
-                        <Lock className="w-4 h-4 text-slate-500" />
+                      <span className="flex items-center gap-2.5 text-slate-600 font-bold">
+                        <Lock className="w-5 h-5 text-slate-500" />
                         Select Product from Catalog to Activate RFQ Form
                       </span>
                     ) : isSubmitting ? (
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-2.5">
                         <span>Generating Official RFQ...</span>
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                       </span>
                     ) : (
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-2.5">
                         Submit RFQ for Factory Direct Pricing 
-                        <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-5 h-5 text-amber-400 group-hover:translate-x-1 transition-transform" />
                       </span>
                     )}
                   </button>
 
                   {/* Trust markers under CTA */}
-                  <div className="mt-3.5 flex flex-wrap items-center justify-center gap-y-1.5 gap-x-5 text-[11px] sm:text-xs text-slate-500">
-                    <span className="flex items-center gap-1">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  <div className="mt-4 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs sm:text-sm text-slate-600 font-medium">
+                    <span className="flex items-center gap-1.5">
+                      <ShieldCheck className="w-4.5 h-4.5 text-emerald-600" />
                       Direct Manufacturer Pricing
                     </span>
-                    <span className="flex items-center gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-amber-500" />
+                    <span className="flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4.5 h-4.5 text-amber-500" />
                       IATF 16949 Certified
                     </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-navy-600" />
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="w-4.5 h-4.5 text-navy-600" />
                       Proforma Delivered &lt; 24h
                     </span>
                   </div>
@@ -774,7 +774,7 @@ export default function QuoteClient() {
         </div>
 
         {/* RIGHT COLUMN: Dedicated Quote Cart & Manufacturing Assurance (Desktop: 4-5 cols, Mobile: order-2) */}
-        <div className="lg:col-span-5 xl:col-span-4 order-2 space-y-5 lg:sticky lg:top-24">
+        <div className="lg:col-span-5 xl:col-span-4 order-2 space-y-6 lg:sticky lg:top-24">
           
           {/* Desktop-Only: Selected Chambers Card in sticky sidebar */}
           <div className="hidden lg:block">
@@ -782,26 +782,26 @@ export default function QuoteClient() {
           </div>
 
           {/* Card 2: Factory Credentials & WhatsApp Desk (Contained rounded card) */}
-          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg shadow-navy-950/15 relative overflow-hidden border border-navy-700">
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 text-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 shadow-lg shadow-navy-950/15 relative overflow-hidden border border-navy-700">
             <div className="absolute top-0 right-0 w-28 h-28 bg-amber-500/10 rounded-bl-full pointer-events-none" />
             
-            <div className="flex items-center gap-2 mb-2">
-              <ShieldCheck className="w-4 h-4 text-amber-400" />
-              <h3 className="text-sm sm:text-base font-extrabold text-white">Direct Manufacturer Advantages</h3>
+            <div className="flex items-center gap-2.5 mb-2.5">
+              <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400" />
+              <h3 className="text-base sm:text-lg font-extrabold text-white">Direct Manufacturer Advantages</h3>
             </div>
 
-            <p className="text-navy-200 text-xs leading-relaxed font-normal mb-3">
+            <p className="text-navy-200 text-sm sm:text-base leading-relaxed font-normal mb-4">
               Direct factory pricing with zero intermediary commissions from our IATF 16949 certified facility in Zhuji, China.
             </p>
 
-            <div className="space-y-2 pt-2.5 border-t border-navy-700/80 mb-4 text-xs">
-              <div className="flex items-start gap-2">
-                <Truck className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                <span className="text-navy-300">Custom laser stamping, bespoke packaging & private label.</span>
+            <div className="space-y-2.5 pt-3 border-t border-navy-700/80 mb-5 text-sm sm:text-base">
+              <div className="flex items-start gap-2.5">
+                <Truck className="w-4.5 h-4.5 text-amber-400 shrink-0 mt-1" />
+                <span className="text-navy-200">Custom laser stamping, bespoke packaging & private label.</span>
               </div>
-              <div className="flex items-start gap-2">
-                <Globe className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                <span className="text-navy-300">EXW, FOB Ningbo/Shanghai, CIF, and DDP to warehouse.</span>
+              <div className="flex items-start gap-2.5">
+                <Globe className="w-4.5 h-4.5 text-amber-400 shrink-0 mt-1" />
+                <span className="text-navy-200">EXW, FOB Ningbo/Shanghai, CIF, and DDP to warehouse.</span>
               </div>
             </div>
 
@@ -810,9 +810,9 @@ export default function QuoteClient() {
               href="https://wa.me/8613395856758" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold py-2.5 px-3.5 rounded-xl transition-all shadow-sm"
+              className="w-full inline-flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm sm:text-base font-bold py-3.5 px-4 rounded-xl transition-all shadow-sm"
             >
-              <MessageCircle className="w-3.5 h-3.5" /> WhatsApp Desk: +86 13395856758
+              <MessageCircle className="w-5 h-5" /> WhatsApp Desk: +86 13395856758
             </a>
           </div>
 
