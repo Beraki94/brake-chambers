@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
@@ -31,7 +31,9 @@ export default function RequestMatchPage() {
           
           {/* Main Form Column (Left) */}
           <div className="lg:col-span-7 xl:col-span-8 order-1">
-            <RequestForm />
+            <Suspense fallback={<div className="bg-white rounded-2xl p-8 border border-slate-200 text-center text-slate-500">Loading form...</div>}>
+              <RequestForm />
+            </Suspense>
           </div>
 
           {/* Sticky Sidebar Cards (Right) */}

@@ -1,10 +1,12 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { User, Building, Mail, Phone, Camera, ArrowRight, CheckCircle, AlertCircle, FileText, X, Cpu, ShieldCheck } from 'lucide-react';
 import { validateEmail, validatePhone, validateRequired } from '@/lib/validation';
 
 export default function RequestForm() {
+  const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
@@ -19,6 +21,16 @@ export default function RequestForm() {
     suspectedBrand: '',
     context: ''
   });
+
+  useEffect(() => {
+    const part = searchParams?.get('part') || searchParams?.get('oem');
+    if (part) {
+      setFormData(prev => ({
+        ...prev,
+        unknownPart: prev.unknownPart ? prev.unknownPart : part
+      }));
+    }
+  }, [searchParams]);
 
   const [touched, setTouched] = useState<Record<string, boolean>>({});
 

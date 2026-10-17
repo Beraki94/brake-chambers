@@ -127,8 +127,22 @@ export async function getProducts(): Promise<BrakeChamber[]> {
           ? [...p.uploadedImages, ...normalizedGallery]
           : (normalizedGallery.length > 0 ? normalizedGallery : ['/productsImage/brc-t16-single-brake-1.jpg']);
 
+        const fallbackChamber = BRAKE_CHAMBERS.find(b => b.slug === p.slug);
+        const oemPartNumbers = (p.oemPartNumbers && p.oemPartNumbers.length > 0)
+          ? p.oemPartNumbers
+          : fallbackChamber?.oemPartNumbers;
+        const hiddenSearchTags = (p.hiddenSearchTags && p.hiddenSearchTags.length > 0)
+          ? p.hiddenSearchTags
+          : fallbackChamber?.hiddenSearchTags;
+        const crossReferenceBrands = (p.crossReferenceBrands && p.crossReferenceBrands.length > 0)
+          ? p.crossReferenceBrands
+          : fallbackChamber?.crossReferenceBrands;
+
         return {
           ...p,
+          oemPartNumbers: oemPartNumbers || [],
+          hiddenSearchTags: hiddenSearchTags || [],
+          crossReferenceBrands: crossReferenceBrands || fallbackChamber?.crossReferenceBrands || [],
           galleryUrls,
           imageUrl: galleryUrls[0] || '/productsImage/brc-t16-single-brake-1.jpg',
         };

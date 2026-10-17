@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X, Package, ShieldCheck } from 'lucide-react';
+import { Search, X, Package, ShieldCheck, ArrowRight } from 'lucide-react';
 import { useSearchModalStore } from '@/store/search';
 import type { BrakeChamber } from '@/types';
 
@@ -53,6 +53,7 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
   const searchResults = React.useMemo(() => {
     if (!query.trim()) return { catalog: [], oem: [] };
     const q = query.toLowerCase();
+    const qClean = q.replace(/[^a-z0-9]/g, '');
     const tokens = q.split(/\s+/).filter(t => t.length > 0);
 
     let catalog: Array<{ type: string; item: any }> = [];
@@ -60,11 +61,32 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
 
     products.forEach(p => {
       // Catalog matching
-      const isCatalogMatch = tokens.every(token =>
-        p.name.toLowerCase().includes(token) ||
-        p.brandSlug.toLowerCase().includes(token) ||
-        p.slug.toLowerCase().includes(token)
+      const pNameLower = p.name.toLowerCase();
+      const pNameClean = pNameLower.replace(/[^a-z0-9]/g, '');
+      const pTypeClean = (p.type || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const pModelClean = (p.modelDesignation || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const pSlugClean = (p.slug || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+      const isCleanMatch = qClean.length >= 3 && (
+        pNameClean.includes(qClean) ||
+        pTypeClean.includes(qClean) ||
+        pModelClean.includes(qClean) ||
+        pSlugClean.includes(qClean) ||
+        (p.hiddenSearchTags && p.hiddenSearchTags.some((tag: string) => tag.toLowerCase().replace(/[^a-z0-9]/g, '').includes(qClean)))
       );
+
+      const isCatalogMatch = isCleanMatch || tokens.every(token => {
+        const tokenClean = token.replace(/[^a-z0-9]/g, '');
+        return pNameLower.includes(token) ||
+          p.brandSlug.toLowerCase().includes(token) ||
+          p.slug.toLowerCase().includes(token) ||
+          (p.modelDesignation && p.modelDesignation.toLowerCase().includes(token)) ||
+          (p.crossReferenceBrands && p.crossReferenceBrands.some((b: string) => b.toLowerCase().includes(token))) ||
+          (p.hiddenSearchTags && p.hiddenSearchTags.some((tag: string) => {
+            const tagLower = tag.toLowerCase();
+            return tagLower.includes(token) || (tokenClean.length >= 3 && tag.toLowerCase().replace(/[^a-z0-9]/g, '').includes(tokenClean));
+          }));
+      });
 
       const type = p.category === 'Spring Brake' 
         ? 'spring-brake-chambers' 
@@ -79,10 +101,19 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
       // OEM matching
       if (p.oemPartNumbers) {
         p.oemPartNumbers.forEach(o => {
-          const isOemMatch = tokens.every(token =>
-            o.partNumber.toLowerCase().includes(token) ||
-            o.brand.toLowerCase().includes(token)
-          );
+          const oPartLower = o.partNumber.toLowerCase();
+          const oBrandLower = o.brand.toLowerCase();
+          const oPartClean = oPartLower.replace(/[^a-z0-9]/g, '');
+
+          const isOemMatch = 
+            (qClean.length >= 3 && oPartClean.includes(qClean)) ||
+            tokens.every(token => {
+              const tokenClean = token.replace(/[^a-z0-9]/g, '');
+              return oPartLower.includes(token) ||
+                oBrandLower.includes(token) ||
+                (tokenClean.length >= 3 && oPartClean.includes(tokenClean));
+            });
+
           if (isOemMatch) {
             oem.push({ type, item: p, matchedOem: o });
           }
@@ -94,7 +125,7 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
     const uniqueOem = Array.from(new Map(oem.map(item => [item.matchedOem.partNumber + item.item.slug, item])).values());
 
     return { catalog, oem: uniqueOem };
-  }, [query]);
+  }, [query, products]);
 
   const handleSelect = (type: string, slug: string) => {
     router.push(`/${type}/${slug}`);
@@ -108,8 +139,9 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
     closeSearch();
   };
 
-  const handleOEMRedirect = () => {
-    router.push('/oem-cross-reference');
+  const handleOEMRequest = () => {
+    const cleanQ = query.trim();
+    router.push(cleanQ ? `/oem-cross-reference/request?part=${encodeURIComponent(cleanQ)}` : '/oem-cross-reference/request');
     closeSearch();
   };
 
@@ -149,7 +181,7 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search BRC products or OEM part numbers..."
+                  placeholder="Search part #, brand, or type..."
                   className="w-full pl-12 pr-12 py-3 text-lg sm:text-xl text-navy-900 placeholder-slate-400 focus:outline-none bg-transparent font-medium"
                 />
                 <button
@@ -172,14 +204,21 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
                       Find detailed specifications, cross-references, and technical data for thousands of brake chambers.
                     </p>
                     <div className="flex flex-wrap justify-center gap-2">
-                      {['3030', 'NT3030STD-WC', 'Bendix', 'Haldex'].map((suggestion) => (
+                      {[
+                        { label: 'Type 30/30', query: 'Type 30/30' },
+                        { label: '3430051 (MGM)', query: '3430051' },
+                        { label: '5009011 (Bendix)', query: '5009011' },
+                        { label: '423.107.900.0 (Wabco)', query: '423.107.900.0' },
+                        { label: 'GC3030 (Haldex)', query: 'GC3030' },
+                        { label: 'Type 24', query: 'Type 24' },
+                      ].map((item) => (
                         <button
-                          key={suggestion}
-                          onClick={() => setQuery(suggestion)}
+                          key={item.label}
+                          onClick={() => setQuery(item.query)}
                           type="button"
-                          className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-sm font-medium text-navy-700 hover:border-amber-400 hover:text-amber-600 transition-colors shadow-sm"
+                          className="px-3.5 py-1.5 bg-white border border-slate-200 rounded-lg text-xs sm:text-sm font-semibold text-navy-800 hover:border-amber-400 hover:text-amber-600 transition-colors shadow-sm cursor-pointer"
                         >
-                          {suggestion}
+                          {item.label}
                         </button>
                       ))}
                     </div>
@@ -250,15 +289,21 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
                     )}
                   </div>
                 ) : (
-                  <div className="py-12 px-4 text-center">
-                    <p className="text-navy-900 font-medium mb-1">No results found for "{query}"</p>
-                    <p className="text-slate-500 text-sm mb-6">We couldn't find any direct BRC products or OEM cross-references.</p>
+                  <div className="py-10 px-4 text-center max-w-sm mx-auto">
+                    <div className="w-12 h-12 bg-amber-50 text-amber-500 rounded-2xl flex items-center justify-center mx-auto mb-3 border border-amber-100">
+                      <Search className="w-6 h-6" />
+                    </div>
+                    <p className="text-navy-900 font-bold text-base mb-1">No direct match for "{query}"</p>
+                    <p className="text-slate-500 text-xs sm:text-sm mb-5 leading-relaxed">
+                      We couldn't find an automatic match in our instant index. Our engineering team can cross-reference it from factory drawings within 24h.
+                    </p>
                     <button
-                      onClick={handleOEMRedirect}
+                      onClick={handleOEMRequest}
                       type="button"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-navy-900 hover:bg-navy-800 text-white font-bold rounded-xl text-sm transition-colors shadow-sm"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 bg-amber-500 hover:bg-amber-400 text-navy-950 font-extrabold rounded-xl text-sm shadow-md shadow-amber-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer uppercase tracking-wider"
                     >
-                      <ShieldCheck className="w-4 h-4" /> Request Manual OEM Cross-Reference
+                      <span>Request Custom Cross-Match</span>
+                      <ArrowRight className="w-4 h-4 shrink-0" />
                     </button>
                   </div>
                 )}

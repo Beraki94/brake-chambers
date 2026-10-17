@@ -481,10 +481,13 @@ export const BRAKE_CHAMBERS: BrakeChamber[] = [
     yokeClevisGapWidth: '14.5 mm',
     inletPortThreadSize: '2-3/8" NPT',
     pushrodLengthMetric: '200 mm',
-    hiddenSearchTags: ['3430051', '3030MGMSpring', '30/30 Spring Brake Pot', 'MGM Spring Brake Canister'],
+    hiddenSearchTags: ['3430051', 'NT3030STD-WC', 'NT3030', '5009011', 'GC3030', '3030MGMSpring', '30/30 Spring Brake Pot', 'MGM Spring Brake Canister'],
     galleryUrls: ['/productsImage/brc-t3030-mgm-spring-brake-7-v2.jpg', '/productsImage/brc-t3030-mgm-spring-brake-7-drawing.jpg'],
     oemPartNumbers: [
-      { brand: 'MGM', partNumber: '3430051', notes: 'Direct Match' }
+      { brand: 'MGM', partNumber: '3430051', notes: 'Direct Match' },
+      { brand: 'Bendix', partNumber: 'NT3030STD-WC', notes: 'Direct Replacement' },
+      { brand: 'Bendix', partNumber: '5009011', notes: 'Direct Replacement' },
+      { brand: 'Haldex', partNumber: 'GC3030', notes: 'Direct Replacement' }
     ]
   }),
   createChamber('t3036-mgm-spring', 'Type 30/36 Double Diaphragm Spring Brake Chamber (MGM Style)', 'Type 30/36', 'Spring Brake', 'Standard', 55.00, {
