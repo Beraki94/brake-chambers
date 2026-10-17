@@ -387,10 +387,10 @@ export default function DistributorsClient() {
                       </span>
                     </div>
 
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-navy-900 tracking-tight">
+                    <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-navy-900 tracking-tight leading-tight">
                       Become an Authorized BRC Distributor
                     </h2>
-                    <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
+                    <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl font-normal leading-relaxed">
                       Join our international distribution network. Gain direct factory pricing, territory protection, priority manufacturing, and dedicated engineering support.
                     </p>
                   </div>
@@ -424,11 +424,11 @@ export default function DistributorsClient() {
 
                         {/* Section 01: Contact & Corporate Profile */}
                         <div className="space-y-4">
-                          <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-100">
-                            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
+                          <div className="flex items-center gap-3.5 pb-3.5 border-b border-slate-200/80">
+                            <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-extrabold text-sm sm:text-base flex items-center justify-center shrink-0 shadow-xs">
                               01
                             </span>
-                            <h3 className="text-base sm:text-lg font-bold text-navy-900">
+                            <h3 className="text-lg sm:text-xl font-extrabold text-navy-900 tracking-tight">
                               Contact & Corporate Profile
                             </h3>
                           </div>
@@ -564,11 +564,11 @@ export default function DistributorsClient() {
 
                         {/* Section 02: Commercial & Channel Operations */}
                         <div className="space-y-4">
-                          <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-100">
-                            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
+                          <div className="flex items-center gap-3.5 pb-3.5 border-b border-slate-200/80">
+                            <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-extrabold text-sm sm:text-base flex items-center justify-center shrink-0 shadow-xs">
                               02
                             </span>
-                            <h3 className="text-base sm:text-lg font-bold text-navy-900">
+                            <h3 className="text-lg sm:text-xl font-extrabold text-navy-900 tracking-tight">
                               Commercial & Channel Operations
                             </h3>
                           </div>
@@ -628,11 +628,11 @@ export default function DistributorsClient() {
 
                         {/* Section 03: Verification & Terms */}
                         <div className="space-y-4">
-                          <div className="flex items-center gap-2.5 pb-2.5 border-b border-slate-100">
-                            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
+                          <div className="flex items-center gap-3.5 pb-3.5 border-b border-slate-200/80">
+                            <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-extrabold text-sm sm:text-base flex items-center justify-center shrink-0 shadow-xs">
                               03
                             </span>
-                            <h3 className="text-base sm:text-lg font-bold text-navy-900">
+                            <h3 className="text-lg sm:text-xl font-extrabold text-navy-900 tracking-tight">
                               Verification & Terms
                             </h3>
                           </div>

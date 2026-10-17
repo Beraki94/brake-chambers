@@ -111,20 +111,20 @@ export default function BulkInquiriesForm() {
       <div className="h-1.5 w-full bg-gradient-to-r from-navy-900 via-amber-500 to-navy-900" />
 
       {/* Form Card Header Bar */}
-      <div className="p-5 sm:p-7 lg:p-9 bg-slate-50/70 border-b border-slate-200/80">
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-2 sm:mb-3">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs sm:text-sm font-bold bg-amber-500/10 text-amber-700 border border-amber-500/20">
+      <div className="p-6 sm:p-8 lg:p-9 bg-slate-50/70 border-b border-slate-200/80">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-amber-500/10 text-amber-700 border border-amber-500/20">
             <Factory className="w-4 h-4 text-amber-600" />
             OEM / ODM Sourcing Desk
           </span>
-          <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-slate-700 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+          <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-slate-700 bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200">
             Factory Direct Sourcing
           </span>
         </div>
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy-900 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-navy-900 tracking-tight leading-tight">
           Bulk Sourcing & Custom Manufacturing Inquiry
         </h2>
-        <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
+        <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl font-normal leading-relaxed">
           Direct factory manufacturing operating to IATF 16949 standards for container-load orders, private-label packaging, and custom engineered brake chambers.
         </p>
       </div>
@@ -140,11 +140,11 @@ export default function BulkInquiriesForm() {
 
         {/* Section 01: Corporate & Buyer Profile */}
         <div className="space-y-4">
-          <div className="flex items-center gap-2.5 pb-3 border-b border-slate-100">
-            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3.5 pb-3.5 mb-5 border-b border-slate-200/80">
+            <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-extrabold text-sm sm:text-base flex items-center justify-center shrink-0 shadow-xs">
               01
             </span>
-            <h3 className="text-base sm:text-lg font-bold text-navy-900">
+            <h3 className="text-lg sm:text-xl font-extrabold text-navy-900 tracking-tight">
               Corporate & Buyer Profile
             </h3>
           </div>
@@ -264,11 +264,11 @@ export default function BulkInquiriesForm() {
 
         {/* Section 02: Technical Specifications & Customization */}
         <div className="space-y-4">
-          <div className="flex items-center gap-2.5 pb-3 border-b border-slate-100">
-            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3.5 pb-3.5 mb-5 border-b border-slate-200/80">
+            <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-extrabold text-sm sm:text-base flex items-center justify-center shrink-0 shadow-xs">
               02
             </span>
-            <h3 className="text-base sm:text-lg font-bold text-navy-900">
+            <h3 className="text-lg sm:text-xl font-extrabold text-navy-900 tracking-tight">
               Technical Specifications & Customization
             </h3>
           </div>

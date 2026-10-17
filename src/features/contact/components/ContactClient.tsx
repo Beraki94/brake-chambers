@@ -206,24 +206,24 @@ export default function ContactClient() {
               <div className="h-1.5 w-full bg-gradient-to-r from-navy-900 via-amber-500 to-navy-900" />
 
               {/* Form Section Header Bar */}
-              <div className="p-5 sm:p-7 lg:p-8 bg-slate-50/70 border-b border-slate-200/80">
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-2.5">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs sm:text-sm font-bold uppercase tracking-wider">
+              <div className="p-6 sm:p-8 lg:p-9 bg-slate-50/70 border-b border-slate-200/80">
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs sm:text-sm font-bold uppercase tracking-wider">
                     <PhoneCall className="w-4 h-4 text-amber-600" />
                     Direct Factory Desk
                   </div>
 
                   {/* Status Indicator Pill */}
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs sm:text-sm font-medium">
+                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs sm:text-sm font-medium">
                     <Clock className="w-4 h-4 text-slate-500" />
                     Factory Direct Desk
                   </span>
                 </div>
 
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy-900 tracking-tight">
+                <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-navy-900 tracking-tight leading-tight">
                   Commercial Inquiries & Technical Support
                 </h2>
-                <p className="text-slate-600 text-sm sm:text-base mt-1.5 font-normal leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base mt-2 font-normal leading-relaxed">
                   Connect with our factory sales and engineering team in Zhejiang, China for product specifications, custom configurations, sample requests, and container wholesale quotations.
                 </p>
               </div>
@@ -273,13 +273,13 @@ export default function ContactClient() {
 
                   {/* SECTION 01: Buyer & Company Profile */}
                   <div>
-                    <div className="flex items-center gap-3 pb-3 mb-4 border-b border-slate-100">
-                      <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
+                    <div className="flex items-center gap-3.5 pb-3.5 mb-5 border-b border-slate-200/80">
+                      <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-extrabold text-sm sm:text-base flex items-center justify-center shrink-0 shadow-xs">
                         01
                       </span>
                       <div>
-                        <h3 className="text-base sm:text-lg font-bold text-navy-900">Buyer & Company Profile</h3>
-                        <p className="text-xs sm:text-sm text-slate-500 font-normal">Where should we deliver the official quotation or technical reply?</p>
+                        <h3 className="text-lg sm:text-xl font-extrabold text-navy-900 tracking-tight">Buyer & Company Profile</h3>
+                        <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">Where should we deliver the official quotation or technical reply?</p>
                       </div>
                     </div>
 
@@ -437,13 +437,13 @@ export default function ContactClient() {
 
                   {/* SECTION 02: Inquiry Classification & Requirements */}
                   <div>
-                    <div className="flex items-center gap-3 pb-3 mb-4 border-b border-slate-100">
-                      <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
+                    <div className="flex items-center gap-3.5 pb-3.5 mb-5 border-b border-slate-200/80">
+                      <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-extrabold text-sm sm:text-base flex items-center justify-center shrink-0 shadow-xs">
                         02
                       </span>
                       <div>
-                        <h3 className="text-base sm:text-lg font-bold text-navy-900">Inquiry Scope & Requirements</h3>
-                        <p className="text-xs sm:text-sm text-slate-500 font-normal">Specify the inquiry purpose and detailed requirements</p>
+                        <h3 className="text-lg sm:text-xl font-extrabold text-navy-900 tracking-tight">Inquiry Scope & Requirements</h3>
+                        <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">Specify the inquiry purpose and detailed requirements</p>
                       </div>
                     </div>
 
