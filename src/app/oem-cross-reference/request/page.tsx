@@ -39,10 +39,7 @@ export default function RequestMatchPage() {
             
             {/* Card 1: How Cross-Matching Works */}
             <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-[0_8px_24px_rgba(10,25,41,0.04)]">
-              <div className="flex items-center gap-2.5 mb-5 pb-3 border-b border-slate-100">
-                <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 font-bold text-xs sm:text-sm shrink-0 border border-amber-500/20 whitespace-nowrap">
-                  Steps
-                </span>
+              <div className="pb-4 mb-5 border-b border-slate-100">
                 <h3 className="font-extrabold text-navy-900 text-lg sm:text-xl">
                   How Cross-Matching Works
                 </h3>

@@ -206,25 +206,19 @@ export default function ContactClient() {
               <div className="h-1.5 w-full bg-gradient-to-r from-navy-900 via-amber-500 to-navy-900" />
 
               {/* Form Section Header Bar */}
-              <div className="p-6 sm:p-8 lg:p-9 bg-slate-50/70 border-b border-slate-200/80">
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs sm:text-sm font-bold uppercase tracking-wider">
-                    <PhoneCall className="w-4 h-4 text-amber-600" />
+              <div className="p-4 sm:p-6 lg:p-7 bg-slate-50/70 border-b border-slate-200/80">
+                <div className="flex items-center gap-2 mb-2.5">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-800 text-xs font-bold uppercase tracking-wider">
+                    <PhoneCall className="w-3.5 h-3.5 text-amber-600" />
                     Direct Factory Desk
-                  </div>
-
-                  {/* Status Indicator Pill */}
-                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs sm:text-sm font-medium">
-                    <Clock className="w-4 h-4 text-slate-500" />
-                    Factory Direct Desk
                   </span>
                 </div>
 
-                <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-navy-900 tracking-tight leading-tight">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy-900 tracking-tight leading-tight">
                   Commercial Inquiries & Technical Support
                 </h2>
-                <p className="text-slate-600 text-sm sm:text-base mt-2 font-normal leading-relaxed">
-                  Connect with our factory sales and engineering team in Zhejiang, China for product specifications, custom configurations, sample requests, and container wholesale quotations.
+                <p className="text-slate-600 text-xs sm:text-sm mt-1.5 font-normal leading-relaxed">
+                  Connect with our factory sales and engineering team in Zhejiang, China for specifications, custom configurations, sample requests, and wholesale quotations.
                 </p>
               </div>
 
@@ -263,9 +257,9 @@ export default function ContactClient() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} noValidate className="p-5 sm:p-7 lg:p-8 flex flex-col gap-6 sm:gap-7 relative">
+                <form onSubmit={handleSubmit} noValidate className="p-4 sm:p-6 lg:p-7 flex flex-col gap-5 sm:gap-6 relative">
                   {serverError && (
-                    <div className="p-4 bg-rose-50/70 border border-rose-200 text-rose-800 rounded-xl text-sm sm:text-base flex items-start gap-3">
+                    <div className="p-3.5 bg-rose-50/70 border border-rose-200 text-rose-800 rounded-xl text-sm flex items-start gap-2.5">
                       <AlertCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
                       <span>{serverError}</span>
                     </div>
@@ -273,162 +267,146 @@ export default function ContactClient() {
 
                   {/* SECTION 01: Buyer & Company Profile */}
                   <div>
-                    <div className="flex items-center gap-3.5 pb-3.5 mb-5 border-b border-slate-200/80">
-                      <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-extrabold text-sm sm:text-base flex items-center justify-center shrink-0 shadow-xs">
+                    <div className="flex items-center gap-3 pb-2.5 mb-4 border-b border-slate-100">
+                      <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
                         01
                       </span>
-                      <div>
-                        <h3 className="text-lg sm:text-xl font-extrabold text-navy-900 tracking-tight">Buyer & Company Profile</h3>
-                        <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">Where should we deliver the official quotation or technical reply?</p>
-                      </div>
+                      <h3 className="text-base sm:text-lg font-bold text-navy-900">
+                        Buyer & Company Profile
+                      </h3>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                       {/* Full Name */}
                       <div>
-                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
                           Full Name <span className="text-amber-500 font-bold">*</span>
                         </label>
-                        <div className="relative">
-                          <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
-                          <input
-                            type="text"
-                            name="fullName"
-                            value={formData.fullName}
-                            onChange={handleChange}
-                            onBlur={() => handleBlur('fullName')}
-                            required
-                            disabled={isSubmitting}
-                            placeholder="John Doe"
-                            className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
-                              errors.fullName
-                                ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
-                                : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
-                            }`}
-                          />
-                        </div>
+                        <input
+                          type="text"
+                          name="fullName"
+                          value={formData.fullName}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur('fullName')}
+                          required
+                          disabled={isSubmitting}
+                          placeholder="John Doe"
+                          className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            errors.fullName
+                              ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                              : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                          }`}
+                        />
                         {errors.fullName && (
-                          <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
-                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.fullName}
+                          <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
+                            <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.fullName}
                           </p>
                         )}
                       </div>
 
                       {/* Business Email */}
                       <div>
-                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
                           Business Email <span className="text-amber-500 font-bold">*</span>
                         </label>
-                        <div className="relative">
-                          <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
-                          <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            onBlur={() => handleBlur('email')}
-                            required
-                            disabled={isSubmitting}
-                            placeholder="john@company.com"
-                            className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
-                              errors.email
-                                ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
-                                : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
-                            }`}
-                          />
-                        </div>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur('email')}
+                          required
+                          disabled={isSubmitting}
+                          placeholder="john@company.com"
+                          className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            errors.email
+                              ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                              : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                          }`}
+                        />
                         {errors.email && (
-                          <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
-                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.email}
+                          <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
+                            <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.email}
                           </p>
                         )}
                       </div>
 
                       {/* Company / Fleet Name */}
                       <div>
-                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
                           Company / Fleet Name <span className="text-amber-500 font-bold">*</span>
                         </label>
-                        <div className="relative">
-                          <Building className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
-                          <input
-                            type="text"
-                            name="company"
-                            value={formData.company}
-                            onChange={handleChange}
-                            onBlur={() => handleBlur('company')}
-                            required
-                            disabled={isSubmitting}
-                            placeholder="Global Trucking Logistics"
-                            className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
-                              errors.company
-                                ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
-                                : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
-                            }`}
-                          />
-                        </div>
+                        <input
+                          type="text"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur('company')}
+                          required
+                          disabled={isSubmitting}
+                          placeholder="Global Trucking Logistics"
+                          className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            errors.company
+                              ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                              : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                          }`}
+                        />
                         {errors.company && (
-                          <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
-                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.company}
+                          <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
+                            <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.company}
                           </p>
                         )}
                       </div>
 
                       {/* Country */}
                       <div>
-                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
                           Country <span className="text-amber-500 font-bold">*</span>
                         </label>
-                        <div className="relative">
-                          <Globe className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
-                          <input
-                            type="text"
-                            name="country"
-                            value={formData.country}
-                            onChange={handleChange}
-                            onBlur={() => handleBlur('country')}
-                            required
-                            disabled={isSubmitting}
-                            placeholder="United States"
-                            className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
-                              errors.country
-                                ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
-                                : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
-                            }`}
-                          />
-                        </div>
+                        <input
+                          type="text"
+                          name="country"
+                          value={formData.country}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur('country')}
+                          required
+                          disabled={isSubmitting}
+                          placeholder="United States"
+                          className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            errors.country
+                              ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                              : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                          }`}
+                        />
                         {errors.country && (
-                          <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
-                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.country}
+                          <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
+                            <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.country}
                           </p>
                         )}
                       </div>
 
                       {/* Phone */}
                       <div className="sm:col-span-2">
-                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
-                          Direct Phone / WhatsApp <span className="text-slate-400 text-xs sm:text-sm font-normal">(Optional)</span>
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
+                          Direct Phone / WhatsApp <span className="text-slate-400 font-normal">(Optional)</span>
                         </label>
-                        <div className="relative">
-                          <Phone className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
-                          <input
-                            type="text"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            onBlur={() => handleBlur('phone')}
-                            disabled={isSubmitting}
-                            placeholder="+1 (555) 019-2834"
-                            className={`w-full pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
-                              errors.phone
-                                ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
-                                : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
-                            }`}
-                          />
-                        </div>
+                        <input
+                          type="text"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur('phone')}
+                          disabled={isSubmitting}
+                          placeholder="+1 (555) 019-2834"
+                          className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none placeholder:text-slate-400 placeholder:font-normal ${
+                            errors.phone
+                              ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
+                              : 'bg-white border border-slate-200 text-navy-900 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed'
+                          }`}
+                        />
                         {errors.phone && (
-                          <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
-                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.phone}
+                          <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
+                            <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.phone}
                           </p>
                         )}
                       </div>
@@ -437,44 +415,40 @@ export default function ContactClient() {
 
                   {/* SECTION 02: Inquiry Classification & Requirements */}
                   <div>
-                    <div className="flex items-center gap-3.5 pb-3.5 mb-5 border-b border-slate-200/80">
-                      <span className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-navy-900 text-amber-400 font-extrabold text-sm sm:text-base flex items-center justify-center shrink-0 shadow-xs">
+                    <div className="flex items-center gap-3 pb-2.5 mb-4 border-b border-slate-100">
+                      <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-navy-900 text-amber-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0">
                         02
                       </span>
-                      <div>
-                        <h3 className="text-lg sm:text-xl font-extrabold text-navy-900 tracking-tight">Inquiry Scope & Requirements</h3>
-                        <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">Specify the inquiry purpose and detailed requirements</p>
-                      </div>
+                      <h3 className="text-base sm:text-lg font-bold text-navy-900">
+                        Inquiry Scope & Requirements
+                      </h3>
                     </div>
 
-                    <div className="space-y-4">
+                    <div className="space-y-3.5 sm:space-y-4">
                       {/* Inquiry Type */}
                       <div>
-                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
                           Inquiry Type <span className="text-amber-500 font-bold">*</span>
                         </label>
-                        <div className="relative">
-                          <HelpCircle className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
-                          <select
-                            name="inquiryType"
-                            value={formData.inquiryType}
-                            onChange={handleChange}
-                            disabled={isSubmitting}
-                            required
-                            className="w-full pl-12 pr-10 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium focus:outline-none transition-all appearance-none shadow-2xs bg-white border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
-                          >
-                            <option value="Technical Support">Technical Support</option>
-                            <option value="Wholesale Quote">Wholesale & RFQ</option>
-                            <option value="Sample Request">Sample Request</option>
-                            <option value="Distribution Partnership">Distribution Partnership</option>
-                            <option value="General Inquiry">General Inquiry</option>
-                          </select>
-                        </div>
+                        <select
+                          name="inquiryType"
+                          value={formData.inquiryType}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          required
+                          className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium focus:outline-none transition-all shadow-2xs bg-white border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed cursor-pointer"
+                        >
+                          <option value="Technical Support">Technical Support</option>
+                          <option value="Wholesale Quote">Wholesale & RFQ</option>
+                          <option value="Sample Request">Sample Request</option>
+                          <option value="Distribution Partnership">Distribution Partnership</option>
+                          <option value="General Inquiry">General Inquiry</option>
+                        </select>
                       </div>
 
                       {/* Message */}
                       <div>
-                        <label className="block text-sm sm:text-base font-bold text-navy-900 mb-1.5">
+                        <label className="block text-xs sm:text-sm font-bold text-navy-900 mb-1">
                           Message & Specifications <span className="text-amber-500 font-bold">*</span>
                         </label>
                         <textarea
@@ -486,15 +460,15 @@ export default function ContactClient() {
                           required
                           disabled={isSubmitting}
                           placeholder="Please include part numbers, estimated quantities, or destination country for shipping quotes..."
-                          className={`w-full p-4 rounded-xl sm:rounded-2xl text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none resize-none bg-white border border-slate-200 placeholder:text-slate-400 placeholder:font-normal focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed ${
+                          className={`w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base text-navy-900 font-medium transition-all shadow-2xs focus:outline-none resize-none bg-white border border-slate-200 placeholder:text-slate-400 placeholder:font-normal focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 disabled:bg-slate-50/70 disabled:text-slate-600 disabled:cursor-not-allowed ${
                             errors.message
                               ? 'bg-rose-50/30 border-2 border-rose-300 focus:border-rose-400 text-navy-900'
                               : ''
                           }`}
                         ></textarea>
                         {errors.message && (
-                          <p className="mt-1.5 text-xs sm:text-sm text-rose-600 font-medium flex items-center gap-1.5">
-                            <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" /> {errors.message}
+                          <p className="mt-1 text-xs text-rose-600 font-medium flex items-center gap-1">
+                            <AlertCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" /> {errors.message}
                           </p>
                         )}
                       </div>
@@ -506,35 +480,25 @@ export default function ContactClient() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-navy-900 hover:bg-navy-800 disabled:bg-slate-400 disabled:cursor-not-allowed text-white font-extrabold text-base sm:text-lg py-4 sm:py-4.5 rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg shadow-navy-900/15 transition-all flex items-center justify-center gap-2.5 group cursor-pointer"
+                      className="w-full bg-amber-500 hover:bg-amber-400 disabled:bg-amber-300 disabled:cursor-not-allowed text-navy-950 font-black text-xs sm:text-sm py-3.5 sm:py-4 px-6 rounded-xl shadow-xl shadow-amber-500/20 hover:shadow-amber-500/30 transition-all flex items-center justify-center gap-2 uppercase tracking-wider transform hover:-translate-y-0.5 cursor-pointer"
                     >
                       {isSubmitting ? (
-                        <span className="flex items-center gap-2.5">
-                          Submitting Inquiry...
-                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <span className="flex items-center gap-2">
+                          SUBMITTING INQUIRY...
+                          <div className="w-4 h-4 border-2 border-navy-950/30 border-t-navy-950 rounded-full animate-spin" />
                         </span>
                       ) : (
-                        <span className="flex items-center gap-2.5">
-                          Submit Official Inquiry 
-                          <ArrowRight className="w-5 h-5 text-amber-400 group-hover:translate-x-1 transition-transform" />
+                        <span className="flex items-center gap-2">
+                          SUBMIT INQUIRY
+                          <ArrowRight className="w-4 h-4 shrink-0" />
                         </span>
                       )}
                     </button>
 
                     {/* Trust markers under CTA */}
-                    <div className="mt-4 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs sm:text-sm text-slate-600 font-medium">
-                      <span className="flex items-center gap-1.5">
-                        <ShieldCheck className="w-4.5 h-4.5 text-emerald-600" />
-                        Direct Manufacturer Pricing
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <CheckCircle2 className="w-4.5 h-4.5 text-amber-500" />
-                        IATF 16949 Certified
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <CheckCircle2 className="w-4.5 h-4.5 text-navy-600" />
-                        Direct Factory Support
-                      </span>
+                    <div className="mt-3 flex items-center justify-center gap-1.5 text-xs text-slate-500 font-medium text-center">
+                      <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span>Direct Factory Pricing • IATF 16949 Certified • 24h Response</span>
                     </div>
                   </div>
                 </form>
@@ -547,14 +511,9 @@ export default function ContactClient() {
             
             {/* Card 1: Official Factory Communication Channels */}
             <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 shadow-[0_12px_36px_rgba(10,25,41,0.06)] border border-slate-200/90 relative overflow-hidden">
-              <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
-                <div className="flex items-center gap-2.5">
-                  <PhoneCall className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500" />
-                  <h3 className="font-extrabold text-navy-900 text-base sm:text-lg">Direct Factory Channels</h3>
-                </div>
-                <span className="text-xs font-bold px-3 py-1 rounded-full text-slate-800 bg-slate-100 border border-slate-200">
-                  Zhuji, China
-                </span>
+              <div className="flex items-center gap-2.5 pb-4 mb-5 border-b border-slate-100">
+                <PhoneCall className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500" />
+                <h3 className="font-extrabold text-navy-900 text-base sm:text-lg">Direct Factory Channels</h3>
               </div>
 
               <div className="space-y-4 text-sm sm:text-base">
