@@ -1,13 +1,34 @@
 import { MetadataRoute } from 'next';
 import { getProducts, getBlogPosts } from '@/sanity/queries';
+import { BRAKE_CHAMBERS } from '@/lib/data';
+import { blogPosts as fallbackBlogPosts } from '@/data/blogPosts';
 
 export const revalidate = 3600; // revalidate sitemap every hour
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.brakechambers.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.brakechambers.com';
 
-  const products = await getProducts();
-  const blogPosts = await getBlogPosts();
+  let products: any[] = [];
+  try {
+    products = await getProducts();
+  } catch (error) {
+    console.warn('Sitemap: Failed to fetch products from Sanity, using fallback data', error);
+    products = BRAKE_CHAMBERS;
+  }
+  if (!products || products.length === 0) {
+    products = BRAKE_CHAMBERS;
+  }
+
+  let blogPosts: any[] = [];
+  try {
+    blogPosts = await getBlogPosts();
+  } catch (error) {
+    console.warn('Sitemap: Failed to fetch blog posts from Sanity, using fallback data', error);
+    blogPosts = fallbackBlogPosts;
+  }
+  if (!blogPosts || blogPosts.length === 0) {
+    blogPosts = fallbackBlogPosts;
+  }
 
   // Base routes
   const baseRoutes = [
@@ -159,7 +180,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // Products from Sanity
+  // Products from Sanity (or fallback)
   const productRoutes = products.map((product) => {
     let categoryPrefix = 'products';
     if (product.category === 'Spring Brake') categoryPrefix = 'spring-brake-chambers';
@@ -183,7 +204,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // Blog Posts from Sanity
+  // Blog Posts from Sanity (or fallback)
   const blogRoutes = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: post.publishDate ? new Date(post.publishDate) : new Date(),

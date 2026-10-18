@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -18,8 +19,31 @@ interface BlogClientProps {
 }
 
 export default function BlogClient({ blogPosts }: BlogClientProps) {
-  const [activeCategory, setActiveCategory] = useState<BlogCategory>('All');
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const searchParams = useSearchParams();
+
+  // Resolve initial tab from ?tab= query parameter
+  const tabParam = searchParams?.get('tab');
+  const matchedCategory = useMemo(() => {
+    if (!tabParam) return 'All' as BlogCategory;
+    const matched = BLOG_CATEGORIES.find(c => c.slug === tabParam);
+    return matched ? matched.id : ('All' as BlogCategory);
+  }, [tabParam]);
+
+  const [activeCategory, setActiveCategory] = useState<BlogCategory>(matchedCategory);
+  const [prevMatchedCategory, setPrevMatchedCategory] = useState<BlogCategory>(matchedCategory);
+  if (matchedCategory !== prevMatchedCategory) {
+    setPrevMatchedCategory(matchedCategory);
+    setActiveCategory(matchedCategory);
+  }
+
+  const queryPage = Number(searchParams?.get('page')) || 1;
+  const [currentPage, setCurrentPage] = useState<number>(queryPage);
+  const [prevQueryPage, setPrevQueryPage] = useState<number>(queryPage);
+  if (queryPage !== prevQueryPage) {
+    setPrevQueryPage(queryPage);
+    setCurrentPage(queryPage);
+  }
+
   const [postsPerPage, setPostsPerPage] = useState<number>(12); // Default to 12 for desktop SSR
 
   // Set responsive posts per page: 12 on desktop (>= 768px), 6 on mobile (< 768px)
@@ -31,23 +55,6 @@ export default function BlogClient({ blogPosts }: BlogClientProps) {
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Sync tab state with ?tab= query parameter on mount and when changed
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const params = new URLSearchParams(window.location.search);
-    const tabParam = params.get('tab');
-    if (tabParam) {
-      const matched = BLOG_CATEGORIES.find(c => c.slug === tabParam);
-      if (matched) {
-        setActiveCategory(matched.id);
-      }
-    }
-    const pageParam = Number(params.get('page'));
-    if (pageParam && pageParam > 1) {
-      setCurrentPage(pageParam);
-    }
   }, []);
 
   const scrollToBlogStart = () => {
@@ -143,15 +150,9 @@ export default function BlogClient({ blogPosts }: BlogClientProps) {
 
   // Paginate posts: 12 on desktop (>= 768px), 6 on mobile (< 768px)
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+  const safeCurrentPage = (totalPages > 0 && currentPage > totalPages) ? 1 : currentPage;
 
-  // Keep currentPage safe within totalPages
-  useEffect(() => {
-    if (currentPage > totalPages && totalPages > 0) {
-      setCurrentPage(1);
-    }
-  }, [totalPages, currentPage]);
-
-  const startIndex = (currentPage - 1) * postsPerPage;
+  const startIndex = (safeCurrentPage - 1) * postsPerPage;
   const paginatedPosts = useMemo(() => {
     return filteredPosts.slice(startIndex, startIndex + postsPerPage);
   }, [filteredPosts, startIndex, postsPerPage]);
@@ -209,7 +210,7 @@ export default function BlogClient({ blogPosts }: BlogClientProps) {
                 variants={staggerContainer}
                 initial="hidden"
                 animate="visible"
-                key={`${activeCategory}-${currentPage}`}
+                key={`${activeCategory}-${safeCurrentPage}`}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch"
               >
                 {paginatedPosts.map((post) => (
@@ -221,7 +222,7 @@ export default function BlogClient({ blogPosts }: BlogClientProps) {
 
           {/* Pagination Controls */}
           <BlogPagination
-            currentPage={currentPage}
+            currentPage={safeCurrentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
           />

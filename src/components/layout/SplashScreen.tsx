@@ -1,25 +1,35 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useSyncExternalStore } from 'react';
 import { motion } from 'framer-motion';
 
+const emptySubscribe = () => () => {};
+
 export default function SplashScreen() {
+  const hasSeenSplash = useSyncExternalStore(
+    emptySubscribe,
+    () => {
+      try {
+        return sessionStorage.getItem('hasSeenSplash') === 'true';
+      } catch {
+        return false;
+      }
+    },
+    () => true
+  );
+
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [isRemoved, setIsRemoved] = useState(false);
 
   useEffect(() => {
-    // Check if the user has already seen the splash screen in this session
-    const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
-    
-    if (hasSeenSplash) {
-      setIsRemoved(true);
-      return;
-    }
+    if (hasSeenSplash) return;
 
     // Set a timer for the splash screen fade out
     const fadeTimer = setTimeout(() => {
       setIsFadingOut(true);
-      sessionStorage.setItem('hasSeenSplash', 'true');
+      try {
+        sessionStorage.setItem('hasSeenSplash', 'true');
+      } catch {}
     }, 1200);
 
     // Set a timer to completely unmount after transition
@@ -31,9 +41,9 @@ export default function SplashScreen() {
       clearTimeout(fadeTimer);
       clearTimeout(removeTimer);
     };
-  }, []);
+  }, [hasSeenSplash]);
 
-  if (isRemoved) return null;
+  if (hasSeenSplash || isRemoved) return null;
 
   return (
     <div

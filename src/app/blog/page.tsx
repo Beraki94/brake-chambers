@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import BlogClient from '@/features/blog/components/BlogClient';
 import { getBlogPosts, getPageSeo } from '@/sanity/queries';
 
@@ -27,5 +28,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function BlogPage() {
   const blogPosts = await getBlogPosts();
-  return <BlogClient blogPosts={blogPosts} />;
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 flex items-center justify-center"><div className="w-8 h-8 rounded-full border-2 border-navy-900 border-t-amber-500 animate-spin" /></div>}>
+      <BlogClient blogPosts={blogPosts} />
+    </Suspense>
+  );
 }

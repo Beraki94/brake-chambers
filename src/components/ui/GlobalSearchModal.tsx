@@ -17,6 +17,11 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const handleClose = React.useCallback(() => {
+    setQuery('');
+    closeSearch();
+  }, [closeSearch]);
+
   useEffect(() => {
     if (isOpen) {
       // Prevent scrollbar jump by calculating its width
@@ -24,23 +29,21 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
       document.body.style.paddingRight = `${scrollbarWidth}px`;
       document.body.style.overflow = 'hidden';
       
-      setTimeout(() => inputRef.current?.focus(), 100);
+      const timer = setTimeout(() => inputRef.current?.focus(), 100);
+      return () => {
+        clearTimeout(timer);
+        document.body.style.paddingRight = '0px';
+        document.body.style.overflow = 'unset';
+      };
     } else {
       document.body.style.paddingRight = '0px';
       document.body.style.overflow = 'unset';
-      setQuery('');
     }
-
-    // Cleanup
-    return () => {
-      document.body.style.paddingRight = '0px';
-      document.body.style.overflow = 'unset';
-    };
   }, [isOpen]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeSearch();
+      if (e.key === 'Escape') handleClose();
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         useSearchModalStore.getState().openSearch();
@@ -48,7 +51,7 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [closeSearch]);
+  }, [handleClose]);
 
   const searchResults = React.useMemo(() => {
     if (!query.trim()) return { catalog: [], oem: [] };
@@ -56,8 +59,8 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
     const qClean = q.replace(/[^a-z0-9]/g, '');
     const tokens = q.split(/\s+/).filter(t => t.length > 0);
 
-    let catalog: Array<{ type: string; item: any }> = [];
-    let oem: Array<{ type: string; item: any; matchedOem: { brand: string; partNumber: string } }> = [];
+    const catalog: Array<{ type: string; item: any }> = [];
+    const oem: Array<{ type: string; item: any; matchedOem: { brand: string; partNumber: string } }> = [];
 
     products.forEach(p => {
       // Catalog matching
@@ -129,20 +132,20 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
 
   const handleSelect = (type: string, slug: string) => {
     router.push(`/${type}/${slug}`);
-    closeSearch();
+    handleClose();
   };
 
   const handleOemSelect = (brand: string, partNumber: string) => {
     const oBrandSlug = brand.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const oPartNum = partNumber.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     router.push(`/oem-cross-reference/${oBrandSlug}/${oPartNum}`);
-    closeSearch();
+    handleClose();
   };
 
   const handleOEMRequest = () => {
     const cleanQ = query.trim();
     router.push(cleanQ ? `/oem-cross-reference/request?part=${encodeURIComponent(cleanQ)}` : '/oem-cross-reference/request');
-    closeSearch();
+    handleClose();
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -162,7 +165,7 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={closeSearch}
+            onClick={handleClose}
             className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[100]"
           />
           
@@ -186,7 +189,7 @@ export default function GlobalSearchModal({ products }: GlobalSearchModalProps) 
                 />
                 <button
                   type="button"
-                  onClick={closeSearch}
+                  onClick={handleClose}
                   className="absolute right-4 p-2 text-slate-400 hover:text-navy-900 hover:bg-slate-100 rounded-lg transition-colors"
                 >
                   <X className="w-5 h-5" />

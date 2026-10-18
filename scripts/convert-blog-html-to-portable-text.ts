@@ -164,7 +164,7 @@ export function htmlToPortableText(html: string): Block[] {
   if (!html) return blocks;
 
   // Clean script, style, comments
-  let clean = html.replace(/<!--[\s\S]*?-->/g, '').replace(/<style[\s\S]*?<\/style>/gi, '');
+  const clean = html.replace(/<!--[\s\S]*?-->/g, '').replace(/<style[\s\S]*?<\/style>/gi, '');
 
   // Regex to match block-level elements: h2, h3, h4, p, ul, ol, blockquote, div
   const blockRegex = /<(h[2-4]|p|ul|ol|blockquote|div)([^>]*)>([\s\S]*?)<\/\1>/gi;

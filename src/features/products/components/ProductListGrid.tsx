@@ -28,16 +28,14 @@ export default function ProductListGrid({
   // Desktop maintains current 20 cards per page
   // Mobile (< 768px) reduces to half: 10 cards per page
   const [pageSize, setPageSize] = useState<number>(20);
-  const [currentPage, setCurrentPage] = useState<number>(initialPage);
+  const queryPage = Number(searchParams?.get('page')) || initialPage;
+  const [currentPage, setCurrentPage] = useState<number>(queryPage);
+  const [prevQueryPage, setPrevQueryPage] = useState<number>(queryPage);
 
-  // Sync with searchParams on mount / change
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const pageParam = Number(searchParams?.get('page'));
-    if (pageParam && pageParam > 0) {
-      setCurrentPage(pageParam);
-    }
-  }, [searchParams]);
+  if (queryPage !== prevQueryPage) {
+    setPrevQueryPage(queryPage);
+    setCurrentPage(queryPage);
+  }
 
   // Responsive page size: 20 on desktop, 10 on mobile
   useEffect(() => {
@@ -51,15 +49,9 @@ export default function ProductListGrid({
   }, []);
 
   const totalPages = Math.ceil(products.length / pageSize) || 1;
+  const safeCurrentPage = (totalPages > 0 && currentPage > totalPages) ? 1 : currentPage;
 
-  // Keep currentPage safe within totalPages when products count changes or screen resizes
-  useEffect(() => {
-    if (currentPage > totalPages && totalPages > 0) {
-      setCurrentPage(1);
-    }
-  }, [totalPages, currentPage]);
-
-  const startIndex = (currentPage - 1) * pageSize;
+  const startIndex = (safeCurrentPage - 1) * pageSize;
   const paginatedProducts = useMemo(() => {
     return products.slice(startIndex, startIndex + pageSize);
   }, [products, startIndex, pageSize]);
@@ -123,7 +115,7 @@ export default function ProductListGrid({
         </div>
         {totalPages > 1 && (
           <div className="text-amber-400 font-bold text-xs px-2 tracking-wider uppercase">
-            Page {currentPage} of {totalPages}
+            Page {safeCurrentPage} of {totalPages}
           </div>
         )}
       </div>
@@ -152,7 +144,7 @@ export default function ProductListGrid({
       {/* Consistent Pagination matching Blog UI */}
       {totalPages > 1 && (
         <Pagination
-          currentPage={currentPage}
+          currentPage={safeCurrentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
         />

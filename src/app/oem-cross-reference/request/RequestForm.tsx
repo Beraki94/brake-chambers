@@ -1,12 +1,14 @@
 'use client';
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { User, Building, Mail, Phone, Camera, ArrowRight, CheckCircle, AlertCircle, FileText, X, Cpu, ShieldCheck } from 'lucide-react';
 import { validateEmail, validatePhone, validateRequired } from '@/lib/validation';
 
 export default function RequestForm() {
   const searchParams = useSearchParams();
+  const queryPart = searchParams?.get('part') || searchParams?.get('oem') || '';
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
@@ -17,20 +19,21 @@ export default function RequestForm() {
     company: '',
     email: '',
     phone: '',
-    unknownPart: '',
+    unknownPart: queryPart,
     suspectedBrand: '',
     context: ''
   });
 
-  useEffect(() => {
-    const part = searchParams?.get('part') || searchParams?.get('oem');
-    if (part) {
+  const [prevQueryPart, setPrevQueryPart] = useState(queryPart);
+  if (queryPart !== prevQueryPart) {
+    setPrevQueryPart(queryPart);
+    if (!formData.unknownPart && queryPart) {
       setFormData(prev => ({
         ...prev,
-        unknownPart: prev.unknownPart ? prev.unknownPart : part
+        unknownPart: queryPart
       }));
     }
-  }, [searchParams]);
+  }
 
   const [touched, setTouched] = useState<Record<string, boolean>>({});
 

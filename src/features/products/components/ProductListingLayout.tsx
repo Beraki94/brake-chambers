@@ -109,20 +109,24 @@ export default function ProductListingLayout({
       <div id="product-listing" className="flex flex-col lg:flex-row gap-6 relative scroll-mt-48 lg:scroll-mt-60">
         <div className="w-full lg:w-64 flex-shrink-0 flex flex-col gap-4">
            <MobileSidebarWrapper>
-             <FacetedSidebar baseCategory={baseCategory} products={initialProducts} />
+             <React.Suspense fallback={<div className="bg-white rounded-xl p-4 border border-slate-100 animate-pulse h-64" />}>
+               <FacetedSidebar baseCategory={baseCategory} products={initialProducts} />
+             </React.Suspense>
            </MobileSidebarWrapper>
            
            <BulkOemCard />
         </div>
 
         <div className="flex-grow min-w-0">
-          <ProductListGrid
-            products={products}
-            baseCategory={baseCategory}
-            title={title}
-            cardType={cardType}
-            initialPage={Number(searchParams?.page) || 1}
-          />
+          <React.Suspense fallback={<div className="bg-white rounded-xl p-8 border border-slate-100 animate-pulse h-96" />}>
+            <ProductListGrid
+              products={products}
+              baseCategory={baseCategory}
+              title={title}
+              cardType={cardType}
+              initialPage={Number(searchParams?.page) || 1}
+            />
+          </React.Suspense>
           
           {seoText && (
             <div className="mt-6 sm:mt-10 md:mt-16 bg-slate-50 border-y sm:border border-slate-200 rounded-none sm:rounded-2xl p-5 sm:p-8 text-slate-600 prose prose-slate max-w-none -mx-4 sm:mx-0 w-[calc(100%+2rem)] sm:w-auto">

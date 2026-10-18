@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useState, useMemo, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
@@ -34,7 +34,11 @@ import { validateEmail, validatePhone, validateRequired } from '@/lib/validation
 
 export default function QuoteClient() {
   const { items, removeItem, updateQuantity, clearCart } = useCartStore();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
@@ -165,10 +169,6 @@ export default function QuoteClient() {
       setIsSubmitting(false);
     }
   };
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   if (!mounted) {
     return null; // Avoid hydration mismatch

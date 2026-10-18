@@ -2,10 +2,16 @@
 
 import React, { useMemo } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { BRAKE_CHAMBERS } from '../../lib/data';
-import { fadeInUp } from '../../lib/animations';
+
+interface CrossReferenceMatch {
+  oemBrand: string;
+  oemPart: string;
+  brcName: string;
+  brcType: string;
+  url: string;
+}
 
 interface CrossReferenceMarqueeProps {
   filterBrand?: string;
@@ -15,7 +21,7 @@ interface CrossReferenceMarqueeProps {
 export default function CrossReferenceMarquee({ filterBrand, maxItems = 15 }: CrossReferenceMarqueeProps) {
   
   const matches = useMemo(() => {
-    let allMatches: any[] = [];
+    const allMatches: CrossReferenceMatch[] = [];
     
     const categoryUrlMap: Record<string, string> = {
       'Service Brake': 'service-brake-chambers',
